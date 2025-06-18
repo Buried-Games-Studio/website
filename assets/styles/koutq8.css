@@ -1,0 +1,71 @@
+.game-section {
+    padding: 60px 20px;
+    background-color: #0e0e0e;
+    color: #fff;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.game-header .game-logo {
+    width: 350px;
+    margin-bottom: 10px;
+}
+
+.game-title {
+    font-size: 8em;
+    font-family: 'Afolkalips', sans-serif;
+    margin: 0;
+}
+
+.game-subtext {
+    font-size: 1.2em;
+    color: #bbb;
+    margin-bottom: 30px;
+}
+
+.game-description {
+    font-size: 1.1em;
+    max-width: 800px;
+    margin: auto;
+    color: #ddd;
+    text-align: left;
+}
+
+.game-description ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 40px;
+}
+
+.game-description li {
+    margin: 10px 0;
+    font-size: 1em;
+}
+
+.game-media {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.game-media img {
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.download-btn-container {
+    margin-top: 20px;
+}
+
+.download-btn img {
+    width: 160px;
+    transition: transform 0.3s ease;
+}
+
+.download-btn img:hover {
+    transform: scale(1.05);
+}

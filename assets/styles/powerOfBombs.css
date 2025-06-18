@@ -1,0 +1,224 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #0e0e0e;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+    background: url('https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/POPBackground.jpg?alt=media&token=74dcf7bd-8d53-4c06-b3a1-bd5e80bc93cf') center/cover no-repeat;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+header h1 {
+    font-size: 8.0em;
+    margin-bottom: 10px;
+    color: white;
+    font-family: 'Afolkalips', sans-serif;
+    text-shadow:
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000,
+        0px 0px 2px #000;
+}
+
+header p {
+    font-size: 1.2em;
+    color: white;
+    text-shadow:
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        2px 2px 0 #000,
+        0px 0px 2px #000;
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header .logo {
+        width: 150px;
+    }
+}
+
+#overview {
+    background: #111;
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+}
+
+#overview .content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+}
+
+#overview h2 {
+    font-size: 3em;
+    font-family: 'Afolkalips', sans-serif;
+    margin-bottom: 20px;
+}
+
+#overview p {
+    font-size: 1.2em;
+    color: #ccc;
+    line-height: 1.8;
+}
+
+#overview .unrealEngine {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#overview .unrealEngine img {
+    width: 40px;
+    height: 40px;
+}
+
+#overview .unrealEngine span {
+    font-size: 1em;
+    color: #aaa;
+}
+
+#overview .overviewImage {
+    flex: 1;
+    min-width: 300px;
+}
+
+#overview .overviewImage img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+.in-development {
+    text-align: center;
+    font-size: 1.5em;
+    color: #ffcc00;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 204, 0, 0.7);
+    animation: pulseGlow 2s infinite;
+    margin: 30px 0;
+}
+
+@keyframes pulseGlow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 10px rgba(255, 204, 0, 0.7);
+    }
+
+    50% {
+        text-shadow: 0 0 20px rgba(255, 204, 0, 1);
+    }
+}
+
+.section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: auto;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-title {
+    font-size: 2.8em;
+    margin-bottom: 30px;
+    text-align: center;
+    font-family: 'Afolkalips', sans-serif;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}
+
+.feature-card img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    font-family: 'Afolkalips', sans-serif;
+}
+
+.feature-card p {
+    font-size: 1em;
+    color: #bbb;
+}
+
+.subscribe-section {
+    text-align: center;
+    background-color: #111;
+    padding: 60px 20px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.subscribe-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.subscribe-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-family: 'Afolkalips', sans-serif;
+}
+
+.subscribe-buttons a {
+    display: inline-block;
+    margin: 10px;
+    padding: 15px 30px;
+    background-color: #e50914;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.subscribe-buttons a.discord {
+    background-color: #5865F2;
+}
+
+.subscribe-buttons a:hover {
+    opacity: 0.8;
+}

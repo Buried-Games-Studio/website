@@ -1,0 +1,381 @@
+/* Header Styles */
+header {
+    background: url('https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/buriedgames_bg_no_text.png?alt=media&token=ca5e1a53-1f08-48a5-b55b-94f6717695dd') center/cover no-repeat;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+header h1 {
+    font-size: 8.0em;
+    margin-bottom: 10px;
+    font-family: 'Afolkalips', sans-serif;
+}
+
+header p {
+    font-size: 1.2em;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+header .logo {
+    width: 300px;
+    margin: 0 auto;
+    display: block;
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header .logo {
+        width: 150px;
+    }
+}
+
+
+/* About Section Styles */
+#about {
+    padding: 80px 20px;
+    background-color: #1a1a1a;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+#about.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#about h2 {
+    font-size: 5em;
+    color: white;
+    margin-bottom: 40px;
+    font-family: 'Afolkalips', sans-serif;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.about-content img {
+    width: 350px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+.about-content .text {
+    max-width: 600px;
+    font-size: 1.2em;
+    line-height: 1.7;
+    color: #ccc;
+    text-align: left;
+}
+
+.about-content .text a {
+    color: #00bfff;
+    text-decoration: none;
+}
+
+.about-content .text a:hover {
+    text-decoration: underline;
+}
+
+.engine-icons {
+    margin-top: 30px;
+}
+
+.engine-icons img {
+    width: 120px;
+    margin-right: 15px;
+    vertical-align: middle;
+    transition: transform 0.3s;
+}
+
+.engine-icons img:hover {
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .about-content img {
+        width: 80%;
+    }
+
+    .about-content .text {
+        max-width: 100%;
+        text-align: center;
+    }
+}
+
+
+/* How We Work Section Styles */
+#how-we-work {
+    padding: 80px 20px;
+    background-color: #141414;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+#how-we-work.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#how-we-work h2 {
+    font-family: 'Afolkalips', sans-serif;
+    font-size: 3em;
+    margin-bottom: 40px;
+}
+
+.workflow {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.workflow-step {
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 12px;
+    width: 240px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.workflow-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+}
+
+.workflow-step img {
+    width: 60px;
+    margin-bottom: 20px;
+}
+
+.workflow-step h3 {
+    font-size: 25px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.workflow-step p {
+    font-size: 0.95em;
+    color: #ccc;
+}
+
+@media (max-width: 768px) {
+    .workflow-step {
+        width: 90%;
+    }
+}
+
+/* Games Styles */
+#games {
+    padding: 80px 20px;
+    background: #010101;
+    color: #eee;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s, transform 1s;
+}
+
+#games.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.games-header {
+    font-family: 'Afolkalips', sans-serif;
+    font-size: 4em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.games-description {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 1.2em;
+    text-align: center;
+    color: #bbb;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.game-card {
+    width: 300px;
+    /* or any value you like */
+    margin: auto;
+}
+
+.game-img-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    /* optional, to control size */
+    padding-top: 100%;
+    /* keeps it square */
+    margin: auto;
+}
+
+.game-img-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.game-card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.game-card:hover img {
+    transform: scale(1.05);
+}
+
+.game-card .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s;
+}
+
+.game-card:hover .overlay {
+    opacity: 1;
+}
+
+.game-card .overlay a {
+    padding: 12px 24px;
+    background: #ccc;
+    color: #010101;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.game-card h3 {
+    margin: 16px;
+    font-size: 1.6em;
+    color: #ccc;
+    text-align: center;
+}
+
+/* YouTube Section Styles */
+#youtube {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+#youtube.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.video-header-text {
+    font-size: 5em;
+    font-family: 'Afolkalips', sans-serif;
+    text-align: center;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+    padding: 0 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-grid iframe {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s;
+}
+
+.video-grid iframe:hover {
+    transform: scale(1.03);
+}
+
+.subscribe-button {
+    text-align: center;
+    margin-top: 40px;
+    animation: pulse 2s infinite;
+}
+
+.subscribe-button a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ff0000;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 3em;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+    font-family: 'Afolkalips', sans-serif;
+}
+
+.subscribe-button a:hover {
+    background: white;
+    color: #cc0000;
+    transform: scale(1.05);
+}
+
+.subscribe-button img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+}
