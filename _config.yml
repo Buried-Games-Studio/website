@@ -1,0 +1,25 @@
+title: Buried Games Studio
+description: Indie game studio developing Power of Bombs and more
+baseurl: "" # Leave empty if deploying to root (e.g. yourusername.github.io)
+stylesurl: "/assets/styles"
+url: "https://buriedgames.com" # Change this to your actual domain
+
+markdown: kramdown
+theme: minima
+
+plugins:
+  - jekyll-include-cache
+  - jekyll-feed
+  - jekyll-seo-tag
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+
+include:
+  - _pages
+
+# Optional: Google Analytics, favicon, etc.

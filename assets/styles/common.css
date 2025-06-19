@@ -108,3 +108,47 @@ footer h1 {
     height: 24px;
     margin-right: 8px;
 }
+
+.footer-sitemap-social {
+    margin-top: 40px;
+}
+
+.footer-sitemap {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 60px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+}
+
+.sitemap-column {
+    min-width: 160px;
+}
+
+.sitemap-column h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #fff; /* adjust based on your footer background */
+}
+
+.sitemap-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sitemap-column li {
+    margin-bottom: 8px;
+}
+
+.sitemap-column a {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 0.95em;
+    transition: color 0.2s;
+}
+
+.sitemap-column a:hover {
+    color: #fff;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Buried Games Studio</title>
+    <link rel="icon" href="https://buriedgames.com/favicon.ico">
+
+    <meta charset="UTF-8" />
+    <meta name="author" content="Buried Games Studio">
+    <meta name="title" content="{{ site.title }}">
+    <meta name="description" content="{{ site.description }}">
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="Buried Games Studio">
+    <meta property="og:title" content="{{ site.title }}">
+    <meta property="og:description" content="{{ site.description }}">
+    <meta property="og:image" content="https://buriedgames.com/favicon.ico">
+    <meta property="og:url" content="https://buriedgames.com">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="https://buriedgames.com/favicon.ico">
+    <meta name="twitter:title" content="{{ site.title }}">
+    <meta name="twitter:description" content="{{ site.description }}">
+    <meta name="twitter:image" content="https://buriedgames.com/favicon.ico">
+
+    <meta name="google-site-verification" content="_lH2dXpEJilyCzVMlLA3YsI6SwbWBEzV0z8TXweMXKI" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/styles/common.css">
+    {% if page.custom_style %}
+    <link rel="stylesheet" href="{{ site.stylesurl }}/{{ page.custom_style }}">
+    {% endif %}
+</head>
+
+<body>
+
+    <main>
+        {{ content }}
+    </main>
+
+    {% include footer.html %}
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const footer = document.querySelector('#footer');
+            const observer = new IntersectionObserver(
+                (entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                },
+                { threshold: 0.1 }
+            );
+            observer.observe(footer);
+        });
+    </script>
+</body>
+
+</html>

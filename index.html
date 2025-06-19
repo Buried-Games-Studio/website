@@ -1,294 +1,181 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: default
+title: Buried Games
+description: Explore our games like Power of Bombs and KoutQ8.
+custom_style: homeStyles.css
+---
 
-<head>
-    <title>Buried Games Studio</title>
-    <link rel="icon" href="favicon.ico">
+<!-- Header -->
+<header>
+    <div class="content">
+        <h1>Buried Games Studio</h1>
+        <p>We don’t just build games. We resurrect them.</p>
+        <img class="logo"
+            src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/buriedgames_logo.png?alt=media&token=8483a752-cdf5-4855-b34b-b0de01c7c6be"
+            alt="Buried Games Logo">
+    </div>
+</header>
 
-    <meta charset="UTF-8" />
-    <meta name="author" content="Buried Games Studio">
-    <meta name="title" content="Buried Games Studio">
-    <meta name="description" content="Explore our games like Power of Bombs and KoutQ8.">
-
-    <!-- Open Graph -->
-    <meta property="og:site_name" content="Buried Games Studio">
-    <meta property="og:title" content="Buried Games Studio">
-    <meta property="og:description" content="Explore our games like Power of Bombs and KoutQ8.">
-    <meta property="og:image" content="https://buriedgames.com/favicon.ico">
-    <meta property="og:url" content="https://buriedgames.com">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="en">
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Buried Games Studio">
-    <meta name="twitter:description" content="Explore our games like Power of Bombs and KoutQ8.">
-    <meta name="twitter:image" content="https://buriedgames.com/favicon.ico">
-
-    <meta name="google-site-verification" content="_lH2dXpEJilyCzVMlLA3YsI6SwbWBEzV0z8TXweMXKI" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/styles/common.css">
-    <link rel="stylesheet" href="assets/styles/homeStyles.css">
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const howSection = document.querySelector('#how-we-work');
-            const aboutSection = document.querySelector('#about');
-            const gamesSection = document.querySelector('#games');
-            const youtubeSection = document.querySelector('#youtube');
-            const footer = document.querySelector('#footer');
-            const observer = new IntersectionObserver(
-                (entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                },
-                { threshold: 0.1 }
-            );
-            observer.observe(howSection);
-            observer.observe(aboutSection);
-            observer.observe(gamesSection);
-            observer.observe(youtubeSection);
-            observer.observe(footer);
-        });
-    </script>
-
-</head>
-
-<body>
-
-    <!-- Header -->
-    <header>
-        <div class="content">
-            <h1>Buried Games Studio</h1>
-            <p>We don’t just build games. We resurrect them.</p>
-            <img class="logo"
-                src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/buriedgames_logo.png?alt=media&token=8483a752-cdf5-4855-b34b-b0de01c7c6be"
-                alt="Buried Games Logo">
+<!-- About Section -->
+<section id="about">
+    <h2>About Buried Games Studio</h2>
+    <div class="about-content">
+        <img src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/AboutUsSection.png?alt=media&token=02dc308d-9f6e-40bc-8048-e7eb76567e99"
+            alt="Buried Games Team Illustration">
+        <div class="text">
+            <p>
+                <strong>Buried Games Studio</strong> is a Kuwait-based indie game studio driven by creativity and
+                technical excellence. Our team is composed of passionate developers, designers, and storytellers who
+                strive to craft immersive, unforgettable gaming experiences.
+            </p>
+            <p>
+                We specialize in both 2D and 3D development using industry-leading engines like Unity and Unreal
+                Engine, tailoring each project to achieve the perfect balance of playability and innovation.
+            </p>
+            <p>
+                Studio founder: <a href="https://www.linkedin.com/in/fahed-f-al-ahmad-se/" target="_blank">Fahed
+                    Alahmad</a> — software engineer, game designer, and entrepreneur.
+            </p>
+            <div class="engine-icons">
+                <img src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/UnrealEngineImage.png?alt=media&token=fafd4dd8-9229-42c0-befe-b9edf3292fa3"
+                    alt="Unreal Engine Logo">
+                <img src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/UnityImage.png?alt=media&token=84ecdee5-cab7-40e7-9ea2-5bbc8d9e448c"
+                    alt="Unity Logo">
+            </div>
         </div>
-    </header>
+    </div>
+</section>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>About Buried Games Studio</h2>
-        <div class="about-content">
-            <img src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/AboutUsSection.png?alt=media&token=02dc308d-9f6e-40bc-8048-e7eb76567e99"
-                alt="Buried Games Team Illustration">
-            <div class="text">
-                <p>
-                    <strong>Buried Games Studio</strong> is a Kuwait-based indie game studio driven by creativity and
-                    technical excellence. Our team is composed of passionate developers, designers, and storytellers who
-                    strive to craft immersive, unforgettable gaming experiences.
-                </p>
-                <p>
-                    We specialize in both 2D and 3D development using industry-leading engines like Unity and Unreal
-                    Engine, tailoring each project to achieve the perfect balance of playability and innovation.
-                </p>
-                <p>
-                    Studio founder: <a href="https://www.linkedin.com/in/fahed-f-al-ahmad-se/" target="_blank">Fahed
-                        Alahmad</a> — software engineer, game designer, and entrepreneur.
-                </p>
-                <div class="engine-icons">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/UnrealEngineImage.png?alt=media&token=fafd4dd8-9229-42c0-befe-b9edf3292fa3"
-                        alt="Unreal Engine Logo">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/UnityImage.png?alt=media&token=84ecdee5-cab7-40e7-9ea2-5bbc8d9e448c"
-                        alt="Unity Logo">
+<!-- How We Work Section -->
+<section id="how-we-work">
+    <h2>How We Build Games</h2>
+    <div class="workflow">
+        <div class="workflow-step">
+            <img src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/howitWorks_Concept.png?alt=media&token=5588a351-e0d1-4669-9476-084fc04e4eea"
+                alt="Concept Icon">
+            <h3>Concept & Research</h3>
+            <p>It starts with ideas and deep research to craft a compelling vision.</p>
+        </div>
+        <div class="workflow-step">
+            <img src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/howitWorks_prototyping.png?alt=media&token=9faea8f6-f357-41f5-b133-7356c2648e28"
+                alt="Prototype Icon">
+            <h3>Prototyping</h3>
+            <p>We bring concepts to life using Unity & Unreal to test core mechanics fast.</p>
+        </div>
+        <div class="workflow-step">
+            <img src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/howitWorks_designing.png?alt=media&token=2c150549-d256-4831-93da-8b20fb32d550"
+                alt="Design Icon">
+            <h3>Design & Art</h3>
+            <p>Art, sound, and storytelling merge into unforgettable player experiences.</p>
+        </div>
+        <div class="workflow-step">
+            <img src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/howitWorks_testing.png?alt=media&token=5128edc9-87c8-4d5b-894a-be4fdb9c1db6"
+                alt="Test Icon">
+            <h3>Testing & Feedback</h3>
+            <p>Real players give feedback. We refine with care and attention.</p>
+        </div>
+        <div class="workflow-step">
+            <img src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/howitWorks_launch.png?alt=media&token=7079e3f0-5f12-40bd-8fdb-d83537747ee7"
+                alt="Launch Icon">
+            <h3>Launch & Iterate</h3>
+            <p>Release is just the beginning. We monitor, update, and evolve.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Games -->
+<section id="games">
+    <h2 class="games-header">Our Games</h2>
+    <div class="games-description">
+        Explore our immersive titles, where nostalgia meets innovation.
+    </div>
+    <div class="games-grid">
+        <div class="game-card">
+            <div class="game-img-wrapper">
+                <img src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/powerofbombsIconTransparent.png?alt=media&token=30f6fd03-339a-4cb3-b2a7-8ac487a9c650"
+                    alt="Power of Bombs">
+                <div class="overlay">
+                    <a href="games/power-of-bombs/index.html">Learn More</a>
                 </div>
             </div>
+            <h3>Power of Bombs</h3>
         </div>
-    </section>
-
-    <!-- How We Work Section -->
-    <section id="how-we-work">
-        <h2>How We Build Games</h2>
-        <div class="workflow">
-            <div class="workflow-step">
-                <img src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/howitWorks_Concept.png?alt=media&token=5588a351-e0d1-4669-9476-084fc04e4eea"
-                    alt="Concept Icon">
-                <h3>Concept & Research</h3>
-                <p>It starts with ideas and deep research to craft a compelling vision.</p>
-            </div>
-            <div class="workflow-step">
-                <img src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/howitWorks_prototyping.png?alt=media&token=9faea8f6-f357-41f5-b133-7356c2648e28"
-                    alt="Prototype Icon">
-                <h3>Prototyping</h3>
-                <p>We bring concepts to life using Unity & Unreal to test core mechanics fast.</p>
-            </div>
-            <div class="workflow-step">
-                <img src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/howitWorks_designing.png?alt=media&token=2c150549-d256-4831-93da-8b20fb32d550"
-                    alt="Design Icon">
-                <h3>Design & Art</h3>
-                <p>Art, sound, and storytelling merge into unforgettable player experiences.</p>
-            </div>
-            <div class="workflow-step">
-                <img src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/howitWorks_testing.png?alt=media&token=5128edc9-87c8-4d5b-894a-be4fdb9c1db6"
-                    alt="Test Icon">
-                <h3>Testing & Feedback</h3>
-                <p>Real players give feedback. We refine with care and attention.</p>
-            </div>
-            <div class="workflow-step">
-                <img src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/howitWorks_launch.png?alt=media&token=7079e3f0-5f12-40bd-8fdb-d83537747ee7"
-                    alt="Launch Icon">
-                <h3>Launch & Iterate</h3>
-                <p>Release is just the beginning. We monitor, update, and evolve.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Games -->
-    <section id="games">
-        <h2 class="games-header">Our Games</h2>
-        <div class="games-description">
-            Explore our immersive titles, where nostalgia meets innovation.
-        </div>
-        <div class="games-grid">
-            <div class="game-card">
-                <div class="game-img-wrapper">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/powerofbombsIconTransparent.png?alt=media&token=30f6fd03-339a-4cb3-b2a7-8ac487a9c650"
-                        alt="Power of Bombs">
-                    <div class="overlay">
-                        <a href="games/power-of-bombs/index.html">Learn More</a>
-                    </div>
-                </div>
-                <h3>Power of Bombs</h3>
-            </div>
-            <div class="game-card">
-                <div class="game-img-wrapper">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/Koutq8Logo.png?alt=media&token=5950f142-0011-4971-9758-0f1dfdfeeef2"
-                        alt="KoutQ8">
-                    <div class="overlay">
-                        <a href="games/koutq8/index.html">Learn More</a>
-                    </div>
-                </div>
-                <h3>KoutQ8</h3>
-            </div>
-        </div>
-    </section>
-
-    <!-- YouTube Section -->
-    <section id="youtube">
-        <h2 class="video-header-text">Devlogs & Behind the Scenes</h2>
-        <p style="text-align: center; max-width: 700px; margin: 0 auto 30px; color: #ccc;">See how our games are made.
-            Watch
-            behind-the-scenes footage, feature deep-dives, and studio updates on our official YouTube devlog channel.
-        </p>
-        <div id="video-container" class="video-grid"></div>
-        <div class="subscribe-button">
-            <a href="https://www.youtube.com/@BuriedGamesStudio?sub_confirmation=1" target="_blank">
-                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube Icon">
-                Subscribe on YouTube
-            </a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="footer">
-        <div class="footer-container">
-            <div id="footer-logo">
-                <img class="logo"
-                    src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/buriedgames_logo.png?alt=media&token=8483a752-cdf5-4855-b34b-b0de01c7c6be"
-                    alt="Buried Games Logo" style="height: 200px;">
-                <h1>Buried Games Studio</h1>
-                <p>&copy; 2025 Buried Games Studio. All rights reserved.</p>
-            </div>
-            <div class="footer-socialmedia">
-                <div class="footer-icons">
-                    <a href="https://www.youtube.com/@BuriedGamesStudio?sub_confirmation=1" target="_blank"
-                        rel="noopener noreferrer">
-                        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path
-                                d="M19.6 3.2H4.4A1.6 1.6 0 0 0 2.8 4.8v14.4a1.6 1.6 0 0 0 1.6 1.6h15.2a1.6 1.6 0 0 0 1.6-1.6V4.8a1.6 1.6 0 0 0-1.6-1.6zM10 15.5v-7l6 3.5-6 3.5z" />
-                        </svg>
-                        <span
-                            style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; overflow-wrap: normal;">Buried
-                            Games youtube</span>
-                    </a>
-                    <a href="https://www.instagram.com/buriedgames" target="_blank" rel="noopener noreferrer">
-                        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path
-                                d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.9.2 2.3.4.6.2 1 .5 1.5 1s.8.9 1 1.5c.2.4.3 1.1.4 2.3.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.9-.4 2.3-.2.6-.5 1-1 1.5s-.9.8-1.5 1c-.4.2-1.1.3-2.3.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.9-.2-2.3-.4-.6-.2-1-.5-1.5-1s-.8-.9-1-1.5c-.2-.4-.3-1.1-.4-2.3C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8c.1-1.2.2-1.9.4-2.3.2-.6.5-1 1-1.5s.9-.8 1.5-1c.4-.2 1.1-.3 2.3-.4C8.4 2.2 8.8 2.2 12 2.2zm0 1.8c-3.1 0-3.4 0-4.6.1-1.1.1-1.7.2-2 .3-.5.2-.8.4-1.2.8-.4.4-.6.7-.8 1.2-.1.3-.3.9-.3 2-.1 1.2-.1 1.5-.1 4.6s0 3.4.1 4.6c.1 1.1.2 1.7.3 2 .2.5.4.8.8 1.2.4.4.7.6 1.2.8.3.1.9.3 2 .3 1.2.1 1.5.1 4.6.1s3.4 0 4.6-.1c1.1-.1 1.7-.2 2-.3.5-.2.8-.4 1.2-.8.4-.4.6-.7.8-1.2.1-.3.3-.9.3-2 .1-1.2.1-1.5.1-4.6s0-3.4-.1-4.6c-.1-1.1-.2-1.7-.3-2-.2-.5-.4-.8-.8-1.2-.4-.4-.7-.6-1.2-.8-.3-.1-.9-.3-2-.3-1.2-.1-1.5-.1-4.6-.1zM12 6.6a5.4 5.4 0 1 1 0 10.8 5.4 5.4 0 0 1 0-10.8zm0 1.8a3.6 3.6 0 1 0 0 7.2 3.6 3.6 0 0 0 0-7.2zm5.4-2.4a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z" />
-                        </svg>
-                        <span
-                            style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; overflow-wrap: normal;">Buried
-                            Games instagram</span>
-                    </a>
-                    <a href="https://www.tiktok.com/@buriedgames" target="_blank" rel="noopener noreferrer">
-                        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path
-                                d="M12.7 2a5.3 5.3 0 0 0 5.3 5.3c.5 0 1-.1 1.5-.2v2.2c-.6.1-1.1.1-1.7.1a7.2 7.2 0 0 1-5.1-2.1v7.3a4.7 4.7 0 1 1-4.7-4.7c.3 0 .7 0 1 .1v2.3a2.3 2.3 0 1 0 2.3 2.3V2h1.4z" />
-                        </svg>
-                        <span
-                            style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; overflow-wrap: normal;">Buried
-                            Games tiktok</span>
-                    </a>
-                    <a href="https://www.facebook.com/@BuriedGamesStudio" target="_blank" rel="noopener noreferrer">
-                        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                            <path
-                                d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-2.9h2v-2.2c0-2 1.2-3.1 3-3.1.9 0 1.8.1 1.8.1v2h-1c-1 0-1.3.6-1.3 1.2v1.9h2.2l-.4 2.9h-1.8v7A10 10 0 0 0 22 12z" />
-                        </svg>
-                        <span
-                            style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; overflow-wrap: normal;">Buried
-                            Games facebook</span>
-                    </a>
-                    <a href="https://discord.com/invite/v9FWtuyKQn" target="_blank" rel="noopener noreferrer">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M18.942 5.69a16.5 16.5 0 0 0-4.126-1.27q-.293.523-.529 1.074a15.4 15.4 0 0 0-4.579 0 11 11 0 0 0-.529-1.074c-1.425.243-2.814.67-4.129 1.273-2.611 3.863-3.319 7.63-2.965 11.345 1.53 1.13 3.24 1.989 5.06 2.54q.616-.828 1.084-1.748a11 11 0 0 1-1.706-.814q.215-.158.418-.315a11.89 11.89 0 0 0 10.118 0q.206.168.418.314-.819.483-1.71.817.469.92 1.084 1.746a16.6 16.6 0 0 0 5.064-2.539c.415-4.307-.71-8.04-2.973-11.35" />
-                        </svg>
-                        <span
-                            style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; overflow-wrap: normal;">Buried
-                            Games discord</span>
-                    </a>
-                    <a href="https://www.twitch.tv/buriedgamesofficial" target="_blank" rel="noopener noreferrer">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
-                            <path
-                                d="M7.001 2 3.43 5.571V18.43h4.285V22l3.572-3.571h2.857L20.573 12V2zm12.143 9.286-2.857 2.857H13.43l-2.5 2.5v-2.5H7.715V3.429h11.429z" />
-                            <path d="M17.001 5.929h-1.429v4.285h1.43zM13.073 5.929h-1.429v4.285h1.428z" />
-                        </svg>
-                        <span
-                            style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; overflow-wrap: normal;">Buried
-                            Games twitch</span>
-                    </a>
-                </div>
-                <div class="contact-icons">
-                    <p><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Icon">
-                        support@buriedgames.com</p>
-                    <p><img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" alt="Phone Icon"> +965 55528686
-                    </p>
+        <div class="game-card">
+            <div class="game-img-wrapper">
+                <img src="https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/Koutq8Logo.png?alt=media&token=5950f142-0011-4971-9758-0f1dfdfeeef2"
+                    alt="KoutQ8">
+                <div class="overlay">
+                    <a href="games/koutq8/index.html">Learn More</a>
                 </div>
             </div>
+            <h3>KoutQ8</h3>
         </div>
-    </footer>
+    </div>
+</section>
 
-    <!-- YouTube API Script -->
-    <script>
-        const API_KEY = "AIzaSyAfzLENLSPtDr_1n6wfeQg7ieRjhbL3g3U";
-        const CHANNEL_ID = 'UCrxBKqFuIMHCIjp8R19axlA';
-        const MAX_RESULTS = 6;
-        const videoContainer = document.getElementById('video-container');
+<!-- YouTube Section -->
+<section id="youtube">
+    <h2 class="video-header-text">Devlogs & Behind the Scenes</h2>
+    <p style="text-align: center; max-width: 700px; margin: 0 auto 30px; color: #ccc;">See how our games are made.
+        Watch
+        behind-the-scenes footage, feature deep-dives, and studio updates on our official YouTube devlog channel.
+    </p>
+    <div id="video-container" class="video-grid"></div>
+    <div class="subscribe-button">
+        <a href="https://www.youtube.com/@BuriedGamesStudio?sub_confirmation=1" target="_blank">
+            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube Icon">
+            Subscribe on YouTube
+        </a>
+    </div>
+</section>
 
-        fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet&order=date&type=video&maxResults=${MAX_RESULTS}`)
-            .then(response => response.json())
-            .then(data => {
-                data.items.forEach(item => {
-                    const videoId = item.id.videoId;
-                    const iframe = document.createElement('iframe');
-                    iframe.src = `https://www.youtube.com/embed/${videoId}`;
-                    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-                    iframe.allowFullscreen = true;
-                    videoContainer.appendChild(iframe);
-                });
-            })
-            .catch(err => {
-                videoContainer.innerHTML = '<p style="color:#ccc; text-align:center">Unable to load videos at the moment.</p>';
-                console.error('YouTube API error:', err);
+<!-- YouTube API Script -->
+<script>
+    const API_KEY = "AIzaSyAfzLENLSPtDr_1n6wfeQg7ieRjhbL3g3U";
+    const CHANNEL_ID = 'UCrxBKqFuIMHCIjp8R19axlA';
+    const MAX_RESULTS = 6;
+    const videoContainer = document.getElementById('video-container');
+
+    fetch(`https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=${CHANNEL_ID}&part=snippet&order=date&type=video&maxResults=${MAX_RESULTS}`)
+        .then(response => response.json())
+        .then(data => {
+            data.items.forEach(item => {
+                const videoId = item.id.videoId;
+                const iframe = document.createElement('iframe');
+                iframe.src = `https://www.youtube.com/embed/${videoId}`;
+                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                iframe.allowFullscreen = true;
+                videoContainer.appendChild(iframe);
             });
-    </script>
-</body>
+        })
+        .catch(err => {
+            videoContainer.innerHTML = '<p style="color:#ccc; text-align:center">Unable to load videos at the moment.</p>';
+            console.error('YouTube API error:', err);
+        });
+</script>
 
-</html>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const howSection = document.querySelector('#how-we-work');
+        const aboutSection = document.querySelector('#about');
+        const gamesSection = document.querySelector('#games');
+        const youtubeSection = document.querySelector('#youtube');
+        const footer = document.querySelector('#footer');
+        const observer = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+        observer.observe(howSection);
+        observer.observe(aboutSection);
+        observer.observe(gamesSection);
+        observer.observe(youtubeSection);
+        observer.observe(footer);
+    });
+</script>
