@@ -6,10 +6,15 @@ url: "https://buriedgames.com" # Change this to your actual domain
 
 defaults:
   - scope:
-    path: "/en"
+      path: "en"
     values:
       lang: "en"
       dir: "ltr"
+  - scope:
+      path: "ar"
+    values:
+      lang: "ar"
+      dir: "rtl"
 
 markdown: kramdown
 theme: minima
@@ -28,5 +33,3 @@ exclude:
 
 include:
   - _pages
-
-# Optional: Google Analytics, favicon, etc.
