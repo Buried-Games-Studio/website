@@ -49,7 +49,11 @@
             </a>
             <nav class="main-nav">
                 <ul>
-                    
+                    {% if page.language == 'en' %}
+                    <ul><a href="/ar">العربية</a></ul>
+                    {% elsif page.language == 'ar' %}
+                    <ul><a href="/en">English</a></ul>
+                    {% endif %}
                 </ul>
             </nav>
         </div>
