@@ -1,0 +1,88 @@
+---
+layout: default
+title: KoutQ8 - Buried Games
+description: Play Kout Bo 4 & Bo 6 online or offline with smart AI. Made in Kuwait, KoutQ8 brings the beloved card game to your phone. Earn diamonds and compete!
+custom_style: koutq8.css
+language: ar
+languageDirection: rtl
+---
+
+<div class="kout8q-content" dir="rtl">
+    <img class="logo" src="../../../assets/images/Koutq8Logo.png" alt="شعار KoutQ8">
+    <h3>
+        KoutQ8 – اللعبة الكويتية الأصيلة
+    </h3>
+    <p class="subtitle">
+        عِش تجربة "KoutQ8" — النسخة الرقمية للعبة الورق الكويتية المحبوبة! نافس لاعبين حقيقيين أو تحدّى ذكاء اصطناعي
+        متطور.
+        بأسلوب لعب سلس وقوانين أصلية، تعيد KoutQ8 أجواء القعدات الكويتية الكلاسيكية إلى الحياة.
+    </p>
+
+    <div class="features">
+        <div>
+            <h4>🎴 أسلوب اللعب الكلاسيكي</h4>
+            <p>العب “Kout Bo 4” و “Kout Bo 6” كما تتذكرها، بتحكمات سهلة ورسوميات سلسة.</p>
+        </div>
+        <div>
+            <h4>🧠 مواجهات ضد الذكاء الاصطناعي</h4>
+            <p>تدرّب في أي وقت وأي مكان ضد بوتات ذكية تحاكي أساليب اللعب الواقعية.</p>
+        </div>
+        <div>
+            <h4>🏆 منافسة حقيقية</h4>
+            <p>انضم إلى مباريات مباشرة مع لاعبين حقيقيين واستعرض مهاراتك الاستراتيجية.</p>
+        </div>
+        <div>
+            <h4>💎 ألماس وسحب أرباح</h4>
+            <p>اكسب الألماس من خلال الفوز وحوّله إلى أموال حقيقية بشكل آمن داخل التطبيق.</p>
+        </div>
+        <div>
+            <h4>📱 واجهة سهلة الاستخدام</h4>
+            <p>واجهة نظيفة وخالية من الإلهاء تركز على اللعب والانتصار.</p>
+        </div>
+    </div>
+
+    <div class="engine">
+        <img src="../../../assets/images/UnityImage.png" alt="شعار Unity" />
+        <span>تم التطوير باستخدام Unity3D</span>
+    </div>
+
+    <div class="download">
+        <p>
+            حمّل <strong>KoutQ8</strong> الآن — حيث يلتقي الأسلوب الكلاسيكي مع الحداثة!
+        </p>
+        <a href="https://apps.apple.com/app/id6738164175" target="_blank">
+            <img src="../../../assets/images/downloadAppStoreImage.png" alt="تنزيل من App Store">
+        </a>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; max-width: 1000px; margin: auto;">
+        <img src="../../../assets/images/KoutQ8Image_1.png"
+            style="width: 350px; border-radius: 12px; box-shadow: 0 0 20px rgba(255,255,255,0.1);">
+        <img src="../../../assets/images/KoutQ8Image_2.png"
+            style="width: 350px; border-radius: 12px; box-shadow: 0 0 20px rgba(255,255,255,0.1);">
+        <img src="../../../assets/images/KoutQ8Image_3.png"
+            style="width: 350px; border-radius: 12px; box-shadow: 0 0 20px rgba(255,255,255,0.1);">
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // const overviewSection = document.querySelector('#overview');
+        // const subscribeSection = document.querySelector('#subscribe');
+        // const footer = document.querySelector('#footer');
+        const observer = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+        // observer.observe(overviewSection);
+        // observer.observe(subscribeSection);
+        // observer.observe(footer);
+    });
+</script>

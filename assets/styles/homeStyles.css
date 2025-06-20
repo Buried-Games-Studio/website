@@ -1,34 +1,43 @@
 /* Header Styles */
-header {
-    background: url('https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/buriedgames_bg_no_text.png?alt=media&token=ca5e1a53-1f08-48a5-b55b-94f6717695dd') center/cover no-repeat;
+.homeHeader {
+    background: url('../images/buriedgames_bg_no_text.png') center/cover no-repeat;
     text-align: center;
     padding: 60px 20px;
 }
 
-header h1 {
+.homeHeader h1 {
     font-size: 8.0em;
     margin-bottom: 10px;
+    color: white;
     font-family: 'Afolkalips', sans-serif;
 }
 
-header p {
+.homeHeader p {
     font-size: 1.2em;
     color: #ccc;
     margin-bottom: 30px;
 }
 
-header .logo {
+html[dir="ltr"] .homeHeader p {
+    /* font-family: 'Afolkalips', sans-serif; */
+}
+
+html[dir="rtl"] .homeHeader p {
+    font-family: 'Cairo', sans-serif;
+}
+
+.homeHeader .logo {
     width: 300px;
     margin: 0 auto;
     display: block;
 }
 
 @media (max-width: 480px) {
-    header h1 {
+    .homeHeader h1 {
         font-size: 2em;
     }
 
-    header .logo {
+    .homeHeader .logo {
         width: 150px;
     }
 }
@@ -78,7 +87,16 @@ header .logo {
     font-size: 1.2em;
     line-height: 1.7;
     color: #ccc;
+}
+
+html[dir="ltr"] .about-content .text {
+    /* font-family: 'Afolkalips', sans-serif; */
     text-align: left;
+}
+
+html[dir="rtl"] .about-content .text {
+    font-family: 'Cairo', sans-serif;
+    text-align: right;
 }
 
 .about-content .text a {
@@ -138,9 +156,16 @@ header .logo {
 }
 
 #how-we-work h2 {
-    font-family: 'Afolkalips', sans-serif;
     font-size: 3em;
     margin-bottom: 40px;
+}
+
+html[dir="ltr"] #how-we-work h2 {
+    font-family: 'Afolkalips', sans-serif;
+}
+
+html[dir="rtl"] #how-we-work h2 {
+    font-family: 'Cairo', sans-serif;
 }
 
 .workflow {
@@ -175,9 +200,25 @@ header .logo {
     margin-bottom: 10px;
 }
 
+html[dir="ltr"] .workflow-step h3 {
+    /* font-family: 'Afolkalips', sans-serif; */
+}
+
+html[dir="rtl"] .workflow-step h3 {
+    font-family: 'Cairo', sans-serif;
+}
+
 .workflow-step p {
     font-size: 0.95em;
     color: #ccc;
+}
+
+html[dir="ltr"] .workflow-step p {
+    /* font-family: 'Afolkalips', sans-serif; */
+}
+
+html[dir="rtl"] .workflow-step p {
+    font-family: 'Cairo', sans-serif;
 }
 
 @media (max-width: 768px) {
@@ -202,10 +243,17 @@ header .logo {
 }
 
 .games-header {
-    font-family: 'Afolkalips', sans-serif;
     font-size: 4em;
     text-align: center;
     margin-bottom: 20px;
+}
+
+html[dir="ltr"] .games-header {
+    font-family: 'Afolkalips', sans-serif;
+}
+
+html[dir="rtl"] .games-header {
+    font-family: 'Cairo', sans-serif;
 }
 
 .games-description {
@@ -214,6 +262,14 @@ header .logo {
     font-size: 1.2em;
     text-align: center;
     color: #bbb;
+}
+
+html[dir="ltr"] .games-description {
+    /* font-family: 'Afolkalips', sans-serif; */
+}
+
+html[dir="rtl"] .games-description {
+    font-family: 'Cairo', sans-serif;
 }
 
 .games-grid {
@@ -285,11 +341,27 @@ header .logo {
     font-weight: bold;
 }
 
+html[dir="ltr"] .game-card .overlay a {
+    /* font-family: 'Afolkalips', sans-serif; */
+}
+
+html[dir="rtl"] .game-card .overlay a {
+    font-family: 'Cairo', sans-serif;
+}
+
 .game-card h3 {
     margin: 16px;
     font-size: 1.6em;
     color: #ccc;
     text-align: center;
+}
+
+html[dir="ltr"] .game-card h3 {
+    /* font-family: 'Afolkalips', sans-serif; */
+}
+
+html[dir="rtl"] .game-card h3 {
+    font-family: 'Cairo', sans-serif;
 }
 
 /* YouTube Section Styles */
@@ -306,8 +378,30 @@ header .logo {
 
 .video-header-text {
     font-size: 5em;
-    font-family: 'Afolkalips', sans-serif;
     text-align: center;
+}
+
+html[dir="ltr"] .video-header-text {
+    font-family: 'Afolkalips', sans-serif;
+}
+
+html[dir="rtl"] .video-header-text {
+    font-family: 'Cairo', sans-serif;
+}
+
+#youtube p {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 30px;
+    color: #ccc;
+}
+
+html[dir="ltr"] #youtube p {
+    /* font-family: 'Afolkalips', sans-serif; */
+}
+
+html[dir="rtl"] #youtube p {
+    font-family: 'Cairo', sans-serif;
 }
 
 .video-grid {
@@ -353,7 +447,14 @@ header .logo {
     font-size: 3em;
     transition: background 0.3s, transform 0.3s;
     box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+}
+
+html[dir="ltr"] .subscribe-button a {
     font-family: 'Afolkalips', sans-serif;
+}
+
+html[dir="rtl"] .subscribe-button a {
+    font-family: 'Cairo', sans-serif;
 }
 
 .subscribe-button a:hover {

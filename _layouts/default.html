@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html lang="{{ page.language }}" dir="{{ page.languageDirection }}">
 
 <head>
     <title>Buried Games Studio</title>
@@ -18,7 +19,7 @@
     <meta property="og:logo" content="https://buriedgames.com/favicon.ico">
     <meta property="og:url" content="https://buriedgames.com">
     <meta property="og:type" content="website">
-    <meta property="og:locale" content="en">
+    <meta property="og:locale" content="{{ site.lang }}">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="https://buriedgames.com/favicon.ico">
@@ -40,11 +41,31 @@
 
 <body>
 
+    <header class="main-header">
+        <div class="header-container">
+            <a href="/" class="logo-link">
+                <img src="/assets/images/buriedgames_logo.png" alt="Buried Games Logo" class="logo-img" />
+                <span class="logo-text">Buried Games Studio</span>
+            </a>
+            <nav class="main-nav">
+                <ul>
+                    
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
     <main>
         {{ content }}
     </main>
 
-    {% include footer.html %}
+    {% if page.language == 'en' %}
+    {% include en/footer.html %}
+    {% elsif page.language == 'ar' %}
+    {% include ar/footer.html %}
+    {% endif %}
+
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {

@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background: url('https://firebasestorage.googleapis.com/v0/b/personal-41a72.firebasestorage.app/o/POPBackground.jpg?alt=media&token=74dcf7bd-8d53-4c06-b3a1-bd5e80bc93cf') center/cover no-repeat;
+    background: url('../images/POPBackground.jpg') center/cover no-repeat;
     text-align: center;
     padding: 100px 20px;
 }
@@ -66,14 +66,29 @@ header p {
 
 #overview h2 {
     font-size: 3em;
-    font-family: 'Afolkalips', sans-serif;
     margin-bottom: 20px;
+}
+
+html[dir="ltr"] #overview h2 {
+    font-family: 'Afolkalips', sans-serif;
+}
+
+html[dir="rtl"] #overview h2 {
+    font-family: 'Cairo', sans-serif;
 }
 
 #overview p {
     font-size: 1.2em;
     color: #ccc;
     line-height: 1.8;
+}
+
+html[dir="ltr"] #overview p {
+    /* font-family: 'Afolkalips', sans-serif; */
+}
+
+html[dir="rtl"] #overview p {
+    font-family: 'Cairo', sans-serif;
 }
 
 #overview .unrealEngine {
@@ -91,6 +106,14 @@ header p {
 #overview .unrealEngine span {
     font-size: 1em;
     color: #aaa;
+}
+
+html[dir="ltr"] #overview .unrealEngine span {
+    /* font-family: 'Afolkalips', sans-serif; */
+}
+
+html[dir="rtl"] #overview .unrealEngine span {
+    font-family: 'Cairo', sans-serif;
 }
 
 #overview .overviewImage {
@@ -144,7 +167,14 @@ header p {
     font-size: 2.8em;
     margin-bottom: 30px;
     text-align: center;
+}
+
+html[dir="ltr"] .section-title {
     font-family: 'Afolkalips', sans-serif;
+}
+
+html[dir="rtl"] .section-title {
+    font-family: 'Cairo', sans-serif;
 }
 
 .feature-grid {
@@ -175,12 +205,27 @@ header p {
 .feature-card h3 {
     font-size: 3em;
     margin-bottom: 10px;
+}
+
+html[dir="ltr"] .feature-card h3 {
     font-family: 'Afolkalips', sans-serif;
+}
+
+html[dir="rtl"] .feature-card h3 {
+    font-family: 'Cairo', sans-serif;
 }
 
 .feature-card p {
     font-size: 1em;
     color: #bbb;
+}
+
+html[dir="ltr"] .feature-card p {
+    /* font-family: 'Afolkalips', sans-serif; */
+}
+
+html[dir="rtl"] .feature-card p {
+    font-family: 'Cairo', sans-serif;
 }
 
 .subscribe-section {
@@ -200,7 +245,14 @@ header p {
 .subscribe-section h2 {
     font-size: 2.5em;
     margin-bottom: 20px;
+}
+
+html[dir="ltr"] .subscribe-section h2 {
     font-family: 'Afolkalips', sans-serif;
+}
+
+html[dir="rtl"] .subscribe-section h2 {
+    font-family: 'Cairo', sans-serif;
 }
 
 .subscribe-buttons a {
@@ -213,6 +265,14 @@ header p {
     border-radius: 8px;
     text-decoration: none;
     transition: background-color 0.3s;
+}
+
+html[dir="ltr"] .subscribe-buttons a {
+    /* font-family: 'Afolkalips', sans-serif; */
+}
+
+html[dir="rtl"] .subscribe-buttons a {
+    font-family: 'Cairo', sans-serif;
 }
 
 .subscribe-buttons a.discord {

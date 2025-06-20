@@ -4,6 +4,13 @@ baseurl: "" # Leave empty if deploying to root (e.g. yourusername.github.io)
 stylesurl: "/assets/styles"
 url: "https://buriedgames.com" # Change this to your actual domain
 
+defaults:
+  - scope:
+    path: "/en"
+    values:
+      lang: "en"
+      dir: "ltr"
+
 markdown: kramdown
 theme: minima
 

@@ -3,17 +3,30 @@
     src: url('../fonts/afolkalips.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Cairo';
+    src: url('../fonts/cairo.ttf') format('truetype');
+}
+
 /* Global Styles */
 body {
     background-color: #0d0d0d;
     color: #fff;
-    font-family: 'Orbitron', sans-serif;
     margin: 0;
     padding: 0;
 }
 
-@media (max-width: 480px) {
+body[dir="ltr"] {
+    direction: ltr;
+    font-family: 'Orbitron', sans-serif;
+}
 
+body[dir="rtl"] {
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+}
+
+@media (max-width: 480px) {
     section,
     footer {
         padding: 20px;
@@ -39,6 +52,85 @@ body {
     background-color: #444;
     transform: translateX(-3px);
 }
+
+.main-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #0d0d0d;
+    border-bottom: 1px solid #222;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    padding: 10px 20px;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo-text {
+    color: white;
+    font-size: 1.4em;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav a {
+    color: #ccc;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+}
+
+.main-nav a:hover {
+    color: #ffcc00;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .main-nav ul {
+        flex-direction: column;
+        background-color: #111;
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 15px;
+        border-radius: 8px;
+        display: none;
+    }
+
+    .main-nav.open ul {
+        display: flex;
+    }
+
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
 
 /* Footer Styles */
 footer {
@@ -129,7 +221,15 @@ footer h1 {
 .sitemap-column h3 {
     font-size: 1.2em;
     margin-bottom: 10px;
-    color: #fff; /* adjust based on your footer background */
+    color: #fff;
+}
+
+html[dir="ltr"] .sitemap-column h3 {
+    /* font-family: 'Afolkalips', sans-serif; */
+}
+
+html[dir="rtl"] .sitemap-column h3 {
+    font-family: 'Cairo', sans-serif;
 }
 
 .sitemap-column ul {

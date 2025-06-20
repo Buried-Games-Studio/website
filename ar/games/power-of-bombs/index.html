@@ -1,0 +1,103 @@
+---
+layout: default
+title: Power of Bombs – Buried Games
+description: Explore Power of Bombs, a tactical indie game developed with Unreal Engine.
+custom_style: powerOfBombs.css
+language: ar
+languageDirection: rtl
+---
+
+<!-- Header -->
+<header>
+    <div class="content">
+        <h1>Power of Bombs</h1>
+        <p>By Buried Games Studio</p>
+    </div>
+</header>
+
+<!-- Overview -->
+<section id="overview">
+    <!-- Game Logo -->
+    <img src="../../../assets/images/powerofbombsIconTransparent.png" alt="Power of Bombs Logo"
+        style="width: 200px; margin-bottom: 40px;" />
+
+    <div class="content" dir="rtl">
+        <!-- Text Overview -->
+        <div style="flex: 1; min-width: 300px; text-align: right;">
+            <h2>نظرة عامة</h2>
+            <p>
+                <strong>Power of Bombs</strong> هي لعبة أكشن تكتيكية متفجرة من تطوير <strong>Buried Games
+                    Studio</strong>.
+                في ساحة معركة مليئة بالفوضى والدقة، ستفجر طريقك نحو النصر من خلال آليات قنابل تعتمد على التآزر،
+                وقدرات الفصائل الفريدة، واتخاذ قرارات لحظية في الوقت الحقيقي.
+                <br><br>
+            </p>
+            <p class="in-development">🚧 هذه اللعبة لا تزال قيد التطوير. ترقّبوا المزيد! 🚀</p>
+
+            <!-- Unreal Engine Development Note -->
+            <div class="unrealEngine">
+                <img src="../../../assets/images/UnrealEngineImage.png" alt="شعار Unreal Engine" />
+                <span>تم التطوير باستخدام Unreal Engine</span>
+            </div>
+        </div>
+
+        <!-- Image -->
+        <div class="overviewImage">
+            <img src="../../../assets/images/POPOverview.JPG" alt="صورة من لعبة Power of Bombs" />
+        </div>
+    </div>
+</section>
+
+<!-- <section id="factions" class="section">
+        <h2 class="section-title">Playable Factions</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <img src="images/faction1.jpg" alt="Faction 1">
+                <h3>Wraith Legion</h3>
+                <p>Stealth operatives who use time-delayed bombs and disruption fields.</p>
+            </div>
+            <div class="feature-card">
+                <img src="images/faction2.jpg" alt="Faction 2">
+                <h3>Iron Clad</h3>
+                <p>Heavily armored units that utilize chain-reaction explosives.</p>
+            </div>
+            <div class="feature-card">
+                <img src="images/faction3.jpg" alt="Faction 3">
+                <h3>Red Ashes</h3>
+                <p>Reckless but powerful — with unstable bombs that cause massive area damage.</p>
+            </div>
+        </div>
+    </section> -->
+
+<!-- Subscribe -->
+<section id="subscribe" class="subscribe-section" dir="rtl">
+    <h2>انضم إلى مجتمعنا</h2>
+    <p>احصل على آخر التحديثات، ومحتوى من خلف الكواليس، ووصول مبكر لأخبار الألعاب!</p>
+    <div class="subscribe-buttons">
+        <a href="https://www.youtube.com/@BuriedGamesStudio?sub_confirmation=1" target="_blank">اشترك في YouTube</a>
+        <a href="https://discord.com/invite/v9FWtuyKQn" class="discord" target="_blank">انضم إلى سيرفر Discord</a>
+    </div>
+</section>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const overviewSection = document.querySelector('#overview');
+        const subscribeSection = document.querySelector('#subscribe');
+        const footer = document.querySelector('#footer');
+        const observer = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+        observer.observe(overviewSection);
+        observer.observe(subscribeSection);
+        observer.observe(footer);
+    });
+</script>

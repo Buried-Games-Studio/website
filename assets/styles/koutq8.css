@@ -1,3 +1,130 @@
+.kout8q-content {
+    max-width: 900px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.kout8q-content .logo {
+    max-width: 300px;
+    margin-bottom: 8px;
+}
+
+.kout8q-content h3 {
+    font-size: 4em;
+    color: #ffcc00;
+    margin-bottom: 20px;
+}
+
+html[dir="ltr"] .kout8q-content h3 {
+    font-family: 'Afolkalips', sans-serif;
+}
+
+html[dir="rtl"] .kout8q-content h3 {
+    font-family: 'Cairo', sans-serif;
+}
+
+.kout8q-content .subtitle {
+    font-size: 1.1em;
+    color: #ccc;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+html[dir="ltr"] .kout8q-content .subtitle {
+    font-family: 'Afolkalips', sans-serif;
+}
+
+html[dir="rtl"] .kout8q-content .subtitle {
+    font-family: 'Cairo', sans-serif;
+}
+
+.kout8q-content .features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    text-align: right;
+}
+
+.kout8q-content .features div {
+    max-width: 400px;
+}
+
+.kout8q-content .features h4 {
+    color: #ffcc00;
+}
+
+html[dir="ltr"] .kout8q-content .features h4 {
+    font-family: 'Afolkalips', sans-serif;
+}
+
+html[dir="rtl"] .kout8q-content .features h4 {
+    font-family: 'Cairo', sans-serif;
+}
+
+.kout8q-content .features p {}
+
+html[dir="ltr"] .kout8q-content .features p {
+    font-family: 'Afolkalips', sans-serif;
+}
+
+html[dir="rtl"] .kout8q-content .features p {
+    font-family: 'Cairo', sans-serif;
+}
+
+.kout8q-content .engine {
+    margin: 50px 0;
+    max-width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.kout8q-content .engine img {
+    width: 50px;
+    height: 50px;
+    margin-left: 10px;
+}
+
+html[dir="ltr"] .kout8q-content .engine span {
+    /* font-family: 'Afolkalips', sans-serif; */
+}
+
+html[dir="rtl"] .kout8q-content .engine span {
+    font-family: 'Cairo', sans-serif;
+}
+
+.kout8q-content .download {
+    margin: 50px 0;
+}
+
+.kout8q-content .download img {
+    height: 200px;
+    width: 300px;
+}
+
+.kout8q-content .download p {
+    font-size: 1.1em;
+    margin-top: 40px;
+    color: #aaa;
+}
+
+html[dir="ltr"] .kout8q-content .download p {
+    /* font-family: 'Afolkalips', sans-serif; */
+}
+
+html[dir="rtl"] .kout8q-content .download p {
+    font-family: 'Cairo', sans-serif;
+}
+
+html[dir="ltr"] .kout8q-content .download strong {
+    font-family: 'Afolkalips', sans-serif;
+}
+
+html[dir="rtl"] .kout8q-content .download strong {
+    font-family: 'Cairo', sans-serif;
+}
+
 .game-section {
     padding: 60px 20px;
     background-color: #0e0e0e;
