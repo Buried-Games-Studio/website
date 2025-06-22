@@ -139,6 +139,18 @@ html[dir="rtl"] .about-content .text {
     }
 }
 
+.about-content .external-link a {
+    color: #e63946;
+    /* LinkedIn blue */
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+.about-content .external-link:hover a {
+    color: #e63946;
+    text-decoration: underline;
+}
+
 /* How We Work Section Styles */
 #how-we-work {
     padding: 80px 20px;

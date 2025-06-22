@@ -1,24 +1,54 @@
-/* === CTA SECTIONS === */
-.cta-main {
+/* contactus section */
+
+.contactus-section {
     background-color: #0f0f0f;
     color: #fff;
     padding: 100px 20px;
     text-align: center;
 }
 
-.cta-main h2 {
+.contactus-section h2 {
     font-size: 4em;
 }
 
-html[dir="ltr"] .cta-main h2 {
+html[dir="ltr"] .contactus-section h2 {
     font-family: 'Afolkalips', sans-serif;
 }
 
-html[dir="rtl"] .cta-main h2 {
+html[dir="rtl"] .contactus-section h2 {
     font-family: 'Cairo', sans-serif;
 }
 
-/* === CONTACT SECTION === */
+.contactus-section-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contactus-section-container p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.contactus-section-cta {
+    display: inline-block;
+    background-color: #e63946;
+    color: #fff;
+    padding: 14px 32px;
+    font-size: 1rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.contactus-section-cta:hover {
+    background-color: #d92f3f;
+}
+
+/* === CONTACT FORM === */
 .contact-section {
     background-color: #0f0f0f;
     color: #ffffff;
@@ -74,7 +104,7 @@ html[dir="rtl"] .contact-container h2 {
     outline: 2px solid #e63946;
 }
 
-.cta-btn-primary {
+.contactus-cta {
     display: inline-block;
     background-color: #e63946;
     color: #fff;
@@ -88,8 +118,8 @@ html[dir="rtl"] .contact-container h2 {
     cursor: pointer;
 }
 
-.cta-btn-primary:hover {
-    background-color: #ff4d5a;
+.contactus-cta:hover {
+    background-color: #d92f3f;
 }
 
 /* Thank you page */

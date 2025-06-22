@@ -34,7 +34,7 @@ languageDirection: rtl
                 نحن متخصصون في تطوير الألعاب ثنائية وثلاثية الأبعاد باستخدام أقوى المحركات في الصناعة مثل Unity وUnreal
                 Engine، حيث نُخصص كل مشروع لتحقيق التوازن المثالي بين قابلية اللعب والابتكار.
             </p>
-            <p>
+            <p class="external-link">
                 مؤسس الاستوديو: <a href="https://www.linkedin.com/in/fahed-f-al-ahmad-se/" target="_blank">Fahed
                     Alahmad</a> — مهندس برمجيات، ومصمم ألعاب، ورائد أعمال.
             </p>
@@ -123,9 +123,10 @@ languageDirection: rtl
             data.items.forEach(item => {
                 const videoId = item.id.videoId;
                 const iframe = document.createElement('iframe');
-                iframe.src = `https://www.youtube.com/embed/${videoId}`;
+                iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}`;
                 iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
                 iframe.allowFullscreen = true;
+                iframe.title = `YouTube video player – ${item.snippet.title}`; // 👈 Adds a descriptive title
                 videoContainer.appendChild(iframe);
             });
         })

@@ -35,7 +35,7 @@ languageDirection: ltr
                 We specialize in both 2D and 3D development using industry-leading engines like Unity and Unreal
                 Engine, tailoring each project to achieve the perfect balance of playability and innovation.
             </p>
-            <p>
+            <p class="external-link">
                 Studio founder: <a href="https://www.linkedin.com/in/fahed-f-al-ahmad-se/" target="_blank">Fahed
                     Alahmad</a> — software engineer, game designer, and entrepreneur.
             </p>
@@ -126,9 +126,10 @@ languageDirection: ltr
             data.items.forEach(item => {
                 const videoId = item.id.videoId;
                 const iframe = document.createElement('iframe');
-                iframe.src = `https://www.youtube.com/embed/${videoId}`;
+                iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}`;
                 iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
                 iframe.allowFullscreen = true;
+                iframe.title = `YouTube video player – ${item.snippet.title}`; // 👈 Adds a descriptive title
                 videoContainer.appendChild(iframe);
             });
         })
