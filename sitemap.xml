@@ -78,4 +78,13 @@
     <priority>0.80</priority>
   </url>
 
+  <url>
+    <loc>https://buriedgames.com/en/404.html</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://buriedgames.com/ar/404.html</loc>
+    <priority>0.80</priority>
+  </url>
+
 </urlset>
