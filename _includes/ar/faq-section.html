@@ -1,0 +1,96 @@
+<section class="faq-section" dir="rtl">
+    <div class="container">
+        <h1>الأسئلة الشائعة</h1>
+
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-question">ما هو تخصص استوديو Buried Games؟</button>
+                <div class="accordion-answer">
+                    <p>يختص استوديو Buried Games في تطوير ألعاب استراتيجية ومستقلة متعددة اللاعبين باستخدام Unity
+                        وUnreal Engine، ويقع مقره في الكويت.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question">ما هي الألعاب التي طورها الاستوديو؟</button>
+                <div class="accordion-answer">
+                    <p>قمنا بتطوير لعبة <strong>Power of Bombs</strong> الاستراتيجية على الحاسوب، بالإضافة إلى
+                        <strong>KoutQ8</strong>، وهي نسخة رقمية حديثة من لعبة الكوت الكويتية الكلاسيكية مع ذكاء اصطناعي
+                        متطور.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question">ما هي لعبة KoutQ8؟</button>
+                <div class="accordion-answer">
+                    <p>هي نسخة رقمية حديثة من لعبة الكوت التقليدية، تحتوي على خصوم بالذكاء الاصطناعي وإمكانية اللعب
+                        الجماعي، وتم تطويرها باستخدام Unity.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question">هل لعبة Power of Bombs تدعم اللعب الجماعي؟</button>
+                <div class="accordion-answer">
+                    <p>نعم، تحتوي على أوضاع لعب جماعي تعتمد على تكتيكات القنابل والاستراتيجية.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question">ما هي المنصات التي تتوفر عليها ألعابكم؟</button>
+                <div class="accordion-answer">
+                    <p>نطور ألعابنا لأجهزة الحاسوب (PC) وستتوفر عبر Steam وitch.io وأيضًا من خلال التنزيل المباشر من
+                        موقعنا.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question">هل تقدمون محتوى تعليمي في تطوير الألعاب؟</button>
+                <div class="accordion-answer">
+                    <p>نعم! ننشر دروسًا تعليمية، ومذكرات التطوير، ومحتوى خلف الكواليس على <a
+                            href="https://www.youtube.com/@buriedgames" target="_blank">قناتنا على يوتيوب</a>، ونغطي
+                        Unity وUnreal Engine وتطوير الألعاب المستقلة.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question">أين يقع مقر استوديو Buried Games؟</button>
+                <div class="accordion-answer">
+                    <p>نحن موجودون في الكويت، ونطمح لتمثيل المواهب العربية في صناعة الألعاب عالميًا من خلال مشاريعنا
+                        المستقلة.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question">كيف يمكنني التعاون مع استوديو Buried Games؟</button>
+                <div class="accordion-answer">
+                    <p>نرحب بالتعاونات وفرص النشر. يمكنكم التواصل معنا عبر <a href="https://wa.me/96555528686"
+                            target="_blank">واتساب</a> أو <a href="/ar/contact.html">البريد الإلكتروني</a>.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question">ما هي محركات الألعاب التي تستخدمونها؟</button>
+                <div class="accordion-answer">
+                    <p>نستخدم Unity وUnreal Engine حسب متطلبات كل مشروع وطبيعته.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact us -->
+{% include ar/contactus-section.html %}
+
+<script>
+    document.querySelectorAll(".accordion-question").forEach(btn => {
+        btn.addEventListener("click", () => {
+            btn.classList.toggle("active");
+            const panel = btn.nextElementSibling;
+            if (btn.classList.contains("active")) {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            } else {
+                panel.style.maxHeight = null;
+            }
+        });
+    });
+</script>

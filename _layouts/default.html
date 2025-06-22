@@ -3,28 +3,31 @@
 <html lang="{{ page.language }}" dir="{{ page.languageDirection }}">
 
 <head>
-    <title>Buried Games Studio</title>
+    <title>{{ page.title }}</title>
     <link rel="icon" href="https://buriedgames.com/favicon.ico">
 
     <meta charset="UTF-8" />
+    <meta name="theme-color" content="#000000">
     <meta name="author" content="Buried Games Studio">
-    <meta name="title" content="{{ site.title }}">
-    <meta name="description" content="{{ site.description }}">
+    <meta name="title" content="{{ page.title }}">
+    <meta name="description" content="{{ page.description }}">
 
     <!-- Open Graph -->
     <meta property="og:site_name" content="Buried Games Studio">
-    <meta property="og:title" content="{{ site.title }}">
-    <meta property="og:description" content="{{ site.description }}">
+    <meta property="og:title" content="{{ page.title }}">
+    <meta property="og:description" content="{{ page.description }}">
     <meta property="og:image" content="https://buriedgames.com/favicon.ico">
     <meta property="og:logo" content="https://buriedgames.com/favicon.ico">
     <meta property="og:url" content="https://buriedgames.com">
     <meta property="og:type" content="website">
-    <meta property="og:locale" content="{{ site.lang }}">
+    <meta property="og:locale" content="{% if page.language == 'ar' %}ar_AR{% else %}en_US{% endif %}">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="ar_AR">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="https://buriedgames.com/favicon.ico">
-    <meta name="twitter:title" content="{{ site.title }}">
-    <meta name="twitter:description" content="{{ site.description }}">
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta name="twitter:description" content="{{ page.description }}">
     <meta name="twitter:image" content="https://buriedgames.com/favicon.ico">
 
     <meta name="google-site-verification" content="_lH2dXpEJilyCzVMlLA3YsI6SwbWBEzV0z8TXweMXKI" />
@@ -33,6 +36,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
     <link rel="alternate" href="https://buriedgames.com/" hreflang="en" />
     <link rel="alternate" href="https://buriedgames.com/ar/" hreflang="ar" />
 
@@ -41,7 +45,8 @@
     {% if page.custom_style %}
     <link rel="stylesheet" href="{{ site.stylesurl }}/{{ page.custom_style }}">
     {% endif %}
-    
+
+    <!-- Organization Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -65,6 +70,185 @@
       }
     }
     </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Buried Games Studio",
+        "url": "https://buriedgames.com",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://buriedgames.com/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    {% if page.language == "en" %}
+    <!-- Engllish FAQ Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+        "@type": "Question",
+        "name": "What does Buried Games Studio specialize in?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Buried Games Studio specializes in developing indie strategy and multiplayer games using Unity and Unreal Engine, based in Kuwait."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "What games has Buried Games Studio developed?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We have developed 'Power of Bombs', a tactical PC strategy game, and 'KoutQ8', a digital version of the traditional Kuwaiti card game Kout with AI-powered gameplay."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "What is KoutQ8?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "KoutQ8 is our modern take on the traditional Kuwaiti card game Kout. It features smart AI opponents and real-time multiplayer, built with Unity for local players and the global community."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "Is Power of Bombs a multiplayer game?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Power of Bombs offers strategic multiplayer gameplay with bomb-based combat mechanics and tactical decision-making."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "What platforms are your games available on?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our games are developed for PC and will be released through platforms like Steam, itch.io, and direct download from our website."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "Do you teach game development?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we publish game development tutorials, devlogs, and tips on our official YouTube channel, covering Unity, Unreal Engine, and indie game production."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "Where is Buried Games Studio located?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We are proudly based in Kuwait, developing high-quality indie games that represent Middle Eastern creativity in the global gaming industry."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "How can I collaborate with Buried Games Studio?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We're open to partnerships, publishing, and creative collaborations. Reach out via WhatsApp or email to connect with our team."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "What game engines do you use?",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We use Unity and Unreal Engine to build our games, depending on the project scope, genre, and platform requirements."
+        }
+        }
+    ]
+    }
+    </script>
+    {% endif %}
+    {% if page.language == "ar" %}
+    <!-- Arabic FAQ Schema -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {
+        "@type": "Question",
+        "name": "ما هو تخصص استوديو Buried Games؟",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "يختص استوديو Buried Games في تطوير ألعاب استراتيجية ومستقلة متعددة اللاعبين باستخدام Unity وUnreal Engine، ويقع مقره في الكويت."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "ما هي الألعاب التي طورها استوديو Buried Games؟",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "قمنا بتطوير لعبة Power of Bombs الاستراتيجية على الحاسوب، ولعبة KoutQ8 التي تعيد إحياء لعبة الكوت الكويتية بتجربة رقمية مع خصوم يعملون بالذكاء الاصطناعي."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "ما هي لعبة KoutQ8؟",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "KoutQ8 هي نسخة رقمية من لعبة الكوت الكويتية التقليدية، تتميز بخصوم أذكياء وإمكانية اللعب الجماعي، ومصممة باستخدام Unity للاعبين المحليين والعالميين."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "هل لعبة Power of Bombs تدعم اللعب الجماعي؟",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم، Power of Bombs تقدم تجربة لعب جماعي استراتيجية تعتمد على القنابل والتكتيك."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "على أي منصات تتوفر ألعابكم؟",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نقوم بتطوير ألعابنا لأجهزة الحاسوب، وسيتم إطلاقها عبر Steam وitch.io ومن خلال موقعنا الرسمي."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "هل تقدمون دروسًا في تطوير الألعاب؟",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم، ننشر دروسًا تعليمية ومذكرات تطوير ونصائح على قناتنا الرسمية في يوتيوب، نغطي فيها Unity وUnreal Engine وإنتاج الألعاب المستقلة."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "أين يقع مقر استوديو Buried Games؟",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نحن موجودون في الكويت ونهدف إلى تطوير ألعاب مستقلة عالية الجودة تمثل الإبداع العربي في صناعة الألعاب عالميًا."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "كيف يمكنني التعاون مع استوديو Buried Games؟",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نرحب بالشراكات والتعاونات الإبداعية وفرص النشر. يمكنك التواصل معنا عبر واتساب أو البريد الإلكتروني."
+        }
+        },
+        {
+        "@type": "Question",
+        "name": "ما هي محركات الألعاب التي تستخدمونها؟",
+        "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نستخدم محركي Unity وUnreal Engine في بناء ألعابنا، حسب نوع المشروع ومتطلباته التقنية والفنية."
+        }
+        }
+    ]
+    }
+    </script>
+    {% endif %}
 </head>
 
 <body>
@@ -82,7 +266,13 @@
                 <span class="logo-text">Buried Games Studio</span>
             </a>
             {% endif %}
-            <nav class="main-nav">
+
+            <!-- Mobile menu button -->
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                ☰
+            </button>
+
+            <nav class="main-nav" id="mainNav">
                 <ul>
                     {% if page.language == 'en' %}
                     <li><a href="/ar">العربية</a></li>
@@ -104,6 +294,15 @@
     {% elsif page.language == 'ar' %}
     {% include ar/footer.html %}
     {% endif %}
+
+    <script>
+        const toggleBtn = document.querySelector('.menu-toggle');
+        const nav = document.getElementById('mainNav');
+
+        toggleBtn.addEventListener('click', () => {
+            nav.classList.toggle('open');
+        });
+    </script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {

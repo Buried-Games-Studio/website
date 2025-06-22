@@ -6,13 +6,13 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-header {
+.page-hero {
     background: url('../images/POPBackground.jpg') center/cover no-repeat;
     text-align: center;
     padding: 100px 20px;
 }
 
-header h1 {
+.page-hero h1 {
     font-size: 8.0em;
     margin-bottom: 10px;
     color: white;
@@ -25,7 +25,7 @@ header h1 {
         0px 0px 2px #000;
 }
 
-header p {
+.page-hero p {
     font-size: 1.2em;
     color: white;
     text-shadow:
@@ -37,11 +37,11 @@ header p {
 }
 
 @media (max-width: 480px) {
-    header h1 {
+    .page-hero h1 {
         font-size: 2em;
     }
 
-    header .logo {
+    .page-hero .logo {
         width: 150px;
     }
 }

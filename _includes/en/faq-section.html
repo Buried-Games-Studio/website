@@ -1,0 +1,99 @@
+<section class="faq-section">
+    <div class="container">
+        <h1>Frequently Asked Questions</h1>
+
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-question">What does Buried Games Studio specialize in?</button>
+                <div class="accordion-answer">
+                    <p>Buried Games Studio specializes in developing indie strategy and multiplayer games using Unity
+                        and Unreal Engine, based in Kuwait.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question">What games has Buried Games Studio developed?</button>
+                <div class="accordion-answer">
+                    <p>We have developed <strong>Power of Bombs</strong>, a tactical PC strategy game, and
+                        <strong>KoutQ8</strong>, a digital remake of the classic Kuwaiti card game with AI-powered
+                        gameplay.
+                    </p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question">What is KoutQ8?</button>
+                <div class="accordion-answer">
+                    <p>KoutQ8 is our digital version of the traditional Kuwaiti card game, featuring smart AI opponents
+                        and multiplayer functionality, developed in Unity.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question">Is Power of Bombs a multiplayer game?</button>
+                <div class="accordion-answer">
+                    <p>Yes, Power of Bombs offers tactical multiplayer gameplay with bomb-based mechanics and strategic
+                        depth.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question">What platforms are your games available on?</button>
+                <div class="accordion-answer">
+                    <p>Our games are developed for PC and will be available through Steam, itch.io, and direct
+                        downloads.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question">Do you teach game development?</button>
+                <div class="accordion-answer">
+                    <p>Yes! We publish tutorials, devlogs, and behind-the-scenes videos on our <a
+                            href="https://www.youtube.com/@buriedgames" target="_blank">YouTube channel</a> covering
+                        Unity, Unreal Engine, and indie production.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question">Where is Buried Games Studio located?</button>
+                <div class="accordion-answer">
+                    <p>We are based in Kuwait, developing high-quality indie games that represent Middle Eastern talent
+                        on the global stage.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question">How can I collaborate with Buried Games Studio?</button>
+                <div class="accordion-answer">
+                    <p>We’re open to collaborations and publishing opportunities. Contact us via <a
+                            href="https://wa.me/96555528686" target="_blank">WhatsApp</a> or <a
+                            href="/contact.html">email</a>.</p>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-question">What game engines do you use?</button>
+                <div class="accordion-answer">
+                    <p>We use both Unity and Unreal Engine, selecting the best tool for each project's needs.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact us -->
+{% include en/contactus-section.html %}
+
+<script>
+    document.querySelectorAll(".accordion-question").forEach(btn => {
+        btn.addEventListener("click", () => {
+            btn.classList.toggle("active");
+            const panel = btn.nextElementSibling;
+            if (btn.classList.contains("active")) {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            } else {
+                panel.style.maxHeight = null;
+            }
+        });
+    });
+</script>
