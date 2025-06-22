@@ -41,6 +41,7 @@
     <link rel="alternate" href="https://buriedgames.com/ar/" hreflang="ar" />
 
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/styles/common.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/styles/navigation.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/styles/footer.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/styles/contactus.css">
     {% if page.custom_style %}
@@ -256,37 +257,11 @@
 
 <body>
 
-    <header class="main-header">
-        <div class="header-container">
-            {% if page.language == 'en' %}
-            <a href="/" class="logo-link">
-                <img src="/assets/images/buriedgames_logo.png" alt="Buried Games Logo" class="logo-img" style="height: 100px; width: 100px; object-fit: contain;" />
-                <span class="logo-text">Buried Games Studio</span>
-            </a>
-            {% elsif page.language == 'ar' %}
-            <a href="/ar" class="logo-link">
-                <img src="/assets/images/buriedgames_logo.png" alt="Buried Games Logo" class="logo-img" style="height: 100px; width: 100px; object-fit: contain;" />
-                <span class="logo-text">Buried Games Studio</span>
-            </a>
-            {% endif %}
-
-            <!-- Mobile menu button -->
-            <button class="menu-toggle" aria-label="Toggle Menu">
-                ☰
-            </button>
-
-            <nav class="main-nav" id="mainNav">
-                <ul>
-                    {% if page.language == 'en' %}
-                    <li><a href="/ar">العربية</a></li>
-                    {% elsif page.language == 'ar' %}
-                    <li><a href="/en">English</a></li>
-                    {% endif %}
-                </ul>
-            </nav>
-        </div>
-    </header>
-
+    {% if page.language == 'en' %}
+    {% include en/navigation.html %}
+    {% elsif page.language == 'ar' %}
+    {% include ar/navigation.html %}
+    {% endif %}
 
     <main>
         {{ content }}
@@ -299,11 +274,13 @@
     {% endif %}
 
     <script>
-        const toggleBtn = document.querySelector('.menu-toggle');
-        const nav = document.getElementById('mainNav');
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggleBtn = document.querySelector('.menu-toggle');
+            const nav = document.querySelector('.main-nav');
 
-        toggleBtn.addEventListener('click', () => {
-            nav.classList.toggle('open');
+            toggleBtn.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
         });
     </script>
 
