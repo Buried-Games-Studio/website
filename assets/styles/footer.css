@@ -118,8 +118,18 @@ html[dir="rtl"] .sitemap-column h3 {
     color: #fff;
 }
 
+.contact-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
 .contact-actions img {
-    object-fit: contain; vertical-align: middle;
+    object-fit: contain;
+    vertical-align: middle;
+    width: 24px;
+    height: 24px;
 }
 
 html[dir="ltr"] .contact-actions img {

@@ -2,7 +2,7 @@
 layout: default
 title: استوديو Buried Games
 description: استكشف ألعابنا مثل Power of Bombs وKoutQ8.
-custom_style: 
+custom_style:
     - homeStyles.css
     - games.css
     - contactus.css
@@ -15,7 +15,8 @@ languageDirection: rtl
     <div class="content">
         <h1>Buried Games Studio</h1>
         <p>إحنا ما نصنع ألعاب وبس، إحنا نحييها من جديد.</p>
-        <img class="logo" src="../assets/images/buriedgames_logo.png" alt="Buried Games Logo">
+        <img class="logo" src="../assets/images/buriedgames_logo.png" alt="Buried Games Logo"
+            style="height: 350px; width: 350px; object-fit: contain;">
     </div>
 </header>
 
@@ -24,7 +25,7 @@ languageDirection: rtl
     <h2><span style="font-family: 'Cairo', sans-serif;">حول</span> Buried Games Studio</h2>
     <div class="about-content">
         <img src="/assets/images/AboutUsSection.png?alt=media&token=02dc308d-9f6e-40bc-8048-e7eb76567e99"
-            alt="Buried Games Team Illustration">
+            alt="Buried Games Team Illustration" style="width: 300px; height: 300px;">
         <div class="text">
             <p>
                 <strong>Buried Games Studio</strong> هو استوديو ألعاب مستقل مقره الكويت، يقوده الإبداع والتميّز التقني.
@@ -39,57 +40,28 @@ languageDirection: rtl
                     Alahmad</a> — مهندس برمجيات، ومصمم ألعاب، ورائد أعمال.
             </p>
             <div class="engine-icons">
-                <img src="/assets/images/UnrealEngineImage.png" alt="Unreal Engine Logo">
-                <img src="/assets/images/UnityImage.png" alt="Unity Logo">
+                <img src="/assets/images/UnrealEngineImage.png" alt="Unreal Engine Logo" style="width: 100px; height: 100px;">
+                <img src="/assets/images/UnityImage.png" alt="Unity Logo" style="width: 100px; height: 100px;">
             </div>
         </div>
     </div>
 </section>
 
 <!-- How We Work Section -->
-<section id="how-we-work">
-    <h2>كيف نبني ألعابنا</h2>
-    <div class="workflow">
-        <div class="workflow-step">
-            <img src="/assets/images/howitWorks_Concept.png" alt="رمز الفكرة">
-            <h3>الفكرة والبحث</h3>
-            <p>تبدأ رحلتنا بالأفكار والبحث العميق لرسم رؤية قوية وجذابة.</p>
-        </div>
-        <div class="workflow-step">
-            <img src="/assets/images/howitWorks_prototyping.png" alt="رمز النموذج الأولي">
-            <h3>النماذج الأولية</h3>
-            <p>نحوّل المفاهيم إلى نماذج قابلة للتجربة باستخدام Unity وUnreal لاختبار آليات اللعب بسرعة.</p>
-        </div>
-        <div class="workflow-step">
-            <img src="/assets/images/howitWorks_designing.png" alt="رمز التصميم">
-            <h3>التصميم والفن</h3>
-            <p>نمزج بين الفن والصوت والسرد القصصي لصنع تجارب لا تُنسى للاعبين.</p>
-        </div>
-        <div class="workflow-step">
-            <img src="/assets/images/howitWorks_testing.png" alt="رمز الاختبار">
-            <h3>الاختبار والتغذية الراجعة</h3>
-            <p>نختبر ألعابنا مع لاعبين حقيقيين ونُحسّنها بعناية واهتمام.</p>
-        </div>
-        <div class="workflow-step">
-            <img src="/assets/images/howitWorks_launch.png" alt="رمز الإطلاق">
-            <h3>الإطلاق والتطوير</h3>
-            <p>الإصدار ليس النهاية — نراقب ونحدث ونطور باستمرار.</p>
-        </div>
-    </div>
-</section>
+{% include ar/how-it-works-section.html %}
 
 <!-- Contact us -->
 {% include ar/contactus-section.html %}
 
 <!-- Services -->
 <section class="cta-services" dir="rtl">
-  <div class="cta-container" style="text-align: right;">
-    <h2>تودّ معرفة ما نقدمه؟</h2>
-    <p>
-      من تصميم الشخصيات إلى دعم النشر — نقدم خدمات تطوير ألعاب شاملة ومخصصة لتناسب احتياجاتك.
-    </p>
-    <a href="/ar/services.html" class="cta-btn-secondary">استكشف خدماتنا</a>
-  </div>
+    <div class="cta-container" style="text-align: right;">
+        <h2>تودّ معرفة ما نقدمه؟</h2>
+        <p>
+            من تصميم الشخصيات إلى دعم النشر — نقدم خدمات تطوير ألعاب شاملة ومخصصة لتناسب احتياجاتك.
+        </p>
+        <a href="/ar/services.html" class="cta-btn-secondary">استكشف خدماتنا</a>
+    </div>
 </section>
 
 <!-- Games -->
@@ -99,7 +71,8 @@ languageDirection: rtl
 <section id="youtube">
     <h2 class="video-header-text">فلوغات وكواليس التطوير</h2>
     <p>
-        شاهد كيف نصنع ألعابنا — لقطات من وراء الكواليس، تحليلات للميزات، وتحديثات من داخل الاستوديو على قناة YouTube الرسمية.
+        شاهد كيف نصنع ألعابنا — لقطات من وراء الكواليس، تحليلات للميزات، وتحديثات من داخل الاستوديو على قناة YouTube
+        الرسمية.
     </p>
     <div id="video-container" class="video-grid"></div>
     <div class="subscribe-button">
