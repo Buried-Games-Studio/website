@@ -1,0 +1,131 @@
+footer {
+    background-color: #0a0a0a;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.95em;
+    color: #888;
+    /* margin-top: 80px; */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+#footer.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer-container {
+    display: flex;
+    /* center the group */
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#footer-logo {
+    flex: 1 1 300px;
+    text-align: center;
+}
+
+.footer-socialmedia {
+    flex: 2 1 400px;
+    text-align: center;
+}
+
+footer h1 {
+    font-size: 5.0em;
+    font-family: 'Afolkalips', sans-serif;
+}
+
+.footer-icons,
+.contact-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer-icons a,
+.contact-icons p {
+    display: flex;
+    align-items: center;
+    color: #888;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.footer-icons svg,
+.contact-icons img {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+}
+
+.footer-sitemap-social {
+    margin-top: 40px;
+}
+
+.footer-sitemap {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 60px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+}
+
+.sitemap-column {
+    min-width: 160px;
+}
+
+.sitemap-column h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+html[dir="ltr"] .sitemap-column h3 {
+    /* font-family: 'Afolkalips', sans-serif; */
+}
+
+html[dir="rtl"] .sitemap-column h3 {
+    font-family: 'Cairo', sans-serif;
+}
+
+.sitemap-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sitemap-column li {
+    margin-bottom: 8px;
+}
+
+.sitemap-column a {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 0.95em;
+    transition: color 0.2s;
+}
+
+.sitemap-column a:hover {
+    color: #fff;
+}
+
+.contact-actions img {
+    object-fit: contain; vertical-align: middle;
+}
+
+html[dir="ltr"] .contact-actions img {
+    margin-right: 8px;
+}
+
+html[dir="rtl"] .contact-actions img {
+    margin-left: 8px;
+}

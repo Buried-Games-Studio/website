@@ -2,7 +2,10 @@
 layout: default
 title: Buried Games
 description: Explore our games like Power of Bombs and KoutQ8.
-custom_style: homeStyles.css
+custom_style: 
+    - homeStyles.css
+    - games.css
+    - contactus.css
 language: en
 languageDirection: ltr
 ---
@@ -92,32 +95,7 @@ languageDirection: ltr
 </section>
 
 <!-- Games -->
-<section id="games">
-    <h2 class="games-header">Our Games</h2>
-    <div class="games-description">
-        Explore our immersive titles, where nostalgia meets innovation.
-    </div>
-    <div class="games-grid">
-        <div class="game-card">
-            <div class="game-img-wrapper">
-                <img src="/assets/images/powerofbombsIconTransparent.png" alt="Power of Bombs">
-                <div class="overlay">
-                    <a href="games/power-of-bombs/index.html">Learn More</a>
-                </div>
-            </div>
-            <h3>Power of Bombs</h3>
-        </div>
-        <div class="game-card">
-            <div class="game-img-wrapper">
-                <img src="/assets/images/Koutq8Logo.png" alt="KoutQ8">
-                <div class="overlay">
-                    <a href="games/koutq8/index.html">Learn More</a>
-                </div>
-            </div>
-            <h3>KoutQ8</h3>
-        </div>
-    </div>
-</section>
+{% include en/games-section.html %}
 
 <!-- YouTube Section -->
 <section id="youtube">

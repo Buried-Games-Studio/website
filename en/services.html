@@ -2,7 +2,10 @@
 layout: default
 title: Services – Buried Games
 description: Services
-custom_style: services.css
+custom_style:
+    - services.css
+    - games.css
+    - contactus.css
 language: en
 languageDirection: ltr
 ---
@@ -64,28 +67,7 @@ languageDirection: ltr
 </section>
 
 <!-- Our Games Section -->
-<section id="ourGamesSection" class="games-section">
-    <div class="cta-container">
-        <h2>Our Games</h2>
-        <div class="games-grid">
-
-            <div class="game-card">
-                <img src="/assets/images/powerofbombsIconTransparent.png" alt="Power of Bombs">
-                <h3>Power of Bombs</h3>
-                <p>Strategic multiplayer mayhem. Control the chaos, dominate the field.</p>
-                <a href="/en/contactus-thankyou.html" class="cta-btn-secondary">View Game</a>
-            </div>
-
-            <div class="game-card">
-                <img src="/assets/images/Koutq8Logo.png" alt="KoutQ8">
-                <h3>KoutQ8</h3>
-                <p>The Kuwaiti card classic — modernized and multiplayer-ready.</p>
-                <a href="/en/games/koutq8/index.html" class="cta-btn-secondary">View Game</a>
-            </div>
-
-        </div>
-    </div>
-</section>
+{% include en/games-section.html %}
 
 <!-- Contact us -->
 {% include en/contactus-section.html %}
@@ -94,7 +76,7 @@ languageDirection: ltr
     document.addEventListener("DOMContentLoaded", function () {
         const heroSection = document.querySelector('#heroSection');
         const servicesSection = document.querySelector('#servicesSection');
-        const ourGamesSection = document.querySelector('#ourGamesSection');
+        const ourGamesSection = document.querySelector('#games');
         const footer = document.querySelector('#footer');
         const observer = new IntersectionObserver(
             (entries, observer) => {

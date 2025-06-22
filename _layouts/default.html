@@ -41,9 +41,12 @@
     <link rel="alternate" href="https://buriedgames.com/ar/" hreflang="ar" />
 
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/styles/common.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/assets/styles/footer.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/assets/styles/contactus.css">
     {% if page.custom_style %}
-    <link rel="stylesheet" href="{{ site.stylesurl }}/{{ page.custom_style }}">
+    {% for style in page.custom_style %}
+    <link rel="stylesheet" href="{{ site.stylesurl }}/{{ style }}">
+    {% endfor %}
     {% endif %}
 
     <!-- Organization Schema -->

@@ -2,7 +2,10 @@
 layout: default
 title: استوديو Buried Games
 description: استكشف ألعابنا مثل Power of Bombs وKoutQ8.
-custom_style: homeStyles.css
+custom_style: 
+    - homeStyles.css
+    - games.css
+    - contactus.css
 language: ar
 languageDirection: rtl
 ---
@@ -90,32 +93,7 @@ languageDirection: rtl
 </section>
 
 <!-- Games -->
-<section id="games">
-    <h2 class="games-header">ألعابنا</h2>
-    <div class="games-description">
-        استكشف عناويننا الغامرة، حيث يلتقي الحنين مع الابتكار.
-    </div>
-    <div class="games-grid">
-        <div class="game-card">
-            <div class="game-img-wrapper">
-                <img src="/assets/images/powerofbombsIconTransparent.png" alt="Power of Bombs">
-                <div class="overlay">
-                    <a href="games/power-of-bombs/index.html">اعرف المزيد</a>
-                </div>
-            </div>
-            <h3>Power of Bombs</h3>
-        </div>
-        <div class="game-card">
-            <div class="game-img-wrapper">
-                <img src="/assets/images/Koutq8Logo.png" alt="KoutQ8">
-                <div class="overlay">
-                    <a href="games/koutq8/index.html">اعرف المزيد</a>
-                </div>
-            </div>
-            <h3>KoutQ8</h3>
-        </div>
-    </div>
-</section>
+{% include ar/games-section.html %}
 
 <!-- YouTube Section -->
 <section id="youtube">

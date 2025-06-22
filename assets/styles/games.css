@@ -1,0 +1,128 @@
+#games {
+    padding: 80px 20px;
+    background: #0d0d0d;
+    color: #eee;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s, transform 1s;
+}
+
+#games.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.games-header {
+    font-size: 4em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+html[dir="ltr"] .games-header {
+    font-family: 'Afolkalips', sans-serif;
+}
+
+html[dir="rtl"] .games-header {
+    font-family: 'Cairo', sans-serif;
+}
+
+.games-description {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 1.2em;
+    text-align: center;
+    color: #bbb;
+}
+
+html[dir="rtl"] .games-description {
+    font-family: 'Cairo', sans-serif;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* Entire card clickable */
+.game-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.2s ease-in-out;
+}
+
+.game-card-link:hover {
+    transform: scale(1.02);
+}
+
+.game-card {
+    background: #1a1a1a;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s;
+    width: 100%;
+}
+
+.game-card:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.game-img-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.game-img-wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px 12px 0 0;
+}
+
+.game-card .overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    width: 100%;
+    padding: 12px;
+    font-size: 0.95rem;
+    text-align: center;
+    pointer-events: none;
+}
+
+.game-card .overlay a {
+    pointer-events: auto;
+    padding: 12px 24px;
+    background: #e63946;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.game-card .overlay a:hover {
+    background: #d62839;
+}
+
+html[dir="rtl"] .game-card .overlay a {
+    font-family: 'Cairo', sans-serif;
+}
+
+.game-card h3 {
+    text-align: center;
+    margin: 12px 0;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+html[dir="rtl"] .game-card h3 {
+    font-family: 'Cairo', sans-serif;
+}
