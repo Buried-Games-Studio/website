@@ -22,7 +22,8 @@ theme: minima
 plugins:
   - jekyll-include-cache
   - jekyll-feed
-  - jekyll-seo-tag
+  - jekyll-seo
+  - jekyll-sitemap
 
 exclude:
   - Gemfile
