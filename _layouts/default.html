@@ -41,6 +41,30 @@
     {% if page.custom_style %}
     <link rel="stylesheet" href="{{ site.stylesurl }}/{{ page.custom_style }}">
     {% endif %}
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Buried Games Studio",
+      "url": "https://buriedgames.com",
+      "logo": "https://buriedgames.com/assets/images/buriedgames_logo.png",
+      "sameAs": [
+        "https://github.com/fahedalahmad",
+        "https://www.youtube.com/@buriedgames",
+        "https://twitter.com/buriedgames",
+        "https://www.instagram.com/buriedgames",
+        "https://wa.me/96555528686"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+96555528686",
+        "contactType": "Customer Service",
+        "areaServed": "KW",
+        "availableLanguage": ["English", "Arabic"]
+      }
+    }
+    </script>
 </head>
 
 <body>
