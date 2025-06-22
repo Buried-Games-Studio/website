@@ -1,0 +1,115 @@
+---
+layout: default
+title: Services – Buried Games
+description: Services
+custom_style: services.css
+language: en
+languageDirection: ltr
+---
+
+<!-- Hero Section -->
+<section id="heroSection" class="hero-section logo-only">
+    <div class="cta-container">
+        <img src="/assets/images/buriedgames_logo.png" alt="Buried Games Logo" class="hero-logo">
+        <h2>We Build Games That Stand Out</h2>
+        <p>From concept to launch, we use Unity and Unreal Engine to bring bold ideas to life.</p>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="servicesSection" class="services-section">
+    <div class="cta-container">
+        <h2>What We Offer</h2>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <img src="/assets/images/gdd.png" alt="Concept Design">
+                <h3>Game Design</h3>
+                <p>We craft detailed GDDs, mechanics, and game systems built around your vision.</p>
+            </div>
+
+            <div class="service-card">
+                <img src="/assets/images/art-assets.png" alt="Art and Assets">
+                <h3>Art & Assets</h3>
+                <p>Stylized or realistic, we deliver beautiful 2D/3D visuals, animations, and VFX.</p>
+            </div>
+
+            <div class="service-card">
+                <img src="/assets/images/prototypin.png" alt="Prototype">
+                <h3>Prototyping</h3>
+                <p>Fast MVPs built in Unity or Unreal for pitching, testing, or gameplay validation.</p>
+            </div>
+
+            <div class="service-card">
+                <img src="/assets/images/artist.png" alt="Development">
+                <h3>Full Development</h3>
+                <p>Full game builds with clean architecture, polish, and multi-platform delivery.</p>
+            </div>
+
+            <div class="service-card">
+                <img src="/assets/images/qatesting.png" alt="Multiplayer">
+                <h3>Multiplayer & Backend</h3>
+                <p>Matchmaking, leaderboards, Firebase, and data-driven backend solutions.</p>
+            </div>
+
+            <div class="service-card">
+                <img src="/assets/images/publishing.png" alt="Launch">
+                <h3>Launch & Support</h3>
+                <p>Store submission, live updates, patches, and post-launch content support.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Our Games Section -->
+<section id="ourGamesSection" class="games-section">
+    <div class="cta-container">
+        <h2>Our Games</h2>
+        <div class="games-grid">
+
+            <div class="game-card">
+                <img src="/assets/images/powerofbombsIconTransparent.png" alt="Power of Bombs">
+                <h3>Power of Bombs</h3>
+                <p>Strategic multiplayer mayhem. Control the chaos, dominate the field.</p>
+                <a href="/en/contactus-thankyou.html" class="cta-btn-secondary">View Game</a>
+            </div>
+
+            <div class="game-card">
+                <img src="/assets/images/Koutq8Logo.png" alt="KoutQ8">
+                <h3>KoutQ8</h3>
+                <p>The Kuwaiti card classic — modernized and multiplayer-ready.</p>
+                <a href="/en/games/koutq8/index.html" class="cta-btn-secondary">View Game</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Contact us -->
+{% include en/contactus-section.html %}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const heroSection = document.querySelector('#heroSection');
+        const servicesSection = document.querySelector('#servicesSection');
+        const ourGamesSection = document.querySelector('#ourGamesSection');
+        const footer = document.querySelector('#footer');
+        const observer = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+        observer.observe(heroSection);
+        observer.observe(servicesSection);
+        observer.observe(ourGamesSection);
+        observer.observe(footer);
+    });
+</script>

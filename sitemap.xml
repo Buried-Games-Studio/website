@@ -18,6 +18,24 @@
   </url>
 
   <url>
+    <loc>https://buriedgames.com/en/services/</loc>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://buriedgames.com/en/contactus/</loc>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://buriedgames.com/ar/services/</loc>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://buriedgames.com/ar/contactus/</loc>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
     <loc>https://buriedgames.com/en/games/power-of-bombs/</loc>
     <priority>0.85</priority>
   </url>

@@ -1,0 +1,116 @@
+---
+layout: default
+title: Buried Games
+description: Explore our games like Power of Bombs and KoutQ8.
+custom_style: services.css
+language: ar
+languageDirection: rtl
+---
+
+<!-- Hero Section -->
+<section id="heroSection" class="hero-section logo-only">
+    <div class="cta-container">
+        <img src="/assets/images/buriedgames_logo.png" alt="شعار Buried Games" class="hero-logo">
+        <h1>نحن نصنع ألعاباً لا تُنسى</h1>
+        <p>من الفكرة إلى الإطلاق، نستخدم Unity وUnreal Engine لتحويل الأفكار الجريئة إلى واقع.</p>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section id="servicesSection" class="services-section">
+    <div class="cta-container">
+        <h2>ماذا نقدم</h2>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <img src="/assets/images/gdd.png" alt="تصميم اللعبة">
+                <h3>تصميم اللعبة</h3>
+                <p>نُعد مستندات تصميم مفصلة، وآليات لعب، وأنظمة مبنية وفقاً لرؤيتك.</p>
+            </div>
+
+            <div class="service-card">
+                <img src="/assets/images/art-assets.png" alt="الرسومات والأصول">
+                <h3>الرسومات والأصول</h3>
+                <p>نقدم تصاميم ثنائية وثلاثية الأبعاد مذهلة، سواء بأسلوب كرتوني أو واقعي، مع رسوم متحركة وتأثيرات بصرية.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <img src="/assets/images/prototypin.png" alt="النماذج الأولية">
+                <h3>النماذج الأولية</h3>
+                <p>نُطور نماذج أولية سريعة باستخدام Unity أو Unreal لاختبار الأفكار أو تقديمها للمستثمرين.</p>
+            </div>
+
+            <div class="service-card">
+                <img src="/assets/images/artist.png" alt="التطوير الكامل">
+                <h3>التطوير الكامل</h3>
+                <p>نُطور ألعاباً كاملة مع بنية نظيفة، جودة عالية، ودعم لمنصات متعددة.</p>
+            </div>
+
+            <div class="service-card">
+                <img src="/assets/images/qatesting.png" alt="اللاعبين المتعددين والخلفية">
+                <h3>اللاعبين المتعددين والخلفية</h3>
+                <p>ندمج أنظمة التوفيق بين اللاعبين، لوحات الصدارة، ودعم Firebase أو أنظمة خلفية مخصصة.</p>
+            </div>
+
+            <div class="service-card">
+                <img src="/assets/images/publishing.png" alt="الإطلاق والدعم">
+                <h3>الإطلاق والدعم</h3>
+                <p>نُعد لعبتك للإطلاق في المتاجر، مع التحديثات والدعم الفني المستمر بعد النشر.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Our Games Section -->
+<section id="ourGamesSection" class="games-section">
+    <div class="cta-container">
+        <h2>ألعابنا</h2>
+        <div class="games-grid">
+
+            <div class="game-card">
+                <img src="/assets/images/powerofbombsIconTransparent.png" alt="Power of Bombs">
+                <h3>Power of Bombs</h3>
+                <p>فوضى استراتيجية متعددة اللاعبين — تحكم بالميدان وسيطر على اللعبة.</p>
+                <a href="/ar/games/power-of-bombs/index.html" class="cta-btn-secondary">عرض اللعبة</a>
+            </div>
+
+            <div class="game-card">
+                <img src="/assets/images/Koutq8Logo.png" alt="KoutQ8">
+                <h3>KoutQ8</h3>
+                <p>اللعبة الكويتية الكلاسيكية — بإصدار حديث متعدد اللاعبين.</p>
+                <a href="/ar/games/koutq8/index.html" class="cta-btn-secondary">عرض اللعبة</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Contact us -->
+{% include ar/contactus-section.html %}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const heroSection = document.querySelector('#heroSection');
+        const servicesSection = document.querySelector('#servicesSection');
+        const ourGamesSection = document.querySelector('#ourGamesSection');
+        const footer = document.querySelector('#footer');
+        const observer = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+        observer.observe(heroSection);
+        observer.observe(servicesSection);
+        observer.observe(ourGamesSection);
+        observer.observe(footer);
+    });
+</script>

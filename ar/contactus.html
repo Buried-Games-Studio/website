@@ -1,0 +1,35 @@
+---
+layout: default
+title: Contact Us – Buried Games
+description: Contact Us
+custom_style: contactus.css
+language: ar
+languageDirection: rtl
+---
+
+<section class="contact-section" dir="rtl">
+    <div class="contact-container" style="text-align: right;">
+        <h2>تواصل معنا</h2>
+        <p>يسعدنا سماعك! سواء كنت ترغب في بناء لعبة، التعاون، أو حتى مجرد إلقاء التحية — أرسل لنا رسالة عبر النموذج
+            أدناه.</p>
+
+        <form action="https://formsubmit.co/support@buriedgames.com" method="POST" class="contact-form">
+            <!-- Hidden input to disable CAPTCHA -->
+            <input type="hidden" name="_captcha" value="false">
+
+            <!-- Redirect to Arabic thank you page -->
+            <input type="hidden" name="_next" value="/ar/contactus-thankyou.html">
+
+            <label for="name">الاسم</label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="email">البريد الإلكتروني</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="message">رسالتك</label>
+            <textarea name="message" id="message" rows="6" required></textarea>
+
+            <button type="submit" class="cta-btn-primary">إرسال الرسالة</button>
+        </form>
+    </div>
+</section>

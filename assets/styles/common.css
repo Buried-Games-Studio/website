@@ -139,7 +139,7 @@ footer {
     padding: 40px 20px;
     font-size: 0.95em;
     color: #888;
-    margin-top: 80px;
+    /* margin-top: 80px; */
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 1s ease-out, transform 1s ease-out;

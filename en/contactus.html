@@ -1,0 +1,35 @@
+---
+layout: default
+title: Contact Us – Buried Games
+description: Contact Us
+custom_style: contactus.css
+language: en
+languageDirection: ltr
+---
+
+<section class="contact-section">
+    <div class="contact-container">
+        <h2>Contact Us</h2>
+        <p>We’d love to hear from you. Whether you want to build a game, collaborate, or just say hi — drop us a message
+            below.</p>
+
+        <form action="https://formsubmit.co/support@buriedgames.com" method="POST" class="contact-form">
+            <!-- Hidden input to disable CAPTCHA -->
+            <input type="hidden" name="_captcha" value="false">
+
+            <!-- Optional: Redirect after success -->
+            <input type="hidden" name="_next" value="/en/contactus-thankyou.html">
+
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+
+            <label for="message">Message</label>
+            <textarea name="message" id="message" rows="6" required></textarea>
+
+            <button type="submit" class="cta-btn-primary">Send Message</button>
+        </form>
+    </div>
+</section>
