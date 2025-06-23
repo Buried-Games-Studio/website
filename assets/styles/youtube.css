@@ -1,0 +1,30 @@
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+}
+
+.video-item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.video-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.video-item:hover img {
+    transform: scale(1.03);
+}
+
+.video-item p {
+    margin-top: 8px;
+    font-size: 14px;
+    text-align: center;
+}

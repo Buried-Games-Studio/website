@@ -6,6 +6,7 @@ custom_style:
     - homeStyles.css
     - games.css
     - contactus.css
+    - youtube.css
 language: ar
 languageDirection: rtl
 ---
@@ -70,23 +71,10 @@ languageDirection: rtl
 {% include ar/games-section.html %}
 
 <!-- YouTube Section -->
-<section id="youtube">
-    <h2 class="video-header-text">فلوغات وكواليس التطوير</h2>
-    <p>
-        شاهد كيف نصنع ألعابنا — لقطات من وراء الكواليس، تحليلات للميزات، وتحديثات من داخل الاستوديو على قناة YouTube
-        الرسمية.
-    </p>
-    <div id="video-container" class="video-grid"></div>
-    <div class="subscribe-button">
-        <a href="https://www.youtube.com/@BuriedGamesStudio?sub_confirmation=1" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="أيقونة يوتيوب" loading="lazy">
-            اشترك في قناتنا على YouTube
-        </a>
-    </div>
-</section>
+ {% include ar/youtube-section.html %}
 
 <!-- YouTube API Script -->
-<script src="/js/youtube.js" defer></script>
+<!-- <script src="/js/youtube.js" defer></script> -->
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {

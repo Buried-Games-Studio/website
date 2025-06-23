@@ -6,6 +6,7 @@ custom_style:
 - homeStyles.css
 - games.css
 - contactus.css
+- youtube.css
 language: en
 languageDirection: ltr
 ---
@@ -72,23 +73,10 @@ languageDirection: ltr
 {% include en/games-section.html %}
 
 <!-- YouTube Section -->
-<section id="youtube">
-    <h2 class="video-header-text">Devlogs & Behind the Scenes</h2>
-    <p style="text-align: center; max-width: 700px; margin: 0 auto 30px; color: #ccc;">See how our games are made.
-        Watch
-        behind-the-scenes footage, feature deep-dives, and studio updates on our official YouTube devlog channel.
-    </p>
-    <div id="video-container" class="video-grid"></div>
-    <div class="subscribe-button">
-        <a href="https://www.youtube.com/@BuriedGamesStudio?sub_confirmation=1" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube Icon" loading="lazy">
-            Subscribe on YouTube
-        </a>
-    </div>
-</section>
+{% include en/youtube-section.html %}
 
 <!-- YouTube API Script -->
-<script src="/js/youtube.js" defer></script>
+<!-- <script src="/js/youtube.js" defer></script> -->
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
