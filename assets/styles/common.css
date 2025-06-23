@@ -1,11 +1,13 @@
 @font-face {
     font-family: 'Afolkalips';
-    src: url('../fonts/afolkalips.ttf') format('truetype');
+    src: url('../fonts/afolkalips.ttf') format('woff2');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Cairo';
-    src: url('../fonts/cairo.ttf') format('truetype');
+    src: url('../fonts/cairo.ttf') format('woff2');
+    font-display: swap;
 }
 
 /* Global Styles */
