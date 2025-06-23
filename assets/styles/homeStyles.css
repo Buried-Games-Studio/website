@@ -1,8 +1,18 @@
 /* Header Styles */
 .homeHeader {
-    background: url('../images/buriedgames_bg_no_text.png') center/cover no-repeat;
+    background-image: image-set(url("../images/buriedgames_bg_no_text.webp") type("image/webp"),
+            url("../images/buriedgames_bg_no_text.png") type("image/png"));
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     text-align: center;
     padding: 60px 20px;
+}
+
+@supports (background-image: url("../images/buriedgames_bg_no_text.webp")) {
+    .homeHeader {
+        background-image: url("../images/buriedgames_bg_no_text.webp");
+    }
 }
 
 .homeHeader h1 {
