@@ -2,8 +2,9 @@
 layout: default
 title: استوديو Buried Games
 description: استكشف ألعابنا مثل Power of Bombs وKoutQ8.
-custom_style: 
+custom_style:
     - services.css
+    - games.css
     - contactus.css
 language: ar
 languageDirection: rtl
@@ -12,7 +13,11 @@ languageDirection: rtl
 <!-- Hero Section -->
 <section id="heroSection" class="hero-section logo-only">
     <div class="cta-container">
-        <img src="/assets/images/buriedgames_logo.png" alt="شعار Buried Games" class="hero-logo" style="height: 200px; width: 200px; object-fit: contain;">
+        <picture>
+            <source srcset="/assets/images/buriedgames_logo.webp" type="image/webp">
+            <img src="/assets/images/buriedgames_logo.png" alt="شعار Buried Games" class="hero-logo"
+                style="height: 200px; width: 200px; object-fit: contain;">
+        </picture>
         <h1>نحن نصنع ألعاباً لا تُنسى</h1>
         <p>من الفكرة إلى الإطلاق، نستخدم Unity وUnreal Engine لتحويل الأفكار الجريئة إلى واقع.</p>
     </div>
@@ -26,38 +31,56 @@ languageDirection: rtl
         <div class="services-grid">
 
             <div class="service-card">
-                <img src="/assets/images/gdd.png" alt="تصميم اللعبة" loading="lazy">
+                <picture>
+                    <source srcset="/assets/images/gdd.webp" type="image/webp">
+                    <img src="/assets/images/gdd.png" alt="تصميم اللعبة" loading="lazy">
+                </picture>
                 <h3>تصميم اللعبة</h3>
                 <p>نُعد مستندات تصميم مفصلة، وآليات لعب، وأنظمة مبنية وفقاً لرؤيتك.</p>
             </div>
 
             <div class="service-card">
-                <img src="/assets/images/art-assets.png" alt="الرسومات والأصول" loading="lazy">
+                <picture>
+                    <source srcset="/assets/images/art-assets.webp" type="image/webp">
+                    <img src="/assets/images/art-assets.png" alt="الرسومات والأصول" loading="lazy">
+                </picture>
                 <h3>الرسومات والأصول</h3>
                 <p>نقدم تصاميم ثنائية وثلاثية الأبعاد مذهلة، سواء بأسلوب كرتوني أو واقعي، مع رسوم متحركة وتأثيرات بصرية.
                 </p>
             </div>
 
             <div class="service-card">
-                <img src="/assets/images/prototypin.png" alt="النماذج الأولية" loading="lazy">
+                <picture>
+                    <source srcset="/assets/images/prototypin.webp" type="image/webp">
+                    <img src="/assets/images/prototypin.png" alt="النماذج الأولية" loading="lazy">
+                </picture>
                 <h3>النماذج الأولية</h3>
                 <p>نُطور نماذج أولية سريعة باستخدام Unity أو Unreal لاختبار الأفكار أو تقديمها للمستثمرين.</p>
             </div>
 
             <div class="service-card">
-                <img src="/assets/images/artist.png" alt="التطوير الكامل" loading="lazy">
+                <picture>
+                    <source srcset="/assets/images/artist.webp" type="image/webp">
+                    <img src="/assets/images/artist.png" alt="التطوير الكامل" loading="lazy">
+                </picture>
                 <h3>التطوير الكامل</h3>
                 <p>نُطور ألعاباً كاملة مع بنية نظيفة، جودة عالية، ودعم لمنصات متعددة.</p>
             </div>
 
             <div class="service-card">
-                <img src="/assets/images/qatesting.png" alt="اللاعبين المتعددين والخلفية" loading="lazy">
+                <picture>
+                    <source srcset="/assets/images/qatesting.webp" type="image/webp">
+                    <img src="/assets/images/qatesting.png" alt="اللاعبين المتعددين والخلفية" loading="lazy">
+                </picture>
                 <h3>اللاعبين المتعددين والخلفية</h3>
                 <p>ندمج أنظمة التوفيق بين اللاعبين، لوحات الصدارة، ودعم Firebase أو أنظمة خلفية مخصصة.</p>
             </div>
 
             <div class="service-card">
-                <img src="/assets/images/publishing.png" alt="الإطلاق والدعم" loading="lazy">
+                <picture>
+                    <source srcset="/assets/images/publishing.webp" type="image/webp">
+                    <img src="/assets/images/publishing.png" alt="الإطلاق والدعم" loading="lazy">
+                </picture>
                 <h3>الإطلاق والدعم</h3>
                 <p>نُعد لعبتك للإطلاق في المتاجر، مع التحديثات والدعم الفني المستمر بعد النشر.</p>
             </div>
@@ -67,28 +90,7 @@ languageDirection: rtl
 </section>
 
 <!-- Our Games Section -->
-<section id="ourGamesSection" class="games-section">
-    <div class="cta-container">
-        <h2>ألعابنا</h2>
-        <div class="games-grid">
-
-            <div class="game-card">
-                <img src="/assets/images/powerofbombsIconTransparent.png" alt="Power of Bombs">
-                <h3>Power of Bombs</h3>
-                <p>فوضى استراتيجية متعددة اللاعبين — تحكم بالميدان وسيطر على اللعبة.</p>
-                <a href="/ar/games/power-of-bombs/index.html" class="cta-btn-secondary">عرض اللعبة</a>
-            </div>
-
-            <div class="game-card">
-                <img src="/assets/images/Koutq8Logo.png" alt="KoutQ8">
-                <h3>KoutQ8</h3>
-                <p>اللعبة الكويتية الكلاسيكية — بإصدار حديث متعدد اللاعبين.</p>
-                <a href="/ar/games/koutq8/index.html" class="cta-btn-secondary">عرض اللعبة</a>
-            </div>
-
-        </div>
-    </div>
-</section>
+{% include ar/games-section.html %}
 
 <!-- Contact us -->
 {% include ar/contactus-section.html %}
@@ -97,7 +99,7 @@ languageDirection: rtl
     document.addEventListener("DOMContentLoaded", function () {
         const heroSection = document.querySelector('#heroSection');
         const servicesSection = document.querySelector('#servicesSection');
-        const ourGamesSection = document.querySelector('#ourGamesSection');
+        const ourGamesSection = document.querySelector('#games');
         const footer = document.querySelector('#footer');
         const observer = new IntersectionObserver(
             (entries, observer) => {

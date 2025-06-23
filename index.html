@@ -16,8 +16,11 @@ languageDirection: ltr
     <div class="content">
         <h1>Buried Games Studio</h1>
         <p>We don’t just build games. We resurrect them.</p>
-        <img class="logo" src="/assets/images/buriedgames_logo.png" alt="Buried Games Logo"
-            style="height: 350px; width: 350px; object-fit: contain;">
+        <picture>
+            <source srcset="/assets/images/buriedgames_logo.webp" type="image/webp">
+            <img class="logo" src="/assets/images/buriedgames_logo.png" alt="Buried Games Logo"
+                style="height: 350px; width: 350px; object-fit: contain;">
+        </picture>
     </div>
 </header>
 
@@ -26,7 +29,7 @@ languageDirection: ltr
     <h2>About Buried Games Studio</h2>
     <div class="about-content">
         <picture>
-            <source srcset="/assets/images/webp/AboutUsSection.webp" type="image/webp">
+            <source srcset="/assets/images/AboutUsSection.webp" type="image/webp">
             <img src="/assets/images/AboutUsSection.png" alt="Buried Games Team Illustration"
                 style="width: 300px; height: 300px;" loading="lazy">
         </picture>
@@ -45,10 +48,17 @@ languageDirection: ltr
                     Alahmad</a> — software engineer, game designer, and entrepreneur.
             </p>
             <div class="engine-icons">
-                <img src="/assets/images/UnrealEngineImage.png" alt="Unreal Engine Logo"
-                    style="width: 100px; height: 100px;" loading="lazy">
-                <img src="/assets/images/UnityImage.png" alt="Unity Logo" style="width: 100px; height: 100px;"
-                    loading="lazy">
+                <picture>
+                    <source srcset="/assets/images/UnrealEngineImage.webp" type="image/webp">
+                    <img src="/assets/images/UnrealEngineImage.png" alt="Unreal Engine Logo"
+                        style="width: 100px; height: 100px;" loading="lazy">
+                </picture>
+
+                <picture>
+                    <source srcset="/assets/images/UnityImage.webp" type="image/webp">
+                    <img src="/assets/images/UnityImage.png" alt="Unity Logo" style="width: 100px; height: 100px;"
+                        loading="lazy">
+                </picture>
             </div>
         </div>
     </div>

@@ -1,8 +1,11 @@
 <footer id="footer">
     <div class="footer-container">
         <div id="footer-logo">
-            <img class="logo" src="/assets/images/buriedgames_logo.png" alt="Buried Games Logo"
-                style="height: 200px;width: 200px; object-fit: contain;">
+            <picture>
+                <source srcset="/assets/images/buriedgames_logo.webp" type="image/webp">
+                <img class="logo" src="/assets/images/buriedgames_logo.png" alt="Buried Games Logo"
+                    style="height: 200px;width: 200px; object-fit: contain;">
+            </picture>
             <h1>Buried Games Studio</h1>
             <p>&copy; 2025 Buried Games Studio. All rights reserved.</p>
         </div>
@@ -32,10 +35,14 @@
                     </ul>
                 </div>
             </div>
+
             {% include footer-socialmedia.html %}
+
             <div class="contact-actions">
-                <p><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Icon" loading="lazy">
-                    support@buriedgames.com</p>
+                <p>
+                    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email Icon" loading="lazy">
+                    support@buriedgames.com
+                </p>
                 <p>
                     <a href="https://wa.me/96555528686" target="_blank" style="color: inherit; text-decoration: none;">
                         <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp Icon"
@@ -44,6 +51,7 @@
                     </a>
                 </p>
             </div>
+
             <div class="contact-icons">
                 <p>Game development based in Kuwait 🇰🇼</p>
             </div>

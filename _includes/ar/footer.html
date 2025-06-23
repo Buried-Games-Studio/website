@@ -1,7 +1,11 @@
 <footer id="footer">
     <div class="footer-container">
         <div id="footer-logo">
-            <img class="logo" src="/assets/images/buriedgames_logo.png" alt="Buried Games Logo" style="height: 200px;">
+            <picture>
+                <source srcset="/assets/images/buriedgames_logo.webp" type="image/webp">
+                <img class="logo" src="/assets/images/buriedgames_logo.png" alt="Buried Games Logo"
+                    style="height: 200px;">
+            </picture>
             <h1>Buried Games Studio</h1>
             <p>&copy; 2025 Buried Games Studio. جميع الحقوق محفوظة.</p>
         </div>
@@ -31,11 +35,15 @@
                     </ul>
                 </div>
             </div>
+
             {% include footer-socialmedia.html %}
+
             <div class="contact-actions">
-                <p><img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="أيقونة البريد الإلكتروني"
+                <p>
+                    <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="أيقونة البريد الإلكتروني"
                         loading="lazy">
-                    support@buriedgames.com</p>
+                    support@buriedgames.com
+                </p>
                 <p>
                     <a href="https://wa.me/96555528686" target="_blank" style="color: inherit; text-decoration: none;">
                         <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="أيقونة الواتساب"
@@ -44,6 +52,7 @@
                     </a>
                 </p>
             </div>
+
             <div class="contact-icons">
                 <p>نحن نعمل في تطوير الألعاب من الكويت 🇰🇼</p>
             </div>

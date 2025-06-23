@@ -3,10 +3,10 @@ layout: default
 title: استوديو Buried Games
 description: استكشف ألعابنا مثل Power of Bombs وKoutQ8.
 custom_style:
-    - homeStyles.css
-    - games.css
-    - contactus.css
-    - youtube.css
+- homeStyles.css
+- games.css
+- contactus.css
+- youtube.css
 language: ar
 languageDirection: rtl
 ---
@@ -16,8 +16,11 @@ languageDirection: rtl
     <div class="content">
         <h1>Buried Games Studio</h1>
         <p>إحنا ما نصنع ألعاب وبس، إحنا نحييها من جديد.</p>
-        <img class="logo" src="../assets/images/buriedgames_logo.png" alt="Buried Games Logo"
-            style="height: 350px; width: 350px; object-fit: contain;">
+        <picture>
+            <source srcset="/assets/images/buriedgames_logo.webp" type="image/webp">
+            <img class="logo" src="/assets/images/buriedgames_logo.png" alt="Buried Games Logo"
+                style="height: 350px; width: 350px; object-fit: contain;">
+        </picture>
     </div>
 </header>
 
@@ -25,8 +28,11 @@ languageDirection: rtl
 <section id="about">
     <h2><span style="font-family: 'Cairo', sans-serif;">حول</span> Buried Games Studio</h2>
     <div class="about-content">
-        <img src="/assets/images/AboutUsSection.png?alt=media&token=02dc308d-9f6e-40bc-8048-e7eb76567e99"
-            alt="Buried Games Team Illustration" style="width: 300px; height: 300px;" loading="lazy">
+        <picture>
+            <source srcset="/assets/images/AboutUsSection.webp" type="image/webp">
+            <img src="/assets/images/AboutUsSection.png" alt="Buried Games Team Illustration"
+                style="width: 300px; height: 300px;" loading="lazy">
+        </picture>
         <div class="text">
             <p>
                 <strong>Buried Games Studio</strong> هو استوديو ألعاب مستقل مقره الكويت، يقوده الإبداع والتميّز التقني.
@@ -41,10 +47,17 @@ languageDirection: rtl
                     Alahmad</a> — مهندس برمجيات، ومصمم ألعاب، ورائد أعمال.
             </p>
             <div class="engine-icons">
-                <img src="/assets/images/UnrealEngineImage.png" alt="Unreal Engine Logo"
-                    style="width: 100px; height: 100px;" loading="lazy">
-                <img src="/assets/images/UnityImage.png" alt="Unity Logo" style="width: 100px; height: 100px;"
-                    loading="lazy">
+                <picture>
+                    <source srcset="/assets/images/UnrealEngineImage.webp" type="image/webp">
+                    <img src="/assets/images/UnrealEngineImage.png" alt="Unreal Engine Logo"
+                        style="width: 100px; height: 100px;" loading="lazy">
+                </picture>
+
+                <picture>
+                    <source srcset="/assets/images/UnityImage.webp" type="image/webp">
+                    <img src="/assets/images/UnityImage.png" alt="Unity Logo" style="width: 100px; height: 100px;"
+                        loading="lazy">
+                </picture>
             </div>
         </div>
     </div>
@@ -71,7 +84,7 @@ languageDirection: rtl
 {% include ar/games-section.html %}
 
 <!-- YouTube Section -->
- {% include ar/youtube-section.html %}
+{% include ar/youtube-section.html %}
 
 <!-- YouTube API Script -->
 <!-- <script src="/js/youtube.js" defer></script> -->
