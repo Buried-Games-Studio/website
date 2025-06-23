@@ -32,7 +32,8 @@ html[dir="rtl"] .contactus-section h2 {
 
 .contactus-section-cta {
     display: inline-block;
-    background-color: #e63946;
+    background-color: #c62828;
+    /* deeper red */
     color: #fff;
     padding: 14px 32px;
     font-size: 1rem;
@@ -45,7 +46,8 @@ html[dir="rtl"] .contactus-section h2 {
 }
 
 .contactus-section-cta:hover {
-    background-color: #d92f3f;
+    background-color: #b71c1c;
+    /* darker hover */
 }
 
 /* === CONTACT FORM === */
