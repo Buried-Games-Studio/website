@@ -1,0 +1,23 @@
+{
+    activitycontinuation: {
+        apps: []
+    },
+    webcredentials: {
+        apps: [
+            "FHGSRDQD43.com.gavan.koutq8"
+        ]
+    },
+    applinks: {
+        apps: [],
+        details: [
+            {
+                appID: "FHGSRDQD43.com.gavan.koutq8",
+                paths: [
+                    "NOT /e/*",
+                    "*",
+                    "/"
+                ]
+            }
+        ]
+    }
+}

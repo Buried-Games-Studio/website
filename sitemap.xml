@@ -5,85 +5,81 @@
   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
   <url>
-    <loc>https://buriedgames.com/</loc>
+    <loc>https://buriedgames.com</loc>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://buriedgames.com/en/</loc>
+    <loc>https://buriedgames.com/en</loc>
     <priority>0.90</priority>
   </url>
   <url>
-    <loc>https://buriedgames.com/ar/</loc>
+    <loc>https://buriedgames.com/ar</loc>
     <priority>0.90</priority>
   </url>
 
   <url>
-    <loc>https://buriedgames.com/en/services/</loc>
+    <loc>https://buriedgames.com/en/services</loc>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://buriedgames.com/en/contactus/</loc>
-    <priority>0.85</priority>
-  </url>
-
-  <url>
-    <loc>https://buriedgames.com/ar/services/</loc>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://buriedgames.com/ar/contactus/</loc>
+    <loc>https://buriedgames.com/en/contactus</loc>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://buriedgames.com/en/faq/</loc>
+    <loc>https://buriedgames.com/ar/services</loc>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://buriedgames.com/ar/faq/</loc>
-    <priority>0.85</priority>
-  </url>
-
-  <url>
-    <loc>https://buriedgames.com/en/games/power-of-bombs/</loc>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://buriedgames.com/en/games/koutq8/</loc>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://buriedgames.com/ar/games/power-of-bombs/</loc>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://buriedgames.com/ar/games/koutq8/</loc>
+    <loc>https://buriedgames.com/ar/contactus</loc>
     <priority>0.85</priority>
   </url>
 
   <url>
-    <loc>https://buriedgames.com/en/privacy-policy.html</loc>
+    <loc>https://buriedgames.com/en/faq</loc>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://buriedgames.com/ar/faq</loc>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://buriedgames.com/en/games/power-of-bombs</loc>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://buriedgames.com/en/games/koutq8</loc>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://buriedgames.com/ar/games/power-of-bombs</loc>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://buriedgames.com/ar/games/koutq8</loc>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://buriedgames.com/en/privacy-policy</loc>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://buriedgames.com/en/terms.html</loc>
+    <loc>https://buriedgames.com/en/terms</loc>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://buriedgames.com/ar/privacy-policy.html</loc>
+    <loc>https://buriedgames.com/ar/privacy-policy</loc>
     <priority>0.80</priority>
   </url>
   <url>
-    <loc>https://buriedgames.com/ar/terms.html</loc>
+    <loc>https://buriedgames.com/ar/terms</loc>
     <priority>0.80</priority>
   </url>
 
   <url>
-    <loc>https://buriedgames.com/en/404.html</loc>
-    <priority>0.80</priority>
-  </url>
-  <url>
-    <loc>https://buriedgames.com/ar/404.html</loc>
+    <loc>https://buriedgames.com/404</loc>
     <priority>0.80</priority>
   </url>
 

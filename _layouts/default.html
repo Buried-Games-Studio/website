@@ -53,30 +53,35 @@
     <!-- Organization Schema -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Buried Games Studio",
-      "url": "https://buriedgames.com",
-      "logo": "https://buriedgames.com/assets/images/buriedgames_logo.png",
-      "sameAs": [
-        "https://github.com/fahedalahmad",
-        "https://www.youtube.com/@buriedgames",
-        "https://twitter.com/buriedgames",
-        "https://instagram.com/buriedgames",
-        'http://linkedin.com/company/buriedgames',
-        "https://github.com/Buried-Games-Studio",
-        "https://wa.me/96555528686"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+96555528686",
-        "contactType": "Customer Service",
-        "areaServed": "KW",
-        "availableLanguage": ["English", "Arabic"]
-      }
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Buried Games Studio",
+        "foundingDate": "2018-10-01",
+        "founder": {
+            "@type": "Person",
+            "name": "Fahed Alahmad"
+        },
+        "email": "mailto:support@buriedgames.com",
+        "url": "https://buriedgames.com",
+        "logo": "https://buriedgames.com/assets/images/buriedgames_logo.png",
+        "sameAs": [
+            "https://www.youtube.com/@buriedgames",
+            "https://twitter.com/buriedgames",
+            "https://instagram.com/buriedgames",
+            "https://linkedin.com/company/buriedgames",
+            "https://github.com/Buried-Games-Studio",
+            "https://wa.me/96555528686"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+96555528686",
+            "contactType": "Customer Service",
+            "areaServed": "KW",
+            "availableLanguage": ["en", "ar"]
+        }
     }
     </script>
-    <script type="application/ld+json">
+    <!-- <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
@@ -88,7 +93,7 @@
             "query-input": "required name=search_term_string"
         }
     }
-    </script>
+    </script> -->
     {% if page.language == "en" %}
     <!-- Engllish FAQ Schema -->
     <script type="application/ld+json">
