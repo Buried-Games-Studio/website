@@ -34,3 +34,4 @@ exclude:
 
 include:
   - _pages
+  - ".well-known"
