@@ -1,6 +1,7 @@
 /* === HEADER CONTAINER === */
 .main-header {
-    background-color: #1a1a1a;
+    /* background-color: #1a1a1a; */
+    background-color: clear;
     color: #fff;
     padding: 10px 20px;
     border-bottom: 1px solid #222;

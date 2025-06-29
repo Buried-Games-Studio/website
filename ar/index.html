@@ -3,16 +3,17 @@ layout: default
 title: استوديو Buried Games
 description: استكشف ألعابنا مثل Power of Bombs وKoutQ8.
 custom_style:
-- homeStyles.css
-- games.css
-- contactus.css
-- youtube.css
+    - homeStyles.css
+    - games.css
+    - contactus.css
+    - youtube.css
+    - partners.css
 language: ar
 languageDirection: rtl
 ---
 
 <!-- Header -->
-<header class="homeHeader">
+<!-- <header class="homeHeader">
     <div class="content">
         <h1>Buried Games Studio</h1>
         <p>إحنا ما نصنع ألعاب وبس، إحنا نحييها من جديد.</p>
@@ -20,6 +21,24 @@ languageDirection: rtl
             <source srcset="/assets/images/buriedgames_logo.webp" type="image/webp">
             <img class="logo" src="/assets/images/buriedgames_logo.png" alt="Buried Games Logo"
                 style="height: 350px; width: 350px; object-fit: contain;">
+        </picture>
+    </div>
+</header> -->
+
+<!-- This is the animated particle background -->
+<div id="particles-js"></div>
+
+<!-- Your main header content -->
+<header class="homeHeader">
+    <div class="content-above-particles">
+        <div class="rellax" data-rellax-speed="-3">
+            <h1>Buried Games Studio</h1>
+            <p>إحنا ما نصنع ألعاب وبس، إحنا نحييها من جديد.</p>
+        </div>
+        <picture class="logo">
+            <source srcset="/assets/images/buriedgames_logo.webp" type="image/webp">
+            <img id="logo-img" src="/assets/images/buriedgames_logo.png" alt="Buried Games Team Illustration"
+                loading="lazy">
         </picture>
     </div>
 </header>
@@ -30,7 +49,7 @@ languageDirection: rtl
     <div class="about-content">
         <picture>
             <source srcset="/assets/images/AboutUsSection.webp" type="image/webp">
-            <img src="/assets/images/AboutUsSection.png" alt="Buried Games Team Illustration"
+            <img id="about-img-target" src="/assets/images/AboutUsSection.png" alt="Buried Games Team Illustration"
                 style="width: 300px; height: 300px;" loading="lazy">
         </picture>
         <div class="text">
@@ -63,11 +82,22 @@ languageDirection: rtl
     </div>
 </section>
 
+<div class="fog-divider"></div>
+
+<!-- Partners -->
+{% include ar/partners.html %}
+
+<div class="fog-divider"></div>
+
 <!-- How We Work Section -->
 {% include ar/how-it-works-section.html %}
 
+<div class="fog-divider"></div>
+
 <!-- Contact us -->
 {% include ar/contactus-section.html %}
+
+<div class="fog-divider"></div>
 
 <!-- Services -->
 <section class="cta-services" dir="rtl">
@@ -80,8 +110,12 @@ languageDirection: rtl
     </div>
 </section>
 
+<div class="fog-divider"></div>
+
 <!-- Games -->
 {% include ar/games-section.html %}
+
+<div class="fog-divider"></div>
 
 <!-- YouTube Section -->
 {% include ar/youtube-section.html %}
@@ -113,4 +147,70 @@ languageDirection: rtl
         observer.observe(youtubeSection);
         observer.observe(footer);
     });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        new Rellax('.rellax');
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@3.1.0/tsparticles.bundle.min.js"></script>
+<script>
+    tsParticles
+        .load({
+            id: "particles-js",
+            options: {
+                fullScreen: { enable: false },
+                background: {
+                    color: "#0a0a0a"
+                },
+                particles: {
+                    number: {
+                        value: 100,
+                        density: { enable: true, area: 900 }
+                    },
+                    color: {
+                        value: ["#e60000", "#4b4b4b", "#999999", "#2b2b2b"]
+                    },
+                    shape: {
+                        type: "circle"
+                    },
+                    size: {
+                        value: { min: 0.5, max: 2 },
+                        animation: {
+                            enable: true,
+                            speed: 1,
+                            minimumValue: 0.3
+                        }
+                    },
+                    opacity: {
+                        value: { min: 0.3, max: 0.6 },
+                        animation: {
+                            enable: true,
+                            speed: 1,
+                            minimumValue: 0.2
+                        }
+                    },
+                    move: {
+                        enable: true,
+                        speed: { min: 0.5, max: 1.5 },
+                        direction: "top",
+                        outModes: "out",
+                        straight: false,
+                        random: true
+                    },
+                    shadow: {
+                        enable: true,
+                        blur: 3,
+                        color: "#000000"
+                    }
+                },
+                detectRetina: true
+            }
+        }).then(() => {
+            console.log("✅ Particle config loaded successfully.");
+        }).catch(err => {
+            console.error("❌ Particle config failed to load:", err);
+        });
 </script>

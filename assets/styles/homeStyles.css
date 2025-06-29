@@ -1,7 +1,7 @@
 /* Header Styles */
 .homeHeader {
-    background-image: image-set(url("../images/buriedgames_bg_no_text.webp") type("image/webp"),
-            url("../images/buriedgames_bg_no_text.png") type("image/png"));
+    /* background-image: image-set(url("../images/buriedgames_bg_no_text.webp") type("image/webp"),
+            url("../images/buriedgames_bg_no_text.png") type("image/png")); */
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -9,17 +9,40 @@
     padding: 60px 20px;
 }
 
-@supports (background-image: url("../images/buriedgames_bg_no_text.webp")) {
+/* @supports (background-image: url("../images/buriedgames_bg_no_text.webp")) {
     .homeHeader {
         background-image: url("../images/buriedgames_bg_no_text.webp");
     }
-}
+} */
 
 .homeHeader h1 {
-    font-size: 8.0em;
+    font-size: 8em;
     margin-bottom: 10px;
-    color: white;
     font-family: 'Afolkalips', sans-serif;
+    background: linear-gradient(90deg,
+            #ffffff 0%,
+            #ffffff 35%,
+            #ff0000 50%,
+            #ffffff 65%,
+            #ffffff 100%);
+    background-size: 200% auto;
+    /* slightly narrower to avoid gaps */
+    background-position: 0% center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    animation: redSweep 5s linear infinite;
+}
+
+@keyframes redSweep {
+    0% {
+        background-position: -100% center;
+    }
+
+    100% {
+        background-position: 100% center;
+    }
 }
 
 .homeHeader p {
@@ -37,18 +60,21 @@ html[dir="rtl"] .homeHeader p {
 }
 
 .homeHeader .logo {
-    width: 300px;
-    margin: 0 auto;
+    width: 500px;
+    align-content: center;
+    align-items: center;
+    margin: auto;
     display: block;
 }
 
 @media (max-width: 480px) {
     .homeHeader h1 {
-        font-size: 2em;
+        font-size: 5em;
     }
 
     .homeHeader .logo {
-        width: 150px;
+        width: 200px;
+        margin: initial;
     }
 }
 
@@ -56,7 +82,7 @@ html[dir="rtl"] .homeHeader p {
 /* About Section Styles */
 #about {
     padding: 80px 20px;
-    background-color: #1a1a1a;
+    /* background-color: #1a1a1a; */
     text-align: center;
     opacity: 0;
     transform: translateY(40px);
@@ -164,7 +190,7 @@ html[dir="rtl"] .about-content .text {
 /* How We Work Section Styles */
 #how-we-work {
     padding: 80px 20px;
-    background-color: #111111;
+    /* background-color: #111111; */
     text-align: center;
     opacity: 0;
     transform: translateY(40px);
@@ -250,7 +276,7 @@ html[dir="rtl"] .workflow-step p {
 }
 
 .cta-services {
-    background: #1a1a1a;
+    /* background: #1a1a1a; */
     color: #fff;
     padding: 80px 20px;
     text-align: center;
@@ -327,7 +353,7 @@ html[dir="rtl"] .cta-services h2 {
 #youtube {
     padding-top: 24px;
     padding-bottom: 24px;
-    background: #000000;
+    /* background: #000000; */
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 1s ease-out, transform 1s ease-out;
@@ -400,8 +426,8 @@ html[dir="rtl"] #youtube p {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background: #ff0000;
-    color: #fff;
+    background: white;
+    color: #cc0000;
     padding: 12px 24px;
     border-radius: 50px;
     text-decoration: none;
@@ -420,8 +446,6 @@ html[dir="rtl"] .subscribe-button a {
 }
 
 .subscribe-button a:hover {
-    background: white;
-    color: #cc0000;
     transform: scale(1.05);
 }
 
@@ -441,4 +465,20 @@ html[dir="rtl"] .subscribe-button a {
     50% {
         transform: scale(1.03);
     }
+}
+
+/* Particle container fills the background and stays behind */
+#particles-js {
+    position: fixed;
+    /* <-- THIS is critical */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.content-above-particles {
+    position: relative;
+    z-index: 2;
 }

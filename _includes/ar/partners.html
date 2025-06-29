@@ -1,0 +1,22 @@
+<section class="partners-section" id="partners">
+    <h2>شركاؤنا</h2>
+    <div class="partners-logos">
+        <a href="https://gavan-tech.com/ar" target="_blank">
+            <img src="/assets/images/gavan.png" alt="Gavan Tech" />
+        </a>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        gsap.to(".partners-section", {
+            backgroundPositionY: "-100px",
+            scrollTrigger: {
+                trigger: ".partners-section",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true
+            }
+        });
+    });
+</script>

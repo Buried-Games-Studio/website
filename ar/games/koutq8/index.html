@@ -3,8 +3,9 @@ layout: default
 title: كوت الكويت – استوديو Buried Games
 description: العب كوت بو ٤ وبو ٦ أونلاين أو بدون إنترنت مع ذكاء اصطناعي ذكي. KoutQ8 تقدم لك لعبة الكوت الكويتية على هاتفك. اجمع الألماس وتحدَّ أصدقاءك!
 custom_style:
-- koutq8.css
-- contactus.css
+    - koutq8.css
+    - contactus.css
+    - partners.css
 language: ar
 languageDirection: rtl
 ---
@@ -87,9 +88,11 @@ languageDirection: rtl
     </div>
 </div>
 
+<!-- Partners -->
+{% include ar/partners.html %}
+
 <!-- Contact us -->
 {% include ar/contactus-section.html %}
-
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {

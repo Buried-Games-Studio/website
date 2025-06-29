@@ -1,7 +1,7 @@
 /* contactus section */
 
 .contactus-section {
-    background-color: #0f0f0f;
+    /* background-color: #0f0f0f; */
     color: #fff;
     padding: 100px 20px;
     text-align: center;
@@ -46,8 +46,8 @@ html[dir="rtl"] .contactus-section h2 {
 }
 
 .contactus-section-cta:hover {
-    background-color: #b71c1c;
-    /* darker hover */
+    background-color: white;
+    color: #b71c1c;
 }
 
 /* === CONTACT FORM === */
