@@ -4,8 +4,8 @@
 import { useLanguage } from "@/contexts/language-context";
 import { Card, CardContent } from "@/components/ui/card";
 import { ContactForm } from "@/components/contact-form";
-import WhatsappIcon from "@/components/icons/whatsapp";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ContactUsPage() {
   const { language } = useLanguage();
@@ -45,10 +45,10 @@ export default function ContactUsPage() {
         href="https://wa.me/96555528686"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:bg-[#128C7E] transition-all duration-300 animate-bounce"
+        className="fixed bottom-8 right-8 z-50 rounded-full shadow-lg hover:scale-110 transition-all duration-300 animate-bounce"
         aria-label="Chat on WhatsApp"
       >
-        <WhatsappIcon className="w-8 h-8" />
+        <Image src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="Chat on WhatsApp" width={64} height={64} />
       </Link>
     </main>
   );

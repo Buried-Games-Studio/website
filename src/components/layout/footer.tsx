@@ -15,7 +15,6 @@ import {
 } from 'lucide-react';
 import TikTokIcon from '../icons/tiktok';
 import DiscordIcon from '../icons/discord';
-import WhatsappIcon from '../icons/whatsapp';
 import logoImage from '@/components/images/buriedgames_logo.png';
 import { cn } from '@/lib/utils';
 
@@ -24,7 +23,7 @@ const socialLinks = [
   { href: "https://instagram.com/buriedgames", icon: Instagram, label: "Instagram" },
   { href: "https://tiktok.com/@buriedgames", icon: TikTokIcon, label: "TikTok" },
   { href: "https://facebook.com/@BuriedGamesStudio", icon: Facebook, label: "Facebook" },
-  { href: "https://wa.me/96555528686", icon: WhatsappIcon, label: "WhatsApp" },
+  { href: "https://wa.me/96555528686", icon: "whatsapp", label: "WhatsApp" },
   { href: "https://discord.com/invite/v9FWtuyKQn", icon: DiscordIcon, label: "Discord" },
   { href: "https://twitch.tv/buriedgamesofficial", icon: Twitch, label: "Twitch" },
   { href: "http://linkedin.com/company/buriedgames", icon: Linkedin, label: "LinkedIn" },
@@ -127,7 +126,7 @@ const Footer = () => {
                     support@buriedgames.com
                 </p>
                 <a href="https://wa.me/96555528686" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm hover:text-accent transition-colors">
-                    <WhatsappIcon className="w-4 h-4 text-accent" />
+                    <Image src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp" width={16} height={16} />
                     +965 55528686
                 </a>
              </div>
@@ -136,18 +135,25 @@ const Footer = () => {
         </div>
 
         <div className="mt-8 pt-8 border-t border-border/40 flex justify-center items-center gap-4">
-            {socialLinks.map(social => (
-                <a 
-                    key={social.href}
-                    href={social.href} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    className="text-muted-foreground hover:text-accent transition-colors"
-                >
-                   <social.icon className="h-6 w-6" />
-                </a>
-            ))}
+            {socialLinks.map(social => {
+                const Icon = social.icon as React.ElementType;
+                return (
+                    <a 
+                        key={social.href}
+                        href={social.href} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        aria-label={social.label}
+                        className="text-muted-foreground hover:text-accent transition-colors"
+                    >
+                       {social.icon === 'whatsapp' ? (
+                         <Image src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt={social.label} width={24} height={24} />
+                       ) : (
+                         <Icon className="h-6 w-6" />
+                       )}
+                    </a>
+                )
+            })}
         </div>
       </div>
     </footer>
