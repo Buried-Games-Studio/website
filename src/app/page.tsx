@@ -45,7 +45,7 @@ export default function Home() {
            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background"></div>
           <div className="relative z-10">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl font-headline text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400">
-              Buried Games HQ
+              Buried Games Studio
             </h1>
             <p className="max-w-[700px] text-muted-foreground md:text-xl mt-4">
               {t_ui.hero_subtitle}

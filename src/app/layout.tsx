@@ -6,7 +6,7 @@ import Footer from '@/components/layout/footer';
 import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
-  title: 'Buried Games HQ',
+  title: 'Buried Games Studio',
   description: 'The official website for Buried Games studio.',
 };
 

@@ -30,7 +30,7 @@ const Header = () => {
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <LogoIcon className="h-6 w-6" />
           <span className="hidden font-bold sm:inline-block font-headline">
-            Buried Games HQ
+            Buried Games Studio
           </span>
         </Link>
         <nav className="flex items-center gap-4 text-sm lg:gap-6 flex-1">
