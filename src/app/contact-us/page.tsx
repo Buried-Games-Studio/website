@@ -34,7 +34,7 @@ export default function ContactUsPage() {
         <div className="mt-16 max-w-xl mx-auto">
             <Card>
               <CardContent className="p-6">
-                <h2 className="text-2xl font-bold mb-4 font-headline text-center">{t_ui.form_title}</h2>
+                <h2 className="text-2xl font-bold mb-4 font-headline text-center tracking-wide" style={{ letterSpacing: '0.05em' }}>{t_ui.form_title}</h2>
                 <ContactForm />
               </CardContent>
             </Card>
