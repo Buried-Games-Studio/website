@@ -14,10 +14,42 @@ import {
 import { GameCard } from "@/components/game-card";
 import { CheckCircle2 } from 'lucide-react';
 import Image from "next/image";
+import { useState, useEffect } from "react";
+import logoImage from '@/components/images/buriedgames_logo.png';
 
 export default function Home() {
   const { language } = useLanguage();
   const t = getTranslation(language);
+
+  const [logoStyle, setLogoStyle] = useState<React.CSSProperties>({});
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      
+      // Start fading out when the user has scrolled about half the viewport height
+      const startFadeOutScroll = window.innerHeight * 0.5;
+      const endFadeOutScroll = window.innerHeight * 0.8;
+      
+      let opacity = 1;
+      if (scrollY > startFadeOutScroll) {
+        // Calculate opacity based on scroll progress in the fade-out range
+        const fadeOutProgress = (scrollY - startFadeOutScroll) / (endFadeOutScroll - startFadeOutScroll);
+        opacity = Math.max(0, 1 - fadeOutProgress);
+      }
+
+      setLogoStyle({
+        // Move the logo down at half the scroll speed for a parallax effect
+        transform: `translateY(${scrollY * 0.5}px)`,
+        opacity: opacity
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Cleanup the event listener on component unmount
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const t_ui = {
     en: {
@@ -41,6 +73,20 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
+        
+        <div 
+          style={logoStyle}
+          className="fixed top-[38vh] left-1/2 -translate-x-1/2 w-32 h-32 z-10 pointer-events-none"
+        >
+          <Image 
+            src={logoImage} 
+            alt="Buried Games Logo" 
+            width={128}
+            height={128}
+            priority
+          />
+        </div>
+
         {/* Hero Section */}
         <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center text-center px-4">
           <div className="absolute inset-0 bg-grid-white/[0.05] [mask-image:linear-gradient(to_bottom,white_5%,transparent_90%)]"></div>
@@ -52,11 +98,6 @@ export default function Home() {
             <p className="max-w-[700px] text-muted-foreground md:text-xl mt-4">
               {t_ui.hero_subtitle}
             </p>
-            <div className="mt-6">
-              <a href="#games">
-                <Button size="lg">{t_ui.hero_cta}</Button>
-              </a>
-            </div>
           </div>
         </section>
 
