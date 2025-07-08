@@ -1,26 +1,141 @@
+
 "use client";
-import { Youtube } from 'lucide-react';
 import Link from 'next/link';
-import LogoIcon from '../icons/logo';
+import Image from 'next/image';
+import { useLanguage } from '@/contexts/language-context';
+import { getTranslation } from '@/lib/content';
+import {
+  Youtube,
+  Instagram,
+  Facebook,
+  Twitch,
+  Linkedin,
+  Github,
+  Mail,
+  Smartphone,
+} from 'lucide-react';
+import TikTokIcon from '../icons/tiktok';
+import DiscordIcon from '../icons/discord';
+
+const socialLinks = [
+  { href: "https://youtube.com/@BuriedGamesStudio?sub_confirmation=1", icon: Youtube, label: "YouTube" },
+  { href: "https://instagram.com/buriedgames", icon: Instagram, label: "Instagram" },
+  { href: "https://tiktok.com/@buriedgames", icon: TikTokIcon, label: "TikTok" },
+  { href: "https://facebook.com/@BuriedGamesStudio", icon: Facebook, label: "Facebook" },
+  { href: "https://discord.com/invite/v9FWtuyKQn", icon: DiscordIcon, label: "Discord" },
+  { href: "https://twitch.tv/buriedgamesofficial", icon: Twitch, label: "Twitch" },
+  { href: "http://linkedin.com/company/buriedgames", icon: Linkedin, label: "LinkedIn" },
+  { href: "https://github.com/Buried-Games-Studio", icon: Github, label: "GitHub" },
+];
 
 const Footer = () => {
+  const { language, toggleLanguage } = useLanguage();
+  const t = getTranslation(language);
   const currentYear = new Date().getFullYear();
 
+  const t_ui = {
+    en: {
+      studio_name: 'Buried Games Studio',
+      rights: `© ${currentYear} Buried Games Studio. All rights reserved.`,
+      games: 'Games',
+      sitemap: 'Site Map',
+      services: 'Services',
+      privacy: 'Privacy Policy',
+      terms: 'Terms of Use',
+      additional_links: 'Additional links',
+      contact: 'Contact Us',
+      faq: 'FAQs',
+      language_toggle: 'العربية',
+      based_in: 'Game development based in Kuwait 🇰🇼',
+    },
+    ar: {
+      studio_name: 'استوديو بريد جيمز',
+      rights: `© ${currentYear} استوديو بريد جيمز. كل الحقوق محفوظة.`,
+      games: 'الألعاب',
+      sitemap: 'خريطة الموقع',
+      services: 'الخدمات',
+      privacy: 'سياسة الخصوصية',
+      terms: 'شروط الاستخدام',
+      additional_links: 'روابط إضافية',
+      contact: 'اتصل بنا',
+      faq: 'الأسئلة الشائعة',
+      language_toggle: 'English',
+      based_in: 'تطوير ألعاب مقره في الكويت 🇰🇼',
+    },
+  }[language];
+
   return (
-    <footer className="border-t border-border/40">
-      <div className="container flex flex-col items-center justify-between gap-4 py-10 md:h-24 md:flex-row md:py-0">
-        <div className="flex flex-col items-center gap-4 px-8 md:flex-row md:gap-2 md:px-0">
-          <LogoIcon className="h-6 w-6" />
-          <p className="text-center text-sm leading-loose text-muted-foreground md:text-left">
-            &copy; {currentYear} Buried Games HQ. All rights reserved.
-          </p>
+    <footer className="border-t border-border/40 bg-card text-card-foreground">
+      <div className="container mx-auto py-12 px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
+          <div className="lg:col-span-3 flex flex-col items-center md:items-start text-center md:text-left">
+             <Image 
+                src="https://placehold.co/200x200.png"
+                alt="Buried Games Logo"
+                width={150}
+                height={150}
+                className="object-contain mb-4"
+                data-ai-hint="logo gaming"
+             />
+            <h1 className="text-xl font-bold font-headline">{t_ui.studio_name}</h1>
+            <p className="text-sm text-muted-foreground mt-2">{t_ui.rights}</p>
+          </div>
+
+          <div className="lg:col-span-6 grid grid-cols-2 sm:grid-cols-3 gap-8">
+            <div>
+              <h2 className="font-semibold mb-3">{t_ui.games}</h2>
+              <ul className="space-y-2">
+                {t.games.map(game => (
+                  <li key={game.id}><Link href="/#games" className="text-sm text-muted-foreground hover:text-primary transition-colors">{game.title}</Link></li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h2 className="font-semibold mb-3">{t_ui.sitemap}</h2>
+              <ul className="space-y-2">
+                <li><Link href="/#services" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t_ui.services}</Link></li>
+                <li><Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t_ui.privacy}</Link></li>
+                <li><Link href="/terms-of-use" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t_ui.terms}</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h2 className="font-semibold mb-3">{t_ui.additional_links}</h2>
+              <ul className="space-y-2">
+                <li><Link href="/#contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t_ui.contact}</Link></li>
+                <li><Link href="/#faq" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t_ui.faq}</Link></li>
+                <li><button onClick={toggleLanguage} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t_ui.language_toggle}</button></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="lg:col-span-3 flex flex-col gap-4">
+             <div className="space-y-2">
+                 <p className="flex items-center gap-2 text-sm">
+                    <Mail className="w-4 h-4 text-primary" />
+                    support@buriedgames.com
+                </p>
+                <a href="https://wa.me/96555528686" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm hover:text-primary transition-colors">
+                    <Smartphone className="w-4 h-4 text-primary" />
+                    +965 55528686
+                </a>
+             </div>
+             <p className="text-sm text-muted-foreground">{t_ui.based_in}</p>
+          </div>
         </div>
-        <div className="flex items-center space-x-2">
-            <Link href="https://youtube.com" target="_blank" rel="noopener noreferrer">
-                <div className="h-9 w-9 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground">
-                    <Youtube className="h-5 w-5" />
-                </div>
-            </Link>
+
+        <div className="mt-8 pt-8 border-t border-border/40 flex justify-center items-center gap-4">
+            {socialLinks.map(social => (
+                <a 
+                    key={social.href}
+                    href={social.href} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                >
+                   <social.icon className="h-6 w-6" />
+                </a>
+            ))}
         </div>
       </div>
     </footer>
