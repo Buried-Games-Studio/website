@@ -8,6 +8,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useLanguage } from "@/contexts/language-context";
 
 const initialState = {
@@ -50,29 +57,76 @@ export function ContactForm() {
     }
   }, [state, toast, language]);
 
-  const t = {
-    en: { name: "Name", email: "Email", message: "Message", namePlaceholder: "Your Name", emailPlaceholder: "your.email@example.com", messagePlaceholder: "Your message..." },
-    ar: { name: "الاسم", email: "البريد الإلكتروني", message: "الرسالة", namePlaceholder: "اسمك", emailPlaceholder: "your.email@example.com", messagePlaceholder: "رسالتك..." }
-  }[language];
+    const t = {
+        en: {
+            name: "Name",
+            email: "Email",
+            message: "Message",
+            inquiryType: "Reason for Contact",
+            inquiryTypePlaceholder: "Select a reason...",
+            inquiryOptions: {
+                general: "General Inquiry",
+                collaboration: "Collaboration & Partnership",
+                publishing: "Game Publishing",
+                support: "Technical Support",
+                press: "Press & Media",
+            },
+            namePlaceholder: "Your Name",
+            emailPlaceholder: "your.email@example.com",
+            messagePlaceholder: "Your message..."
+        },
+        ar: {
+            name: "الاسم",
+            email: "البريد الإلكتروني",
+            message: "الرسالة",
+            inquiryType: "سبب التواصل",
+            inquiryTypePlaceholder: "اختر سبباً...",
+            inquiryOptions: {
+                general: "استفسار عام",
+                collaboration: "تعاون وشراكة",
+                publishing: "نشر الألعاب",
+                support: "دعم فني",
+                press: "صحافة وإعلام",
+            },
+            namePlaceholder: "اسمك",
+            emailPlaceholder: "your.email@example.com",
+            messagePlaceholder: "رسالتك..."
+        }
+    }[language];
 
 
   return (
     <form ref={formRef} action={formAction} className="space-y-4">
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div className="space-y-2">
-          <Label htmlFor="name">{t.name}</Label>
-          <Input id="name" name="name" type="text" placeholder={t.namePlaceholder} required />
+            <Label htmlFor="inquiryType">{t.inquiryType}</Label>
+            <Select name="inquiryType" required>
+                <SelectTrigger id="inquiryType">
+                    <SelectValue placeholder={t.inquiryTypePlaceholder} />
+                </SelectTrigger>
+                <SelectContent>
+                    <SelectItem value="general">{t.inquiryOptions.general}</SelectItem>
+                    <SelectItem value="collaboration">{t.inquiryOptions.collaboration}</SelectItem>
+                    <SelectItem value="publishing">{t.inquiryOptions.publishing}</SelectItem>
+                    <SelectItem value="support">{t.inquiryOptions.support}</SelectItem>
+                    <SelectItem value="press">{t.inquiryOptions.press}</SelectItem>
+                </SelectContent>
+            </Select>
+        </div>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="space-y-2">
+                <Label htmlFor="name">{t.name}</Label>
+                <Input id="name" name="name" type="text" placeholder={t.namePlaceholder} required />
+            </div>
+            <div className="space-y-2">
+                <Label htmlFor="email">{t.email}</Label>
+                <Input id="email" name="email" type="email" placeholder={t.emailPlaceholder} required />
+            </div>
         </div>
         <div className="space-y-2">
-          <Label htmlFor="email">{t.email}</Label>
-          <Input id="email" name="email" type="email" placeholder={t.emailPlaceholder} required />
+            <Label htmlFor="message">{t.message}</Label>
+            <Textarea id="message" name="message" placeholder={t.messagePlaceholder} className="min-h-[120px]" required />
         </div>
-      </div>
-      <div className="space-y-2">
-        <Label htmlFor="message">{t.message}</Label>
-        <Textarea id="message" name="message" placeholder={t.messagePlaceholder} className="min-h-[120px]" required />
-      </div>
-      <SubmitButton />
+        <SubmitButton />
     </form>
   );
 }

@@ -8,6 +8,10 @@ import type { SummarizeYoutubeDevlogInput } from "@/ai/flows/summarize-youtube-d
 const contactSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email address." }),
+  inquiryType: z.enum(
+      ["general", "collaboration", "publishing", "support", "press"], 
+      { message: "Please select a valid inquiry type." }
+  ),
   message: z.string().min(10, { message: "Message must be at least 10 characters." }),
 });
 
@@ -16,6 +20,7 @@ type ContactFormState = {
   errors?: {
     name?: string[];
     email?: string[];
+    inquiryType?: string[];
     message?: string[];
   };
   success: boolean;
@@ -28,6 +33,7 @@ export async function submitContactForm(
   const validatedFields = contactSchema.safeParse({
     name: formData.get("name"),
     email: formData.get("email"),
+    inquiryType: formData.get("inquiryType"),
     message: formData.get("message"),
   });
 
