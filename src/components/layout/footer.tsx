@@ -80,7 +80,7 @@ const Footer = () => {
                 height={200}
                 className="object-contain mb-4"
              />
-            <h1 className="text-lg tracking-wide font-headline">{t_ui.studio_name}</h1>
+            <h1 className="text-lg tracking-wide font-headline" style={{ letterSpacing: '0.1em' }}>{t_ui.studio_name}</h1>
             <p className="text-sm text-muted-foreground mt-2">{t_ui.rights}</p>
           </div>
 
@@ -105,7 +105,7 @@ const Footer = () => {
             <div>
               <h2 className="font-semibold mb-3">{t_ui.additional_links}</h2>
               <ul className="space-y-2">
-                <li><Link href="/#contact" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.contact}</Link></li>
+                <li><Link href="/contact-us" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.contact}</Link></li>
                 <li><Link href="/#faq" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.faq}</Link></li>
                 <li>
                   <button onClick={toggleLanguage} className={cn(

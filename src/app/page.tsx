@@ -1,16 +1,16 @@
+
 "use client";
 
+import Link from "next/link";
 import { useLanguage } from "@/contexts/language-context";
 import { getTranslation } from "@/lib/content";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ContactForm } from "@/components/contact-form";
 import { GameCard } from "@/components/game-card";
 import { CheckCircle2 } from 'lucide-react';
 import Image from "next/image";
@@ -25,14 +25,16 @@ export default function Home() {
       hero_cta: "Explore Games",
       view_details: "View Details",
       contact_title: "Get In Touch",
-      contact_subtitle: "Have a question or a project in mind? We'd love to hear from you."
+      contact_subtitle: "Have a question or a project in mind? We'd love to hear from you.",
+      contact_cta: "Contact Us Now",
     },
     ar: {
       hero_subtitle: "نصنع العوالم، لعبة تلو الأخرى.",
       hero_cta: "استكشف الألعاب",
       view_details: "عرض التفاصيل",
       contact_title: "تواصل معنا",
-      contact_subtitle: "هل لديك سؤال أو مشروع في ذهنك؟ نود أن نسمع منك."
+      contact_subtitle: "هل لديك سؤال أو مشروع في ذهنك؟ نود أن نسمع منك.",
+      contact_cta: "تواصل معنا الآن",
     }
   }[language];
 
@@ -44,7 +46,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-grid-white/[0.05] [mask-image:linear-gradient(to_bottom,white_5%,transparent_90%)]"></div>
            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background"></div>
           <div className="relative z-10">
-            <h1 className="text-5xl tracking-wider sm:text-6xl md:text-7xl lg:text-8xl font-headline text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400">
+            <h1 className="text-5xl tracking-wider sm:text-6xl md:text-7xl lg:text-8xl font-headline text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 !leading-tight" style={{ letterSpacing: '0.1em' }}>
               Buried Games Studio
             </h1>
             <p className="max-w-[700px] text-muted-foreground md:text-xl mt-4">
@@ -62,7 +64,7 @@ export default function Home() {
         <section id="about" className="container">
            <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline">{t.about.title}</h2>
+              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t.about.title}</h2>
               <p className="mt-4 text-muted-foreground">{t.about.p1}</p>
               <p className="mt-4 text-muted-foreground">{t.about.p2}</p>
             </div>
@@ -76,7 +78,7 @@ export default function Home() {
         <section id="services" className="bg-card">
           <div className="container">
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline">{t.services.title}</h2>
+              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t.services.title}</h2>
             </div>
             <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
               {t.services.items.map((service, index) => (
@@ -96,7 +98,7 @@ export default function Home() {
         {/* Games Section */}
         <section id="games" className="container">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline">
+            <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>
               {language === 'en' ? 'Our Games' : 'ألعابنا'}
             </h2>
           </div>
@@ -111,7 +113,7 @@ export default function Home() {
         <section id="faq" className="bg-card">
           <div className="container">
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline">{t.faq.title}</h2>
+              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t.faq.title}</h2>
             </div>
             <div className="mt-12 max-w-3xl mx-auto">
               <Accordion type="single" collapsible className="w-full">
@@ -129,15 +131,13 @@ export default function Home() {
         {/* Contact Section */}
         <section id="contact" className="container">
            <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline">{t_ui.contact_title}</h2>
+            <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t_ui.contact_title}</h2>
              <p className="mt-4 text-muted-foreground">{t_ui.contact_subtitle}</p>
-          </div>
-          <div className="mt-12 max-w-2xl mx-auto">
-            <Card>
-              <CardContent className="p-6">
-                <ContactForm />
-              </CardContent>
-            </Card>
+             <div className="mt-8">
+                <Button asChild size="lg">
+                    <Link href="/contact-us">{t_ui.contact_cta}</Link>
+                </Button>
+             </div>
           </div>
         </section>
       </main>

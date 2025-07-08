@@ -1,3 +1,4 @@
+
 import { type MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -14,6 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/release-notes`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+     {
+      url: `${baseUrl}/contact-us`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
       priority: 0.8,
     },
     {
