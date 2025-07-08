@@ -1,6 +1,7 @@
 "use server";
 
 import { z } from "zod";
+import * as brevo from '@getbrevo/brevo';
 import { summarizeYoutubeDevlog } from "@/ai/flows/summarize-youtube-devlog";
 import type { SummarizeYoutubeDevlogInput } from "@/ai/flows/summarize-youtube-devlog";
 
@@ -22,6 +23,7 @@ type ContactFormState = {
     email?: string[];
     inquiryType?: string[];
     message?: string[];
+    _form?: string[];
   };
   success: boolean;
 };
@@ -45,10 +47,46 @@ export async function submitContactForm(
     };
   }
 
-  // Simulate sending an email
-  console.log("New contact form submission:", validatedFields.data);
+  if (!process.env.BREVO_API_KEY || !process.env.BREVO_SENDER_EMAIL || !process.env.BREVO_RECEIVER_EMAIL) {
+    console.error("Brevo environment variables are not set.");
+    return {
+        message: "Server configuration error.",
+        errors: { _form: ["The email service is not configured. Please contact support directly."] },
+        success: false,
+    };
+  }
 
-  return { message: "Your message has been sent successfully!", success: true };
+  try {
+    const { name, email, inquiryType, message } = validatedFields.data;
+    const apiInstance = new brevo.TransactionalEmailsApi();
+    apiInstance.setApiKey(brevo.TransactionalEmailsApiApiKeys.apiKey, process.env.BREVO_API_KEY);
+    
+    const sendSmtpEmail = new brevo.SendSmtpEmail();
+    
+    sendSmtpEmail.subject = `New Contact Form Submission - ${inquiryType}`;
+    sendSmtpEmail.htmlContent = `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Inquiry Type:</strong> ${inquiryType}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+    `;
+    sendSmtpEmail.sender = { name: "Buried Games Contact Form", email: process.env.BREVO_SENDER_EMAIL };
+    sendSmtpEmail.to = [{ email: process.env.BREVO_RECEIVER_EMAIL, name: "Buried Games Studio" }];
+    sendSmtpEmail.replyTo = { email: email, name: name };
+
+    await apiInstance.sendTransacEmail(sendSmtpEmail);
+    
+    return { message: "Your message has been sent successfully!", success: true };
+  } catch (error) {
+    console.error("Brevo API Error:", error);
+    return {
+        message: "Failed to send message.",
+        errors: { _form: ["An unexpected error occurred while sending your message. Please try again later."] },
+        success: false,
+    };
+  }
 }
 
 // Summarizer
