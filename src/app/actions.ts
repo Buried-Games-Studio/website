@@ -69,24 +69,18 @@ export async function submitContactForm(
 
     const apiInstance = new brevo.TransactionalEmailsApi();
     
-    // 1. Send notification email to the studio
+    // 1. Send notification email to the studio using template 5
     const notificationEmail = new brevo.SendSmtpEmail();
-    notificationEmail.subject = `New Contact Form Submission - ${inquiryType}`;
-    notificationEmail.htmlContent = `
-        <html>
-          <body>
-            <h2>New Contact Form Submission</h2>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Inquiry Type:</strong> ${inquiryType}</p>
-            <p><strong>Message:</strong></p>
-            <p>${message}</p>
-          </body>
-        </html>
-    `;
-    notificationEmail.sender = { name: "Buried Games Contact Form", email: process.env.BREVO_SENDER_EMAIL as string };
     notificationEmail.to = [{ email: process.env.BREVO_RECEIVER_EMAIL as string, name: "Buried Games Studio" }];
+    notificationEmail.sender = { name: "Buried Games Contact Form", email: process.env.BREVO_SENDER_EMAIL as string };
     notificationEmail.replyTo = { email: email, name: name };
+    notificationEmail.templateId = 5;
+    notificationEmail.params = {
+        name,
+        email,
+        reason: inquiryType,
+        message,
+    };
     await apiInstance.sendTransacEmail(notificationEmail);
     
     // 2. Send confirmation email to the user
