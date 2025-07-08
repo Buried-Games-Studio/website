@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from 'next/image';
 import { useLanguage } from "@/contexts/language-context";
-import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import logoImage from '@/components/images/buriedgames_logo.png';
 import {
@@ -50,7 +49,7 @@ const Header = () => {
             if (link.label === "Games" || link.label === "الألعاب") {
               return (
                 <DropdownMenu key={link.href}>
-                  <DropdownMenuTrigger className="flex items-center gap-1 transition-colors hover:text-foreground/80 text-foreground/60 outline-none data-[state=open]:text-foreground/80">
+                  <DropdownMenuTrigger className="flex items-center gap-1 transition-colors hover:text-accent text-foreground/60 outline-none data-[state=open]:text-accent">
                     {link.label}
                     <ChevronDown className="h-4 w-4" />
                   </DropdownMenuTrigger>
@@ -68,7 +67,7 @@ const Header = () => {
               <Link
                 key={link.href}
                 href={link.href}
-                className="transition-colors hover:text-foreground/80 text-foreground/60"
+                className="transition-colors hover:text-accent text-foreground/60"
               >
                 {link.label}
               </Link>
@@ -76,14 +75,16 @@ const Header = () => {
           })}
         </nav>
         <div className="flex items-center justify-end space-x-2">
-          <Button 
-            variant="ghost"
+          <button
             onClick={toggleLanguage} 
             aria-label="Toggle language"
-            className={cn(language === 'en' ? 'font-arabic' : 'font-body')}
+            className={cn(
+              "text-sm transition-colors hover:text-accent text-foreground/60",
+              language === 'en' ? 'font-arabic' : 'font-body'
+            )}
           >
             {langToggleText}
-          </Button>
+          </button>
         </div>
       </div>
     </header>
