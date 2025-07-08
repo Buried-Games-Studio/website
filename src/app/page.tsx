@@ -14,7 +14,7 @@ import {
 import { GameCard } from "@/components/game-card";
 import { CheckCircle2 } from 'lucide-react';
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import logoImage from '@/components/images/buriedgames_logo.png';
 
 export default function Home() {
@@ -22,39 +22,78 @@ export default function Home() {
   const t = getTranslation(language);
 
   const [logoStyle, setLogoStyle] = useState<React.CSSProperties>({});
+  const aboutImageContainerRef = useRef<HTMLDivElement>(null);
+  const animationData = useRef({
+    isInitialized: false,
+    initial: { x: 0, y: 0, scale: 1 },
+    final: { x: 0, y: 0, scale: 1 },
+    animationEnd: 0,
+  });
 
   useEffect(() => {
+    const aboutImageEl = aboutImageContainerRef.current;
+    if (!aboutImageEl) return;
+
+    const animData = animationData.current;
+
+    const calculateAnimationValues = () => {
+      const aboutRect = aboutImageEl.getBoundingClientRect();
+      const initialSize = 256;
+
+      animData.initial.scale = 1;
+      animData.initial.x = window.innerWidth / 2 - initialSize / 2;
+      animData.initial.y = window.innerHeight * 0.4 - initialSize / 2;
+
+      animData.final.scale = aboutRect.width / initialSize;
+      animData.final.x = aboutRect.left;
+      animData.final.y = aboutRect.top + window.scrollY;
+      
+      animData.animationEnd = animData.final.y - (window.innerHeight * 0.25);
+
+      animData.isInitialized = true;
+      handleScroll();
+    };
+
     const handleScroll = () => {
+      if (!animData.isInitialized) return;
+
       const scrollY = window.scrollY;
-      
-      // Start fading out when the user has scrolled about half the viewport height
-      const startFadeOutScroll = window.innerHeight * 0.5;
-      const endFadeOutScroll = window.innerHeight * 0.8;
-      
-      let opacity = 1;
-      if (scrollY > startFadeOutScroll) {
-        // Calculate opacity based on scroll progress in the fade-out range
-        const fadeOutProgress = (scrollY - startFadeOutScroll) / (endFadeOutScroll - startFadeOutScroll);
-        opacity = Math.max(0, 1 - fadeOutProgress);
-      }
+      const animationStart = 0;
+      const animationEnd = animData.animationEnd;
+
+      let progress = (scrollY - animationStart) / (animationEnd - animationStart);
+      progress = Math.max(0, Math.min(1, progress));
+
+      const currentX = animData.initial.x + (animData.final.x - animData.initial.x) * progress;
+      const currentY = animData.initial.y + (animData.final.y - animData.initial.y) * progress;
+      const currentScale = animData.initial.scale + (animData.final.scale - animData.initial.scale) * progress;
 
       setLogoStyle({
-        // Move the logo down at half the scroll speed for a parallax effect
-        transform: `translateY(${scrollY * 0.5}px)`,
-        opacity: opacity
+        position: 'fixed',
+        width: '256px',
+        height: '256px',
+        top: 0,
+        left: 0,
+        transform: `translate(${currentX}px, ${currentY - scrollY}px) scale(${currentScale})`,
+        transformOrigin: 'top left',
+        zIndex: 20,
+        pointerEvents: 'none',
       });
     };
 
+    calculateAnimationValues();
     window.addEventListener('scroll', handleScroll, { passive: true });
-    
-    // Cleanup the event listener on component unmount
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('resize', calculateAnimationValues);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', calculateAnimationValues);
+    };
   }, []);
 
   const t_ui = {
     en: {
       hero_subtitle: "Crafting worlds, one game at a time.",
-      hero_cta: "Explore Games",
       view_details: "View Details",
       contact_title: "Get In Touch",
       contact_subtitle: "Have a question or a project in mind? We'd love to hear from you.",
@@ -62,7 +101,6 @@ export default function Home() {
     },
     ar: {
       hero_subtitle: "نصنع العوالم، لعبة تلو الأخرى.",
-      hero_cta: "استكشف الألعاب",
       view_details: "عرض التفاصيل",
       contact_title: "تواصل معنا",
       contact_subtitle: "هل لديك سؤال أو مشروع في ذهنك؟ نود أن نسمع منك.",
@@ -74,16 +112,14 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
         
-        <div 
-          style={logoStyle}
-          className="fixed top-[38vh] left-1/2 -translate-x-1/2 w-32 h-32 z-10 pointer-events-none"
-        >
+        <div style={logoStyle}>
           <Image 
             src={logoImage} 
             alt="Buried Games Logo" 
-            width={128}
-            height={128}
+            width={256}
+            height={256}
             priority
+            className="w-full h-full"
           />
         </div>
 
@@ -109,8 +145,8 @@ export default function Home() {
               <p className="mt-4 text-muted-foreground">{t.about.p1}</p>
               <p className="mt-4 text-muted-foreground">{t.about.p2}</p>
             </div>
-            <div className="relative aspect-square rounded-xl overflow-hidden shadow-2xl">
-                <Image src="https://placehold.co/600x600.png" alt="Buried Games Team" fill className="object-cover" data-ai-hint="game development" />
+            <div ref={aboutImageContainerRef} className="relative aspect-square rounded-xl overflow-hidden shadow-2xl">
+                <Image src={logoImage} alt="Buried Games Team" fill className="object-cover opacity-0" data-ai-hint="game development" />
             </div>
           </div>
         </section>
