@@ -69,7 +69,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
           <div className="lg:col-span-3 flex flex-col items-center md:items-start text-center md:text-left">
              <Image 
-                src="/images/buriedgames_logo.png"
+                src="/assets/images/buriedgames_logo.png"
                 alt="Buried Games Logo"
                 width={200}
                 height={200}

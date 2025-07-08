@@ -28,7 +28,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
-          <Image src="/images/buriedgames_logo.png" alt="Buried Games Studio Logo" width={40} height={40} />
+          <Image src="/assets/images/buriedgames_logo.png" alt="Buried Games Studio Logo" width={40} height={40} />
           <span className="hidden sm:inline-block font-headline text-lg tracking-wide">
             Buried Games Studio
           </span>
