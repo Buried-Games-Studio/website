@@ -61,8 +61,12 @@ export async function submitContactForm(
 
   try {
     const { name, email, inquiryType, message, language } = validatedFields.data;
+
+    const defaultClient = brevo.ApiClient.instance;
+    const apiKey = defaultClient.authentications['apiKey'];
+    apiKey.apiKey = process.env.BREVO_API_KEY as string;
+
     const apiInstance = new brevo.TransactionalEmailsApi();
-    apiInstance.setApiKey(brevo.TransactionalEmailsApiApiKeys.apiKey, process.env.BREVO_API_KEY as string);
     
     // 1. Send notification email to the studio
     const notificationEmail = new brevo.SendSmtpEmail();
@@ -75,8 +79,8 @@ export async function submitContactForm(
         <p><strong>Message:</strong></p>
         <p>${message}</p>
     `;
-    notificationEmail.sender = { name: "Buried Games Contact Form", email: process.env.BREVO_SENDER_EMAIL };
-    notificationEmail.to = [{ email: process.env.BREVO_RECEIVER_EMAIL, name: "Buried Games Studio" }];
+    notificationEmail.sender = { name: "Buried Games Contact Form", email: process.env.BREVO_SENDER_EMAIL as string };
+    notificationEmail.to = [{ email: process.env.BREVO_RECEIVER_EMAIL as string, name: "Buried Games Studio" }];
     notificationEmail.replyTo = { email: email, name: name };
     await apiInstance.sendTransacEmail(notificationEmail);
     
