@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useEffect, useRef } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
 import { useFormStatus } from "react-dom";
 import { submitContactForm } from "@/app/actions";
 import { useToast } from "@/hooks/use-toast";
@@ -16,6 +16,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useLanguage } from "@/contexts/language-context";
+import { cn } from "@/lib/utils";
 
 const initialState = {
   message: "",
@@ -39,6 +40,7 @@ export function ContactForm() {
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
   const { language } = useLanguage();
+  const [messageLength, setMessageLength] = useState(0);
 
   useEffect(() => {
     if (state.success) {
@@ -47,6 +49,7 @@ export function ContactForm() {
         description: state.message,
       });
       formRef.current?.reset();
+      setMessageLength(0);
     } else if (state.message && state.errors) {
        const errorMsg = Object.values(state.errors).flat().join(' ')
        toast({
@@ -125,7 +128,22 @@ export function ContactForm() {
         </div>
         <div className="space-y-2">
             <Label htmlFor="message">{t.message}</Label>
-            <Textarea id="message" name="message" placeholder={t.messagePlaceholder} className="min-h-[120px]" required />
+            <Textarea 
+                id="message" 
+                name="message" 
+                placeholder={t.messagePlaceholder} 
+                className="min-h-[120px]" 
+                required 
+                minLength={10}
+                onChange={(e) => setMessageLength(e.target.value.length)}
+                aria-describedby="message-length-indicator"
+            />
+            <p id="message-length-indicator" className={cn(
+                "text-sm text-muted-foreground text-right",
+                messageLength > 0 && messageLength < 10 ? "text-destructive" : ""
+            )}>
+                {messageLength}/10
+            </p>
         </div>
         <SubmitButton />
     </form>

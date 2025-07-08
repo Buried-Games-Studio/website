@@ -82,6 +82,7 @@ export async function submitContactForm(
     
     // 2. Send confirmation email to the user
     const confirmationEmail = new brevo.SendSmtpEmail();
+    confirmationEmail.sender = { name: "Buried Games Studio", email: process.env.BREVO_SENDER_EMAIL as string };
     confirmationEmail.to = [{ email, name }];
     confirmationEmail.templateId = language === 'en' ? 3 : 4;
     confirmationEmail.params = { name };
