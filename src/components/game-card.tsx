@@ -12,7 +12,7 @@ type Game = ReturnType<typeof getTranslation>['games'][0];
 
 export function GameCard({ game, viewText }: { game: Game, viewText: string }) {
   return (
-    <Card className="flex flex-col overflow-hidden h-full">
+    <Card id={game.id} className="flex flex-col overflow-hidden h-full scroll-mt-20">
       <CardHeader className="p-0">
         <div className="aspect-video relative">
             <Image 
