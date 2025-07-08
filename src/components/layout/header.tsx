@@ -21,19 +21,14 @@ const Header = () => {
   const navLinks = {
     en: [
       { href: "/#games", label: "Games" },
-      { href: "/release-notes", label: "Release Notes" },
-      { href: "/#faq", label: "FAQ" },
-      { href: "/#contact", label: "Contact" },
     ],
     ar: [
       { href: "/#games", label: "الألعاب" },
-      { href: "/release-notes", label: "ملاحظات الإصدار" },
-      { href: "/#faq", label: "الأسئلة الشائعة" },
-      { href: "/#contact", label: "اتصل بنا" },
     ],
   };
   
   const langToggleText = language === 'en' ? 'العربية' : 'English';
+  const releaseNotesText = language === 'en' ? 'Release Notes' : 'ملاحظات الإصدار';
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -74,7 +69,13 @@ const Header = () => {
             )
           })}
         </nav>
-        <div className="flex items-center justify-end space-x-2">
+        <div className="flex items-center justify-end space-x-4">
+          <Link
+            href="/release-notes"
+            className="text-sm transition-colors hover:text-accent text-foreground/60"
+          >
+            {releaseNotesText}
+          </Link>
           <button
             onClick={toggleLanguage} 
             aria-label="Toggle language"
