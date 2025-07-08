@@ -70,12 +70,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
           <div className="lg:col-span-3 flex flex-col items-center md:items-start text-center md:text-left">
              <Image 
-                src="https://placehold.co/200x200.png"
+                src="/images/buriedgames_logo.png"
                 alt="Buried Games Logo"
-                width={150}
-                height={150}
+                width={200}
+                height={200}
                 className="object-contain mb-4"
-                data-ai-hint="logo gaming"
              />
             <h1 className="text-xl font-bold font-headline">{t_ui.studio_name}</h1>
             <p className="text-sm text-muted-foreground mt-2">{t_ui.rights}</p>
