@@ -97,6 +97,7 @@ export function ContactForm() {
 
   return (
     <form ref={formRef} action={formAction} className="space-y-4">
+        <input type="hidden" name="language" value={language} />
         <div className="space-y-2">
             <Label htmlFor="inquiryType">{t.inquiryType}</Label>
             <Select name="inquiryType" required>

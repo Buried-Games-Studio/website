@@ -14,6 +14,7 @@ const contactSchema = z.object({
       { message: "Please select a valid inquiry type." }
   ),
   message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+  language: z.enum(["en", "ar"], { message: "Please select a language." }),
 });
 
 type ContactFormState = {
@@ -23,6 +24,7 @@ type ContactFormState = {
     email?: string[];
     inquiryType?: string[];
     message?: string[];
+    language?: string[];
     _form?: string[];
   };
   success: boolean;
@@ -37,6 +39,7 @@ export async function submitContactForm(
     email: formData.get("email"),
     inquiryType: formData.get("inquiryType"),
     message: formData.get("message"),
+    language: formData.get("language"),
   });
 
   if (!validatedFields.success) {
@@ -57,14 +60,14 @@ export async function submitContactForm(
   }
 
   try {
-    const { name, email, inquiryType, message } = validatedFields.data;
+    const { name, email, inquiryType, message, language } = validatedFields.data;
     const apiInstance = new brevo.TransactionalEmailsApi();
-    apiInstance.setApiKey(brevo.TransactionalEmailsApiApiKeys.apiKey, process.env.BREVO_API_KEY);
+    apiInstance.setApiKey(brevo.TransactionalEmailsApiApiKeys.apiKey, process.env.BREVO_API_KEY as string);
     
-    const sendSmtpEmail = new brevo.SendSmtpEmail();
-    
-    sendSmtpEmail.subject = `New Contact Form Submission - ${inquiryType}`;
-    sendSmtpEmail.htmlContent = `
+    // 1. Send notification email to the studio
+    const notificationEmail = new brevo.SendSmtpEmail();
+    notificationEmail.subject = `New Contact Form Submission - ${inquiryType}`;
+    notificationEmail.htmlContent = `
         <h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
@@ -72,12 +75,18 @@ export async function submitContactForm(
         <p><strong>Message:</strong></p>
         <p>${message}</p>
     `;
-    sendSmtpEmail.sender = { name: "Buried Games Contact Form", email: process.env.BREVO_SENDER_EMAIL };
-    sendSmtpEmail.to = [{ email: process.env.BREVO_RECEIVER_EMAIL, name: "Buried Games Studio" }];
-    sendSmtpEmail.replyTo = { email: email, name: name };
-
-    await apiInstance.sendTransacEmail(sendSmtpEmail);
+    notificationEmail.sender = { name: "Buried Games Contact Form", email: process.env.BREVO_SENDER_EMAIL };
+    notificationEmail.to = [{ email: process.env.BREVO_RECEIVER_EMAIL, name: "Buried Games Studio" }];
+    notificationEmail.replyTo = { email: email, name: name };
+    await apiInstance.sendTransacEmail(notificationEmail);
     
+    // 2. Send confirmation email to the user
+    const confirmationEmail = new brevo.SendSmtpEmail();
+    confirmationEmail.to = [{ email, name }];
+    confirmationEmail.templateId = language === 'en' ? 3 : 4;
+    confirmationEmail.params = { name };
+    await apiInstance.sendTransacEmail(confirmationEmail);
+
     return { message: "Your message has been sent successfully!", success: true };
   } catch (error) {
     console.error("Brevo API Error:", error);
