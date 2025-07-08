@@ -1,4 +1,3 @@
-
 "use client";
 import Link from 'next/link';
 import Image from 'next/image';
@@ -16,6 +15,7 @@ import {
 } from 'lucide-react';
 import TikTokIcon from '../icons/tiktok';
 import DiscordIcon from '../icons/discord';
+import logoImage from '@/components/images/buriedgames_logo.png';
 
 const socialLinks = [
   { href: "https://youtube.com/@BuriedGamesStudio?sub_confirmation=1", icon: Youtube, label: "YouTube" },
@@ -70,7 +70,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
           <div className="lg:col-span-3 flex flex-col items-center md:items-start text-center md:text-left">
              <Image 
-                src="/images/buriedgames_logo.png"
+                src={logoImage}
                 alt="Buried Games Logo"
                 width={200}
                 height={200}
