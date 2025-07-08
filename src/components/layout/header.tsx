@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from 'next/image';
 import { useLanguage } from "@/contexts/language-context";
 import { Button } from "@/components/ui/button";
-import { Languages, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import logoImage from '@/components/images/buriedgames_logo.png';
 import {
   DropdownMenu,
@@ -13,6 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { getTranslation } from "@/lib/content";
+import { cn } from "@/lib/utils";
 
 const Header = () => {
   const { language, toggleLanguage } = useLanguage();
@@ -32,6 +33,8 @@ const Header = () => {
       { href: "/#contact", label: "اتصل بنا" },
     ],
   };
+  
+  const langToggleText = language === 'en' ? 'العربية' : 'English';
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -73,8 +76,13 @@ const Header = () => {
           })}
         </nav>
         <div className="flex items-center justify-end space-x-2">
-          <Button variant="ghost" size="icon" onClick={toggleLanguage} aria-label="Toggle language">
-            <Languages className="h-5 w-5" />
+          <Button 
+            variant="ghost"
+            onClick={toggleLanguage} 
+            aria-label="Toggle language"
+            className={cn(language === 'en' ? 'font-arabic' : 'font-body')}
+          >
+            {langToggleText}
           </Button>
         </div>
       </div>

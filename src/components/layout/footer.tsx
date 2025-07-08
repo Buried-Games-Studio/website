@@ -16,6 +16,7 @@ import {
 import TikTokIcon from '../icons/tiktok';
 import DiscordIcon from '../icons/discord';
 import logoImage from '@/components/images/buriedgames_logo.png';
+import { cn } from '@/lib/utils';
 
 const socialLinks = [
   { href: "https://youtube.com/@BuriedGamesStudio?sub_confirmation=1", icon: Youtube, label: "YouTube" },
@@ -102,7 +103,14 @@ const Footer = () => {
               <ul className="space-y-2">
                 <li><Link href="/#contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t_ui.contact}</Link></li>
                 <li><Link href="/#faq" className="text-sm text-muted-foreground hover:text-primary transition-colors">{t_ui.faq}</Link></li>
-                <li><button onClick={toggleLanguage} className="text-sm text-muted-foreground hover:text-primary transition-colors">{t_ui.language_toggle}</button></li>
+                <li>
+                  <button onClick={toggleLanguage} className={cn(
+                    "text-sm text-muted-foreground hover:text-primary transition-colors",
+                    language === 'en' ? 'font-arabic' : 'font-body'
+                  )}>
+                    {t_ui.language_toggle}
+                  </button>
+                </li>
               </ul>
             </div>
           </div>
