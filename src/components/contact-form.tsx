@@ -43,6 +43,7 @@ export function ContactForm() {
   const [messageLength, setMessageLength] = useState(0);
 
   useEffect(() => {
+    // On success, show toast and reset the form.
     if (state.success) {
       toast({
         title: language === 'en' ? "Success!" : "نجاح!",
@@ -50,13 +51,17 @@ export function ContactForm() {
       });
       formRef.current?.reset();
       setMessageLength(0);
-    } else if (state.message && state.errors) {
-       const errorMsg = Object.values(state.errors).flat().join(' ')
-       toast({
-         variant: "destructive",
-         title: language === 'en' ? "Error" : "خطأ",
-         description: errorMsg,
-       });
+    } 
+    // On error, show the error toast but do NOT reset the form.
+    else if (state.errors) {
+       const errorValues = Object.values(state.errors).flat();
+       if (errorValues.length > 0) {
+        toast({
+            variant: "destructive",
+            title: language === 'en' ? "Error" : "خطأ",
+            description: errorValues.join(' '),
+        });
+       }
     }
   }, [state, toast, language]);
 
