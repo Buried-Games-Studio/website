@@ -2,9 +2,16 @@
 "use client";
 
 import { useLanguage } from "@/contexts/language-context";
+import { useState, useEffect } from "react";
 
 export default function TermsOfUsePage() {
   const { language } = useLanguage();
+  const [lastUpdated, setLastUpdated] = useState("");
+
+  useEffect(() => {
+    setLastUpdated(new Date().toLocaleDateString());
+  }, []);
+
   const t = {
     en: {
         title: "Terms of Use",
@@ -21,7 +28,7 @@ export default function TermsOfUsePage() {
        <div className="prose dark:prose-invert max-w-none">
         <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl font-headline mb-8">{t.title}</h1>
         <p>{t.content}</p>
-        <p>Last updated: {new Date().toLocaleDateString()}</p>
+        <p>Last updated: {lastUpdated}</p>
       </div>
     </main>
   );
