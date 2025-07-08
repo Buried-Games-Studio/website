@@ -1,3 +1,4 @@
+
 "use client";
 import Link from 'next/link';
 import Image from 'next/image';
@@ -43,6 +44,7 @@ const Footer = () => {
       services: 'Services',
       privacy: 'Privacy Policy',
       terms: 'Terms of Use',
+      release_notes: 'Release Notes',
       additional_links: 'Additional links',
       contact: 'Contact Us',
       faq: 'FAQs',
@@ -57,6 +59,7 @@ const Footer = () => {
       services: 'الخدمات',
       privacy: 'سياسة الخصوصية',
       terms: 'شروط الاستخدام',
+      release_notes: 'ملاحظات الإصدار',
       additional_links: 'روابط إضافية',
       contact: 'اتصل بنا',
       faq: 'الأسئلة الشائعة',
@@ -93,6 +96,7 @@ const Footer = () => {
             <div>
               <h2 className="font-semibold mb-3">{t_ui.sitemap}</h2>
               <ul className="space-y-2">
+                <li><Link href="/release-notes" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.release_notes}</Link></li>
                 <li><Link href="/#services" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.services}</Link></li>
                 <li><Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.privacy}</Link></li>
                 <li><Link href="/terms-of-use" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.terms}</Link></li>
