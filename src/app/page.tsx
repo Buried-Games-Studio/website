@@ -44,7 +44,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-grid-white/[0.05] [mask-image:linear-gradient(to_bottom,white_5%,transparent_90%)]"></div>
            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background"></div>
           <div className="relative z-10">
-            <h1 className="text-4xl tracking-wide sm:text-5xl md:text-6xl lg:text-7xl font-headline text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400">
+            <h1 className="text-5xl tracking-wider sm:text-6xl md:text-7xl lg:text-8xl font-headline text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400">
               Buried Games Studio
             </h1>
             <p className="max-w-[700px] text-muted-foreground md:text-xl mt-4">
@@ -62,7 +62,7 @@ export default function Home() {
         <section id="about" className="container">
            <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline">{t.about.title}</h2>
+              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline">{t.about.title}</h2>
               <p className="mt-4 text-muted-foreground">{t.about.p1}</p>
               <p className="mt-4 text-muted-foreground">{t.about.p2}</p>
             </div>
@@ -76,7 +76,7 @@ export default function Home() {
         <section id="services" className="bg-card">
           <div className="container">
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline">{t.services.title}</h2>
+              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline">{t.services.title}</h2>
             </div>
             <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
               {t.services.items.map((service, index) => (
@@ -96,7 +96,7 @@ export default function Home() {
         {/* Games Section */}
         <section id="games" className="container">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline">
+            <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline">
               {language === 'en' ? 'Our Games' : 'ألعابنا'}
             </h2>
           </div>
@@ -111,7 +111,7 @@ export default function Home() {
         <section id="faq" className="bg-card">
           <div className="container">
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline">{t.faq.title}</h2>
+              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline">{t.faq.title}</h2>
             </div>
             <div className="mt-12 max-w-3xl mx-auto">
               <Accordion type="single" collapsible className="w-full">
@@ -129,7 +129,7 @@ export default function Home() {
         {/* Contact Section */}
         <section id="contact" className="container">
            <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline">{t_ui.contact_title}</h2>
+            <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline">{t_ui.contact_title}</h2>
              <p className="mt-4 text-muted-foreground">{t_ui.contact_subtitle}</p>
           </div>
           <div className="mt-12 max-w-2xl mx-auto">

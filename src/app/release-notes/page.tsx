@@ -20,7 +20,7 @@ export default function ReleaseNotesPage() {
     <main>
       <section className="container">
         <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl font-headline">
+            <h1 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline">
               {t.title}
             </h1>
             <p className="max-w-[700px] mx-auto text-muted-foreground md:text-xl mt-4">
