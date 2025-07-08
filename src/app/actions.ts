@@ -72,8 +72,7 @@ export async function submitContactForm(
     // 1. Send notification email to the studio using template 5
     const notificationEmail = new brevo.SendSmtpEmail();
     notificationEmail.to = [{ email: process.env.BREVO_RECEIVER_EMAIL as string, name: "Buried Games Studio" }];
-    notificationEmail.sender = { name: "Buried Games Contact Form", email: process.env.BREVO_SENDER_EMAIL as string };
-    notificationEmail.replyTo = { email: email, name: name };
+    notificationEmail.sender = { name: name, email: process.env.BREVO_SENDER_EMAIL as string };
     notificationEmail.templateId = 5;
     notificationEmail.params = {
         name,
@@ -81,7 +80,6 @@ export async function submitContactForm(
         reason: inquiryType,
         message,
     };
-    await apiInstance.sendTransacEmail(notificationEmail);
     
     // 2. Send confirmation email to the user
     const confirmationEmail = new brevo.SendSmtpEmail();
@@ -89,9 +87,12 @@ export async function submitContactForm(
     confirmationEmail.to = [{ email, name }];
     confirmationEmail.templateId = language === 'en' ? 3 : 4;
     confirmationEmail.params = { name };
+
+    // Send both emails
+    await apiInstance.sendTransacEmail(notificationEmail);
     await apiInstance.sendTransacEmail(confirmationEmail);
 
-    return { message: "Your message has been sent successfully!", success: true };
+    return { message: "Your message has been sent successfully!", success: true, errors: {} };
   } catch (error) {
     console.error("Brevo API Error:", error);
     return {
