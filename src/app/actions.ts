@@ -1,3 +1,4 @@
+
 "use server";
 
 import { z } from "zod";
@@ -72,12 +73,16 @@ export async function submitContactForm(
     const notificationEmail = new brevo.SendSmtpEmail();
     notificationEmail.subject = `New Contact Form Submission - ${inquiryType}`;
     notificationEmail.htmlContent = `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Inquiry Type:</strong> ${inquiryType}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
+        <html>
+          <body>
+            <h2>New Contact Form Submission</h2>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Inquiry Type:</strong> ${inquiryType}</p>
+            <p><strong>Message:</strong></p>
+            <p>${message}</p>
+          </body>
+        </html>
     `;
     notificationEmail.sender = { name: "Buried Games Contact Form", email: process.env.BREVO_SENDER_EMAIL as string };
     notificationEmail.to = [{ email: process.env.BREVO_RECEIVER_EMAIL as string, name: "Buried Games Studio" }];
