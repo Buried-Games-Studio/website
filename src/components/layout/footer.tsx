@@ -12,10 +12,10 @@ import {
   Linkedin,
   Github,
   Mail,
-  Smartphone,
 } from 'lucide-react';
 import TikTokIcon from '../icons/tiktok';
 import DiscordIcon from '../icons/discord';
+import WhatsappIcon from '../icons/whatsapp';
 import logoImage from '@/components/images/buriedgames_logo.png';
 import { cn } from '@/lib/utils';
 
@@ -24,6 +24,7 @@ const socialLinks = [
   { href: "https://instagram.com/buriedgames", icon: Instagram, label: "Instagram" },
   { href: "https://tiktok.com/@buriedgames", icon: TikTokIcon, label: "TikTok" },
   { href: "https://facebook.com/@BuriedGamesStudio", icon: Facebook, label: "Facebook" },
+  { href: "https://wa.me/96555528686", icon: WhatsappIcon, label: "WhatsApp" },
   { href: "https://discord.com/invite/v9FWtuyKQn", icon: DiscordIcon, label: "Discord" },
   { href: "https://twitch.tv/buriedgamesofficial", icon: Twitch, label: "Twitch" },
   { href: "http://linkedin.com/company/buriedgames", icon: Linkedin, label: "LinkedIn" },
@@ -126,7 +127,7 @@ const Footer = () => {
                     support@buriedgames.com
                 </p>
                 <a href="https://wa.me/96555528686" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm hover:text-accent transition-colors">
-                    <Smartphone className="w-4 h-4 text-accent" />
+                    <WhatsappIcon className="w-4 h-4 text-accent" />
                     +965 55528686
                 </a>
              </div>
