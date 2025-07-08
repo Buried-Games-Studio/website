@@ -1,4 +1,3 @@
-
 "use client";
 import Link from 'next/link';
 import Image from 'next/image';
@@ -76,7 +75,7 @@ const Footer = () => {
                 height={200}
                 className="object-contain mb-4"
              />
-            <h1 className="text-xl font-bold font-headline">{t_ui.studio_name}</h1>
+            <h1 className="text-2xl font-headline tracking-wide">{t_ui.studio_name}</h1>
             <p className="text-sm text-muted-foreground mt-2">{t_ui.rights}</p>
           </div>
 

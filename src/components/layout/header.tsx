@@ -29,7 +29,7 @@ const Header = () => {
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <Image src="/images/buriedgames_logo.png" alt="Buried Games Studio Logo" width={40} height={40} />
-          <span className="hidden font-bold sm:inline-block font-headline">
+          <span className="hidden sm:inline-block font-headline text-lg tracking-wide">
             Buried Games Studio
           </span>
         </Link>
