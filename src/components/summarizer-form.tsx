@@ -1,7 +1,7 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
-import { useEffect, useRef } from "react";
+import { useActionState, useEffect, useRef } from "react";
+import { useFormStatus } from "react-dom";
 import { getSummary } from "@/app/actions";
 import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
@@ -30,7 +30,7 @@ function SubmitButton() {
 }
 
 export function SummarizerForm() {
-  const [state, formAction] = useFormState(getSummary, initialState);
+  const [state, formAction] = useActionState(getSummary, initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
   const { language } = useLanguage();
