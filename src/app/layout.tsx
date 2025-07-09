@@ -40,7 +40,6 @@ const organizationSchema = {
 };
 
 export const metadata: Metadata = {
-  title: 'Buried Games Studio',
   description: 'The official website for Buried Games studio.',
   authors: [{ name: 'Buried Games Studio', url: 'https://buriedgames.com' }],
   themeColor: '#000000',
