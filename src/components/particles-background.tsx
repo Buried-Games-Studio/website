@@ -60,14 +60,14 @@ export function ParticlesBackground() {
             default: "out",
           },
           random: true,
-          speed: 1,
+          speed: 2,
           straight: false,
         },
         number: {
           density: {
             enable: true,
           },
-          value: 50,
+          value: 80,
         },
         opacity: {
           value: { min: 0.1, max: 0.5 },
