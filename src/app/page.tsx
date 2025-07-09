@@ -16,6 +16,7 @@ import { CheckCircle2 } from 'lucide-react';
 import Image from "next/image";
 import logoImage from '@/components/images/buriedgames_logo.png';
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
+import type { CSSProperties } from "react";
 
 export default function Home() {
   const { language } = useLanguage();
@@ -37,6 +38,20 @@ export default function Home() {
       contact_cta: "تواصل معنا الآن",
     }
   }[language];
+
+  const subtitle = t_ui.hero_subtitle;
+  const typingDuration = 3; // seconds
+  const blinkInterval = 0.75; // seconds
+  const startDelay = 1; // second
+
+  // The number of blinks should cover the delay and typing duration.
+  const blinkIterations = Math.ceil((typingDuration + startDelay) / blinkInterval);
+  
+  // This uses an inline style to dynamically set the steps for the typewriter animation,
+  // making it work for both English and Arabic subtitles.
+  const animationStyle: CSSProperties = {
+      animation: `typing ${typingDuration}s steps(${subtitle.length}, end) ${startDelay}s forwards, blink-caret ${blinkInterval}s step-end ${blinkIterations} forwards`
+  };
 
   return (
     <ParallaxProvider>
@@ -65,8 +80,11 @@ export default function Home() {
               <h1 className="text-5xl tracking-wider sm:text-6xl md:text-7xl lg:text-8xl font-headline !leading-tight text-transparent bg-clip-text bg-gradient-to-t from-accent to-foreground bg-[length:100%_200%] animate-bubble-text" style={{ letterSpacing: '0.1em' }}>
                 Buried Games Studio
               </h1>
-              <p className="inline-block overflow-hidden whitespace-nowrap border-r-4 border-r-transparent text-muted-foreground md:text-xl mt-4 [animation:typing_3s_steps(38)_forwards,blink-caret_0.75s_step-end_4_forwards]">
-                {t_ui.hero_subtitle}
+              <p 
+                style={animationStyle}
+                className="inline-block overflow-hidden whitespace-nowrap border-r-4 border-r-transparent text-muted-foreground md:text-xl mt-4"
+              >
+                {subtitle}
               </p>
             </div>
           </section>
