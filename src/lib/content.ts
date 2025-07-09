@@ -3,18 +3,18 @@ import type { Language } from '@/contexts/language-context';
 export const content = {
   about_summary: {
     en: {
-      title: 'About Buried Games',
-      p1: 'Buried Games is a passionate game development studio based in Kuwait, dedicated to creating unique and engaging experiences. We specialize in strategy and multiplayer games, always looking to push the boundaries of interactive entertainment.',
+      title: 'About Buried Games Studio',
+      p1: 'Buried Games Studio is a passionate game development studio based in Kuwait, dedicated to creating unique and engaging experiences. We specialize in strategy and multiplayer games, always looking to push the boundaries of interactive entertainment.',
     },
     ar: {
-      title: 'حول بارييد جيمز',
-      p1: 'بارييد جيمز هو استوديو تطوير ألعاب شغوف مقره في الكويت، مكرس لإنشاء تجارب فريدة وجذابة. نحن متخصصون في الألعاب الاستراتيجية ومتعددة اللاعبين، ونتطلع دائمًا إلى دفع حدود الترفيه التفاعلي.',
+      title: 'حول استوديو بريد جيمز',
+      p1: 'استوديو بريد جيمز هو استوديو تطوير ألعاب شغوف مقره في الكويت، مكرس لإنشاء تجارب فريدة وجذابة. نحن متخصصون في الألعاب الاستراتيجية ومتعددة اللاعبين، ونتطلع دائمًا إلى دفع حدود الترفيه التفاعلي.',
     }
   },
   about_page: {
     en: {
       title: 'Crafting Worlds, One Game at a Time.',
-      p1: 'Founded on the principle of "gameplay first," we believe in crafting games that are not only fun to play but also tell compelling stories. Buried Games is a passionate game development studio dedicated to creating unique and engaging experiences. Our team of developers, designers, and artists work collaboratively to bring innovative ideas to life.',
+      p1: 'Founded on the principle of "gameplay first," we believe in crafting games that are not only fun to play but also tell compelling stories. Buried Games Studio is a passionate game development studio dedicated to creating unique and engaging experiences. Our team of developers, designers, and artists work collaboratively to bring innovative ideas to life.',
       p2: 'Based in Kuwait, we are proud to contribute to the growing global gaming industry, infusing our projects with a unique perspective while maintaining a universal appeal. We are constantly exploring new technologies and narrative techniques to create memorable worlds for players to explore.',
       mission_title: 'Our Mission',
       mission_text: 'To design and develop high-quality, innovative games that challenge players and create lasting memories. We strive to foster a creative and collaborative environment where passion for gaming translates into exceptional interactive entertainment.',
@@ -30,7 +30,7 @@ export const content = {
     },
     ar: {
       title: 'نصنع العوالم، لعبة تلو الأخرى.',
-      p1: 'تأسسنا على مبدأ "اللعب أولاً"، ونؤمن بصناعة ألعاب ليست ممتعة للعب فحسب، بل تروي أيضًا قصصًا مقنعة. بارييد جيمز هو استوديو تطوير ألعاب شغوف مكرس لإنشاء تجارب فريدة وجذابة. يعمل فريقنا من المطورين والمصممين والفنانين بشكل تعاوني لإحياء الأفكار المبتكرة.',
+      p1: 'تأسسنا على مبدأ "اللعب أولاً"، ونؤمن بصناعة ألعاب ليست ممتعة للعب فحسب، بل تروي أيضًا قصصًا مقنعة. استوديو بريد جيمز هو استوديو تطوير ألعاب شغوف مكرس لإنشاء تجارب فريدة وجذابة. يعمل فريقنا من المطورين والمصممين والفنانين بشكل تعاوني لإحياء الأفكار المبتكرة.',
       p2: 'من مقرنا في الكويت، نفخر بالمساهمة في صناعة الألعاب العالمية المتنامية، ونضفي على مشاريعنا منظورًا فريدًا مع الحفاظ على جاذبية عالمية. نحن نستكشف باستمرار تقنيات جديدة وأساليب سردية لإنشاء عوالم لا تُنسى للاعبين لاستكشافها.',
       mission_title: 'مهمتنا',
       mission_text: 'تصميم وتطوير ألعاب مبتكرة وعالية الجودة تتحدى اللاعبين وتخلق ذكريات دائمة. نسعى جاهدين لتعزيز بيئة إبداعية وتعاونية حيث يترجم الشغف بالألعاب إلى ترفيه تفاعلي استثنائي.',
@@ -118,16 +118,16 @@ export const content = {
     ar: {
       title: 'الأسئلة الشائعة',
       items: [
-        { q: 'ما هو تخصص استوديو Buried Games؟', a: 'يختص استوديو Buried Games في تطوير ألعاب استراتيجية ومستقلة متعددة اللاعبين باستخدام Unity وUnreal Engine، ويقع مقره في الكويت.' },
-        { q: 'ما هي الألعاب التي طورها استوديو Buried Games؟', a: 'قمنا بتطوير لعبة \'Power of Bombs\'، وهي لعبة استراتيجية تكتيكية للحاسوب، ولعبة \'KoutQ8\'، وهي نسخة رقمية من لعبة الكوت الكويتية التقليدية مع لعب مدعوم بالذكاء الاصطناعي.' },
+        { q: 'ما هو تخصص استوديو بريد جيمز؟', a: 'يختص استوديو بريد جيمز في تطوير ألعاب استراتيجية ومستقلة متعددة اللاعبين باستخدام Unity وUnreal Engine، ويقع مقره في الكويت.' },
+        { q: 'ما هي الألعاب التي طورها استوديو بريد جيمز؟', a: 'قمنا بتطوير لعبة \'Power of Bombs\'، وهي لعبة استراتيجية تكتيكية للحاسوب، ولعبة \'KoutQ8\'، وهي نسخة رقمية من لعبة الكوت الكويتية التقليدية مع لعب مدعوم بالذكاء الاصطناعي.' },
         { q: 'ما هي محركات الألعاب التي تستخدمونها؟', a: 'نستخدم محركي Unity وUnreal Engine لبناء ألعابنا، اعتمادًا على نطاق المشروع ونوعه ومتطلبات المنصة.' },
         { q: 'على أي منصات تتوفر ألعابكم؟', a: 'نقوم بتطوير ألعابنا لأجهزة الحاسوب، وسيتم إطلاقها عبر منصات مثل Steam وitch.io والتحميل المباشر من موقعنا. كما نقوم بنقل الألعاب إلى الجوال (iOS و Android).' },
-        { q: 'أين يقع مقر استوديو Buried Games؟', a: 'نحن نفتخر بأننا متواجدون في الكويت، حيث نطور ألعابًا مستقلة عالية الجودة تمثل الإبداع في الشرق الأوسط في صناعة الألعاب العالمية.' },
+        { q: 'أين يقع مقر استوديو بريد جيمز؟', a: 'نحن نفتخر بأننا متواجدون في الكويت، حيث نطور ألعابًا مستقلة عالية الجودة تمثل الإبداع في الشرق الأوسط في صناعة الألعاب العالمية.' },
         { q: 'هل تقدمون دروسًا في تطوير الألعاب؟', a: 'نعم، ننشر دروسًا تعليمية وسجلات تطوير ونصائح على قناتنا الرسمية في يوتيوب، تغطي Unity وUnreal Engine وإنتاج الألعاب المستقلة.' },
-        { q: 'كيف يمكنني التعاون مع استوديو Buried Games؟', a: 'نحن منفتحون على الشراكات وفرص النشر والتعاونات الإبداعية. يرجى استخدام نموذج الاتصال أو التواصل عبر واتساب/البريد الإلكتروني للتواصل مع فريقنا.' },
+        { q: 'كيف يمكنني التعاون مع استوديو بريد جيمز؟', a: 'نحن منفتحون على الشراكات وفرص النشر والتعاونات الإبداعية. يرجى استخدام نموذج الاتصال أو التواصل عبر واتساب/البريد الإلكتروني للتواصل مع فريقنا.' },
         { q: 'هل يمكنني تقديم فكرة لعبة لكم؟', a: 'نحن نقدر حماسكم! ومع ذلك، لأسباب قانونية، لا يمكننا قبول أفكار أو تقديمات ألعاب غير مرغوب فيها. نحن نركز على تطوير مشاريعنا الداخلية الأصلية.' },
         { q: 'كيف يمكنني البقاء على اطلاع بألعابكم وإعلاناتكم الجديدة؟', a: 'أفضل طريقة للبقاء على اطلاع هي متابعتنا على قنوات التواصل الاجتماعي الخاصة بنا مثل يوتيوب وتويتر وإنستغرام! يمكنك العثور على جميع الروابط في تذييل موقعنا.' },
-        { q: 'هل تقدمون فرص تدريب أو وظائف؟', a: 'نقوم بنشر أي فرص عمل أو تدريب متاحة على صفحتنا في LinkedIn. نوصي بمتابعتنا هناك للحصول على أحدث الفرص الوظيفية في استوديو Buried Games.' },
+        { q: 'هل تقدمون فرص تدريب أو وظائف؟', a: 'نقوم بنشر أي فرص عمل أو تدريب متاحة على صفحتنا في LinkedIn. نوصي بمتابعتنا هناك للحصول على أحدث الفرص الوظيفية في استوديو بريد جيمز.' },
       ],
     },
   },
