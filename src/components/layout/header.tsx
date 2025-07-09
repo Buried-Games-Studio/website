@@ -1,9 +1,10 @@
+
 "use client";
 
 import Link from "next/link";
 import Image from 'next/image';
 import { useLanguage } from "@/contexts/language-context";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Menu } from "lucide-react";
 import logoImage from '@/components/images/buriedgames_logo.png';
 import {
   DropdownMenu,
@@ -11,81 +12,113 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+  SheetClose,
+} from "@/components/ui/sheet";
 import { getTranslation } from "@/lib/content";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const { language, toggleLanguage } = useLanguage();
   const t = getTranslation(language);
 
-  const navLinks = {
-    en: [
-      { href: "/#games", label: "Games" },
-    ],
-    ar: [
-      { href: "/#games", label: "الألعاب" },
-    ],
-  };
-  
   const langToggleText = language === 'en' ? 'العربية' : 'English';
   const releaseNotesText = language === 'en' ? 'Release Notes' : 'ملاحظات الإصدار';
+  const gamesText = language === 'en' ? 'Games' : 'الألعاب';
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-2xl items-center">
+        {/* Logo and Brand Name */}
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <Image src={logoImage} alt="Buried Games Studio Logo" width={40} height={40} />
-          <span className="hidden sm:inline-block font-headline text-lg tracking-wide">
+          <span className="hidden font-headline text-lg tracking-wide sm:inline-block">
             Buried Games Studio
           </span>
         </Link>
-        <nav className="flex items-center gap-4 text-sm lg:gap-6 flex-1">
-          {navLinks[language].map((link) => {
-            if (link.label === "Games" || link.label === "الألعاب") {
-              return (
-                <DropdownMenu key={link.href}>
-                  <DropdownMenuTrigger className="flex items-center gap-1 transition-colors hover:text-accent text-foreground/60 outline-none data-[state=open]:text-accent">
-                    {link.label}
-                    <ChevronDown className="h-4 w-4" />
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent>
-                    {t.games.map((game) => (
-                      <DropdownMenuItem key={game.id} asChild>
-                        <Link href={`/#${game.id}`}>{game.title}</Link>
-                      </DropdownMenuItem>
-                    ))}
-                  </DropdownMenuContent>
-                </DropdownMenu>
-              );
-            }
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="transition-colors hover:text-accent text-foreground/60"
-              >
-                {link.label}
-              </Link>
-            )
-          })}
-        </nav>
-        <div className="flex items-center justify-end space-x-4">
+        
+        {/* Desktop Navigation */}
+        <nav className="hidden flex-1 items-center gap-4 text-sm md:flex lg:gap-6">
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center gap-1 text-foreground/60 transition-colors hover:text-accent data-[state=open]:text-accent">
+              {gamesText}
+              <ChevronDown className="h-4 w-4" />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              {t.games.map((game) => (
+                <DropdownMenuItem key={game.id} asChild>
+                  <Link href={`/#${game.id}`}>{game.title}</Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
           <Link
             href="/release-notes"
-            className="text-sm transition-colors hover:text-accent text-foreground/60"
+            className="text-foreground/60 transition-colors hover:text-accent"
           >
             {releaseNotesText}
           </Link>
+        </nav>
+
+        {/* Desktop Language Toggle */}
+        <div className="hidden flex-1 items-center justify-end md:flex">
           <button
             onClick={toggleLanguage} 
             aria-label="Toggle language"
             className={cn(
-              "text-sm transition-colors hover:text-accent text-foreground/60",
+              "text-sm text-foreground/60 transition-colors hover:text-accent",
               language === 'en' ? 'font-arabic' : 'font-body'
             )}
           >
             {langToggleText}
           </button>
+        </div>
+
+        {/* Mobile Menu */}
+        <div className="flex flex-1 items-center justify-end md:hidden">
+            <button
+              onClick={toggleLanguage} 
+              aria-label="Toggle language"
+              className={cn(
+                "mr-2 text-sm text-foreground/60 transition-colors hover:text-accent",
+                language === 'en' ? 'font-arabic' : 'font-body'
+              )}
+            >
+              {langToggleText}
+            </button>
+            <Sheet>
+                <SheetTrigger asChild>
+                    <Button variant="ghost" size="icon">
+                        <Menu className="h-6 w-6" />
+                        <span className="sr-only">Open menu</span>
+                    </Button>
+                </SheetTrigger>
+                <SheetContent side="left" className="pr-0">
+                    <Link href="/" className="mb-8 flex items-center space-x-2">
+                        <Image src={logoImage} alt="Buried Games Studio Logo" width={40} height={40} />
+                        <span className="font-headline text-lg tracking-wide">
+                            Buried Games Studio
+                        </span>
+                    </Link>
+                    <div className="flex flex-col space-y-3">
+                        <h4 className="px-2 font-medium">{gamesText}</h4>
+                        <div className="pl-6">
+                        {t.games.map((game) => (
+                            <SheetClose asChild key={game.id}>
+                                <Link href={`/#${game.id}`} className="block py-1 text-muted-foreground">{game.title}</Link>
+                            </SheetClose>
+                        ))}
+                        </div>
+                        <SheetClose asChild>
+                          <Link href="/release-notes" className="px-2 font-medium">{releaseNotesText}</Link>
+                        </SheetClose>
+                    </div>
+                </SheetContent>
+            </Sheet>
         </div>
       </div>
     </header>

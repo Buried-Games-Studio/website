@@ -42,7 +42,7 @@ export default function Home() {
   const subtitle = t_ui.hero_subtitle;
   const typingDuration = 3; // seconds
   const blinkInterval = 0.75; // seconds
-  const startDelay = 1; // second
+  const startDelay = 1.5; // seconds
 
   // The number of blinks should cover the delay and typing duration.
   const blinkIterations = Math.ceil((typingDuration + startDelay) / blinkInterval);
@@ -60,7 +60,7 @@ export default function Home() {
 
           {/* Hero Section */}
           <section 
-            className="relative h-screen min-h-[700px] text-center px-4"
+            className="relative h-screen min-h-[700px] text-center px-4 flex flex-col items-center justify-center"
           >
             <Parallax speed={-30} className="absolute inset-0 z-0">
               <div className="absolute inset-0 flex items-center justify-center">
@@ -76,7 +76,7 @@ export default function Home() {
             
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background z-10"></div>
             
-            <div className="relative h-full flex flex-col items-center justify-center z-20">
+            <div className="relative z-20">
               <h1 className="text-5xl tracking-wider sm:text-6xl md:text-7xl lg:text-8xl font-headline !leading-tight text-transparent bg-clip-text bg-gradient-to-t from-accent to-foreground bg-[length:100%_200%] animate-bubble-text" style={{ letterSpacing: '0.1em' }}>
                 Buried Games Studio
               </h1>
@@ -97,7 +97,7 @@ export default function Home() {
                 <p className="mt-4 text-muted-foreground">{t.about.p1}</p>
                 <p className="mt-4 text-muted-foreground">{t.about.p2}</p>
               </div>
-              <div className="relative aspect-square rounded-xl overflow-hidden shadow-2xl">
+              <div className="relative aspect-square rounded-xl overflow-hidden shadow-2xl hidden md:block">
                   <Image 
                     src={logoImage} 
                     alt="Buried Games Logo" 
