@@ -20,6 +20,8 @@ import PowerOfBombsImage from '@/components/images/powerofbombsIconTransparent.p
 import Koutq8Image from '@/components/images/Koutq8Logo.png';
 import UnityImage from '@/components/images/UnityImage.png';
 import UnrealEngineImage from '@/components/images/UnrealEngineImage.png';
+import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
+import logoImage from '@/components/images/buriedgames_logo.png';
 
 export default function Home() {
   const { language } = useLanguage();
@@ -59,130 +61,146 @@ export default function Home() {
   }[language];
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <main className="flex-1">
+    <ParallaxProvider>
+      <div className="flex flex-col min-h-screen">
+        <main className="flex-1">
 
-        {/* Hero Section */}
-        <section 
-          className="relative isolate h-screen min-h-[700px] text-center px-4 flex flex-col items-center justify-center"
-        >
-          <ParticlesBackground />
-          
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background z-10"></div>
-          
-          <div className="relative z-20 pointer-events-none">
-            <h1 
-              className="text-5xl tracking-wider sm:text-6xl md:text-7xl lg:text-8xl font-headline !leading-tight text-transparent bg-clip-text bg-gradient-to-t from-accent to-foreground bg-[length:100%_200%] animate-in fade-in slide-in-from-bottom-10 duration-1000 ease-out [animation-fill-mode:forwards] animate-bubble-text"
-              style={{ letterSpacing: '0.1em' }}
-            >
-              Buried Games Studio
-            </h1>
-            <p className="text-muted-foreground md:text-xl mt-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 ease-out delay-500 [animation-fill-mode:forwards]">
-              {t_ui.hero_subtitle}
-            </p>
-          </div>
-        </section>
+          {/* Hero Section */}
+          <section 
+            className="relative isolate h-screen min-h-[700px] text-center px-4 flex flex-col items-center justify-center overflow-hidden"
+          >
+            <ParticlesBackground />
+            
+            <Parallax speed={-25} className="absolute inset-0 z-0 flex items-center justify-center opacity-5 pointer-events-none">
+                <Image 
+                    src={logoImage} 
+                    alt="Buried Games Studio Background Logo" 
+                    width={500} 
+                    height={500} 
+                    className="max-w-[80vw] md:max-w-[600px] w-auto h-auto"
+                />
+            </Parallax>
+            
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background z-10"></div>
+            
+            <div className="relative z-20">
+              <Parallax speed={10}>
+                <h1 
+                  className="text-5xl tracking-wider sm:text-6xl md:text-7xl lg:text-8xl font-headline !leading-tight text-transparent bg-clip-text bg-gradient-to-t from-accent to-foreground bg-[length:100%_200%] animate-in fade-in slide-in-from-bottom-10 duration-1000 ease-out [animation-fill-mode:forwards] animate-bubble-text"
+                  style={{ letterSpacing: '0.1em' }}
+                >
+                  Buried Games Studio
+                </h1>
+              </Parallax>
+              <Parallax speed={5}>
+                <p className="text-muted-foreground md:text-xl mt-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 ease-out delay-500 [animation-fill-mode:forwards]">
+                  {t_ui.hero_subtitle}
+                </p>
+              </Parallax>
+            </div>
+          </section>
 
-        {/* About Section */}
-        <section id="about" className="container">
-           <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t.about_summary.title}</h2>
-              <p className="mt-4 text-muted-foreground md:text-lg">{t.about_summary.p1}</p>
-               <div className="mt-8">
-                  <Button asChild size="lg" variant="outline">
-                      <Link href="/about-us">{t_ui.learn_more}</Link>
-                  </Button>
-              </div>
-          </div>
-        </section>
+          {/* About Section */}
+          <section id="about" className="container">
+            <div className="max-w-3xl mx-auto text-center">
+                <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t.about_summary.title}</h2>
+                <p className="mt-4 text-muted-foreground md:text-lg">{t.about_summary.p1}</p>
+                <div className="mt-8">
+                    <Button asChild size="lg" variant="outline">
+                        <Link href="/about-us">{t_ui.learn_more}</Link>
+                    </Button>
+                </div>
+            </div>
+          </section>
 
-        {/* Services Section */}
-        <section id="services" className="bg-card">
-          <div className="container">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="prose dark:prose-invert max-w-none">
-                  <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight">{t.services.title}</h2>
-                  <p className="lead">{t.services.homepage_subtitle}</p>
-                  <p className="flex flex-wrap items-center gap-x-2">
-                    <span>{t.services.homepage_p[0]}</span>
-                    <Image src={UnityImage} alt="Unity" height={24} className="inline-block h-6 w-auto" />
-                    <span>{t.services.homepage_p[1]}</span>
-                    <Image src={UnrealEngineImage} alt="Unreal Engine" height={24} className="inline-block h-6 w-auto" />
-                    <span>{t.services.homepage_p[2]}</span>
-                  </p>
-                  <Button asChild size="lg" className="mt-4 no-underline">
-                      <Link href="/services">{t_ui.learn_more_services} <ArrowRight className="ml-2 h-5 w-5" /></Link>
-                  </Button>
-              </div>
-              <div>
-                  <ul className="space-y-6">
-                      {t.services.items.map((service, index) => {
-                          const Icon = serviceIcons[service.name] || Swords;
-                          return (
-                              <li key={index} className="flex items-start gap-4">
-                                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 border-2 border-accent flex-shrink-0">
-                                      <Icon className="w-6 h-6 text-accent"/>
-                                  </div>
-                                  <div>
-                                      <h3 className="text-xl font-bold">{service.name}</h3>
-                                      <p className="text-muted-foreground mt-1">{service.description}</p>
-                                  </div>
-                              </li>
-                          );
-                      })}
-                  </ul>
+          {/* Services Section */}
+          <section id="services" className="bg-card">
+            <div className="container">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="prose dark:prose-invert max-w-none">
+                    <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight">{t.services.title}</h2>
+                    <p className="lead">{t.services.homepage_subtitle}</p>
+                    <p className="flex flex-wrap items-center gap-x-2">
+                      <span>{t.services.homepage_p[0]}</span>
+                      <Image src={UnityImage} alt="Unity" height={24} className="inline-block h-6 w-auto" />
+                      <span>{t.services.homepage_p[1]}</span>
+                      <Image src={UnrealEngineImage} alt="Unreal Engine" height={24} className="inline-block h-6 w-auto" />
+                      <span>{t.services.homepage_p[2]}</span>
+                    </p>
+                    <Button asChild size="lg" className="mt-4 no-underline">
+                        <Link href="/services">{t_ui.learn_more_services} <ArrowRight className="ml-2 h-5 w-5" /></Link>
+                    </Button>
+                </div>
+                <div>
+                    <ul className="space-y-6">
+                        {t.services.items.map((service, index) => {
+                            const Icon = serviceIcons[service.name] || Swords;
+                            return (
+                                <li key={index} className="flex items-start gap-4">
+                                    <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 border-2 border-accent flex-shrink-0">
+                                        <Icon className="w-6 h-6 text-accent"/>
+                                    </div>
+                                    <div>
+                                        <h3 className="text-xl font-bold">{service.name}</h3>
+                                        <p className="text-muted-foreground mt-1">{service.description}</p>
+                                    </div>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
 
-        {/* Games Section */}
-        <section id="games" className="container">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>
-              {language === 'en' ? 'Our Games' : 'ألعابنا'}
-            </h2>
-          </div>
-          <div className="mt-12 grid gap-8 md:grid-cols-2">
-            {t.games.map((game) => (
-              <GameCard key={game.id} game={game} viewText={t_ui.view_details} image={gameImageMap[game.id]} />
-            ))}
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section id="faq" className="bg-card">
-          <div className="container">
+          {/* Games Section */}
+          <section id="games" className="container">
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t.faq.title}</h2>
+              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>
+                {language === 'en' ? 'Our Games' : 'ألعابنا'}
+              </h2>
             </div>
-            <div className="mt-12 max-w-3xl mx-auto">
-              <Accordion type="single" collapsible className="w-full">
-                {t.faq.items.map((item, index) => (
-                  <AccordionItem key={index} value={`item-${index}`}>
-                    <AccordionTrigger className="text-lg text-left">{item.q}</AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">{item.a}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
+            <div className="mt-12 grid gap-8 md:grid-cols-2">
+              {t.games.map((game) => (
+                <GameCard key={game.id} game={game} viewText={t_ui.view_details} image={gameImageMap[game.id]} />
+              ))}
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Contact Section */}
-        <section id="contact" className="container">
-           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t_ui.contact_title}</h2>
-             <p className="mt-4 text-muted-foreground">{t_ui.contact_subtitle}</p>
-             <div className="mt-8">
-                <Button asChild size="lg">
-                    <Link href="/contact-us">{t_ui.contact_cta}</Link>
-                </Button>
-             </div>
-          </div>
-        </section>
-      </main>
-    </div>
+          {/* FAQ Section */}
+          <section id="faq" className="bg-card">
+            <div className="container">
+              <div className="max-w-2xl mx-auto text-center">
+                <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t.faq.title}</h2>
+              </div>
+              <div className="mt-12 max-w-3xl mx-auto">
+                <Accordion type="single" collapsible className="w-full">
+                  {t.faq.items.map((item, index) => (
+                    <AccordionItem key={index} value={`item-${index}`}>
+                      <AccordionTrigger className="text-lg text-left">{item.q}</AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">{item.a}</AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
+            </div>
+          </section>
+
+          {/* Contact Section */}
+          <section id="contact" className="container">
+            <div className="max-w-2xl mx-auto text-center">
+              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t_ui.contact_title}</h2>
+              <p className="mt-4 text-muted-foreground">{t_ui.contact_subtitle}</p>
+              <div className="mt-8">
+                  <Button asChild size="lg">
+                      <Link href="/contact-us">{t_ui.contact_cta}</Link>
+                  </Button>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </ParallaxProvider>
   );
 }
