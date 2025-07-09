@@ -17,6 +17,7 @@ import Image from "next/image";
 import logoImage from '@/components/images/buriedgames_logo.png';
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 import type { CSSProperties } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const { language } = useLanguage();
@@ -40,19 +41,37 @@ export default function Home() {
   }[language];
 
   const subtitle = t_ui.hero_subtitle;
-  const typingDuration = 3; // seconds
-  const blinkInterval = 0.75; // seconds
-  const startDelay = 2; // seconds
 
-  // The number of blinks should cover the delay and typing duration, plus one extra to ensure it ends transparently.
-  const totalAnimationTime = typingDuration + startDelay;
-  const blinkIterations = Math.ceil(totalAnimationTime / blinkInterval) + 1;
-  
-  // This uses an inline style to dynamically set the steps for the typewriter animation,
-  // making it work for both English and Arabic subtitles.
-  const animationStyle: CSSProperties = {
-      animation: `typing ${typingDuration}s steps(${subtitle.length}, end) ${startDelay}s forwards, blink-caret ${blinkInterval}s step-end ${blinkIterations} forwards`
-  };
+  const [animationStyle, setAnimationStyle] = useState<CSSProperties>({
+    borderRightColor: 'hsl(var(--accent))',
+    animation: `blink-caret .75s step-end infinite`
+  });
+  const [textToShow, setTextToShow] = useState('');
+
+  useEffect(() => {
+    // Reset on language change
+    setTextToShow('');
+    setAnimationStyle({
+      borderRightColor: 'hsl(var(--accent))',
+      animation: `blink-caret .75s step-end infinite`
+    });
+
+    const timer = setTimeout(() => {
+      setTextToShow(subtitle);
+      
+      const typingDuration = 3;
+      const blinkInterval = 0.75;
+      // Have the cursor blink a couple more times after finishing
+      const blinkIterations = Math.ceil(typingDuration / blinkInterval) + 2;
+
+      setAnimationStyle({
+        animation: `typing ${typingDuration}s steps(${subtitle.length}, end) forwards, blink-caret ${blinkInterval}s step-end ${blinkIterations} forwards`
+      });
+    }, 2000); // 2-second delay before starting the animation
+
+    return () => clearTimeout(timer);
+  }, [subtitle]);
+
 
   return (
     <ParallaxProvider>
@@ -83,9 +102,9 @@ export default function Home() {
               </h1>
               <p 
                 style={animationStyle}
-                className="inline-block overflow-hidden whitespace-nowrap border-r-4 border-accent text-muted-foreground md:text-xl mt-4"
+                className="inline-block overflow-hidden whitespace-nowrap border-r-4 border-transparent text-muted-foreground md:text-xl mt-4"
               >
-                {subtitle}
+                {textToShow}
               </p>
             </div>
           </section>
