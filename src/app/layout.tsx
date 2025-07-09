@@ -50,7 +50,6 @@ export const metadata: Metadata = {
   },
   openGraph: {
     siteName: 'Buried Games Studio',
-    title: 'Buried Games Studio',
     description: 'The official website for Buried Games studio.',
     url: 'https://buriedgames.com',
     images: [
@@ -67,7 +66,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary',
-    title: 'Buried Games Studio',
     description: 'The official website for Buried Games studio.',
     images: [logoImage.src],
   },
@@ -83,8 +81,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Orbitron:wght@500&family=Russo+One&display=swap" rel="stylesheet" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
