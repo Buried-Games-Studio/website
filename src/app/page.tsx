@@ -62,7 +62,7 @@ export default function Home() {
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background z-10"></div>
             
             <div className="relative h-full flex flex-col items-center justify-center z-20">
-              <h1 className="text-5xl tracking-wider sm:text-6xl md:text-7xl lg:text-8xl font-headline text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 !leading-tight" style={{ letterSpacing: '0.1em' }}>
+              <h1 className="text-5xl tracking-wider sm:text-6xl md:text-7xl lg:text-8xl font-headline !leading-tight text-transparent bg-clip-text bg-gradient-to-t from-accent to-foreground bg-[length:100%_200%] animate-bubble-text" style={{ letterSpacing: '0.1em' }}>
                 Buried Games Studio
               </h1>
               <p className="max-w-[700px] text-muted-foreground md:text-xl mt-4">
