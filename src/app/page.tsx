@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -96,6 +95,7 @@ export default function Home() {
                     width={800} 
                     height={800} 
                     className="max-w-[80vw] md:max-w-[800px] w-auto h-auto"
+                    priority
                 />
             </Parallax>
             
