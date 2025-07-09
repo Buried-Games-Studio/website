@@ -100,7 +100,15 @@ export default {
         'bubble-text': {
           'from': { backgroundPosition: '0% 100%' },
           'to': { backgroundPosition: '0% 0%' },
-        }
+        },
+        typing: {
+          "from": { width: "0" },
+          "to": { width: "100%" },
+        },
+        "blink-caret": {
+          "from, to": { borderColor: "transparent" },
+          "50%": { borderColor: "hsl(var(--accent))" },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
