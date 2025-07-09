@@ -118,7 +118,7 @@ export default function GameDetailPage() {
                         loop
                         muted
                         playsInline
-                        className="absolute inset-0 z-0 w-full h-full object-cover"
+                        className="absolute inset-0 z-0 w-full h-full object-contain"
                         key={game.heroVideo}
                     >
                         <source src={game.heroVideo} type="video/mp4" />
@@ -128,7 +128,7 @@ export default function GameDetailPage() {
                         src={heroSrc} 
                         alt={`${game.title} Hero Background`} 
                         fill 
-                        className="object-cover"
+                        className="object-contain"
                         data-ai-hint={game.heroImageHint}
                         priority
                         placeholder={heroIsStatic ? "blur" : "empty"}
