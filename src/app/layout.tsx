@@ -66,6 +66,7 @@ export const metadata: Metadata = {
     apple: logoImage.src,
   },
   openGraph: {
+    title: 'Buried Games Studio',
     siteName: 'Buried Games Studio',
     description: 'The official website for Buried Games studio.',
     url: '/',
@@ -83,6 +84,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary',
+    title: 'Buried Games Studio',
     description: 'The official website for Buried Games studio.',
     images: [logoImage.src],
   },
@@ -100,6 +102,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cairo.variable} ${orbitron.variable} dark`}>
       <head>
+        <link rel="preconnect" href="https://firebaseinstallations.googleapis.com" />
+        <link
+          rel="preload"
+          href="/fonts/afolkalips.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
