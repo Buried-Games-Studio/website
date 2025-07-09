@@ -44,6 +44,7 @@ const Footer = () => {
       about_us: 'About Us',
       services: 'Services',
       devlog: 'Devlog',
+      release_notes: 'Release Notes',
       privacy: 'Privacy Policy',
       terms: 'Terms of Use',
       additional_links: 'Additional links',
@@ -60,6 +61,7 @@ const Footer = () => {
       about_us: 'من نحن',
       services: 'الخدمات',
       devlog: 'مدونة التطوير',
+      release_notes: 'ملاحظات الإصدار',
       privacy: 'سياسة الخصوصية',
       terms: 'شروط الاستخدام',
       additional_links: 'روابط إضافية',
@@ -101,6 +103,7 @@ const Footer = () => {
                 <li><Link href="/about-us" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.about_us}</Link></li>
                 <li><Link href="/services" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.services}</Link></li>
                 <li><Link href="/devlog" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.devlog}</Link></li>
+                <li><Link href="/release-notes" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.release_notes}</Link></li>
                 <li><Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.privacy}</Link></li>
                 <li><Link href="/terms-of-use" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.terms}</Link></li>
               </ul>

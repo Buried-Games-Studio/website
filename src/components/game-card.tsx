@@ -21,7 +21,7 @@ export function GameCard({ game, viewText, image }: { game: Game, viewText: stri
               alt={game.title} 
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover"
+              className="object-contain"
               data-ai-hint={game.imageHint}
               placeholder={image ? "blur" : "empty"}
             />
