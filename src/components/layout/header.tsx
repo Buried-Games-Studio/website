@@ -76,7 +76,7 @@ const Header = () => {
                 <DropdownMenuContent>
                   {t.games.map((game) => (
                     <DropdownMenuItem key={game.id} asChild>
-                      <Link href={`/#${game.id}`}>{game.title}</Link>
+                      <Link href={`/games/${game.slug}`}>{game.title}</Link>
                     </DropdownMenuItem>
                   ))}
                 </DropdownMenuContent>
@@ -141,7 +141,7 @@ const Header = () => {
                             <div className="pl-6">
                             {t.games.map((game) => (
                                 <SheetClose asChild key={game.id}>
-                                    <Link href={`/#${game.id}`} className="block py-1 text-muted-foreground">{game.title}</Link>
+                                    <Link href={`/games/${game.slug}`} className="block py-1 text-muted-foreground">{game.title}</Link>
                                 </SheetClose>
                             ))}
                             </div>
