@@ -7,7 +7,7 @@ import { getTranslation } from "@/lib/content";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Users, Heart, Wand2, ShieldCheck } from "lucide-react";
+import { Users, Heart, Wand2, ShieldCheck, Handshake } from "lucide-react";
 
 export default function AboutUsPage() {
   const { language } = useLanguage();
@@ -100,22 +100,65 @@ export default function AboutUsPage() {
             </h2>
           </div>
           <div className="mt-12 grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center">
-            {t.about_page.team.map((member, index) => (
-              <Card key={index} className="text-center max-w-sm mx-auto overflow-hidden group">
-                 <div className="aspect-square relative">
-                    <Image
-                        src={member.imageUrl}
-                        alt={member.name}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        data-ai-hint={member.imageHint}
-                    />
-                 </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold font-headline tracking-wide">{member.name}</h3>
-                  <p className="text-accent">{member.role}</p>
-                </CardContent>
-              </Card>
+            {t.about_page.team.map((member, index) => {
+               const teamCard = (
+                  <Card className="text-center max-w-sm mx-auto overflow-hidden group transition-all duration-300 hover:shadow-accent/20 hover:shadow-lg hover:-translate-y-1">
+                     <div className="aspect-square relative">
+                        <Image
+                            src={member.imageUrl}
+                            alt={member.name}
+                            fill
+                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                            data-ai-hint={member.imageHint}
+                        />
+                     </div>
+                    <CardContent className="p-6">
+                      <h3 className="text-xl font-bold font-headline tracking-wide">{member.name}</h3>
+                      <p className="text-accent">{member.role}</p>
+                    </CardContent>
+                  </Card>
+               );
+
+               return member.linkedInUrl ? (
+                 <Link href={member.linkedInUrl} key={index} target="_blank" rel="noopener noreferrer">
+                   {teamCard}
+                 </Link>
+               ) : (
+                 <div key={index}>{teamCard}</div>
+               );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Partners Section */}
+      <section id="partners" className="bg-background">
+        <div className="container">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight flex items-center justify-center gap-4">
+              <Handshake className="w-10 h-10" />
+              {t.partners.title}
+            </h2>
+          </div>
+          <div className="mt-12 flex justify-center items-center gap-8 flex-wrap">
+            {t.partners.items.map((partner, index) => (
+              <a 
+                href={partner.websiteUrl} 
+                key={index} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="block filter grayscale hover:grayscale-0 transition-all duration-300 ease-in-out hover:scale-105"
+                title={partner.name}
+              >
+                <Image
+                  src={partner.logoUrl}
+                  alt={partner.name}
+                  width={200}
+                  height={80}
+                  data-ai-hint={partner.imageHint}
+                  className="object-contain"
+                />
+              </a>
             ))}
           </div>
         </div>

@@ -77,7 +77,7 @@ const Footer = () => {
           <div className="lg:col-span-3 flex flex-col items-center md:items-start text-center md:text-left">
              <Image 
                 src={logoImage}
-                alt="Buried Games Logo"
+                alt="Buried Games Studio Logo"
                 width={200}
                 height={200}
                 className="object-contain mb-4"

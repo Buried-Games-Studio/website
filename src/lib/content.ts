@@ -25,6 +25,7 @@ export const content = {
           role: 'Founder & Lead Developer',
           imageUrl: 'https://placehold.co/400x400.png',
           imageHint: 'team member portrait',
+          linkedInUrl: 'https://linkedin.com/in/fahed-f-al-ahmad-se',
         }
       ]
     },
@@ -41,6 +42,7 @@ export const content = {
           role: 'المؤسس والمطور الرئيسي',
           imageUrl: 'https://placehold.co/400x400.png',
           imageHint: 'team member portrait',
+          linkedInUrl: 'https://linkedin.com/in/fahed-f-al-ahmad-se',
         }
       ]
     }
@@ -131,6 +133,30 @@ export const content = {
       ],
     },
   },
+  partners: {
+    en: {
+      title: 'Our Partners',
+      items: [
+        {
+          name: 'Gavan Tech',
+          logoUrl: 'https://placehold.co/200x80.png',
+          websiteUrl: 'https://gavan-tech.com/en',
+          imageHint: 'Gavan Tech logo',
+        }
+      ]
+    },
+    ar: {
+      title: 'شركاؤنا',
+      items: [
+        {
+          name: 'Gavan Tech',
+          logoUrl: 'https://placehold.co/200x80.png',
+          websiteUrl: 'https://gavan-tech.com/en',
+          imageHint: 'Gavan Tech logo',
+        }
+      ]
+    }
+  },
 };
 
 export const getTranslation = (language: Language) => ({
@@ -139,4 +165,5 @@ export const getTranslation = (language: Language) => ({
   services: content.services[language],
   games: content.games.map(game => ({ ...game, description: game.description[language] })),
   faq: content.faq[language],
+  partners: content.partners[language],
 });
