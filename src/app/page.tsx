@@ -2,6 +2,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useLanguage } from "@/contexts/language-context";
 import { getTranslation } from "@/lib/content";
 import { Button } from "@/components/ui/button";
@@ -17,6 +18,8 @@ import { ArrowRight, Lightbulb, Palette, Smartphone, Swords } from 'lucide-react
 import { ParticlesBackground } from "@/components/particles-background";
 import PowerOfBombsImage from '@/components/images/powerofbombsIconTransparent.png';
 import Koutq8Image from '@/components/images/Koutq8Logo.png';
+import UnityImage from '@/components/images/UnityImage.png';
+import UnrealEngineImage from '@/components/images/UnrealEngineImage.png';
 
 export default function Home() {
   const { language } = useLanguage();
@@ -100,12 +103,12 @@ export default function Home() {
               <div className="prose dark:prose-invert max-w-none">
                   <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight">{t.services.title}</h2>
                   <p className="lead">{t.services.homepage_subtitle}</p>
-                  <p>
-                    {t.services.homepage_p[0]}
-                    <strong className="text-accent font-bold"> Unity </strong> 
-                    {t.services.homepage_p[1]}
-                    <strong className="text-accent font-bold"> Unreal Engine</strong>
-                    {t.services.homepage_p[2]}
+                  <p className="flex flex-wrap items-center gap-x-2">
+                    <span>{t.services.homepage_p[0]}</span>
+                    <Image src={UnityImage} alt="Unity" height={24} className="inline-block h-6 w-auto" />
+                    <span>{t.services.homepage_p[1]}</span>
+                    <Image src={UnrealEngineImage} alt="Unreal Engine" height={24} className="inline-block h-6 w-auto" />
+                    <span>{t.services.homepage_p[2]}</span>
                   </p>
                   <Button asChild size="lg" className="mt-4 no-underline">
                       <Link href="/services">{t_ui.learn_more_services} <ArrowRight className="ml-2 h-5 w-5" /></Link>
