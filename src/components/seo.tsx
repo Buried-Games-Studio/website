@@ -1,6 +1,9 @@
 'use client';
 
 import { useLanguage } from '@/contexts/language-context';
+import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
+import { getGameData } from '@/lib/content';
 
 const englishFaqSchema = {
     "@context": "https://schema.org",
@@ -176,8 +179,55 @@ const arabicFaqSchema = {
     ]
 };
 
+const pageTitles = {
+    en: {
+        '/': 'Buried Games Studio | Crafting Worlds, One Game at a Time',
+        '/about-us': 'About Us | Buried Games Studio',
+        '/services': 'Our Services | Buried Games Studio',
+        '/devlog': 'Devlog | Buried Games Studio',
+        '/release-notes': 'Release Notes Summarizer | Buried Games Studio',
+        '/contact-us': 'Contact Us | Buried Games Studio',
+        '/privacy-policy': 'Privacy Policy | Buried Games Studio',
+        '/terms-of-use': 'Terms of Use | Buried Games Studio',
+    },
+    ar: {
+        '/': 'استوديو بريد جيمز | نصنع العوالم، لعبة تلو الأخرى',
+        '/about-us': 'من نحن | استوديو بريد جيمز',
+        '/services': 'خدماتنا | استوديو بريد جيمز',
+        '/devlog': 'مدونة التطوير | استوديو بريد جيمز',
+        '/release-notes': 'ملخص ملاحظات الإصدار | استوديو بريد جيمز',
+        '/contact-us': 'تواصل معنا | استوديو بريد جيمز',
+        '/privacy-policy': 'سياسة الخصوصية | استوديو بريد جيمز',
+        '/terms-of-use': 'شروط الاستخدام | استوديو بريد جيمز',
+    }
+};
+
 export function DynamicSEO() {
   const { language } = useLanguage();
+  const pathname = usePathname();
+
+  useEffect(() => {
+    let title = '';
+    const baseTitle = 'Buried Games Studio';
+    
+    // Handle dynamic game routes
+    if (pathname.startsWith('/games/')) {
+        const slug = pathname.split('/').pop();
+        if (slug) {
+            const game = getGameData(slug);
+            if (game) {
+                title = `${game.title} | ${baseTitle}`;
+            }
+        }
+    } else {
+        // Handle static routes
+        const titles = pageTitles[language];
+        title = titles[pathname as keyof typeof titles] || baseTitle;
+    }
+    
+    document.title = title || baseTitle;
+
+  }, [pathname, language]);
 
   const faqSchema = language === 'ar' ? arabicFaqSchema : englishFaqSchema;
 
