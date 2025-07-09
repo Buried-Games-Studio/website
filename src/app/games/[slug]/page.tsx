@@ -1,7 +1,6 @@
-
 "use client";
 
-import { notFound } from "next/navigation";
+import { useParams, notFound } from "next/navigation";
 import Image, { type StaticImageData } from "next/image";
 import { useLanguage } from "@/contexts/language-context";
 import { getGameData } from "@/lib/content";
@@ -40,7 +39,8 @@ const engineImageMap: { [key: string]: StaticImageData | undefined } = {
 };
 
 
-export default function GameDetailPage({ params }: { params: { slug:string } }) {
+export default function GameDetailPage() {
+    const params = useParams<{ slug: string }>();
     const { language } = useLanguage();
     const game = getGameData(params.slug);
 
