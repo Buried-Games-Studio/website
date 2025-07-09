@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useLanguage } from "@/contexts/language-context";
 import { getGameData } from "@/lib/content";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import {
@@ -32,7 +33,7 @@ const iconMap: { [key: string]: LucideIcon } = {
 };
 
 
-export default function GameDetailPage({ params }: { params: { slug: string } }) {
+export default function GameDetailPage({ params }: { params: { slug:string } }) {
     const { language } = useLanguage();
     const game = getGameData(params.slug);
 
@@ -46,12 +47,14 @@ export default function GameDetailPage({ params }: { params: { slug: string } })
             features: "Key Features",
             gallery: "Gallery",
             whereToBuy: "Where to Buy",
+            underDev: "Under Development"
         },
         ar: {
             about: "عن اللعبة",
             features: "الميزات الرئيسية",
             gallery: "معرض الصور",
             whereToBuy: "أماكن الشراء",
+            underDev: "تحت التطوير"
         }
     }[language];
 
@@ -75,6 +78,14 @@ export default function GameDetailPage({ params }: { params: { slug: string } })
                 <h1 className="text-5xl tracking-wider sm:text-6xl md:text-7xl font-headline !leading-tight text-transparent bg-clip-text bg-gradient-to-t from-accent to-white">
                     {game.title}
                 </h1>
+                <div className="mt-4 flex items-center justify-center gap-4">
+                    {game.status === 'development' && (
+                        <Badge className="border-transparent bg-secondary text-secondary-foreground text-base">{t_ui.underDev}</Badge>
+                    )}
+                    {game.engine && (
+                        <Badge variant="outline" className="text-base">Made with {game.engine}</Badge>
+                    )}
+                </div>
             </div>
         </section>
 
@@ -136,18 +147,20 @@ export default function GameDetailPage({ params }: { params: { slug: string } })
         </section>
 
         {/* CTA Section */}
-        <section id="cta" className="bg-card">
-            <div className="container text-center">
-                 <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight mb-8">{t_ui.whereToBuy}</h2>
-                 <div className="flex justify-center items-center gap-4 flex-wrap">
-                    {game.storeLinks.map((link, index) => (
-                        <Button asChild size="lg" key={index}>
-                            <Link href={link.url} target="_blank" rel="noopener noreferrer">{link.label[language]}</Link>
-                        </Button>
-                    ))}
-                 </div>
-            </div>
-        </section>
+        {game.storeLinks && game.storeLinks.length > 0 && (
+            <section id="cta" className="bg-card">
+                <div className="container text-center">
+                    <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight mb-8">{t_ui.whereToBuy}</h2>
+                    <div className="flex justify-center items-center gap-4 flex-wrap">
+                        {game.storeLinks.map((link, index) => (
+                            <Button asChild size="lg" key={index}>
+                                <Link href={link.url} target="_blank" rel="noopener noreferrer">{link.label[language]}</Link>
+                            </Button>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        )}
 
       </main>
     </ParallaxProvider>
