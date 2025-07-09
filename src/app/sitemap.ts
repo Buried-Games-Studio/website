@@ -1,8 +1,18 @@
 
 import { type MetadataRoute } from 'next';
+import { gamesContent } from '@/lib/content/games';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://buriedgames.com';
+
+  const gameUrls = gamesContent.map((game) => {
+    return {
+      url: `${baseUrl}/games/${game.slug}`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
+      priority: 0.9,
+    };
+  });
 
   return [
     {
@@ -53,5 +63,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly',
       priority: 0.5,
     },
+    ...gameUrls,
   ];
 }

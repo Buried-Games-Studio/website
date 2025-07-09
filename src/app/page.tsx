@@ -89,7 +89,7 @@ export default function Home() {
             
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background z-0 pointer-events-none"></div>
             
-            <Parallax speed={-25} className="absolute inset-0 z-10 flex items-center justify-center opacity-30 pointer-events-none">
+            <Parallax speed={-25} className="absolute inset-0 z-10 flex items-center justify-center opacity-40 pointer-events-none">
                 <Image 
                     src={logoImage} 
                     alt="Buried Games Studio Background Logo" 
