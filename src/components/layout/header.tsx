@@ -37,12 +37,14 @@ const Header = () => {
   const t_ui = {
     en: {
       games: 'Games',
+      services: 'Services',
       release_notes: 'Release Notes',
       about_us: 'About Us',
       lang_toggle: 'العربية',
     },
     ar: {
       games: 'الألعاب',
+      services: 'الخدمات',
       release_notes: 'ملاحظات الإصدار',
       about_us: 'من نحن',
       lang_toggle: 'English',
@@ -77,6 +79,12 @@ const Header = () => {
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
+              <Link
+                href="/services"
+                className="text-foreground/60 transition-colors hover:text-accent"
+              >
+                {t_ui.services}
+              </Link>
                <Link
                 href="/about-us"
                 className="text-foreground/60 transition-colors hover:text-accent"
@@ -129,6 +137,9 @@ const Header = () => {
                                 </SheetClose>
                             ))}
                             </div>
+                            <SheetClose asChild>
+                              <Link href="/services" className="px-2 font-medium">{t_ui.services}</Link>
+                            </SheetClose>
                              <SheetClose asChild>
                               <Link href="/about-us" className="px-2 font-medium">{t_ui.about_us}</Link>
                             </SheetClose>

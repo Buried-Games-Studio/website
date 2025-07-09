@@ -1,27 +1,29 @@
+
 "use client";
 
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { Eye, Youtube } from "lucide-react";
+import { Eye } from "lucide-react";
 import type { getTranslation } from "@/lib/content";
 
 type Game = ReturnType<typeof getTranslation>['games'][0];
 
-export function GameCard({ game, viewText }: { game: Game, viewText: string }) {
+export function GameCard({ game, viewText, image }: { game: Game, viewText: string, image?: StaticImageData }) {
   return (
     <Card id={game.id} className="flex flex-col overflow-hidden h-full scroll-mt-20">
       <CardHeader className="p-0">
         <div className="aspect-video relative">
             <Image 
-              src={game.imageUrl} 
+              src={image || game.imageUrl} 
               alt={game.title} 
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               className="object-cover"
               data-ai-hint={game.imageHint}
+              placeholder={image ? "blur" : "empty"}
             />
         </div>
       </CardHeader>

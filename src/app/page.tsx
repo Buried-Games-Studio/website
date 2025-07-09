@@ -12,12 +12,27 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { GameCard } from "@/components/game-card";
-import { CheckCircle2 } from 'lucide-react';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ArrowRight, Lightbulb, Palette, Smartphone, Swords } from 'lucide-react';
 import { ParticlesBackground } from "@/components/particles-background";
+import PowerOfBombsImage from '@/components/images/powerofbombsIconTransparent.png';
+import Koutq8Image from '@/components/images/Koutq8Logo.png';
 
 export default function Home() {
   const { language } = useLanguage();
   const t = getTranslation(language);
+
+  const gameImageMap: { [key: string]: any } = {
+    'power-of-bombs': PowerOfBombsImage,
+    'koutq8': Koutq8Image,
+  };
+  
+  const serviceIcons: { [key: string]: React.ElementType } = {
+    'Full Game Development': Swords,
+    'Game Design & Prototyping': Lightbulb,
+    '2D & 3D Art/Animation': Palette,
+    'Mobile Game Porting': Smartphone,
+  };
 
   const t_ui = {
     en: {
@@ -27,6 +42,7 @@ export default function Home() {
       contact_subtitle: "Have a question or a project in mind? We'd love to hear from you.",
       contact_cta: "Contact Us Now",
       learn_more: "Learn More About Us",
+      learn_more_services: "Explore Our Services"
     },
     ar: {
       hero_subtitle: "نصنع العوالم، لعبة تلو الأخرى.",
@@ -35,6 +51,7 @@ export default function Home() {
       contact_subtitle: "هل لديك سؤال أو مشروع في ذهنك؟ نود أن نسمع منك.",
       contact_cta: "تواصل معنا الآن",
       learn_more: "اعرف المزيد عنا",
+      learn_more_services: "اكتشف خدماتنا"
     }
   }[language];
 
@@ -50,7 +67,7 @@ export default function Home() {
           
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background z-10"></div>
           
-          <div className="relative z-20">
+          <div className="relative z-20 pointer-events-none">
             <h1 
               className="text-5xl tracking-wider sm:text-6xl md:text-7xl lg:text-8xl font-headline !leading-tight text-transparent bg-clip-text bg-gradient-to-t from-accent to-foreground bg-[length:100%_200%] animate-in fade-in slide-in-from-bottom-10 duration-1000 ease-out [animation-fill-mode:forwards] animate-bubble-text"
               style={{ letterSpacing: '0.1em' }}
@@ -79,20 +96,35 @@ export default function Home() {
         {/* Services Section */}
         <section id="services" className="bg-card">
           <div className="container">
-            <div className="max-w-2xl mx-auto text-center">
+            <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t.services.title}</h2>
+              <p className="mt-4 text-muted-foreground md:text-lg">
+                {language === 'en' ? 'We offer a range of services to bring your vision to life.' : 'نحن نقدم مجموعة من الخدمات لتحويل رؤيتك إلى حقيقة.'}
+              </p>
             </div>
             <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-              {t.services.items.map((service, index) => (
-                <div key={index} className="flex flex-col items-center text-center">
-                  <div className="flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-                    <CheckCircle2 className="w-8 h-8 text-accent" />
-                  </div>
-                  <h3 className="text-xl font-bold">{service.name}</h3>
-                  <p className="mt-2 text-muted-foreground">{service.description}</p>
-                </div>
-              ))}
+              {t.services.items.map((service, index) => {
+                const Icon = serviceIcons[service.name] || Swords;
+                return (
+                  <Card key={index} className="flex flex-col text-center items-center p-6 bg-background/50 hover:bg-background transition-colors duration-300 hover:shadow-lg">
+                    <div className="flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 mb-6 border-2 border-accent">
+                      <Icon className="w-10 h-10 text-accent"/>
+                    </div>
+                    <CardHeader className="p-0">
+                      <CardTitle className="text-xl font-bold">{service.name}</CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-0 mt-2 flex-grow">
+                      <p className="text-muted-foreground">{service.description}</p>
+                    </CardContent>
+                  </Card>
+                );
+              })}
             </div>
+             <div className="mt-12 text-center">
+                <Button asChild size="lg">
+                    <Link href="/services">{t_ui.learn_more_services} <ArrowRight className="ml-2 h-5 w-5" /></Link>
+                </Button>
+             </div>
           </div>
         </section>
 
@@ -106,7 +138,7 @@ export default function Home() {
           </div>
           <div className="mt-12 grid gap-8 md:grid-cols-2">
             {t.games.map((game) => (
-              <GameCard key={game.id} game={game} viewText={t_ui.view_details} />
+              <GameCard key={game.id} game={game} viewText={t_ui.view_details} image={gameImageMap[game.id]} />
             ))}
           </div>
         </section>
