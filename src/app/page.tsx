@@ -16,13 +16,16 @@ import { CheckCircle2 } from 'lucide-react';
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import logoImage from '@/components/images/buriedgames_logo.png';
+import { cn } from "@/lib/utils";
 
 export default function Home() {
   const { language } = useLanguage();
   const t = getTranslation(language);
 
   const [logoStyle, setLogoStyle] = useState<React.CSSProperties>({});
+  const [isLogoInPlace, setIsLogoInPlace] = useState(false);
   const aboutImageContainerRef = useRef<HTMLDivElement>(null);
+
   const animationData = useRef({
     isInitialized: false,
     initial: { x: 0, y: 0, scale: 1 },
@@ -35,14 +38,14 @@ export default function Home() {
     if (!aboutImageEl) return;
 
     const animData = animationData.current;
+    const initialSize = 256; // Adjusted to a more reasonable initial size
 
     const calculateAnimationValues = () => {
       const aboutRect = aboutImageEl.getBoundingClientRect();
-      const initialSize = 256;
 
       animData.initial.scale = 1;
       animData.initial.x = window.innerWidth / 2 - initialSize / 2;
-      animData.initial.y = window.innerHeight * 0.4 - initialSize / 2;
+      animData.initial.y = window.innerHeight * 0.4 - initialSize / 2; // Positioned higher up
 
       animData.final.scale = aboutRect.width / initialSize;
       animData.final.x = aboutRect.left;
@@ -60,6 +63,8 @@ export default function Home() {
       const scrollY = window.scrollY;
       const animationStart = 0;
       const animationEnd = animData.animationEnd;
+      
+      setIsLogoInPlace(scrollY >= animationEnd);
 
       let progress = (scrollY - animationStart) / (animationEnd - animationStart);
       progress = Math.max(0, Math.min(1, progress));
@@ -70,13 +75,13 @@ export default function Home() {
 
       setLogoStyle({
         position: 'fixed',
-        width: '256px',
-        height: '256px',
+        width: `${initialSize}px`,
+        height: `${initialSize}px`,
         top: 0,
         left: 0,
         transform: `translate(${currentX}px, ${currentY - scrollY}px) scale(${currentScale})`,
         transformOrigin: 'top left',
-        zIndex: 20,
+        zIndex: 5, // Lower zIndex to be behind hero text
         pointerEvents: 'none',
       });
     };
@@ -112,7 +117,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
         
-        <div style={logoStyle}>
+        <div style={{...logoStyle, opacity: isLogoInPlace ? 0 : 1, transition: 'opacity 0.1s linear'}}>
           <Image 
             src={logoImage} 
             alt="Buried Games Logo" 
@@ -146,7 +151,16 @@ export default function Home() {
               <p className="mt-4 text-muted-foreground">{t.about.p2}</p>
             </div>
             <div ref={aboutImageContainerRef} className="relative aspect-square rounded-xl overflow-hidden shadow-2xl">
-                <Image src={logoImage} alt="Buried Games Team" fill className="object-cover opacity-0" data-ai-hint="game development" />
+                <Image 
+                  src={logoImage} 
+                  alt="Buried Games Team" 
+                  fill 
+                  className={cn(
+                    "object-cover transition-opacity duration-100",
+                    isLogoInPlace ? "opacity-100" : "opacity-0"
+                  )}
+                  data-ai-hint="game development" 
+                />
             </div>
           </div>
         </section>
@@ -221,3 +235,5 @@ export default function Home() {
     </div>
   );
 }
+
+    
