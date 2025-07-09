@@ -14,11 +14,11 @@ import {
 import { GameCard } from "@/components/game-card";
 import { CheckCircle2 } from 'lucide-react';
 import Image from "next/image";
-import logoImage from '@/components/images/buriedgames_logo.png';
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 import type { CSSProperties } from "react";
 import { useEffect, useState } from "react";
 import { ParticlesBackground } from "@/components/particles-background";
+import logoImage from '@/components/images/buriedgames_logo.png';
 
 export default function Home() {
   const { language } = useLanguage();
@@ -90,7 +90,7 @@ export default function Home() {
 
           {/* Hero Section */}
           <section 
-            className="relative h-screen min-h-[700px] text-center px-4 flex flex-col items-center justify-center"
+            className="relative isolate h-screen min-h-[700px] text-center px-4 flex flex-col items-center justify-center"
           >
             <ParticlesBackground />
             <Parallax speed={-30} className="absolute inset-0 z-0">
@@ -98,9 +98,9 @@ export default function Home() {
                 <Image
                   src={logoImage.src}
                   alt="Buried Games Studio Logo background"
-                  width={400}
-                  height={400}
-                  className="opacity-20"
+                  width={600}
+                  height={600}
+                  className="opacity-40"
                 />
               </div>
             </Parallax>

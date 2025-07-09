@@ -60,14 +60,14 @@ export function ParticlesBackground() {
             default: "out",
           },
           random: true,
-          speed: 4,
+          speed: 6,
           straight: false,
         },
         number: {
           density: {
             enable: true,
           },
-          value: 120,
+          value: 160,
         },
         opacity: {
           value: { min: 0.1, max: 0.5 },
@@ -100,7 +100,7 @@ export function ParticlesBackground() {
         id="tsparticles"
         particlesLoaded={particlesLoaded}
         options={options}
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 -z-10"
       />
     );
   }
