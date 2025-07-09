@@ -56,7 +56,7 @@ export const gamesContent = [
     ],
     heroImage: 'https://placehold.co/1920x1080.png',
     heroImageHint: 'playing cards',
-    heroVideo: null,
+    heroVideo: '/videos/koutq8-hero-video.mp4',
     imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'card game',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
