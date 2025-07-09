@@ -18,8 +18,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['Orbitron', 'sans-serif'],
-        headline: ['"Russo One"', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+        headline: ['afolkalips', 'sans-serif'],
         arabic: ['Cairo', 'sans-serif'],
         code: ['monospace'],
       },
