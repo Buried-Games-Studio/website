@@ -137,7 +137,7 @@ export const content = {
       items: [
         {
           name: 'Gavan Tech',
-          logoUrl: 'https://placehold.co/200x80.png',
+          logoUrl: '/images/gavan.png',
           websiteUrl: 'https://gavan-tech.com/en',
           imageHint: 'Gavan Tech logo',
         }
@@ -148,7 +148,7 @@ export const content = {
       items: [
         {
           name: 'Gavan Tech',
-          logoUrl: 'https://placehold.co/200x80.png',
+          logoUrl: '/images/gavan.png',
           websiteUrl: 'https://gavan-tech.com/en',
           imageHint: 'Gavan Tech logo',
         }

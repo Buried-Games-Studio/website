@@ -17,16 +17,18 @@ export default function AboutUsPage() {
     en: {
       page_title: "About Buried Games Studio",
       page_subtitle: t.about_page.title,
-      contact_cta_title: "Have a project in mind?",
-      contact_cta_button: "Let's Talk",
+      contact_title: "Get In Touch",
+      contact_subtitle: "Have a question or a project in mind? We'd love to hear from you.",
+      contact_cta: "Contact Us Now",
       core_values_title: "Our Core Values",
       our_story_title: "Our Story"
     },
     ar: {
       page_title: "حول استوديو بريد جيمز",
       page_subtitle: t.about_page.title,
-      contact_cta_title: "هل لديك مشروع في ذهنك؟",
-      contact_cta_button: "لنتحدث",
+      contact_title: "تواصل معنا",
+      contact_subtitle: "هل لديك سؤال أو مشروع في ذهنك؟ نود أن نسمع منك.",
+      contact_cta: "تواصل معنا الآن",
       core_values_title: "قيمنا الأساسية",
       our_story_title: "قصتنا"
     },
@@ -112,7 +114,7 @@ export default function AboutUsPage() {
                         />
                      </div>
                     <CardContent className="p-6">
-                      <h3 className="text-2xl font-bold font-headline tracking-wide">{member.name}</h3>
+                      <h3 className="text-3xl font-bold font-headline tracking-wide">{member.name}</h3>
                       <p className="text-accent">{member.role}</p>
                     </CardContent>
                   </Card>
@@ -164,12 +166,17 @@ export default function AboutUsPage() {
       </section>
       
       {/* CTA Section */}
-      <section className="container text-center">
-         <h2 className="text-3xl font-bold font-headline tracking-wide">{t_ui.contact_cta_title}</h2>
-         <div className="mt-6">
-            <Button asChild size="lg">
-                <Link href="/contact-us">{t_ui.contact_cta_button}</Link>
-            </Button>
+      <section id="contact" className="bg-card">
+         <div className="container">
+            <div className="max-w-2xl mx-auto text-center">
+              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t_ui.contact_title}</h2>
+              <p className="mt-4 text-muted-foreground">{t_ui.contact_subtitle}</p>
+              <div className="mt-8">
+                  <Button asChild size="lg">
+                      <Link href="/contact-us">{t_ui.contact_cta}</Link>
+                  </Button>
+              </div>
+            </div>
          </div>
       </section>
     </main>
