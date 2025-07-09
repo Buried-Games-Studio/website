@@ -16,6 +16,7 @@ import {
   Bot,
   Trophy,
   Smartphone,
+  Construction,
   type LucideIcon,
 } from "lucide-react";
 import { Parallax, ParallaxProvider } from "react-scroll-parallax";
@@ -38,11 +39,10 @@ const engineImageMap: { [key: string]: StaticImageData | undefined } = {
     'Unreal Engine': UnrealEngineImage,
 };
 
-
 export default function GameDetailPage() {
-    const params = useParams<{ slug: string }>();
+    const params = useParams();
     const { language } = useLanguage();
-    const game = getGameData(params.slug);
+    const game = getGameData(params.slug as string);
 
     if (!game) {
         notFound();
@@ -87,13 +87,16 @@ export default function GameDetailPage() {
                 </h1>
                 <div className="mt-4 flex items-center justify-center gap-4">
                     {game.status === 'development' && (
-                        <Badge className="border-transparent bg-secondary text-secondary-foreground text-base">{t_ui.underDev}</Badge>
+                        <Badge className="border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-base flex items-center gap-2">
+                           <Construction className="w-4 h-4" />
+                           {t_ui.underDev}
+                        </Badge>
                     )}
                     {game.engine && (
                          <Badge variant="outline" className="text-base flex items-center gap-2 bg-background/20 backdrop-blur-sm">
                             Made with 
                             {engineImageMap[game.engine] ? (
-                                <Image src={engineImageMap[game.engine]!} alt={game.engine} height={20} width={20} className="h-5 w-auto" />
+                                <Image src={engineImageMap[game.engine]!} alt={game.engine} height={32} width={32} className="h-8 w-auto" />
                             ) : (
                                 game.engine
                             )}
