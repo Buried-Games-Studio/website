@@ -6,7 +6,7 @@ import { useLanguage } from "@/contexts/language-context";
 import { getGameData } from "@/lib/content";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import {
   Puzzle,
@@ -27,6 +27,10 @@ import PowerOfBombsImage from '@/components/images/powerofbombsIconTransparent.p
 import Koutq8Image from '@/components/images/Koutq8Logo.png';
 import POPBackgroundImage from '@/components/images/POPBackground.jpg';
 import POPOverviewImage from '@/components/images/POPOverview.jpg';
+import downloadAppStoreImage from '@/components/images/downloadAppStoreImage.png';
+import KoutQ8Image_1 from '@/components/images/KoutQ8Image_1.png';
+import KoutQ8Image_2 from '@/components/images/KoutQ8Image_2.png';
+import KoutQ8Image_3 from '@/components/images/KoutQ8Image_3.png';
 
 
 const iconMap: { [key: string]: LucideIcon } = {
@@ -55,6 +59,13 @@ const heroImageMap: { [key: string]: StaticImageData } = {
 
 const galleryImageMap: { [key: string]: StaticImageData } = {
     'POPOverview.jpg': POPOverviewImage,
+    'KoutQ8Image_1.png': KoutQ8Image_1,
+    'KoutQ8Image_2.png': KoutQ8Image_2,
+    'KoutQ8Image_3.png': KoutQ8Image_3,
+};
+
+const storeImageMap: { [key: string]: StaticImageData } = {
+    'downloadAppStoreImage.png': downloadAppStoreImage,
 };
 
 export default function GameDetailPage() {
@@ -93,15 +104,28 @@ export default function GameDetailPage() {
         {/* Hero Section */}
         <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center text-center text-white overflow-hidden p-4">
             <Parallax speed={-40} className="absolute inset-0 z-0">
-                <Image 
-                    src={heroSrc} 
-                    alt={`${game.title} Hero Background`} 
-                    fill 
-                    className="object-cover"
-                    data-ai-hint={game.heroImageHint}
-                    priority
-                    placeholder={heroIsStatic ? "blur" : "empty"}
-                />
+                 {game.heroVideo ? (
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="absolute inset-0 z-0 w-full h-full object-cover"
+                        key={game.heroVideo}
+                    >
+                        <source src={game.heroVideo} type="video/mp4" />
+                    </video>
+                ) : (
+                    <Image 
+                        src={heroSrc} 
+                        alt={`${game.title} Hero Background`} 
+                        fill 
+                        className="object-cover"
+                        data-ai-hint={game.heroImageHint}
+                        priority
+                        placeholder={heroIsStatic ? "blur" : "empty"}
+                    />
+                )}
                 <div className="absolute inset-0 bg-black/60"></div>
             </Parallax>
             <div className="relative z-10">
@@ -206,12 +230,19 @@ export default function GameDetailPage() {
                 <div className="container text-center">
                     <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight mb-8">{t_ui.whereToBuy}</h2>
                     <div className="flex justify-center items-center gap-4 flex-wrap">
-                        {game.storeLinks.map((link, index) => (
-                            <Button asChild size="lg" key={index}>
-                                <Link href={link.url} target="_blank" rel="noopener noreferrer">{link.label[language]}</Link>
-
-                            </Button>
-                        ))}
+                        {game.storeLinks.map((link, index) => {
+                             const StoreImage = link.imageUrl ? storeImageMap[link.imageUrl] : null;
+                             const storeLabel = link.label ? link.label[language] : `Download on ${link.store}`;
+                             return (
+                                <Link href={link.url} target="_blank" rel="noopener noreferrer" key={index} className="inline-block transition-transform hover:scale-105">
+                                    {StoreImage ? (
+                                        <Image src={StoreImage} alt={`${game.title} on ${link.store}`} width={200} height={60} placeholder="blur" />
+                                    ) : (
+                                        <Button size="lg">{storeLabel}</Button>
+                                    )}
+                                </Link>
+                             )
+                        })}
                     </div>
                 </div>
             </section>
