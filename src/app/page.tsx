@@ -25,6 +25,7 @@ export default function Home() {
   const [logoStyle, setLogoStyle] = useState<React.CSSProperties>({});
   const [isLogoInPlace, setIsLogoInPlace] = useState(false);
   const aboutImageContainerRef = useRef<HTMLDivElement>(null);
+  const heroTextContainerRef = useRef<HTMLDivElement>(null);
 
   const animationData = useRef({
     isInitialized: false,
@@ -35,35 +36,43 @@ export default function Home() {
 
   useEffect(() => {
     const aboutImageEl = aboutImageContainerRef.current;
-    if (!aboutImageEl) return;
+    const heroTextEl = heroTextContainerRef.current;
+    if (!aboutImageEl || !heroTextEl) return;
 
-    const animData = animationData.current;
-    const initialSize = 256; // Adjusted to a more reasonable initial size
+    const initialSize = 256;
 
     const calculateAnimationValues = () => {
       const aboutRect = aboutImageEl.getBoundingClientRect();
+      const heroTextRect = heroTextEl.getBoundingClientRect();
+      const animData = animationData.current;
 
       animData.initial.scale = 1;
       animData.initial.x = window.innerWidth / 2 - initialSize / 2;
-      animData.initial.y = window.innerHeight * 0.4 - initialSize / 2; // Positioned higher up
+      // Position the logo vertically below the hero text with a margin, relative to the document
+      animData.initial.y = heroTextRect.bottom + window.scrollY + 48;
 
       animData.final.scale = aboutRect.width / initialSize;
       animData.final.x = aboutRect.left;
+      // Final position is the top of the placeholder, relative to the document
       animData.final.y = aboutRect.top + window.scrollY;
-      
-      animData.animationEnd = animData.final.y - (window.innerHeight * 0.25);
+
+      // End animation when the top of the placeholder is 1/3 down the viewport
+      const endViewportOffset = window.innerHeight / 3;
+      animData.animationEnd = animData.final.y - endViewportOffset;
+
 
       animData.isInitialized = true;
       handleScroll();
     };
 
     const handleScroll = () => {
-      if (!animData.isInitialized) return;
+      if (!animationData.current.isInitialized) return;
 
+      const animData = animationData.current;
       const scrollY = window.scrollY;
       const animationStart = 0;
       const animationEnd = animData.animationEnd;
-      
+
       setIsLogoInPlace(scrollY >= animationEnd);
 
       let progress = (scrollY - animationStart) / (animationEnd - animationStart);
@@ -71,7 +80,7 @@ export default function Home() {
 
       const currentX = animData.initial.x + (animData.final.x - animData.initial.x) * progress;
       const currentY = animData.initial.y + (animData.final.y - animData.initial.y) * progress;
-      const currentScale = animData.initial.scale + (animData.final.scale - animData.initial.scale) * progress;
+      const currentScale = animData.initial.scale + (animData.final.scale - animData.final.scale) * progress;
 
       setLogoStyle({
         position: 'fixed',
@@ -81,7 +90,7 @@ export default function Home() {
         left: 0,
         transform: `translate(${currentX}px, ${currentY - scrollY}px) scale(${currentScale})`,
         transformOrigin: 'top left',
-        zIndex: 5, // Lower zIndex to be behind hero text
+        zIndex: 40,
         pointerEvents: 'none',
       });
     };
@@ -117,7 +126,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">
         
-        <div style={{...logoStyle, opacity: isLogoInPlace ? 0 : 1, transition: 'opacity 0.1s linear'}}>
+        <div style={{...logoStyle, opacity: isLogoInPlace ? 0 : 1, transition: 'opacity 0.2s ease-in-out'}}>
           <Image 
             src={logoImage} 
             alt="Buried Games Logo" 
@@ -129,10 +138,10 @@ export default function Home() {
         </div>
 
         {/* Hero Section */}
-        <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center text-center px-4">
+        <section className="relative h-screen min-h-[700px] flex items-center justify-center text-center px-4">
           <div className="absolute inset-0 bg-grid-white/[0.05] [mask-image:linear-gradient(to_bottom,white_5%,transparent_90%)]"></div>
-           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background"></div>
-          <div className="relative z-10">
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background"></div>
+          <div ref={heroTextContainerRef} className="relative">
             <h1 className="text-5xl tracking-wider sm:text-6xl md:text-7xl lg:text-8xl font-headline text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 !leading-tight" style={{ letterSpacing: '0.1em' }}>
               Buried Games Studio
             </h1>
@@ -143,7 +152,7 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="container">
+        <section id="about" className="container pt-0">
            <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t.about.title}</h2>
@@ -156,7 +165,7 @@ export default function Home() {
                   alt="Buried Games Team" 
                   fill 
                   className={cn(
-                    "object-cover transition-opacity duration-100",
+                    "object-cover transition-opacity duration-200 ease-in-out",
                     isLogoInPlace ? "opacity-100" : "opacity-0"
                   )}
                   data-ai-hint="game development" 
@@ -235,5 +244,3 @@ export default function Home() {
     </div>
   );
 }
-
-    
