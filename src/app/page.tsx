@@ -196,8 +196,8 @@ export default function Home() {
                 </Parallax>
                 <p className="mt-4 text-muted-foreground md:text-lg">{t.devlog.home_subtitle}</p>
               </div>
-              <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-                {t.devlog.videos.slice(0, 4).map((video, index) => (
+              <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {t.devlog.videos.slice(0, 3).map((video, index) => (
                   <Parallax y={[30, -30]} key={index}>
                     <VideoCard video={video} thumbnail={thumbnailMap[video.id]} />
                   </Parallax>
