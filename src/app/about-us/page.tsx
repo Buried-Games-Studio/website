@@ -8,6 +8,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Users, Heart, Wand2, ShieldCheck, Handshake } from "lucide-react";
+import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
+import FahedAlahmadImage from '@/components/images/fahed_alahmad.jpeg';
+import GavanLogo from '@/components/images/gavan.png';
+
 
 export default function AboutUsPage() {
   const { language } = useLanguage();
@@ -48,137 +52,156 @@ export default function AboutUsPage() {
   }[language]
 
   return (
-    <main>
-      {/* Hero Section */}
-      <section className="bg-card">
-        <div className="container py-16 md:py-24 text-center">
-          <h1 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline">{t_ui.page_title}</h1>
-          <p className="mt-4 max-w-2xl mx-auto text-muted-foreground md:text-xl">{t_ui.page_subtitle}</p>
-        </div>
-      </section>
+    <ParallaxProvider>
+      <main>
+        {/* Hero Section */}
+        <section className="bg-card overflow-hidden">
+          <div className="container py-16 md:py-24 text-center">
+            <Parallax speed={-10}>
+              <h1 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline">{t_ui.page_title}</h1>
+            </Parallax>
+            <Parallax speed={5}>
+              <p className="mt-4 max-w-2xl mx-auto text-muted-foreground md:text-xl">{t_ui.page_subtitle}</p>
+            </Parallax>
+          </div>
+        </section>
 
-      {/* Content Section */}
-      <section className="container">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="prose dark:prose-invert max-w-none">
-            <h2 className="font-headline text-3xl mb-4 tracking-wide">{t_ui.our_story_title}</h2>
-            <p className="lead">{t.about_page.p1}</p>
-            <p>{t.about_page.p2}</p>
-          </div>
-          <div className="bg-card p-8 rounded-lg shadow-lg">
-              <h3 className="font-headline text-2xl mb-4 tracking-wide">{t.about_page.mission_title}</h3>
-              <p className="text-muted-foreground">{t.about_page.mission_text}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Core Values Section */}
-      <section id="values" className="bg-background">
-        <div className="container">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight">{t_ui.core_values_title}</h2>
-          </div>
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
-            {coreValues.map((value, index) => (
-                <div key={index} className="text-center flex flex-col items-center">
-                    <div className="flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 mb-6 border-2 border-accent">
-                        <value.icon className="w-10 h-10 text-accent"/>
-                    </div>
-                    <h3 className="text-2xl font-bold font-headline tracking-wide">{value.title}</h3>
-                    <p className="mt-2 text-muted-foreground max-w-xs">{value.description}</p>
+        {/* Content Section */}
+        <section className="container overflow-hidden">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+             <Parallax x={[-20, 20]}>
+                <div className="prose dark:prose-invert max-w-none">
+                  <h2 className="font-headline text-3xl mb-4 tracking-wide">{t_ui.our_story_title}</h2>
+                  <p className="lead">{t.about_page.p1}</p>
+                  <p>{t.about_page.p2}</p>
                 </div>
-            ))}
+            </Parallax>
+            <Parallax x={[20, -20]}>
+                <div className="bg-card p-8 rounded-lg shadow-lg">
+                    <h3 className="font-headline text-2xl mb-4 tracking-wide">{t.about_page.mission_title}</h3>
+                    <p className="text-muted-foreground">{t.about_page.mission_text}</p>
+                </div>
+            </Parallax>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Team Section */}
-      <section id="team" className="bg-card">
-        <div className="container">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight flex items-center justify-center gap-4">
-              <Users className="w-10 h-10" />
-              {t.about_page.team_title}
-            </h2>
-          </div>
-          <div className="mt-12 grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center">
-            {t.about_page.team.map((member, index) => {
-               const teamCard = (
-                  <Card className="text-center max-w-sm mx-auto overflow-hidden group transition-all duration-300 hover:shadow-accent/20 hover:shadow-lg hover:-translate-y-1">
-                     <div className="aspect-square relative">
-                        <Image
-                            src={member.imageUrl}
-                            alt={member.name}
-                            fill
-                            className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
-                     </div>
-                    <CardContent className="p-6">
-                      <h3 className="text-3xl font-bold font-headline tracking-wide">{member.name}</h3>
-                      <p className="text-accent">{member.role}</p>
-                    </CardContent>
-                  </Card>
-               );
-
-               return member.linkedInUrl ? (
-                 <Link href={member.linkedInUrl} key={index} target="_blank" rel="noopener noreferrer">
-                   {teamCard}
-                 </Link>
-               ) : (
-                 <div key={index}>{teamCard}</div>
-               );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Partners Section */}
-      <section id="partners" className="bg-background">
-        <div className="container">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight flex items-center justify-center gap-4">
-              <Handshake className="w-10 h-10" />
-              {t.partners.title}
-            </h2>
-          </div>
-          <div className="mt-12 flex justify-center items-center gap-8 flex-wrap">
-            {t.partners.items.map((partner, index) => (
-              <a 
-                href={partner.websiteUrl} 
-                key={index} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="block filter grayscale hover:grayscale-0 transition-all duration-300 ease-in-out hover:scale-105"
-                title={partner.name}
-              >
-                <Image
-                  src={partner.logoUrl}
-                  alt={partner.name}
-                  width={200}
-                  height={80}
-                  data-ai-hint={partner.imageHint}
-                  className="object-contain"
-                />
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-      
-      {/* CTA Section */}
-      <section id="contact" className="bg-card">
-         <div className="container">
+        {/* Core Values Section */}
+        <section id="values" className="bg-background overflow-hidden">
+          <div className="container">
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t_ui.contact_title}</h2>
-              <p className="mt-4 text-muted-foreground">{t_ui.contact_subtitle}</p>
-              <div className="mt-8">
-                  <Button asChild size="lg">
-                      <Link href="/contact-us">{t_ui.contact_cta}</Link>
-                  </Button>
-              </div>
+                <Parallax scale={[0.8, 1, 'easeInCubic']}>
+                    <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight">{t_ui.core_values_title}</h2>
+                </Parallax>
             </div>
-         </div>
-      </section>
-    </main>
+            <div className="mt-12 grid gap-8 md:grid-cols-3">
+              {coreValues.map((value, index) => (
+                  <Parallax y={[30, -30]} key={index}>
+                    <div className="text-center flex flex-col items-center">
+                        <div className="flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 mb-6 border-2 border-accent">
+                            <value.icon className="w-10 h-10 text-accent"/>
+                        </div>
+                        <h3 className="text-2xl font-bold font-headline tracking-wide">{value.title}</h3>
+                        <p className="mt-2 text-muted-foreground max-w-xs">{value.description}</p>
+                    </div>
+                  </Parallax>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Team Section */}
+        <section id="team" className="bg-card overflow-hidden">
+            <div className="container">
+                <div className="max-w-2xl mx-auto text-center">
+                     <Parallax scale={[0.8, 1, 'easeInCubic']}>
+                        <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight flex items-center justify-center gap-4">
+                        <Users className="w-10 h-10" />
+                        {t.about_page.team_title}
+                        </h2>
+                    </Parallax>
+                </div>
+                <div className="mt-12">
+                {t.about_page.team.map((member, index) => (
+                    <Parallax opacity={[0, 1]} scale={[0.9, 1]} key={index}>
+                        <Link href={member.linkedInUrl} target="_blank" rel="noopener noreferrer" className="block max-w-4xl mx-auto group">
+                            <Card className="overflow-hidden transition-all duration-300 hover:shadow-accent/20 hover:shadow-lg hover:-translate-y-2">
+                                <div className="md:flex">
+                                    <div className="md:w-1/3 relative aspect-square md:aspect-auto">
+                                        <Image
+                                            src={FahedAlahmadImage}
+                                            alt={member.name}
+                                            fill
+                                            className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                            placeholder="blur"
+                                        />
+                                    </div>
+                                    <div className="md:w-2/3">
+                                        <CardContent className="p-6 md:p-8 flex flex-col justify-center h-full">
+                                            <h3 className="text-4xl font-bold font-headline tracking-wide">{member.name}</h3>
+                                            <p className="text-accent text-lg">{member.role}</p>
+                                        </CardContent>
+                                    </div>
+                                </div>
+                            </Card>
+                        </Link>
+                    </Parallax>
+                ))}
+                </div>
+            </div>
+        </section>
+
+
+        {/* Partners Section */}
+        <section id="partners" className="bg-background overflow-hidden">
+          <div className="container">
+            <div className="max-w-2xl mx-auto text-center">
+                <Parallax scale={[0.8, 1, 'easeInCubic']}>
+                    <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight flex items-center justify-center gap-4">
+                    <Handshake className="w-10 h-10" />
+                    {t.partners.title}
+                    </h2>
+                </Parallax>
+            </div>
+            <div className="mt-12 flex justify-center items-center gap-8 flex-wrap">
+              {t.partners.items.map((partner, index) => (
+                 <Parallax y={[30, -30]} key={index}>
+                    <a 
+                        href={partner.websiteUrl} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="block filter grayscale hover:grayscale-0 transition-all duration-300 ease-in-out hover:scale-105"
+                        title={partner.name}
+                    >
+                        <Image
+                        src={GavanLogo}
+                        alt={partner.name}
+                        width={200}
+                        height={80}
+                        data-ai-hint={partner.imageHint}
+                        className="object-contain"
+                        />
+                    </a>
+                </Parallax>
+              ))}
+            </div>
+          </div>
+        </section>
+        
+        {/* CTA Section */}
+        <section id="contact" className="bg-card">
+          <div className="container">
+              <div className="max-w-2xl mx-auto text-center">
+                <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t_ui.contact_title}</h2>
+                <p className="mt-4 text-muted-foreground">{t_ui.contact_subtitle}</p>
+                <div className="mt-8">
+                    <Button asChild size="lg">
+                        <Link href="/contact-us">{t_ui.contact_cta}</Link>
+                    </Button>
+                </div>
+              </div>
+          </div>
+        </section>
+      </main>
+    </ParallaxProvider>
   );
 }

@@ -23,7 +23,6 @@ export const content = {
         {
           name: 'Fahed Alahmad',
           role: 'Founder',
-          imageUrl: '/images/fahed_alahmad.jpg',
           linkedInUrl: 'https://linkedin.com/in/fahed-f-al-ahmad-se',
         }
       ]
@@ -39,7 +38,6 @@ export const content = {
         {
           name: 'فهد الأحمد',
           role: 'المؤسس',
-          imageUrl: '/images/fahed_alahmad.jpg',
           linkedInUrl: 'https://linkedin.com/in/fahed-f-al-ahmad-se',
         }
       ]
@@ -137,7 +135,6 @@ export const content = {
       items: [
         {
           name: 'Gavan Tech',
-          logoUrl: '/images/gavan.png',
           websiteUrl: 'https://gavan-tech.com/en',
           imageHint: 'Gavan Tech logo',
         }
@@ -148,7 +145,6 @@ export const content = {
       items: [
         {
           name: 'Gavan Tech',
-          logoUrl: '/images/gavan.png',
           websiteUrl: 'https://gavan-tech.com/en',
           imageHint: 'Gavan Tech logo',
         }
