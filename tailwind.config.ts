@@ -18,7 +18,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
+        body: ['Orbitron', 'sans-serif'],
         headline: ['afolkalips', 'sans-serif'],
         arabic: ['Cairo', 'sans-serif'],
         code: ['monospace'],
