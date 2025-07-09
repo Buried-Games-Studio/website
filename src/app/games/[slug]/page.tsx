@@ -110,15 +110,15 @@ export default function GameDetailPage() {
     <ParallaxProvider>
       <main>
         {/* Hero Section */}
-        <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center text-center text-white overflow-hidden p-4">
-            <Parallax speed={-40} className="absolute inset-0 z-0">
+        <section className="relative w-full aspect-video flex items-center justify-center text-center text-white overflow-hidden">
+            <Parallax speed={-20} className="absolute inset-0 z-0">
                  {isClient && game.heroVideo ? (
                     <video
                         autoPlay
                         loop
                         muted
                         playsInline
-                        className="absolute inset-0 z-0 w-full h-full object-contain"
+                        className="absolute inset-0 z-0 w-full h-full object-cover"
                         key={game.heroVideo}
                     >
                         <source src={game.heroVideo} type="video/mp4" />
@@ -128,7 +128,7 @@ export default function GameDetailPage() {
                         src={heroSrc} 
                         alt={`${game.title} Hero Background`} 
                         fill 
-                        className="object-contain"
+                        className="object-cover"
                         data-ai-hint={game.heroImageHint}
                         priority
                         placeholder={heroIsStatic ? "blur" : "empty"}
@@ -136,7 +136,7 @@ export default function GameDetailPage() {
                 )}
                 <div className="absolute inset-0 bg-black/60"></div>
             </Parallax>
-            <div className="relative z-10">
+            <div className="relative z-10 p-4">
                 <h1 className="text-5xl tracking-wider sm:text-6xl md:text-7xl font-headline !leading-tight text-transparent bg-clip-text bg-gradient-to-t from-accent to-white">
                     {game.title}
                 </h1>
