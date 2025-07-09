@@ -102,6 +102,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cairo.variable} ${orbitron.variable} dark`}>
       <head>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              @font-face {
+                font-family: 'afolkalips';
+                src: url('/fonts/afolkalips.woff2') format('woff2');
+                font-weight: normal;
+                font-style: normal;
+                font-display: swap;
+              }
+            `,
+          }}
+        />
         <link rel="preconnect" href="https://firebaseinstallations.googleapis.com" />
         <link
           rel="preload"
