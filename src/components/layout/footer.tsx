@@ -43,9 +43,9 @@ const Footer = () => {
       sitemap: 'Site Map',
       about_us: 'About Us',
       services: 'Services',
+      devlog: 'Devlog',
       privacy: 'Privacy Policy',
       terms: 'Terms of Use',
-      release_notes: 'Release Notes',
       additional_links: 'Additional links',
       contact: 'Contact Us',
       faq: 'FAQs',
@@ -59,9 +59,9 @@ const Footer = () => {
       sitemap: 'خريطة الموقع',
       about_us: 'من نحن',
       services: 'الخدمات',
+      devlog: 'مدونة التطوير',
       privacy: 'سياسة الخصوصية',
       terms: 'شروط الاستخدام',
-      release_notes: 'ملاحظات الإصدار',
       additional_links: 'روابط إضافية',
       contact: 'اتصل بنا',
       faq: 'الأسئلة الشائعة',
@@ -100,7 +100,7 @@ const Footer = () => {
               <ul className="space-y-2">
                 <li><Link href="/about-us" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.about_us}</Link></li>
                 <li><Link href="/services" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.services}</Link></li>
-                <li><Link href="/release-notes" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.release_notes}</Link></li>
+                <li><Link href="/devlog" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.devlog}</Link></li>
                 <li><Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.privacy}</Link></li>
                 <li><Link href="/terms-of-use" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.terms}</Link></li>
               </ul>

@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/accordion";
 import { GameCard } from "@/components/game-card";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Lightbulb, Palette, Smartphone, Swords } from 'lucide-react';
+import { ArrowRight, Lightbulb, Palette, Smartphone, Swords, Youtube } from 'lucide-react';
 import { ParticlesBackground } from "@/components/particles-background";
 import PowerOfBombsImage from '@/components/images/powerofbombsIconTransparent.png';
 import Koutq8Image from '@/components/images/Koutq8Logo.png';
@@ -22,6 +22,7 @@ import UnityImage from '@/components/images/UnityImage.png';
 import UnrealEngineImage from '@/components/images/UnrealEngineImage.png';
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 import logoImage from '@/components/images/buriedgames_logo.png';
+import { VideoCard } from "@/components/video-card";
 
 export default function Home() {
   const { language } = useLanguage();
@@ -73,7 +74,7 @@ export default function Home() {
             
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background z-0 pointer-events-none"></div>
             
-            <Parallax speed={-25} className="absolute inset-0 z-10 flex items-center justify-center opacity-20 pointer-events-none">
+            <Parallax speed={-25} className="absolute inset-0 z-10 flex items-center justify-center opacity-30 pointer-events-none">
                 <Image 
                     src={logoImage} 
                     alt="Buried Games Studio Background Logo" 
@@ -168,8 +169,36 @@ export default function Home() {
             </div>
           </section>
 
+          {/* Devlog Section */}
+          <section id="devlog" className="bg-card">
+            <div className="container">
+              <div className="max-w-2xl mx-auto text-center">
+                 <Parallax scale={[0.8, 1, 'easeInCubic']}>
+                    <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight flex items-center justify-center gap-4">
+                        <Youtube className="w-10 h-10" />
+                        {t.devlog.home_title}
+                    </h2>
+                </Parallax>
+                <p className="mt-4 text-muted-foreground md:text-lg">{t.devlog.home_subtitle}</p>
+              </div>
+              <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                {t.devlog.videos.slice(0, 4).map((video, index) => (
+                  <Parallax y={[30, -30]} key={index}>
+                    <VideoCard video={video} />
+                  </Parallax>
+                ))}
+              </div>
+              <div className="mt-12 text-center">
+                  <Button asChild size="lg" variant="outline">
+                      <Link href="/devlog">{t.devlog.view_all_cta}</Link>
+                  </Button>
+              </div>
+            </div>
+          </section>
+
+
           {/* FAQ Section */}
-          <section id="faq" className="bg-card">
+          <section id="faq">
             <div className="container">
               <div className="max-w-2xl mx-auto text-center">
                 <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t.faq.title}</h2>

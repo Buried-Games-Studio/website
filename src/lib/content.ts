@@ -1,9 +1,11 @@
+
 import type { Language } from '@/contexts/language-context';
 import { aboutContent } from './content/about';
 import { servicesContent } from './content/services';
 import { gamesContent } from './content/games';
 import { faqContent } from './content/faq';
 import { partnersContent } from './content/partners';
+import { devlogContent } from './content/devlog';
 
 export const content = {
   ...aboutContent,
@@ -11,6 +13,7 @@ export const content = {
   games: gamesContent,
   faq: faqContent,
   partners: partnersContent,
+  devlog: devlogContent,
 };
 
 export const getTranslation = (language: Language) => ({
@@ -20,4 +23,5 @@ export const getTranslation = (language: Language) => ({
   games: content.games.map(game => ({ ...game, description: game.description[language] })),
   faq: content.faq[language],
   partners: content.partners[language],
+  devlog: content.devlog[language],
 });
