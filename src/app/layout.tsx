@@ -44,8 +44,6 @@ export const metadata: Metadata = {
   authors: [{ name: 'Buried Games Studio', url: 'https://buriedgames.com' }],
   themeColor: '#000000',
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
     apple: logoImage.src,
   },
   openGraph: {
