@@ -45,23 +45,23 @@ export default function Home() {
 
           {/* Hero Section */}
           <section 
-            className="relative h-screen min-h-[700px] flex items-center justify-center text-center px-4"
+            className="relative h-screen min-h-[700px] text-center px-4 overflow-hidden"
           >
-            <div className="absolute inset-0 bg-grid-white/[0.05] [mask-image:linear-gradient(to_bottom,white_5%,transparent_90%)] z-0"></div>
-            
-            <Parallax speed={-25} className="z-10">
-              <Image
-                src={logoImage.src}
-                alt="Buried Games Studio Logo"
-                width={256}
-                height={256}
-                className="opacity-10"
-              />
+            <Parallax speed={-20} className="absolute inset-0 z-0">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Image
+                  src={logoImage.src}
+                  alt="Buried Games Studio Logo background"
+                  width={300}
+                  height={300}
+                  className="opacity-10"
+                />
+              </div>
             </Parallax>
-
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background z-20"></div>
-
-            <div className="relative z-30">
+            
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background z-10"></div>
+            
+            <div className="relative h-full flex flex-col items-center justify-center z-20">
               <h1 className="text-5xl tracking-wider sm:text-6xl md:text-7xl lg:text-8xl font-headline text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 !leading-tight" style={{ letterSpacing: '0.1em' }}>
                 Buried Games Studio
               </h1>
@@ -101,7 +101,7 @@ export default function Home() {
                 {t.services.items.map((service, index) => (
                   <div key={index} className="flex flex-col items-center text-center">
                     <div className="flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-                      <CheckCircle2 className="w-8 h-8 text-primary" />
+                      <CheckCircle2 className="w-8 h-8 text-accent" />
                     </div>
                     <h3 className="text-xl font-bold">{service.name}</h3>
                     <p className="mt-2 text-muted-foreground">{service.description}</p>
