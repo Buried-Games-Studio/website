@@ -18,9 +18,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['Orbitron', 'sans-serif'],
+        body: ['var(--font-orbitron)', 'sans-serif'],
         headline: ['afolkalips', 'sans-serif'],
-        arabic: ['Cairo', 'sans-serif'],
+        arabic: ['var(--font-cairo)', 'sans-serif'],
         code: ['monospace'],
       },
       colors: {

@@ -9,6 +9,19 @@ import { DynamicSEO } from '@/components/seo';
 import { Suspense } from 'react';
 import { FirebaseAnalytics } from '@/components/firebase-analytics';
 import logoImage from '@/components/images/buriedgames_logo.png';
+import { Cairo, Orbitron } from 'next/font/google';
+
+const cairo = Cairo({
+    subsets: ['arabic', 'latin'],
+    weight: ['400', '700'],
+    variable: '--font-cairo',
+});
+
+const orbitron = Orbitron({
+    subsets: ['latin'],
+    weight: ['400', '700'],
+    variable: '--font-orbitron',
+});
 
 const organizationSchema = {
     "@context": "https://schema.org",
@@ -77,11 +90,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className={`${cairo.variable} ${orbitron.variable} dark`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}

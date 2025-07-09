@@ -1,16 +1,16 @@
+@font-face {
+  font-family: 'afolkalips';
+  src: url('/fonts/afolkalips.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: 'afolkalips';
-    src: url(/fonts/afolkalips.woff2) format('woff2');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-  
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
