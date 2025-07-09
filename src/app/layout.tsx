@@ -9,7 +9,7 @@ import { DynamicSEO } from '@/components/seo';
 import { Suspense } from 'react';
 import { FirebaseAnalytics } from '@/components/firebase-analytics';
 import logoImage from '@/components/images/buriedgames_logo.png';
-import { Cairo, Inter, Space_Grotesk as SpaceGrotesk } from 'next/font/google';
+import { Cairo, Inter } from 'next/font/google';
 
 const cairo = Cairo({
     subsets: ['arabic', 'latin'],
@@ -20,12 +20,6 @@ const cairo = Cairo({
 const inter = Inter({
     subsets: ['latin'],
     variable: '--font-inter',
-});
-
-const spaceGrotesk = SpaceGrotesk({
-    subsets: ['latin'],
-    weight: ['400', '700'],
-    variable: '--font-space-grotesk',
 });
 
 const organizationSchema = {
@@ -105,7 +99,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cairo.variable} ${inter.variable} ${spaceGrotesk.variable} dark`}>
+    <html lang="en" className={`${cairo.variable} ${inter.variable} dark`}>
       <head>
         <link rel="preconnect" href="https://firebaseinstallations.googleapis.com" />
         <script
