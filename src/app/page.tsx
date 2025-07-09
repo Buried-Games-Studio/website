@@ -48,8 +48,8 @@ export default function Home() {
 
       animData.initial.scale = 1;
       animData.initial.x = window.innerWidth / 2 - initialSize / 2;
-      // Position the logo vertically below the hero text with a margin, relative to the document
-      animData.initial.y = heroTextRect.bottom + window.scrollY + 48;
+      // Position logo vertically centered behind the hero text
+      animData.initial.y = heroTextRect.top + window.scrollY + (heroTextRect.height / 2) - (initialSize / 2);
 
       animData.final.scale = aboutRect.width / initialSize;
       animData.final.x = aboutRect.left;
@@ -79,7 +79,7 @@ export default function Home() {
       progress = Math.max(0, Math.min(1, progress));
 
       const currentX = animData.initial.x + (animData.final.x - animData.initial.x) * progress;
-      const currentY = animData.initial.y + (animData.final.y - animData.initial.y) * progress;
+      const currentY = animData.initial.y + (animData.final.y - animData.final.y) * progress;
       const currentScale = animData.initial.scale + (animData.final.scale - animData.final.scale) * progress;
 
       setLogoStyle({
@@ -90,7 +90,7 @@ export default function Home() {
         left: 0,
         transform: `translate(${currentX}px, ${currentY - scrollY}px) scale(${currentScale})`,
         transformOrigin: 'top left',
-        zIndex: 40,
+        zIndex: 5, // Keep logo behind text
         pointerEvents: 'none',
       });
     };
@@ -141,7 +141,7 @@ export default function Home() {
         <section className="relative h-screen min-h-[700px] flex items-center justify-center text-center px-4">
           <div className="absolute inset-0 bg-grid-white/[0.05] [mask-image:linear-gradient(to_bottom,white_5%,transparent_90%)]"></div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background"></div>
-          <div ref={heroTextContainerRef} className="relative">
+          <div ref={heroTextContainerRef} className="relative z-10">
             <h1 className="text-5xl tracking-wider sm:text-6xl md:text-7xl lg:text-8xl font-headline text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 !leading-tight" style={{ letterSpacing: '0.1em' }}>
               Buried Games Studio
             </h1>
