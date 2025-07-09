@@ -65,10 +65,6 @@ export const metadata: Metadata = {
     description: 'The official website for Buried Games studio.',
     images: ['https://buriedgames.com/assets/images/buriedgames_logo.png'],
   },
-  icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-  },
 };
 
 export default function RootLayout({
