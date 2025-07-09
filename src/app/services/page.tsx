@@ -6,7 +6,7 @@ import { getTranslation } from "@/lib/content";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { Lightbulb, Palette, Smartphone, Swords } from "lucide-react";
+import { Lightbulb, Palette, Smartphone, Swords, Bug, Music } from "lucide-react";
 
 export default function ServicesPage() {
   const { language } = useLanguage();
@@ -17,6 +17,8 @@ export default function ServicesPage() {
     'Game Design & Prototyping': Lightbulb,
     '2D & 3D Art/Animation': Palette,
     'Mobile Game Porting': Smartphone,
+    'QA & Testing': Bug,
+    'Audio Design & Music': Music,
   };
 
   const t_ui = {

@@ -81,7 +81,7 @@ export default function Home() {
                 />
             </Parallax>
             
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background z-10"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background z-10 pointer-events-none"></div>
             
             <div className="relative z-20">
               <Parallax speed={10}>
@@ -120,11 +120,11 @@ export default function Home() {
                 <div className="prose dark:prose-invert max-w-none">
                     <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight">{t.services.title}</h2>
                     <p className="lead">{t.services.homepage_subtitle}</p>
-                    <p className="flex flex-wrap items-center gap-x-2">
+                    <p className="flex flex-wrap items-center gap-x-4">
                       <span>{t.services.homepage_p[0]}</span>
-                      <Image src={UnityImage} alt="Unity" height={24} className="inline-block h-6 w-auto" />
+                      <Image src={UnityImage} alt="Unity" height={40} className="inline-block h-10 w-auto" />
                       <span>{t.services.homepage_p[1]}</span>
-                      <Image src={UnrealEngineImage} alt="Unreal Engine" height={24} className="inline-block h-6 w-auto" />
+                      <Image src={UnrealEngineImage} alt="Unreal Engine" height={40} className="inline-block h-10 w-auto" />
                       <span>{t.services.homepage_p[2]}</span>
                     </p>
                     <Button asChild size="lg" className="mt-4 no-underline">
@@ -133,7 +133,7 @@ export default function Home() {
                 </div>
                 <div>
                     <ul className="space-y-6">
-                        {t.services.items.map((service, index) => {
+                        {t.services.items.slice(0, 4).map((service, index) => {
                             const Icon = serviceIcons[service.name] || Swords;
                             return (
                                 <li key={index} className="flex items-start gap-4">
