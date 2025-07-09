@@ -18,6 +18,7 @@ import logoImage from '@/components/images/buriedgames_logo.png';
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 import type { CSSProperties } from "react";
 import { useEffect, useState } from "react";
+import { ParticlesBackground } from "@/components/particles-background";
 
 export default function Home() {
   const { language } = useLanguage();
@@ -47,30 +48,40 @@ export default function Home() {
     animation: `blink-caret .75s step-end infinite`
   });
   const [textToShow, setTextToShow] = useState('');
+  const [startTyping, setStartTyping] = useState(false);
 
   useEffect(() => {
     // Reset on language change
     setTextToShow('');
+    setStartTyping(false);
     setAnimationStyle({
       borderRightColor: 'hsl(var(--accent))',
       animation: `blink-caret .75s step-end infinite`
     });
 
-    const timer = setTimeout(() => {
-      setTextToShow(subtitle);
-      
-      const typingDuration = 3;
-      const blinkInterval = 0.75;
-      // Have the cursor blink a couple more times after finishing
-      const blinkIterations = Math.ceil(typingDuration / blinkInterval) + 2;
+    const initialDelayTimer = setTimeout(() => {
+      setStartTyping(true);
+    }, 2000); // 2-second delay before starting anything
 
-      setAnimationStyle({
-        animation: `typing ${typingDuration}s steps(${subtitle.length}, end) forwards, blink-caret ${blinkInterval}s step-end ${blinkIterations} forwards`
-      });
-    }, 2000); // 2-second delay before starting the animation
+    return () => clearTimeout(initialDelayTimer);
+  }, [language]);
 
-    return () => clearTimeout(timer);
-  }, [subtitle]);
+
+  useEffect(() => {
+    if (!startTyping) return;
+
+    setTextToShow(subtitle);
+    
+    const typingDuration = 3;
+    const blinkInterval = 0.75;
+    // Have the cursor blink a couple more times after finishing
+    const blinkIterations = Math.ceil(typingDuration / blinkInterval) + 2;
+
+    setAnimationStyle({
+      animation: `typing ${typingDuration}s steps(${subtitle.length}, end) forwards, blink-caret ${blinkInterval}s step-end ${blinkIterations} forwards`
+    });
+
+  }, [startTyping, subtitle]);
 
 
   return (
@@ -82,6 +93,7 @@ export default function Home() {
           <section 
             className="relative h-screen min-h-[700px] text-center px-4 flex flex-col items-center justify-center"
           >
+            <ParticlesBackground />
             <Parallax speed={-30} className="absolute inset-0 z-0">
               <div className="absolute inset-0 flex items-center justify-center">
                 <Image
