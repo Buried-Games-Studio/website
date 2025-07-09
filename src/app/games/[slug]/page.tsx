@@ -2,7 +2,7 @@
 "use client";
 
 import { notFound } from "next/navigation";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
 import { useLanguage } from "@/contexts/language-context";
 import { getGameData } from "@/lib/content";
 import { Button } from "@/components/ui/button";
@@ -21,6 +21,8 @@ import {
 } from "lucide-react";
 import { Parallax, ParallaxProvider } from "react-scroll-parallax";
 import Link from "next/link";
+import UnityImage from '@/components/images/UnityImage.png';
+import UnrealEngineImage from '@/components/images/UnrealEngineImage.png';
 
 const iconMap: { [key: string]: LucideIcon } = {
   Puzzle,
@@ -30,6 +32,11 @@ const iconMap: { [key: string]: LucideIcon } = {
   Bot,
   Trophy,
   Smartphone,
+};
+
+const engineImageMap: { [key: string]: StaticImageData | undefined } = {
+    'Unity': UnityImage,
+    'Unreal Engine': UnrealEngineImage,
 };
 
 
@@ -83,7 +90,14 @@ export default function GameDetailPage({ params }: { params: { slug:string } }) 
                         <Badge className="border-transparent bg-secondary text-secondary-foreground text-base">{t_ui.underDev}</Badge>
                     )}
                     {game.engine && (
-                        <Badge variant="outline" className="text-base">Made with {game.engine}</Badge>
+                         <Badge variant="outline" className="text-base flex items-center gap-2 bg-background/20 backdrop-blur-sm">
+                            Made with 
+                            {engineImageMap[game.engine] ? (
+                                <Image src={engineImageMap[game.engine]!} alt={game.engine} height={20} width={20} className="h-5 w-auto" />
+                            ) : (
+                                game.engine
+                            )}
+                        </Badge>
                     )}
                 </div>
             </div>
@@ -155,6 +169,7 @@ export default function GameDetailPage({ params }: { params: { slug:string } }) 
                         {game.storeLinks.map((link, index) => (
                             <Button asChild size="lg" key={index}>
                                 <Link href={link.url} target="_blank" rel="noopener noreferrer">{link.label[language]}</Link>
+
                             </Button>
                         ))}
                     </div>

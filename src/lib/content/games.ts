@@ -22,12 +22,12 @@ export const gamesContent = [
     ],
     storeLinks: [],
     heroImage: 'https://placehold.co/1920x1080.png',
-    heroImageHint: 'unreal engine game concept',
+    heroImageHint: 'POPBackground game art',
     imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'explosion action',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     gallery: [
-      { url: 'https://placehold.co/1280x720.png', hint: 'gameplay overview' },
+      { url: 'https://placehold.co/1280x720.png', hint: 'POPOverview gameplay' },
     ],
   },
   {
