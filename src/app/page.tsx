@@ -15,6 +15,7 @@ import { GameCard } from "@/components/game-card";
 import { CheckCircle2 } from 'lucide-react';
 import Image from "next/image";
 import logoImage from '@/components/images/buriedgames_logo.png';
+import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 
 export default function Home() {
   const { language } = useLanguage();
@@ -38,123 +39,126 @@ export default function Home() {
   }[language];
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <main className="flex-1">
+    <ParallaxProvider>
+      <div className="flex flex-col min-h-screen">
+        <main className="flex-1">
 
-        {/* Hero Section */}
-        <section 
-          className="relative h-screen min-h-[700px] flex items-center justify-center text-center px-4"
-        >
-          <div className="absolute inset-0 bg-grid-white/[0.05] [mask-image:linear-gradient(to_bottom,white_5%,transparent_90%)] z-0"></div>
-          
-          <div
-            className="absolute inset-0 bg-no-repeat bg-center opacity-10"
-            style={{
-              backgroundImage: `url(${logoImage.src})`,
-              backgroundAttachment: 'fixed',
-              backgroundSize: '256px',
-            }}
-          ></div>
+          {/* Hero Section */}
+          <section 
+            className="relative h-screen min-h-[700px] flex items-center justify-center text-center px-4 overflow-hidden"
+          >
+            <div className="absolute inset-0 bg-grid-white/[0.05] [mask-image:linear-gradient(to_bottom,white_5%,transparent_90%)] z-0"></div>
+            
+            <Parallax translateY={[-20, 20]} className="absolute inset-0 z-10 flex items-center justify-center">
+              <Image
+                src={logoImage.src}
+                alt="Buried Games Studio Logo"
+                width={256}
+                height={256}
+                className="opacity-10"
+              />
+            </Parallax>
 
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background z-10"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background z-20"></div>
 
-          <div className="relative z-20">
-            <h1 className="text-5xl tracking-wider sm:text-6xl md:text-7xl lg:text-8xl font-headline text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 !leading-tight" style={{ letterSpacing: '0.1em' }}>
-              Buried Games Studio
-            </h1>
-            <p className="max-w-[700px] text-muted-foreground md:text-xl mt-4">
-              {t_ui.hero_subtitle}
-            </p>
-          </div>
-        </section>
-
-        {/* About Section */}
-        <section id="about" className="container">
-           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t.about.title}</h2>
-              <p className="mt-4 text-muted-foreground">{t.about.p1}</p>
-              <p className="mt-4 text-muted-foreground">{t.about.p2}</p>
+            <div className="relative z-30">
+              <h1 className="text-5xl tracking-wider sm:text-6xl md:text-7xl lg:text-8xl font-headline text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-400 !leading-tight" style={{ letterSpacing: '0.1em' }}>
+                Buried Games Studio
+              </h1>
+              <p className="max-w-[700px] text-muted-foreground md:text-xl mt-4">
+                {t_ui.hero_subtitle}
+              </p>
             </div>
-            <div className="relative aspect-square rounded-xl overflow-hidden shadow-2xl">
-                <Image 
-                  src={logoImage} 
-                  alt="Buried Games Logo" 
-                  fill 
-                  className="object-cover"
-                  data-ai-hint="game development" 
-                />
-            </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Services Section */}
-        <section id="services" className="bg-card">
-          <div className="container">
-            <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t.services.title}</h2>
+          {/* About Section */}
+          <section id="about" className="container">
+             <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t.about.title}</h2>
+                <p className="mt-4 text-muted-foreground">{t.about.p1}</p>
+                <p className="mt-4 text-muted-foreground">{t.about.p2}</p>
+              </div>
+              <div className="relative aspect-square rounded-xl overflow-hidden shadow-2xl">
+                  <Image 
+                    src={logoImage} 
+                    alt="Buried Games Logo" 
+                    fill 
+                    className="object-cover"
+                    data-ai-hint="game development" 
+                  />
+              </div>
             </div>
-            <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-              {t.services.items.map((service, index) => (
-                <div key={index} className="flex flex-col items-center text-center">
-                  <div className="flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-                    <CheckCircle2 className="w-8 h-8 text-primary" />
+          </section>
+
+          {/* Services Section */}
+          <section id="services" className="bg-card">
+            <div className="container">
+              <div className="max-w-2xl mx-auto text-center">
+                <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t.services.title}</h2>
+              </div>
+              <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                {t.services.items.map((service, index) => (
+                  <div key={index} className="flex flex-col items-center text-center">
+                    <div className="flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
+                      <CheckCircle2 className="w-8 h-8 text-primary" />
+                    </div>
+                    <h3 className="text-xl font-bold">{service.name}</h3>
+                    <p className="mt-2 text-muted-foreground">{service.description}</p>
                   </div>
-                  <h3 className="text-xl font-bold">{service.name}</h3>
-                  <p className="mt-2 text-muted-foreground">{service.description}</p>
-                </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+
+          {/* Games Section */}
+          <section id="games" className="container">
+            <div className="max-w-2xl mx-auto text-center">
+              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>
+                {language === 'en' ? 'Our Games' : 'ألعابنا'}
+              </h2>
+            </div>
+            <div className="mt-12 grid gap-8 md:grid-cols-2">
+              {t.games.map((game) => (
+                <GameCard key={game.id} game={game} viewText={t_ui.view_details} />
               ))}
             </div>
-          </div>
-        </section>
+          </section>
 
-
-        {/* Games Section */}
-        <section id="games" className="container">
-          <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>
-              {language === 'en' ? 'Our Games' : 'ألعابنا'}
-            </h2>
-          </div>
-          <div className="mt-12 grid gap-8 md:grid-cols-2">
-            {t.games.map((game) => (
-              <GameCard key={game.id} game={game} viewText={t_ui.view_details} />
-            ))}
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section id="faq" className="bg-card">
-          <div className="container">
-            <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t.faq.title}</h2>
+          {/* FAQ Section */}
+          <section id="faq" className="bg-card">
+            <div className="container">
+              <div className="max-w-2xl mx-auto text-center">
+                <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t.faq.title}</h2>
+              </div>
+              <div className="mt-12 max-w-3xl mx-auto">
+                <Accordion type="single" collapsible className="w-full">
+                  {t.faq.items.map((item, index) => (
+                    <AccordionItem key={index} value={`item-${index}`}>
+                      <AccordionTrigger className="text-lg text-left">{item.q}</AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground">{item.a}</AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
             </div>
-            <div className="mt-12 max-w-3xl mx-auto">
-              <Accordion type="single" collapsible className="w-full">
-                {t.faq.items.map((item, index) => (
-                  <AccordionItem key={index} value={`item-${index}`}>
-                    <AccordionTrigger className="text-lg text-left">{item.q}</AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">{item.a}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Contact Section */}
-        <section id="contact" className="container">
-           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t_ui.contact_title}</h2>
-             <p className="mt-4 text-muted-foreground">{t_ui.contact_subtitle}</p>
-             <div className="mt-8">
-                <Button asChild size="lg">
-                    <Link href="/contact-us">{t_ui.contact_cta}</Link>
-                </Button>
-             </div>
-          </div>
-        </section>
-      </main>
-    </div>
+          {/* Contact Section */}
+          <section id="contact" className="container">
+             <div className="max-w-2xl mx-auto text-center">
+              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t_ui.contact_title}</h2>
+               <p className="mt-4 text-muted-foreground">{t_ui.contact_subtitle}</p>
+               <div className="mt-8">
+                  <Button asChild size="lg">
+                      <Link href="/contact-us">{t_ui.contact_cta}</Link>
+                  </Button>
+               </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </ParallaxProvider>
   );
 }
