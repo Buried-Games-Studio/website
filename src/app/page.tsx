@@ -73,13 +73,13 @@ export default function Home() {
             
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background z-0 pointer-events-none"></div>
             
-            <Parallax speed={-25} className="absolute inset-0 z-10 flex items-center justify-center opacity-10 pointer-events-none">
+            <Parallax speed={-25} className="absolute inset-0 z-10 flex items-center justify-center opacity-15 pointer-events-none">
                 <Image 
                     src={logoImage} 
                     alt="Buried Games Studio Background Logo" 
-                    width={500} 
-                    height={500} 
-                    className="max-w-[80vw] md:max-w-[600px] w-auto h-auto"
+                    width={600} 
+                    height={600} 
+                    className="max-w-[80vw] md:max-w-[700px] w-auto h-auto"
                 />
             </Parallax>
             
@@ -122,9 +122,9 @@ export default function Home() {
                     <p className="lead">{t.services.homepage_subtitle}</p>
                     <p className="flex flex-wrap items-center gap-x-4">
                       <span>{t.services.homepage_p[0]}</span>
-                      <Image src={UnityImage} alt="Unity" height={64} className="inline-block h-16 w-auto" />
+                      <Image src={UnityImage} alt="Unity" height={100} width={100} className="inline-block h-auto w-24" />
                       <span>{t.services.homepage_p[1]}</span>
-                      <Image src={UnrealEngineImage} alt="Unreal Engine" height={64} className="inline-block h-16 w-auto" />
+                      <Image src={UnrealEngineImage} alt="Unreal Engine" height={100} width={100} className="inline-block h-auto w-24" />
                       <span>{t.services.homepage_p[2]}</span>
                     </p>
                     <Button asChild size="lg" className="mt-4 no-underline">
