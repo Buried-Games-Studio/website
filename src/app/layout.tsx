@@ -5,6 +5,8 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Toaster } from "@/components/ui/toaster";
 import { DynamicSEO } from '@/components/seo';
+import { Suspense } from 'react';
+import { FirebaseAnalytics } from '@/components/firebase-analytics';
 
 const organizationSchema = {
     "@context": "https://schema.org",
@@ -87,6 +89,9 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased bg-background text-foreground selection:bg-primary/20">
+        <Suspense>
+          <FirebaseAnalytics />
+        </Suspense>
         <LanguageProvider>
           <DynamicSEO />
           <div className="relative flex min-h-screen flex-col">
