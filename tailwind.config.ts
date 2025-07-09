@@ -18,8 +18,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['var(--font-orbitron)', 'sans-serif'],
-        headline: ['afolkalips', 'sans-serif'],
+        body: ['var(--font-inter)', 'sans-serif'],
+        headline: ['var(--font-space-grotesk)', 'sans-serif'],
         arabic: ['var(--font-cairo)', 'sans-serif'],
         code: ['monospace'],
       },

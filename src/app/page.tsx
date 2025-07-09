@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -103,7 +104,6 @@ export default function Home() {
               <Parallax speed={10}>
                 <h1 
                   className="text-5xl tracking-wider sm:text-6xl md:text-7xl lg:text-8xl font-headline !leading-tight text-transparent bg-clip-text bg-gradient-to-t from-accent to-foreground bg-[length:100%_200%] animate-in fade-in slide-in-from-bottom-10 duration-1000 ease-out [animation-fill-mode:forwards] animate-bubble-text"
-                  style={{ letterSpacing: '0.1em' }}
                 >
                   Buried Games Studio
                 </h1>
@@ -119,7 +119,7 @@ export default function Home() {
           {/* About Section */}
           <section id="about" className="container">
             <div className="max-w-3xl mx-auto text-center">
-                <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t.about_summary.title}</h2>
+                <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline">{t.about_summary.title}</h2>
                 <p className="mt-4 text-muted-foreground md:text-lg">{t.about_summary.p1}</p>
                 <div className="mt-8">
                     <Button asChild size="lg" variant="outline">
@@ -134,7 +134,7 @@ export default function Home() {
             <div className="container">
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div className="prose dark:prose-invert max-w-none">
-                    <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight">{t.services.title}</h2>
+                    <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline">{t.services.title}</h2>
                     <p className="lead">{t.services.homepage_subtitle}</p>
                     <p className="flex flex-wrap items-center gap-x-4">
                       <span>{t.services.homepage_p[0]}</span>
@@ -173,7 +173,7 @@ export default function Home() {
           {/* Games Section */}
           <section id="games" className="container">
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>
+              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline">
                 {language === 'en' ? 'Our Games' : 'ألعابنا'}
               </h2>
             </div>
@@ -195,7 +195,7 @@ export default function Home() {
             <div className="container">
               <div className="max-w-2xl mx-auto text-center">
                  <Parallax scale={[0.8, 1, 'easeInCubic']}>
-                    <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight flex items-center justify-center gap-4">
+                    <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline flex items-center justify-center gap-4">
                         <Youtube className="w-10 h-10" />
                         {t.devlog.home_title}
                     </h2>
@@ -222,7 +222,7 @@ export default function Home() {
           <section id="faq">
             <div className="container">
               <div className="max-w-2xl mx-auto text-center">
-                <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t.faq.title}</h2>
+                <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline">{t.faq.title}</h2>
               </div>
               <div className="mt-12 max-w-3xl mx-auto">
                 <Accordion type="single" collapsible className="w-full">
@@ -240,7 +240,7 @@ export default function Home() {
           {/* Contact Section */}
           <section id="contact" className="container">
             <div className="max-w-2xl mx-auto text-center">
-              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t_ui.contact_title}</h2>
+              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline">{t_ui.contact_title}</h2>
               <p className="mt-4 text-muted-foreground">{t_ui.contact_subtitle}</p>
               <div className="mt-8">
                   <Button asChild size="lg">

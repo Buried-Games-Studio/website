@@ -9,7 +9,7 @@ import { DynamicSEO } from '@/components/seo';
 import { Suspense } from 'react';
 import { FirebaseAnalytics } from '@/components/firebase-analytics';
 import logoImage from '@/components/images/buriedgames_logo.png';
-import { Cairo, Orbitron } from 'next/font/google';
+import { Cairo, Inter, Space_Grotesk as SpaceGrotesk } from 'next/font/google';
 
 const cairo = Cairo({
     subsets: ['arabic', 'latin'],
@@ -17,10 +17,15 @@ const cairo = Cairo({
     variable: '--font-cairo',
 });
 
-const orbitron = Orbitron({
+const inter = Inter({
+    subsets: ['latin'],
+    variable: '--font-inter',
+});
+
+const spaceGrotesk = SpaceGrotesk({
     subsets: ['latin'],
     weight: ['400', '700'],
-    variable: '--font-orbitron',
+    variable: '--font-space-grotesk',
 });
 
 const organizationSchema = {
@@ -100,29 +105,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cairo.variable} ${orbitron.variable} dark`}>
+    <html lang="en" className={`${cairo.variable} ${inter.variable} ${spaceGrotesk.variable} dark`}>
       <head>
-        <style
-          dangerouslySetInnerHTML={{
-            __html: `
-              @font-face {
-                font-family: 'afolkalips';
-                src: url('/fonts/afolkalips.woff2') format('woff2');
-                font-weight: normal;
-                font-style: normal;
-                font-display: swap;
-              }
-            `,
-          }}
-        />
         <link rel="preconnect" href="https://firebaseinstallations.googleapis.com" />
-        <link
-          rel="preload"
-          href="/fonts/afolkalips.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
