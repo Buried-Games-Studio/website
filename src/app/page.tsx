@@ -45,11 +45,11 @@ export default function Home() {
 
           {/* Hero Section */}
           <section 
-            className="relative h-screen min-h-[700px] flex items-center justify-center text-center px-4 overflow-hidden"
+            className="relative h-screen min-h-[700px] flex items-center justify-center text-center px-4"
           >
             <div className="absolute inset-0 bg-grid-white/[0.05] [mask-image:linear-gradient(to_bottom,white_5%,transparent_90%)] z-0"></div>
             
-            <Parallax translateY={[-20, 20]} className="absolute inset-0 z-10 flex items-center justify-center">
+            <Parallax speed={-25} className="z-10">
               <Image
                 src={logoImage.src}
                 alt="Buried Games Studio Logo"
