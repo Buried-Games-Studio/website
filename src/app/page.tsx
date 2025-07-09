@@ -42,10 +42,11 @@ export default function Home() {
   const subtitle = t_ui.hero_subtitle;
   const typingDuration = 3; // seconds
   const blinkInterval = 0.75; // seconds
-  const startDelay = 1.5; // seconds
+  const startDelay = 2; // seconds
 
-  // The number of blinks should cover the delay and typing duration.
-  const blinkIterations = Math.ceil((typingDuration + startDelay) / blinkInterval);
+  // The number of blinks should cover the delay and typing duration, plus one extra to ensure it ends transparently.
+  const totalAnimationTime = typingDuration + startDelay;
+  const blinkIterations = Math.ceil(totalAnimationTime / blinkInterval) + 1;
   
   // This uses an inline style to dynamically set the steps for the typewriter animation,
   // making it work for both English and Arabic subtitles.
@@ -82,7 +83,7 @@ export default function Home() {
               </h1>
               <p 
                 style={animationStyle}
-                className="inline-block overflow-hidden whitespace-nowrap border-r-4 border-r-transparent text-muted-foreground md:text-xl mt-4"
+                className="inline-block overflow-hidden whitespace-nowrap border-r-4 border-accent text-muted-foreground md:text-xl mt-4"
               >
                 {subtitle}
               </p>
