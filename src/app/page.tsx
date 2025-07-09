@@ -96,35 +96,40 @@ export default function Home() {
         {/* Services Section */}
         <section id="services" className="bg-card">
           <div className="container">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t.services.title}</h2>
-              <p className="mt-4 text-muted-foreground md:text-lg">
-                {language === 'en' ? 'We offer a range of services to bring your vision to life.' : 'نحن نقدم مجموعة من الخدمات لتحويل رؤيتك إلى حقيقة.'}
-              </p>
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="prose dark:prose-invert max-w-none">
+                  <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight">{t.services.title}</h2>
+                  <p className="lead">{t.services.homepage_subtitle}</p>
+                  <p>
+                    {t.services.homepage_p[0]}
+                    <strong className="text-accent font-bold"> Unity </strong> 
+                    {t.services.homepage_p[1]}
+                    <strong className="text-accent font-bold"> Unreal Engine</strong>
+                    {t.services.homepage_p[2]}
+                  </p>
+                  <Button asChild size="lg" className="mt-4 no-underline">
+                      <Link href="/services">{t_ui.learn_more_services} <ArrowRight className="ml-2 h-5 w-5" /></Link>
+                  </Button>
+              </div>
+              <div>
+                  <ul className="space-y-6">
+                      {t.services.items.map((service, index) => {
+                          const Icon = serviceIcons[service.name] || Swords;
+                          return (
+                              <li key={index} className="flex items-start gap-4">
+                                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 border-2 border-accent flex-shrink-0">
+                                      <Icon className="w-6 h-6 text-accent"/>
+                                  </div>
+                                  <div>
+                                      <h3 className="text-xl font-bold">{service.name}</h3>
+                                      <p className="text-muted-foreground mt-1">{service.description}</p>
+                                  </div>
+                              </li>
+                          );
+                      })}
+                  </ul>
+              </div>
             </div>
-            <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-              {t.services.items.map((service, index) => {
-                const Icon = serviceIcons[service.name] || Swords;
-                return (
-                  <Card key={index} className="flex flex-col text-center items-center p-6 bg-background/50 hover:bg-background transition-colors duration-300 hover:shadow-lg">
-                    <div className="flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 mb-6 border-2 border-accent">
-                      <Icon className="w-10 h-10 text-accent"/>
-                    </div>
-                    <CardHeader className="p-0">
-                      <CardTitle className="text-xl font-bold">{service.name}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="p-0 mt-2 flex-grow">
-                      <p className="text-muted-foreground">{service.description}</p>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-             <div className="mt-12 text-center">
-                <Button asChild size="lg">
-                    <Link href="/services">{t_ui.learn_more_services} <ArrowRight className="ml-2 h-5 w-5" /></Link>
-                </Button>
-             </div>
           </div>
         </section>
 
