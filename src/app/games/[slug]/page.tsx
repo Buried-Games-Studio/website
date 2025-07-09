@@ -25,7 +25,8 @@ import UnityImage from '@/components/images/UnityImage.png';
 import UnrealEngineImage from '@/components/images/UnrealEngineImage.png';
 import PowerOfBombsImage from '@/components/images/powerofbombsIconTransparent.png';
 import Koutq8Image from '@/components/images/Koutq8Logo.png';
-import Thumbnail1 from '@/components/images/thumbnail_1.png';
+import POPBackgroundImage from '@/components/images/POPBackground.jpg';
+import POPOverviewImage from '@/components/images/POPOverview.jpg';
 
 
 const iconMap: { [key: string]: LucideIcon } = {
@@ -49,11 +50,11 @@ const gameLogoMap: { [key: string]: StaticImageData | undefined } = {
 };
 
 const heroImageMap: { [key: string]: StaticImageData } = {
-    'POPBackground.jpg': Thumbnail1,
+    'POPBackground.jpg': POPBackgroundImage,
 };
 
 const galleryImageMap: { [key: string]: StaticImageData } = {
-    'POPOverview.jpg': Thumbnail1,
+    'POPOverview.jpg': POPOverviewImage,
 };
 
 export default function GameDetailPage() {
@@ -66,7 +67,7 @@ export default function GameDetailPage() {
     }
     
     const gameLogo = gameLogoMap[game.id];
-    const heroSrc = heroImageMap[game.heroImage] || 'https://placehold.co/1920x1080.png';
+    const heroSrc = heroImageMap[game.heroImage] || game.heroImage;
     const heroIsStatic = typeof heroSrc !== 'string';
 
     const t_ui = {
