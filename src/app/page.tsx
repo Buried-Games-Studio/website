@@ -177,9 +177,15 @@ export default function Home() {
                 {language === 'en' ? 'Our Games' : 'ألعابنا'}
               </h2>
             </div>
-            <div className="mt-12 grid gap-8 md:grid-cols-2">
-              {t.games.map((game) => (
-                <GameCard key={game.id} game={game} viewText={t_ui.view_details} image={gameImageMap[game.id]} />
+            <div className="mt-12 space-y-16 md:space-y-24">
+              {t.games.map((game, index) => (
+                <GameCard 
+                  key={game.id} 
+                  game={game} 
+                  viewText={t_ui.view_details} 
+                  image={gameImageMap[game.id]}
+                  reverse={index % 2 !== 0} 
+                />
               ))}
             </div>
           </section>

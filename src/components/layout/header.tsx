@@ -99,16 +99,16 @@ const Header = () => {
               >
                 {t_ui.devlog}
               </Link>
-              <Link
-                href="/release-notes"
-                className="text-foreground/60 transition-colors hover:text-accent"
-              >
-                {t_ui.release_notes}
-              </Link>
             </nav>
 
             {/* Language Toggle and Mobile Menu Trigger */}
-            <div className="ml-auto flex items-center gap-2">
+            <div className="ml-auto flex items-center gap-4">
+                <Link
+                  href="/release-notes"
+                  className="hidden text-sm text-foreground/60 transition-colors hover:text-accent md:block"
+                >
+                  {t_ui.release_notes}
+                </Link>
                 <button
                     onClick={toggleLanguage} 
                     aria-label="Toggle language"

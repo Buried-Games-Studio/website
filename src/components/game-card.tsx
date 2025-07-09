@@ -2,39 +2,37 @@
 "use client";
 
 import Image, { type StaticImageData } from "next/image";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Eye } from "lucide-react";
 import type { getTranslation } from "@/lib/content";
+import { cn } from "@/lib/utils";
 
 type Game = ReturnType<typeof getTranslation>['games'][0];
 
-export function GameCard({ game, viewText, image }: { game: Game, viewText: string, image?: StaticImageData }) {
+export function GameCard({ game, viewText, image, reverse = false }: { game: Game, viewText: string, image?: StaticImageData, reverse?: boolean }) {
   return (
-    <Card id={game.id} className="flex flex-col overflow-hidden h-full scroll-mt-20">
-      <CardHeader className="p-0">
-        <div className="aspect-video relative">
-            <Image 
-              src={image || game.imageUrl} 
-              alt={game.title} 
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-contain"
-              data-ai-hint={game.imageHint}
-              placeholder={image ? "blur" : "empty"}
-            />
-        </div>
-      </CardHeader>
-      <CardContent className="p-6 flex-grow">
-        <CardTitle className="font-headline text-2xl mb-2">{game.title}</CardTitle>
-        <CardDescription>{game.description}</CardDescription>
-      </CardContent>
-      <CardFooter className="p-6 pt-0">
+    <div id={game.id} className="grid md:grid-cols-2 gap-8 md:gap-16 items-center scroll-mt-20">
+      <div className={cn("relative aspect-video rounded-lg shadow-2xl group", reverse && "md:order-last")}>
+        <Image 
+          src={image || game.imageUrl} 
+          alt={game.title} 
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-contain rounded-lg group-hover:scale-105 transition-transform duration-300"
+          data-ai-hint={game.imageHint}
+          placeholder={image ? "blur" : "empty"}
+        />
+      </div>
+
+      <div className="space-y-4">
+        <h3 className="font-headline text-4xl">{game.title}</h3>
+        <p className="text-muted-foreground">{game.description}</p>
+        
         <Dialog>
           <DialogTrigger asChild>
-            <Button variant="outline" className="w-full">
+            <Button variant="outline" className="w-full sm:w-auto">
               <Eye className="mr-2 h-4 w-4" /> {viewText}
             </Button>
           </DialogTrigger>
@@ -78,7 +76,7 @@ export function GameCard({ game, viewText, image }: { game: Game, viewText: stri
             </div>
           </DialogContent>
         </Dialog>
-      </CardFooter>
-    </Card>
+      </div>
+    </div>
   );
 }
