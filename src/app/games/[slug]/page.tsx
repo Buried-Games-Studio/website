@@ -25,6 +25,8 @@ import UnityImage from '@/components/images/UnityImage.png';
 import UnrealEngineImage from '@/components/images/UnrealEngineImage.png';
 import PowerOfBombsImage from '@/components/images/powerofbombsIconTransparent.png';
 import Koutq8Image from '@/components/images/Koutq8Logo.png';
+import POPBackgroundImage from '@/components/images/POPBackground.jpg';
+import POPOverviewImage from '@/components/images/POPOverview.JPG';
 
 
 const iconMap: { [key: string]: LucideIcon } = {
@@ -47,6 +49,14 @@ const gameLogoMap: { [key: string]: StaticImageData | undefined } = {
     'koutq8': Koutq8Image,
 };
 
+const heroImageMap: { [key: string]: StaticImageData } = {
+    'POPBackground.jpg': POPBackgroundImage,
+};
+
+const galleryImageMap: { [key: string]: StaticImageData } = {
+    'POPOverview.JPG': POPOverviewImage,
+};
+
 export default function GameDetailPage() {
     const params = useParams();
     const { language } = useLanguage();
@@ -57,6 +67,7 @@ export default function GameDetailPage() {
     }
     
     const gameLogo = gameLogoMap[game.id];
+    const heroSrc = heroImageMap[game.heroImage] || game.heroImage;
 
     const t_ui = {
         en: {
@@ -82,7 +93,7 @@ export default function GameDetailPage() {
         <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center text-center text-white overflow-hidden p-4">
             <Parallax speed={-40} className="absolute inset-0 z-0">
                 <Image 
-                    src={game.heroImage} 
+                    src={heroSrc} 
                     alt={`${game.title} Hero Background`} 
                     fill 
                     className="object-cover"
@@ -165,17 +176,20 @@ export default function GameDetailPage() {
              <div className="max-w-4xl mx-auto">
                 <Carousel className="w-full">
                     <CarouselContent>
-                        {game.gallery.map((img, index) => (
-                        <CarouselItem key={index}>
-                            <Card className="overflow-hidden">
-                                <CardContent className="p-0">
-                                    <div className="aspect-video relative">
-                                        <Image src={img.url} alt={`Gallery image ${index + 1}`} fill className="object-cover" data-ai-hint={img.hint} />
-                                    </div>
-                                </CardContent>
-                            </Card>
-                        </CarouselItem>
-                        ))}
+                        {game.gallery.map((img, index) => {
+                           const gallerySrc = galleryImageMap[img.url] || img.url;
+                           return (
+                             <CarouselItem key={index}>
+                                 <Card className="overflow-hidden">
+                                     <CardContent className="p-0">
+                                         <div className="aspect-video relative">
+                                             <Image src={gallerySrc} alt={`Gallery image ${index + 1}`} fill className="object-cover" data-ai-hint={img.hint} />
+                                         </div>
+                                     </CardContent>
+                                 </Card>
+                             </CarouselItem>
+                           )
+                        })}
                     </CarouselContent>
                     <CarouselPrevious />
                     <CarouselNext />

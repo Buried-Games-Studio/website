@@ -21,13 +21,13 @@ export const gamesContent = [
         { icon: 'ShieldCheck', title: { en: 'Epic Boss Fights', ar: 'معارك زعماء ملحمية' }, description: { en: 'Face off against challenging bosses with unique mechanics.', ar: 'واجه زعماء صعبين بآليات فريدة.' } },
     ],
     storeLinks: [],
-    heroImage: '/images/POPBackground.jpg',
+    heroImage: 'POPBackground.jpg',
     heroImageHint: 'POPBackground game art',
     imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'explosion action',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     gallery: [
-      { url: '/images/POPOverview.JPG', hint: 'POPOverview gameplay' },
+      { url: 'POPOverview.JPG', hint: 'POPOverview gameplay' },
     ],
   },
   {
