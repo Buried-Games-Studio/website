@@ -1,5 +1,5 @@
 
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { LanguageProvider } from '@/contexts/language-context';
 import Header from '@/components/layout/header';
@@ -55,7 +55,6 @@ const organizationSchema = {
 export const metadata: Metadata = {
   description: 'The official website for Buried Games studio.',
   authors: [{ name: 'Buried Games Studio', url: 'https://buriedgames.com' }],
-  themeColor: '#000000',
   icons: {
     icon: logoImage.src,
     shortcut: logoImage.src,
@@ -82,6 +81,10 @@ export const metadata: Metadata = {
     description: 'The official website for Buried Games studio.',
     images: [logoImage.src],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: '#000000',
 };
 
 export default function RootLayout({

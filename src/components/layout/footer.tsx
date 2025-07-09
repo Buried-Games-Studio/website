@@ -82,7 +82,7 @@ const Footer = () => {
                 alt="Buried Games Studio Logo"
                 width={200}
                 height={200}
-                className="object-contain mb-4"
+                className="object-contain mb-4 h-auto w-full max-w-[200px]"
              />
             <h1 className="text-lg tracking-wide font-headline" style={{ letterSpacing: '0.1em' }}>{t_ui.studio_name}</h1>
             <p className="text-sm text-muted-foreground mt-2">{t_ui.rights}</p>
