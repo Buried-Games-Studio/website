@@ -57,7 +57,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-2xl items-center">
         {/* Logo and Brand Name */}
-        <Link href="/" className="mr-6 flex items-center space-x-2">
+        <Link href="/" className="me-6 flex items-center space-x-2">
           <Image src={logoImage} alt="Buried Games Studio Logo" width={40} height={40} />
           <span className="font-headline text-lg tracking-wide sm:inline-block">
             Buried Games Studio
@@ -102,7 +102,7 @@ const Header = () => {
             </nav>
 
             {/* Language Toggle and Mobile Menu Trigger */}
-            <div className="ml-auto flex items-center gap-4">
+            <div className="ms-auto flex items-center gap-4">
                 <Link
                   href="/release-notes"
                   className="hidden text-sm text-foreground/60 transition-colors hover:text-accent md:block"
@@ -126,7 +126,7 @@ const Header = () => {
                             <span className="sr-only">Open menu</span>
                         </Button>
                     </SheetTrigger>
-                    <SheetContent side="left" className="pr-0">
+                    <SheetContent side="left" className="pe-0">
                         <SheetHeader>
                           <SheetTitle className="sr-only">Menu</SheetTitle>
                         </SheetHeader>
@@ -138,7 +138,7 @@ const Header = () => {
                         </Link>
                         <div className="flex flex-col space-y-3">
                             <h4 className="px-2 font-medium">{t_ui.games}</h4>
-                            <div className="pl-6">
+                            <div className="ps-6">
                             {t.games.map((game) => (
                                 <SheetClose asChild key={game.id}>
                                     <Link href={`/games/${game.slug}`} className="block py-1 text-muted-foreground">{game.title}</Link>

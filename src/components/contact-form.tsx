@@ -144,7 +144,7 @@ export function ContactForm() {
                 aria-describedby="message-length-indicator"
             />
             <p id="message-length-indicator" className={cn(
-                "text-sm text-muted-foreground text-right",
+                "text-sm text-muted-foreground text-end",
                 messageLength > 0 && messageLength < 10 ? "text-destructive" : ""
             )}>
                 {messageLength}/10

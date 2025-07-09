@@ -76,7 +76,7 @@ const Footer = () => {
     <footer className="border-t border-border/40 bg-card text-card-foreground">
       <div className="container mx-auto py-12 px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
-          <div className="lg:col-span-3 flex flex-col items-center md:items-start text-center md:text-left">
+          <div className="lg:col-span-3 flex flex-col items-center md:items-start text-center md:text-start">
              <Image 
                 src={logoImage}
                 alt="Buried Games Studio Logo"

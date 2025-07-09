@@ -39,7 +39,7 @@ export default function NotFoundPage() {
         </p>
         <Button asChild>
           <Link href="/">
-            <Home className="mr-2 h-4 w-4" />
+            <Home className="me-2 h-4 w-4" />
             {isClient ? t.cta : ""}
           </Link>
         </Button>

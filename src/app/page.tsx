@@ -144,7 +144,7 @@ export default function Home() {
                       <span>{t.services.homepage_p[2]}</span>
                     </p>
                     <Button asChild size="lg" className="mt-4 no-underline">
-                        <Link href="/services">{t_ui.learn_more_services} <ArrowRight className="ml-2 h-5 w-5" /></Link>
+                        <Link href="/services">{t_ui.learn_more_services} <ArrowRight className="ms-2 h-5 w-5" /></Link>
                     </Button>
                 </div>
                 <div>
@@ -228,7 +228,7 @@ export default function Home() {
                 <Accordion type="single" collapsible className="w-full">
                   {t.faq.items.map((item, index) => (
                     <AccordionItem key={index} value={`item-${index}`}>
-                      <AccordionTrigger className="text-lg text-left">{item.q}</AccordionTrigger>
+                      <AccordionTrigger className="text-lg text-start">{item.q}</AccordionTrigger>
                       <AccordionContent className="text-muted-foreground">{item.a}</AccordionContent>
                     </AccordionItem>
                   ))}

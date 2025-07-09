@@ -31,7 +31,7 @@ export function GameCard({ game, viewText, image, reverse = false }: { game: Gam
         
         <Button asChild variant="outline" className="w-full sm:w-auto">
           <Link href={`/games/${game.slug}`}>
-            <Eye className="mr-2 h-4 w-4" /> {viewText}
+            <Eye className="me-2 h-4 w-4" /> {viewText}
           </Link>
         </Button>
       </div>
