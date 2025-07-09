@@ -17,6 +17,8 @@ import {
   SheetContent,
   SheetTrigger,
   SheetClose,
+  SheetHeader,
+  SheetTitle,
 } from "@/components/ui/sheet";
 import { getTranslation } from "@/lib/content";
 import { cn } from "@/lib/utils";
@@ -34,15 +36,15 @@ const Header = () => {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-2xl items-center">
         {/* Logo and Brand Name */}
-        <Link href="/" className="mr-6 flex items-center space-x-2">
+        <Link href="/" className="mr-auto flex items-center space-x-2">
           <Image src={logoImage} alt="Buried Games Studio Logo" width={40} height={40} />
-          <span className="hidden font-headline text-lg tracking-wide sm:inline-block">
+          <span className="font-headline text-lg tracking-wide sm:inline-block">
             Buried Games Studio
           </span>
         </Link>
         
         {/* Desktop Navigation */}
-        <nav className="hidden flex-1 items-center gap-4 text-sm md:flex lg:gap-6">
+        <nav className="hidden flex-1 items-center justify-center gap-4 text-sm md:flex lg:gap-6">
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-1 text-foreground/60 transition-colors hover:text-accent data-[state=open]:text-accent">
               {gamesText}
@@ -64,40 +66,29 @@ const Header = () => {
           </Link>
         </nav>
 
-        {/* Desktop Language Toggle */}
-        <div className="hidden flex-1 items-center justify-end md:flex">
-          <button
-            onClick={toggleLanguage} 
-            aria-label="Toggle language"
-            className={cn(
-              "text-sm text-foreground/60 transition-colors hover:text-accent",
-              language === 'en' ? 'font-arabic' : 'font-body'
-            )}
-          >
-            {langToggleText}
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        <div className="flex flex-1 items-center justify-end md:hidden">
+        {/* Language Toggle and Mobile Menu Trigger */}
+        <div className="flex items-center gap-2">
             <button
-              onClick={toggleLanguage} 
-              aria-label="Toggle language"
-              className={cn(
-                "mr-2 text-sm text-foreground/60 transition-colors hover:text-accent",
-                language === 'en' ? 'font-arabic' : 'font-body'
-              )}
+                onClick={toggleLanguage} 
+                aria-label="Toggle language"
+                className={cn(
+                    "text-sm text-foreground/60 transition-colors hover:text-accent",
+                    language === 'en' ? 'font-arabic' : 'font-body'
+                )}
             >
-              {langToggleText}
+                {langToggleText}
             </button>
             <Sheet>
                 <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon">
+                    <Button variant="ghost" size="icon" className="md:hidden">
                         <Menu className="h-6 w-6" />
                         <span className="sr-only">Open menu</span>
                     </Button>
                 </SheetTrigger>
                 <SheetContent side="left" className="pr-0">
+                    <SheetHeader>
+                      <SheetTitle className="sr-only">Menu</SheetTitle>
+                    </SheetHeader>
                     <Link href="/" className="mb-8 flex items-center space-x-2">
                         <Image src={logoImage} alt="Buried Games Studio Logo" width={40} height={40} />
                         <span className="font-headline text-lg tracking-wide">
