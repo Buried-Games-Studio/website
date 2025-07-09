@@ -27,7 +27,7 @@ export const gamesContent = [
     imageHint: 'explosion action',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
     gallery: [
-      { url: 'POPOverview.JPG', hint: 'POPOverview gameplay' },
+      { url: 'POPOverview.jpg', hint: 'POPOverview gameplay' },
     ],
   },
   {

@@ -25,8 +25,7 @@ import UnityImage from '@/components/images/UnityImage.png';
 import UnrealEngineImage from '@/components/images/UnrealEngineImage.png';
 import PowerOfBombsImage from '@/components/images/powerofbombsIconTransparent.png';
 import Koutq8Image from '@/components/images/Koutq8Logo.png';
-import POPBackgroundImage from '@/components/images/POPBackground.jpg';
-import POPOverviewImage from '@/components/images/POPOverview.JPG';
+import Thumbnail1 from '@/components/images/thumbnail_1.png';
 
 
 const iconMap: { [key: string]: LucideIcon } = {
@@ -50,11 +49,11 @@ const gameLogoMap: { [key: string]: StaticImageData | undefined } = {
 };
 
 const heroImageMap: { [key: string]: StaticImageData } = {
-    'POPBackground.jpg': POPBackgroundImage,
+    'POPBackground.jpg': Thumbnail1,
 };
 
 const galleryImageMap: { [key: string]: StaticImageData } = {
-    'POPOverview.JPG': POPOverviewImage,
+    'POPOverview.jpg': Thumbnail1,
 };
 
 export default function GameDetailPage() {
@@ -67,7 +66,8 @@ export default function GameDetailPage() {
     }
     
     const gameLogo = gameLogoMap[game.id];
-    const heroSrc = heroImageMap[game.heroImage] || game.heroImage;
+    const heroSrc = heroImageMap[game.heroImage] || 'https://placehold.co/1920x1080.png';
+    const heroIsStatic = typeof heroSrc !== 'string';
 
     const t_ui = {
         en: {
@@ -99,6 +99,7 @@ export default function GameDetailPage() {
                     className="object-cover"
                     data-ai-hint={game.heroImageHint}
                     priority
+                    placeholder={heroIsStatic ? "blur" : "empty"}
                 />
                 <div className="absolute inset-0 bg-black/60"></div>
             </Parallax>
@@ -114,7 +115,7 @@ export default function GameDetailPage() {
                         </Badge>
                     )}
                     {game.engine && (
-                         <Badge variant="outline" className="text-base flex items-center gap-2 bg-background/20 backdrop-blur-sm">
+                         <Badge variant="outline" className="text-base flex items-center gap-2 bg-background/20 backdrop-blur-sm h-10">
                             Made with 
                             {engineImageMap[game.engine] ? (
                                 <Image src={engineImageMap[game.engine]!} alt={game.engine} height={32} width={32} className="h-8 w-auto" />
@@ -178,12 +179,13 @@ export default function GameDetailPage() {
                     <CarouselContent>
                         {game.gallery.map((img, index) => {
                            const gallerySrc = galleryImageMap[img.url] || img.url;
+                           const galleryIsStatic = typeof gallerySrc !== 'string';
                            return (
                              <CarouselItem key={index}>
                                  <Card className="overflow-hidden">
                                      <CardContent className="p-0">
                                          <div className="aspect-video relative">
-                                             <Image src={gallerySrc} alt={`Gallery image ${index + 1}`} fill className="object-cover" data-ai-hint={img.hint} />
+                                             <Image src={gallerySrc} alt={`Gallery image ${index + 1}`} fill className="object-cover" data-ai-hint={img.hint} placeholder={galleryIsStatic ? "blur" : "empty"} />
                                          </div>
                                      </CardContent>
                                  </Card>
