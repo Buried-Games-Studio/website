@@ -41,6 +41,7 @@ const Footer = () => {
       rights: `© ${currentYear} Buried Games Studio. All rights reserved.`,
       games: 'Games',
       sitemap: 'Site Map',
+      about_us: 'About Us',
       services: 'Services',
       privacy: 'Privacy Policy',
       terms: 'Terms of Use',
@@ -56,6 +57,7 @@ const Footer = () => {
       rights: `© ${currentYear} استوديو بريد جيمز. كل الحقوق محفوظة.`,
       games: 'الألعاب',
       sitemap: 'خريطة الموقع',
+      about_us: 'من نحن',
       services: 'الخدمات',
       privacy: 'سياسة الخصوصية',
       terms: 'شروط الاستخدام',
@@ -96,6 +98,7 @@ const Footer = () => {
             <div>
               <h2 className="font-semibold mb-3">{t_ui.sitemap}</h2>
               <ul className="space-y-2">
+                <li><Link href="/about-us" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.about_us}</Link></li>
                 <li><Link href="/release-notes" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.release_notes}</Link></li>
                 <li><Link href="/#services" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.services}</Link></li>
                 <li><Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.privacy}</Link></li>

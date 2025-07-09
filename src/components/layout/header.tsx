@@ -34,10 +34,20 @@ const Header = () => {
     setIsMounted(true);
   }, []);
 
-
-  const langToggleText = language === 'en' ? 'العربية' : 'English';
-  const releaseNotesText = language === 'en' ? 'Release Notes' : 'ملاحظات الإصدار';
-  const gamesText = language === 'en' ? 'Games' : 'الألعاب';
+  const t_ui = {
+    en: {
+      games: 'Games',
+      release_notes: 'Release Notes',
+      about_us: 'About Us',
+      lang_toggle: 'العربية',
+    },
+    ar: {
+      games: 'الألعاب',
+      release_notes: 'ملاحظات الإصدار',
+      about_us: 'من نحن',
+      lang_toggle: 'English',
+    }
+  }[language];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -56,7 +66,7 @@ const Header = () => {
             <nav className="hidden items-center gap-4 text-sm md:flex lg:gap-6">
               <DropdownMenu>
                 <DropdownMenuTrigger className="flex items-center gap-1 text-foreground/60 transition-colors hover:text-accent data-[state=open]:text-accent">
-                  {gamesText}
+                  {t_ui.games}
                   <ChevronDown className="h-4 w-4" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent>
@@ -67,11 +77,17 @@ const Header = () => {
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
+               <Link
+                href="/about-us"
+                className="text-foreground/60 transition-colors hover:text-accent"
+              >
+                {t_ui.about_us}
+              </Link>
               <Link
                 href="/release-notes"
                 className="text-foreground/60 transition-colors hover:text-accent"
               >
-                {releaseNotesText}
+                {t_ui.release_notes}
               </Link>
             </nav>
 
@@ -85,7 +101,7 @@ const Header = () => {
                         language === 'en' ? 'font-arabic' : 'font-body'
                     )}
                 >
-                    {langToggleText}
+                    {t_ui.lang_toggle}
                 </button>
                 <Sheet>
                     <SheetTrigger asChild>
@@ -105,7 +121,7 @@ const Header = () => {
                             </span>
                         </Link>
                         <div className="flex flex-col space-y-3">
-                            <h4 className="px-2 font-medium">{gamesText}</h4>
+                            <h4 className="px-2 font-medium">{t_ui.games}</h4>
                             <div className="pl-6">
                             {t.games.map((game) => (
                                 <SheetClose asChild key={game.id}>
@@ -113,8 +129,11 @@ const Header = () => {
                                 </SheetClose>
                             ))}
                             </div>
+                             <SheetClose asChild>
+                              <Link href="/about-us" className="px-2 font-medium">{t_ui.about_us}</Link>
+                            </SheetClose>
                             <SheetClose asChild>
-                              <Link href="/release-notes" className="px-2 font-medium">{releaseNotesText}</Link>
+                              <Link href="/release-notes" className="px-2 font-medium">{t_ui.release_notes}</Link>
                             </SheetClose>
                         </div>
                     </SheetContent>

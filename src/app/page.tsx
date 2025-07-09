@@ -31,6 +31,7 @@ export default function Home() {
       contact_title: "Get In Touch",
       contact_subtitle: "Have a question or a project in mind? We'd love to hear from you.",
       contact_cta: "Contact Us Now",
+      learn_more: "Learn More About Us",
     },
     ar: {
       hero_subtitle: "نصنع العوالم، لعبة تلو الأخرى.",
@@ -38,43 +39,41 @@ export default function Home() {
       contact_title: "تواصل معنا",
       contact_subtitle: "هل لديك سؤال أو مشروع في ذهنك؟ نود أن نسمع منك.",
       contact_cta: "تواصل معنا الآن",
+      learn_more: "اعرف المزيد عنا",
     }
   }[language];
 
   const subtitle = t_ui.hero_subtitle;
 
-  const [animationStyle, setAnimationStyle] = useState<CSSProperties>({
-    borderRightColor: 'hsl(var(--accent))',
-    animation: `blink-caret .75s step-end infinite`
-  });
+  const [animationStyle, setAnimationStyle] = useState<CSSProperties>({});
   const [textToShow, setTextToShow] = useState('');
   const [startTyping, setStartTyping] = useState(false);
 
   useEffect(() => {
-    // Reset on language change
     setTextToShow('');
     setStartTyping(false);
-    setAnimationStyle({
-      borderRightColor: 'hsl(var(--accent))',
-      animation: `blink-caret .75s step-end infinite`
-    });
-
+    
     const initialDelayTimer = setTimeout(() => {
       setStartTyping(true);
-    }, 2000); // 2-second delay before starting anything
+    }, 2000);
 
     return () => clearTimeout(initialDelayTimer);
   }, [language]);
 
 
   useEffect(() => {
-    if (!startTyping) return;
+    if (!startTyping) {
+        setAnimationStyle({
+            borderRight: '2px solid hsl(var(--accent))',
+            animation: 'blink-caret-start .75s step-end infinite'
+        });
+        return;
+    };
 
     setTextToShow(subtitle);
     
     const typingDuration = 3;
     const blinkInterval = 0.75;
-    // Have the cursor blink a couple more times after finishing
     const blinkIterations = Math.ceil(typingDuration / blinkInterval) + 2;
 
     setAnimationStyle({
@@ -123,21 +122,14 @@ export default function Home() {
 
           {/* About Section */}
           <section id="about" className="container">
-             <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t.about.title}</h2>
-                <p className="mt-4 text-muted-foreground">{t.about.p1}</p>
-                <p className="mt-4 text-muted-foreground">{t.about.p2}</p>
-              </div>
-              <div className="relative aspect-square rounded-xl overflow-hidden shadow-2xl hidden md:block">
-                  <Image 
-                    src={logoImage} 
-                    alt="Buried Games Logo" 
-                    fill 
-                    className="object-cover"
-                    data-ai-hint="game development" 
-                  />
-              </div>
+             <div className="max-w-3xl mx-auto text-center">
+                <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>{t.about_summary.title}</h2>
+                <p className="mt-4 text-muted-foreground md:text-lg">{t.about_summary.p1}</p>
+                 <div className="mt-8">
+                    <Button asChild size="lg" variant="outline">
+                        <Link href="/about-us">{t_ui.learn_more}</Link>
+                    </Button>
+                </div>
             </div>
           </section>
 
