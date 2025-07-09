@@ -25,7 +25,7 @@ export default function NotFoundPage() {
     <main className="flex min-h-[calc(100vh-theme(spacing.14))] flex-col items-center justify-center text-center">
       <div className="container flex flex-col items-center gap-4">
         <AlertTriangle className="h-16 w-16 text-destructive" />
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl font-headline">
+        <h1 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>
           {t.title}
         </h1>
         <p className="max-w-md text-muted-foreground">
