@@ -23,6 +23,12 @@ import UnrealEngineImage from '@/components/images/UnrealEngineImage.png';
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 import logoImage from '@/components/images/buriedgames_logo.png';
 import { VideoCard } from "@/components/video-card";
+import Thumbnail1 from '@/components/images/thumbnail_1.png';
+import Thumbnail2 from '@/components/images/thumbnail_2.png';
+import Thumbnail3 from '@/components/images/thumbnail_3.png';
+import Thumbnail4 from '@/components/images/thumbnail_4.png';
+import Thumbnail5 from '@/components/images/thumbnail_5.png';
+import Thumbnail6 from '@/components/images/thumbnail_6.png';
 
 export default function Home() {
   const { language } = useLanguage();
@@ -38,6 +44,15 @@ export default function Home() {
     'Game Design & Prototyping': Lightbulb,
     '2D & 3D Art/Animation': Palette,
     'Mobile Game Porting': Smartphone,
+  };
+
+  const thumbnailMap: { [key: string]: any } = {
+    'thumb1': Thumbnail1,
+    'thumb2': Thumbnail2,
+    'thumb3': Thumbnail3,
+    'thumb4': Thumbnail4,
+    'thumb5': Thumbnail5,
+    'thumb6': Thumbnail6,
   };
 
   const t_ui = {
@@ -184,7 +199,7 @@ export default function Home() {
               <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
                 {t.devlog.videos.slice(0, 4).map((video, index) => (
                   <Parallax y={[30, -30]} key={index}>
-                    <VideoCard video={video} />
+                    <VideoCard video={video} thumbnail={thumbnailMap[video.id]} />
                   </Parallax>
                 ))}
               </div>
