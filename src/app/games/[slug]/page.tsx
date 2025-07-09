@@ -23,6 +23,9 @@ import { Parallax, ParallaxProvider } from "react-scroll-parallax";
 import Link from "next/link";
 import UnityImage from '@/components/images/UnityImage.png';
 import UnrealEngineImage from '@/components/images/UnrealEngineImage.png';
+import PowerOfBombsImage from '@/components/images/powerofbombsIconTransparent.png';
+import Koutq8Image from '@/components/images/Koutq8Logo.png';
+
 
 const iconMap: { [key: string]: LucideIcon } = {
   Puzzle,
@@ -39,6 +42,11 @@ const engineImageMap: { [key: string]: StaticImageData | undefined } = {
     'Unreal Engine': UnrealEngineImage,
 };
 
+const gameLogoMap: { [key: string]: StaticImageData | undefined } = {
+    'power-of-bombs': PowerOfBombsImage,
+    'koutq8': Koutq8Image,
+};
+
 export default function GameDetailPage() {
     const params = useParams();
     const { language } = useLanguage();
@@ -48,6 +56,8 @@ export default function GameDetailPage() {
         notFound();
     }
     
+    const gameLogo = gameLogoMap[game.id];
+
     const t_ui = {
         en: {
             about: "About the Game",
@@ -108,9 +118,19 @@ export default function GameDetailPage() {
 
         {/* About Section */}
         <section id="about" className="container">
-            <div className="max-w-3xl mx-auto">
+            <div className="max-w-3xl mx-auto text-center">
+                 {gameLogo && (
+                    <Image
+                        src={gameLogo}
+                        alt={`${game.title} Logo`}
+                        width={250}
+                        height={250}
+                        className="object-contain mx-auto mb-8"
+                        placeholder="blur"
+                    />
+                )}
                 <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight text-center mb-8">{t_ui.about}</h2>
-                <div className="prose dark:prose-invert max-w-none mx-auto text-lg text-muted-foreground">
+                <div className="prose dark:prose-invert max-w-none mx-auto text-lg text-muted-foreground text-left">
                     <p>{game.longDescription[language]}</p>
                 </div>
             </div>
