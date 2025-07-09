@@ -45,16 +45,16 @@ export default function Home() {
 
           {/* Hero Section */}
           <section 
-            className="relative h-screen min-h-[700px] text-center px-4 overflow-hidden"
+            className="relative h-screen min-h-[700px] text-center px-4"
           >
-            <Parallax speed={-20} className="absolute inset-0 z-0">
+            <Parallax speed={-30} className="absolute inset-0 z-0">
               <div className="absolute inset-0 flex items-center justify-center">
                 <Image
                   src={logoImage.src}
                   alt="Buried Games Studio Logo background"
-                  width={300}
-                  height={300}
-                  className="opacity-10"
+                  width={400}
+                  height={400}
+                  className="opacity-20"
                 />
               </div>
             </Parallax>
