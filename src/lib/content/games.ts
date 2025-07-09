@@ -54,9 +54,9 @@ export const gamesContent = [
     storeLinks: [
         { store: 'App Store', url: 'https://apps.apple.com/app/id6738164175', imageUrl: 'downloadAppStoreImage.png' },
     ],
-    heroImage: '',
+    heroImage: 'https://placehold.co/1920x1080.png',
     heroImageHint: 'playing cards',
-    heroVideo: '/videos/koutq8-hero-video.mp4',
+    heroVideo: null,
     imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'card game',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
