@@ -109,11 +109,10 @@ export default function AboutUsPage() {
                             alt={member.name}
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-300"
-                            data-ai-hint={member.imageHint}
                         />
                      </div>
                     <CardContent className="p-6">
-                      <h3 className="text-xl font-bold font-headline tracking-wide">{member.name}</h3>
+                      <h3 className="text-2xl font-bold font-headline tracking-wide">{member.name}</h3>
                       <p className="text-accent">{member.role}</p>
                     </CardContent>
                   </Card>

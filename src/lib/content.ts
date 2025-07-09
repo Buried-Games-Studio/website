@@ -22,9 +22,8 @@ export const content = {
       team: [
         {
           name: 'Fahed Alahmad',
-          role: 'Founder & Lead Developer',
-          imageUrl: 'https://placehold.co/400x400.png',
-          imageHint: 'team member portrait',
+          role: 'Founder',
+          imageUrl: '/images/fahed_alahmad.jpg',
           linkedInUrl: 'https://linkedin.com/in/fahed-f-al-ahmad-se',
         }
       ]
@@ -39,9 +38,8 @@ export const content = {
       team: [
         {
           name: 'فهد الأحمد',
-          role: 'المؤسس والمطور الرئيسي',
-          imageUrl: 'https://placehold.co/400x400.png',
-          imageHint: 'team member portrait',
+          role: 'المؤسس',
+          imageUrl: '/images/fahed_alahmad.jpg',
           linkedInUrl: 'https://linkedin.com/in/fahed-f-al-ahmad-se',
         }
       ]
