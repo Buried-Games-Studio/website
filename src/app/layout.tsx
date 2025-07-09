@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import './globals.css';
 import { LanguageProvider } from '@/contexts/language-context';
@@ -7,6 +8,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { DynamicSEO } from '@/components/seo';
 import { Suspense } from 'react';
 import { FirebaseAnalytics } from '@/components/firebase-analytics';
+import logoImage from '@/components/images/buriedgames_logo.png';
 
 const organizationSchema = {
     "@context": "https://schema.org",
@@ -42,6 +44,11 @@ export const metadata: Metadata = {
   description: 'The official website for Buried Games studio.',
   authors: [{ name: 'Buried Games Studio', url: 'https://buriedgames.com' }],
   themeColor: '#000000',
+  icons: {
+    icon: logoImage.src,
+    shortcut: logoImage.src,
+    apple: logoImage.src,
+  },
   openGraph: {
     siteName: 'Buried Games Studio',
     title: 'Buried Games Studio',
@@ -49,7 +56,7 @@ export const metadata: Metadata = {
     url: 'https://buriedgames.com',
     images: [
       {
-        url: 'https://buriedgames.com/assets/images/buriedgames_logo.png',
+        url: logoImage.src,
         width: 200,
         height: 200,
         alt: 'Buried Games Studio Logo',
@@ -63,7 +70,7 @@ export const metadata: Metadata = {
     card: 'summary',
     title: 'Buried Games Studio',
     description: 'The official website for Buried Games studio.',
-    images: ['https://buriedgames.com/assets/images/buriedgames_logo.png'],
+    images: [logoImage.src],
   },
 };
 
