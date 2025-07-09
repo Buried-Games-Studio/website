@@ -53,6 +53,11 @@ const organizationSchema = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://buriedgames.com'),
+  title: {
+    template: '%s | Buried Games Studio',
+    default: 'Buried Games Studio | Crafting Worlds, One Game at a Time',
+  },
   description: 'The official website for Buried Games studio.',
   authors: [{ name: 'Buried Games Studio', url: 'https://buriedgames.com' }],
   icons: {
@@ -63,7 +68,7 @@ export const metadata: Metadata = {
   openGraph: {
     siteName: 'Buried Games Studio',
     description: 'The official website for Buried Games studio.',
-    url: 'https://buriedgames.com',
+    url: '/',
     images: [
       {
         url: logoImage.src,
