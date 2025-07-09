@@ -31,6 +31,7 @@ import downloadAppStoreImage from '@/components/images/downloadAppStoreImage.png
 import KoutQ8Image_1 from '@/components/images/KoutQ8Image_1.png';
 import KoutQ8Image_2 from '@/components/images/KoutQ8Image_2.png';
 import KoutQ8Image_3 from '@/components/images/KoutQ8Image_3.png';
+import { useState, useEffect } from "react";
 
 
 const iconMap: { [key: string]: LucideIcon } = {
@@ -69,6 +70,12 @@ const storeImageMap: { [key: string]: StaticImageData } = {
 };
 
 export default function GameDetailPage() {
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
+    
     const params = useParams();
     const { language } = useLanguage();
     const game = getGameData(params.slug as string);
@@ -104,7 +111,7 @@ export default function GameDetailPage() {
         {/* Hero Section */}
         <section className="relative h-[60vh] min-h-[400px] flex items-center justify-center text-center text-white overflow-hidden p-4">
             <Parallax speed={-40} className="absolute inset-0 z-0">
-                 {game.heroVideo ? (
+                 {isClient && game.heroVideo ? (
                     <video
                         autoPlay
                         loop
