@@ -24,8 +24,10 @@ import { Parallax, ParallaxProvider } from "react-scroll-parallax";
 import Link from "next/link";
 import UnityImage from '@/components/images/UnityImage.png';
 import UnrealEngineImage from '@/components/images/UnrealEngineImage.png';
+import NextjsImage from '@/assets/images/nextjs.png';
 import PowerOfBombsImage from '@/components/images/powerofbombsIconTransparent.png';
 import Koutq8Image from '@/components/images/Koutq8Logo.png';
+import NabshImage from '@/assets/images/nabsh_logo.png';
 import POPBackgroundImage from '@/components/images/POPBackground.jpg';
 import POPOverviewImage from '@/components/images/POPOverview.jpg';
 import downloadAppStoreImage from '@/components/images/downloadAppStoreImage.png';
@@ -49,13 +51,13 @@ const iconMap: { [key: string]: LucideIcon } = {
 const engineImageMap: { [key: string]: StaticImageData | undefined } = {
     'Unity': UnityImage,
     'Unreal Engine': UnrealEngineImage,
-    'Next.js': undefined,
+    'Next.js': NextjsImage,
 };
 
 const gameLogoMap: { [key: string]: StaticImageData | undefined } = {
     'power-of-bombs': PowerOfBombsImage,
     'koutq8': Koutq8Image,
-    'nabsh': undefined,
+    'nabsh': NabshImage,
 };
 
 const heroImageMap: { [key: string]: StaticImageData } = {
@@ -250,32 +252,34 @@ export default function GameDetailPage() {
         </section>
 
         {/* Gallery Section */}
-        <section id="gallery" className="container">
-             <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight text-center mb-12">{t_ui.gallery}</h2>
-             <div className="max-w-4xl mx-auto">
-                <Carousel className="w-full">
-                    <CarouselContent>
-                        {game.gallery.map((img, index) => {
-                           const gallerySrc = galleryImageMap[img.url] || img.url;
-                           const galleryIsStatic = typeof gallerySrc !== 'string';
-                           return (
-                             <CarouselItem key={index}>
-                                 <Card className="overflow-hidden">
-                                     <CardContent className="p-0">
-                                         <div className="aspect-video relative">
-                                             <Image src={gallerySrc} alt={`Gallery image ${index + 1}`} fill className="object-cover" data-ai-hint={img.hint} placeholder={galleryIsStatic ? "blur" : "empty"} />
-                                         </div>
-                                     </CardContent>
-                                 </Card>
-                             </CarouselItem>
-                           )
-                        })}
-                    </CarouselContent>
-                    <CarouselPrevious />
-                    <CarouselNext />
-                </Carousel>
-             </div>
-        </section>
+        {game.gallery && game.gallery.length > 0 && (
+            <section id="gallery" className="container">
+                 <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight text-center mb-12">{t_ui.gallery}</h2>
+                 <div className="max-w-4xl mx-auto">
+                    <Carousel className="w-full">
+                        <CarouselContent>
+                            {game.gallery.map((img, index) => {
+                               const gallerySrc = galleryImageMap[img.url] || img.url;
+                               const galleryIsStatic = typeof gallerySrc !== 'string';
+                               return (
+                                 <CarouselItem key={index}>
+                                     <Card className="overflow-hidden">
+                                         <CardContent className="p-0">
+                                             <div className="aspect-video relative">
+                                                 <Image src={gallerySrc} alt={`Gallery image ${index + 1}`} fill className="object-cover" data-ai-hint={img.hint} placeholder={galleryIsStatic ? "blur" : "empty"} />
+                                             </div>
+                                         </CardContent>
+                                     </Card>
+                                 </CarouselItem>
+                               )
+                            })}
+                        </CarouselContent>
+                        <CarouselPrevious />
+                        <CarouselNext />
+                    </Carousel>
+                 </div>
+            </section>
+        )}
 
         {/* CTA Section */}
         {game.storeLinks && game.storeLinks.length > 0 && (
