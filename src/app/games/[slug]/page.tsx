@@ -97,6 +97,7 @@ export default function GameDetailPage() {
             features: "Key Features",
             gallery: "Gallery",
             whereToBuy: "Where to Buy",
+            whereToPlay: "Where to Play",
             underDev: "Under Development"
         },
         ar: {
@@ -104,12 +105,13 @@ export default function GameDetailPage() {
             features: "الميزات الرئيسية",
             gallery: "معرض الصور",
             whereToBuy: "أماكن الشراء",
+            whereToPlay: "أين تلعب",
             underDev: "تحت التطوير"
         }
     }[language];
 
     const HeroMedia = () => {
-        if (!isClient || !game.heroVideo) {
+        if (!isClient) {
             return (
                  <Image 
                     src={heroSrc} 
@@ -263,7 +265,9 @@ export default function GameDetailPage() {
         {game.storeLinks && game.storeLinks.length > 0 && (
             <section id="cta" className="bg-card">
                 <div className="container text-center">
-                    <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight mb-8">{t_ui.whereToBuy}</h2>
+                    <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight mb-8">
+                      {game.storeLinks.some(link => link.store === 'web') ? t_ui.whereToPlay : t_ui.whereToBuy}
+                    </h2>
                     <div className="flex justify-center items-center gap-4 flex-wrap">
                         {game.storeLinks.map((link, index) => {
                              const StoreImage = link.imageUrl ? storeImageMap[link.imageUrl] : null;

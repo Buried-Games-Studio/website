@@ -5,10 +5,10 @@ export const gamesContent = [
     slug: 'nabsh',
     title: 'Nabsh',
     status: 'released',
-    engine: 'Unity',
+    engine: 'Next.js',
     description: {
-      en: 'A thrilling Kuwaiti trivia game that tests your knowledge on a wide range of topics. Challenge friends and climb the ranks!',
-      ar: 'لعبة معلومات عامة كويتية مثيرة تختبر معلوماتك في مجموعة واسعة من المواضيع. تحدَّ أصدقاءك وتصدر قائمة المتصدرين!',
+      en: 'A thrilling Kuwaiti trivia web game that tests your knowledge on a wide range of topics. Challenge friends and climb the ranks!',
+      ar: 'لعبة معلومات عامة كويتية مثيرة على الويب تختبر معلوماتك في مجموعة واسعة من المواضيع. تحدَّ أصدقاءك وتصدر قائمة المتصدرين!',
     },
     longDescription: {
         en: 'Nabsh is the ultimate Kuwaiti trivia challenge! Compete with players in real-time, answer questions across various categories like history, culture, sports, and more. With a sleek design, engaging gameplay, and social features, Nabsh is the perfect game to prove your knowledge and have fun with friends and family.',
@@ -21,8 +21,7 @@ export const gamesContent = [
         { icon: 'Smartphone', title: { en: 'Sleek & Modern', ar: 'أنيق وعصري' }, description: { en: 'Enjoy a beautiful and user-friendly interface on all your devices.', ar: 'استمتع بواجهة جميلة وسهلة الاستخدام على جميع أجهزتك.' } },
     ],
     storeLinks: [
-        { store: 'App Store', url: 'https://apps.apple.com/us/app/nabsh-نبش/id6475095952', imageUrl: 'downloadAppStoreImage.png' },
-        { store: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.gavan.nabsh', label: { en: 'Get it on Google Play', ar: 'احصل عليه من Google Play' } },
+        { store: 'web', url: 'https://nabsh.fun', label: { en: 'Visit Website', ar: 'زيارة الموقع' } },
     ],
     heroImage: 'https://placehold.co/1920x1080.png',
     heroImageHint: 'trivia quiz brain',
@@ -92,7 +91,7 @@ export const gamesContent = [
     ],
     heroImage: 'https://placehold.co/1920x1080.png',
     heroImageHint: 'playing cards',
-    heroVideo: null,
+    heroVideo: '/videos/koutq8-hero-video.mp4',
     imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'card game',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
