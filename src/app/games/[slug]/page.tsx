@@ -26,7 +26,6 @@ import UnityImage from '@/components/images/UnityImage.png';
 import UnrealEngineImage from '@/components/images/UnrealEngineImage.png';
 import PowerOfBombsImage from '@/components/images/powerofbombsIconTransparent.png';
 import Koutq8Image from '@/components/images/Koutq8Logo.png';
-import NabshLogo from '@/components/images/nabsh_logo.png';
 import POPBackgroundImage from '@/components/images/POPBackground.jpg';
 import POPOverviewImage from '@/components/images/POPOverview.jpg';
 import downloadAppStoreImage from '@/components/images/downloadAppStoreImage.png';
@@ -50,12 +49,13 @@ const iconMap: { [key: string]: LucideIcon } = {
 const engineImageMap: { [key: string]: StaticImageData | undefined } = {
     'Unity': UnityImage,
     'Unreal Engine': UnrealEngineImage,
+    'Next.js': undefined,
 };
 
 const gameLogoMap: { [key: string]: StaticImageData | undefined } = {
     'power-of-bombs': PowerOfBombsImage,
     'koutq8': Koutq8Image,
-    'nabsh': NabshLogo,
+    'nabsh': undefined,
 };
 
 const heroImageMap: { [key: string]: StaticImageData } = {
@@ -88,7 +88,7 @@ export default function GameDetailPage() {
         notFound();
     }
     
-    const gameLogo = gameLogoMap[game.id];
+    const gameLogo = gameLogoMap[game.id] ?? (game.logoUrl ? game.logoUrl : undefined);
     const heroSrc = heroImageMap[game.heroImage] || game.heroImage;
     const heroIsStatic = typeof heroSrc !== 'string';
     const isYoutubeVideo = game.heroVideo && (game.heroVideo.includes('youtube.com') || game.heroVideo.includes('youtu.be'));
@@ -216,7 +216,7 @@ export default function GameDetailPage() {
                         width={250}
                         height={250}
                         className="object-contain mx-auto mb-8"
-                        placeholder="blur"
+                        placeholder={typeof gameLogo === 'string' ? 'empty' : 'blur'}
                     />
                 )}
                 <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight text-center mb-8">{t_ui.about}</h2>
@@ -307,5 +307,3 @@ export default function GameDetailPage() {
     </ParallaxProvider>
     )
 }
-
-    

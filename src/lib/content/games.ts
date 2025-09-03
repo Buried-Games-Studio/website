@@ -6,6 +6,7 @@ export const gamesContent = [
     title: 'Nabsh',
     status: 'released',
     engine: 'Next.js',
+    logoUrl: 'https://placehold.co/250x250/000000/FFFFFF/png?text=Nabsh',
     description: {
       en: 'A thrilling Kuwaiti trivia web game that tests your knowledge on a wide range of topics. Challenge friends and climb the ranks!',
       ar: 'لعبة معلومات عامة كويتية مثيرة على الويب تختبر معلوماتك في مجموعة واسعة من المواضيع. تحدَّ أصدقاءك وتصدر قائمة المتصدرين!',
@@ -26,7 +27,7 @@ export const gamesContent = [
     heroImage: 'https://picsum.photos/1920/1080',
     heroImageHint: 'trivia quiz brain',
     heroVideo: 'https://www.youtube.com/watch?v=F0WBKweQ-NM',
-    imageUrl: 'https://placehold.co/600x400.png',
+    imageUrl: 'https://placehold.co/600x400/000000/FFFFFF/png?text=Nabsh',
     imageHint: 'kuwait trivia',
     videoUrl: 'https://www.youtube.com/embed/F0WBKweQ-NM',
     gallery: [
@@ -91,7 +92,7 @@ export const gamesContent = [
     ],
     heroImage: 'https://picsum.photos/1920/1080',
     heroImageHint: 'playing cards',
-    heroVideo: null,
+    heroVideo: '/videos/koutq8-hero-video.mp4',
     imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'card game',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',

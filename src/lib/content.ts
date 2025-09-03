@@ -25,7 +25,7 @@ export const getTranslation = (language: Language) => ({
     slug: game.slug,
     title: game.title,
     description: game.description[language],
-    imageUrl: game.imageUrl,
+    imageUrl: game.logoUrl || game.imageUrl,
     imageHint: game.imageHint,
   })),
   faq: content.faq[language],
