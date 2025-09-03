@@ -26,6 +26,7 @@ import UnityImage from '@/components/images/UnityImage.png';
 import UnrealEngineImage from '@/components/images/UnrealEngineImage.png';
 import PowerOfBombsImage from '@/components/images/powerofbombsIconTransparent.png';
 import Koutq8Image from '@/components/images/Koutq8Logo.png';
+import NabshLogo from '@/components/images/nabsh_logo.png';
 import POPBackgroundImage from '@/components/images/POPBackground.jpg';
 import POPOverviewImage from '@/components/images/POPOverview.jpg';
 import downloadAppStoreImage from '@/components/images/downloadAppStoreImage.png';
@@ -54,6 +55,7 @@ const engineImageMap: { [key: string]: StaticImageData | undefined } = {
 const gameLogoMap: { [key: string]: StaticImageData | undefined } = {
     'power-of-bombs': PowerOfBombsImage,
     'koutq8': Koutq8Image,
+    'nabsh': NabshLogo,
 };
 
 const heroImageMap: { [key: string]: StaticImageData } = {
@@ -117,7 +119,7 @@ export default function GameDetailPage() {
                     src={heroSrc} 
                     alt={`${game.title} Hero Background`} 
                     fill 
-                    className="object-cover"
+                    className="object-contain"
                     data-ai-hint={game.heroImageHint}
                     priority
                     placeholder={heroIsStatic ? "blur" : "empty"}
@@ -142,17 +144,31 @@ export default function GameDetailPage() {
              )
         }
 
+        if (game.heroVideo) {
+            return (
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 z-0 w-full h-full object-contain"
+                    key={game.heroVideo}
+                >
+                    <source src={game.heroVideo} type="video/mp4" />
+                </video>
+            )
+        }
+
         return (
-            <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="absolute inset-0 z-0 w-full h-full object-contain"
-                key={game.heroVideo}
-            >
-                <source src={game.heroVideo} type="video/mp4" />
-            </video>
+             <Image 
+                src={heroSrc} 
+                alt={`${game.title} Hero Background`} 
+                fill 
+                className="object-contain"
+                data-ai-hint={game.heroImageHint}
+                priority
+                placeholder={heroIsStatic ? "blur" : "empty"}
+            />
         )
     }
 
@@ -291,3 +307,5 @@ export default function GameDetailPage() {
     </ParallaxProvider>
     )
 }
+
+    

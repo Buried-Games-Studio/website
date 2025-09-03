@@ -18,6 +18,7 @@ import { ArrowRight, Lightbulb, Palette, Smartphone, Swords, Youtube } from 'luc
 import { ParticlesBackground } from "@/components/particles-background";
 import PowerOfBombsImage from '@/components/images/powerofbombsIconTransparent.png';
 import Koutq8Image from '@/components/images/Koutq8Logo.png';
+import NabshLogo from '@/components/images/nabsh_logo.png';
 import UnityImage from '@/components/images/UnityImage.png';
 import UnrealEngineImage from '@/components/images/UnrealEngineImage.png';
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
@@ -37,6 +38,7 @@ export default function Home() {
   const gameImageMap: { [key: string]: any } = {
     'power-of-bombs': PowerOfBombsImage,
     'koutq8': Koutq8Image,
+    'nabsh': NabshLogo,
   };
   
   const serviceIcons: { [key: string]: React.ElementType } = {
@@ -254,3 +256,5 @@ export default function Home() {
     </ParallaxProvider>
   );
 }
+
+    

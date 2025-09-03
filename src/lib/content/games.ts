@@ -23,7 +23,7 @@ export const gamesContent = [
     storeLinks: [
         { store: 'web', url: 'https://nabsh.fun', label: { en: 'Visit Website', ar: 'زيارة الموقع' } },
     ],
-    heroImage: 'https://placehold.co/1920x1080.png',
+    heroImage: 'https://picsum.photos/1920/1080',
     heroImageHint: 'trivia quiz brain',
     heroVideo: 'https://www.youtube.com/watch?v=F0WBKweQ-NM',
     imageUrl: 'https://placehold.co/600x400.png',
@@ -89,9 +89,9 @@ export const gamesContent = [
     storeLinks: [
         { store: 'App Store', url: 'https://apps.apple.com/app/id6738164175', imageUrl: 'downloadAppStoreImage.png' },
     ],
-    heroImage: 'https://placehold.co/1920x1080.png',
+    heroImage: 'https://picsum.photos/1920/1080',
     heroImageHint: 'playing cards',
-    heroVideo: '/videos/koutq8-hero-video.mp4',
+    heroVideo: null,
     imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'card game',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
@@ -102,3 +102,5 @@ export const gamesContent = [
     ],
   },
 ];
+
+    
