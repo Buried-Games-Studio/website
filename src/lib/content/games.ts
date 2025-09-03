@@ -1,6 +1,42 @@
 
 export const gamesContent = [
   {
+    id: 'nabsh',
+    slug: 'nabsh',
+    title: 'Nabsh',
+    status: 'released',
+    engine: 'Unity',
+    description: {
+      en: 'A thrilling Kuwaiti trivia game that tests your knowledge on a wide range of topics. Challenge friends and climb the ranks!',
+      ar: 'لعبة معلومات عامة كويتية مثيرة تختبر معلوماتك في مجموعة واسعة من المواضيع. تحدَّ أصدقاءك وتصدر قائمة المتصدرين!',
+    },
+    longDescription: {
+        en: 'Nabsh is the ultimate Kuwaiti trivia challenge! Compete with players in real-time, answer questions across various categories like history, culture, sports, and more. With a sleek design, engaging gameplay, and social features, Nabsh is the perfect game to prove your knowledge and have fun with friends and family.',
+        ar: 'نبش هو التحدي النهائي للمعلومات العامة في الكويت! تنافس مع اللاعبين في الوقت الفعلي، وأجب عن أسئلة في فئات متنوعة مثل التاريخ والثقافة والرياضة والمزيد. بفضل التصميم الأنيق واللعب الجذاب والميزات الاجتماعية، يعد نبش اللعبة المثالية لإثبات معرفتك والاستمتاع مع الأصدقاء والعائلة.'
+    },
+    features: [
+        { icon: 'Users', title: { en: 'Live Multiplayer', ar: 'لعب جماعي مباشر' }, description: { en: 'Challenge friends or other players in exciting real-time trivia battles.', ar: 'تحدَّ الأصدقاء أو اللاعبين الآخرين في معارك معلومات عامة مثيرة في الوقت الفعلي.' } },
+        { icon: 'Puzzle', title: { en: 'Diverse Categories', ar: 'فئات متنوعة' }, description: { en: 'Thousands of questions covering Kuwaiti culture, history, sports, and more.', ar: 'آلاف الأسئلة التي تغطي الثقافة الكويتية والتاريخ والرياضة والمزيد.' } },
+        { icon: 'Trophy', title: { en: 'Leaderboards', ar: 'لوحات الصدارة' }, description: { en: 'Compete for the top spot and showcase your trivia prowess.', ar: 'تنافس على المركز الأول واستعرض براعتك في المعلومات العامة.' } },
+        { icon: 'Smartphone', title: { en: 'Sleek & Modern', ar: 'أنيق وعصري' }, description: { en: 'Enjoy a beautiful and user-friendly interface on all your devices.', ar: 'استمتع بواجهة جميلة وسهلة الاستخدام على جميع أجهزتك.' } },
+    ],
+    storeLinks: [
+        { store: 'App Store', url: 'https://apps.apple.com/us/app/nabsh-نبش/id6475095952', imageUrl: 'downloadAppStoreImage.png' },
+        { store: 'Google Play', url: 'https://play.google.com/store/apps/details?id=com.gavan.nabsh', label: { en: 'Get it on Google Play', ar: 'احصل عليه من Google Play' } },
+    ],
+    heroImage: 'https://placehold.co/1920x1080.png',
+    heroImageHint: 'trivia quiz brain',
+    heroVideo: 'https://www.youtube.com/watch?v=F0WBKweQ-NM',
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'kuwait trivia',
+    videoUrl: 'https://www.youtube.com/embed/F0WBKweQ-NM',
+    gallery: [
+      { url: 'https://picsum.photos/1280/720', hint: 'Nabsh gameplay screenshot 1' },
+      { url: 'https://picsum.photos/1280/720', hint: 'Nabsh gameplay screenshot 2' },
+      { url: 'https://picsum.photos/1280/720', hint: 'Nabsh gameplay screenshot 3' },
+    ],
+  },
+  {
     id: 'power-of-bombs',
     slug: 'power-of-bombs',
     title: 'Power of Bombs',
@@ -56,7 +92,7 @@ export const gamesContent = [
     ],
     heroImage: 'https://placehold.co/1920x1080.png',
     heroImageHint: 'playing cards',
-    heroVideo: '/videos/koutq8-hero-video.mp4',
+    heroVideo: null,
     imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'card game',
     videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',

@@ -33,6 +33,7 @@ import KoutQ8Image_1 from '@/components/images/KoutQ8Image_1.png';
 import KoutQ8Image_2 from '@/components/images/KoutQ8Image_2.png';
 import KoutQ8Image_3 from '@/components/images/KoutQ8Image_3.png';
 import { useState, useEffect } from "react";
+import ReactPlayer from "react-player";
 
 
 const iconMap: { [key: string]: LucideIcon } = {
@@ -88,6 +89,7 @@ export default function GameDetailPage() {
     const gameLogo = gameLogoMap[game.id];
     const heroSrc = heroImageMap[game.heroImage] || game.heroImage;
     const heroIsStatic = typeof heroSrc !== 'string';
+    const isYoutubeVideo = game.heroVideo && (game.heroVideo.includes('youtube.com') || game.heroVideo.includes('youtu.be'));
 
     const t_ui = {
         en: {
@@ -106,34 +108,59 @@ export default function GameDetailPage() {
         }
     }[language];
 
+    const HeroMedia = () => {
+        if (!isClient || !game.heroVideo) {
+            return (
+                 <Image 
+                    src={heroSrc} 
+                    alt={`${game.title} Hero Background`} 
+                    fill 
+                    className="object-cover"
+                    data-ai-hint={game.heroImageHint}
+                    priority
+                    placeholder={heroIsStatic ? "blur" : "empty"}
+                />
+            )
+        }
+        
+        if (isYoutubeVideo) {
+             return (
+                <div className="absolute inset-0 z-0 w-full h-full player-wrapper">
+                    <ReactPlayer
+                        url={game.heroVideo}
+                        className="react-player"
+                        playing
+                        loop
+                        muted
+                        width="100%"
+                        height="100%"
+                        playsinline
+                    />
+                </div>
+             )
+        }
+
+        return (
+            <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 z-0 w-full h-full object-contain"
+                key={game.heroVideo}
+            >
+                <source src={game.heroVideo} type="video/mp4" />
+            </video>
+        )
+    }
+
     return (
     <ParallaxProvider>
       <main>
         {/* Hero Section */}
         <section className="relative w-full aspect-video flex items-center justify-center text-center text-white overflow-hidden">
             <Parallax speed={-20} className="absolute inset-0 z-0">
-                 {isClient && game.heroVideo ? (
-                    <video
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="absolute inset-0 z-0 w-full h-full object-contain"
-                        key={game.heroVideo}
-                    >
-                        <source src={game.heroVideo} type="video/mp4" />
-                    </video>
-                ) : (
-                    <Image 
-                        src={heroSrc} 
-                        alt={`${game.title} Hero Background`} 
-                        fill 
-                        className="object-contain"
-                        data-ai-hint={game.heroImageHint}
-                        priority
-                        placeholder={heroIsStatic ? "blur" : "empty"}
-                    />
-                )}
+                <HeroMedia />
                 <div className="absolute inset-0 bg-black/60"></div>
             </Parallax>
             <div className="relative z-10 p-4">
