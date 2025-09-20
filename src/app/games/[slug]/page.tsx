@@ -19,6 +19,7 @@ import {
   Smartphone,
   Construction,
   type LucideIcon,
+  Play,
 } from "lucide-react";
 import { Parallax, ParallaxProvider } from "react-scroll-parallax";
 import Link from "next/link";
@@ -307,20 +308,40 @@ export default function GameDetailPage() {
                     <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight mb-8">
                       {game.storeLinks.some(link => link.store === 'web') ? t_ui.whereToPlay : t_ui.whereToBuy}
                     </h2>
-                    <div className="flex justify-center items-center gap-4 flex-wrap">
-                        {game.storeLinks.map((link, index) => {
-                             const StoreImage = link.imageUrl ? storeImageMap[link.imageUrl] : null;
-                             const storeLabel = link.label ? link.label[language] : `Download on ${link.store}`;
-                             return (
-                                <Link href={link.url} target="_blank" rel="noopener noreferrer" key={index} className="inline-block transition-transform hover:scale-105">
-                                    {StoreImage ? (
-                                        <Image src={StoreImage} alt={`${game.title} on ${link.store}`} width={200} height={60} placeholder="blur" />
-                                    ) : (
-                                        <Button size="lg">{storeLabel}</Button>
-                                    )}
-                                </Link>
-                             )
-                        })}
+                    <div className="max-w-md mx-auto">
+                        <Card className="bg-background/50 text-center transition-all duration-300 hover:shadow-accent/20 hover:shadow-lg hover:-translate-y-2">
+                            <CardContent className="p-6 flex flex-col items-center gap-4">
+                                {gameLogo && (
+                                    <Image
+                                        src={gameLogo}
+                                        alt={`${game.title} Logo`}
+                                        width={150}
+                                        height={150}
+                                        className="object-contain h-24 w-auto"
+                                        placeholder={typeof gameLogo === 'string' ? 'empty' : 'blur'}
+                                    />
+                                )}
+                                <div className="flex flex-wrap justify-center items-center gap-4">
+                                    {game.storeLinks.map((link, index) => {
+                                        const StoreImage = link.imageUrl ? storeImageMap[link.imageUrl] : null;
+                                        const storeLabel = link.label ? link.label[language] : `Download on ${link.store}`;
+                                        
+                                        return (
+                                            <Link href={link.url} target="_blank" rel="noopener noreferrer" key={index} className="inline-block transition-transform hover:scale-105">
+                                                {StoreImage ? (
+                                                    <Image src={StoreImage} alt={`${game.title} on ${link.store}`} width={200} height={60} placeholder="blur" />
+                                                ) : (
+                                                    <Button size="lg">
+                                                        <Play className="me-2"/>
+                                                        {storeLabel}
+                                                    </Button>
+                                                )}
+                                            </Link>
+                                        )
+                                    })}
+                                </div>
+                            </CardContent>
+                        </Card>
                     </div>
                 </div>
             </section>

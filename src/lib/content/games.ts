@@ -6,7 +6,7 @@ export const gamesContent = [
     title: 'Nabsh',
     status: 'released',
     engine: 'Next.js',
-    logoUrl: 'https://placehold.co/250x250/000000/FFFFFF/png?text=Nabsh',
+    logoUrl: '/assets/images/nabsh_logo.png',
     description: {
       en: 'A thrilling Kuwaiti trivia web game that tests your knowledge on a wide range of topics. Challenge friends and climb the ranks!',
       ar: 'لعبة معلومات عامة كويتية مثيرة على الويب تختبر معلوماتك في مجموعة واسعة من المواضيع. تحدَّ أصدقاءك وتصدر قائمة المتصدرين!',
@@ -43,6 +43,7 @@ export const gamesContent = [
     title: 'Power of Bombs',
     status: 'development',
     engine: 'Unreal Engine',
+    logoUrl: '/components/images/powerofbombsIconTransparent.png',
     description: {
       en: 'An explosive action-packed arcade game. Strategize your way through challenging levels, plant bombs, and blast your enemies to bits!',
       ar: 'لعبة أركيد مليئة بالإثارة والمتفجرات. ضع استراتيجيتك عبر مستويات صعبة ، وازرع القنابل ، وانسف أعدائك إلى أشلاء!',
@@ -57,6 +58,7 @@ export const gamesContent = [
         { icon: 'Bolt', title: { en: 'Powerful Power-ups', ar: 'معززات قوة قوية' }, description: { en: 'Collect upgrades to increase your bomb range and power.', ar: 'اجمع الترقيات لزيادة مدى قنابلتك وقوتها.' } },
         { icon: 'ShieldCheck', title: { en: 'Epic Boss Fights', ar: 'معارك زعماء ملحمية' }, description: { en: 'Face off against challenging bosses with unique mechanics.', ar: 'واجه زعماء صعبين بآليات فريدة.' } },
     ],
+    stats: [],
     storeLinks: [],
     heroImage: 'POPBackground.jpg',
     heroImageHint: 'POPBackground game art',
@@ -74,6 +76,7 @@ export const gamesContent = [
     title: 'KoutQ8',
     status: 'released',
     engine: 'Unity',
+    logoUrl: '/components/images/Koutq8Logo.png',
     description: {
       en: 'A digital adaptation of the popular traditional card game from Kuwait. Play with friends online and prove you are the Kout master.',
       ar: 'نسخة رقمية من لعبة الورق التقليدية الشهيرة من الكويت. العب مع الأصدقاء عبر الإنترنت وأثبت أنك سيد الكوت.',
@@ -88,6 +91,7 @@ export const gamesContent = [
         { icon: 'Trophy', title: { en: 'Leaderboards & Stats', ar: 'لوحات الصدارة والإحصائيات' }, description: { en: 'Track your progress and climb the ranks to become the best.', ar: 'تتبع تقدمك وتسلق المراتب لتصبح الأفضل.' } },
         { icon: 'Smartphone', title: { en: 'Cross-Platform Play', ar: 'لعب عبر المنصات' }, description: { en: 'Play on your favorite device, with support for mobile and PC.', ar: 'العب على جهازك المفضل ، مع دعم للجوال والكمبيوتر الشخصي.' } },
     ],
+    stats: [],
     storeLinks: [
         { store: 'App Store', url: 'https://apps.apple.com/app/id6738164175', imageUrl: 'downloadAppStoreImage.png' },
     ],
