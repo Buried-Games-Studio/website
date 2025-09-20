@@ -21,6 +21,11 @@ export const gamesContent = [
         { icon: 'Trophy', title: { en: 'Leaderboards', ar: 'لوحات الصدارة' }, description: { en: 'Compete for the top spot and showcase your trivia prowess.', ar: 'تنافس على المركز الأول واستعرض براعتك في المعلومات العامة.' } },
         { icon: 'Smartphone', title: { en: 'Sleek & Modern', ar: 'أنيق وعصري' }, description: { en: 'Enjoy a beautiful and user-friendly interface on all your devices.', ar: 'استمتع بواجهة جميلة وسهلة الاستخدام على جميع أجهزتك.' } },
     ],
+    stats: [
+        { value: '50+', label: { en: 'Categories', ar: 'فئات' } },
+        { value: '200+', label: { en: 'Subcategories', ar: 'فئات فرعية' } },
+        { value: '10K+', label: { en: 'Questions', ar: 'أسئلة' } },
+    ],
     storeLinks: [
         { store: 'web', url: 'https://nabsh.fun', label: { en: 'Visit Website', ar: 'زيارة الموقع' } },
     ],

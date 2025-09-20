@@ -75,6 +75,13 @@ const storeImageMap: { [key: string]: StaticImageData } = {
     'downloadAppStoreImage.png': downloadAppStoreImage,
 };
 
+const StatCard = ({ value, label }: { value: string, label: string }) => (
+    <Card className="bg-white/10 backdrop-blur-md border border-white/20 text-white p-4 text-center flex flex-col items-center justify-center transition-all duration-300 hover:bg-white/20 hover:scale-105">
+        <div className="text-4xl font-bold drop-shadow-md">{value}</div>
+        <div className="text-sm uppercase tracking-wider text-white/80">{label}</div>
+    </Card>
+);
+
 export default function GameDetailPage() {
     const [isClient, setIsClient] = useState(false);
 
@@ -187,9 +194,17 @@ export default function GameDetailPage() {
                 <div className="absolute inset-0 bg-black/60"></div>
             </Parallax>
             <div className="relative z-10 p-4">
-                <h1 className="text-5xl tracking-wider sm:text-6xl md:text-7xl font-headline !leading-tight text-transparent bg-clip-text bg-gradient-to-t from-accent to-white">
-                    {game.title}
-                </h1>
+                {game.slug === 'nabsh' && game.stats ? (
+                    <div className="grid grid-cols-3 gap-4 md:gap-8">
+                        {game.stats.map((stat, index) => (
+                            <StatCard key={index} value={stat.value} label={stat.label[language]} />
+                        ))}
+                    </div>
+                ) : (
+                    <h1 className="text-5xl tracking-wider sm:text-6xl md:text-7xl font-headline !leading-tight text-transparent bg-clip-text bg-gradient-to-t from-accent to-white">
+                        {game.title}
+                    </h1>
+                )}
                 <div className="mt-4 flex items-center justify-center gap-4">
                     {game.status === 'development' && (
                         <Badge className="border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80 text-base flex items-center gap-2">
