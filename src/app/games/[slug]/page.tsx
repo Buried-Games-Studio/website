@@ -121,7 +121,7 @@ export default function GameDetailPage() {
                     src={heroSrc} 
                     alt={`${game.title} Hero Background`} 
                     fill 
-                    className="object-contain"
+                    className="object-cover"
                     data-ai-hint={game.heroImageHint}
                     priority
                     placeholder={heroIsStatic ? "blur" : "empty"}
@@ -154,8 +154,8 @@ export default function GameDetailPage() {
                         loop
                         muted
                         playsInline
-                        className="absolute inset-0 z-0 w-full h-auto object-contain"
-                        style={{ bottom: '25px' }}
+                        className="absolute inset-0 z-0 w-full h-full object-cover"
+                        style={{ marginBottom: '-25px' }}
                         key={game.heroVideo}
                     >
                         <source src={game.heroVideo} type="video/mp4" />
@@ -169,7 +169,7 @@ export default function GameDetailPage() {
                 src={heroSrc} 
                 alt={`${game.title} Hero Background`} 
                 fill 
-                className="object-contain"
+                className="object-cover"
                 data-ai-hint={game.heroImageHint}
                 priority
                 placeholder={heroIsStatic ? "blur" : "empty"}
