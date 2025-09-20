@@ -148,16 +148,19 @@ export default function GameDetailPage() {
 
         if (game.heroVideo) {
             return (
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="absolute inset-0 z-0 w-full h-full object-contain"
-                    key={game.heroVideo}
-                >
-                    <source src={game.heroVideo} type="video/mp4" />
-                </video>
+                <div className="absolute inset-0 overflow-hidden">
+                    <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="absolute inset-0 z-0 w-full h-auto object-contain"
+                        style={{ bottom: '25px' }}
+                        key={game.heroVideo}
+                    >
+                        <source src={game.heroVideo} type="video/mp4" />
+                    </video>
+                </div>
             )
         }
 
