@@ -36,6 +36,7 @@ import KoutQ8Image_2 from '@/components/images/KoutQ8Image_2.png';
 import KoutQ8Image_3 from '@/components/images/KoutQ8Image_3.png';
 import { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
+import { cn } from "@/lib/utils";
 
 
 const iconMap: { [key: string]: LucideIcon } = {
@@ -191,7 +192,7 @@ export default function GameDetailPage() {
         <section className="relative w-full aspect-video flex items-center justify-center text-center text-white overflow-hidden">
             <Parallax speed={-20} className="absolute inset-0 z-0">
                 <HeroMedia />
-                <div className="absolute inset-0 bg-black/60"></div>
+                <div className={cn("absolute inset-0", game.slug === 'nabsh' ? 'bg-black/70' : 'bg-black/60')}></div>
             </Parallax>
             <div className="relative z-10 p-4">
                 {game.slug === 'nabsh' && game.stats ? (
