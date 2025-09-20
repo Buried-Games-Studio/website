@@ -196,7 +196,7 @@ export default function GameDetailPage() {
                 <div className={cn("absolute inset-0", game.slug === 'nabsh' ? 'bg-black/70' : 'bg-black/60')}></div>
             </Parallax>
             <div className="relative z-10 p-4">
-                {game.slug === 'nabsh' && game.stats ? (
+                {game.slug === 'nabsh' && game.stats && game.stats.length > 0 ? (
                     <div className="grid grid-cols-3 gap-4 md:gap-8">
                         {game.stats.map((stat, index) => (
                             <StatCard key={index} value={stat.value} label={stat.label[language]} />
@@ -309,7 +309,7 @@ export default function GameDetailPage() {
                       {game.storeLinks.some(link => link.store === 'web') ? t_ui.whereToPlay : t_ui.whereToBuy}
                     </h2>
                     <div className="max-w-md mx-auto">
-                        <Card className="bg-background/50 text-center transition-all duration-300 hover:shadow-accent/20 hover:shadow-lg hover:-translate-y-2">
+                        <Card className="text-center transition-all duration-300 hover:shadow-accent/20 hover:shadow-lg hover:-translate-y-2 bg-white/10 backdrop-blur-md border border-white/20">
                             <CardContent className="p-6 flex flex-col items-center gap-4">
                                 {gameLogo && (
                                     <Image
@@ -326,6 +326,17 @@ export default function GameDetailPage() {
                                         const StoreImage = link.imageUrl ? storeImageMap[link.imageUrl] : null;
                                         const storeLabel = link.label ? link.label[language] : `Download on ${link.store}`;
                                         
+                                        if (game.slug === 'nabsh' && gameLogo) {
+                                            return (
+                                                <Button asChild size="lg" key={index} className="w-full max-w-xs h-14 text-lg">
+                                                    <Link href={link.url} target="_blank" rel="noopener noreferrer">
+                                                        <Image src={gameLogo} alt="Nabsh Logo" width={32} height={32} className="mr-3 h-8 w-auto" />
+                                                        {storeLabel}
+                                                    </Link>
+                                                </Button>
+                                            )
+                                        }
+
                                         return (
                                             <Link href={link.url} target="_blank" rel="noopener noreferrer" key={index} className="inline-block transition-transform hover:scale-105">
                                                 {StoreImage ? (
@@ -350,4 +361,5 @@ export default function GameDetailPage() {
       </main>
     </ParallaxProvider>
     )
-}
+
+    
