@@ -32,7 +32,7 @@ export const gamesContent = [
     heroImage: 'https://picsum.photos/1920/1080',
     heroImageHint: 'trivia quiz brain',
     heroVideo: 'https://nabsh.fun/videos/hero-animation-video.mp4',
-    imageUrl: 'https://placehold.co/600x400/000000/FFFFFF/png?text=Nabsh',
+    imageUrl: '/assets/images/nabsh_logo.png',
     imageHint: 'kuwait trivia',
     videoUrl: 'https://www.youtube.com/embed/F0WBKweQ-NM',
     gallery: [],
