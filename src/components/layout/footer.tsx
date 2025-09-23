@@ -81,6 +81,7 @@ const Footer = () => {
             <div>
               <h2 className="font-semibold mb-3">{t_ui.sitemap}</h2>
               <ul className="space-y-2">
+                <li><Link href="/about-us" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.about_us}</Link></li>
                 <li><Link href="/release-notes" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.release_notes}</Link></li>
                 <li><Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.privacy}</Link></li>
                 <li><Link href="/terms-of-use" className="text-sm text-muted-foreground hover:text-accent transition-colors">{t_ui.terms}</Link></li>
