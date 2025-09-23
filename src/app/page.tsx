@@ -13,8 +13,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { GameCard } from "@/components/game-card";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ArrowRight, Lightbulb, Palette, Smartphone, Swords, Youtube } from 'lucide-react';
+import { ArrowRight, Lightbulb, Palette, Smartphone, Swords } from 'lucide-react';
 import { ParticlesBackground } from "@/components/particles-background";
 import PowerOfBombsImage from '@/components/images/powerofbombsIconTransparent.png';
 import Koutq8Image from '@/components/images/Koutq8Logo.png';
@@ -43,7 +42,6 @@ export default function Home() {
 
   const t_ui = {
     en: {
-      hero_subtitle: "Crafting worlds, one game at a time.",
       view_details: "View Details",
       contact_title: "Get In Touch",
       contact_subtitle: "Have a question or a project in mind? We'd love to hear from you.",
@@ -52,7 +50,6 @@ export default function Home() {
       learn_more_services: "Explore Our Services"
     },
     ar: {
-      hero_subtitle: "نصنع العوالم، لعبة تلو الأخرى.",
       view_details: "عرض التفاصيل",
       contact_title: "تواصل معنا",
       contact_subtitle: "هل لديك سؤال أو مشروع في ذهنك؟ نود أن نسمع منك.",
@@ -75,7 +72,7 @@ export default function Home() {
             
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background z-0 pointer-events-none"></div>
 
-            <div className="relative z-10 flex flex-col items-center justify-center">
+            <div className="relative z-10 flex flex-col items-center justify-center w-full">
               <Parallax speed={-25}>
                 <Image 
                     src={logoImage} 
@@ -87,7 +84,7 @@ export default function Home() {
                 />
               </Parallax>
               <h1 
-                className="absolute inset-0 whitespace-nowrap text-8xl tracking-[0.2em] font-headline !leading-tight text-white flex items-center justify-center -z-10"
+                className="absolute inset-x-0 top-[25%] whitespace-nowrap text-8xl tracking-[0.2em] font-headline !leading-tight text-white font-bold -z-10"
               >
                 Buried Games Studio
               </h1>
