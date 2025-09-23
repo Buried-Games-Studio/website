@@ -124,9 +124,11 @@ export default function RootLayout({
       <body className="font-body antialiased bg-background text-foreground selection:bg-primary/20">
         <Suspense>
           <FirebaseAnalytics />
-          <SurveyModal />
         </Suspense>
         <LanguageProvider>
+          <Suspense>
+            <SurveyModal />
+          </Suspense>
           <DynamicSEO />
           <div className="relative flex min-h-screen flex-col">
             <Header />
