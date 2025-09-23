@@ -11,6 +11,7 @@ import { FirebaseAnalytics } from '@/components/firebase-analytics';
 import logoImage from '@/components/images/buriedgames_logo.png';
 import { Cairo, Inter } from 'next/font/google';
 import FloatingSocials from '@/components/layout/floating-socials';
+import Script from 'next/script';
 
 const cairo = Cairo({
     subsets: ['arabic', 'latin'],
@@ -107,6 +108,17 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
+        {/* Google tag (gtag.js) */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-96T8S9H5HH"></Script>
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-96T8S9H5HH');
+          `}
+        </Script>
       </head>
       <body className="font-body antialiased bg-background text-foreground selection:bg-primary/20">
         <Suspense>
