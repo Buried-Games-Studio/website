@@ -40,7 +40,6 @@ const Header = () => {
       services: 'Services',
       devlog: 'Devlog',
       about_us: 'About Us',
-      release_notes: 'Release Notes',
       lang_toggle: 'العربية',
     },
     ar: {
@@ -48,7 +47,6 @@ const Header = () => {
       services: 'الخدمات',
       devlog: 'مدونة التطوير',
       about_us: 'من نحن',
-      release_notes: 'ملاحظات الإصدار',
       lang_toggle: 'English',
     }
   }[language];
@@ -85,12 +83,6 @@ const Header = () => {
 
             {/* Language Toggle and Mobile Menu Trigger */}
             <div className="ms-auto flex items-center gap-4">
-                <Link
-                  href="/release-notes"
-                  className="hidden text-sm text-foreground/60 transition-colors hover:text-accent md:block"
-                >
-                  {t_ui.release_notes}
-                </Link>
                 <button
                     onClick={toggleLanguage} 
                     aria-label="Toggle language"
@@ -127,9 +119,6 @@ const Header = () => {
                                 </SheetClose>
                             ))}
                             </div>
-                            <SheetClose asChild>
-                              <Link href="/release-notes" className="px-2 font-medium">{t_ui.release_notes}</Link>
-                            </SheetClose>
                         </div>
                     </SheetContent>
                 </Sheet>

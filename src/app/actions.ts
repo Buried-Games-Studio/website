@@ -3,8 +3,6 @@
 
 import { z } from "zod";
 import * as brevo from '@getbrevo/brevo';
-import { summarizeYoutubeDevlog } from "@/ai/flows/summarize-youtube-devlog";
-import type { SummarizeYoutubeDevlogInput } from "@/ai/flows/summarize-youtube-devlog";
 
 // Contact Form
 const contactSchema = z.object({
@@ -101,42 +99,4 @@ export async function submitContactForm(
         success: false,
     };
   }
-}
-
-// Summarizer
-const summarizerSchema = z.object({
-  videoDescription: z.string().min(50, { message: "Description must be at least 50 characters." }),
-  gameName: z.string().min(2, { message: "Game name must be at least 2 characters." }),
-});
-
-type SummarizerState = {
-    summary: string | null;
-    errors?: {
-        videoDescription?: string[];
-        gameName?: string[];
-        _form?: string[];
-    } | null;
-}
-
-export async function getSummary(prevState: SummarizerState, formData: FormData): Promise<SummarizerState> {
-    const validatedFields = summarizerSchema.safeParse({
-        videoDescription: formData.get('videoDescription'),
-        gameName: formData.get('gameName'),
-    });
-    
-    if (!validatedFields.success) {
-        return {
-            summary: null,
-            errors: validatedFields.error.flatten().fieldErrors,
-        }
-    }
-    
-    try {
-        const input: SummarizeYoutubeDevlogInput = validatedFields.data;
-        const result = await summarizeYoutubeDevlog(input);
-        return { summary: result.summary, errors: null };
-    } catch (error) {
-        console.error("Error summarizing devlog:", error);
-        return { summary: null, errors: { _form: ['An unexpected error occurred. Please try again.'] } };
-    }
 }
