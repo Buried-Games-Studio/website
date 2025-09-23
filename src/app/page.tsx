@@ -155,6 +155,9 @@ export default function Home() {
               <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline">
                 {language === 'en' ? 'Our Games' : 'ألعابنا'}
               </h2>
+               <p className="mt-4 text-muted-foreground md:text-lg">
+                {language === 'en' ? 'Discover the worlds we have crafted. From strategy to arcade, each game is a unique adventure.' : 'اكتشف العوالم التي صنعناها. من الاستراتيجية إلى الأركيد، كل لعبة هي مغامرة فريدة.'}
+              </p>
             </div>
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {t.games.map((game) => (

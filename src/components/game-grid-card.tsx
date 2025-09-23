@@ -30,7 +30,7 @@ export function GameGridCard({ game, viewText, image }: { game: Game, viewText: 
             </CardContent>
         </Link>
         <div className="absolute bottom-0 left-0 right-0 p-4 flex items-center justify-between">
-            <h3 className="font-headline text-2xl text-white drop-shadow-md">{game.title}</h3>
+            <h3 className="font-headline text-3xl text-white drop-shadow-md">{game.title}</h3>
             <Button asChild variant="secondary" size="sm">
                 <Link href={`/games/${game.slug}`}>
                     <Eye className="me-2 h-4 w-4" /> {viewText}
