@@ -140,7 +140,7 @@ export default function Home() {
               </div>
               <div className="text-center mt-12">
                 <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-[0_0_20px] shadow-accent/50 transition-shadow">
-                    <Link href="/services">{t_ui.learn_more_services} <ArrowRight className="ms-2 h-5 w-5" /></Link>
+                    <Link href="/contact-us">{t_ui.learn_more_services} <ArrowRight className="ms-2 h-5 w-5" /></Link>
                 </Button>
               </div>
             </div>
