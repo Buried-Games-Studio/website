@@ -22,6 +22,7 @@ import NabshImage from '@/assets/images/nabsh_logo.png';
 import UnrealEngineImage from '@/components/images/UnrealEngineImage.png';
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 import logoImage from '@/components/images/buriedgames_logo.png';
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function Home() {
   const { language } = useLanguage();
@@ -122,7 +123,8 @@ export default function Home() {
                         <Link href="/services">{t_ui.learn_more_services} <ArrowRight className="ms-2 h-5 w-5" /></Link>
                     </Button>
                 </div>
-                <div>
+                <Card className="bg-card/50 backdrop-blur-sm border border-border/40">
+                  <CardContent className="p-6">
                     <ul className="space-y-6">
                         {t.services.items.slice(0, 4).map((service, index) => {
                             const Icon = serviceIcons[service.name] || Swords;
@@ -139,7 +141,8 @@ export default function Home() {
                             );
                         })}
                     </ul>
-                </div>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </section>

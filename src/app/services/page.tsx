@@ -65,7 +65,7 @@ export default function ServicesPage() {
                 const Icon = serviceIcons[service.name] || Swords;
                 return (
                 <Parallax y={[30, -30]} key={index}>
-                    <Card className="flex flex-col h-full text-center hover:shadow-accent/20 hover:shadow-lg hover:-translate-y-2 transition-all duration-300">
+                    <Card className="flex flex-col h-full text-center hover:shadow-accent/20 hover:shadow-lg hover:-translate-y-2 transition-all duration-300 bg-card/50 backdrop-blur-sm border border-border/40">
                         <CardHeader className="items-center">
                             <div className="flex items-center justify-center w-24 h-24 rounded-full bg-primary/10 mb-4 border-2 border-accent">
                                 <Icon className="w-12 h-12 text-accent"/>
