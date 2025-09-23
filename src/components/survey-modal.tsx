@@ -38,8 +38,7 @@ export function SurveyModal() {
     if (isBot) return;
 
     // Check if the survey has been completed
-    // const surveyCompleted = localStorage.getItem(SURVEY_KEY);
-    const surveyCompleted = false; // Force survey to show for testing
+    const surveyCompleted = localStorage.getItem(SURVEY_KEY);
     if (!surveyCompleted) {
       // Show the survey after a short delay
       const timer = setTimeout(() => {
