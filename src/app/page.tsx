@@ -87,18 +87,10 @@ export default function Home() {
                 />
               </Parallax>
               <h1 
-                className="absolute inset-0 text-6xl tracking-wider sm:text-7xl md:text-8xl lg:text-9xl font-headline !leading-tight text-white flex items-center justify-center -z-10"
+                className="absolute inset-0 whitespace-nowrap text-8xl tracking-[0.2em] font-headline !leading-tight text-white flex items-center justify-center -z-10"
               >
                 Buried Games Studio
               </h1>
-            </div>
-
-            <div className="relative z-20 mt-4">
-              <Parallax speed={5}>
-                <p className="text-muted-foreground md:text-xl animate-in fade-in slide-in-from-bottom-10 duration-1000 ease-out delay-500 [animation-fill-mode:forwards]">
-                  {t_ui.hero_subtitle}
-                </p>
-              </Parallax>
             </div>
           </section>
 
