@@ -12,7 +12,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { GameCard } from "@/components/game-card";
+import { GameGridCard } from "@/components/game-grid-card";
 import { ArrowRight, Lightbulb, Palette, Smartphone, Swords } from 'lucide-react';
 import { ParticlesBackground } from "@/components/particles-background";
 import PowerOfBombsImage from '@/components/images/powerofbombsIconTransparent.png';
@@ -156,14 +156,13 @@ export default function Home() {
                 {language === 'en' ? 'Our Games' : 'ألعابنا'}
               </h2>
             </div>
-            <div className="mt-12 space-y-16 md:space-y-24">
-              {t.games.map((game, index) => (
-                <GameCard 
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {t.games.map((game) => (
+                <GameGridCard 
                   key={game.id} 
                   game={game} 
                   viewText={t_ui.view_details} 
                   image={gameImageMap[game.id]}
-                  reverse={index % 2 !== 0} 
                 />
               ))}
             </div>
