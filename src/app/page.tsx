@@ -108,34 +108,34 @@ export default function Home() {
           {/* Services Section */}
           <section id="services" className="bg-background">
             <div className="container">
-              <div className="grid md:grid-cols-2 gap-12 items-center">
-                <div className="prose dark:prose-invert max-w-none">
-                    <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">{t.services.title}</h2>
-                    <p className="lead text-muted-foreground">{t.services.homepage_subtitle}</p>
-                    <div className="mt-6 flex flex-col items-start gap-4">
-                        <p className="text-muted-foreground">{t.services.homepage_p[0]}</p>
-                        <div className="flex items-center gap-6">
-                            <Image src={UnityImage} alt="Unity" height={100} width={100} className="h-16 w-auto filter grayscale hover:grayscale-0 transition-all" />
-                            <Image src={UnrealEngineImage} alt="Unreal Engine" height={100} width={100} className="h-16 w-auto filter grayscale hover:grayscale-0 transition-all" />
-                        </div>
-                    </div>
-                    <Button asChild size="lg" className="mt-8 no-underline bg-accent text-accent-foreground hover:bg-accent/90 shadow-[0_0_20px] shadow-accent/50 transition-shadow">
-                        <Link href="/services">{t_ui.learn_more_services} <ArrowRight className="ms-2 h-5 w-5" /></Link>
-                    </Button>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                    {t.services.items.slice(0, 4).map((service, index) => {
-                        const Icon = serviceIcons[service.name] || Swords;
-                        return (
-                            <div key={index} className="bg-card/50 backdrop-blur-sm border border-border/40 rounded-lg p-4 text-center flex flex-col items-center justify-center gap-3 transition-all hover:border-accent hover:shadow-[0_0_20px] hover:shadow-accent/30">
-                                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-accent/10 border-2 border-accent">
-                                    <Icon className="w-6 h-6 text-accent"/>
-                                </div>
-                                <h3 className="text-base font-bold text-center">{service.name}</h3>
-                            </div>
-                        );
-                    })}
-                </div>
+              <div className="max-w-3xl mx-auto text-center mb-12">
+                  <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">{t.services.title}</h2>
+                  <p className="lead text-muted-foreground mt-4">{t.services.homepage_subtitle}</p>
+                  <div className="mt-6 flex flex-col items-center gap-4">
+                      <p className="text-muted-foreground">{t.services.homepage_p[0]}</p>
+                      <div className="flex items-center gap-6">
+                          <Image src={UnityImage} alt="Unity" height={100} width={100} className="h-16 w-auto filter grayscale hover:grayscale-0 transition-all" />
+                          <Image src={UnrealEngineImage} alt="Unreal Engine" height={100} width={100} className="h-16 w-auto filter grayscale hover:grayscale-0 transition-all" />
+                      </div>
+                  </div>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                  {t.services.items.slice(0, 4).map((service, index) => {
+                      const Icon = serviceIcons[service.name] || Swords;
+                      return (
+                          <div key={index} className="bg-card/50 backdrop-blur-sm border border-border/40 rounded-lg p-4 text-center flex flex-col items-center justify-center gap-3 transition-all hover:border-accent hover:shadow-[0_0_20px] hover:shadow-accent/30">
+                              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-accent/10 border-2 border-accent">
+                                  <Icon className="w-6 h-6 text-accent"/>
+                              </div>
+                              <h3 className="text-base font-bold text-center">{service.name}</h3>
+                          </div>
+                      );
+                  })}
+              </div>
+              <div className="text-center mt-12">
+                <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 shadow-[0_0_20px] shadow-accent/50 transition-shadow">
+                    <Link href="/services">{t_ui.learn_more_services} <ArrowRight className="ms-2 h-5 w-5" /></Link>
+                </Button>
               </div>
             </div>
           </section>
