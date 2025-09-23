@@ -81,18 +81,6 @@ const Header = () => {
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
-              <Link
-                href="/contact-us"
-                className="text-foreground/60 transition-colors hover:text-accent"
-              >
-                {t_ui.services}
-              </Link>
-               <Link
-                href="/about-us"
-                className="text-foreground/60 transition-colors hover:text-accent"
-              >
-                {t_ui.about_us}
-              </Link>
             </nav>
 
             {/* Language Toggle and Mobile Menu Trigger */}
@@ -139,12 +127,6 @@ const Header = () => {
                                 </SheetClose>
                             ))}
                             </div>
-                            <SheetClose asChild>
-                              <Link href="/contact-us" className="px-2 font-medium">{t_ui.services}</Link>
-                            </SheetClose>
-                             <SheetClose asChild>
-                              <Link href="/about-us" className="px-2 font-medium">{t_ui.about_us}</Link>
-                            </SheetClose>
                             <SheetClose asChild>
                               <Link href="/release-notes" className="px-2 font-medium">{t_ui.release_notes}</Link>
                             </SheetClose>
