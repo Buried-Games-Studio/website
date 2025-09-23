@@ -10,6 +10,7 @@ import { Suspense } from 'react';
 import { FirebaseAnalytics } from '@/components/firebase-analytics';
 import logoImage from '@/components/images/buriedgames_logo.png';
 import { Cairo, Inter } from 'next/font/google';
+import FloatingSocials from '@/components/layout/floating-socials';
 
 const cairo = Cairo({
     subsets: ['arabic', 'latin'],
@@ -115,6 +116,7 @@ export default function RootLayout({
           <DynamicSEO />
           <div className="relative flex min-h-screen flex-col">
             <Header />
+            <FloatingSocials />
             <div className="flex-1">{children}</div>
             <Footer />
           </div>

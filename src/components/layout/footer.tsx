@@ -5,30 +5,11 @@ import Image from 'next/image';
 import { useLanguage } from '@/contexts/language-context';
 import { getTranslation } from '@/lib/content';
 import {
-  Youtube,
-  Instagram,
-  Facebook,
-  Twitch,
-  Linkedin,
-  Github,
   Mail,
 } from 'lucide-react';
-import TikTokIcon from '../icons/tiktok';
-import DiscordIcon from '../icons/discord';
 import logoImage from '@/components/images/buriedgames_logo.png';
 import { cn } from '@/lib/utils';
-
-const socialLinks = [
-  { href: "https://youtube.com/@BuriedGamesStudio?sub_confirmation=1", icon: Youtube, label: "YouTube" },
-  { href: "https://instagram.com/buriedgames", icon: Instagram, label: "Instagram" },
-  { href: "https://tiktok.com/@buriedgames", icon: TikTokIcon, label: "TikTok" },
-  { href: "https://facebook.com/@BuriedGamesStudio", icon: Facebook, label: "Facebook" },
-  { href: "https://wa.me/96555528686", icon: "whatsapp", label: "WhatsApp" },
-  { href: "https://discord.com/invite/v9FWtuyKQn", icon: DiscordIcon, label: "Discord" },
-  { href: "https://twitch.tv/buriedgamesofficial", icon: Twitch, label: "Twitch" },
-  { href: "http://linkedin.com/company/buriedgames", icon: Linkedin, label: "LinkedIn" },
-  { href: "https://github.com/Buried-Games-Studio", icon: Github, label: "GitHub" },
-];
+import { socialLinks } from './social-links';
 
 const Footer = () => {
   const { language, toggleLanguage } = useLanguage();
