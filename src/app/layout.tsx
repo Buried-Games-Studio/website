@@ -12,6 +12,7 @@ import logoImage from '@/components/images/buriedgames_logo.png';
 import { Cairo, Inter } from 'next/font/google';
 import FloatingSocials from '@/components/layout/floating-socials';
 import Script from 'next/script';
+import { SurveyModal } from '@/components/survey-modal';
 
 const cairo = Cairo({
     subsets: ['arabic', 'latin'],
@@ -123,6 +124,7 @@ export default function RootLayout({
       <body className="font-body antialiased bg-background text-foreground selection:bg-primary/20">
         <Suspense>
           <FirebaseAnalytics />
+          <SurveyModal />
         </Suspense>
         <LanguageProvider>
           <DynamicSEO />
