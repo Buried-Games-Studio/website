@@ -16,6 +16,8 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { useLanguage } from "@/contexts/language-context";
 import { logGtagEvent } from "@/lib/google-analytics";
+import { Button } from "./ui/button";
+import { cn } from "@/lib/utils";
 
 const SURVEY_KEY = "bg_survey_completed_2024";
 
@@ -23,7 +25,7 @@ export function SurveyModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
   const [otherValue, setOtherValue] = useState("");
-  const { language } = useLanguage();
+  const { language, toggleLanguage } = useLanguage();
 
   useEffect(() => {
     // Check if the user is likely a bot
@@ -69,6 +71,7 @@ export function SurveyModal() {
         },
         other_placeholder: "Please specify...",
         submit: "Submit",
+        language_toggle: "العربية",
     },
     ar: {
         title: "سؤال سريع واحد فقط!",
@@ -82,6 +85,7 @@ export function SurveyModal() {
         },
         other_placeholder: "يرجى التحديد...",
         submit: "إرسال",
+        language_toggle: "English",
     },
   }[language];
 
@@ -94,7 +98,21 @@ export function SurveyModal() {
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>{t.title}</AlertDialogTitle>
+          <div className="relative">
+            <AlertDialogTitle>{t.title}</AlertDialogTitle>
+            <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={toggleLanguage} 
+                className={cn(
+                    "absolute -top-2 right-0",
+                    language === 'en' ? 'font-arabic' : 'font-body'
+                )}
+                aria-label="Toggle language"
+            >
+                {t.language_toggle}
+            </Button>
+          </div>
           <AlertDialogDescription>
             {t.description}
           </AlertDialogDescription>
