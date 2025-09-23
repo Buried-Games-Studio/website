@@ -2,6 +2,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import {
   AlertDialog,
   AlertDialogContent,
@@ -18,6 +19,9 @@ import { useLanguage } from "@/contexts/language-context";
 import { logGtagEvent } from "@/lib/google-analytics";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
+import logoImage from '@/components/images/buriedgames_logo.png';
+import { useToast } from "@/hooks/use-toast";
+
 
 const SURVEY_KEY = "bg_survey_completed_2024";
 
@@ -26,6 +30,7 @@ export function SurveyModal() {
   const [selectedValue, setSelectedValue] = useState("");
   const [otherValue, setOtherValue] = useState("");
   const { language, toggleLanguage } = useLanguage();
+  const { toast } = useToast();
 
   useEffect(() => {
     // Check if the user is likely a bot
@@ -43,21 +48,6 @@ export function SurveyModal() {
     }
   }, []);
 
-  const handleSubmit = () => {
-    if (!selectedValue) return;
-
-    const surveyResponse = selectedValue === "other" ? `Other: ${otherValue}` : selectedValue;
-    
-    // Send event to Google Analytics
-    logGtagEvent('survey_submission', {
-        'source': surveyResponse,
-    });
-    
-    // Mark as completed and close
-    localStorage.setItem(SURVEY_KEY, "true");
-    setIsOpen(false);
-  };
-
   const t = {
     en: {
         title: "Just one quick question!",
@@ -72,6 +62,8 @@ export function SurveyModal() {
         other_placeholder: "Please specify...",
         submit: "Submit",
         language_toggle: "العربية",
+        toast_title: "Thank You!",
+        toast_description: "We appreciate your feedback.",
     },
     ar: {
         title: "سؤال سريع واحد فقط!",
@@ -86,8 +78,31 @@ export function SurveyModal() {
         other_placeholder: "يرجى التحديد...",
         submit: "إرسال",
         language_toggle: "English",
+        toast_title: "شكرًا لك!",
+        toast_description: "نحن نقدر ملاحظاتك.",
     },
   }[language];
+
+  const handleSubmit = () => {
+    if (!selectedValue) return;
+
+    const surveyResponse = selectedValue === "other" ? `Other: ${otherValue}` : selectedValue;
+    
+    // Send event to Google Analytics
+    logGtagEvent('survey_submission', {
+        'source': surveyResponse,
+    });
+
+    // Show thank you toast
+    toast({
+        title: t.toast_title,
+        description: t.toast_description,
+    });
+    
+    // Mark as completed and close
+    localStorage.setItem(SURVEY_KEY, "true");
+    setIsOpen(false);
+  };
 
 
   if (!isOpen) {
@@ -98,6 +113,7 @@ export function SurveyModal() {
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
       <AlertDialogContent>
         <AlertDialogHeader>
+          <Image src={logoImage} alt="Buried Games Studio Logo" width={80} height={80} className="mx-auto mb-4" />
           <div className="relative">
             <AlertDialogTitle>{t.title}</AlertDialogTitle>
             <Button 
