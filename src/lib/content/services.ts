@@ -1,6 +1,7 @@
+
 export const servicesContent = {
   en: {
-    title: 'Our Services',
+    title: 'Building the Connected Future',
     items: [
       { name: 'Full Game Development', description: 'From concept to launch, we handle the entire game development lifecycle.' },
       { name: 'Game Design & Prototyping', description: 'We craft compelling game mechanics and build prototypes to test ideas.' },
@@ -13,15 +14,13 @@ export const servicesContent = {
       { name: 'Backend & Network Development', description: 'Building robust server infrastructure and scalable multiplayer networking solutions for online games.' },
       { name: 'Technical Art & Pipeline Development', description: 'Creating efficient art pipelines and custom tools to bridge the gap between artists and engineers.' },
     ],
-    homepage_subtitle: 'We provide a comprehensive suite of services to transform your game concept into a fully-realized, polished product.',
+    homepage_subtitle: 'Leveraging cutting-edge technology to craft robust and scalable digital experiences.',
     homepage_p: [
-      'Leveraging our expertise in both ',
-      ' and ',
-      ', we select the best technology to bring your vision to life, ensuring high performance and a captivating player experience.'
+      'Our expertise in industry-leading game engines allows us to select the best technology to bring your vision to life, ensuring high performance and a captivating player experience.'
     ]
   },
   ar: {
-    title: 'خدماتنا',
+    title: 'بناء المستقبل المتصل',
     items: [
       { name: 'تطوير الألعاب بالكامل', description: 'من الفكرة إلى الإطلاق ، نتعامل مع دورة حياة تطوير اللعبة بأكملها.' },
       { name: 'تصميم الألعاب والنماذج الأولية', description: 'نصنع آليات لعب مقنعة ونبني نماذج أولية لاختبار الأفكار.' },
@@ -34,11 +33,9 @@ export const servicesContent = {
       { name: 'تطوير الواجهة الخلفية والشبكات', description: 'بناء بنية تحتية قوية للخوادم وحلول شبكات متعددة اللاعبين قابلة للتطوير للألعاب عبر الإنترنت.' },
       { name: 'الفن التقني وتطوير خطوط الإنتاج', description: 'إنشاء خطوط إنتاج فنية فعالة وأدوات مخصصة لسد الفجوة بين الفنانين والمهندسين.' },
     ],
-    homepage_subtitle: 'نحن نقدم مجموعة شاملة من الخدمات لتحويل مفهوم لعبتك إلى منتج مصقول ومحقق بالكامل.',
+    homepage_subtitle: 'الاستفادة من التكنولوجيا المتطورة لصياغة تجارب رقمية قوية وقابلة للتطوير.',
     homepage_p: [
-      'بالاعتماد على خبرتنا في كل من ',
-      ' و ',
-      '، نختار أفضل التقنيات لإحياء رؤيتك، مما يضمن أداءً عاليًا وتجربة لاعب آسرة.'
+      'خبرتنا في محركات الألعاب الرائدة في الصناعة تسمح لنا باختيار أفضل التقنيات لإحياء رؤيتك، مما يضمن أداءً عاليًا وتجربة لاعب آسرة.'
     ]
   },
 };
