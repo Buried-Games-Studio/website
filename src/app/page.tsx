@@ -23,6 +23,7 @@ import UnrealEngineImage from '@/components/images/UnrealEngineImage.png';
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 import logoImage from '@/components/images/buriedgames_logo.png';
 import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   const { language } = useLanguage();
@@ -72,6 +73,8 @@ export default function Home() {
             <ParticlesBackground />
             
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background z-0 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-[radial-gradient(ellipse_50%_50%_at_50%_100%,hsl(var(--accent)/0.3),transparent_70%)] -z-10" />
+
 
             <div className="relative z-10 flex flex-col items-center justify-center w-full">
               <Parallax speed={-25}>
@@ -104,6 +107,9 @@ export default function Home() {
                 </div>
             </div>
           </section>
+          
+          <Separator className="my-8 opacity-20" />
+
 
           {/* Services Section */}
           <section id="services" className="bg-background">
@@ -139,6 +145,8 @@ export default function Home() {
               </div>
             </div>
           </section>
+          
+          <Separator className="my-8 opacity-20" />
 
 
           {/* Games Section */}
@@ -161,6 +169,9 @@ export default function Home() {
             </div>
           </section>
 
+          <Separator className="my-8 opacity-20" />
+
+
           {/* FAQ Section */}
           <section id="faq">
             <div className="container">
@@ -179,6 +190,9 @@ export default function Home() {
               </div>
             </div>
           </section>
+          
+          <Separator className="my-8 opacity-20" />
+
 
           {/* Contact Section */}
           <section id="contact" className="container">
