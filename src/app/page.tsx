@@ -192,34 +192,6 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Devlog Section */}
-          <section id="devlog" className="bg-card">
-            <div className="container">
-              <div className="max-w-2xl mx-auto text-center">
-                 <Parallax scale={[0.8, 1, 'easeInCubic']}>
-                    <h2 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline flex items-center justify-center gap-4">
-                        <Youtube className="w-10 h-10" />
-                        {t.devlog.home_title}
-                    </h2>
-                </Parallax>
-                <p className="mt-4 text-muted-foreground md:text-lg">{t.devlog.home_subtitle}</p>
-              </div>
-              <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {t.devlog.videos.slice(0, 3).map((video, index) => (
-                  <Parallax y={[30, -30]} key={index}>
-                    <VideoCard video={video} thumbnail={thumbnailMap[video.id]} />
-                  </Parallax>
-                ))}
-              </div>
-              <div className="mt-12 text-center">
-                  <Button asChild size="lg" variant="outline">
-                      <Link href="/devlog">{t.devlog.view_all_cta}</Link>
-                  </Button>
-              </div>
-            </div>
-          </section>
-
-
           {/* FAQ Section */}
           <section id="faq">
             <div className="container">

@@ -93,12 +93,6 @@ const Header = () => {
               >
                 {t_ui.about_us}
               </Link>
-              <Link
-                href="/devlog"
-                className="text-foreground/60 transition-colors hover:text-accent"
-              >
-                {t_ui.devlog}
-              </Link>
             </nav>
 
             {/* Language Toggle and Mobile Menu Trigger */}
@@ -150,9 +144,6 @@ const Header = () => {
                             </SheetClose>
                              <SheetClose asChild>
                               <Link href="/about-us" className="px-2 font-medium">{t_ui.about_us}</Link>
-                            </SheetClose>
-                            <SheetClose asChild>
-                              <Link href="/devlog" className="px-2 font-medium">{t_ui.devlog}</Link>
                             </SheetClose>
                             <SheetClose asChild>
                               <Link href="/release-notes" className="px-2 font-medium">{t_ui.release_notes}</Link>
