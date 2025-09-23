@@ -108,7 +108,7 @@ export default function Home() {
             </div>
           </section>
           
-          <Separator className="my-8 opacity-20" />
+          <Separator className="my-8 opacity-30" />
 
 
           {/* Services Section */}
@@ -146,7 +146,7 @@ export default function Home() {
             </div>
           </section>
           
-          <Separator className="my-8 opacity-20" />
+          <Separator className="my-8 opacity-30" />
 
 
           {/* Games Section */}
@@ -169,7 +169,7 @@ export default function Home() {
             </div>
           </section>
 
-          <Separator className="my-8 opacity-20" />
+          <Separator className="my-8 opacity-30" />
 
 
           {/* FAQ Section */}
@@ -191,7 +191,7 @@ export default function Home() {
             </div>
           </section>
           
-          <Separator className="my-8 opacity-20" />
+          <Separator className="my-8 opacity-30" />
 
 
           {/* Contact Section */}
