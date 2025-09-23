@@ -23,13 +23,6 @@ import NabshImage from '@/assets/images/nabsh_logo.png';
 import UnrealEngineImage from '@/components/images/UnrealEngineImage.png';
 import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
 import logoImage from '@/components/images/buriedgames_logo.png';
-import { VideoCard } from "@/components/video-card";
-import Thumbnail1 from '@/components/images/thumbnail_1.png';
-import Thumbnail2 from '@/components/images/thumbnail_2.png';
-import Thumbnail3 from '@/components/images/thumbnail_3.png';
-import Thumbnail4 from '@/components/images/thumbnail_4.png';
-import Thumbnail5 from '@/components/images/thumbnail_5.png';
-import Thumbnail6 from '@/components/images/thumbnail_6.png';
 
 export default function Home() {
   const { language } = useLanguage();
@@ -46,15 +39,6 @@ export default function Home() {
     'Game Design & Prototyping': Lightbulb,
     '2D & 3D Art/Animation': Palette,
     'Mobile Game Porting': Smartphone,
-  };
-
-  const thumbnailMap: { [key: string]: any } = {
-    'thumb1': Thumbnail1,
-    'thumb2': Thumbnail2,
-    'thumb3': Thumbnail3,
-    'thumb4': Thumbnail4,
-    'thumb5': Thumbnail5,
-    'thumb6': Thumbnail6,
   };
 
   const t_ui = {
@@ -90,28 +74,28 @@ export default function Home() {
             <ParticlesBackground />
             
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background z-0 pointer-events-none"></div>
-            
-            <Parallax speed={-25} className="absolute inset-0 z-10 flex items-center justify-center opacity-40 pointer-events-none">
+
+            <div className="relative z-10 flex flex-col items-center justify-center">
+              <Parallax speed={-25}>
                 <Image 
                     src={logoImage} 
                     alt="Buried Games Studio Background Logo" 
                     width={800} 
                     height={800} 
-                    className="max-w-[80vw] md:max-w-[800px] w-auto h-auto"
+                    className="max-w-[80vw] md:max-w-[600px] w-auto h-auto opacity-80"
                     priority
                 />
-            </Parallax>
-            
-            <div className="relative z-20">
-              <Parallax speed={10}>
-                <h1 
-                  className="text-5xl tracking-wider sm:text-6xl md:text-7xl lg:text-8xl font-headline !leading-tight text-transparent bg-clip-text bg-gradient-to-t from-accent to-foreground bg-[length:100%_200%] animate-in fade-in slide-in-from-bottom-10 duration-1000 ease-out [animation-fill-mode:forwards] animate-bubble-text"
-                >
-                  Buried Games Studio
-                </h1>
               </Parallax>
+              <h1 
+                className="absolute inset-0 text-6xl tracking-wider sm:text-7xl md:text-8xl lg:text-9xl font-headline !leading-tight text-white flex items-center justify-center -z-10"
+              >
+                Buried Games Studio
+              </h1>
+            </div>
+
+            <div className="relative z-20 mt-4">
               <Parallax speed={5}>
-                <p className="text-muted-foreground md:text-xl mt-4 animate-in fade-in slide-in-from-bottom-10 duration-1000 ease-out delay-500 [animation-fill-mode:forwards]">
+                <p className="text-muted-foreground md:text-xl animate-in fade-in slide-in-from-bottom-10 duration-1000 ease-out delay-500 [animation-fill-mode:forwards]">
                   {t_ui.hero_subtitle}
                 </p>
               </Parallax>
