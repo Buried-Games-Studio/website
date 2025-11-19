@@ -1,0 +1,6 @@
+ignoredBuiltDependencies:
+  - '@firebase/util'
+  - '@tsparticles/engine'
+  - esbuild
+  - protobufjs
+  - sharp

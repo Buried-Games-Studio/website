@@ -27,7 +27,7 @@ export const gamesContent = [
         { value: '10K+', label: { en: 'Questions', ar: 'أسئلة' } },
     ],
     storeLinks: [
-        { store: 'web', url: 'https://nabsh.fun', label: { en: 'Visit Website', ar: 'زيارة الموقع' } },
+        { store: 'web', url: 'https://nabsh.fun', imageUrl: null, label: { en: 'Visit Website', ar: 'زيارة الموقع' } },
     ],
     heroImage: 'https://picsum.photos/1920/1080',
     heroImageHint: 'trivia quiz brain',
@@ -35,7 +35,9 @@ export const gamesContent = [
     imageUrl: '/assets/images/nabsh_logo.png',
     imageHint: 'kuwait trivia',
     videoUrl: 'https://www.youtube.com/embed/F0WBKweQ-NM',
-    gallery: [],
+    gallery: [
+      { url: 'nabsh_logo.png', hint: 'NABSH logo' }
+    ],
   },
   {
     id: 'power-of-bombs',
@@ -93,7 +95,7 @@ export const gamesContent = [
     ],
     stats: [],
     storeLinks: [
-        { store: 'App Store', url: 'https://apps.apple.com/app/id6738164175', imageUrl: 'downloadAppStoreImage.png' },
+        { store: 'App Store', url: 'https://apps.apple.com/app/id6738164175', imageUrl: 'downloadAppStoreImage.png', label: null },
     ],
     heroImage: 'https://picsum.photos/1920/1080',
     heroImageHint: 'playing cards',

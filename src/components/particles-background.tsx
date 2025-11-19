@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
@@ -11,7 +10,9 @@ export function ParticlesBackground() {
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
+      if (engine) {
+        await loadSlim(engine);
+      }
     }).then(() => {
       setInit(true);
     });
@@ -21,6 +22,10 @@ export function ParticlesBackground() {
 
   const options: ISourceOptions = useMemo(
     () => ({
+      fullScreen: {
+        enable: false, // IMPORTANT: Disables filling the whole window (fixed/fixed), forces it to fill the PARENT container (absolute)
+        zIndex: -1
+      },
       background: {
         color: {
           value: "transparent",
@@ -33,60 +38,62 @@ export function ParticlesBackground() {
             enable: false,
           },
           onHover: {
-            enable: false,
+            enable: true, // Enable hover for interactivity
+            mode: "bubble",
           },
         },
         modes: {
-          push: {
-            quantity: 4,
-          },
-          repulse: {
+          bubble: {
             distance: 200,
-            duration: 0.4,
+            duration: 2,
+            opacity: 0.8,
+            size: 6
           },
         },
       },
       particles: {
         color: {
-          value: ["#ff5722", "#ffc107", "#ff9800"],
+          value: ["#ff5722", "#ffc107", "#ff9800", "#ffffff"],
         },
         links: {
           enable: false,
         },
         move: {
-          direction: "top",
+          direction: "none", // Moves randomly instead of "top" (which can look biased)
           enable: true,
           outModes: {
             default: "out",
           },
           random: true,
-          speed: 6,
+          speed: 0.5, // Slow, ambient floating
           straight: false,
         },
         number: {
           density: {
             enable: true,
+            // width: 1920,
+            // height: 1080,
           },
-          value: 160,
+          value: 100,
         },
         opacity: {
-          value: { min: 0.1, max: 0.5 },
-           animation: {
-                enable: true,
-                speed: 1,
-                sync: false
-            }
+          value: { min: 0.1, max: 0.4 },
+          animation: {
+            enable: true,
+            speed: 0.5,
+            sync: false
+          }
         },
         shape: {
           type: "circle",
         },
         size: {
-          value: { min: 1, max: 4 },
-           animation: {
-                enable: true,
-                speed: 2,
-                sync: false
-            }
+          value: { min: 1, max: 3 },
+          animation: {
+            enable: true,
+            speed: 2,
+            sync: false
+          }
         },
       },
       detectRetina: true,
@@ -100,7 +107,7 @@ export function ParticlesBackground() {
         id="tsparticles"
         particlesLoaded={particlesLoaded}
         options={options}
-        className="absolute inset-0 -z-10 pointer-events-none"
+        className="absolute top-0 left-0 w-full h-full -z-10 pointer-events-none" // Explicitly force full width/height
       />
     );
   }

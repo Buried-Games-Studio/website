@@ -3,9 +3,9 @@
 
 import { useLanguage } from "@/contexts/language-context";
 import { Card, CardContent } from "@/components/ui/card";
-import { ContactForm } from "@/components/contact-form";
 import Link from "next/link";
 import Image from "next/image";
+import ContactForm from "@/components/contact-form";
 
 export default function ContactUsPage() {
   const { language } = useLanguage();

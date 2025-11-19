@@ -12,8 +12,7 @@ const contactSchema = z.object({
       ["general", "collaboration", "publishing", "support", "press"], 
       { message: "Please select a valid inquiry type." }
   ),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
-  language: z.enum(["en", "ar"], { message: "Please select a language." }),
+  message: z.string().min(3, { message: "Message must be at least 10 characters." }),
 });
 
 type ContactFormState = {
@@ -29,16 +28,12 @@ type ContactFormState = {
   success: boolean;
 };
 
-export async function submitContactForm(
-  prevState: ContactFormState,
-  formData: FormData
-): Promise<ContactFormState> {
+export async function sendContactEmail(formData: FormData, language: string): Promise<ContactFormState> {
   const validatedFields = contactSchema.safeParse({
     name: formData.get("name"),
     email: formData.get("email"),
     inquiryType: formData.get("inquiryType"),
     message: formData.get("message"),
-    language: formData.get("language"),
   });
 
   if (!validatedFields.success) {
@@ -59,13 +54,14 @@ export async function submitContactForm(
   }
 
   try {
-    const { name, email, inquiryType, message, language } = validatedFields.data;
+    const { name, email, inquiryType, message } = validatedFields.data;
 
-    const defaultClient = brevo.ApiClient.instance;
-    const apiKey = defaultClient.authentications['apiKey'];
-    apiKey.apiKey = process.env.BREVO_API_KEY as string;
+    // const defaultClient = brevo.ApiClient.instance;
+    // const apiKey = defaultClient.authentications['apiKey'];
+    // apiKey.apiKey = process.env.BREVO_API_KEY as string;
 
     const apiInstance = new brevo.TransactionalEmailsApi();
+    apiInstance.setApiKey(brevo.TransactionalEmailsApiApiKeys.apiKey, process.env.BREVO_API_KEY as string);
     
     // 1. Send notification email to the studio using template 5
     const notificationEmail = new brevo.SendSmtpEmail();
@@ -90,7 +86,7 @@ export async function submitContactForm(
     await apiInstance.sendTransacEmail(notificationEmail);
     await apiInstance.sendTransacEmail(confirmationEmail);
 
-    return { message: "Your message has been sent successfully!", success: true, errors: {} };
+    return { message: "Your message has been sent successfully!", success: true };
   } catch (error) {
     console.error("Brevo API Error:", error);
     return {
