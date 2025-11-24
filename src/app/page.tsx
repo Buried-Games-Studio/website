@@ -11,17 +11,17 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { GameGridCard } from "@/components/game-grid-card";
-import { ArrowRight, Lightbulb, Palette, Smartphone, Swords, ChevronDown, ExternalLink } from 'lucide-react';
-import { ParticlesBackground } from "@/components/particles-background";
+import { GameCard3D } from "@/components/ui/game-card-3d";
+import { ArrowRight, Lightbulb, Palette, Smartphone, Swords, ChevronDown, Rocket, Code, Gamepad2 } from 'lucide-react';
+import { HeroSection } from "@/components/ui/hero-section";
 import PowerOfBombsImage from '@/components/images/powerofbombsIconTransparent.png';
 import Koutq8Image from '@/components/images/Koutq8Logo.png';
 import NabshImage from '@/assets/images/nabsh_logo.png';
 import UnityImage from '@/components/images/UnityImage.png';
 import UnrealEngineImage from '@/components/images/UnrealEngineImage.png';
-import { ParallaxProvider, Parallax } from 'react-scroll-parallax';
+import { ParallaxProvider } from 'react-scroll-parallax';
 import logoImage from '@/components/images/buriedgames_logo.png';
-import AboutUsImage from '@/components/images/AboutUsSection.webp'; 
+import AboutUsImage from '@/components/images/AboutUsSection.webp';
 
 export default function Home() {
   const { language } = useLanguage();
@@ -32,9 +32,9 @@ export default function Home() {
     'koutq8': Koutq8Image,
     'nabsh': NabshImage,
   };
-  
+
   const serviceIcons: { [key: string]: React.ElementType } = {
-    'Full Game Development': Swords,
+    'Full Game Development': Gamepad2,
     'Game Design & Prototyping': Lightbulb,
     '2D & 3D Art/Animation': Palette,
     'Mobile Game Porting': Smartphone,
@@ -43,21 +43,29 @@ export default function Home() {
   const t_ui = {
     en: {
       view_details: "View Details",
-      contact_title: "Let's Build Something Epic",
-      contact_subtitle: "Have a question or a project in mind? We'd love to hear from you.",
-      contact_cta: "Start Your Project",
-      learn_more: "Our Story",
-      view_all_games: "View All Games", // Changed from generic "Explore"
-      learn_more_services: "Explore All Services"
+      contact_title: "Ready to Start?",
+      contact_subtitle: "Let's build the next big thing together.",
+      contact_cta: "Get in Touch",
+      learn_more: "Read Our Story",
+      view_all_games: "View All Games",
+      learn_more_services: "Explore Services",
+      latest_releases: "Latest Releases",
+      portfolio: "Portfolio",
+      about_title: "Who We Are",
+      services_title: "Our Expertise"
     },
     ar: {
       view_details: "عرض التفاصيل",
-      contact_title: "لنبدأ شيئاً عظيماً",
-      contact_subtitle: "هل لديك سؤال أو مشروع في ذهنك؟ نود أن نسمع منك.",
-      contact_cta: "ابدأ مشروعك",
-      learn_more: "قصتنا",
+      contact_title: "جاهز للبدء؟",
+      contact_subtitle: "دعنا نبني الشيء الكبير التالي معاً.",
+      contact_cta: "تواصل معنا",
+      learn_more: "اقرأ قصتنا",
       view_all_games: "عرض كل الألعاب",
-      learn_more_services: "اكتشف جميع الخدمات"
+      learn_more_services: "اكتشف خدماتنا",
+      latest_releases: "أحدث الإصدارات",
+      portfolio: "أعمالنا",
+      about_title: "من نحن",
+      services_title: "خبراتنا"
     }
   }[language];
 
@@ -65,232 +73,174 @@ export default function Home() {
 
   return (
     <ParallaxProvider>
-      <div className="flex flex-col min-h-screen bg-background selection:bg-accent/30">
+      <div className="flex flex-col min-h-screen bg-background selection:bg-primary/30 overflow-x-hidden">
         <main className="flex-1">
 
           {/* --- Hero Section --- */}
-          <section className="relative h-screen min-h-[800px] flex flex-col items-center justify-center overflow-hidden px-4">
-            <ParticlesBackground />
-            
-            {/* Atmosphere Gradients */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-accent/20 blur-[120px] rounded-full pointer-events-none opacity-40 animate-pulse-glow" />
-            <div className="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-background via-background/80 to-transparent z-10 pointer-events-none" />
-
-            <div className="relative z-20 flex flex-col items-center justify-center w-full text-center max-w-5xl mx-auto space-y-8">
-              <div className="relative mb-8 animate-fade-up [animation-delay:200ms] opacity-0 fill-mode-forwards">
-                <Parallax speed={-10}>
-                  <Image 
-                    src={logoImage} 
-                    alt="Buried Games Studio" 
-                    width={250} 
-                    height={250} 
-                    className="w-40 h-40 md:w-64 md:h-64 object-contain drop-shadow-[0_0_30px_rgba(255,0,0,0.3)]"
-                    priority
-                  />
-                </Parallax>
-              </div>
-
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-headline font-bold tracking-wider animate-fade-up [animation-delay:400ms] opacity-0 fill-mode-forwards">
-                <span className="bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/50">
-                  BURIED GAMES
-                </span>
-              </h1>
-              
-              <p className="text-lg md:text-2xl text-muted-foreground max-w-2xl mx-auto animate-fade-up [animation-delay:600ms] opacity-0 fill-mode-forwards">
-                Crafting worlds, one game at a time.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 mt-8 animate-fade-up [animation-delay:800ms] opacity-0 fill-mode-forwards">
-                 <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-white font-bold px-8 py-6 rounded-full shadow-[0_0_20px_rgba(255,0,0,0.4)] hover:shadow-[0_0_30px_rgba(255,0,0,0.6)] transition-all duration-300">
-                    <Link href="/contact-us">{t_ui.contact_cta}</Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="border-white/10 bg-white/5 hover:bg-white/10 hover:text-white backdrop-blur-sm px-8 py-6 rounded-full">
-                    <Link href="#games">{t_ui.view_details}</Link>
-                </Button>
-              </div>
-            </div>
-
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce text-white/30">
-              <ChevronDown className="w-8 h-8" />
-            </div>
-          </section>
-
+          <HeroSection />
 
           {/* --- About Section --- */}
-          <section id="about" className="relative container py-24">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-              <div className={`relative order-2 lg:order-1 ${isRTL ? 'lg:order-2' : ''}`}>
-                <div className="relative z-10 rounded-2xl overflow-hidden border border-white/10 shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
-                   <Image 
-                      src={AboutUsImage || logoImage} 
-                      alt="About Buried Games"
-                      width={600}
-                      height={400}
-                      className="w-full h-full object-cover"
-                   />
-                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                </div>
-                <div className="absolute -inset-4 bg-accent/20 rounded-2xl blur-2xl -z-10" />
-              </div>
+          <section id="about" className="relative py-32 overflow-hidden">
+            {/* Decorative Elements */}
+            <div className="absolute top-1/2 -right-20 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
 
-              <div className={`flex flex-col gap-6 order-1 lg:order-2 ${isRTL ? 'lg:order-1' : ''}`}>
-                 <h2 className="text-4xl md:text-5xl font-headline font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-white/60">
-                  {t.about_summary.title}
-                 </h2>
-                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  {t.about_summary.p1}
-                 </p>
-                 <div className="pt-4">
-                    <Button asChild variant="link" className="text-accent p-0 text-lg font-bold hover:text-accent/80">
-                        <Link href="/about-us" className="flex items-center gap-2">
-                          {t_ui.learn_more} <ArrowRight className="w-5 h-5" />
-                        </Link>
+            <div className="container relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+                {/* Image Side */}
+                <div className={`relative group order-2 lg:order-1 ${isRTL ? 'lg:order-2' : ''}`}>
+                  <div className="relative z-10 rounded-3xl overflow-hidden border border-white/10 shadow-2xl transform transition-transform duration-700 group-hover:scale-[1.02]">
+                    <Image
+                      src={AboutUsImage || logoImage}
+                      alt="About Buried Games"
+                      width={800}
+                      height={600}
+                      className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80" />
+                  </div>
+                  {/* Neon Border Effect */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-primary via-secondary to-primary rounded-3xl blur opacity-20 group-hover:opacity-50 transition-opacity duration-700 -z-10 animate-pulse-glow" />
+                </div>
+
+                {/* Content Side */}
+                <div className={`flex flex-col gap-8 order-1 lg:order-2 ${isRTL ? 'lg:order-1' : ''}`}>
+                  <div>
+                    <span className="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">{t_ui.about_title}</span>
+                    <h2 className="text-4xl md:text-6xl font-headline font-bold text-white mb-6">
+                      {t.about_summary.title}
+                    </h2>
+                  </div>
+                  <p className="text-lg text-muted-foreground leading-relaxed border-l-2 border-primary/30 pl-6">
+                    {t.about_summary.p1}
+                  </p>
+                  <div className="pt-4">
+                    <Button asChild variant="ghost" className="group text-lg font-bold hover:bg-transparent p-0 hover:text-primary transition-colors">
+                      <Link href="/about-us" className="flex items-center gap-3">
+                        {t_ui.learn_more}
+                        <ArrowRight className={`w-5 h-5 transition-transform duration-300 ${isRTL ? 'group-hover:-translate-x-2 rotate-180' : 'group-hover:translate-x-2'}`} />
+                      </Link>
                     </Button>
-                 </div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
 
-
           {/* --- Services Section --- */}
-          <section id="services" className="bg-secondary/20 relative">
+          <section id="services" className="py-32 bg-secondary/5 relative">
             <div className="container relative z-10">
-              <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+              <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                 <div className="max-w-2xl">
-                   <h2 className="text-4xl md:text-6xl font-headline font-bold mb-4 text-foreground">{t.services.title}</h2>
-                   <p className="text-xl text-muted-foreground">{t.services.homepage_subtitle}</p>
+                  <span className="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">{t_ui.services_title}</span>
+                  <h2 className="text-4xl md:text-6xl font-headline font-bold text-foreground mb-4">{t.services.title}</h2>
+                  <p className="text-xl text-muted-foreground">{t.services.homepage_subtitle}</p>
                 </div>
-                <div className="flex gap-4 opacity-50 hover:opacity-100 transition-opacity duration-300">
-                   <Image src={UnityImage} alt="Unity" height={40} width={40} className="h-10 w-auto" />
-                   <Image src={UnrealEngineImage} alt="Unreal" height={40} width={40} className="h-10 w-auto" />
+
+                {/* Tech Stack Icons */}
+                <div className="flex gap-6 opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
+                  <Image src={UnityImage} alt="Unity" height={50} width={50} className="h-12 w-auto" />
+                  <Image src={UnrealEngineImage} alt="Unreal" height={50} width={50} className="h-12 w-auto" />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                 {t.services.items.slice(0, 4).map((service, index) => {
-                      const Icon = serviceIcons[service.name] || Swords;
-                      return (
-                          <div key={index} className="group relative overflow-hidden rounded-xl bg-card/5 border border-white/5 hover:border-accent/50 transition-all duration-300 hover:bg-card/10 p-8 flex flex-col gap-4">
-                              <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                                <Icon className="w-24 h-24" />
-                              </div>
-                              
-                              <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center text-accent mb-4 group-hover:scale-110 transition-transform duration-300">
-                                <Icon className="w-6 h-6" />
-                              </div>
-                              
-                              <h3 className="text-xl font-bold z-10">{service.name}</h3>
-                              <div className="w-full h-1 bg-accent/20 rounded-full overflow-hidden mt-auto">
-                                <div className="w-0 h-full bg-accent group-hover:w-full transition-all duration-500 ease-out" />
-                              </div>
-                          </div>
-                      );
-                  })}
+                {t.services.items.slice(0, 4).map((service, index) => {
+                  const Icon = serviceIcons[service.name] || Rocket;
+                  return (
+                    <div key={index} className="group relative overflow-hidden rounded-2xl bg-card border border-white/5 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(var(--primary),0.15)] p-8 flex flex-col gap-6 hover:-translate-y-2">
+                      <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500 transform group-hover:scale-150 origin-top-right">
+                        <Icon className="w-32 h-32" />
+                      </div>
+
+                      <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-2 group-hover:scale-110 group-hover:bg-primary group-hover:text-black transition-all duration-300">
+                        <Icon className="w-7 h-7" />
+                      </div>
+
+                      <h3 className="text-xl font-bold z-10 group-hover:text-primary transition-colors">{service.name}</h3>
+
+                      <div className="mt-auto pt-4 border-t border-white/5 group-hover:border-primary/20 transition-colors">
+                        <span className="text-sm text-muted-foreground group-hover:text-white transition-colors flex items-center gap-2">
+                          {t_ui.view_details} <ArrowRight className={`w-4 h-4 ${isRTL ? 'rotate-180' : ''}`} />
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </section>
 
-          <section id="games" className="container py-32 relative">
-            
-            {/* Section Header with "01" Watermark */}
-            <div className="relative flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
-              <div className="relative z-10">
-                <span className="text-sm font-bold tracking-[0.3em] text-accent uppercase mb-2 block">
-                  Portfolio
-                </span>
-                <h2 className="text-6xl md:text-8xl font-headline font-bold text-white leading-[0.8]">
-                  LATEST<br/>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-white/50 to-white/10">RELEASES</span>
+          {/* --- Games Section --- */}
+          <section id="games" className="py-32 relative overflow-hidden">
+            {/* Background Elements */}
+            <div className="absolute inset-0 bg-[url('/assets/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+
+            <div className="container relative z-10">
+              <div className="flex flex-col items-center text-center mb-20 space-y-4">
+                <span className="text-primary font-bold tracking-[0.5em] uppercase text-sm animate-pulse">{t_ui.portfolio}</span>
+                <h2 className="text-5xl md:text-7xl font-headline font-bold text-white">
+                  {t_ui.latest_releases}
                 </h2>
+                <div className="h-1 w-20 bg-primary rounded-full" />
               </div>
 
-              {/* Huge "01" Watermark behind text */}
-              <div className="absolute -top-20 -left-10 text-[200px] font-bold text-white/5 pointer-events-none select-none font-headline z-0">
-                01
-              </div>
-
-              {/* Magnetic CTA */}
-              {/* <Link 
-                href="/games" 
-                className="group hidden md:flex items-center gap-4 text-lg font-bold text-white hover:text-accent transition-colors duration-300 pb-2 border-b border-white/20 hover:border-accent z-10"
-              >
-                <span>{t_ui.view_all_games}</span>
-                <span className="relative flex h-8 w-8 items-center justify-center rounded-full border border-white/20 bg-transparent group-hover:border-accent group-hover:bg-accent group-hover:text-black transition-all duration-300">
-                   <ArrowRight className="h-4 w-4 -rotate-45 group-hover:rotate-0 transition-transform duration-300" />
-                </span>
-              </Link> */}
-            </div>
-
-            {/* Cinematic Grid Layout */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              
-              {/* Featured Game (First Item) - Cinematic Full Width Card */}
-              <div className="col-span-1 md:col-span-3 aspect-video md:aspect-[21/9] w-full">
-                {t.games[0] && (
-                   <GameGridCard 
-                      game={t.games[0]} 
-                      viewText={t_ui.view_details} 
-                      image={gameImageMap[t.games[0].id]}
-                      className="h-full w-full shadow-2xl"
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+                {t.games.map((game) => (
+                  <div key={game.id} className="col-span-1">
+                    <GameCard3D
+                      id={game.id}
+                      title={game.title}
+                      description={game.description}
+                      image={gameImageMap[game.id]?.src || logoImage.src}
+                      slug={game.slug}
+                      tags={["Action", "Indie"]} // You might want to add tags to your content schema later
                     />
-                )}
+                  </div>
+                ))}
               </div>
-
-              {/* Secondary Games - Standard Cards */}
-              {t.games.slice(1).map((game) => (
-                <div key={game.id} className="col-span-1 aspect-[4/3]">
-                  <GameGridCard 
-                    game={game} 
-                    viewText={t_ui.view_details} 
-                    image={gameImageMap[game.id]}
-                    className="h-full"
-                  />
-                </div>
-              ))}
             </div>
-            
-            {/* Mobile Only CTA */}
-             {/* <div className="mt-12 md:hidden text-center">
-                <Button asChild variant="outline" size="lg" className="rounded-full w-full border-white/20">
-                 <Link href="/games">
-                    {t_ui.view_all_games}
-                 </Link>
-              </Button>
-             </div> */}
           </section>
-
 
           {/* --- FAQ & Final CTA --- */}
-          <section className="container pb-24">
-            <div className="glass-card rounded-3xl p-8 md:p-16 overflow-hidden relative">
-              {/* Background Element */}
-              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-transparent via-accent to-transparent opacity-50" />
-              
-              <div className="grid lg:grid-cols-2 gap-16">
-                
+          <section className="container pb-32">
+            <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 bg-card/30 backdrop-blur-sm p-8 md:p-16">
+              {/* Animated Gradient Border */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 opacity-20 animate-pulse-glow pointer-events-none" />
+
+              <div className="grid lg:grid-cols-2 gap-16 relative z-10">
+
                 {/* FAQ Column */}
                 <div className="space-y-8">
-                   <h3 className="text-3xl font-bold font-headline">{t.faq.title}</h3>
-                   <Accordion type="single" collapsible className="w-full space-y-4">
+                  <h3 className="text-3xl font-bold font-headline text-white">{t.faq.title}</h3>
+                  <Accordion type="single" collapsible className="w-full space-y-4">
                     {t.faq.items.map((item, index) => (
-                      <AccordionItem key={index} value={`item-${index}`} className="border border-white/10 bg-black/20 rounded-lg px-4 data-[state=open]:border-accent/50 transition-colors">
-                        <AccordionTrigger className="text-lg hover:no-underline hover:text-accent text-start py-4">{item.q}</AccordionTrigger>
-                        <AccordionContent className="text-muted-foreground pb-4 text-base leading-relaxed">{item.a}</AccordionContent>
+                      <AccordionItem key={index} value={`item-${index}`} className="border border-white/5 bg-white/5 rounded-xl px-6 data-[state=open]:border-primary/50 data-[state=open]:bg-primary/5 transition-all duration-300">
+                        <AccordionTrigger className="text-lg font-medium hover:no-underline hover:text-primary text-start py-6">{item.q}</AccordionTrigger>
+                        <AccordionContent className="text-muted-foreground pb-6 text-base leading-relaxed">{item.a}</AccordionContent>
                       </AccordionItem>
                     ))}
                   </Accordion>
                 </div>
 
                 {/* CTA Column */}
-                <div className="flex flex-col justify-center items-center text-center space-y-6 lg:border-l border-white/10 lg:pl-16">
-                   <div className="w-20 h-20 rounded-full bg-accent/20 flex items-center justify-center mb-4 animate-pulse">
-                      <Smartphone className="w-10 h-10 text-accent" />
-                   </div>
-                   <h2 className="text-3xl md:text-4xl font-bold">{t_ui.contact_title}</h2>
-                   <p className="text-muted-foreground">{t_ui.contact_subtitle}</p>
-                   <Button asChild size="lg" className="w-full sm:w-auto bg-white text-black hover:bg-white/90 font-bold text-lg py-6">
-                      <Link href="/contact-us">{t_ui.contact_cta}</Link>
-                   </Button>
+                <div className="flex flex-col justify-center items-center text-center space-y-8 lg:border-l border-white/10 lg:pl-16">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-primary blur-2xl opacity-20 rounded-full animate-pulse" />
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center relative z-10 shadow-xl">
+                      <Rocket className="w-10 h-10 text-white" />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <h2 className="text-4xl md:text-5xl font-bold text-white">{t_ui.contact_title}</h2>
+                    <p className="text-xl text-muted-foreground max-w-md mx-auto">{t_ui.contact_subtitle}</p>
+                  </div>
+
+                  <Button asChild size="lg" className="h-14 px-10 text-lg rounded-full bg-white text-black hover:bg-primary hover:text-white transition-all duration-300 shadow-lg hover:shadow-primary/50 font-bold">
+                    <Link href="/contact-us">{t_ui.contact_cta}</Link>
+                  </Button>
                 </div>
 
               </div>

@@ -15,43 +15,42 @@ import Script from 'next/script';
 import { SurveyModal } from '@/components/survey-modal';
 
 const cairo = Cairo({
-    subsets: ['arabic', 'latin'],
-    weight: ['400', '700'],
-    variable: '--font-cairo',
+  subsets: ['arabic', 'latin'],
+  weight: ['400', '700'],
+  variable: '--font-cairo',
 });
 
 const inter = Inter({
-    subsets: ['latin'],
-    variable: '--font-inter',
+  subsets: ['latin'],
+  variable: '--font-inter',
 });
 
 const organizationSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Buried Games Studio",
-    "foundingDate": "2018-10-01",
-    "founder": {
-        "@type": "Person",
-        "name": "Fahed Alahmad"
-    },
-    "email": "support@buriedgames.com",
-    "url": "https://buriedgames.com",
-    "logo": "https://buriedgames.com/assets/images/buriedgames_logo.png",
-    "sameAs": [
-        "https://www.youtube.com/@buriedgames",
-        "https://twitter.com/buriedgames",
-        "https://instagram.com/buriedgames",
-        "https://linkedin.com/company/buriedgames",
-        "https://github.com/Buried-Games-Studio",
-        "https://wa.me/96555528686"
-    ],
-    "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+96555528686",
-        "contactType": "Customer Service",
-        "areaServed": "KW",
-        "availableLanguage": ["en", "ar"]
-    }
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Buried Games Studio",
+  "foundingDate": "2018-10-01",
+  "founder": {
+    "@type": "Person",
+    "name": "Fahed Alahmad"
+  },
+  "email": "support@buriedgames.com",
+  "url": "https://buriedgames.com",
+  "logo": "https://buriedgames.com/assets/images/buriedgames_logo.png",
+  "sameAs": [
+    "https://www.youtube.com/@buriedgames",
+    "https://twitter.com/buriedgames",
+    "https://instagram.com/buriedgames",
+    "https://linkedin.com/company/buriedgames",
+    "https://github.com/Buried-Games-Studio",
+    "https://wa.me/96555528686"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+96555528686",
+    "contactType": "Customer Support",
+    "availableLanguage": ["en", "ar"]
+  }
 };
 
 export const metadata: Metadata = {
