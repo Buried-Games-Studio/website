@@ -23,20 +23,35 @@ import {
 import { getTranslation } from "@/lib/content";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const Header = () => {
   const { language, toggleLanguage } = useLanguage();
   const t = getTranslation(language);
   const [isMounted, setIsMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     setIsMounted(true);
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+
+      // Determine if scrolled (for background style)
+      setScrolled(currentScrollY > 20);
+
+      // Determine visibility (smart hide/show)
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        setVisible(false); // Scrolling down & past threshold -> Hide
+      } else {
+        setVisible(true); // Scrolling up -> Show
+      }
+
+      lastScrollY.current = currentScrollY;
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -60,10 +75,11 @@ const Header = () => {
   return (
     <header
       className={cn(
-        "fixed top-0 z-50 w-full transition-all duration-300",
+        "fixed top-0 z-50 w-full transition-all duration-500 transform",
+        visible ? "translate-y-0" : "-translate-y-full",
         scrolled
           ? "bg-background/80 backdrop-blur-md border-b border-primary/20 shadow-[0_0_15px_rgba(var(--primary),0.1)] py-2"
-          : "bg-transparent py-4"
+          : "bg-transparent py-6"
       )}
     >
       <div className="container flex h-14 max-w-screen-2xl items-center justify-between">

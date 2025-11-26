@@ -13,6 +13,7 @@ import { Cairo, Inter } from 'next/font/google';
 import FloatingSocials from '@/components/layout/floating-socials';
 import Script from 'next/script';
 import { SurveyModal } from '@/components/survey-modal';
+import { SmoothScroll } from '@/components/providers/smooth-scroll';
 
 const cairo = Cairo({
   subsets: ['arabic', 'latin'],
@@ -125,17 +126,19 @@ export default function RootLayout({
           <FirebaseAnalytics />
         </Suspense>
         <LanguageProvider>
-          <Suspense>
-            <SurveyModal />
-          </Suspense>
-          <DynamicSEO />
-          <div className="relative flex min-h-screen flex-col">
-            <Header />
-            <FloatingSocials />
-            <div className="flex-1 md:px-12">{children}</div>
-            <Footer />
-          </div>
-          <Toaster />
+          <SmoothScroll>
+            <Suspense>
+              <SurveyModal />
+            </Suspense>
+            <DynamicSEO />
+            <div className="relative flex min-h-screen flex-col">
+              <Header />
+              <FloatingSocials />
+              <div className="flex-1 md:px-12">{children}</div>
+              <Footer />
+            </div>
+            <Toaster />
+          </SmoothScroll>
         </LanguageProvider>
       </body>
     </html>

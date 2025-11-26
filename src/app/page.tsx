@@ -13,7 +13,8 @@ import {
 } from "@/components/ui/accordion";
 import { GameCard3D } from "@/components/ui/game-card-3d";
 import { ArrowRight, Lightbulb, Palette, Smartphone, Swords, ChevronDown, Rocket, Code, Gamepad2 } from 'lucide-react';
-import { HeroSection } from "@/components/ui/hero-section";
+import { ZoomParallaxHero } from "@/components/ui/zoom-parallax-hero";
+import { HorizontalScrollCarousel } from "@/components/ui/horizontal-scroll-carousel";
 import PowerOfBombsImage from '@/components/images/powerofbombsIconTransparent.png';
 import Koutq8Image from '@/components/images/Koutq8Logo.png';
 import NabshImage from '@/assets/images/nabsh_logo.png';
@@ -77,10 +78,10 @@ export default function Home() {
         <main className="flex-1">
 
           {/* --- Hero Section --- */}
-          <HeroSection />
+          <ZoomParallaxHero />
 
           {/* --- About Section --- */}
-          <section id="about" className="relative py-32 overflow-hidden">
+          <section id="about" className="relative py-10 overflow-hidden">
             {/* Decorative Elements */}
             <div className="absolute top-1/2 -right-20 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
@@ -129,7 +130,7 @@ export default function Home() {
           </section>
 
           {/* --- Services Section --- */}
-          <section id="services" className="py-32 bg-secondary/5 relative">
+          <section id="services" className="py-20 bg-secondary/5 relative">
             <div className="container relative z-10">
               <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                 <div className="max-w-2xl">
@@ -173,38 +174,72 @@ export default function Home() {
           </section>
 
           {/* --- Games Section --- */}
-          <section id="games" className="py-32 relative overflow-hidden">
-            {/* Background Elements */}
-            <div className="absolute inset-0 bg-[url('/assets/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
-
-            <div className="container relative z-10">
-              <div className="flex flex-col items-center text-center mb-20 space-y-4">
-                <span className="text-primary font-bold tracking-[0.5em] uppercase text-sm animate-pulse">{t_ui.portfolio}</span>
-                <h2 className="text-5xl md:text-7xl font-headline font-bold text-white">
-                  {t_ui.latest_releases}
-                </h2>
-                <div className="h-1 w-20 bg-primary rounded-full" />
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-                {t.games.map((game) => (
-                  <div key={game.id} className="col-span-1">
-                    <GameCard3D
-                      id={game.id}
-                      title={game.title}
-                      description={game.description}
-                      image={gameImageMap[game.id]?.src || logoImage.src}
-                      slug={game.slug}
-                      tags={["Action", "Indie"]} // You might want to add tags to your content schema later
-                    />
-                  </div>
-                ))}
-              </div>
+          <section id="games" className="relative bg-black">
+            <div className="container relative z-10 pt-10 pb-4 text-center">
+              <span className="text-primary font-bold tracking-[0.5em] uppercase text-sm animate-pulse">{t_ui.portfolio}</span>
+              <h2 className="text-5xl md:text-7xl font-headline font-bold text-white mt-4">
+                {t_ui.latest_releases}
+              </h2>
+              <div className="h-1 w-20 bg-primary rounded-full mx-auto mt-6" />
             </div>
+
+            <HorizontalScrollCarousel
+              items={[
+                {
+                  id: 'power-of-bombs',
+                  title: 'Power of Bombs',
+                  description: 'An explosive multiplayer arena game.',
+                  image: gameImageMap['power-of-bombs']?.src || logoImage.src,
+                  slug: 'power-of-bombs',
+                  tags: ['Action', 'Multiplayer']
+                },
+                {
+                  id: 'koutq8',
+                  title: 'KoutQ8',
+                  description: 'The classic card game, reimagined.',
+                  image: gameImageMap['koutq8']?.src || logoImage.src,
+                  slug: 'koutq8',
+                  tags: ['Card', 'Strategy']
+                },
+                {
+                  id: 'nabsh',
+                  title: 'Nabsh',
+                  description: 'A mysterious adventure awaits.',
+                  image: gameImageMap['nabsh']?.src || logoImage.src,
+                  slug: 'nabsh',
+                  tags: ['Trivia', 'Indie']
+                },
+                // Duplicates for scroll effect
+                {
+                  id: 'power-of-bombs-2',
+                  title: 'Power of Bombs',
+                  description: 'An explosive multiplayer arena game.',
+                  image: gameImageMap['power-of-bombs']?.src || logoImage.src,
+                  slug: 'power-of-bombs',
+                  tags: ['Action', 'Multiplayer']
+                },
+                {
+                  id: 'koutq8-2',
+                  title: 'KoutQ8',
+                  description: 'The classic card game, reimagined.',
+                  image: gameImageMap['koutq8']?.src || logoImage.src,
+                  slug: 'koutq8',
+                  tags: ['Card', 'Strategy']
+                },
+                {
+                  id: 'nabsh-2',
+                  title: 'Nabsh',
+                  description: 'A mysterious adventure awaits.',
+                  image: gameImageMap['nabsh']?.src || logoImage.src,
+                  slug: 'nabsh',
+                  tags: ['Trivia', 'Indie']
+                },
+              ]}
+            />
           </section>
 
           {/* --- FAQ & Final CTA --- */}
-          <section className="container pb-32">
+          <section className="container pb-20">
             <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 bg-card/30 backdrop-blur-sm p-8 md:p-16">
               {/* Animated Gradient Border */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 opacity-20 animate-pulse-glow pointer-events-none" />
