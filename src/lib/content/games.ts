@@ -109,6 +109,43 @@ export const gamesContent = [
       { url: 'KoutQ8Image_3.png', hint: 'KoutQ8 gameplay screenshot 3' },
     ],
   },
+  {
+    id: 'luna-fantasy',
+    slug: 'luna-fantasy',
+    title: 'Luna Fantasy',
+    status: 'released',
+    engine: 'Next.js',
+    logoUrl: '/assets/images/luna-fantasy_logo.png',
+    description: {
+      en: 'Official website for the Luna Fantasy Discord community - a massive fantasy universe featuring 200+ characters, a strategic card game, and immersive lore.',
+      ar: 'الموقع الرسمي لمجتمع Luna Fantasy على Discord - عالم خيالي ضخم يضم أكثر من 200 شخصية، ولعبة بطاقات استراتيجية، وقصص غامرة.',
+    },
+    longDescription: {
+        en: 'Luna Fantasy is a comprehensive companion platform for a thriving Discord fantasy community. The website showcases an interconnected universe with over 200 unique characters across 13 factions, a custom strategic card game with 7 rarity tiers, rich lore documenting The Great Chaos War, and a complete virtual economy system. Built with bilingual support for English and Arabic audiences.',
+        ar: 'Luna Fantasy هي منصة شاملة لمجتمع Discord الخيالي المزدهر. يعرض الموقع عالمًا مترابطًا يضم أكثر من 200 شخصية فريدة عبر 13 فصيلة، ولعبة بطاقات استراتيجية مخصصة بـ 7 مستويات ندرة، وقصص غنية توثق حرب الفوضى العظمى، ونظام اقتصادي افتراضي كامل. مبني بدعم ثنائي اللغة للجماهير الإنجليزية والعربية.'
+    },
+    features: [
+        { icon: 'Users', title: { en: 'Character Gallery', ar: 'معرض الشخصيات' }, description: { en: '200+ unique characters across 13 factions with detailed lore and profiles.', ar: 'أكثر من 200 شخصية فريدة عبر 13 فصيلة مع قصص وملفات تعريف مفصلة.' } },
+        { icon: 'Puzzle', title: { en: 'Strategic Card Game', ar: 'لعبة بطاقات استراتيجية' }, description: { en: 'Custom card game system with 7 rarity tiers and 200+ collectible cards.', ar: 'نظام لعبة بطاقات مخصص مع 7 مستويات ندرة وأكثر من 200 بطاقة قابلة للجمع.' } },
+        { icon: 'BookOpen', title: { en: 'Rich Lore & Chronicles', ar: 'قصص وسجلات غنية' }, description: { en: 'Epic narrative spanning The Great Chaos War and centuries of history.', ar: 'سرد ملحمي يمتد عبر حرب الفوضى العظمى وقرون من التاريخ.' } },
+        { icon: 'Wallet', title: { en: 'Virtual Economy', ar: 'اقتصاد افتراضي' }, description: { en: 'Complete banking system with loans, trading, and VIP memberships.', ar: 'نظام مصرفي كامل مع قروض وتداول وعضويات VIP.' } },
+    ],
+    stats: [
+        { value: '200+', label: { en: 'Characters', ar: 'شخصية' } },
+        { value: '13', label: { en: 'Factions', ar: 'فصيلة' } },
+        { value: '7', label: { en: 'Card Rarities', ar: 'مستويات ندرة' } },
+    ],
+    storeLinks: [
+        { store: 'web', url: 'https://luna-fantasy.com', imageUrl: null, label: { en: 'Visit Website', ar: 'زيارة الموقع' } },
+    ],
+    heroImage: 'https://luna-fantasy.com/images/luna-fantasy.png',
+    heroImageHint: 'fantasy card game universe',
+    heroVideo: null,
+    imageUrl: '/assets/images/luna-fantasy_logo.png',
+    imageHint: 'luna fantasy logo',
+    videoUrl: null,
+    gallery: [],
+  },
 ];
 
     

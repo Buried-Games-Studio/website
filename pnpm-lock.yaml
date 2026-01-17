@@ -9,17 +9,17 @@ importers:
   .:
     dependencies:
       '@genkit-ai/googleai':
-        specifier: ^1.13.0
-        version: 1.24.0(genkit@1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))
+        specifier: ^1.27.0
+        version: 1.27.0(genkit@1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))
       '@genkit-ai/next':
-        specifier: ^1.13.0
-        version: 1.24.0(genkit@1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))(next@15.3.3(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(zod@3.25.76)
+        specifier: ^1.27.0
+        version: 1.27.0(genkit@1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))(next@15.3.3(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(zod@3.25.76)
       '@getbrevo/brevo':
         specifier: ^2.2.0
         version: 2.5.0
       '@hookform/resolvers':
         specifier: ^4.1.3
-        version: 4.1.3(react-hook-form@7.66.1(react@18.3.1))
+        version: 4.1.3(react-hook-form@7.71.1(react@18.3.1))
       '@radix-ui/react-accordion':
         specifier: ^1.2.3
         version: 1.2.12(@types/react-dom@18.3.7(@types/react@18.3.27))(@types/react@18.3.27)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -111,14 +111,14 @@ importers:
         specifier: ^11.9.1
         version: 11.10.0
       framer-motion:
-        specifier: ^12.23.24
-        version: 12.23.24(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        specifier: ^12.26.2
+        version: 12.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       genkit:
-        specifier: ^1.13.0
-        version: 1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)
+        specifier: ^1.27.0
+        version: 1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)
       lenis:
-        specifier: ^1.3.15
-        version: 1.3.15(react@18.3.1)
+        specifier: ^1.3.17
+        version: 1.3.17(react@18.3.1)
       lucide-react:
         specifier: ^0.475.0
         version: 0.475.0(react@18.3.1)
@@ -138,8 +138,8 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
       react-hook-form:
-        specifier: ^7.54.2
-        version: 7.66.1(react@18.3.1)
+        specifier: ^7.71.1
+        version: 7.71.1(react@18.3.1)
       react-player:
         specifier: ^2.16.0
         version: 2.16.1(react@18.3.1)
@@ -163,17 +163,17 @@ importers:
         specifier: ^0.5.13
         version: 0.5.19(tailwindcss@3.4.18(tsx@4.20.6)(yaml@2.8.1))
       '@types/node':
-        specifier: ^20
-        version: 20.19.25
+        specifier: ^22.19.1
+        version: 22.19.1
       '@types/react':
-        specifier: ^18
+        specifier: ^18.3.18
         version: 18.3.27
       '@types/react-dom':
-        specifier: ^18
+        specifier: ^18.3.5
         version: 18.3.7(@types/react@18.3.27)
       genkit-cli:
-        specifier: ^1.13.0
-        version: 1.24.0(@types/node@20.19.25)
+        specifier: ^1.27.0
+        version: 1.27.0(@types/node@22.19.1)
       postcss:
         specifier: ^8
         version: 8.5.6
@@ -181,7 +181,7 @@ importers:
         specifier: ^3.4.1
         version: 3.4.18(tsx@4.20.6)(yaml@2.8.1)
       typescript:
-        specifier: ^5
+        specifier: ^5.7.3
         version: 5.9.3
 
 packages:
@@ -634,11 +634,11 @@ packages:
   '@floating-ui/utils@0.2.10':
     resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
 
-  '@genkit-ai/ai@1.24.0':
-    resolution: {integrity: sha512-Rv2eZqvJA8awIfLKiZL+P1hlBPGFiBFk1r01hRk0BSp1HmpZmlzSx+MM+X2H54xMgRXBRAelzU6xUXXzN5U57Q==}
+  '@genkit-ai/ai@1.27.0':
+    resolution: {integrity: sha512-Vogp21a0pBgL7UsdHj1Jm79PjrQdLNRK5dZT05Xvr3f7GwCNMv0k6Olxp+qrgwLi6DbRsVPi7c+wcldekMlLFQ==}
 
-  '@genkit-ai/core@1.24.0':
-    resolution: {integrity: sha512-JGmwdcC066OpbwShXeOOwvinj9b4yA0BKfKjPrVqqbWt9hvu81I60UNNiZC5y8dx+TvEhdEPUAXRvoOup2vC0w==}
+  '@genkit-ai/core@1.27.0':
+    resolution: {integrity: sha512-2dcr/yKixcxNj0U9pFpx9qNOTJcRdEjEz76qd5+o6Ac31foRBMb3J9Bvrfr+SaaPI4kiMnFUxN1X+w5yNjryQg==}
 
   '@genkit-ai/firebase@1.24.0':
     resolution: {integrity: sha512-6DZ612qNV4OUsAa0L40gYx0rIzcANAjv3u9R08wGK/twdOvANJuMOUWBRTIVPA0IZL2WiHLcm6Ss+GOdZOdvpg==}
@@ -656,23 +656,23 @@ packages:
     peerDependencies:
       genkit: ^1.24.0
 
-  '@genkit-ai/googleai@1.24.0':
-    resolution: {integrity: sha512-TI4QC4nIkk/8JVccMmZZ6wO9ekhFtBhc69370A/CJRSw9jN7nJeIwQd5bo2JOyVT+BR2hQI8Upsoc1LTYAkLbw==}
+  '@genkit-ai/googleai@1.27.0':
+    resolution: {integrity: sha512-oX9QYLGteFZT5Ug3IHZC/TOWlZgJ8LoUuRC4J486iPhs9yPGSrRiIlW4nfrTWhe/nqmzmCyF8JTvHXKhfSkIag==}
     peerDependencies:
-      genkit: ^1.24.0
+      genkit: ^1.27.0
 
-  '@genkit-ai/next@1.24.0':
-    resolution: {integrity: sha512-XN1I42U+Tyhic5kmdAo3GTicHMpFNMnc9/4tvxlxAcDoyo9VoqlVIbj8515Z7Qr1xKos5VCaZ4AdiWvlO+TBrQ==}
+  '@genkit-ai/next@1.27.0':
+    resolution: {integrity: sha512-tJ6kmbqo5V7VfyluA18+FXFuK6U2miuLMfY7CnKy1ilS6Rk3WIlzl2UyuxRwLajZbiecBccoFvGr8nyaINTEOQ==}
     peerDependencies:
-      genkit: 1.24.0
-      next: ^15.0.0
+      genkit: 1.27.0
+      next: ^15.0.0 || ^16.0.0
       zod: ^3.24.1
 
-  '@genkit-ai/telemetry-server@1.24.0':
-    resolution: {integrity: sha512-VfDndln8tmOv0M4Hgi2oOGrippQXuc2QHth3qbBXYBCMVILbJvEPJP1cPAlxabSbUoHOWfjiQOVycNmrg7YBgg==}
+  '@genkit-ai/telemetry-server@1.27.0':
+    resolution: {integrity: sha512-JbYeQ+UElez41LmhkNE1ZFW0wV39fS/kIQb/H1px7jAaVFrSPEWO3EfbHAaG3G13z6HBVFZJYM+u0ziJmfMtKA==}
 
-  '@genkit-ai/tools-common@1.24.0':
-    resolution: {integrity: sha512-JL4qpjAM/kOHKA7cmAxb1Yk7EGsF08f/8F3IhxEPLP38y+Q/bMh/M7/4pUqxeaBwuPuzFg9oZrtQRS2bpAomuQ==}
+  '@genkit-ai/tools-common@1.27.0':
+    resolution: {integrity: sha512-4HDnRs+wSpO8PUz4QfHnPn0PWeswj2LInlV6BaAWMhxpZo+HIhZnIQ3IDCR2/x9xOqDfc5kwT00p/cEVlPxlNw==}
 
   '@getbrevo/brevo@2.5.0':
     resolution: {integrity: sha512-0V+EpMX3pcPQb7XC+kkNwA1N/ka/z5aOElll4WFRkUq8utrGs/vHaeLYg8d+L2P572S+6rWjfLoZqyKnO/q4/Q==}
@@ -3282,8 +3282,8 @@ packages:
     resolution: {integrity: sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==}
     engines: {node: '>= 0.6'}
 
-  framer-motion@12.23.24:
-    resolution: {integrity: sha512-HMi5HRoRCTou+3fb3h9oTLyJGBxHfW+HnNE25tAXOvVx/IvwMHK0cx7IR4a2ZU6sh3IX1Z+4ts32PcYBOqka8w==}
+  framer-motion@12.26.2:
+    resolution: {integrity: sha512-lflOQEdjquUi9sCg5Y1LrsZDlsjrHw7m0T9Yedvnk7Bnhqfkc89/Uha10J3CFhkL+TCZVCRw9eUGyM/lyYhXQA==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.0.0 || ^19.0.0
@@ -3333,12 +3333,12 @@ packages:
     resolution: {integrity: sha512-a4tiq7E0/5fTjxPAaH4jpjkSv/uCaU2p5KC6HVGrvl0cDjA8iBZv4vv1gyzlmK0ZUKqwpOyQMKzZQe3lTit77A==}
     engines: {node: '>=14'}
 
-  genkit-cli@1.24.0:
-    resolution: {integrity: sha512-+2EcSbM1JCllzcqxRJ9Tf7Xj45z216zmdduX2Y3Ai40HC68ACLFYFJyNOxB4Ytnas/XTTtUEr7zMORrzeUVK/w==}
+  genkit-cli@1.27.0:
+    resolution: {integrity: sha512-1IZw6FRCCobe5X6yYuyGO74EoEbT9KqtSuvgEaX+wKBCxNL8Az+LJ5r9FY0wD2Rv4jWj4M2HIzW9tSAzLEmDZw==}
     hasBin: true
 
-  genkit@1.24.0:
-    resolution: {integrity: sha512-9BjPrLULfWdzauibKkbZcCf2LVu0mW2EW6EXHK/cTber6QdiP/guA5mXahaaDWBo+qdIKpInXAYDEzcRUmCVSA==}
+  genkit@1.27.0:
+    resolution: {integrity: sha512-54OAzw9+dlOs2H4bWnktMwKVA1wwY9XmudKBAz2uBdWhep5r0xHy1qNE6tUVnSgn+LGGaR/0xfYRSs8uqNPFVw==}
 
   get-caller-file@2.0.5:
     resolution: {integrity: sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==}
@@ -3705,8 +3705,8 @@ packages:
   kuler@2.0.0:
     resolution: {integrity: sha512-Xq9nH7KlWZmXAtodXDDRE7vs6DU1gTU8zYDHDiWLSip45Egwq3plLHzPn27NgvzL2r1LMPC1vdqh98sQxtqj4A==}
 
-  lenis@1.3.15:
-    resolution: {integrity: sha512-zSYOFs0ydafX70uygFoipaHHQouPeE4DpZZhdOUyLJxVf2ZVvBCBBaolDDaQztTRsa6+stBlxq2GmFGJPAVryQ==}
+  lenis@1.3.17:
+    resolution: {integrity: sha512-k9T9rgcxne49ggJOvXCraWn5dt7u2mO+BNkhyu6yxuEnm9c092kAW5Bus5SO211zUvx7aCCEtzy9UWr0RB+oJw==}
     peerDependencies:
       '@nuxt/kit': '>=3.0.0'
       react: '>=17.0.0'
@@ -3901,11 +3901,11 @@ packages:
   module-details-from-path@1.0.4:
     resolution: {integrity: sha512-EGWKgxALGMgzvxYF1UyGTy0HXX/2vHLkw6+NvDKW2jypWbHpjQuj4UMcqQWXHERJhVGKikolT06G3bcKe4fi7w==}
 
-  motion-dom@12.23.23:
-    resolution: {integrity: sha512-n5yolOs0TQQBRUFImrRfs/+6X4p3Q4n1dUEqt/H58Vx7OW6RF+foWEgmTVDhIWJIMXOuNNL0apKH2S16en9eiA==}
+  motion-dom@12.26.2:
+    resolution: {integrity: sha512-KLMT1BroY8oKNeliA3JMNJ+nbCIsTKg6hJpDb4jtRAJ7nCKnnpg/LTq/NGqG90Limitz3kdAnAVXecdFVGlWTw==}
 
-  motion-utils@12.23.6:
-    resolution: {integrity: sha512-eAWoPgr4eFEOFfg2WjIsMoqJTW6Z8MTUCgn/GZ3VRpClWBdnbjryiA3ZSNLyxCTmCQx4RmYX6jX1iWHbenUPNQ==}
+  motion-utils@12.24.10:
+    resolution: {integrity: sha512-x5TFgkCIP4pPsRLpKoI86jv/q8t8FQOiM/0E8QKBzfMozWHfkKap2gA1hOki+B5g3IsBNpxbUnfOum1+dgvYww==}
 
   ms@2.0.0:
     resolution: {integrity: sha512-Tpp60P6IUJDTuOq/5Z8cdskzJujfwqfOTkrwIwj7IRISpnkJnT6SyJ4PCPnGMoFjC9ddhal5KVIYtAt97ix05A==}
@@ -4300,8 +4300,8 @@ packages:
   react-fast-compare@3.2.2:
     resolution: {integrity: sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==}
 
-  react-hook-form@7.66.1:
-    resolution: {integrity: sha512-2KnjpgG2Rhbi+CIiIBQQ9Df6sMGH5ExNyFl4Hw9qO7pIqMBR8Bvu9RQyjl3JM4vehzCh9soiNUM/xYMswb2EiA==}
+  react-hook-form@7.71.1:
+    resolution: {integrity: sha512-9SUJKCGKo8HUSsCO+y0CtqkqI5nNuaDqTxyqPsZPqIwudpj4rCrAz/jZV+jn57bx5gtZKOh3neQu94DXMc+w5w==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
@@ -5460,9 +5460,9 @@ snapshots:
 
   '@floating-ui/utils@0.2.10': {}
 
-  '@genkit-ai/ai@1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)(genkit@1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))':
+  '@genkit-ai/ai@1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)(genkit@1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))':
     dependencies:
-      '@genkit-ai/core': 1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)(genkit@1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))
+      '@genkit-ai/core': 1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)(genkit@1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))
       '@opentelemetry/api': 1.9.0
       '@types/node': 20.19.25
       colorette: 2.0.20
@@ -5480,7 +5480,7 @@ snapshots:
       - genkit
       - supports-color
 
-  '@genkit-ai/core@1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)(genkit@1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))':
+  '@genkit-ai/core@1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)(genkit@1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))':
     dependencies:
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/context-async-hooks': 1.25.1(@opentelemetry/api@1.9.0)
@@ -5502,7 +5502,7 @@ snapshots:
       zod: 3.25.76
       zod-to-json-schema: 3.25.0(zod@3.25.76)
     optionalDependencies:
-      '@genkit-ai/firebase': 1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)(genkit@1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))
+      '@genkit-ai/firebase': 1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)(genkit@1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))
     transitivePeerDependencies:
       - '@google-cloud/firestore'
       - encoding
@@ -5511,12 +5511,12 @@ snapshots:
       - genkit
       - supports-color
 
-  '@genkit-ai/firebase@1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)(genkit@1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))':
+  '@genkit-ai/firebase@1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)(genkit@1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))':
     dependencies:
-      '@genkit-ai/google-cloud': 1.24.0(genkit@1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))
+      '@genkit-ai/google-cloud': 1.24.0(genkit@1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))
       '@google-cloud/firestore': 7.11.6
       firebase-admin: 13.6.0
-      genkit: 1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)
+      genkit: 1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)
     optionalDependencies:
       firebase: 11.10.0
     transitivePeerDependencies:
@@ -5524,7 +5524,7 @@ snapshots:
       - supports-color
     optional: true
 
-  '@genkit-ai/google-cloud@1.24.0(genkit@1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))':
+  '@genkit-ai/google-cloud@1.24.0(genkit@1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))':
     dependencies:
       '@google-cloud/logging-winston': 6.0.1(winston@3.18.3)
       '@google-cloud/opentelemetry-cloud-monitoring-exporter': 0.19.0(@opentelemetry/api@1.9.0)(@opentelemetry/core@1.25.1(@opentelemetry/api@1.9.0))(@opentelemetry/resources@1.25.1(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-metrics@1.25.1(@opentelemetry/api@1.9.0))
@@ -5540,7 +5540,7 @@ snapshots:
       '@opentelemetry/sdk-metrics': 1.25.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/sdk-node': 0.52.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/sdk-trace-base': 1.25.1(@opentelemetry/api@1.9.0)
-      genkit: 1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)
+      genkit: 1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)
       google-auth-library: 9.15.1
       node-fetch: 3.3.2
       winston: 3.18.3
@@ -5549,26 +5549,26 @@ snapshots:
       - supports-color
     optional: true
 
-  '@genkit-ai/googleai@1.24.0(genkit@1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))':
+  '@genkit-ai/googleai@1.27.0(genkit@1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))':
     dependencies:
       '@google/generative-ai': 0.24.1
-      genkit: 1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)
+      genkit: 1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)
       google-auth-library: 9.15.1
       node-fetch: 3.3.2
     transitivePeerDependencies:
       - encoding
       - supports-color
 
-  '@genkit-ai/next@1.24.0(genkit@1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))(next@15.3.3(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(zod@3.25.76)':
+  '@genkit-ai/next@1.27.0(genkit@1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))(next@15.3.3(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(zod@3.25.76)':
     dependencies:
-      genkit: 1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)
+      genkit: 1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)
       next: 15.3.3(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       zod: 3.25.76
 
-  '@genkit-ai/telemetry-server@1.24.0(@types/node@20.19.25)':
+  '@genkit-ai/telemetry-server@1.27.0(@types/node@22.19.1)':
     dependencies:
       '@asteasolutions/zod-to-openapi': 7.3.4(zod@3.25.76)
-      '@genkit-ai/tools-common': 1.24.0(@types/node@20.19.25)
+      '@genkit-ai/tools-common': 1.27.0(@types/node@22.19.1)
       '@google-cloud/firestore': 7.11.6
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/context-async-hooks': 1.25.1(@opentelemetry/api@1.9.0)
@@ -5586,10 +5586,10 @@ snapshots:
       - encoding
       - supports-color
 
-  '@genkit-ai/tools-common@1.24.0(@types/node@20.19.25)':
+  '@genkit-ai/tools-common@1.27.0(@types/node@22.19.1)':
     dependencies:
       '@asteasolutions/zod-to-openapi': 7.3.4(zod@3.25.76)
-      '@inquirer/prompts': 7.10.1(@types/node@20.19.25)
+      '@inquirer/prompts': 7.10.1(@types/node@22.19.1)
       '@trpc/server': 10.45.2
       adm-zip: 0.5.16
       ajv: 8.17.1
@@ -5600,6 +5600,7 @@ snapshots:
       colorette: 2.0.20
       commander: 11.1.0
       configstore: 5.0.1
+      cors: 2.8.5
       express: 4.21.2
       get-port: 5.1.1
       glob: 10.5.0
@@ -5791,10 +5792,10 @@ snapshots:
       protobufjs: 7.5.4
       yargs: 17.7.2
 
-  '@hookform/resolvers@4.1.3(react-hook-form@7.66.1(react@18.3.1))':
+  '@hookform/resolvers@4.1.3(react-hook-form@7.71.1(react@18.3.1))':
     dependencies:
       '@standard-schema/utils': 0.3.0
-      react-hook-form: 7.66.1(react@18.3.1)
+      react-hook-form: 7.71.1(react@18.3.1)
 
   '@humanwhocodes/config-array@0.13.0':
     dependencies:
@@ -5907,128 +5908,128 @@ snapshots:
 
   '@inquirer/ansi@1.0.2': {}
 
-  '@inquirer/checkbox@4.3.2(@types/node@20.19.25)':
+  '@inquirer/checkbox@4.3.2(@types/node@22.19.1)':
     dependencies:
       '@inquirer/ansi': 1.0.2
-      '@inquirer/core': 10.3.2(@types/node@20.19.25)
+      '@inquirer/core': 10.3.2(@types/node@22.19.1)
       '@inquirer/figures': 1.0.15
-      '@inquirer/type': 3.0.10(@types/node@20.19.25)
+      '@inquirer/type': 3.0.10(@types/node@22.19.1)
       yoctocolors-cjs: 2.1.3
     optionalDependencies:
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
 
-  '@inquirer/confirm@5.1.21(@types/node@20.19.25)':
+  '@inquirer/confirm@5.1.21(@types/node@22.19.1)':
     dependencies:
-      '@inquirer/core': 10.3.2(@types/node@20.19.25)
-      '@inquirer/type': 3.0.10(@types/node@20.19.25)
+      '@inquirer/core': 10.3.2(@types/node@22.19.1)
+      '@inquirer/type': 3.0.10(@types/node@22.19.1)
     optionalDependencies:
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
 
-  '@inquirer/core@10.3.2(@types/node@20.19.25)':
+  '@inquirer/core@10.3.2(@types/node@22.19.1)':
     dependencies:
       '@inquirer/ansi': 1.0.2
       '@inquirer/figures': 1.0.15
-      '@inquirer/type': 3.0.10(@types/node@20.19.25)
+      '@inquirer/type': 3.0.10(@types/node@22.19.1)
       cli-width: 4.1.0
       mute-stream: 2.0.0
       signal-exit: 4.1.0
       wrap-ansi: 6.2.0
       yoctocolors-cjs: 2.1.3
     optionalDependencies:
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
 
-  '@inquirer/editor@4.2.23(@types/node@20.19.25)':
+  '@inquirer/editor@4.2.23(@types/node@22.19.1)':
     dependencies:
-      '@inquirer/core': 10.3.2(@types/node@20.19.25)
-      '@inquirer/external-editor': 1.0.3(@types/node@20.19.25)
-      '@inquirer/type': 3.0.10(@types/node@20.19.25)
+      '@inquirer/core': 10.3.2(@types/node@22.19.1)
+      '@inquirer/external-editor': 1.0.3(@types/node@22.19.1)
+      '@inquirer/type': 3.0.10(@types/node@22.19.1)
     optionalDependencies:
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
 
-  '@inquirer/expand@4.0.23(@types/node@20.19.25)':
+  '@inquirer/expand@4.0.23(@types/node@22.19.1)':
     dependencies:
-      '@inquirer/core': 10.3.2(@types/node@20.19.25)
-      '@inquirer/type': 3.0.10(@types/node@20.19.25)
+      '@inquirer/core': 10.3.2(@types/node@22.19.1)
+      '@inquirer/type': 3.0.10(@types/node@22.19.1)
       yoctocolors-cjs: 2.1.3
     optionalDependencies:
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
 
-  '@inquirer/external-editor@1.0.3(@types/node@20.19.25)':
+  '@inquirer/external-editor@1.0.3(@types/node@22.19.1)':
     dependencies:
       chardet: 2.1.1
       iconv-lite: 0.7.0
     optionalDependencies:
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
 
   '@inquirer/figures@1.0.15': {}
 
-  '@inquirer/input@4.3.1(@types/node@20.19.25)':
+  '@inquirer/input@4.3.1(@types/node@22.19.1)':
     dependencies:
-      '@inquirer/core': 10.3.2(@types/node@20.19.25)
-      '@inquirer/type': 3.0.10(@types/node@20.19.25)
+      '@inquirer/core': 10.3.2(@types/node@22.19.1)
+      '@inquirer/type': 3.0.10(@types/node@22.19.1)
     optionalDependencies:
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
 
-  '@inquirer/number@3.0.23(@types/node@20.19.25)':
+  '@inquirer/number@3.0.23(@types/node@22.19.1)':
     dependencies:
-      '@inquirer/core': 10.3.2(@types/node@20.19.25)
-      '@inquirer/type': 3.0.10(@types/node@20.19.25)
+      '@inquirer/core': 10.3.2(@types/node@22.19.1)
+      '@inquirer/type': 3.0.10(@types/node@22.19.1)
     optionalDependencies:
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
 
-  '@inquirer/password@4.0.23(@types/node@20.19.25)':
-    dependencies:
-      '@inquirer/ansi': 1.0.2
-      '@inquirer/core': 10.3.2(@types/node@20.19.25)
-      '@inquirer/type': 3.0.10(@types/node@20.19.25)
-    optionalDependencies:
-      '@types/node': 20.19.25
-
-  '@inquirer/prompts@7.10.1(@types/node@20.19.25)':
-    dependencies:
-      '@inquirer/checkbox': 4.3.2(@types/node@20.19.25)
-      '@inquirer/confirm': 5.1.21(@types/node@20.19.25)
-      '@inquirer/editor': 4.2.23(@types/node@20.19.25)
-      '@inquirer/expand': 4.0.23(@types/node@20.19.25)
-      '@inquirer/input': 4.3.1(@types/node@20.19.25)
-      '@inquirer/number': 3.0.23(@types/node@20.19.25)
-      '@inquirer/password': 4.0.23(@types/node@20.19.25)
-      '@inquirer/rawlist': 4.1.11(@types/node@20.19.25)
-      '@inquirer/search': 3.2.2(@types/node@20.19.25)
-      '@inquirer/select': 4.4.2(@types/node@20.19.25)
-    optionalDependencies:
-      '@types/node': 20.19.25
-
-  '@inquirer/rawlist@4.1.11(@types/node@20.19.25)':
-    dependencies:
-      '@inquirer/core': 10.3.2(@types/node@20.19.25)
-      '@inquirer/type': 3.0.10(@types/node@20.19.25)
-      yoctocolors-cjs: 2.1.3
-    optionalDependencies:
-      '@types/node': 20.19.25
-
-  '@inquirer/search@3.2.2(@types/node@20.19.25)':
-    dependencies:
-      '@inquirer/core': 10.3.2(@types/node@20.19.25)
-      '@inquirer/figures': 1.0.15
-      '@inquirer/type': 3.0.10(@types/node@20.19.25)
-      yoctocolors-cjs: 2.1.3
-    optionalDependencies:
-      '@types/node': 20.19.25
-
-  '@inquirer/select@4.4.2(@types/node@20.19.25)':
+  '@inquirer/password@4.0.23(@types/node@22.19.1)':
     dependencies:
       '@inquirer/ansi': 1.0.2
-      '@inquirer/core': 10.3.2(@types/node@20.19.25)
-      '@inquirer/figures': 1.0.15
-      '@inquirer/type': 3.0.10(@types/node@20.19.25)
+      '@inquirer/core': 10.3.2(@types/node@22.19.1)
+      '@inquirer/type': 3.0.10(@types/node@22.19.1)
+    optionalDependencies:
+      '@types/node': 22.19.1
+
+  '@inquirer/prompts@7.10.1(@types/node@22.19.1)':
+    dependencies:
+      '@inquirer/checkbox': 4.3.2(@types/node@22.19.1)
+      '@inquirer/confirm': 5.1.21(@types/node@22.19.1)
+      '@inquirer/editor': 4.2.23(@types/node@22.19.1)
+      '@inquirer/expand': 4.0.23(@types/node@22.19.1)
+      '@inquirer/input': 4.3.1(@types/node@22.19.1)
+      '@inquirer/number': 3.0.23(@types/node@22.19.1)
+      '@inquirer/password': 4.0.23(@types/node@22.19.1)
+      '@inquirer/rawlist': 4.1.11(@types/node@22.19.1)
+      '@inquirer/search': 3.2.2(@types/node@22.19.1)
+      '@inquirer/select': 4.4.2(@types/node@22.19.1)
+    optionalDependencies:
+      '@types/node': 22.19.1
+
+  '@inquirer/rawlist@4.1.11(@types/node@22.19.1)':
+    dependencies:
+      '@inquirer/core': 10.3.2(@types/node@22.19.1)
+      '@inquirer/type': 3.0.10(@types/node@22.19.1)
       yoctocolors-cjs: 2.1.3
     optionalDependencies:
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
 
-  '@inquirer/type@3.0.10(@types/node@20.19.25)':
+  '@inquirer/search@3.2.2(@types/node@22.19.1)':
+    dependencies:
+      '@inquirer/core': 10.3.2(@types/node@22.19.1)
+      '@inquirer/figures': 1.0.15
+      '@inquirer/type': 3.0.10(@types/node@22.19.1)
+      yoctocolors-cjs: 2.1.3
     optionalDependencies:
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
+
+  '@inquirer/select@4.4.2(@types/node@22.19.1)':
+    dependencies:
+      '@inquirer/ansi': 1.0.2
+      '@inquirer/core': 10.3.2(@types/node@22.19.1)
+      '@inquirer/figures': 1.0.15
+      '@inquirer/type': 3.0.10(@types/node@22.19.1)
+      yoctocolors-cjs: 2.1.3
+    optionalDependencies:
+      '@types/node': 22.19.1
+
+  '@inquirer/type@3.0.10(@types/node@22.19.1)':
+    optionalDependencies:
+      '@types/node': 22.19.1
 
   '@isaacs/cliui@8.0.2':
     dependencies:
@@ -6165,7 +6166,7 @@ snapshots:
       '@opentelemetry/resource-detector-azure': 0.2.12(@opentelemetry/api@1.9.0)
       '@opentelemetry/resource-detector-container': 0.4.4(@opentelemetry/api@1.9.0)
       '@opentelemetry/resource-detector-gcp': 0.29.13(@opentelemetry/api@1.9.0)
-      '@opentelemetry/resources': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/resources': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/sdk-node': 0.52.1(@opentelemetry/api@1.9.0)
     transitivePeerDependencies:
       - encoding
@@ -6233,7 +6234,7 @@ snapshots:
   '@opentelemetry/instrumentation-amqplib@0.41.0(@opentelemetry/api@1.9.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
-      '@opentelemetry/core': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/instrumentation': 0.52.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.38.0
     transitivePeerDependencies:
@@ -6245,7 +6246,7 @@ snapshots:
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/instrumentation': 0.52.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/propagator-aws-xray': 1.26.2(@opentelemetry/api@1.9.0)
-      '@opentelemetry/resources': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/resources': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.38.0
       '@types/aws-lambda': 8.10.122
     transitivePeerDependencies:
@@ -6255,7 +6256,7 @@ snapshots:
   '@opentelemetry/instrumentation-aws-sdk@0.43.1(@opentelemetry/api@1.9.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
-      '@opentelemetry/core': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/instrumentation': 0.52.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/propagation-utils': 0.30.16(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.38.0
@@ -6285,7 +6286,7 @@ snapshots:
   '@opentelemetry/instrumentation-connect@0.38.0(@opentelemetry/api@1.9.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
-      '@opentelemetry/core': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/instrumentation': 0.52.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.38.0
       '@types/connect': 3.4.36
@@ -6322,7 +6323,7 @@ snapshots:
   '@opentelemetry/instrumentation-express@0.41.1(@opentelemetry/api@1.9.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
-      '@opentelemetry/core': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/instrumentation': 0.52.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.38.0
     transitivePeerDependencies:
@@ -6332,7 +6333,7 @@ snapshots:
   '@opentelemetry/instrumentation-fastify@0.38.0(@opentelemetry/api@1.9.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
-      '@opentelemetry/core': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/instrumentation': 0.52.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.38.0
     transitivePeerDependencies:
@@ -6342,7 +6343,7 @@ snapshots:
   '@opentelemetry/instrumentation-fs@0.14.0(@opentelemetry/api@1.9.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
-      '@opentelemetry/core': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/instrumentation': 0.52.1(@opentelemetry/api@1.9.0)
     transitivePeerDependencies:
       - supports-color
@@ -6376,7 +6377,7 @@ snapshots:
   '@opentelemetry/instrumentation-hapi@0.40.0(@opentelemetry/api@1.9.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
-      '@opentelemetry/core': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/instrumentation': 0.52.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.38.0
     transitivePeerDependencies:
@@ -6425,7 +6426,7 @@ snapshots:
   '@opentelemetry/instrumentation-koa@0.42.0(@opentelemetry/api@1.9.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
-      '@opentelemetry/core': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/instrumentation': 0.52.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.38.0
     transitivePeerDependencies:
@@ -6463,7 +6464,7 @@ snapshots:
   '@opentelemetry/instrumentation-mongoose@0.41.0(@opentelemetry/api@1.9.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
-      '@opentelemetry/core': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/instrumentation': 0.52.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.38.0
     transitivePeerDependencies:
@@ -6524,7 +6525,7 @@ snapshots:
     dependencies:
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/api-logs': 0.52.1
-      '@opentelemetry/core': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/instrumentation': 0.52.1(@opentelemetry/api@1.9.0)
     transitivePeerDependencies:
       - supports-color
@@ -6553,7 +6554,7 @@ snapshots:
   '@opentelemetry/instrumentation-restify@0.40.0(@opentelemetry/api@1.9.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
-      '@opentelemetry/core': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/instrumentation': 0.52.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.38.0
     transitivePeerDependencies:
@@ -6591,7 +6592,7 @@ snapshots:
   '@opentelemetry/instrumentation-undici@0.5.0(@opentelemetry/api@1.9.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
-      '@opentelemetry/core': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/instrumentation': 0.52.1(@opentelemetry/api@1.9.0)
     transitivePeerDependencies:
       - supports-color
@@ -6670,23 +6671,23 @@ snapshots:
     dependencies:
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
-      '@opentelemetry/resources': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/resources': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.38.0
     optional: true
 
   '@opentelemetry/resource-detector-aws@1.12.0(@opentelemetry/api@1.9.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
-      '@opentelemetry/core': 1.25.1(@opentelemetry/api@1.9.0)
-      '@opentelemetry/resources': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/resources': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.38.0
     optional: true
 
   '@opentelemetry/resource-detector-azure@0.2.12(@opentelemetry/api@1.9.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
-      '@opentelemetry/core': 1.25.1(@opentelemetry/api@1.9.0)
-      '@opentelemetry/resources': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/resources': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.38.0
     optional: true
 
@@ -6694,15 +6695,15 @@ snapshots:
     dependencies:
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
-      '@opentelemetry/resources': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/resources': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.38.0
     optional: true
 
   '@opentelemetry/resource-detector-gcp@0.29.13(@opentelemetry/api@1.9.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
-      '@opentelemetry/core': 1.25.1(@opentelemetry/api@1.9.0)
-      '@opentelemetry/resources': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/resources': 1.30.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.38.0
       gcp-metadata: 6.1.1
     transitivePeerDependencies:
@@ -6789,7 +6790,7 @@ snapshots:
   '@opentelemetry/sql-common@0.40.1(@opentelemetry/api@1.9.0)':
     dependencies:
       '@opentelemetry/api': 1.9.0
-      '@opentelemetry/core': 1.25.1(@opentelemetry/api@1.9.0)
+      '@opentelemetry/core': 1.30.1(@opentelemetry/api@1.9.0)
     optional: true
 
   '@pkgjs/parseargs@0.11.0':
@@ -7635,24 +7636,24 @@ snapshots:
   '@types/body-parser@1.19.6':
     dependencies:
       '@types/connect': 3.4.38
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
     optional: true
 
   '@types/bunyan@1.8.9':
     dependencies:
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
     optional: true
 
   '@types/caseless@0.12.5': {}
 
   '@types/connect@3.4.36':
     dependencies:
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
     optional: true
 
   '@types/connect@3.4.38':
     dependencies:
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
     optional: true
 
   '@types/d3-array@3.2.2': {}
@@ -7681,7 +7682,7 @@ snapshots:
 
   '@types/express-serve-static-core@4.19.7':
     dependencies:
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
       '@types/qs': 6.14.0
       '@types/range-parser': 1.2.7
       '@types/send': 1.2.1
@@ -7703,14 +7704,14 @@ snapshots:
   '@types/jsonwebtoken@9.0.10':
     dependencies:
       '@types/ms': 2.1.0
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
     optional: true
 
   '@types/long@4.0.2': {}
 
   '@types/memcached@2.2.10':
     dependencies:
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
     optional: true
 
   '@types/mime@1.3.5':
@@ -7721,7 +7722,7 @@ snapshots:
 
   '@types/mysql@2.15.22':
     dependencies:
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
     optional: true
 
   '@types/node@20.19.25':
@@ -7731,7 +7732,6 @@ snapshots:
   '@types/node@22.19.1':
     dependencies:
       undici-types: 6.21.0
-    optional: true
 
   '@types/pg-pool@2.0.4':
     dependencies:
@@ -7740,7 +7740,7 @@ snapshots:
 
   '@types/pg@8.6.1':
     dependencies:
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
       pg-protocol: 1.10.3
       pg-types: 2.2.0
     optional: true
@@ -7772,18 +7772,18 @@ snapshots:
   '@types/send@0.17.6':
     dependencies:
       '@types/mime': 1.3.5
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
     optional: true
 
   '@types/send@1.2.1':
     dependencies:
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
     optional: true
 
   '@types/serve-static@1.15.10':
     dependencies:
       '@types/http-errors': 2.0.5
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
       '@types/send': 0.17.6
     optional: true
 
@@ -7791,7 +7791,7 @@ snapshots:
 
   '@types/tedious@4.0.14':
     dependencies:
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
     optional: true
 
   '@types/tough-cookie@4.0.5': {}
@@ -7800,7 +7800,7 @@ snapshots:
 
   '@types/yauzl@2.10.3':
     dependencies:
-      '@types/node': 20.19.25
+      '@types/node': 22.19.1
     optional: true
 
   '@ungap/structured-clone@1.3.0': {}
@@ -8754,10 +8754,10 @@ snapshots:
 
   forwarded@0.2.0: {}
 
-  framer-motion@12.23.24(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+  framer-motion@12.26.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
-      motion-dom: 12.23.23
-      motion-utils: 12.23.6
+      motion-dom: 12.26.2
+      motion-utils: 12.24.10
       tslib: 2.8.1
     optionalDependencies:
       react: 18.3.1
@@ -8804,11 +8804,11 @@ snapshots:
       - encoding
       - supports-color
 
-  genkit-cli@1.24.0(@types/node@20.19.25):
+  genkit-cli@1.27.0(@types/node@22.19.1):
     dependencies:
-      '@genkit-ai/telemetry-server': 1.24.0(@types/node@20.19.25)
-      '@genkit-ai/tools-common': 1.24.0(@types/node@20.19.25)
-      '@inquirer/prompts': 7.10.1(@types/node@20.19.25)
+      '@genkit-ai/telemetry-server': 1.27.0(@types/node@22.19.1)
+      '@genkit-ai/tools-common': 1.27.0(@types/node@22.19.1)
+      '@inquirer/prompts': 7.10.1(@types/node@22.19.1)
       '@modelcontextprotocol/sdk': 1.22.0
       axios: 1.13.2
       colorette: 2.0.20
@@ -8825,10 +8825,10 @@ snapshots:
       - encoding
       - supports-color
 
-  genkit@1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0):
+  genkit@1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0):
     dependencies:
-      '@genkit-ai/ai': 1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)(genkit@1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))
-      '@genkit-ai/core': 1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)(genkit@1.24.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))
+      '@genkit-ai/ai': 1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)(genkit@1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))
+      '@genkit-ai/core': 1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0)(genkit@1.27.0(@google-cloud/firestore@7.11.6)(firebase-admin@13.6.0)(firebase@11.10.0))
       uuid: 10.0.0
     transitivePeerDependencies:
       - '@google-cloud/firestore'
@@ -9273,7 +9273,7 @@ snapshots:
 
   kuler@2.0.0: {}
 
-  lenis@1.3.15(react@18.3.1):
+  lenis@1.3.17(react@18.3.1):
     optionalDependencies:
       react: 18.3.1
 
@@ -9431,11 +9431,11 @@ snapshots:
 
   module-details-from-path@1.0.4: {}
 
-  motion-dom@12.23.23:
+  motion-dom@12.26.2:
     dependencies:
-      motion-utils: 12.23.6
+      motion-utils: 12.24.10
 
-  motion-utils@12.23.6: {}
+  motion-utils@12.24.10: {}
 
   ms@2.0.0: {}
 
@@ -9820,7 +9820,7 @@ snapshots:
 
   react-fast-compare@3.2.2: {}
 
-  react-hook-form@7.66.1(react@18.3.1):
+  react-hook-form@7.71.1(react@18.3.1):
     dependencies:
       react: 18.3.1
 

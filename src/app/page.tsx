@@ -11,10 +11,11 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { GameCard3D } from "@/components/ui/game-card-3d";
-import { ArrowRight, Lightbulb, Palette, Smartphone, Swords, ChevronDown, Rocket, Code, Gamepad2 } from 'lucide-react';
+import { ArrowRight, Rocket } from 'lucide-react';
 import { ZoomParallaxHero } from "@/components/ui/zoom-parallax-hero";
-import { HorizontalScrollCarousel } from "@/components/ui/horizontal-scroll-carousel";
+import { ProjectsBentoGrid } from "@/components/ui/projects-bento-grid";
+import { ServicesShowcase } from "@/components/ui/services-showcase";
+import { gamesContent } from "@/lib/content/games";
 import PowerOfBombsImage from '@/components/images/powerofbombsIconTransparent.png';
 import Koutq8Image from '@/components/images/Koutq8Logo.png';
 import NabshImage from '@/assets/images/nabsh_logo.png';
@@ -28,45 +29,49 @@ export default function Home() {
   const { language } = useLanguage();
   const t = getTranslation(language);
 
-  const gameImageMap: { [key: string]: any } = {
-    'power-of-bombs': PowerOfBombsImage,
-    'koutq8': Koutq8Image,
-    'nabsh': NabshImage,
+  // Map game IDs to their hero images (using .src for static imports)
+  const gameImageMap: { [key: string]: string } = {
+    'power-of-bombs': PowerOfBombsImage.src,
+    'koutq8': Koutq8Image.src,
+    'nabsh': NabshImage.src,
+    'luna-fantasy': '/assets/images/luna-fantasy-hero.png',
   };
 
-  const serviceIcons: { [key: string]: React.ElementType } = {
-    'Full Game Development': Gamepad2,
-    'Game Design & Prototyping': Lightbulb,
-    '2D & 3D Art/Animation': Palette,
-    'Mobile Game Porting': Smartphone,
-  };
+  // Transform games content for the bento grid - Luna Fantasy first as featured
+  const projectsForGrid = gamesContent
+    .slice()
+    .reverse() // Newest first (Luna Fantasy)
+    .map((game) => ({
+      id: game.id,
+      slug: game.slug,
+      title: game.title,
+      description: game.description[language],
+      image: gameImageMap[game.id] || '/assets/images/hero-collage.jpg',
+      status: game.status as "released" | "development" | "coming_soon",
+      engine: game.engine,
+      tags: game.features?.slice(0, 2).map((f: any) => f.title[language]) || [],
+    }));
 
   const t_ui = {
     en: {
-      view_details: "View Details",
       contact_title: "Ready to Start?",
       contact_subtitle: "Let's build the next big thing together.",
       contact_cta: "Get in Touch",
       learn_more: "Read Our Story",
       view_all_games: "View All Games",
-      learn_more_services: "Explore Services",
       latest_releases: "Latest Releases",
       portfolio: "Portfolio",
       about_title: "Who We Are",
-      services_title: "Our Expertise"
     },
     ar: {
-      view_details: "عرض التفاصيل",
       contact_title: "جاهز للبدء؟",
       contact_subtitle: "دعنا نبني الشيء الكبير التالي معاً.",
       contact_cta: "تواصل معنا",
       learn_more: "اقرأ قصتنا",
       view_all_games: "عرض كل الألعاب",
-      learn_more_services: "اكتشف خدماتنا",
       latest_releases: "أحدث الإصدارات",
       portfolio: "أعمالنا",
       about_title: "من نحن",
-      services_title: "خبراتنا"
     }
   }[language];
 
@@ -130,112 +135,58 @@ export default function Home() {
           </section>
 
           {/* --- Services Section --- */}
-          <section id="services" className="py-20 bg-secondary/5 relative">
+          <section id="services" className="py-24 relative overflow-hidden">
+            {/* Background Effects */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/5 to-transparent" />
+            <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-secondary/5 rounded-full blur-[100px] pointer-events-none" />
+
             <div className="container relative z-10">
-              <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-                <div className="max-w-2xl">
-                  <span className="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">{t_ui.services_title}</span>
-                  <h2 className="text-4xl md:text-6xl font-headline font-bold text-foreground mb-4">{t.services.title}</h2>
-                  <p className="text-xl text-muted-foreground">{t.services.homepage_subtitle}</p>
-                </div>
-
-                {/* Tech Stack Icons */}
-                <div className="flex gap-6 opacity-60 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0">
-                  <Image src={UnityImage} alt="Unity" height={50} width={50} className="h-12 w-auto" />
-                  <Image src={UnrealEngineImage} alt="Unreal" height={50} width={50} className="h-12 w-auto" />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {t.services.items.slice(0, 4).map((service, index) => {
-                  const Icon = serviceIcons[service.name] || Rocket;
-                  return (
-                    <div key={index} className="group relative overflow-hidden rounded-2xl bg-card border border-white/5 hover:border-primary/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(var(--primary),0.15)] p-8 flex flex-col gap-6 hover:-translate-y-2">
-                      <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity duration-500 transform group-hover:scale-150 origin-top-right">
-                        <Icon className="w-32 h-32" />
-                      </div>
-
-                      <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-2 group-hover:scale-110 group-hover:bg-primary group-hover:text-black transition-all duration-300">
-                        <Icon className="w-7 h-7" />
-                      </div>
-
-                      <h3 className="text-xl font-bold z-10 group-hover:text-primary transition-colors">{service.name}</h3>
-
-                      <div className="mt-auto pt-4 border-t border-white/5 group-hover:border-primary/20 transition-colors">
-                        <span className="text-sm text-muted-foreground group-hover:text-white transition-colors flex items-center gap-2">
-                          {t_ui.view_details} <ArrowRight className={`w-4 h-4 ${isRTL ? 'rotate-180' : ''}`} />
-                        </span>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
+              <ServicesShowcase
+                title={t.services.title}
+                subtitle={t.services.homepage_subtitle}
+                services={t.services.items}
+                language={language}
+                unityImage={UnityImage}
+                unrealImage={UnrealEngineImage}
+              />
             </div>
           </section>
 
           {/* --- Games Section --- */}
-          <section id="games" className="relative bg-black">
-            <div className="container relative z-10 pt-10 pb-4 text-center">
-              <span className="text-primary font-bold tracking-[0.5em] uppercase text-sm animate-pulse">{t_ui.portfolio}</span>
-              <h2 className="text-5xl md:text-7xl font-headline font-bold text-white mt-4">
-                {t_ui.latest_releases}
-              </h2>
-              <div className="h-1 w-20 bg-primary rounded-full mx-auto mt-6" />
-            </div>
+          <section id="games" className="relative py-24 bg-black overflow-hidden">
+            {/* Background Effects */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,0,0,0.1),transparent_50%)]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
-            <HorizontalScrollCarousel
-              items={[
-                {
-                  id: 'power-of-bombs',
-                  title: 'Power of Bombs',
-                  description: 'An explosive multiplayer arena game.',
-                  image: gameImageMap['power-of-bombs']?.src || logoImage.src,
-                  slug: 'power-of-bombs',
-                  tags: ['Action', 'Multiplayer']
-                },
-                {
-                  id: 'koutq8',
-                  title: 'KoutQ8',
-                  description: 'The classic card game, reimagined.',
-                  image: gameImageMap['koutq8']?.src || logoImage.src,
-                  slug: 'koutq8',
-                  tags: ['Card', 'Strategy']
-                },
-                {
-                  id: 'nabsh',
-                  title: 'Nabsh',
-                  description: 'A mysterious adventure awaits.',
-                  image: gameImageMap['nabsh']?.src || logoImage.src,
-                  slug: 'nabsh',
-                  tags: ['Trivia', 'Indie']
-                },
-                // Duplicates for scroll effect
-                {
-                  id: 'power-of-bombs-2',
-                  title: 'Power of Bombs',
-                  description: 'An explosive multiplayer arena game.',
-                  image: gameImageMap['power-of-bombs']?.src || logoImage.src,
-                  slug: 'power-of-bombs',
-                  tags: ['Action', 'Multiplayer']
-                },
-                {
-                  id: 'koutq8-2',
-                  title: 'KoutQ8',
-                  description: 'The classic card game, reimagined.',
-                  image: gameImageMap['koutq8']?.src || logoImage.src,
-                  slug: 'koutq8',
-                  tags: ['Card', 'Strategy']
-                },
-                {
-                  id: 'nabsh-2',
-                  title: 'Nabsh',
-                  description: 'A mysterious adventure awaits.',
-                  image: gameImageMap['nabsh']?.src || logoImage.src,
-                  slug: 'nabsh',
-                  tags: ['Trivia', 'Indie']
-                },
-              ]}
-            />
+            <div className="container relative z-10">
+              {/* Section Header */}
+              <div className="text-center mb-16">
+                <span className="text-primary font-bold tracking-[0.5em] uppercase text-sm">{t_ui.portfolio}</span>
+                <h2 className="text-5xl md:text-7xl font-headline font-bold text-white mt-4">
+                  {t_ui.latest_releases}
+                </h2>
+                <div className="h-1 w-20 bg-primary rounded-full mx-auto mt-6" />
+                <p className="text-muted-foreground text-lg mt-6 max-w-2xl mx-auto">
+                  {language === 'en'
+                    ? 'Explore our portfolio of games and interactive experiences we\'ve crafted for clients worldwide.'
+                    : 'استكشف مجموعة ألعابنا والتجارب التفاعلية التي صممناها لعملائنا حول العالم.'}
+                </p>
+              </div>
+
+              {/* Bento Grid */}
+              <ProjectsBentoGrid projects={projectsForGrid} language={language} />
+
+              {/* View All Button */}
+              <div className="text-center mt-12">
+                <Button asChild variant="outline" size="lg" className="rounded-full border-primary/50 hover:bg-primary hover:text-white transition-all duration-300">
+                  <Link href="/games" className="flex items-center gap-2">
+                    {t_ui.view_all_games}
+                    <ArrowRight className={`w-4 h-4 ${isRTL ? 'rotate-180' : ''}`} />
+                  </Link>
+                </Button>
+              </div>
+            </div>
           </section>
 
           {/* --- FAQ & Final CTA --- */}
