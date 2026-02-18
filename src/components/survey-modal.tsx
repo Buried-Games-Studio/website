@@ -39,13 +39,38 @@ export function SurveyModal() {
 
     // Check if the survey has been completed
     const surveyCompleted = localStorage.getItem(SURVEY_KEY);
-    if (!surveyCompleted) {
-      // Show the survey after a short delay
-      const timer = setTimeout(() => {
+    if (surveyCompleted) return;
+
+    // Show survey only after user has been on page 10s AND scrolled past the hero
+    let timeReady = false;
+    let scrollReady = false;
+    let shown = false;
+
+    const tryShow = () => {
+      if (timeReady && scrollReady && !shown) {
+        shown = true;
         setIsOpen(true);
-      }, 3000); 
-      return () => clearTimeout(timer);
-    }
+      }
+    };
+
+    const timer = setTimeout(() => {
+      timeReady = true;
+      tryShow();
+    }, 10000);
+
+    const onScroll = () => {
+      if (window.scrollY > window.innerHeight * 0.5) {
+        scrollReady = true;
+        tryShow();
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', onScroll);
+    };
   }, []);
 
   const t = {

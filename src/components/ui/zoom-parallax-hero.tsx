@@ -43,9 +43,10 @@ export const ZoomParallaxHero = () => {
                     {/* Background Image/Video Placeholder */}
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 mix-blend-overlay z-10" />
                     <Image
-                        src="/assets/images/hero-collage.jpg" // Ensure this exists or use a placeholder
+                        src="/assets/images/hero-collage.jpg"
                         alt="Hero Background"
                         fill
+                        sizes="100vw"
                         className="object-cover opacity-60"
                         priority
                     />
@@ -64,6 +65,7 @@ export const ZoomParallaxHero = () => {
                                 src={logoImage}
                                 alt="Buried Games Studio Logo"
                                 fill
+                                sizes="(max-width: 768px) 128px, 192px"
                                 className="object-contain drop-shadow-[0_0_15px_rgba(var(--primary),0.5)]"
                                 priority
                             />

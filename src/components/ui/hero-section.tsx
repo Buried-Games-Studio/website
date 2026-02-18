@@ -2,7 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { AnimatedBackground } from "@/components/ui/animated-background";
+import dynamic from "next/dynamic";
+const AnimatedBackground = dynamic(() => import("@/components/ui/animated-background").then(mod => mod.AnimatedBackground), { ssr: false });
 import { useLanguage } from "@/contexts/language-context";
 import { getTranslation } from "@/lib/content";
 import Link from "next/link";

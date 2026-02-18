@@ -5,9 +5,8 @@ import { LanguageProvider } from '@/contexts/language-context';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Toaster } from "@/components/ui/toaster";
-import { DynamicSEO } from '@/components/seo';
+import { faqSchemaEn } from '@/lib/schemas/faq-schema';
 import { Suspense } from 'react';
-import { FirebaseAnalytics } from '@/components/firebase-analytics';
 import logoImage from '@/components/images/buriedgames_logo.png';
 import { Cairo, Inter } from 'next/font/google';
 import FloatingSocials from '@/components/layout/floating-socials';
@@ -59,17 +58,14 @@ export const metadata: Metadata = {
     template: '%s | Buried Games Studio',
     default: 'Buried Games Studio | Crafting Worlds, One Game at a Time',
   },
-  description: 'The official website for Buried Games studio.',
+  description: 'Buried Games Studio is an indie game development studio from Kuwait specializing in multiplayer games, trivia apps, and interactive digital experiences. Explore our games, services, and devlogs.',
   authors: [{ name: 'Buried Games Studio', url: 'https://buriedgames.com' }],
-  icons: {
-    icon: logoImage.src,
-    shortcut: logoImage.src,
-    apple: logoImage.src,
-  },
+  manifest: '/site.webmanifest',
+  alternates: { canonical: '/' },
   openGraph: {
     title: 'Buried Games Studio',
     siteName: 'Buried Games Studio',
-    description: 'The official website for Buried Games studio.',
+    description: 'Buried Games Studio is an indie game development studio from Kuwait specializing in multiplayer games, trivia apps, and interactive digital experiences.',
     url: '/',
     images: [
       {
@@ -86,7 +82,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary',
     title: 'Buried Games Studio',
-    description: 'The official website for Buried Games studio.',
+    description: 'Buried Games Studio is an indie game development studio from Kuwait specializing in multiplayer games, trivia apps, and interactive digital experiences.',
     images: [logoImage.src],
   },
 };
@@ -103,10 +99,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cairo.variable} ${inter.variable} dark`}>
       <head>
-        <link rel="preconnect" href="https://firebaseinstallations.googleapis.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchemaEn) }}
         />
         {/* Google tag (gtag.js) */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-5T83FCTGPZ"></script>
@@ -122,19 +121,18 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased bg-background text-foreground selection:bg-primary/20">
-        <Suspense>
-          <FirebaseAnalytics />
-        </Suspense>
         <LanguageProvider>
           <SmoothScroll>
             <Suspense>
               <SurveyModal />
             </Suspense>
-            <DynamicSEO />
+            <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-md">
+              Skip to main content
+            </a>
             <div className="relative flex min-h-screen flex-col">
               <Header />
               <FloatingSocials />
-              <div className="flex-1 md:px-12">{children}</div>
+              <div id="main-content" className="flex-1 md:px-12">{children}</div>
               <Footer />
             </div>
             <Toaster />

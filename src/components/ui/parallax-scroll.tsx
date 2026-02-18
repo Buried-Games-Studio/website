@@ -48,6 +48,7 @@ export const ParallaxScroll = ({
                                 className="h-80 w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0"
                                 height="400"
                                 width="400"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 alt="thumbnail"
                             />
                         </motion.div>
@@ -61,6 +62,7 @@ export const ParallaxScroll = ({
                                 className="h-80 w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0"
                                 height="400"
                                 width="400"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 alt="thumbnail"
                             />
                         </motion.div>
@@ -74,6 +76,7 @@ export const ParallaxScroll = ({
                                 className="h-80 w-full object-cover object-left-top rounded-lg gap-10 !m-0 !p-0"
                                 height="400"
                                 width="400"
+                                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 alt="thumbnail"
                             />
                         </motion.div>
