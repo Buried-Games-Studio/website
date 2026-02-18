@@ -9,8 +9,9 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const game = gamesContent.find((g) => g.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const game = gamesContent.find((g) => g.slug === slug);
 
   if (!game) {
     return {
@@ -38,8 +39,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function GameDetailPage({ params }: { params: { slug: string } }) {
-  const game = gamesContent.find((g) => g.slug === params.slug);
+export default async function GameDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const game = gamesContent.find((g) => g.slug === slug);
 
   if (!game) {
     notFound();
@@ -67,7 +69,7 @@ export default function GameDetailPage({ params }: { params: { slug: string } })
           }),
         }}
       />
-      <GameDetailContent slug={params.slug} />
+      <GameDetailContent slug={slug} />
     </>
   );
 }
