@@ -110,14 +110,14 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
         {/* Google tag (gtag.js) */}
-        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-RE7BPM9MV6"></Script>
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-5T83FCTGPZ"></Script>
         <Script id="google-analytics">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'G-RE7BPM9MV6');
+            gtag('config', 'G-5T83FCTGPZ');
           `}
         </Script>
       </head>
