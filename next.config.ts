@@ -70,6 +70,55 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      // Strip /en locale prefix → root path
+      {
+        source: '/en',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/en/:path*',
+        destination: '/:path*',
+        permanent: true,
+      },
+      // Strip /ar locale prefix → root path
+      {
+        source: '/ar',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/ar/:path*',
+        destination: '/:path*',
+        permanent: true,
+      },
+      // Legacy .html URLs → clean Next.js routes
+      {
+        source: '/terms.html',
+        destination: '/terms-of-use',
+        permanent: true,
+      },
+      {
+        source: '/404.html',
+        destination: '/',
+        permanent: false,
+      },
+      // Strip index.html from game URLs
+      {
+        source: '/games/:slug/index.html',
+        destination: '/games/:slug',
+        permanent: true,
+      },
+      // Orphaned /release-notes → /devlog
+      {
+        source: '/release-notes',
+        destination: '/devlog',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
