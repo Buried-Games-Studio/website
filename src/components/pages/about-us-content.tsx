@@ -129,7 +129,7 @@ export function AboutUsContent() {
 
                     <div className="absolute bottom-8 left-8 right-8">
                         <div className="text-white/80 text-sm font-mono uppercase tracking-widest mb-2">Est. 2018</div>
-                        <div className="text-2xl font-bold text-white">Kuwait City, Kuwait</div>
+                        <div className="text-2xl font-bold text-white">Buried Games Studio</div>
                     </div>
                 </div>
             </div>

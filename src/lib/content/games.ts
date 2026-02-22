@@ -8,16 +8,16 @@ export const gamesContent = [
     engine: 'Next.js',
     logoUrl: '/assets/images/nabsh_logo.png',
     description: {
-      en: 'A thrilling Kuwaiti trivia web game that tests your knowledge on a wide range of topics. Challenge friends and climb the ranks!',
-      ar: 'لعبة معلومات عامة كويتية مثيرة على الويب تختبر معلوماتك في مجموعة واسعة من المواضيع. تحدَّ أصدقاءك وتصدر قائمة المتصدرين!',
+      en: 'A thrilling trivia web game that tests your knowledge on a wide range of topics. Challenge friends and climb the ranks!',
+      ar: 'لعبة معلومات عامة مثيرة على الويب تختبر معلوماتك في مجموعة واسعة من المواضيع. تحدَّ أصدقاءك وتصدر قائمة المتصدرين!',
     },
     longDescription: {
-        en: 'Nabsh is the ultimate Kuwaiti trivia challenge! Compete with players in real-time, answer questions across various categories like history, culture, sports, and more. With a sleek design, engaging gameplay, and social features, Nabsh is the perfect game to prove your knowledge and have fun with friends and family.',
-        ar: 'نبش هو التحدي النهائي للمعلومات العامة في الكويت! تنافس مع اللاعبين في الوقت الفعلي، وأجب عن أسئلة في فئات متنوعة مثل التاريخ والثقافة والرياضة والمزيد. بفضل التصميم الأنيق واللعب الجذاب والميزات الاجتماعية، يعد نبش اللعبة المثالية لإثبات معرفتك والاستمتاع مع الأصدقاء والعائلة.'
+        en: 'Nabsh is the ultimate trivia challenge! Compete with players in real-time, answer questions across various categories like history, culture, sports, and more. With a sleek design, engaging gameplay, and social features, Nabsh is the perfect game to prove your knowledge and have fun with friends and family.',
+        ar: 'نبش هو التحدي النهائي للمعلومات العامة! تنافس مع اللاعبين في الوقت الفعلي، وأجب عن أسئلة في فئات متنوعة مثل التاريخ والثقافة والرياضة والمزيد. بفضل التصميم الأنيق واللعب الجذاب والميزات الاجتماعية، يعد نبش اللعبة المثالية لإثبات معرفتك والاستمتاع مع الأصدقاء والعائلة.'
     },
     features: [
         { icon: 'Users', title: { en: 'Live Multiplayer', ar: 'لعب جماعي مباشر' }, description: { en: 'Challenge friends or other players in exciting real-time trivia battles.', ar: 'تحدَّ الأصدقاء أو اللاعبين الآخرين في معارك معلومات عامة مثيرة في الوقت الفعلي.' } },
-        { icon: 'Puzzle', title: { en: 'Diverse Categories', ar: 'فئات متنوعة' }, description: { en: 'Thousands of questions covering Kuwaiti culture, history, sports, and more.', ar: 'آلاف الأسئلة التي تغطي الثقافة الكويتية والتاريخ والرياضة والمزيد.' } },
+        { icon: 'Puzzle', title: { en: 'Diverse Categories', ar: 'فئات متنوعة' }, description: { en: 'Thousands of questions covering culture, history, sports, and more.', ar: 'آلاف الأسئلة التي تغطي الثقافة والتاريخ والرياضة والمزيد.' } },
         { icon: 'Trophy', title: { en: 'Leaderboards', ar: 'لوحات الصدارة' }, description: { en: 'Compete for the top spot and showcase your trivia prowess.', ar: 'تنافس على المركز الأول واستعرض براعتك في المعلومات العامة.' } },
         { icon: 'Smartphone', title: { en: 'Sleek & Modern', ar: 'أنيق وعصري' }, description: { en: 'Enjoy a beautiful and user-friendly interface on all your devices.', ar: 'استمتع بواجهة جميلة وسهلة الاستخدام على جميع أجهزتك.' } },
     ],
@@ -33,7 +33,7 @@ export const gamesContent = [
     heroImageHint: 'trivia quiz brain',
     heroVideo: 'https://nabsh.fun/videos/hero-animation-video.mp4',
     imageUrl: '/assets/images/nabsh_logo.png',
-    imageHint: 'kuwait trivia',
+    imageHint: 'trivia game',
     videoUrl: 'https://www.youtube.com/embed/F0WBKweQ-NM',
     gallery: [
       { url: 'nabsh_logo.png', hint: 'NABSH logo' }
@@ -80,12 +80,12 @@ export const gamesContent = [
     engine: 'Unity',
     logoUrl: '/components/images/Koutq8Logo.png',
     description: {
-      en: 'A digital adaptation of the popular traditional card game from Kuwait. Play with friends online and prove you are the Kout master.',
-      ar: 'نسخة رقمية من لعبة الورق التقليدية الشهيرة من الكويت. العب مع الأصدقاء عبر الإنترنت وأثبت أنك سيد الكوت.',
+      en: 'A digital adaptation of the popular traditional card game Kout. Play with friends online and prove you are the Kout master.',
+      ar: 'نسخة رقمية من لعبة الورق التقليدية الشهيرة الكوت. العب مع الأصدقاء عبر الإنترنت وأثبت أنك سيد الكوت.',
     },
     longDescription: {
-        en: 'Experience the classic Kuwaiti card game Kout like never before. KoutQ8 brings the beloved traditional game to your fingertips, featuring polished graphics, smooth online multiplayer, and challenging AI opponents. Team up with a partner, bid on hands, and strategize to win. Whether you\'re a seasoned veteran or new to the game, KoutQ8 is the definitive digital Kout experience.',
-        ar: 'جرب لعبة الكوت الكويتية الكلاسيكية كما لم يحدث من قبل. KoutQ8 تجلب اللعبة التقليدية المحبوبة إلى أطراف أصابعك ، وتتميز برسومات مصقولة ، ولعب سلس متعدد اللاعبين عبر الإنترنت ، وخصوم ذكاء اصطناعي صعبين. كوّن فريقًا مع شريك ، وراهن على توزيعات الورق ، وวาง استراتيجية للفوز. سواء كنت لاعبًا متمرسًا أو جديدًا في اللعبة ، فإن KoutQ8 هي تجربة الكوت الرقمية النهائية.'
+        en: 'Experience the classic card game Kout like never before. KoutQ8 brings the beloved traditional game to your fingertips, featuring polished graphics, smooth online multiplayer, and challenging AI opponents. Team up with a partner, bid on hands, and strategize to win. Whether you\'re a seasoned veteran or new to the game, KoutQ8 is the definitive digital Kout experience.',
+        ar: 'جرب لعبة الكوت الكلاسيكية كما لم يحدث من قبل. KoutQ8 تجلب اللعبة التقليدية المحبوبة إلى أطراف أصابعك ، وتتميز برسومات مصقولة ، ولعب سلس متعدد اللاعبين عبر الإنترنت ، وخصوم ذكاء اصطناعي صعبين. كوّن فريقًا مع شريك ، وراهن على توزيعات الورق ، وضع استراتيجية للفوز. سواء كنت لاعبًا متمرسًا أو جديدًا في اللعبة ، فإن KoutQ8 هي تجربة الكوت الرقمية النهائية.'
     },
     features: [
         { icon: 'Users', title: { en: 'Online Multiplayer', ar: 'لعب جماعي عبر الإنترنت' }, description: { en: 'Play with friends and players from around the world.', ar: 'العب مع الأصدقاء واللاعبين من جميع أنحاء العالم.' } },

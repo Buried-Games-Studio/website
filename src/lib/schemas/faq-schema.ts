@@ -7,7 +7,7 @@ export const faqSchemaEn = {
       "name": "What does Buried Games Studio specialize in?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Buried Games Studio specializes in developing indie strategy and multiplayer games using Unity and Unreal Engine, based in Kuwait."
+        "text": "Buried Games Studio specializes in developing indie strategy and multiplayer games using Unity and Unreal Engine."
       }
     },
     {
@@ -15,7 +15,7 @@ export const faqSchemaEn = {
       "name": "What games has Buried Games Studio developed?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We have developed 'Power of Bombs', a tactical PC strategy game, and 'KoutQ8', a digital version of the traditional Kuwaiti card game Kout with AI-powered gameplay."
+        "text": "We have developed 'Power of Bombs', a tactical PC strategy game, and 'KoutQ8', a digital version of the traditional card game Kout with AI-powered gameplay."
       }
     },
     {
@@ -39,7 +39,7 @@ export const faqSchemaEn = {
       "name": "Where is Buried Games Studio located?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We are proudly based in Kuwait, developing high-quality indie games that represent Middle Eastern creativity in the global gaming industry."
+        "text": "We are a remote-first studio, developing high-quality indie games that represent Middle Eastern creativity in the global gaming industry."
       }
     },
     {

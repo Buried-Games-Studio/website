@@ -14,7 +14,7 @@ const englishFaqSchema = {
             "name": "What does Buried Games Studio specialize in?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Buried Games Studio specializes in developing indie strategy and multiplayer games using Unity and Unreal Engine, based in Kuwait."
+                "text": "Buried Games Studio specializes in developing indie strategy and multiplayer games using Unity and Unreal Engine."
             }
         },
         {
@@ -22,7 +22,7 @@ const englishFaqSchema = {
             "name": "What games has Buried Games Studio developed?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "We have developed 'Power of Bombs', a tactical PC strategy game, and 'KoutQ8', a digital version of the traditional Kuwaiti card game Kout with AI-powered gameplay."
+                "text": "We have developed 'Power of Bombs', a tactical PC strategy game, and 'KoutQ8', a digital version of the traditional card game Kout with AI-powered gameplay."
             }
         },
         {
@@ -46,7 +46,7 @@ const englishFaqSchema = {
             "name": "Where is Buried Games Studio located?",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "We are proudly based in Kuwait, developing high-quality indie games that represent Middle Eastern creativity in the global gaming industry."
+                "text": "We are a remote-first studio, developing high-quality indie games that represent Middle Eastern creativity in the global gaming industry."
             }
         },
         {
@@ -101,7 +101,7 @@ const arabicFaqSchema = {
             "name": "ما هو تخصص استوديو بريد جيمز؟",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "يختص استوديو بريد جيمز في تطوير ألعاب استراتيجية ومستقلة متعددة اللاعبين باستخدام Unity وUnreal Engine، ويقع مقره في الكويت."
+                "text": "يختص استوديو بريد جيمز في تطوير ألعاب استراتيجية ومستقلة متعددة اللاعبين باستخدام Unity وUnreal Engine."
             }
         },
         {
@@ -109,7 +109,7 @@ const arabicFaqSchema = {
             "name": "ما هي الألعاب التي طورها استوديو بريد جيمز؟",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "قمنا بتطوير لعبة 'Power of Bombs'، وهي لعبة استراتيجية تكتيكية للحاسوب، ولعبة 'KoutQ8'، وهي نسخة رقمية من لعبة الكوت الكويتية التقليدية مع لعب مدعوم بالذكاء الاصطناعي."
+                "text": "قمنا بتطوير لعبة 'Power of Bombs'، وهي لعبة استراتيجية تكتيكية للحاسوب، ولعبة 'KoutQ8'، وهي نسخة رقمية من لعبة الكوت التقليدية مع لعب مدعوم بالذكاء الاصطناعي."
             }
         },
         {
@@ -133,7 +133,7 @@ const arabicFaqSchema = {
             "name": "أين يقع مقر استوديو بريد جيمز؟",
             "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "نحن نفتخر بأننا متواجدون في الكويت، حيث نطور ألعابًا مستقلة عالية الجودة تمثل الإبداع في الشرق الأوسط في صناعة الألعاب العالمية."
+                "text": "نحن استوديو يعمل عن بُعد، نطور ألعابًا مستقلة عالية الجودة تمثل الإبداع في الشرق الأوسط في صناعة الألعاب العالمية."
             }
         },
         {

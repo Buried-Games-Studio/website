@@ -58,14 +58,14 @@ export const metadata: Metadata = {
     template: '%s | Buried Games Studio',
     default: 'Buried Games Studio | Crafting Worlds, One Game at a Time',
   },
-  description: 'Buried Games Studio is an indie game development studio from Kuwait specializing in multiplayer games, trivia apps, and interactive digital experiences. Explore our games, services, and devlogs.',
+  description: 'Buried Games Studio is an indie game development studio specializing in multiplayer games, trivia apps, and interactive digital experiences. Explore our games, services, and devlogs.',
   authors: [{ name: 'Buried Games Studio', url: 'https://buriedgames.com' }],
   manifest: '/site.webmanifest',
   alternates: { canonical: '/' },
   openGraph: {
     title: 'Buried Games Studio',
     siteName: 'Buried Games Studio',
-    description: 'Buried Games Studio is an indie game development studio from Kuwait specializing in multiplayer games, trivia apps, and interactive digital experiences.',
+    description: 'Buried Games Studio is an indie game development studio specializing in multiplayer games, trivia apps, and interactive digital experiences.',
     url: '/',
     images: [
       {
@@ -76,13 +76,13 @@ export const metadata: Metadata = {
       },
     ],
     locale: 'en_US',
-    alternateLocale: ['ar_KW'],
+    alternateLocale: ['ar'],
     type: 'website',
   },
   twitter: {
     card: 'summary',
     title: 'Buried Games Studio',
-    description: 'Buried Games Studio is an indie game development studio from Kuwait specializing in multiplayer games, trivia apps, and interactive digital experiences.',
+    description: 'Buried Games Studio is an indie game development studio specializing in multiplayer games, trivia apps, and interactive digital experiences.',
     images: [logoImage.src],
   },
 };
