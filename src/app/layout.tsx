@@ -61,12 +61,11 @@ export const metadata: Metadata = {
   description: 'Buried Games Studio is an indie game development studio specializing in multiplayer games, trivia apps, and interactive digital experiences. Explore our games, services, and devlogs.',
   authors: [{ name: 'Buried Games Studio', url: 'https://buriedgames.com' }],
   manifest: '/site.webmanifest',
-  alternates: { canonical: '/' },
   openGraph: {
     title: 'Buried Games Studio',
     siteName: 'Buried Games Studio',
     description: 'Buried Games Studio is an indie game development studio specializing in multiplayer games, trivia apps, and interactive digital experiences.',
-    url: '/',
+    url: 'https://buriedgames.com',
     images: [
       {
         url: logoImage.src,
@@ -76,7 +75,6 @@ export const metadata: Metadata = {
       },
     ],
     locale: 'en_US',
-    alternateLocale: ['ar'],
     type: 'website',
   },
   twitter: {

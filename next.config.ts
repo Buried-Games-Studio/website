@@ -117,6 +117,12 @@ const nextConfig: NextConfig = {
         destination: '/devlog',
         permanent: true,
       },
+      // Legacy font files (no longer served from /fonts/)
+      {
+        source: '/fonts/:path*',
+        destination: '/',
+        permanent: false,
+      },
     ];
   },
   async headers() {
