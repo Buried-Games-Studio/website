@@ -61,6 +61,7 @@ const Header = () => {
       services: 'Services',
       devlog: 'Devlog',
       about_us: 'About Us',
+      careers: 'Careers',
       lang_toggle: 'العربية',
     },
     ar: {
@@ -68,6 +69,7 @@ const Header = () => {
       services: 'الخدمات',
       devlog: 'مدونة التطوير',
       about_us: 'من نحن',
+      careers: 'وظائف',
       lang_toggle: 'English',
     }
   }[language];
@@ -127,6 +129,9 @@ const Header = () => {
               <Link href="/about-us" className="text-foreground/80 transition-all hover:text-primary hover:text-glow">
                 {t_ui.about_us}
               </Link>
+              <Link href="/careers" className="text-foreground/80 transition-all hover:text-primary hover:text-glow">
+                {t_ui.careers}
+              </Link>
             </nav>
 
             {/* Language Toggle and Mobile Menu Trigger */}
@@ -183,6 +188,9 @@ const Header = () => {
                       </SheetClose>
                       <SheetClose asChild>
                         <Link href="/about-us" className="block px-2 text-lg font-medium hover:text-primary transition-colors">{t_ui.about_us}</Link>
+                      </SheetClose>
+                      <SheetClose asChild>
+                        <Link href="/careers" className="block px-2 text-lg font-medium hover:text-primary transition-colors">{t_ui.careers}</Link>
                       </SheetClose>
                     </div>
 

@@ -27,6 +27,7 @@ const Footer = () => {
       about_us: 'About Us',
       services: 'Services',
       devlog: 'Devlog',
+      careers: 'Careers',
       privacy: 'Privacy Policy',
       terms: 'Terms of Use',
       additional_links: 'Additional links',
@@ -43,6 +44,7 @@ const Footer = () => {
       about_us: 'من نحن',
       services: 'الخدمات',
       devlog: 'مدونة التطوير',
+      careers: 'وظائف',
       privacy: 'سياسة الخصوصية',
       terms: 'شروط الاستخدام',
       additional_links: 'روابط إضافية',
@@ -96,6 +98,7 @@ const Footer = () => {
                 <li><Link href="/about-us" className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all inline-block">{t_ui.about_us}</Link></li>
                 <li><Link href="/services" className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all inline-block">{t_ui.services}</Link></li>
                 <li><Link href="/devlog" className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all inline-block">{t_ui.devlog}</Link></li>
+                <li><Link href="/careers" className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all inline-block">{t_ui.careers}</Link></li>
                 <li><Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all inline-block">{t_ui.privacy}</Link></li>
                 <li><Link href="/terms-of-use" className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all inline-block">{t_ui.terms}</Link></li>
               </ul>
