@@ -123,6 +123,12 @@ const nextConfig: NextConfig = {
         destination: '/',
         permanent: false,
       },
+      // Malformed URL from external broken link
+      {
+        source: '/&',
+        destination: '/',
+        permanent: false,
+      },
     ];
   },
   async headers() {
