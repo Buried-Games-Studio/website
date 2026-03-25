@@ -5,7 +5,7 @@ export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
   const hostname = request.headers.get('host') || '';
 
-  // Redirect www → non-www
+  // Redirect www → non-www (applies to ALL paths including static assets)
   if (hostname.startsWith('www.')) {
     url.host = hostname.replace('www.', '');
     return NextResponse.redirect(url, 308);
@@ -16,7 +16,7 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Run on all paths except static files and _next internals
-    '/((?!_next/static|_next/image|favicon.ico|icon.png|apple-icon.png|fonts/).*)',
+    // Match all paths so www → non-www redirect works for static assets too
+    '/(.*)',
   ],
 };
