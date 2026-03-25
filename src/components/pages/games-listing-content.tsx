@@ -3,30 +3,36 @@
 import { useLanguage } from "@/contexts/language-context";
 import { ProjectsBentoGrid } from "@/components/ui/projects-bento-grid";
 import { gamesContent } from "@/lib/content/games";
-import PowerOfBombsImage from '@/components/images/powerofbombsIconTransparent.png';
-import Koutq8Image from '@/components/images/Koutq8Logo.png';
-import NabshImage from '@/assets/images/nabsh_logo.png';
+import { assets } from "@/lib/assets";
 
 export function GamesListingContent() {
   const { language } = useLanguage();
 
   const gameImageMap: { [key: string]: string } = {
-    'power-of-bombs': PowerOfBombsImage.src,
-    'koutq8': Koutq8Image.src,
-    'nabsh': NabshImage.src,
-    'luna-fantasy': '/assets/images/luna-fantasy-hero.png',
+    'power-of-bombs': assets.powerOfBombsLogo,
+    'koutq8': assets.koutq8Logo,
+    'nabsh': assets.nabshLogo,
+    'luna-fantasy': 'https://assets.buriedgames.com/images/luna-fantasy-hero.png',
+    'gathered-by-the-light': 'https://assets.buriedgames.com/images/games/gbtl/poster.png',
+    'arrab': assets.arrabHeroRight,
   };
 
+  // Sort order: Luna Fantasy first (latest published), then by array order
+  const sortOrder = ['arrab', 'luna-fantasy', 'nabsh', 'koutq8', 'gathered-by-the-light', 'power-of-bombs'];
   const projectsForGrid = gamesContent
     .slice()
-    .reverse()
+    .sort((a, b) => {
+      const ai = sortOrder.indexOf(a.id);
+      const bi = sortOrder.indexOf(b.id);
+      return (ai === -1 ? 999 : ai) - (bi === -1 ? 999 : bi);
+    })
     .map((game) => ({
       id: game.id,
       slug: game.slug,
       title: game.title,
       description: game.description[language],
-      image: gameImageMap[game.id] || '/assets/images/hero-collage.jpg',
-      status: game.status as "released" | "development" | "coming_soon",
+      image: gameImageMap[game.id] || 'https://assets.buriedgames.com/images/hero-collage.jpg',
+      status: game.status as "released" | "development" | "coming_soon" | "completed",
       engine: game.engine,
       tags: game.features?.slice(0, 2).map((f: any) => f.title[language]) || [],
     }));

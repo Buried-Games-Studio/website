@@ -9,9 +9,10 @@ import {
   MapPin,
   Globe
 } from 'lucide-react';
-import logoImage from '@/components/images/buriedgames_logo.png';
+import { assets } from '@/lib/assets';
 import { cn } from '@/lib/utils';
 import { socialLinks } from './social-links';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
   const { language, toggleLanguage } = useLanguage();
@@ -60,13 +61,19 @@ const Footer = () => {
       {/* Background Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl bg-primary/5 blur-[100px] pointer-events-none" />
 
-      <div className="container relative mx-auto py-16 px-4">
+      <motion.div
+        className="container relative mx-auto py-16 px-4"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.7 }}
+      >
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
           <div className="lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-start space-y-6">
             <div className="relative group">
               <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <Image
-                src={logoImage}
+                src={assets.logo}
                 alt="Buried Games Studio Logo"
                 width={180}
                 height={180}
@@ -170,7 +177,7 @@ const Footer = () => {
             })}
           </div>
         </div>
-      </div>
+      </motion.div>
     </footer>
   );
 };

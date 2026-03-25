@@ -19,7 +19,7 @@ import { useLanguage } from "@/contexts/language-context";
 import { logGtagEvent } from "@/lib/google-analytics";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
-import logoImage from '@/components/images/buriedgames_logo.png';
+import { assets } from "@/lib/assets";
 import { useToast } from "@/hooks/use-toast";
 
 
@@ -138,7 +138,7 @@ export function SurveyModal() {
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <Image src={logoImage} alt="Buried Games Studio Logo" width={80} height={80} className="mx-auto mb-4" />
+          <Image src={assets.logo} alt="Buried Games Studio Logo" width={80} height={80} className="mx-auto mb-4" />
           <div className="relative">
             <AlertDialogTitle>{t.title}</AlertDialogTitle>
             <Button 

@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from 'next/image';
 import { useLanguage } from "@/contexts/language-context";
 import { ChevronDown, Menu, Globe } from "lucide-react";
-import logoImage from '@/components/images/buriedgames_logo.png';
+import { assets } from '@/lib/assets';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,6 +24,14 @@ import { getTranslation } from "@/lib/content";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState, useRef } from "react";
+import { motion } from "framer-motion";
+
+const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
+  <Link href={href} className="relative text-foreground/80 transition-all hover:text-primary group">
+    {children}
+    <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full" />
+  </Link>
+);
 
 const Header = () => {
   const { language, toggleLanguage } = useLanguage();
@@ -75,10 +83,12 @@ const Header = () => {
   }[language];
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
-        "fixed top-0 z-50 w-full transition-all duration-500 transform",
-        visible ? "translate-y-0" : "-translate-y-full",
+        "fixed top-0 z-50 w-full transition-all duration-500",
         scrolled
           ? "bg-background/80 backdrop-blur-md border-b border-primary/20 shadow-[0_0_15px_rgba(var(--primary),0.1)] py-2"
           : "bg-transparent py-6"
@@ -90,7 +100,7 @@ const Header = () => {
           <div className="relative">
             <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <Image
-              src={logoImage}
+              src={assets.logo}
               alt="Buried Games Studio Logo"
               width={40}
               height={40}
@@ -120,18 +130,10 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              <Link href="/services" className="text-foreground/80 transition-all hover:text-primary hover:text-glow">
-                {t_ui.services}
-              </Link>
-              <Link href="/devlog" className="text-foreground/80 transition-all hover:text-primary hover:text-glow">
-                {t_ui.devlog}
-              </Link>
-              <Link href="/about-us" className="text-foreground/80 transition-all hover:text-primary hover:text-glow">
-                {t_ui.about_us}
-              </Link>
-              <Link href="/careers" className="text-foreground/80 transition-all hover:text-primary hover:text-glow">
-                {t_ui.careers}
-              </Link>
+              <NavLink href="/services">{t_ui.services}</NavLink>
+              <NavLink href="/devlog">{t_ui.devlog}</NavLink>
+              <NavLink href="/about-us">{t_ui.about_us}</NavLink>
+              <NavLink href="/careers">{t_ui.careers}</NavLink>
             </nav>
 
             {/* Language Toggle and Mobile Menu Trigger */}
@@ -162,7 +164,7 @@ const Header = () => {
                     <SheetTitle className="sr-only">Menu</SheetTitle>
                   </SheetHeader>
                   <Link href="/" className="mb-8 flex items-center space-x-2 group">
-                    <Image src={logoImage} alt="Buried Games Studio Logo" width={40} height={40} className="group-hover:scale-110 transition-transform" />
+                    <Image src={assets.logo} alt="Buried Games Studio Logo" width={40} height={40} className="group-hover:scale-110 transition-transform" />
                     <span className="font-headline text-lg tracking-wide group-hover:text-primary transition-colors">
                       Buried Games Studio
                     </span>
@@ -213,7 +215,7 @@ const Header = () => {
           </>
         )}
       </div>
-    </header>
+    </motion.header>
   );
 };
 

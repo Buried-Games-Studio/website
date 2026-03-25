@@ -68,6 +68,12 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'assets.buriedgames.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
   async redirects() {

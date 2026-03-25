@@ -7,11 +7,9 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Users, Heart, Wand2, ShieldCheck, Handshake, Target, ArrowRight } from "lucide-react";
 import { ParallaxProvider } from 'react-scroll-parallax';
-import FahedAlahmadImage from '@/components/images/fahed_alahmad.jpeg';
-import GavanLogo from '@/components/images/gavan.png';
+import { assets } from "@/lib/assets";
 import dynamic from "next/dynamic";
 const ParticlesBackground = dynamic(() => import("@/components/particles-background").then(mod => mod.ParticlesBackground), { ssr: false });
-import AboutUsImage from '@/components/images/AboutUsSection.webp';
 
 export function AboutUsContent() {
   const { language } = useLanguage();
@@ -119,11 +117,10 @@ export function AboutUsContent() {
                 {/* Right: Visual/Image */}
                 <div className="relative h-full min-h-[400px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
                      <Image
-                        src={AboutUsImage}
+                        src={assets.aboutSection}
                         alt="Studio Environment"
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
-                        placeholder="blur"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
 
@@ -178,11 +175,10 @@ export function AboutUsContent() {
                                  {/* Image Side */}
                                  <div className="md:col-span-5 relative h-[400px] md:h-auto overflow-hidden">
                                     <Image
-                                        src={FahedAlahmadImage}
+                                        src={assets.fahedAlahmad}
                                         alt={member.name}
                                         fill
                                         className="object-cover transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0 grayscale md:grayscale-0"
-                                        placeholder="blur"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-card" />
                                  </div>
@@ -229,7 +225,7 @@ export function AboutUsContent() {
                 >
                     <div className="absolute -inset-4 bg-accent/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
                     <Image
-                        src={GavanLogo}
+                        src={assets.gavan}
                         alt={partner.name}
                         width={180}
                         height={70}

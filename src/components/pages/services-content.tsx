@@ -5,7 +5,8 @@ import { useLanguage } from "@/contexts/language-context";
 import { getTranslation } from "@/lib/content";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
+import { assets } from "@/lib/assets";
 import {
   ArrowRight,
   Gamepad2,
@@ -30,22 +31,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 /* ─────────────────── Images ─────────────────── */
-import UnityImage from "@/components/images/UnityImage.png";
-import UnrealEngineImage from "@/components/images/UnrealEngineImage.png";
-import HeroBg from "@/components/images/POPOverview.jpg";
-// Process step illustrations
-import ImgConcept from "@/components/images/howitWorks_Concept.webp";
-import ImgDesigning from "@/components/images/howitWorks_designing.webp";
-import ImgPrototyping from "@/components/images/howitWorks_prototyping.webp";
-import ImgTesting from "@/components/images/howitWorks_testing.webp";
-import ImgLaunch from "@/components/images/howitWorks_launch.webp";
-// Service detail illustrations
-import ImgGDD from "@/components/images/gdd.webp";
-import ImgArtAssets from "@/components/images/art-assets.webp";
-import ImgPrototypin from "@/components/images/prototypin.webp";
-import ImgQATesting from "@/components/images/qatesting.webp";
-import ImgPublishing from "@/components/images/publishing.webp";
-import ImgArtist from "@/components/images/artist.webp";
 
 const ParticlesBackground = dynamic(
   () =>
@@ -82,17 +67,17 @@ const serviceIcons: Record<string, React.ElementType> = {
 };
 
 /* Service illustrations — indexed by position (same order EN & AR) */
-const serviceImages: StaticImageData[] = [
-  ImgPrototypin,   // Full Game Development
-  ImgGDD,          // Game Design & Prototyping
-  ImgArtAssets,    // 2D & 3D Art/Animation
-  ImgPrototypin,   // Mobile Game Porting
-  ImgQATesting,    // QA & Testing
-  ImgArtist,       // Audio Design & Music
-  ImgPublishing,   // Game Monetization Strategy
-  ImgPublishing,   // Live Ops & Community Management
-  ImgPrototypin,   // Backend & Network Development
-  ImgArtist,       // Technical Art & Pipeline Development
+const serviceImages: string[] = [
+  assets.prototyping,   // Full Game Development
+  assets.gdd,           // Game Design & Prototyping
+  assets.artAssets,     // 2D & 3D Art/Animation
+  assets.prototyping,   // Mobile Game Porting
+  assets.qaTesting,     // QA & Testing
+  assets.artist,        // Audio Design & Music
+  assets.publishing,    // Game Monetization Strategy
+  assets.publishing,    // Live Ops & Community Management
+  assets.prototyping,   // Backend & Network Development
+  assets.artist,        // Technical Art & Pipeline Development
 ];
 
 export function ServicesContent() {
@@ -144,18 +129,18 @@ export function ServicesContent() {
 
   const processSteps = {
     en: [
-      { title: "Discovery", description: "We learn about your vision, goals, audience, and scope to define a clear roadmap.", image: ImgConcept },
-      { title: "Design & Prototype", description: "Rapid prototyping and design iteration to nail the core mechanics and look before full production.", image: ImgDesigning },
-      { title: "Development", description: "Agile sprints with regular builds, playtests, and milestones so you see progress every step.", image: ImgPrototyping },
-      { title: "Polish & QA", description: "Rigorous testing, optimization, and polish to ensure a seamless player experience at launch.", image: ImgTesting },
-      { title: "Launch & Live Ops", description: "Store submission, launch support, and ongoing live ops to keep players engaged post-release.", image: ImgLaunch },
+      { title: "Discovery", description: "We learn about your vision, goals, audience, and scope to define a clear roadmap.", image: assets.howitWorksConcept },
+      { title: "Design & Prototype", description: "Rapid prototyping and design iteration to nail the core mechanics and look before full production.", image: assets.howitWorksDesigning },
+      { title: "Development", description: "Agile sprints with regular builds, playtests, and milestones so you see progress every step.", image: assets.howitWorksPrototyping },
+      { title: "Polish & QA", description: "Rigorous testing, optimization, and polish to ensure a seamless player experience at launch.", image: assets.howitWorksTesting },
+      { title: "Launch & Live Ops", description: "Store submission, launch support, and ongoing live ops to keep players engaged post-release.", image: assets.howitWorksLaunch },
     ],
     ar: [
-      { title: "الاكتشاف", description: "نتعرف على رؤيتك وأهدافك وجمهورك ونطاق المشروع لرسم خارطة طريق واضحة.", image: ImgConcept },
-      { title: "التصميم والنموذج", description: "نماذج أولية سريعة وتكرار في التصميم لإتقان الآليات والشكل قبل الإنتاج الكامل.", image: ImgDesigning },
-      { title: "التطوير", description: "سباقات أجايل مع بناءات منتظمة واختبارات لعب ومراحل حتى ترى التقدم في كل خطوة.", image: ImgPrototyping },
-      { title: "التلميع والاختبار", description: "اختبارات صارمة وتحسين وتلميع لضمان تجربة سلسة عند الإطلاق.", image: ImgTesting },
-      { title: "الإطلاق والعمليات", description: "تقديم للمتاجر ودعم الإطلاق وعمليات حية مستمرة لإبقاء اللاعبين متفاعلين.", image: ImgLaunch },
+      { title: "الاكتشاف", description: "نتعرف على رؤيتك وأهدافك وجمهورك ونطاق المشروع لرسم خارطة طريق واضحة.", image: assets.howitWorksConcept },
+      { title: "التصميم والنموذج", description: "نماذج أولية سريعة وتكرار في التصميم لإتقان الآليات والشكل قبل الإنتاج الكامل.", image: assets.howitWorksDesigning },
+      { title: "التطوير", description: "سباقات أجايل مع بناءات منتظمة واختبارات لعب ومراحل حتى ترى التقدم في كل خطوة.", image: assets.howitWorksPrototyping },
+      { title: "التلميع والاختبار", description: "اختبارات صارمة وتحسين وتلميع لضمان تجربة سلسة عند الإطلاق.", image: assets.howitWorksTesting },
+      { title: "الإطلاق والعمليات", description: "تقديم للمتاجر ودعم الإطلاق وعمليات حية مستمرة لإبقاء اللاعبين متفاعلين.", image: assets.howitWorksLaunch },
     ],
   }[language];
 
@@ -169,11 +154,10 @@ export function ServicesContent() {
         <section className="relative h-[55vh] min-h-[450px] flex flex-col items-center justify-center overflow-hidden">
           {/* Background art */}
           <Image
-            src={HeroBg}
+            src={assets.popOverview}
             alt=""
             fill
             className="object-cover object-center opacity-30"
-            placeholder="blur"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/70 to-background z-10" />
@@ -465,8 +449,8 @@ export function ServicesContent() {
 
             <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
               {[
-                { src: UnityImage, label: "Unity" },
-                { src: UnrealEngineImage, label: "Unreal Engine" },
+                { src: assets.unity, label: "Unity" },
+                { src: assets.unrealEngine, label: "Unreal Engine" },
               ].map((engine) => (
                 <motion.div
                   key={engine.label}

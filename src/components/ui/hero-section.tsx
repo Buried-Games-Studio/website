@@ -9,7 +9,7 @@ import { getTranslation } from "@/lib/content";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import logoImage from '@/components/images/buriedgames_logo.png';
+import { assets } from "@/lib/assets";
 import { ContainerScroll } from "./container-scroll-animation";
 
 export const HeroSection = () => {
@@ -44,7 +44,7 @@ export const HeroSection = () => {
                         <div className="relative w-32 h-32 md:w-40 md:h-40 mb-4 group mx-auto">
                             <div className="absolute inset-0 bg-primary/30 blur-3xl rounded-full opacity-50 group-hover:opacity-80 transition-opacity duration-500 animate-pulse-glow" />
                             <Image
-                                src={logoImage}
+                                src={assets.logo}
                                 alt="Buried Games Studio Logo"
                                 fill
                                 className="object-contain drop-shadow-[0_0_15px_rgba(var(--primary),0.5)]"
@@ -73,7 +73,7 @@ export const HeroSection = () => {
                     {/* Placeholder for a Hero Video or High-Quality Image Collage */}
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 mix-blend-overlay z-10" />
                     <Image
-                        src="/assets/images/hero-collage.jpg" // You might need to create this or use a placeholder
+                        src="https://assets.buriedgames.com/images/hero-collage.jpg" // You might need to create this or use a placeholder
                         alt="Games Collage"
                         fill
                         className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"

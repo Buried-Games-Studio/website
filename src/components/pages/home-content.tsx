@@ -31,19 +31,10 @@ import {
 } from "lucide-react";
 import { ZoomParallaxHero } from "@/components/ui/zoom-parallax-hero";
 import { ProjectsBentoGrid } from "@/components/ui/projects-bento-grid";
+import { GamesShowcaseCarousel } from "@/components/ui/games-showcase-carousel";
 import { gamesContent } from "@/lib/content/games";
-import PowerOfBombsImage from "@/components/images/powerofbombsIconTransparent.png";
-import Koutq8Image from "@/components/images/Koutq8Logo.png";
-import NabshImage from "@/assets/images/nabsh_logo.png";
-import UnityImage from "@/components/images/UnityImage.png";
-import UnrealEngineImage from "@/components/images/UnrealEngineImage.png";
 import { ParallaxProvider } from "react-scroll-parallax";
-import GavanLogo from "@/components/images/gavan.png";
-import ImgConcept from "@/components/images/howitWorks_Concept.webp";
-import ImgDesigning from "@/components/images/howitWorks_designing.webp";
-import ImgPrototyping from "@/components/images/howitWorks_prototyping.webp";
-import ImgTesting from "@/components/images/howitWorks_testing.webp";
-import ImgLaunch from "@/components/images/howitWorks_launch.webp";
+import { assets } from "@/lib/assets";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -53,10 +44,12 @@ export function HomeContent() {
   const isRTL = language === "ar";
 
   const gameImageMap: { [key: string]: string } = {
-    "power-of-bombs": PowerOfBombsImage.src,
-    koutq8: Koutq8Image.src,
-    nabsh: NabshImage.src,
-    "luna-fantasy": "/assets/images/luna-fantasy-hero.png",
+    "power-of-bombs": assets.powerOfBombsLogo,
+    koutq8: assets.koutq8Logo,
+    nabsh: assets.nabshLogo,
+    "luna-fantasy": assets.lunaFantasyHero,
+    "gathered-by-the-light": "https://assets.buriedgames.com/images/games/gbtl/poster.png",
+    arrab: assets.arrabHeroRight,
   };
 
   const projectsForGrid = gamesContent
@@ -67,8 +60,8 @@ export function HomeContent() {
       slug: game.slug,
       title: game.title,
       description: game.description[language],
-      image: gameImageMap[game.id] || "/assets/images/hero-collage.jpg",
-      status: game.status as "released" | "development" | "coming_soon",
+      image: gameImageMap[game.id] || "https://assets.buriedgames.com/images/hero-collage.jpg",
+      status: game.status as "released" | "development" | "coming_soon" | "completed",
       engine: game.engine,
       tags:
         game.features?.slice(0, 2).map((f: any) => f.title[language]) || [],
@@ -156,18 +149,18 @@ export function HomeContent() {
 
   const processSteps = {
     en: [
-      { title: "Discovery", image: ImgConcept },
-      { title: "Design", image: ImgDesigning },
-      { title: "Development", image: ImgPrototyping },
-      { title: "QA & Polish", image: ImgTesting },
-      { title: "Launch", image: ImgLaunch },
+      { title: "Discovery", image: assets.howitWorksConcept },
+      { title: "Design", image: assets.howitWorksDesigning },
+      { title: "Development", image: assets.howitWorksPrototyping },
+      { title: "QA & Polish", image: assets.howitWorksTesting },
+      { title: "Launch", image: assets.howitWorksLaunch },
     ],
     ar: [
-      { title: "الاكتشاف", image: ImgConcept },
-      { title: "التصميم", image: ImgDesigning },
-      { title: "التطوير", image: ImgPrototyping },
-      { title: "الاختبار", image: ImgTesting },
-      { title: "الإطلاق", image: ImgLaunch },
+      { title: "الاكتشاف", image: assets.howitWorksConcept },
+      { title: "التصميم", image: assets.howitWorksDesigning },
+      { title: "التطوير", image: assets.howitWorksPrototyping },
+      { title: "الاختبار", image: assets.howitWorksTesting },
+      { title: "الإطلاق", image: assets.howitWorksLaunch },
     ],
   }[language];
 
@@ -192,14 +185,21 @@ export function HomeContent() {
                   { value: "3", label: t_ui.stats_engines },
                   { value: "100%", label: t_ui.stats_remote },
                 ].map((stat, i) => (
-                  <div key={i} className="py-8 md:py-10 text-center">
+                  <motion.div
+                    key={i}
+                    className="py-8 md:py-10 text-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.1, duration: 0.5 }}
+                  >
                     <div className="text-3xl md:text-4xl font-headline font-bold text-primary">
                       {stat.value}
                     </div>
                     <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider mt-1">
                       {stat.label}
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </div>
@@ -216,7 +216,13 @@ export function HomeContent() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="container relative z-10">
-              <div className="text-center mb-16">
+              <motion.div
+                className="text-center mb-16"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              >
                 <span className="text-primary font-bold tracking-[0.5em] uppercase text-sm">
                   {t_ui.portfolio}
                 </span>
@@ -227,9 +233,9 @@ export function HomeContent() {
                 <p className="text-muted-foreground text-lg mt-6 max-w-2xl mx-auto">
                   {t_ui.games_subtitle}
                 </p>
-              </div>
+              </motion.div>
 
-              <ProjectsBentoGrid
+              <GamesShowcaseCarousel
                 projects={projectsForGrid}
                 language={language}
               />
@@ -261,7 +267,13 @@ export function HomeContent() {
 
             <div className="container relative z-10">
               {/* Header */}
-              <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-12">
+              <motion.div
+                className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-12"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.7 }}
+              >
                 <div className="max-w-2xl">
                   <span className="text-primary font-bold tracking-widest uppercase text-sm mb-2 block">
                     {t_ui.services_label}
@@ -279,7 +291,7 @@ export function HomeContent() {
                   </span>
                   <div className="flex gap-4 p-3 rounded-2xl bg-white/5 border border-white/10">
                     <Image
-                      src={UnityImage}
+                      src={assets.unity}
                       alt="Unity"
                       height={36}
                       width={36}
@@ -287,7 +299,7 @@ export function HomeContent() {
                     />
                     <div className="w-px bg-white/10" />
                     <Image
-                      src={UnrealEngineImage}
+                      src={assets.unrealEngine}
                       alt="Unreal Engine"
                       height={36}
                       width={36}
@@ -295,27 +307,34 @@ export function HomeContent() {
                     />
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
-              {/* Service grid — compact 5-col */}
+              {/* Service grid — compact 5-col with stagger */}
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
                 {t.services.items.map((service, index) => {
                   const Icon = serviceIcons[service.name] || Gamepad2;
                   return (
-                    <Link
-                      href="/services"
+                    <motion.div
                       key={index}
-                      className="group relative p-5 rounded-xl bg-card/40 border border-white/10 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_-8px_rgba(var(--primary),0.25)] overflow-hidden"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.05, duration: 0.4 }}
                     >
-                      <div className="relative z-10">
-                        <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-black transition-all duration-300">
-                          <Icon className="w-5 h-5" />
+                      <Link
+                        href="/services"
+                        className="group relative p-5 rounded-xl bg-card/40 border border-white/10 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_-8px_rgba(var(--primary),0.25)] overflow-hidden block"
+                      >
+                        <div className="relative z-10">
+                          <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-black transition-all duration-300">
+                            <Icon className="w-5 h-5" />
+                          </div>
+                          <h3 className="text-sm font-bold text-white group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+                            {service.name}
+                          </h3>
                         </div>
-                        <h3 className="text-sm font-bold text-white group-hover:text-primary transition-colors line-clamp-2 leading-snug">
-                          {service.name}
-                        </h3>
-                      </div>
-                    </Link>
+                      </Link>
+                    </motion.div>
                   );
                 })}
               </div>
@@ -343,7 +362,13 @@ export function HomeContent() {
           ══════════════════════════════════════ */}
           <section className="py-20 md:py-28 bg-secondary/10 border-y border-white/5">
             <div className="container">
-              <div className="text-center mb-14">
+              <motion.div
+                className="text-center mb-14"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
                 <span className="text-accent font-bold tracking-[0.3em] uppercase text-xs block mb-4">
                   {t_ui.process_label}
                 </span>
@@ -351,7 +376,7 @@ export function HomeContent() {
                   {t_ui.process_title}
                 </h2>
                 <div className="h-1 w-16 bg-accent mx-auto rounded-full" />
-              </div>
+              </motion.div>
 
               {/* Horizontal process steps */}
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 max-w-4xl mx-auto">
@@ -422,7 +447,7 @@ export function HomeContent() {
                 >
                   <div className="absolute -inset-4 bg-accent/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
                   <Image
-                    src={GavanLogo}
+                    src={assets.gavan}
                     alt="Gavan Tech"
                     width={140}
                     height={50}

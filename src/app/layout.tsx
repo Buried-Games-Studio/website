@@ -7,11 +7,12 @@ import Footer from '@/components/layout/footer';
 import { Toaster } from "@/components/ui/toaster";
 import { faqSchemaEn } from '@/lib/schemas/faq-schema';
 import { Suspense } from 'react';
-import logoImage from '@/components/images/buriedgames_logo.png';
+import { assets } from '@/lib/assets';
 import { Cairo, Inter } from 'next/font/google';
 import FloatingSocials from '@/components/layout/floating-socials';
 import { SurveyModal } from '@/components/survey-modal';
 import { SmoothScroll } from '@/components/providers/smooth-scroll';
+import { PageTransition } from '@/components/providers/page-transition';
 
 const cairo = Cairo({
   subsets: ['arabic', 'latin'],
@@ -35,7 +36,7 @@ const organizationSchema = {
   },
   "email": "support@buriedgames.com",
   "url": "https://buriedgames.com",
-  "logo": "https://buriedgames.com/assets/images/buriedgames_logo.png",
+  "logo": "https://assets.buriedgames.com/images/buriedgames_logo.png",
   "sameAs": [
     "https://www.youtube.com/@buriedgames",
     "https://twitter.com/buriedgames",
@@ -68,7 +69,7 @@ export const metadata: Metadata = {
     url: 'https://buriedgames.com',
     images: [
       {
-        url: logoImage.src,
+        url: assets.logo,
         width: 200,
         height: 200,
         alt: 'Buried Games Studio Logo',
@@ -81,7 +82,7 @@ export const metadata: Metadata = {
     card: 'summary',
     title: 'Buried Games Studio',
     description: 'Buried Games Studio is an indie game development studio specializing in multiplayer games, trivia apps, and interactive digital experiences.',
-    images: [logoImage.src],
+    images: [assets.logo],
   },
 };
 
@@ -130,7 +131,9 @@ export default function RootLayout({
             <div className="relative flex min-h-screen flex-col">
               <Header />
               <FloatingSocials />
-              <div id="main-content" className="flex-1 md:px-12">{children}</div>
+              <div id="main-content" className="flex-1 md:px-12">
+                <PageTransition>{children}</PageTransition>
+              </div>
               <Footer />
             </div>
             <Toaster />

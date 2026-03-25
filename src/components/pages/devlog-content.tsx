@@ -7,25 +7,20 @@ import { Youtube } from "lucide-react";
 import { VideoCard } from "@/components/video-card";
 import dynamic from "next/dynamic";
 const AnimatedBackground = dynamic(() => import("@/components/ui/animated-background").then(mod => mod.AnimatedBackground), { ssr: false });
-import Thumbnail1 from '@/components/images/thumbnail_1.png';
-import Thumbnail2 from '@/components/images/thumbnail_2.png';
-import Thumbnail3 from '@/components/images/thumbnail_3.png';
-import Thumbnail4 from '@/components/images/thumbnail_4.png';
-import Thumbnail5 from '@/components/images/thumbnail_5.png';
-import Thumbnail6 from '@/components/images/thumbnail_6.png';
+import { assets } from "@/lib/assets";
 
 export function DevlogContent() {
     const { language } = useLanguage();
     const t = getTranslation(language);
     const { page_title, page_subtitle, subscribe_cta, videos } = t.devlog;
 
-    const thumbnailMap: { [key: string]: any } = {
-        'thumb1': Thumbnail1,
-        'thumb2': Thumbnail2,
-        'thumb3': Thumbnail3,
-        'thumb4': Thumbnail4,
-        'thumb5': Thumbnail5,
-        'thumb6': Thumbnail6,
+    const thumbnailMap: { [key: string]: string } = {
+        'thumb1': assets.thumbnail1,
+        'thumb2': assets.thumbnail2,
+        'thumb3': assets.thumbnail3,
+        'thumb4': assets.thumbnail4,
+        'thumb5': assets.thumbnail5,
+        'thumb6': assets.thumbnail6,
     };
 
     return (
