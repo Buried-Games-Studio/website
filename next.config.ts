@@ -64,7 +64,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'luna-fantasy.com',
+        hostname: 'lunarian.com',
         port: '',
         pathname: '/**',
       },

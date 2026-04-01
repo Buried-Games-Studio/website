@@ -199,7 +199,7 @@ export const gamesContent = [
         { value: '7', label: { en: 'Card Rarities', ar: 'مستويات ندرة' } },
     ],
     storeLinks: [
-        { store: 'web', url: 'https://luna-fantasy.com', imageUrl: null, label: { en: 'Visit Website', ar: 'زيارة الموقع' } },
+        { store: 'web', url: 'https://lunarian.com', imageUrl: null, label: { en: 'Visit Website', ar: 'زيارة الموقع' } },
     ],
     heroImage: 'https://assets.buriedgames.com/images/games/luna-fantasy/hero.png',
     heroImageHint: 'fantasy card game universe',
