@@ -5,9 +5,18 @@ export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
   const hostname = request.headers.get('host') || '';
 
-  // Redirect www → non-www (applies to ALL paths including static assets)
-  if (hostname.startsWith('www.')) {
-    url.host = hostname.replace('www.', '');
+  const isWww = hostname.startsWith('www.');
+  const hasTrailingSlash =
+    url.pathname.length > 1 && url.pathname.endsWith('/');
+
+  // Consolidate www removal + trailing slash strip into a single redirect
+  if (isWww || hasTrailingSlash) {
+    if (isWww) {
+      url.host = hostname.replace('www.', '');
+    }
+    if (hasTrailingSlash) {
+      url.pathname = url.pathname.replace(/\/+$/, '');
+    }
     return NextResponse.redirect(url, 308);
   }
 
