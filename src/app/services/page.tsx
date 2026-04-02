@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import { ServicesContent } from "@/components/pages/services-content";
 
 export const metadata: Metadata = {
-    title: 'Services',
-    description: 'Explore the game development services offered by Buried Games Studio, from full game development to art, audio, and QA.',
+    title: 'Game Development Services in Kuwait',
+    description: 'Professional game development and app development services from Kuwait. Buried Games Studio offers full-cycle game development, mobile app porting, 2D/3D art, QA testing, and backend development.',
     alternates: { canonical: '/services' },
 };
 

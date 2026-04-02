@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useState, useContext, useEffect, type ReactNode } from "react";
+import { trackLanguageToggle } from "@/lib/google-analytics";
 
 export type Language = "en" | "ar";
 
@@ -21,7 +22,9 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   }, [language]);
 
   const toggleLanguage = () => {
-    setLanguage((prev) => (prev === "en" ? "ar" : "en"));
+    const newLang = language === "en" ? "ar" : "en";
+    trackLanguageToggle(newLang);
+    setLanguage(newLang);
   };
 
   return (

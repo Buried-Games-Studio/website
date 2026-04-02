@@ -4,6 +4,7 @@ import { useLanguage } from "@/contexts/language-context";
 import { getTranslation } from "@/lib/content";
 import { Button } from "@/components/ui/button";
 import { Youtube } from "lucide-react";
+import { trackYouTubeSubscribe } from "@/lib/google-analytics";
 import { VideoCard } from "@/components/video-card";
 import dynamic from "next/dynamic";
 const AnimatedBackground = dynamic(() => import("@/components/ui/animated-background").then(mod => mod.AnimatedBackground), { ssr: false });
@@ -52,7 +53,7 @@ export function DevlogContent() {
                 <div className="mt-20 text-center animate-fade-in-up delay-300">
                     <div className="inline-block p-[1px] rounded-full bg-gradient-to-r from-transparent via-primary/50 to-transparent">
                         <Button asChild size="lg" className="h-14 px-10 text-lg rounded-full bg-[#ff0000] text-white hover:bg-[#cc0000] hover:scale-105 transition-all duration-300 shadow-[0_0_20px_rgba(255,0,0,0.4)]">
-                            <a href="https://www.youtube.com/@BuriedGamesStudio?sub_confirmation=1" target="_blank" rel="noopener noreferrer">
+                            <a href="https://www.youtube.com/@BuriedGamesStudio?sub_confirmation=1" target="_blank" rel="noopener noreferrer" onClick={() => trackYouTubeSubscribe()}>
                                 <Youtube className="mr-2 h-6 w-6" />
                                 {subscribe_cta}
                             </a>

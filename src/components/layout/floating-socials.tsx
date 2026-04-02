@@ -3,6 +3,7 @@
 
 import Image from "next/image";
 import { socialLinks } from "./social-links";
+import { trackSocialClick } from "@/lib/google-analytics";
 
 const FloatingSocials = () => {
   return (
@@ -18,6 +19,7 @@ const FloatingSocials = () => {
               rel="noopener noreferrer"
               aria-label={social.label}
               className="text-muted-foreground hover:text-accent transition-colors"
+              onClick={() => trackSocialClick(social.label, 'floating_sidebar')}
             >
               {social.icon === "whatsapp" ? (
                 <Image

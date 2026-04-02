@@ -13,6 +13,7 @@ import { assets } from '@/lib/assets';
 import { cn } from '@/lib/utils';
 import { socialLinks } from './social-links';
 import { motion } from 'framer-motion';
+import { trackSocialClick, trackWhatsAppClick } from '@/lib/google-analytics';
 
 const Footer = () => {
   const { language, toggleLanguage } = useLanguage();
@@ -92,7 +93,7 @@ const Footer = () => {
               <ul className="space-y-3">
                 {t.games.map(game => (
                   <li key={game.id}>
-                    <Link href={`/#${game.id}`} className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all inline-block">
+                    <Link href={`/games/${game.slug}`} className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all inline-block">
                       {game.title}
                     </Link>
                   </li>
@@ -128,7 +129,7 @@ const Footer = () => {
                 </span>
                 support@buriedgames.com
               </p>
-              <a href="https://wa.me/96555528686" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group">
+              <a href="https://wa.me/96555528686" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group" onClick={() => trackWhatsAppClick('footer')}>
                 <span className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
                   <Image src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp" width={16} height={16} className="w-4 h-4" />
                 </span>
@@ -166,6 +167,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   aria-label={social.label}
                   className="p-3 rounded-full bg-card border border-border/50 text-muted-foreground hover:text-primary hover:border-primary hover:shadow-[0_0_15px_rgba(var(--primary),0.3)] hover:-translate-y-1 transition-all duration-300"
+                  onClick={() => trackSocialClick(social.label, 'footer')}
                 >
                   {social.icon === 'whatsapp' ? (
                     <Image src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt={social.label} width={24} height={24} className="w-5 h-5" />

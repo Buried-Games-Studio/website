@@ -14,7 +14,6 @@ import { GameStoryComicSection } from "@/components/games/game-story-comic-secti
 import { GameCharactersSection } from "@/components/games/game-characters-section";
 import { GameDesignJourneySection } from "@/components/games/game-design-journey-section";
 import { GameRolesSection } from "@/components/games/game-roles-section";
-import { ParallaxProvider } from "react-scroll-parallax";
 import { assets } from "@/lib/assets";
 
 // Image maps using cloud URLs
@@ -61,7 +60,6 @@ export function GameDetailContent({ slug }: { slug: string }) {
 
   return (
     <GameThemeProvider gameId={game.id}>
-      <ParallaxProvider>
         <main className="min-h-screen bg-background overflow-x-hidden">
           <GameHeroSection
             game={game}
@@ -147,7 +145,6 @@ export function GameDetailContent({ slug }: { slug: string }) {
             storeImageMap={storeImageMap}
           />
         </main>
-      </ParallaxProvider>
     </GameThemeProvider>
   );
 }

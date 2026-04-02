@@ -9,6 +9,7 @@ import { assets } from "@/lib/assets";
 import { useLanguage } from "@/contexts/language-context";
 import { useMagnetic } from "@/hooks/use-magnetic";
 import { heroTextStagger, clipRevealWord } from "@/lib/motion/variants";
+import { trackHeroCTA } from "@/lib/google-analytics";
 
 function HeroEmbers() {
   const [mounted, setMounted] = useState(false);
@@ -16,7 +17,10 @@ function HeroEmbers() {
 
   const particles = useMemo(() => {
     if (!mounted) return [];
-    return Array.from({ length: 25 }, (_, i) => ({
+    // Fewer particles on mobile to reduce animation overhead (INP)
+    const isMobile = window.matchMedia('(pointer: coarse)').matches;
+    const count = isMobile ? 8 : 25;
+    return Array.from({ length: count }, (_, i) => ({
       bottom: `${Math.random() * 20}%`,
       left: `${Math.random() * 100}%`,
       bg: i % 3 === 0 ? "#ff0000" : i % 3 === 1 ? "#ff4400" : "#ffaa00",
@@ -210,21 +214,25 @@ export const ZoomParallaxHero = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.5, duration: 0.6 }}
             >
-              <MagneticCTA
-                href="/#games"
-                className="h-14 px-10 text-base rounded-full bg-white text-black hover:bg-primary hover:text-white transition-all duration-300 shadow-lg hover:shadow-primary/50 font-bold uppercase tracking-wider"
-              >
-                <span className="flex items-center gap-2">
-                  {t_ui.cta_games}
-                  <ArrowRight className={`w-5 h-5 ${isRTL ? "rotate-180" : ""}`} />
-                </span>
-              </MagneticCTA>
-              <MagneticCTA
-                href="/contact-us"
-                className="h-14 px-10 text-base rounded-full border-white/20 hover:border-primary hover:bg-primary/10 hover:text-primary transition-all duration-300 font-bold uppercase tracking-wider bg-transparent border"
-              >
-                <span className="flex items-center gap-2">{t_ui.cta_services}</span>
-              </MagneticCTA>
+              <div onClick={() => trackHeroCTA('see_our_work')}>
+                <MagneticCTA
+                  href="/#games"
+                  className="h-14 px-10 text-base rounded-full bg-white text-black hover:bg-primary hover:text-white transition-all duration-300 shadow-lg hover:shadow-primary/50 font-bold uppercase tracking-wider"
+                >
+                  <span className="flex items-center gap-2">
+                    {t_ui.cta_games}
+                    <ArrowRight className={`w-5 h-5 ${isRTL ? "rotate-180" : ""}`} />
+                  </span>
+                </MagneticCTA>
+              </div>
+              <div onClick={() => trackHeroCTA('hire_us')}>
+                <MagneticCTA
+                  href="/contact-us"
+                  className="h-14 px-10 text-base rounded-full border-white/20 hover:border-primary hover:bg-primary/10 hover:text-primary transition-all duration-300 font-bold uppercase tracking-wider bg-transparent border"
+                >
+                  <span className="flex items-center gap-2">{t_ui.cta_services}</span>
+                </MagneticCTA>
+              </div>
             </motion.div>
           </motion.div>
 

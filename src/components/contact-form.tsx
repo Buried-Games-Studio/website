@@ -16,6 +16,7 @@ import {
 import { sendContactEmail } from "@/app/actions";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2, Send, User, Mail, MessageSquare, HelpCircle } from "lucide-react";
+import { trackContactFormSubmit } from "@/lib/google-analytics";
 
 export default function ContactForm() {
   const { language } = useLanguage();
@@ -71,6 +72,7 @@ export default function ContactForm() {
           description: result.errors.message,
         });
       } else {
+        trackContactFormSubmit(formData.get('inquiryType') as string || 'unknown');
         toast({
           title: "Message Received",
           description: "We have received your transmission. Stand by for a response.",

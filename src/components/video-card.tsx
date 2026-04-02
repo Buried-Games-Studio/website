@@ -5,12 +5,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { PlayCircle } from "lucide-react";
 import type { getTranslation } from "@/lib/content";
+import { trackVideoClick } from "@/lib/google-analytics";
 
 type Video = ReturnType<typeof getTranslation>['devlog']['videos'][0];
 
 export function VideoCard({ video, thumbnail }: { video: Video, thumbnail: string }) {
   return (
-    <Link href={video.youtubeUrl} target="_blank" rel="noopener noreferrer" className="block group relative rounded-lg overflow-hidden shadow-lg hover:shadow-accent/20 transition-all duration-300">
+    <Link href={video.youtubeUrl} target="_blank" rel="noopener noreferrer" className="block group relative rounded-lg overflow-hidden shadow-lg hover:shadow-accent/20 transition-all duration-300" onClick={() => trackVideoClick(video.alt, video.youtubeUrl)}>
       <Image
         src={thumbnail}
         alt={video.alt}

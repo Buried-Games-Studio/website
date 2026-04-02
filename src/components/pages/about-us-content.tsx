@@ -6,7 +6,6 @@ import { getTranslation } from "@/lib/content";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Users, Heart, Wand2, ShieldCheck, Handshake, Target, ArrowRight } from "lucide-react";
-import { ParallaxProvider } from 'react-scroll-parallax';
 import { assets } from "@/lib/assets";
 import dynamic from "next/dynamic";
 const ParticlesBackground = dynamic(() => import("@/components/particles-background").then(mod => mod.ParticlesBackground), { ssr: false });
@@ -56,7 +55,6 @@ export function AboutUsContent() {
   }[language]
 
   return (
-    <ParallaxProvider>
       <main className="min-h-screen bg-background overflow-x-hidden">
 
         {/* --- Cinematic Hero --- */}
@@ -253,6 +251,5 @@ export function AboutUsContent() {
         </section>
 
       </main>
-    </ParallaxProvider>
   );
 }

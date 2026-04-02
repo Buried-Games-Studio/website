@@ -4,12 +4,12 @@ import { gamesContent } from '@/lib/content/games';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://buriedgames.com';
-  const lastModified = new Date('2026-02-18');
+  const now = new Date();
 
   const gameUrls = gamesContent.map((game) => {
     return {
       url: `${baseUrl}/games/${game.slug}`,
-      lastModified,
+      lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: 0.9,
     };
@@ -18,57 +18,57 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: baseUrl,
-      lastModified,
-      changeFrequency: 'yearly',
+      lastModified: now,
+      changeFrequency: 'weekly',
       priority: 1,
     },
     {
       url: `${baseUrl}/games`,
-      lastModified,
+      lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/about-us`,
-      lastModified,
-      changeFrequency: 'yearly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/contact-us`,
-      lastModified,
-      changeFrequency: 'yearly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/services`,
-      lastModified,
+      lastModified: now,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/careers`,
-      lastModified,
-      changeFrequency: 'monthly',
+      url: `${baseUrl}/contact-us`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/about-us`,
+      lastModified: now,
+      changeFrequency: 'yearly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/devlog`,
-      lastModified,
+      lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/careers`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/privacy-policy`,
-      lastModified,
+      lastModified: now,
       changeFrequency: 'yearly',
-      priority: 0.5,
+      priority: 0.3,
     },
     {
       url: `${baseUrl}/terms-of-use`,
-      lastModified,
+      lastModified: now,
       changeFrequency: 'yearly',
-      priority: 0.5,
+      priority: 0.3,
     },
     ...gameUrls,
   ];

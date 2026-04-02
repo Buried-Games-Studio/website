@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
 import ContactForm from "@/components/contact-form";
+import { trackWhatsAppClick } from "@/lib/google-analytics";
 
 export function ContactUsContent() {
   const { language } = useLanguage();
@@ -46,6 +47,7 @@ export function ContactUsContent() {
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 z-50 rounded-full shadow-lg hover:scale-110 transition-all duration-300 animate-bounce"
         aria-label="Chat on WhatsApp"
+        onClick={() => trackWhatsAppClick('contact_page_fab')}
       >
         <Image src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="Chat on WhatsApp" width={64} height={64} />
       </Link>

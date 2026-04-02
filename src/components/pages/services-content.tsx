@@ -25,7 +25,6 @@ import {
   Code2,
   Layers,
 } from "lucide-react";
-import { ParallaxProvider } from "react-scroll-parallax";
 import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -145,7 +144,6 @@ export function ServicesContent() {
   }[language];
 
   return (
-    <ParallaxProvider>
       <main className="min-h-screen bg-background overflow-x-hidden">
 
         {/* ══════════════════════════════════════
@@ -518,6 +516,5 @@ export function ServicesContent() {
         </section>
 
       </main>
-    </ParallaxProvider>
   );
 }

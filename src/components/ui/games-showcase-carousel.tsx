@@ -41,8 +41,14 @@ function GameCard({ project, isActive, language }: { project: GameProject; isAct
   const rotateX = useSpring(useTransform(y, [-0.5, 0.5], ["8deg", "-8deg"]), { stiffness: 300, damping: 30 });
   const rotateY = useSpring(useTransform(x, [-0.5, 0.5], ["-8deg", "8deg"]), { stiffness: 300, damping: 30 });
 
+  // Skip 3D tilt on touch devices to reduce main-thread work (INP)
+  const isTouchRef = useRef(false);
+  useEffect(() => {
+    isTouchRef.current = window.matchMedia('(pointer: coarse)').matches;
+  }, []);
+
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (!cardRef.current || !isActive) return;
+    if (!cardRef.current || !isActive || isTouchRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     x.set((e.clientX - rect.left) / rect.width - 0.5);
     y.set((e.clientY - rect.top) / rect.height - 0.5);

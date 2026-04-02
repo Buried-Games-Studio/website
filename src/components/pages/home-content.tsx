@@ -33,10 +33,11 @@ import { ZoomParallaxHero } from "@/components/ui/zoom-parallax-hero";
 import { ProjectsBentoGrid } from "@/components/ui/projects-bento-grid";
 import { GamesShowcaseCarousel } from "@/components/ui/games-showcase-carousel";
 import { gamesContent } from "@/lib/content/games";
-import { ParallaxProvider } from "react-scroll-parallax";
+
 import { assets } from "@/lib/assets";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { trackHomeCTA, trackFAQOpen, trackServiceCardClick } from "@/lib/google-analytics";
 
 export function HomeContent() {
   const { language } = useLanguage();
@@ -165,7 +166,6 @@ export function HomeContent() {
   }[language];
 
   return (
-    <ParallaxProvider>
       <div className="flex flex-col min-h-screen bg-background selection:bg-primary/30 overflow-x-hidden">
         <main className="flex-1">
           {/* ══════════════════════════════════════
@@ -247,7 +247,7 @@ export function HomeContent() {
                   size="lg"
                   className="rounded-full border-primary/50 hover:bg-primary hover:text-white transition-all duration-300"
                 >
-                  <Link href="/games" className="flex items-center gap-2">
+                  <Link href="/games" className="flex items-center gap-2" onClick={() => trackHomeCTA('view_all_games')}>
                     {t_ui.view_all_games}
                     <ArrowRight
                       className={`w-4 h-4 ${isRTL ? "rotate-180" : ""}`}
@@ -324,6 +324,7 @@ export function HomeContent() {
                       <Link
                         href="/services"
                         className="group relative p-5 rounded-xl bg-card/40 border border-white/10 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_-8px_rgba(var(--primary),0.25)] overflow-hidden block"
+                        onClick={() => trackServiceCardClick(service.name)}
                       >
                         <div className="relative z-10">
                           <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-primary mb-4 group-hover:bg-primary group-hover:text-black transition-all duration-300">
@@ -489,7 +490,7 @@ export function HomeContent() {
                     size="lg"
                     className="h-14 px-10 text-lg rounded-full bg-white text-black hover:bg-primary hover:text-white transition-all duration-300 shadow-lg hover:shadow-primary/50 font-bold"
                   >
-                    <Link href="/contact-us">{t_ui.contact_cta}</Link>
+                    <Link href="/contact-us" onClick={() => trackHomeCTA('start_a_conversation')}>{t_ui.contact_cta}</Link>
                   </Button>
                 </div>
 
@@ -502,6 +503,13 @@ export function HomeContent() {
                     type="single"
                     collapsible
                     className="w-full space-y-3"
+                    onValueChange={(value) => {
+                      if (value) {
+                        const idx = parseInt(value.replace('item-', ''), 10);
+                        const faqItems = t.faq.items.slice(0, 5);
+                        if (faqItems[idx]) trackFAQOpen(idx, faqItems[idx].q);
+                      }
+                    }}
                   >
                     {t.faq.items.slice(0, 5).map((item, index) => (
                       <AccordionItem
@@ -524,6 +532,5 @@ export function HomeContent() {
           </section>
         </main>
       </div>
-    </ParallaxProvider>
   );
 }

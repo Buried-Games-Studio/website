@@ -5,10 +5,11 @@ import { LanguageProvider } from '@/contexts/language-context';
 import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import { Toaster } from "@/components/ui/toaster";
-import { faqSchemaEn } from '@/lib/schemas/faq-schema';
+
 import { Suspense } from 'react';
 import { assets } from '@/lib/assets';
 import { Cairo, Inter } from 'next/font/google';
+import Script from 'next/script';
 import FloatingSocials from '@/components/layout/floating-socials';
 import { SurveyModal } from '@/components/survey-modal';
 import { SmoothScroll } from '@/components/providers/smooth-scroll';
@@ -98,25 +99,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cairo.variable} ${inter.variable} dark`}>
       <head>
+        <link rel="preconnect" href="https://assets.buriedgames.com" />
+        <link rel="dns-prefetch" href="https://assets.buriedgames.com" />
+        <link rel="preconnect" href="https://cdn-icons-png.flaticon.com" />
+        <link rel="dns-prefetch" href="https://cdn-icons-png.flaticon.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchemaEn) }}
-        />
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5T83FCTGPZ"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-5T83FCTGPZ');
-            `,
-          }}
         />
       </head>
       <body className="font-body antialiased bg-background text-foreground selection:bg-primary/20">
@@ -139,6 +128,16 @@ export default function RootLayout({
             <Toaster />
           </SmoothScroll>
         </LanguageProvider>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-5T83FCTGPZ"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-5T83FCTGPZ');`}
+        </Script>
       </body>
     </html>
   );

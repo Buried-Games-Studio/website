@@ -26,7 +26,6 @@ import {
   ArrowRight,
   X,
 } from "lucide-react";
-import { ParallaxProvider } from "react-scroll-parallax";
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 
@@ -231,7 +230,6 @@ export function CareersContent() {
   };
 
   return (
-    <ParallaxProvider>
       <main className="min-h-screen bg-background overflow-x-hidden">
 
         {/* ══════════════════════════════════════
@@ -557,6 +555,5 @@ export function CareersContent() {
         </section>
 
       </main>
-    </ParallaxProvider>
   );
 }

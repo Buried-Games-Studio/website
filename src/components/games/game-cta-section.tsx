@@ -7,6 +7,7 @@ import { type GameTheme } from "@/lib/themes/game-themes";
 import { Play, Download, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { trackStoreClick } from "@/lib/google-analytics";
 
 interface GameCTASectionProps {
   game: any;
@@ -68,7 +69,7 @@ export function GameCTASection({ game, theme, language, gameLogo, storeImageMap 
                       "bg-primary hover:bg-primary/90 text-primary-foreground",
                       `hover:shadow-[0_0_40px_${theme.colors.glow}]`
                     )}>
-                      <Link href={link.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3">
+                      <Link href={link.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3" onClick={() => trackStoreClick(game.slug, 'web', link.url)}>
                         <Play className="fill-current w-5 h-5" />
                         {storeLabel}
                         <ArrowRight className="w-4 h-4" />
@@ -81,7 +82,7 @@ export function GameCTASection({ game, theme, language, gameLogo, storeImageMap 
               const StoreImageSrc = link.imageUrl ? storeImageMap[link.imageUrl] : null;
               return (
                 <motion.div key={index} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
-                  <Link href={link.url} target="_blank" rel="noopener noreferrer" className="group">
+                  <Link href={link.url} target="_blank" rel="noopener noreferrer" className="group" onClick={() => trackStoreClick(game.slug, link.store, link.url)}>
                     {StoreImageSrc ? (
                       <div className="relative h-16 w-48 rounded-lg overflow-hidden border border-white/20 group-hover:border-primary transition-colors">
                         <Image src={StoreImageSrc} alt={`${game.title} on ${link.store}`} fill className="object-contain" />

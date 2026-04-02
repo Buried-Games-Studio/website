@@ -9,6 +9,10 @@ export const SmoothScroll = ({ children }: { children: ReactNode }) => {
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (prefersReducedMotion) return;
 
+        // Disable on touch/mobile devices — Lenis hijacks touch events and kills INP
+        const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+        if (isTouchDevice) return;
+
         const lenis = new Lenis({
             duration: 1.2,
             easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

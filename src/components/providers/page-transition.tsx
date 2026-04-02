@@ -2,9 +2,20 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export function PageTransition({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.matchMedia('(pointer: coarse)').matches);
+  }, []);
+
+  // Skip animation on mobile — the 300ms opacity:0→1 delays LCP
+  if (isMobile) {
+    return <>{children}</>;
+  }
 
   return (
     <AnimatePresence mode="wait">
