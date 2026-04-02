@@ -3,11 +3,18 @@ import type { NextRequest } from 'next/server';
 
 export function proxy(request: NextRequest) {
   const url = request.nextUrl.clone();
+  const pathname = url.pathname;
+
+  // Block WordPress/PHP vulnerability scanners — return 403 without rendering
+  if (pathname.endsWith('.php') || pathname.endsWith('.asp') || pathname.endsWith('.aspx') || pathname.endsWith('.env') || pathname.endsWith('.git')) {
+    return new NextResponse(null, { status: 403 });
+  }
+
   const hostname = request.headers.get('host') || '';
 
   const isWww = hostname.startsWith('www.');
   const hasTrailingSlash =
-    url.pathname.length > 1 && url.pathname.endsWith('/');
+    pathname.length > 1 && pathname.endsWith('/');
   const hasJunkParams = url.searchParams.has('s');
 
   // Consolidate www removal + trailing slash strip + junk param strip into a single redirect

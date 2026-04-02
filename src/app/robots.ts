@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
         rules: {
             userAgent: '*',
             allow: '/',
-            disallow: ['/private/', '/*?s='],
+            disallow: ['/private/', '/*?s=', '/*.php', '/*.asp'],
         },
         sitemap: 'https://buriedgames.com/sitemap.xml',
     };
