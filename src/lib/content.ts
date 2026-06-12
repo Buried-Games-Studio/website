@@ -1,5 +1,5 @@
 
-import type { Language } from '@/contexts/language-context';
+import type { Locale as Language } from '@/lib/i18n';
 import { aboutContent } from './content/about';
 import { servicesContent } from './content/services';
 import { gamesContent as allGames } from './content/games';

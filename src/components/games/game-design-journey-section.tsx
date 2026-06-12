@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { type GameTheme } from "@/lib/themes/game-themes";
 import { staggerContainer, staggerChild } from "@/lib/motion/variants";
 
@@ -26,7 +26,7 @@ export function GameDesignJourneySection({ assets, trailerUrl, theme, language }
   return (
     <section className="py-24 overflow-hidden border-y border-yellow-500/10 bg-gradient-to-b from-transparent via-green-950/10 to-transparent">
       <div className="container">
-        <motion.div
+        <m.div
           className="text-center mb-14"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -35,11 +35,11 @@ export function GameDesignJourneySection({ assets, trailerUrl, theme, language }
         >
           <h2 className="text-4xl md:text-5xl font-headline font-bold mb-4">{t_ui.title}</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">{t_ui.subtitle}</p>
-        </motion.div>
+        </m.div>
 
         {/* Mechanics grid */}
         {assets && assets.length > 0 && (
-          <motion.div
+          <m.div
             className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16"
             variants={staggerContainer}
             initial="hidden"
@@ -47,7 +47,7 @@ export function GameDesignJourneySection({ assets, trailerUrl, theme, language }
             viewport={{ once: true }}
           >
             {assets.map((asset, index) => (
-              <motion.div
+              <m.div
                 key={index}
                 variants={staggerChild}
                 whileHover={{ y: -4 }}
@@ -67,14 +67,14 @@ export function GameDesignJourneySection({ assets, trailerUrl, theme, language }
                 <p className="text-sm font-bold text-center text-white/70 group-hover:text-yellow-400 transition-colors">
                   {asset.label[language as "en" | "ar"]}
                 </p>
-              </motion.div>
+              </m.div>
             ))}
-          </motion.div>
+          </m.div>
         )}
 
         {/* Trailer */}
         {trailerUrl && (
-          <motion.div
+          <m.div
             className="max-w-4xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -93,7 +93,7 @@ export function GameDesignJourneySection({ assets, trailerUrl, theme, language }
                 <source src={trailerUrl} type="video/mp4" />
               </video>
             </div>
-          </motion.div>
+          </m.div>
         )}
       </div>
     </section>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { useLanguage } from "@/contexts/language-context";
+import { type Locale } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
@@ -27,7 +27,7 @@ import {
   X,
 } from "lucide-react";
 import dynamic from "next/dynamic";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 const ParticlesBackground = dynamic(
   () =>
@@ -76,8 +76,8 @@ const jobTypes = {
   ar: ["جميع الأنواع", "دوام كامل", "دوام جزئي", "عقد", "تدريب"],
 };
 
-export function CareersContent() {
-  const { language } = useLanguage();
+export function CareersContent({ locale }: { locale: Locale }) {
+  const language = locale;
   const isRTL = language === "ar";
 
   /* Filter state */
@@ -297,7 +297,7 @@ export function CareersContent() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {perks.map((perk, index) => (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -317,7 +317,7 @@ export function CareersContent() {
                       {perk.description}
                     </p>
                   </div>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -327,7 +327,7 @@ export function CareersContent() {
             OPEN POSITIONS — SEARCH + FILTERS + LIST
         ══════════════════════════════════════ */}
         <section id="positions" className="py-20 md:py-28 bg-secondary/10 border-y border-white/5 relative">
-          <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute top-0 end-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
           <div className="container relative z-10">
             {/* Header */}
@@ -345,12 +345,12 @@ export function CareersContent() {
             <div className="max-w-4xl mx-auto mb-10">
               {/* Search bar */}
               <div className="relative mb-4">
-                <Search className={`absolute top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground ${isRTL ? 'right-4' : 'left-4'}`} />
+                <Search className="absolute top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground start-4" />
                 <Input
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder={t_ui.search_placeholder}
-                  className={`h-12 bg-card/60 border-white/10 backdrop-blur-sm rounded-xl text-base placeholder:text-muted-foreground/60 focus-visible:ring-primary/50 ${isRTL ? 'pr-12 pl-4' : 'pl-12 pr-4'}`}
+                  className="h-12 bg-card/60 border-white/10 backdrop-blur-sm rounded-xl text-base placeholder:text-muted-foreground/60 focus-visible:ring-primary/50 ps-12 pe-4"
                 />
               </div>
 
@@ -410,7 +410,7 @@ export function CareersContent() {
 
               {/* Clear filters */}
               {hasActiveFilters && (
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: -8 }}
                   animate={{ opacity: 1, y: 0 }}
                   className="mt-3 flex justify-end"
@@ -422,7 +422,7 @@ export function CareersContent() {
                     <X className="w-3.5 h-3.5" />
                     {t_ui.clear_filters}
                   </button>
-                </motion.div>
+                </m.div>
               )}
             </div>
 
@@ -430,7 +430,7 @@ export function CareersContent() {
             <div className="max-w-4xl mx-auto">
               {openPositions.length === 0 ? (
                 /* No positions exist at all */
-                <motion.div
+                <m.div
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
@@ -451,11 +451,11 @@ export function CareersContent() {
                     className="rounded-full bg-white text-black hover:bg-primary hover:text-white transition-all duration-300 font-bold px-8 h-11"
                   >
                     <a href="mailto:careers@buriedgames.com">
-                      <Send className={`w-4 h-4 ${isRTL ? "ml-2" : "mr-2"}`} />
+                      <Send className="w-4 h-4 me-2" />
                       {t_ui.empty_cta}
                     </a>
                   </Button>
-                </motion.div>
+                </m.div>
               ) : filteredPositions.length === 0 ? (
                 /* Positions exist but none match filters */
                 <div className="text-center py-16 px-6">
@@ -467,7 +467,7 @@ export function CareersContent() {
                 /* Position cards */
                 <div className="space-y-3">
                   {filteredPositions.map((position, index) => (
-                    <motion.a
+                    <m.a
                       key={index}
                       href={`mailto:careers@buriedgames.com?subject=${encodeURIComponent(position.title[language])}`}
                       initial={{ opacity: 0, y: 16 }}
@@ -496,7 +496,7 @@ export function CareersContent() {
                         </div>
                       </div>
                       <ArrowRight className={`w-5 h-5 text-muted-foreground group-hover:text-primary transition-all duration-300 shrink-0 ${isRTL ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} />
-                    </motion.a>
+                    </m.a>
                   ))}
                 </div>
               )}
@@ -508,7 +508,7 @@ export function CareersContent() {
             BOTTOM CTA
         ══════════════════════════════════════ */}
         <section className="container py-20 md:py-28">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -531,7 +531,7 @@ export function CareersContent() {
                   className="rounded-full bg-white text-black hover:bg-primary hover:text-white transition-all duration-300 font-bold px-8 h-11"
                 >
                   <a href="mailto:careers@buriedgames.com">
-                    <Send className={`w-4 h-4 ${isRTL ? "ml-2" : "mr-2"}`} />
+                    <Send className="w-4 h-4 me-2" />
                     {t_ui.cta_email}
                   </a>
                 </Button>
@@ -545,13 +545,13 @@ export function CareersContent() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Linkedin className={`w-4 h-4 ${isRTL ? "ml-2" : "mr-2"}`} />
+                    <Linkedin className="w-4 h-4 me-2" />
                     {t_ui.cta_linkedin}
                   </Link>
                 </Button>
               </div>
             </div>
-          </motion.div>
+          </m.div>
         </section>
 
       </main>

@@ -40,7 +40,12 @@ export default function ContactForm() {
         },
         namePlaceholder: "Your Name",
         emailPlaceholder: "your.email@example.com",
-        messagePlaceholder: "Your message..."
+        messagePlaceholder: "Your message...",
+        submit: "Send Transmission",
+        submitting: "Transmitting...",
+        errorTitle: "Transmission Failed",
+        successTitle: "Message Received",
+        successDescription: "We have received your transmission. Stand by for a response.",
     },
     ar: {
         name: "الاسم",
@@ -57,7 +62,12 @@ export default function ContactForm() {
         },
         namePlaceholder: "اسمك",
         emailPlaceholder: "your.email@example.com",
-        messagePlaceholder: "رسالتك..."
+        messagePlaceholder: "رسالتك...",
+        submit: "أرسل الرسالة",
+        submitting: "جارٍ الإرسال...",
+        errorTitle: "فشل الإرسال",
+        successTitle: "تم استلام رسالتك",
+        successDescription: "لقد استلمنا رسالتك. سنتواصل معك قريباً.",
     }
   }[language];
 
@@ -68,14 +78,14 @@ export default function ContactForm() {
       if (result.errors) {
         toast({
           variant: "destructive",
-          title: "Transmission Failed",
+          title: t.errorTitle,
           description: result.errors.message,
         });
       } else {
         trackContactFormSubmit(formData.get('inquiryType') as string || 'unknown');
         toast({
-          title: "Message Received",
-          description: "We have received your transmission. Stand by for a response.",
+          title: t.successTitle,
+          description: t.successDescription,
           className: "bg-accent text-white border-none"
         });
         const form = document.getElementById("contact-form") as HTMLFormElement;
@@ -85,7 +95,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form id="contact-form" action={handleSubmit} className="space-y-6 text-left">
+    <form id="contact-form" action={handleSubmit} className="space-y-6 text-start">
       
       {/* Name Input */}
       <div className="space-y-2 group">
@@ -93,13 +103,13 @@ export default function ContactForm() {
           {t.name}
         </Label>
         <div className="relative">
-          <User className="absolute left-4 top-3.5 h-5 w-5 text-muted-foreground group-focus-within:text-white transition-colors" />
+          <User className="absolute start-4 top-3.5 h-5 w-5 text-muted-foreground group-focus-within:text-white transition-colors" />
           <Input
             id="name"
             name="name"
             placeholder={t.namePlaceholder}
             required
-            className="pl-12 bg-black/20 border-white/10 focus:border-accent focus:bg-accent/5 h-12 transition-all duration-300 rounded-xl text-white placeholder:text-white/20"
+            className="ps-12 bg-black/20 border-white/10 focus:border-accent focus:bg-accent/5 h-12 transition-all duration-300 rounded-xl text-white placeholder:text-white/20"
           />
         </div>
       </div>
@@ -110,14 +120,14 @@ export default function ContactForm() {
           {t.email}
         </Label>
         <div className="relative">
-          <Mail className="absolute left-4 top-3.5 h-5 w-5 text-muted-foreground group-focus-within:text-white transition-colors" />
+          <Mail className="absolute start-4 top-3.5 h-5 w-5 text-muted-foreground group-focus-within:text-white transition-colors" />
           <Input
             id="email"
             name="email"
             type="email"
             placeholder={t.emailPlaceholder}
             required
-            className="pl-12 bg-black/20 border-white/10 focus:border-accent focus:bg-accent/5 h-12 transition-all duration-300 rounded-xl text-white placeholder:text-white/20"
+            className="ps-12 bg-black/20 border-white/10 focus:border-accent focus:bg-accent/5 h-12 transition-all duration-300 rounded-xl text-white placeholder:text-white/20"
           />
         </div>
       </div>
@@ -128,10 +138,10 @@ export default function ContactForm() {
           {t.inquiryType}
         </Label>
         <div className="relative">
-          <HelpCircle className="absolute left-4 top-3.5 h-5 w-5 text-muted-foreground group-focus-within:text-white transition-colors z-10 pointer-events-none" />
-          
+          <HelpCircle className="absolute start-4 top-3.5 h-5 w-5 text-muted-foreground group-focus-within:text-white transition-colors z-10 pointer-events-none" />
+
           <Select name="inquiryType" required>
-            <SelectTrigger className="w-full pl-12 bg-black/20 border-white/10 focus:border-accent focus:ring-accent/20 h-12 rounded-xl text-white">
+            <SelectTrigger className="w-full ps-12 bg-black/20 border-white/10 focus:border-accent focus:ring-accent/20 h-12 rounded-xl text-white">
               <SelectValue placeholder={t.inquiryTypePlaceholder} />
             </SelectTrigger>
             <SelectContent className="bg-card border-white/10 text-white">
@@ -151,13 +161,13 @@ export default function ContactForm() {
           {t.message}
         </Label>
         <div className="relative">
-          <MessageSquare className="absolute left-4 top-4 h-5 w-5 text-muted-foreground group-focus-within:text-white transition-colors" />
+          <MessageSquare className="absolute start-4 top-4 h-5 w-5 text-muted-foreground group-focus-within:text-white transition-colors" />
           <Textarea
             id="message"
             name="message"
             placeholder={t.messagePlaceholder}
             required
-            className="pl-12 pt-4 bg-black/20 border-white/10 focus:border-accent focus:bg-accent/5 min-h-[150px] resize-none transition-all duration-300 rounded-xl text-white placeholder:text-white/20"
+            className="ps-12 pt-4 bg-black/20 border-white/10 focus:border-accent focus:bg-accent/5 min-h-[150px] resize-none transition-all duration-300 rounded-xl text-white placeholder:text-white/20"
           />
         </div>
       </div>
@@ -171,13 +181,13 @@ export default function ContactForm() {
       >
         {isPending ? (
           <>
-            <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-            Transmitting...
+            <Loader2 className="me-2 h-5 w-5 animate-spin" />
+            {t.submitting}
           </>
         ) : (
           <>
-            Send Transmission
-            <Send className="ml-2 h-5 w-5" />
+            {t.submit}
+            <Send className="ms-2 h-5 w-5" />
           </>
         )}
       </Button>

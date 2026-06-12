@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image, { StaticImageData } from "next/image";
 import { ArrowUpRight, Gamepad2, Smartphone } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/language-context";
+import { localePath } from "@/lib/i18n";
 
 interface Game {
   id: string;
@@ -22,8 +24,10 @@ interface GameGridCardProps {
 }
 
 export function GameGridCard({ game, image, viewText, className }: GameGridCardProps) {
+  const { language } = useLanguage();
+
   return (
-    <Link href={`/games/${game.slug}`} className="block group h-full w-full perspective-1000">
+    <Link href={localePath(language, `/games/${game.slug}`)} className="block group h-full w-full perspective-1000">
       <div
         className={cn(
           "relative h-full w-full overflow-hidden rounded-2xl border border-white/10 bg-card/5 transition-all duration-500 ease-out",
@@ -52,10 +56,10 @@ export function GameGridCard({ game, image, viewText, className }: GameGridCardP
         <div className="relative z-10 flex h-full flex-col justify-end p-6 md:p-8">
           
           {/* Top Badge (Hidden by default, slides down on hover) */}
-          <div className="absolute top-6 right-6 translate-y-[-20px] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+          <div className="absolute top-6 end-6 translate-y-[-20px] opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
             <div className="flex items-center gap-2 rounded-full bg-accent px-3 py-1 text-xs font-bold text-white shadow-lg">
                <span>{viewText}</span>
-               <ArrowUpRight className="h-3 w-3" />
+               <ArrowUpRight className={cn("h-3 w-3", language === "ar" && "rotate-180")} />
             </div>
           </div>
 
@@ -81,7 +85,7 @@ export function GameGridCard({ game, image, viewText, className }: GameGridCardP
           </div>
 
           {/* Bottom Border Accent */}
-          <div className="absolute bottom-0 left-0 h-1 w-0 bg-accent transition-all duration-500 group-hover:w-full" />
+          <div className="absolute bottom-0 start-0 h-1 w-0 bg-accent transition-all duration-500 group-hover:w-full" />
         </div>
       </div>
     </Link>

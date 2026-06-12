@@ -1,5 +1,5 @@
 "use client";
-import { motion, useTransform, useScroll } from "framer-motion";
+import { m, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
 import { GameCard3D } from "@/components/ui/game-card-3d"; // Assuming we reuse this or pass children
 
@@ -14,7 +14,7 @@ export const HorizontalScrollCarousel = ({ items }: { items: any[] }) => {
     return (
         <section ref={targetRef} className="relative h-[200vh] bg-black">
             <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-                <motion.div style={{ x }} className="flex gap-8 px-12">
+                <m.div style={{ x }} className="flex gap-8 px-12">
                     {items.map((item) => (
                         <div key={item.id} className="w-[80vw] md:w-[40vw] lg:w-[30vw] flex-shrink-0">
                             {/* We render the GameCard3D here directly or pass it as a render prop */}
@@ -28,7 +28,7 @@ export const HorizontalScrollCarousel = ({ items }: { items: any[] }) => {
                             />
                         </div>
                     ))}
-                </motion.div>
+                </m.div>
             </div>
         </section>
     );

@@ -7,7 +7,7 @@ import { trackSocialClick } from "@/lib/google-analytics";
 
 const FloatingSocials = () => {
   return (
-    <div className="fixed left-4 top-1/2 -translate-y-1/2 z-50 hidden md:block">
+    <div className="fixed start-4 top-1/2 -translate-y-1/2 z-50 hidden md:block">
       <div className="flex flex-col gap-4 items-center bg-card/50 backdrop-blur-sm p-2 rounded-lg border border-border/40">
         {socialLinks.map((social) => {
           const Icon = social.icon as React.ElementType;

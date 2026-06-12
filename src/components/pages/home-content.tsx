@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useLanguage } from "@/contexts/language-context";
+import { localePath, type Locale } from "@/lib/i18n";
 import { getTranslation } from "@/lib/content";
 import { Button } from "@/components/ui/button";
 import {
@@ -35,12 +35,12 @@ import { GamesShowcaseCarousel } from "@/components/ui/games-showcase-carousel";
 import { gamesContent } from "@/lib/content/games";
 
 import { assets } from "@/lib/assets";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { trackHomeCTA, trackFAQOpen, trackServiceCardClick } from "@/lib/google-analytics";
 
-export function HomeContent() {
-  const { language } = useLanguage();
+export function HomeContent({ locale }: { locale: Locale }) {
+  const language = locale;
   const t = getTranslation(language);
   const isRTL = language === "ar";
 
@@ -185,7 +185,7 @@ export function HomeContent() {
                   { value: "3", label: t_ui.stats_engines },
                   { value: "100%", label: t_ui.stats_remote },
                 ].map((stat, i) => (
-                  <motion.div
+                  <m.div
                     key={i}
                     className="py-8 md:py-10 text-center"
                     initial={{ opacity: 0, y: 20 }}
@@ -199,7 +199,7 @@ export function HomeContent() {
                     <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider mt-1">
                       {stat.label}
                     </div>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
             </div>
@@ -216,7 +216,7 @@ export function HomeContent() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="container relative z-10">
-              <motion.div
+              <m.div
                 className="text-center mb-16"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -233,7 +233,7 @@ export function HomeContent() {
                 <p className="text-muted-foreground text-lg mt-6 max-w-2xl mx-auto">
                   {t_ui.games_subtitle}
                 </p>
-              </motion.div>
+              </m.div>
 
               <GamesShowcaseCarousel
                 projects={projectsForGrid}
@@ -247,7 +247,7 @@ export function HomeContent() {
                   size="lg"
                   className="rounded-full border-primary/50 hover:bg-primary hover:text-white transition-all duration-300"
                 >
-                  <Link href="/games" className="flex items-center gap-2" onClick={() => trackHomeCTA('view_all_games')}>
+                  <Link href={localePath(language, "/games")} className="flex items-center gap-2" onClick={() => trackHomeCTA('view_all_games')}>
                     {t_ui.view_all_games}
                     <ArrowRight
                       className={`w-4 h-4 ${isRTL ? "rotate-180" : ""}`}
@@ -267,7 +267,7 @@ export function HomeContent() {
 
             <div className="container relative z-10">
               {/* Header */}
-              <motion.div
+              <m.div
                 className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-12"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -307,14 +307,14 @@ export function HomeContent() {
                     />
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
 
               {/* Service grid — compact 5-col with stagger */}
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
                 {t.services.items.map((service, index) => {
                   const Icon = serviceIcons[service.name] || Gamepad2;
                   return (
-                    <motion.div
+                    <m.div
                       key={index}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -322,7 +322,7 @@ export function HomeContent() {
                       transition={{ delay: index * 0.05, duration: 0.4 }}
                     >
                       <Link
-                        href="/services"
+                        href={localePath(language, "/services")}
                         className="group relative p-5 rounded-xl bg-card/40 border border-white/10 hover:border-primary/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_-8px_rgba(var(--primary),0.25)] overflow-hidden block"
                         onClick={() => trackServiceCardClick(service.name)}
                       >
@@ -335,7 +335,7 @@ export function HomeContent() {
                           </h3>
                         </div>
                       </Link>
-                    </motion.div>
+                    </m.div>
                   );
                 })}
               </div>
@@ -347,7 +347,7 @@ export function HomeContent() {
                   size="lg"
                   className="rounded-full border-primary/50 hover:bg-primary hover:text-white transition-all duration-300"
                 >
-                  <Link href="/services" className="flex items-center gap-2">
+                  <Link href={localePath(language, "/services")} className="flex items-center gap-2">
                     {t_ui.explore_services}
                     <ArrowRight
                       className={`w-4 h-4 ${isRTL ? "rotate-180" : ""}`}
@@ -363,7 +363,7 @@ export function HomeContent() {
           ══════════════════════════════════════ */}
           <section className="py-20 md:py-28 bg-secondary/10 border-y border-white/5">
             <div className="container">
-              <motion.div
+              <m.div
                 className="text-center mb-14"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -377,12 +377,12 @@ export function HomeContent() {
                   {t_ui.process_title}
                 </h2>
                 <div className="h-1 w-16 bg-accent mx-auto rounded-full" />
-              </motion.div>
+              </m.div>
 
               {/* Horizontal process steps */}
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 max-w-4xl mx-auto">
                 {processSteps.map((step, index) => (
-                  <motion.div
+                  <m.div
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -404,7 +404,7 @@ export function HomeContent() {
                     <h3 className="text-sm font-bold text-white group-hover:text-accent transition-colors">
                       {step.title}
                     </h3>
-                  </motion.div>
+                  </m.div>
                 ))}
               </div>
 
@@ -415,7 +415,7 @@ export function HomeContent() {
                   className="group text-base font-bold hover:bg-transparent p-0 hover:text-accent transition-colors"
                 >
                   <Link
-                    href="/services"
+                    href={localePath(language, "/services")}
                     className="flex items-center gap-2"
                   >
                     {t_ui.explore_services}
@@ -490,7 +490,7 @@ export function HomeContent() {
                     size="lg"
                     className="h-14 px-10 text-lg rounded-full bg-white text-black hover:bg-primary hover:text-white transition-all duration-300 shadow-lg hover:shadow-primary/50 font-bold"
                   >
-                    <Link href="/contact-us" onClick={() => trackHomeCTA('start_a_conversation')}>{t_ui.contact_cta}</Link>
+                    <Link href={localePath(language, "/contact-us")} onClick={() => trackHomeCTA('start_a_conversation')}>{t_ui.contact_cta}</Link>
                   </Button>
                 </div>
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { type GameTheme } from "@/lib/themes/game-themes";
 import { staggerContainer, staggerChild } from "@/lib/motion/variants";
 import { cn } from "@/lib/utils";
@@ -22,7 +22,7 @@ interface GameFeaturesSectionProps {
 function MagicalCard({ feature, index, language }: { feature: any; index: number; language: string }) {
   const Icon = iconMap[feature.icon];
   return (
-    <motion.div
+    <m.div
       variants={staggerChild}
       whileHover={{ y: -8, rotateY: 5, rotateX: -2 }}
       className="group relative bg-purple-950/30 border border-purple-500/15 hover:border-yellow-500/40 p-8 rounded-2xl transition-all duration-500 overflow-hidden"
@@ -43,14 +43,14 @@ function MagicalCard({ feature, index, language }: { feature: any; index: number
 
       {/* Background glow */}
       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-purple-500/5 to-yellow-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-    </motion.div>
+    </m.div>
   );
 }
 
 function ExplosiveCard({ feature, index, language }: { feature: any; index: number; language: string }) {
   const Icon = iconMap[feature.icon];
   return (
-    <motion.div
+    <m.div
       variants={staggerChild}
       whileHover={{ y: -6, scale: 1.03 }}
       className={cn(
@@ -71,14 +71,14 @@ function ExplosiveCard({ feature, index, language }: { feature: any; index: numb
       </div>
       <h3 className="text-xl font-bold mb-3 group-hover:text-orange-300 transition-colors duration-300">{feature.title[language]}</h3>
       <p className="text-sm text-muted-foreground leading-relaxed">{feature.description[language]}</p>
-    </motion.div>
+    </m.div>
   );
 }
 
 function CompetitiveCard({ feature, index, language }: { feature: any; index: number; language: string }) {
   const Icon = iconMap[feature.icon];
   return (
-    <motion.div
+    <m.div
       variants={staggerChild}
       whileHover={{ y: -4 }}
       className="group relative bg-card/30 border border-white/5 hover:border-primary/30 p-8 rounded-2xl transition-all duration-300"
@@ -91,7 +91,7 @@ function CompetitiveCard({ feature, index, language }: { feature: any; index: nu
       </div>
       <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors duration-300">{feature.title[language]}</h3>
       <p className="text-sm text-muted-foreground leading-relaxed">{feature.description[language]}</p>
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -101,12 +101,14 @@ export function GameFeaturesSection({ game, theme, language }: GameFeaturesSecti
     ar: { title: "المميزات والبيانات", subtitle: "القدرات التشغيلية الرئيسية وآليات اللعبة." },
   }[language]!;
 
-  const CardComponent = {
+  const cardComponents: Record<GameTheme["layout"], typeof CompetitiveCard> = {
     "magical-rpg": MagicalCard,
     "explosive-arcade": ExplosiveCard,
     "sleek-competitive": CompetitiveCard,
+    "pixel-adventure": CompetitiveCard,
     "noir-mafia": CompetitiveCard,
-  }[theme.layout] || CompetitiveCard;
+  };
+  const CardComponent = cardComponents[theme.layout] || CompetitiveCard;
 
   return (
     <section className={cn(
@@ -117,7 +119,7 @@ export function GameFeaturesSection({ game, theme, language }: GameFeaturesSecti
       theme.layout === "noir-mafia" && "bg-red-950/5 border-red-900/10"
     )}>
       <div className="container">
-        <motion.div
+        <m.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -126,9 +128,9 @@ export function GameFeaturesSection({ game, theme, language }: GameFeaturesSecti
         >
           <h2 className="text-4xl md:text-5xl font-headline font-bold mb-4">{t_ui.title}</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">{t_ui.subtitle}</p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
           variants={staggerContainer}
           initial="hidden"
@@ -138,7 +140,7 @@ export function GameFeaturesSection({ game, theme, language }: GameFeaturesSecti
           {game.features.map((feature: any, index: number) => (
             <CardComponent key={index} feature={feature} index={index} language={language} />
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

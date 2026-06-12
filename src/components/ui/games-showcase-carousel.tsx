@@ -2,12 +2,13 @@
 
 import { useCallback, useEffect, useState, useRef } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { m, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { localePath } from "@/lib/i18n";
 import { getGameTheme } from "@/lib/themes/game-themes";
 
 interface GameProject {
@@ -63,8 +64,8 @@ function GameCard({ project, isActive, language }: { project: GameProject; isAct
   const status = statusConfig[project.status];
 
   return (
-    <Link href={`/games/${project.slug}`}>
-      <motion.div
+    <Link href={localePath(isRTL ? "ar" : "en", `/games/${project.slug}`)}>
+      <m.div
         ref={cardRef}
         className={cn(
           "relative rounded-2xl overflow-hidden border transition-all duration-500 cursor-pointer group",
@@ -112,14 +113,14 @@ function GameCard({ project, isActive, language }: { project: GameProject; isAct
         )}
 
         {/* Status badge */}
-        <div className="absolute top-4 right-4 z-20">
+        <div className="absolute top-4 end-4 z-20">
           <Badge className={cn("text-xs font-bold border backdrop-blur-md", status.color)}>
             {isRTL ? status.labelAr : status.label}
           </Badge>
         </div>
 
         {/* Content */}
-        <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 z-20">
+        <div className="absolute bottom-0 start-0 end-0 p-6 md:p-8 z-20">
           {/* Engine badge */}
           <span className="text-xs font-bold text-white/50 uppercase tracking-widest mb-2 block">
             {project.engine}
@@ -143,15 +144,15 @@ function GameCard({ project, isActive, language }: { project: GameProject; isAct
           </div>
 
           {/* Hover CTA */}
-          <motion.div
+          <m.div
             className="flex items-center gap-2 text-primary text-sm font-bold mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             initial={false}
           >
             <span>{isRTL ? "عرض اللعبة" : "View Game"}</span>
             <ArrowRight className={cn("w-4 h-4", isRTL && "rotate-180")} />
-          </motion.div>
+          </m.div>
         </div>
-      </motion.div>
+      </m.div>
     </Link>
   );
 }
@@ -219,7 +220,7 @@ export function GamesShowcaseCarousel({ projects, language }: GamesShowcaseCarou
           disabled={!canScrollPrev}
           className="w-12 h-12 rounded-full border border-white/10 hover:border-primary/50 bg-card/50 backdrop-blur-sm flex items-center justify-center text-white/60 hover:text-primary transition-all duration-300 disabled:opacity-30"
         >
-          <ArrowLeft className="w-5 h-5" />
+          <ArrowLeft className="w-5 h-5 rtl:rotate-180" />
         </button>
 
         {/* Dot indicators */}
@@ -243,7 +244,7 @@ export function GamesShowcaseCarousel({ projects, language }: GamesShowcaseCarou
           disabled={!canScrollNext}
           className="w-12 h-12 rounded-full border border-white/10 hover:border-primary/50 bg-card/50 backdrop-blur-sm flex items-center justify-center text-white/60 hover:text-primary transition-all duration-300 disabled:opacity-30"
         >
-          <ArrowRight className="w-5 h-5" />
+          <ArrowRight className="w-5 h-5 rtl:rotate-180" />
         </button>
       </div>
     </div>

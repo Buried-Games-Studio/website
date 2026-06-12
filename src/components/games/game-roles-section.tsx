@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { type GameTheme } from "@/lib/themes/game-themes";
 import { cn } from "@/lib/utils";
 import { staggerContainer, staggerChild } from "@/lib/motion/variants";
@@ -58,7 +58,7 @@ function RoleCard({ role, language, index }: { role: Role; language: string; ind
   const isRTL = language === "ar";
 
   return (
-    <motion.div
+    <m.div
       variants={staggerChild}
       className={cn(
         "group relative rounded-xl overflow-hidden border backdrop-blur-sm transition-all duration-500",
@@ -81,7 +81,7 @@ function RoleCard({ role, language, index }: { role: Role; language: string; ind
       <div className="absolute bottom-0 right-0 w-3 h-3 border-b-2 border-r-2 rounded-br-xl" style={{ borderColor: team.accent }} />
 
       {/* Dossier number */}
-      <div className="absolute top-3 left-3 text-[10px] font-mono text-white/20 tracking-widest">
+      <div className="absolute top-3 start-3 text-[10px] font-mono text-white/20 tracking-widest">
         _{String(index + 1).padStart(2, "0")}
       </div>
 
@@ -117,7 +117,7 @@ function RoleCard({ role, language, index }: { role: Role; language: string; ind
 
       {/* Hover shine */}
       <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-gradient-to-br from-white/[0.04] to-transparent" />
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -149,7 +149,7 @@ export function GameRolesSection({ roles, theme, language }: GameRolesSectionPro
 
       <div className="relative container">
         {/* Section header */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -164,10 +164,10 @@ export function GameRolesSection({ roles, theme, language }: GameRolesSectionPro
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
             {t_ui.subtitle}
           </p>
-        </motion.div>
+        </m.div>
 
         {/* Team filter tabs */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -201,11 +201,11 @@ export function GameRolesSection({ roles, theme, language }: GameRolesSectionPro
               </button>
             );
           })}
-        </motion.div>
+        </m.div>
 
         {/* Roles grid */}
         <AnimatePresence mode="wait">
-          <motion.div
+          <m.div
             key={activeTeam}
             variants={staggerContainer}
             initial="hidden"
@@ -216,7 +216,7 @@ export function GameRolesSection({ roles, theme, language }: GameRolesSectionPro
             {filteredRoles.map((role, i) => (
               <RoleCard key={role.id} role={role} language={language} index={i} />
             ))}
-          </motion.div>
+          </m.div>
         </AnimatePresence>
       </div>
     </section>

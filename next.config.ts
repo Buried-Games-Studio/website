@@ -29,9 +29,10 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  typescript: {
-    ignoreBuildErrors: true,
+  experimental: {
+    // Custom branded 404 document: nested not-found boundaries don't catch
+    // thrown notFound() under a dynamic root segment ([locale]) in Next 16.
+    globalNotFound: true,
   },
   images: {
     remotePatterns: [
@@ -83,17 +84,6 @@ const nextConfig: NextConfig = {
       },
       {
         source: '/en/:path*',
-        destination: '/:path*',
-        permanent: true,
-      },
-      // Strip /ar locale prefix → root path
-      {
-        source: '/ar',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/ar/:path*',
         destination: '/:path*',
         permanent: true,
       },

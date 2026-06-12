@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/language-context';
+import { usePathname } from 'next/navigation';
+import { localePath, type Locale } from '@/lib/i18n';
 import { getTranslation } from '@/lib/content';
 import {
   Mail,
@@ -12,13 +14,20 @@ import {
 import { assets } from '@/lib/assets';
 import { cn } from '@/lib/utils';
 import { socialLinks } from './social-links';
-import { motion } from 'framer-motion';
-import { trackSocialClick, trackWhatsAppClick } from '@/lib/google-analytics';
+import { m } from 'framer-motion';
+import { trackSocialClick, trackWhatsAppClick, trackLanguageToggle } from '@/lib/google-analytics';
 
 const Footer = () => {
-  const { language, toggleLanguage } = useLanguage();
+  const { language } = useLanguage();
+  const pathname = usePathname();
   const t = getTranslation(language);
   const currentYear = new Date().getFullYear();
+
+  // The language switch is navigation: same route, alternate locale URL.
+  const otherLocale: Locale = language === "en" ? "ar" : "en";
+  const basePath = pathname.replace(/^\/ar(?=\/|$)/, "") || "/";
+  const switchHref = localePath(otherLocale, basePath);
+  const href = (path: string) => localePath(language, path);
 
   const t_ui = {
     en: {
@@ -37,6 +46,7 @@ const Footer = () => {
       faq: 'FAQs',
       language_toggle: 'العربية',
       based_in: 'Proudly developed in the Arab World',
+      studio_location: 'Buried Games Studio — Kuwait',
     },
     ar: {
       studio_name: 'استوديو بريد جيمز',
@@ -54,15 +64,16 @@ const Footer = () => {
       faq: 'الأسئلة الشائعة',
       language_toggle: 'English',
       based_in: 'تم التطوير بكل فخر في الوطن العربي',
+      studio_location: 'استوديو بريد جيمز — الكويت',
     },
   }[language];
 
   return (
     <footer className="relative border-t border-primary/20 bg-background text-foreground overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl bg-primary/5 blur-[100px] pointer-events-none" />
+      <div className="absolute top-0 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 w-full h-full max-w-4xl bg-primary/5 blur-[100px] pointer-events-none" />
 
-      <motion.div
+      <m.div
         className="container relative mx-auto py-16 px-4"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -93,7 +104,7 @@ const Footer = () => {
               <ul className="space-y-3">
                 {t.games.map(game => (
                   <li key={game.id}>
-                    <Link href={`/games/${game.slug}`} className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all inline-block">
+                    <Link href={href(`/games/${game.slug}`)} className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-all inline-block">
                       {game.title}
                     </Link>
                   </li>
@@ -103,19 +114,19 @@ const Footer = () => {
             <div>
               <h2 className="font-bold text-lg mb-4 text-foreground/90 border-b border-primary/20 pb-2 inline-block">{t_ui.sitemap}</h2>
               <ul className="space-y-3">
-                <li><Link href="/about-us" className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all inline-block">{t_ui.about_us}</Link></li>
-                <li><Link href="/services" className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all inline-block">{t_ui.services}</Link></li>
-                <li><Link href="/devlog" className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all inline-block">{t_ui.devlog}</Link></li>
-                <li><Link href="/careers" className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all inline-block">{t_ui.careers}</Link></li>
-                <li><Link href="/privacy-policy" className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all inline-block">{t_ui.privacy}</Link></li>
-                <li><Link href="/terms-of-use" className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all inline-block">{t_ui.terms}</Link></li>
+                <li><Link href={href("/about-us")} className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-all inline-block">{t_ui.about_us}</Link></li>
+                <li><Link href={href("/services")} className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-all inline-block">{t_ui.services}</Link></li>
+                <li><Link href={href("/devlog")} className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-all inline-block">{t_ui.devlog}</Link></li>
+                <li><Link href={href("/careers")} className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-all inline-block">{t_ui.careers}</Link></li>
+                <li><Link href={href("/privacy-policy")} className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-all inline-block">{t_ui.privacy}</Link></li>
+                <li><Link href={href("/terms-of-use")} className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-all inline-block">{t_ui.terms}</Link></li>
               </ul>
             </div>
             <div>
               <h2 className="font-bold text-lg mb-4 text-foreground/90 border-b border-primary/20 pb-2 inline-block">{t_ui.additional_links}</h2>
               <ul className="space-y-3">
-                <li><Link href="/contact-us" className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all inline-block">{t_ui.contact}</Link></li>
-                <li><Link href="/#faq" className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 transition-all inline-block">{t_ui.faq}</Link></li>
+                <li><Link href={href("/contact-us")} className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-all inline-block">{t_ui.contact}</Link></li>
+                <li><Link href={href("/#faq")} className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-all inline-block">{t_ui.faq}</Link></li>
               </ul>
             </div>
           </div>
@@ -139,18 +150,27 @@ const Footer = () => {
                 <span className="p-2 rounded-full bg-primary/10">
                   <MapPin className="w-4 h-4 text-primary" />
                 </span>
+                {t_ui.studio_location}
+              </p>
+              <p className="ps-11 text-xs text-muted-foreground/80">
                 {t_ui.based_in}
               </p>
             </div>
 
             <div className="pt-4">
-              <button onClick={toggleLanguage} className={cn(
-                "flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-accent transition-colors border border-border/50 rounded-full px-4 py-2 hover:border-accent/50 hover:bg-accent/5",
-                language === 'en' ? 'font-arabic' : 'font-body'
-              )}>
+              <Link
+                href={switchHref}
+                hrefLang={otherLocale}
+                aria-label="Switch language"
+                onClick={() => trackLanguageToggle(otherLocale)}
+                className={cn(
+                  "inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-accent transition-colors border border-border/50 rounded-full px-4 py-2 hover:border-accent/50 hover:bg-accent/5",
+                  language === 'en' ? 'font-arabic' : 'font-body'
+                )}
+              >
                 <Globe className="w-4 h-4" />
                 {t_ui.language_toggle}
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -179,7 +199,7 @@ const Footer = () => {
             })}
           </div>
         </div>
-      </motion.div>
+      </m.div>
     </footer>
   );
 };

@@ -2,9 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { localePath, type Locale } from "@/lib/i18n";
 import { useState } from "react";
 
 interface Project {
@@ -13,7 +14,7 @@ interface Project {
   title: string;
   description: string;
   image: string;
-  status: "released" | "development" | "coming_soon";
+  status: "released" | "development" | "coming_soon" | "completed";
   engine: string;
   tags?: string[];
   externalUrl?: string;
@@ -21,7 +22,7 @@ interface Project {
 
 interface ProjectsBentoGridProps {
   projects: Project[];
-  language: "en" | "ar";
+  language: Locale;
 }
 
 const statusLabels = {
@@ -29,11 +30,13 @@ const statusLabels = {
     released: "Released",
     development: "In Development",
     coming_soon: "Coming Soon",
+    completed: "Completed",
   },
   ar: {
     released: "متاح",
     development: "قيد التطوير",
     coming_soon: "قريباً",
+    completed: "مكتمل",
   },
 };
 
@@ -41,6 +44,7 @@ const statusColors = {
   released: "bg-green-500/20 text-green-400 border-green-500/30",
   development: "bg-amber-500/20 text-amber-400 border-amber-500/30",
   coming_soon: "bg-blue-500/20 text-blue-400 border-blue-500/30",
+  completed: "bg-purple-500/20 text-purple-400 border-purple-500/30",
 };
 
 const ProjectCard = ({
@@ -51,7 +55,7 @@ const ProjectCard = ({
 }: {
   project: Project;
   featured?: boolean;
-  language: "en" | "ar";
+  language: Locale;
   index: number;
 }) => {
   const isRTL = language === "ar";
@@ -61,7 +65,7 @@ const ProjectCard = ({
   const imageSrc = imgError ? fallbackImage : (project.image || fallbackImage);
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
@@ -72,7 +76,7 @@ const ProjectCard = ({
         featured ? "md:col-span-2 md:row-span-2" : ""
       )}
     >
-      <Link href={`/games/${project.slug}`} className="block h-full">
+      <Link href={localePath(language, `/games/${project.slug}`)} className="block h-full">
         {/* Background Image */}
         <div className="absolute inset-0 bg-card">
           <Image
@@ -95,7 +99,7 @@ const ProjectCard = ({
           )}
         >
           {/* Status Badge */}
-          <div className="absolute top-6 left-6">
+          <div className="absolute top-6 start-6">
             <span
               className={cn(
                 "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border backdrop-blur-sm",
@@ -108,7 +112,7 @@ const ProjectCard = ({
           </div>
 
           {/* Engine Badge */}
-          <div className="absolute top-6 right-6">
+          <div className="absolute top-6 end-6">
             <span className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-white/10 text-white/70 border border-white/10 backdrop-blur-sm">
               {project.engine}
             </span>
@@ -159,8 +163,8 @@ const ProjectCard = ({
                 <ArrowUpRight
                   className={cn(
                     "w-4 h-4 transition-transform duration-300",
-                    "group-hover:translate-x-1 group-hover:-translate-y-1",
-                    isRTL && "rotate-90"
+                    "group-hover:-translate-y-1 group-hover:translate-x-1 rtl:group-hover:-translate-x-1",
+                    isRTL && "-scale-x-100"
                   )}
                 />
               </span>
@@ -168,10 +172,10 @@ const ProjectCard = ({
           </div>
 
           {/* Decorative Corner Accent */}
-          <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+          <div className="absolute bottom-0 end-0 w-32 h-32 bg-gradient-to-tl from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
         </div>
       </Link>
-    </motion.div>
+    </m.div>
   );
 };
 

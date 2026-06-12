@@ -1,5 +1,5 @@
 "use client";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { useScroll, useTransform, m } from "framer-motion";
 import { useRef, useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -7,6 +7,7 @@ import Link from "next/link";
 import { ArrowRight, ArrowDown } from "lucide-react";
 import { assets } from "@/lib/assets";
 import { useLanguage } from "@/contexts/language-context";
+import { localePath } from "@/lib/i18n";
 import { useMagnetic } from "@/hooks/use-magnetic";
 import { heroTextStagger, clipRevealWord } from "@/lib/motion/variants";
 import { trackHeroCTA } from "@/lib/google-analytics";
@@ -36,7 +37,7 @@ function HeroEmbers() {
   return (
     <div className="absolute inset-0 z-[11] pointer-events-none">
       {particles.map((p, i) => (
-        <motion.div
+        <m.div
           key={i}
           className="absolute w-1 h-1 rounded-full"
           style={{ bottom: p.bottom, left: p.left, background: p.bg }}
@@ -51,7 +52,7 @@ function HeroEmbers() {
 const MagneticCTA = ({ children, className, href }: { children: React.ReactNode; className?: string; href: string }) => {
   const { ref, x, y, handleMouseMove, handleMouseLeave } = useMagnetic(0.25);
   return (
-    <motion.div
+    <m.div
       ref={ref as React.RefObject<HTMLDivElement>}
       style={{ x, y }}
       onMouseMove={handleMouseMove}
@@ -60,7 +61,7 @@ const MagneticCTA = ({ children, className, href }: { children: React.ReactNode;
       <Button asChild size="lg" className={className}>
         <Link href={href}>{children}</Link>
       </Button>
-    </motion.div>
+    </m.div>
   );
 };
 
@@ -104,12 +105,12 @@ export const ZoomParallaxHero = () => {
   return (
     <div ref={containerRef} className="h-[120vh] relative w-full">
       <div className="sticky top-0 h-screen overflow-hidden bg-black">
-        <motion.div
+        <m.div
           style={{ scale, borderRadius }}
           className="relative w-full h-full overflow-hidden"
         >
           {/* Background Image with parallax */}
-          <motion.div className="absolute inset-0" style={{ y: bgY }}>
+          <m.div className="absolute inset-0" style={{ y: bgY }}>
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 mix-blend-overlay z-10" />
             <Image
               src={assets.heroCollage}
@@ -119,7 +120,7 @@ export const ZoomParallaxHero = () => {
               className="object-cover opacity-30 scale-110"
               priority
             />
-          </motion.div>
+          </m.div>
 
           {/* Animated ember particles (deterministic positions to avoid hydration mismatch) */}
           <HeroEmbers />
@@ -129,12 +130,12 @@ export const ZoomParallaxHero = () => {
           <div className="absolute inset-0 bg-black/40 z-[12]" />
 
           {/* Content Overlay */}
-          <motion.div
+          <m.div
             style={{ opacity, y: yText }}
             className="absolute inset-0 flex flex-col items-center justify-center z-20 text-center px-4"
           >
             {/* Logo with glow */}
-            <motion.div
+            <m.div
               className="relative w-24 h-24 md:w-32 md:h-32 mb-6 group"
               initial={{ opacity: 0, scale: 0.5 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -149,37 +150,37 @@ export const ZoomParallaxHero = () => {
                 className="object-contain drop-shadow-[0_0_15px_rgba(var(--primary),0.5)]"
                 priority
               />
-            </motion.div>
+            </m.div>
 
             {/* Tagline badge */}
-            <motion.span
+            <m.span
               className="px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs font-bold tracking-[0.3em] text-accent uppercase backdrop-blur-md mb-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
             >
               {t_ui.tagline}
-            </motion.span>
+            </m.span>
 
             {/* Studio Name */}
-            <motion.h2
+            <m.h2
               className="text-2xl md:text-3xl font-headline tracking-[0.15em] text-white/90 uppercase mb-6"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
             >
               Buried Games Studio
-            </motion.h2>
+            </m.h2>
 
             {/* Headline with staggered word reveal */}
-            <motion.h1
+            <m.h1
               className="flex flex-wrap justify-center gap-x-3 md:gap-x-5 text-4xl md:text-6xl lg:text-7xl tracking-tight text-white uppercase font-headline mb-8 leading-[1.15] max-w-5xl"
               variants={heroTextStagger}
               initial="hidden"
               animate="visible"
             >
               {titleWords.map((word, i) => (
-                <motion.span
+                <m.span
                   key={i}
                   variants={clipRevealWord}
                   className="inline-block"
@@ -193,22 +194,22 @@ export const ZoomParallaxHero = () => {
                   }}
                 >
                   {word}
-                </motion.span>
+                </m.span>
               ))}
-            </motion.h1>
+            </m.h1>
 
             {/* Subtitle */}
-            <motion.p
+            <m.p
               className="max-w-lg mx-auto text-base md:text-lg text-white/60 leading-relaxed mb-10"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.6 }}
             >
               {t_ui.subtitle}
-            </motion.p>
+            </m.p>
 
             {/* Dual CTAs with magnetic effect */}
-            <motion.div
+            <m.div
               className="flex flex-wrap items-center justify-center gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -216,7 +217,7 @@ export const ZoomParallaxHero = () => {
             >
               <div onClick={() => trackHeroCTA('see_our_work')}>
                 <MagneticCTA
-                  href="/#games"
+                  href={`${localePath(language, "/")}#games`}
                   className="h-14 px-10 text-base rounded-full bg-white text-black hover:bg-primary hover:text-white transition-all duration-300 shadow-lg hover:shadow-primary/50 font-bold uppercase tracking-wider"
                 >
                   <span className="flex items-center gap-2">
@@ -227,35 +228,35 @@ export const ZoomParallaxHero = () => {
               </div>
               <div onClick={() => trackHeroCTA('hire_us')}>
                 <MagneticCTA
-                  href="/contact-us"
+                  href={localePath(language, "/contact-us")}
                   className="h-14 px-10 text-base rounded-full border-white/20 hover:border-primary hover:bg-primary/10 hover:text-primary transition-all duration-300 font-bold uppercase tracking-wider bg-transparent border"
                 >
                   <span className="flex items-center gap-2">{t_ui.cta_services}</span>
                 </MagneticCTA>
               </div>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
 
           {/* Scroll Indicator */}
-          <motion.div
+          <m.div
             className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 2 }}
           >
-            <motion.div
+            <m.div
               className="w-px h-10 bg-gradient-to-b from-primary/60 to-transparent"
               animate={{ scaleY: [0.4, 1, 0.4], opacity: [0.3, 0.7, 0.3] }}
               transition={{ duration: 2.5, repeat: Infinity }}
             />
-            <motion.div
+            <m.div
               animate={{ y: [0, 6, 0] }}
               transition={{ duration: 2.5, repeat: Infinity }}
             >
               <ArrowDown className="h-4 w-4 text-primary/40" />
-            </motion.div>
-          </motion.div>
-        </motion.div>
+            </m.div>
+          </m.div>
+        </m.div>
       </div>
     </div>
   );

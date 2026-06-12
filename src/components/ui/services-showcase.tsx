@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import {
   Gamepad2,
   Lightbulb,
@@ -16,6 +16,7 @@ import {
   Sparkles
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { localePath } from "@/lib/i18n";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -73,7 +74,7 @@ const ServiceCard = ({
 
   if (featured) {
     return (
-      <motion.div
+      <m.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
@@ -87,7 +88,7 @@ const ServiceCard = ({
         <div className="absolute bottom-10 left-10 w-24 h-24 bg-secondary/20 rounded-full blur-2xl group-hover:scale-125 transition-transform duration-1000 delay-100" />
 
         {/* Number badge */}
-        <div className="absolute top-6 right-6 md:top-8 md:right-8">
+        <div className="absolute top-6 end-6 md:top-8 md:end-8">
           <span className="text-8xl md:text-9xl font-headline font-bold text-white/5 group-hover:text-primary/10 transition-colors duration-500">
             01
           </span>
@@ -112,7 +113,7 @@ const ServiceCard = ({
           {/* CTA */}
           <div className="mt-8 pt-6 border-t border-white/10">
             <Link
-              href="/services"
+              href={localePath(language, "/services")}
               className="inline-flex items-center gap-3 text-primary font-medium group/link"
             >
               <span>{language === "en" ? "Learn More" : "اعرف المزيد"}</span>
@@ -123,19 +124,19 @@ const ServiceCard = ({
             </Link>
           </div>
         </div>
-      </motion.div>
+      </m.div>
     );
   }
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
       className="group relative overflow-hidden rounded-2xl bg-card/50 border border-white/5 hover:border-primary/40 p-6 transition-all duration-500 hover:shadow-[0_0_40px_rgba(255,0,0,0.1)] hover:-translate-y-1"
     >
       {/* Background number */}
-      <span className="absolute -top-4 -right-2 text-7xl font-headline font-bold text-white/[0.03] group-hover:text-primary/[0.08] transition-colors duration-500">
+      <span className="absolute -top-4 -end-2 text-7xl font-headline font-bold text-white/[0.03] group-hover:text-primary/[0.08] transition-colors duration-500">
         {String(index + 1).padStart(2, "0")}
       </span>
 
@@ -156,7 +157,7 @@ const ServiceCard = ({
 
       {/* Hover line accent */}
       <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-primary/50 group-hover:w-full transition-all duration-500" />
-    </motion.div>
+    </m.div>
   );
 };
 
@@ -177,7 +178,7 @@ export const ServicesShowcase = ({
       {/* Header */}
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8">
         <div className="max-w-2xl">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -190,11 +191,11 @@ export const ServicesShowcase = ({
               {title}
             </h2>
             <p className="text-xl text-muted-foreground">{subtitle}</p>
-          </motion.div>
+          </m.div>
         </div>
 
         {/* Tech Stack */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -230,7 +231,7 @@ export const ServicesShowcase = ({
               </span>
             </div>
           </div>
-        </motion.div>
+        </m.div>
       </div>
 
       {/* Main Services Grid - Bento Style */}
@@ -262,7 +263,7 @@ export const ServicesShowcase = ({
           <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
 
-          <motion.div
+          <m.div
             initial={{ x: 0 }}
             animate={{ x: isRTL ? "50%" : "-50%" }}
             transition={{
@@ -286,19 +287,19 @@ export const ServicesShowcase = ({
                 </div>
               );
             })}
-          </motion.div>
+          </m.div>
         </div>
       )}
 
       {/* CTA */}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.4 }}
         className="text-center"
       >
         <Link
-          href="/services"
+          href={localePath(language, "/services")}
           className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-white/5 border border-white/10 hover:border-primary/50 hover:bg-primary/10 text-white font-medium transition-all duration-300 group"
         >
           <span>{language === "en" ? "Explore All Services" : "استكشف جميع الخدمات"}</span>
@@ -307,7 +308,7 @@ export const ServicesShowcase = ({
             isRTL && "rotate-180 group-hover:-translate-x-1"
           )} />
         </Link>
-      </motion.div>
+      </m.div>
     </div>
   );
 };

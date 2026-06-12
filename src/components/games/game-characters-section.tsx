@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { type GameTheme } from "@/lib/themes/game-themes";
 import { staggerContainer, staggerChild } from "@/lib/motion/variants";
 
@@ -27,7 +27,7 @@ export function GameCharactersSection({ characters, theme, language }: GameChara
   return (
     <section className="py-24 overflow-hidden">
       <div className="container">
-        <motion.div
+        <m.div
           className="text-center mb-14"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -36,9 +36,9 @@ export function GameCharactersSection({ characters, theme, language }: GameChara
         >
           <h2 className="text-4xl md:text-5xl font-headline font-bold mb-4">{t_ui.title}</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">{t_ui.subtitle}</p>
-        </motion.div>
+        </m.div>
 
-        <motion.div
+        <m.div
           className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto"
           variants={staggerContainer}
           initial="hidden"
@@ -46,7 +46,7 @@ export function GameCharactersSection({ characters, theme, language }: GameChara
           viewport={{ once: true }}
         >
           {characters.map((char, index) => (
-            <motion.div
+            <m.div
               key={index}
               variants={staggerChild}
               whileHover={{ y: -8, scale: 1.05 }}
@@ -68,9 +68,9 @@ export function GameCharactersSection({ characters, theme, language }: GameChara
               <span className="mt-3 text-sm font-bold text-white/80 group-hover:text-yellow-400 transition-colors">
                 {char.name[language as "en" | "ar"]}
               </span>
-            </motion.div>
+            </m.div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

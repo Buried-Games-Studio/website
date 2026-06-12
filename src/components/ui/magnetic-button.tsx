@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useMagnetic } from "@/hooks/use-magnetic";
 import { cn } from "@/lib/utils";
 
@@ -14,7 +14,7 @@ export function MagneticButton({ children, className, strength = 0.3 }: Magnetic
   const { ref, x, y, handleMouseMove, handleMouseLeave } = useMagnetic(strength);
 
   return (
-    <motion.div
+    <m.div
       ref={ref as React.RefObject<HTMLDivElement>}
       style={{ x, y }}
       onMouseMove={handleMouseMove}
@@ -22,6 +22,6 @@ export function MagneticButton({ children, className, strength = 0.3 }: Magnetic
       className={cn("inline-block", className)}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }

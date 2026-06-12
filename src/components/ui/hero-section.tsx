@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import dynamic from "next/dynamic";
 const AnimatedBackground = dynamic(() => import("@/components/ui/animated-background").then(mod => mod.AnimatedBackground), { ssr: false });
 import { useLanguage } from "@/contexts/language-context";
+import { localePath } from "@/lib/i18n";
 import { getTranslation } from "@/lib/content";
 import Link from "next/link";
 import Image from "next/image";
@@ -60,9 +61,9 @@ export const HeroSection = () => {
                         </p>
                         <div className="flex flex-wrap items-center justify-center gap-6 pt-4">
                             <Button asChild size="lg" className="h-14 px-10 text-lg rounded-none border border-primary bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(var(--primary),0.2)] hover:shadow-[0_0_40px_rgba(var(--primary),0.6)] uppercase tracking-widest font-bold">
-                                <Link href="/#games">
+                                <Link href={`${localePath(language, "/")}#games`}>
                                     {t_ui.cta_games}
-                                    {language === 'ar' ? <ArrowRight className="mr-2 h-5 w-5 rotate-180" /> : <ArrowRight className="ml-2 h-5 w-5" />}
+                                    <ArrowRight className={`ms-2 h-5 w-5 ${language === 'ar' ? 'rotate-180' : ''}`} />
                                 </Link>
                             </Button>
                         </div>

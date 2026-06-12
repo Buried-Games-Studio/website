@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { type GameTheme } from "@/lib/themes/game-themes";
 import { Play, Download, ArrowRight } from "lucide-react";
@@ -32,7 +32,7 @@ export function GameCTASection({ game, theme, language, gameLogo, storeImageMap 
       <div className="absolute inset-0 bg-primary/5 -z-10" />
 
       <div className="container">
-        <motion.div
+        <m.div
           className={cn(
             "max-w-4xl mx-auto border rounded-3xl p-8 md:p-16 text-center relative overflow-hidden",
             theme.layout === "magical-rpg" && "bg-purple-950/30 border-purple-500/20",
@@ -63,7 +63,7 @@ export function GameCTASection({ game, theme, language, gameLogo, storeImageMap 
 
               if (link.store === "web") {
                 return (
-                  <motion.div key={index} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+                  <m.div key={index} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
                     <Button asChild size="lg" className={cn(
                       "h-16 px-8 text-lg shadow-lg transition-all duration-300",
                       "bg-primary hover:bg-primary/90 text-primary-foreground",
@@ -72,16 +72,16 @@ export function GameCTASection({ game, theme, language, gameLogo, storeImageMap 
                       <Link href={link.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3" onClick={() => trackStoreClick(game.slug, 'web', link.url)}>
                         <Play className="fill-current w-5 h-5" />
                         {storeLabel}
-                        <ArrowRight className="w-4 h-4" />
+                        <ArrowRight className={cn("w-4 h-4", language === "ar" && "rotate-180")} />
                       </Link>
                     </Button>
-                  </motion.div>
+                  </m.div>
                 );
               }
 
               const StoreImageSrc = link.imageUrl ? storeImageMap[link.imageUrl] : null;
               return (
-                <motion.div key={index} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
+                <m.div key={index} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
                   <Link href={link.url} target="_blank" rel="noopener noreferrer" className="group" onClick={() => trackStoreClick(game.slug, link.store, link.url)}>
                     {StoreImageSrc ? (
                       <div className="relative h-16 w-48 rounded-lg overflow-hidden border border-white/20 group-hover:border-primary transition-colors">
@@ -89,18 +89,18 @@ export function GameCTASection({ game, theme, language, gameLogo, storeImageMap 
                       </div>
                     ) : (
                       <Button size="lg" className="h-14 px-8 text-lg font-bold">
-                        <Download className="mr-2 h-5 w-5" />
+                        <Download className="me-2 h-5 w-5" />
                         {storeLabel}
                       </Button>
                     )}
                   </Link>
-                </motion.div>
+                </m.div>
               );
             })}
           </div>
 
           <p className="mt-8 text-sm text-muted-foreground">{t_ui.join}</p>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

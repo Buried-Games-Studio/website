@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { type GameTheme } from "@/lib/themes/game-themes";
 import { GameImage } from "@/components/ui/game-image";
@@ -24,7 +24,7 @@ export function GameGallerySection({ game, theme, language, galleryImageMap }: G
 
   return (
     <section className="py-32 overflow-hidden">
-      <motion.div
+      <m.div
         className="container mb-12 flex items-end justify-between"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -33,9 +33,9 @@ export function GameGallerySection({ game, theme, language, galleryImageMap }: G
       >
         <h2 className="text-4xl md:text-5xl font-headline font-bold">{t_ui.title}</h2>
         <div className="hidden md:block w-1/3 h-px bg-gradient-to-r from-primary/30 to-transparent mb-4" />
-      </motion.div>
+      </m.div>
 
-      <motion.div
+      <m.div
         className="container"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -43,12 +43,12 @@ export function GameGallerySection({ game, theme, language, galleryImageMap }: G
         transition={{ duration: 0.6, delay: 0.2 }}
       >
         <Carousel className="w-full" opts={{ align: "start", loop: true }}>
-          <CarouselContent className="-ml-4">
+          <CarouselContent className="-ms-4">
             {game.gallery.map((img: any, index: number) => {
               const gallerySrc = galleryImageMap[img.url] || img.url;
               return (
-                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-2/3">
-                  <motion.div
+                <CarouselItem key={index} className="ps-4 md:basis-1/2 lg:basis-2/3">
+                  <m.div
                     className={cn(
                       "group relative aspect-video rounded-2xl overflow-hidden border bg-black/80",
                       theme.layout === "magical-rpg" && "border-purple-500/15 hover:border-purple-500/30",
@@ -66,7 +66,7 @@ export function GameGallerySection({ game, theme, language, galleryImageMap }: G
                       gameTitle={game.title}
                     />
                     <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300" />
-                  </motion.div>
+                  </m.div>
                 </CarouselItem>
               );
             })}
@@ -76,7 +76,7 @@ export function GameGallerySection({ game, theme, language, galleryImageMap }: G
             <CarouselNext className="static translate-y-0" />
           </div>
         </Carousel>
-      </motion.div>
+      </m.div>
     </section>
   );
 }

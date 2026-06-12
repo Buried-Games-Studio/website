@@ -1,34 +1,30 @@
 "use client";
 
-import React, { createContext, useState, useContext, useEffect, type ReactNode } from "react";
-import { trackLanguageToggle } from "@/lib/google-analytics";
+import React, { createContext, useContext, type ReactNode } from "react";
+import type { Locale } from "@/lib/i18n";
 
-export type Language = "en" | "ar";
+export type Language = Locale;
 
 interface LanguageContextType {
   language: Language;
-  setLanguage: (language: Language) => void;
-  toggleLanguage: () => void;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>("en");
-
-  useEffect(() => {
-    document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
-    document.documentElement.lang = language;
-  }, [language]);
-
-  const toggleLanguage = () => {
-    const newLang = language === "en" ? "ar" : "en";
-    trackLanguageToggle(newLang);
-    setLanguage(newLang);
-  };
-
+/**
+ * Read-only locale access for client islands. The locale is owned by the URL
+ * (/ = en, /ar/* = ar) and seeded by the [locale] layout — switching language
+ * is navigation to the alternate URL (see the header), never client state.
+ */
+export const LanguageProvider = ({
+  locale,
+  children,
+}: {
+  locale: Locale;
+  children: ReactNode;
+}) => {
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage }}>
+    <LanguageContext.Provider value={{ language: locale }}>
       {children}
     </LanguageContext.Provider>
   );

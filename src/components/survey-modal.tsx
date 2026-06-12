@@ -3,6 +3,8 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   AlertDialog,
   AlertDialogContent,
@@ -16,6 +18,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { useLanguage } from "@/contexts/language-context";
+import { localePath, type Locale } from "@/lib/i18n";
 import { logGtagEvent } from "@/lib/google-analytics";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
@@ -29,8 +32,14 @@ export function SurveyModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState("");
   const [otherValue, setOtherValue] = useState("");
-  const { language, toggleLanguage } = useLanguage();
+  const { language } = useLanguage();
+  const pathname = usePathname();
   const { toast } = useToast();
+
+  // The language switch is navigation: same route, alternate locale URL.
+  const otherLocale: Locale = language === "en" ? "ar" : "en";
+  const basePath = pathname.replace(/^\/ar(?=\/|$)/, "") || "/";
+  const switchHref = localePath(otherLocale, basePath);
 
   useEffect(() => {
     // Check if the user is likely a bot
@@ -141,17 +150,18 @@ export function SurveyModal() {
           <Image src={assets.logo} alt="Buried Games Studio Logo" width={80} height={80} className="mx-auto mb-4" />
           <div className="relative">
             <AlertDialogTitle>{t.title}</AlertDialogTitle>
-            <Button 
-                variant="ghost" 
+            <Button
+                asChild
+                variant="ghost"
                 size="sm"
-                onClick={toggleLanguage} 
                 className={cn(
-                    "absolute -top-2 right-0",
+                    "absolute -top-2 end-0",
                     language === 'en' ? 'font-arabic' : 'font-body'
                 )}
-                aria-label="Toggle language"
             >
-                {t.language_toggle}
+                <Link href={switchHref} hrefLang={otherLocale} aria-label="Switch language">
+                    {t.language_toggle}
+                </Link>
             </Button>
           </div>
           <AlertDialogDescription>
@@ -160,23 +170,23 @@ export function SurveyModal() {
         </AlertDialogHeader>
         <div className="py-4">
           <RadioGroup value={selectedValue} onValueChange={setSelectedValue}>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center gap-2">
                 <RadioGroupItem value="social_media" id="social_media" />
                 <Label htmlFor="social_media">{t.options.social_media}</Label>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center gap-2">
                 <RadioGroupItem value="search_engine" id="search_engine" />
                 <Label htmlFor="search_engine">{t.options.search_engine}</Label>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center gap-2">
                 <RadioGroupItem value="friend" id="friend" />
                 <Label htmlFor="friend">{t.options.friend}</Label>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center gap-2">
                 <RadioGroupItem value="advertisement" id="advertisement" />
                 <Label htmlFor="advertisement">{t.options.advertisement}</Label>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center gap-2">
                 <RadioGroupItem value="other" id="other" />
                 <Label htmlFor="other">{t.options.other}</Label>
             </div>

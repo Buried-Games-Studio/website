@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useLanguage } from "@/contexts/language-context";
 import { getTranslation } from "@/lib/content";
+import { localePath, type Locale } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
@@ -26,7 +26,7 @@ import {
   Layers,
 } from "lucide-react";
 import dynamic from "next/dynamic";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 /* ─────────────────── Images ─────────────────── */
@@ -79,8 +79,8 @@ const serviceImages: string[] = [
   assets.artist,        // Technical Art & Pipeline Development
 ];
 
-export function ServicesContent() {
-  const { language } = useLanguage();
+export function ServicesContent({ locale }: { locale: Locale }) {
+  const language = locale;
   const t = getTranslation(language);
   const isRTL = language === "ar";
   const { items: services } = t.services;
@@ -207,7 +207,7 @@ export function ServicesContent() {
                       key={index}
                       onClick={() => setActiveService(index)}
                       className={cn(
-                        "w-full flex items-center gap-4 p-4 rounded-xl text-left transition-all duration-300",
+                        "w-full flex items-center gap-4 p-4 rounded-xl text-start transition-all duration-300",
                         isActive
                           ? "bg-primary/10 border border-primary/30"
                           : "border border-transparent hover:bg-white/5"
@@ -235,8 +235,7 @@ export function ServicesContent() {
                       </div>
                       <div
                         className={cn(
-                          "w-1.5 h-1.5 rounded-full shrink-0 transition-all duration-300",
-                          isRTL ? "mr-auto" : "ml-auto",
+                          "w-1.5 h-1.5 rounded-full shrink-0 transition-all duration-300 ms-auto",
                           isActive ? "bg-primary" : "bg-transparent"
                         )}
                       />
@@ -249,7 +248,7 @@ export function ServicesContent() {
               <div className="col-span-7">
                 <div className="sticky top-32">
                   <AnimatePresence mode="wait">
-                    <motion.div
+                    <m.div
                       key={activeService}
                       initial={{ opacity: 0, y: 12 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -264,10 +263,10 @@ export function ServicesContent() {
                           alt=""
                           width={200}
                           height={200}
-                          className="absolute right-6 top-1/2 -translate-y-1/2 w-36 h-36 object-contain opacity-80"
+                          className="absolute end-6 top-1/2 -translate-y-1/2 w-36 h-36 object-contain opacity-80"
                         />
                         {/* Background number */}
-                        <span className="absolute top-4 left-6 text-[7rem] font-headline font-bold text-white/[0.04] leading-none select-none pointer-events-none">
+                        <span className="absolute top-4 start-6 text-[7rem] font-headline font-bold text-white/[0.04] leading-none select-none pointer-events-none">
                           {String(activeService + 1).padStart(2, "0")}
                         </span>
                         {/* Gradient fade to content */}
@@ -301,7 +300,7 @@ export function ServicesContent() {
                             className="group/link p-0 hover:bg-transparent text-primary font-bold"
                           >
                             <Link
-                              href="/contact-us"
+                              href={localePath(language, "/contact-us")}
                               className="flex items-center gap-2"
                             >
                               {t_ui.discuss}
@@ -316,7 +315,7 @@ export function ServicesContent() {
                           </Button>
                         </div>
                       </div>
-                    </motion.div>
+                    </m.div>
                   </AnimatePresence>
                 </div>
               </div>
@@ -327,7 +326,7 @@ export function ServicesContent() {
               {services.map((service, index) => {
                 const Icon = serviceIcons[service.name] || Gamepad2;
                 return (
-                  <motion.div
+                  <m.div
                     key={index}
                     initial={{ opacity: 0, y: 16 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -341,7 +340,7 @@ export function ServicesContent() {
                       alt=""
                       width={80}
                       height={80}
-                      className="absolute -right-2 -bottom-2 w-16 h-16 object-contain opacity-10 group-hover:opacity-20 transition-opacity duration-300"
+                      className="absolute -end-2 -bottom-2 w-16 h-16 object-contain opacity-10 group-hover:opacity-20 transition-opacity duration-300"
                     />
                     <div className="relative z-10 flex items-start gap-4">
                       <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-black transition-all duration-300">
@@ -356,7 +355,7 @@ export function ServicesContent() {
                         </p>
                       </div>
                     </div>
-                  </motion.div>
+                  </m.div>
                 );
               })}
             </div>
@@ -382,7 +381,7 @@ export function ServicesContent() {
 
             <div className="max-w-5xl mx-auto space-y-6">
               {processSteps.map((step, index) => (
-                <motion.div
+                <m.div
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -417,11 +416,11 @@ export function ServicesContent() {
 
                   {/* Step connector arrow (hidden on last) */}
                   {index < processSteps.length - 1 && (
-                    <div className="hidden md:block absolute -bottom-4 left-12 z-10">
+                    <div className="hidden md:block absolute -bottom-4 start-12 z-10">
                       <div className="w-px h-4 bg-white/10 mx-auto" />
                     </div>
                   )}
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -450,7 +449,7 @@ export function ServicesContent() {
                 { src: assets.unity, label: "Unity" },
                 { src: assets.unrealEngine, label: "Unreal Engine" },
               ].map((engine) => (
-                <motion.div
+                <m.div
                   key={engine.label}
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -471,7 +470,7 @@ export function ServicesContent() {
                   <span className="text-sm text-muted-foreground group-hover:text-white transition-colors">
                     {engine.label}
                   </span>
-                </motion.div>
+                </m.div>
               ))}
             </div>
           </div>
@@ -481,7 +480,7 @@ export function ServicesContent() {
             CTA
         ══════════════════════════════════════ */}
         <section className="container pb-20 md:pb-28">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -501,7 +500,7 @@ export function ServicesContent() {
                 asChild
                 className="rounded-full bg-white text-black hover:bg-primary hover:text-white transition-all duration-300 font-bold px-8 h-12 text-base"
               >
-                <Link href="/contact-us" className="flex items-center gap-2">
+                <Link href={localePath(language, "/contact-us")} className="flex items-center gap-2">
                   {t_ui.cta_button}
                   <ArrowRight
                     className={cn(
@@ -512,7 +511,7 @@ export function ServicesContent() {
                 </Link>
               </Button>
             </div>
-          </motion.div>
+          </m.div>
         </section>
 
       </main>

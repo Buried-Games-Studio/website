@@ -1,6 +1,6 @@
 "use client";
 
-import { useLanguage } from "@/contexts/language-context";
+import { type Locale } from "@/lib/i18n";
 import { getGameData } from "@/lib/content";
 import { getGameTheme } from "@/lib/themes/game-themes";
 import { GameThemeProvider } from "@/components/providers/game-theme-provider";
@@ -40,8 +40,8 @@ const storeImageMap: Record<string, string> = {
   "downloadAppStoreImage.png": assets.downloadAppStore,
 };
 
-export function GameDetailContent({ slug }: { slug: string }) {
-  const { language } = useLanguage();
+export function GameDetailContent({ slug, locale }: { slug: string; locale: Locale }) {
+  const language = locale;
   const game = getGameData(slug);
 
   if (!game) return null;

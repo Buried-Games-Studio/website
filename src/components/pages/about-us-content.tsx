@@ -1,23 +1,23 @@
 "use client";
 
 import Image from "next/image";
-import { useLanguage } from "@/contexts/language-context";
+import Link from "next/link";
+import { localePath, type Locale } from "@/lib/i18n";
 import { getTranslation } from "@/lib/content";
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { Users, Heart, Wand2, ShieldCheck, Handshake, Target, ArrowRight } from "lucide-react";
 import { assets } from "@/lib/assets";
 import dynamic from "next/dynamic";
 const ParticlesBackground = dynamic(() => import("@/components/particles-background").then(mod => mod.ParticlesBackground), { ssr: false });
 
-export function AboutUsContent() {
-  const { language } = useLanguage();
+export function AboutUsContent({ locale }: { locale: Locale }) {
+  const language = locale;
   const t = getTranslation(language);
+  const isRTL = language === "ar";
 
   const t_ui = {
     en: {
       page_title: "About Buried Games",
-      page_subtitle: "We don't just build games. We craft worlds.",
       contact_title: "Join Our Journey",
       contact_subtitle: "Whether you're a player, partner, or creator, we want to hear from you.",
       contact_cta: "Get In Touch",
@@ -25,11 +25,15 @@ export function AboutUsContent() {
       our_story_title: "The Origin Story",
       mission_label: "Our Mission",
       partners_title: "Strategic Partners",
-      founder_role: "Founder & Lead Developer"
+      founder_role: "Founder & Lead Developer",
+      studio_profile: "Studio Profile",
+      established: "Est. 2018",
+      studio_name: "Buried Games Studio",
+      studio_head: "Studio Head",
+      founder_quote: "I started Buried Games with a simple belief: games should be immersive, challenging, and respectful of the player's time. We are building the games we always wanted to play.",
     },
     ar: {
       page_title: "عن بريد جيمز",
-      page_subtitle: "نحن لا نصنع الألعاب فقط. نحن نصنع عوالم.",
       contact_title: "انضم إلى رحلتنا",
       contact_subtitle: "سواء كنت لاعبًا أو شريكًا أو مبدعًا، نود أن نسمع منك.",
       contact_cta: "تواصل معنا",
@@ -37,7 +41,12 @@ export function AboutUsContent() {
       our_story_title: "قصة البداية",
       mission_label: "مهمتنا",
       partners_title: "شركاء النجاح",
-      founder_role: "المؤسس والمطور الرئيسي"
+      founder_role: "المؤسس والمطور الرئيسي",
+      studio_profile: "ملف الاستوديو",
+      established: "تأسس 2018",
+      studio_name: "استوديو بريد جيمز",
+      studio_head: "رئيس الاستوديو",
+      founder_quote: "أسّست بريد جيمز بإيمان بسيط: يجب أن تكون الألعاب غامرة وتمثّل تحديًا وتحترم وقت اللاعب. نحن نصنع الألعاب التي طالما أردنا أن نلعبها.",
     },
   }[language];
 
@@ -68,7 +77,7 @@ export function AboutUsContent() {
           <div className="relative z-20 container text-center space-y-6">
             <div className="inline-block animate-fade-up [animation-delay:200ms] opacity-0 fill-mode-forwards">
                 <span className="px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold tracking-widest text-accent uppercase backdrop-blur-md">
-                    Studio Profile
+                    {t_ui.studio_profile}
                 </span>
             </div>
             <h1 className="text-5xl md:text-7xl font-headline font-bold tracking-wide text-white animate-fade-up [animation-delay:400ms] opacity-0 fill-mode-forwards">
@@ -87,7 +96,7 @@ export function AboutUsContent() {
                 {/* Left: Story */}
                 <div className="space-y-8 relative">
                      {/* Vertical Line Decoration */}
-                     <div className="absolute -left-8 top-0 bottom-0 w-px bg-gradient-to-b from-accent via-white/10 to-transparent hidden lg:block" />
+                     <div className="absolute -start-8 top-0 bottom-0 w-px bg-gradient-to-b from-accent via-white/10 to-transparent hidden lg:block" />
 
                      <div>
                         <h2 className="text-4xl font-headline font-bold mb-6 flex items-center gap-3">
@@ -101,13 +110,13 @@ export function AboutUsContent() {
                      </div>
 
                      {/* Mission Card (Embedded) */}
-                     <div className="bg-secondary/20 border-l-4 border-accent p-8 rounded-r-xl backdrop-blur-sm">
+                     <div className="bg-secondary/20 border-s-4 border-accent p-8 rounded-e-xl backdrop-blur-sm">
                          <div className="flex items-center gap-3 mb-4 text-accent">
                              <Target className="w-6 h-6" />
                              <h3 className="font-bold uppercase tracking-wider">{t_ui.mission_label}</h3>
                          </div>
                          <p className="text-white text-lg font-medium italic">
-                             "{t.about_page.mission_text}"
+                             &ldquo;{t.about_page.mission_text}&rdquo;
                          </p>
                      </div>
                 </div>
@@ -116,15 +125,15 @@ export function AboutUsContent() {
                 <div className="relative h-full min-h-[400px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
                      <Image
                         src={assets.aboutSection}
-                        alt="Studio Environment"
+                        alt={t_ui.studio_name}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
 
-                    <div className="absolute bottom-8 left-8 right-8">
-                        <div className="text-white/80 text-sm font-mono uppercase tracking-widest mb-2">Est. 2018</div>
-                        <div className="text-2xl font-bold text-white">Buried Games Studio</div>
+                    <div className="absolute bottom-8 start-8 end-8">
+                        <div className="text-white/80 text-sm font-mono uppercase tracking-widest mb-2">{t_ui.established}</div>
+                        <div className="text-2xl font-bold text-white">{t_ui.studio_name}</div>
                     </div>
                 </div>
             </div>
@@ -183,17 +192,17 @@ export function AboutUsContent() {
 
                                  {/* Content Side */}
                                  <div className="md:col-span-7 p-8 md:p-16 flex flex-col justify-center relative z-10">
-                                     <div className="absolute top-8 right-8 opacity-20 group-hover:opacity-100 transition-opacity">
-                                         <ArrowRight className="w-8 h-8 -rotate-45 group-hover:rotate-0 transition-transform duration-300 text-accent" />
+                                     <div className="absolute top-8 end-8 opacity-20 group-hover:opacity-100 transition-opacity">
+                                         <ArrowRight className={`w-8 h-8 transition-transform duration-300 text-accent ${isRTL ? "rotate-[225deg] group-hover:rotate-180" : "-rotate-45 group-hover:rotate-0"}`} />
                                      </div>
 
                                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-bold tracking-widest uppercase w-fit mb-4">
-                                         Studio Head
+                                         {t_ui.studio_head}
                                      </div>
                                      <h3 className="text-4xl md:text-5xl font-headline font-bold mb-2 text-white">{member.name}</h3>
                                      <p className="text-xl text-accent mb-6">{t_ui.founder_role}</p>
                                      <p className="text-muted-foreground leading-relaxed">
-                                         "I started Buried Games with a simple belief: games should be immersive, challenging, and respectful of the player's time. We are building the games we always wanted to play."
+                                         &ldquo;{t_ui.founder_quote}&rdquo;
                                      </p>
                                  </div>
                              </div>
@@ -244,7 +253,7 @@ export function AboutUsContent() {
                     <h2 className="text-4xl md:text-5xl font-headline font-bold mb-4 text-white">{t_ui.contact_title}</h2>
                     <p className="text-xl text-muted-foreground mb-8">{t_ui.contact_subtitle}</p>
                     <Button asChild size="lg" className="bg-white text-black hover:bg-white/90 font-bold px-8 py-6 rounded-full text-lg">
-                        <Link href="/contact-us">{t_ui.contact_cta}</Link>
+                        <Link href={localePath(language, "/contact-us")}>{t_ui.contact_cta}</Link>
                     </Button>
                 </div>
             </div>

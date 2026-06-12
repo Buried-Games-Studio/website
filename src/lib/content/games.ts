@@ -108,7 +108,7 @@ export const gamesContent = [
     title: 'Power of Bombs',
     status: 'development',
     engine: 'Unreal Engine',
-    logoUrl: '/components/images/powerofbombsIconTransparent.png',
+    logoUrl: 'https://assets.buriedgames.com/images/powerofbombsIconTransparent.png',
     description: {
       en: 'An explosive action-packed arcade game. Strategize your way through challenging levels, plant bombs, and blast your enemies to bits!',
       ar: 'لعبة أركيد مليئة بالإثارة والمتفجرات. ضع استراتيجيتك عبر مستويات صعبة ، وازرع القنابل ، وانسف أعدائك إلى أشلاء!',
@@ -141,7 +141,7 @@ export const gamesContent = [
     title: 'KoutQ8',
     status: 'released',
     engine: 'Unity',
-    logoUrl: '/components/images/Koutq8Logo.png',
+    logoUrl: 'https://assets.buriedgames.com/images/Koutq8Logo.png',
     description: {
       en: 'A digital adaptation of the popular traditional card game Kout. Play with friends online and prove you are the Kout master.',
       ar: 'نسخة رقمية من لعبة الورق التقليدية الشهيرة الكوت. العب مع الأصدقاء عبر الإنترنت وأثبت أنك سيد الكوت.',

@@ -1,14 +1,24 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
+import { m } from "framer-motion";
 import { Construction, Globe, Bolt, Monitor, ArrowDown } from "lucide-react";
 import { type GameTheme } from "@/lib/themes/game-themes";
 import { heroTextStagger, clipRevealWord } from "@/lib/motion/variants";
 import { cn } from "@/lib/utils";
 import { useState, useEffect, useMemo } from "react";
-import ReactPlayer from "react-player";
+
+/**
+ * Pull the 11-char video id out of a youtube.com/watch, youtu.be, or
+ * youtube.com/embed URL so we can build a poster thumbnail without booting
+ * a player. Returns null for anything that isn't a recognizable YouTube URL.
+ */
+function youTubeId(url: string): string | null {
+  const match = url.match(
+    /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/))([\w-]{11})/
+  );
+  return match ? match[1] : null;
+}
 
 function ClientParticles({ count, type }: { count: number; type: "sparkle" | "ember" }) {
   const [mounted, setMounted] = useState(false);
@@ -30,7 +40,7 @@ function ClientParticles({ count, type }: { count: number; type: "sparkle" | "em
   return (
     <>
       {particles.map((p, i) => (
-        <motion.div
+        <m.div
           key={i}
           className={cn("absolute z-10", type === "sparkle" ? "w-1 h-1 rounded-full bg-yellow-400/60" : "w-1.5 h-1.5 rounded-full")}
           style={{
@@ -84,7 +94,9 @@ export function GameHeroSection({ game, theme, language, gameLogo, heroSrc }: Ga
   const [isClient, setIsClient] = useState(false);
   useEffect(() => { setIsClient(true); }, []);
 
-  const isYoutubeVideo = game.heroVideo && (game.heroVideo.includes("youtube.com") || game.heroVideo.includes("youtu.be"));
+  // Thumbnail-first hero: for a YouTube heroVideo we render the poster frame
+  // instead of an autoplaying embed, keeping the heavy iframe off the page.
+  const heroYouTubeId = game.heroVideo ? youTubeId(game.heroVideo) : null;
 
   const t_ui = {
     en: { status: "Status", underDev: "In Development", released: "Live Ops", completed: "Completed", engine: "Engine", platform: "Platform" },
@@ -97,9 +109,16 @@ export function GameHeroSection({ game, theme, language, gameLogo, heroSrc }: Ga
     <section className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
       {/* Background Media Layer */}
       <div className="absolute inset-0 z-0">
-        {isClient && isYoutubeVideo ? (
-          <div className="absolute inset-0 z-0 w-full h-full player-wrapper pointer-events-none scale-125">
-            <ReactPlayer url={game.heroVideo} className="react-player" playing loop muted width="100%" height="100%" playsinline config={{ youtube: { playerVars: { showinfo: 0, controls: 0, disablekb: 1 } } }} />
+        {heroYouTubeId ? (
+          <div className="absolute inset-0 z-0 w-full h-full pointer-events-none scale-125">
+            <Image
+              src={`https://img.youtube.com/vi/${heroYouTubeId}/maxresdefault.jpg`}
+              alt={`${game.title} Hero`}
+              fill
+              sizes="100vw"
+              className="object-cover opacity-70"
+              priority
+            />
           </div>
         ) : isClient && game.heroVideo ? (
           <div className="absolute inset-0 overflow-hidden">
@@ -138,7 +157,7 @@ export function GameHeroSection({ game, theme, language, gameLogo, heroSrc }: Ga
             <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-transparent to-background/80 z-10" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.85)_100%)] z-10" />
             {/* Gradient mesh orb */}
-            <motion.div
+            <m.div
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full z-[5] opacity-20"
               style={{ background: `radial-gradient(circle, ${theme.colors.gradientFrom}40, transparent 70%)` }}
               animate={{ scale: [1, 1.1, 1], opacity: [0.15, 0.25, 0.15] }}
@@ -153,7 +172,7 @@ export function GameHeroSection({ game, theme, language, gameLogo, heroSrc }: Ga
             <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-transparent to-black/90 z-10" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.9)_100%)] z-10" />
             {/* Blood-red ambient glow */}
-            <motion.div
+            <m.div
               className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full z-[5] opacity-15"
               style={{ background: "radial-gradient(ellipse, rgba(194,58,58,0.4), transparent 70%)" }}
               animate={{ scale: [1, 1.05, 1], opacity: [0.1, 0.2, 0.1] }}
@@ -169,7 +188,7 @@ export function GameHeroSection({ game, theme, language, gameLogo, heroSrc }: Ga
       <div className="relative z-20 container h-full flex flex-col justify-center items-center text-center pt-20">
         {/* Logo */}
         {gameLogo && (
-          <motion.div
+          <m.div
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -188,11 +207,11 @@ export function GameHeroSection({ game, theme, language, gameLogo, heroSrc }: Ga
                 theme.layout === "noir-mafia" && "drop-shadow-[0_0_25px_rgba(212,168,83,0.5)]"
               )}
             />
-          </motion.div>
+          </m.div>
         )}
 
         {/* Title with staggered word reveal */}
-        <motion.h1
+        <m.h1
           variants={heroTextStagger}
           initial="hidden"
           animate="visible"
@@ -202,7 +221,7 @@ export function GameHeroSection({ game, theme, language, gameLogo, heroSrc }: Ga
           )}
         >
           {titleWords.map((word: string, i: number) => (
-            <motion.span
+            <m.span
               key={i}
               variants={clipRevealWord}
               className={cn(
@@ -214,22 +233,22 @@ export function GameHeroSection({ game, theme, language, gameLogo, heroSrc }: Ga
               )}
             >
               {word}
-            </motion.span>
+            </m.span>
           ))}
-        </motion.h1>
+        </m.h1>
 
         {/* Description */}
-        <motion.p
+        <m.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.6 }}
           className="mt-6 text-lg text-muted-foreground max-w-2xl"
         >
           {game.description[language]}
-        </motion.p>
+        </m.p>
 
         {/* HUD Stats Bar */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.6 }}
@@ -250,27 +269,27 @@ export function GameHeroSection({ game, theme, language, gameLogo, heroSrc }: Ga
             value={game.slug === "koutq8" ? "Mobile / Web" : "Web / PC"}
             layout={theme.layout}
           />
-        </motion.div>
+        </m.div>
 
         {/* Scroll Indicator */}
-        <motion.div
+        <m.div
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
         >
-          <motion.div
+          <m.div
             className="w-px h-8 bg-gradient-to-b from-primary/60 to-transparent"
             animate={{ scaleY: [0.5, 1, 0.5], opacity: [0.3, 0.8, 0.3] }}
             transition={{ duration: 2, repeat: Infinity }}
           />
-          <motion.div
+          <m.div
             animate={{ y: [0, 6, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
             <ArrowDown className="h-4 w-4 text-primary/50" />
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </div>
     </section>
   );

@@ -1,12 +1,12 @@
 "use client";
 
-import { useLanguage } from "@/contexts/language-context";
 import { ProjectsBentoGrid } from "@/components/ui/projects-bento-grid";
 import { gamesContent } from "@/lib/content/games";
 import { assets } from "@/lib/assets";
+import { type Locale } from "@/lib/i18n";
 
-export function GamesListingContent() {
-  const { language } = useLanguage();
+export function GamesListingContent({ locale }: { locale: Locale }) {
+  const language = locale;
 
   const gameImageMap: { [key: string]: string } = {
     'power-of-bombs': assets.powerOfBombsLogo,

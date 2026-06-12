@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/language-context";
+import { localePath } from "@/lib/i18n";
 
 interface GameCard3DProps {
     id: string;
@@ -15,6 +17,7 @@ interface GameCard3DProps {
 }
 
 export const GameCard3D = ({ id, title, description, image, slug, tags }: GameCard3DProps) => {
+    const { language } = useLanguage();
     const cardRef = useRef<HTMLDivElement>(null);
     const [rotation, setRotation] = useState({ x: 0, y: 0 });
     const [isHovered, setIsHovered] = useState(false);
@@ -42,7 +45,7 @@ export const GameCard3D = ({ id, title, description, image, slug, tags }: GameCa
     };
 
     return (
-        <Link href={`/games/${slug}`} className="block perspective-1000">
+        <Link href={localePath(language, `/games/${slug}`)} className="block perspective-1000">
             <div
                 ref={cardRef}
                 onMouseMove={handleMouseMove}
@@ -69,7 +72,7 @@ export const GameCard3D = ({ id, title, description, image, slug, tags }: GameCa
                 </div>
 
                 {/* Content */}
-                <div className="absolute bottom-0 left-0 w-full p-6 translate-z-20">
+                <div className="absolute bottom-0 start-0 w-full p-6 translate-z-20">
                     <div className="mb-2 flex flex-wrap gap-2">
                         {tags?.map((tag) => (
                             <span key={tag} className="rounded-full bg-primary/20 px-2 py-1 text-xs text-primary backdrop-blur-sm border border-primary/20">

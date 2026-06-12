@@ -8,6 +8,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { useLanguage } from "@/contexts/language-context"
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
@@ -58,8 +59,12 @@ const Carousel = React.forwardRef<
     },
     ref
   ) => {
+    const { language } = useLanguage()
     const [carouselRef, api] = useEmblaCarousel(
       {
+        // Default the reading direction from the active locale so every
+        // consumer is RTL-aware; an explicit opts.direction still wins.
+        direction: language === "ar" ? "rtl" : "ltr",
         ...opts,
         axis: orientation === "horizontal" ? "x" : "y",
       },
@@ -85,17 +90,21 @@ const Carousel = React.forwardRef<
       api?.scrollNext()
     }, [api])
 
+    const isRTL = language === "ar"
     const handleKeyDown = React.useCallback(
       (event: React.KeyboardEvent<HTMLDivElement>) => {
+        // Mirror arrow keys in RTL so left/right match the visual direction.
         if (event.key === "ArrowLeft") {
           event.preventDefault()
-          scrollPrev()
+          if (isRTL) scrollNext()
+          else scrollPrev()
         } else if (event.key === "ArrowRight") {
           event.preventDefault()
-          scrollNext()
+          if (isRTL) scrollPrev()
+          else scrollNext()
         }
       },
-      [scrollPrev, scrollNext]
+      [scrollPrev, scrollNext, isRTL]
     )
 
     React.useEffect(() => {
@@ -216,7 +225,7 @@ const CarouselPrevious = React.forwardRef<
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft className="h-4 w-4" />
+      <ArrowLeft className="h-4 w-4 rtl:rotate-180" />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -245,7 +254,7 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight className="h-4 w-4" />
+      <ArrowRight className="h-4 w-4 rtl:rotate-180" />
       <span className="sr-only">Next slide</span>
     </Button>
   )
