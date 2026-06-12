@@ -31,7 +31,16 @@ export function proxy(request: NextRequest) {
     return new NextResponse(null, { status: 403 });
   }
 
-  const hostname = request.headers.get('host') || '';
+  // Behind Firebase App Hosting the Host header is the internal *.hosted.app
+  // origin; the public host arrives in X-Forwarded-Host. Trust it first, or
+  // the indexability gate noindexes production and www-strip never fires.
+  const hostname = (
+    request.headers.get('x-forwarded-host') ??
+    request.headers.get('host') ??
+    ''
+  )
+    .split(',')[0]
+    .trim();
 
   const isWww = hostname.startsWith('www.');
   const hasTrailingSlash =
