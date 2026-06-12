@@ -11,7 +11,8 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "indexnow": "node scripts/submit-indexnow.mjs"
+    "indexnow": "node scripts/submit-indexnow.mjs",
+    "after-deploy": "node scripts/purge-cdn.mjs && node scripts/submit-indexnow.mjs"
   },
   "dependencies": {
     "@genkit-ai/googleai": "^1.27.0",
