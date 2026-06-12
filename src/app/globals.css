@@ -27,7 +27,9 @@
     /* Primary - Bloody Red (Crimson/Ruby) */
     --primary: 0 100% 50%;
     /* Pure Red or slightly darker like 348 100% 60% */
-    --primary-foreground: 0 0% 98%;
+    /* Near-black on the crimson: white text on bg-primary measured 3.93:1,
+       below the 4.5:1 AA floor for normal-size button labels. */
+    --primary-foreground: 240 6% 8%;
 
     /* Secondary - Dark Blood / Charcoal */
     --secondary: 0 100% 20%;
@@ -71,7 +73,9 @@
     /* Crimson, not pure #FF0000: warmer, less harsh, still unmistakably the
        brand red. Passes AA on the dark base for text-size accents. */
     --primary: 355 84% 56%;
-    --primary-foreground: 0 0% 98%;
+    /* Near-black on the crimson: white text on bg-primary measured 3.93:1,
+       below the 4.5:1 AA floor for normal-size button labels. */
+    --primary-foreground: 240 6% 8%;
     --secondary: 0 45% 14%;
     --secondary-foreground: 0 0% 96%;
     --accent: 45 100% 50%;

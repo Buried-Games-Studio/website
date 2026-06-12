@@ -123,7 +123,6 @@ export function HomeContent({ locale }: { locale: Locale }) {
       contact_subtitle:
         "Tell us what you're building and we'll show you how we can help.",
       contact_cta: "Start your project",
-      cta_whatsapp_aria: "Chat with Buried Games on WhatsApp",
       or: "or",
       whatsapp_us: "message us on WhatsApp",
       // FAQ
@@ -156,7 +155,6 @@ export function HomeContent({ locale }: { locale: Locale }) {
       contact_title: "لديك مشروع في ذهنك؟",
       contact_subtitle: "أخبرنا بما تبنيه وسنريك كيف يمكننا المساعدة.",
       contact_cta: "ابدأ مشروعك",
-      cta_whatsapp_aria: "تواصل مع بريد جيمز عبر واتساب",
       or: "أو",
       whatsapp_us: "راسلنا على واتساب",
       faq_label: "معلومات مفيدة",
@@ -546,7 +544,7 @@ export function HomeContent({ locale }: { locale: Locale }) {
                   transition={{ delay: index * 0.06, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                   className="relative"
                 >
-                  <div className="font-headline font-bold text-6xl text-foreground/10 leading-none tracking-tight">
+                  <div aria-hidden="true" className="font-headline font-bold text-6xl text-foreground/10 leading-none tracking-tight">
                     {String(index + 1).padStart(2, "0")}
                   </div>
                   <h3 className="text-base md:text-lg font-bold text-foreground mt-2">
@@ -701,11 +699,12 @@ export function HomeContent({ locale }: { locale: Locale }) {
                 </Button>
                 <p className="text-sm text-foreground/55">
                   {t_ui.or}{" "}
+                  {/* No aria-label: the visible text is the accessible name —
+                      a label that differs from visible text fails WCAG 2.5.3. */}
                   <a
                     href={WHATSAPP_HREF}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label={t_ui.cta_whatsapp_aria}
                     onClick={() => trackWhatsAppClick("home_cta")}
                     className="inline-flex items-center gap-1.5 text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors"
                   >

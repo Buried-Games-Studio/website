@@ -59,7 +59,7 @@ function ExplosiveCard({ feature, index, language }: { feature: any; index: numb
       )}
     >
       {/* Number badge */}
-      <div className="absolute top-4 right-4 text-5xl font-black text-orange-500/10 group-hover:text-orange-500/20 transition-colors select-none">
+      <div aria-hidden="true" className="absolute top-4 right-4 text-5xl font-black text-orange-500/10 group-hover:text-orange-500/20 transition-colors select-none">
         {String(index + 1).padStart(2, "0")}
       </div>
 

@@ -36,6 +36,9 @@ const nextConfig: NextConfig = {
     // Tree-shake barrel imports so icon/animation libs only ship what each
     // page actually uses (lucide-react alone is ~1MB unshaken).
     optimizePackageImports: ['lucide-react', 'framer-motion'],
+    // Inline the ~22KB of CSS into the HTML: the two stylesheet requests were
+    // the last render-blocking round-trips in the critical path.
+    inlineCss: true,
   },
   images: {
     // Cloudflare Image Transformations instead of the built-in optimizer:

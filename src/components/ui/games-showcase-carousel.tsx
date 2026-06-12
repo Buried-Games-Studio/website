@@ -224,13 +224,18 @@ export function GamesShowcaseCarousel({ projects, language }: GamesShowcaseCarou
               onClick={() => emblaApi?.scrollTo(index)}
               aria-label={t_nav.goTo(index + 1)}
               aria-current={index === selectedIndex ? "true" : undefined}
-              className={cn(
-                "h-2 rounded-full transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-                index === selectedIndex
-                  ? "w-8 bg-primary"
-                  : "w-2 bg-foreground/20 hover:bg-foreground/40"
-              )}
-            />
+              // 24px minimum touch target; the visual dot stays small inside.
+              className="group/dot flex h-6 min-w-6 items-center justify-center px-1 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
+              <span
+                className={cn(
+                  "h-2 rounded-full transition-all duration-300",
+                  index === selectedIndex
+                    ? "w-8 bg-primary"
+                    : "w-2 bg-foreground/20 group-hover/dot:bg-foreground/40"
+                )}
+              />
+            </button>
           ))}
         </div>
 

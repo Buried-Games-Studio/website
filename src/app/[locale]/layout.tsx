@@ -213,7 +213,7 @@ export default async function RootLayout({
               <Suspense>
                 <SurveyModal />
               </Suspense>
-              <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:start-4 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-md">
+              <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-[100] focus:top-4 focus:start-4 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md">
                 {locale === 'ar' ? 'تخطي إلى المحتوى الرئيسي' : 'Skip to main content'}
               </a>
               <div className="relative flex min-h-screen flex-col">
