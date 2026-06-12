@@ -38,47 +38,12 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
   images: {
-    // Serve AVIF first, WebP fallback — the hero JPEG is the largest mobile
-    // payload and AVIF cuts it severalfold through the image optimizer.
-    formats: ['image/avif', 'image/webp'],
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'placehold.co',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'cdn-icons-png.flaticon.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'picsum.photos',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'img.youtube.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'lunarian.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'assets.buriedgames.com',
-        port: '',
-        pathname: '/**',
-      },
-    ],
+    // Cloudflare Image Transformations instead of the built-in optimizer:
+    // Firebase App Hosting's adapter disables /_next/image at build time, so
+    // production shipped original multi-MB assets. The custom loader rewrites
+    // every next/image src to /cdn-cgi/image (resize + AVIF/WebP at the edge).
+    loader: 'custom',
+    loaderFile: './src/lib/cloudflare-image-loader.ts',
   },
   async redirects() {
     return [

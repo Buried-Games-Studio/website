@@ -192,10 +192,11 @@ export default async function RootLayout({
   return (
     <html lang={locale} dir={textDirection(locale)} className={`${cairo.variable} ${inter.variable} ${spaceGrotesk.variable} dark`}>
       <head>
-        <link rel="preconnect" href="https://assets.buriedgames.com" />
+        {/* crossOrigin variant: the Afolkalips @font-face fetches with CORS,
+            which needs its own preconnected socket. Images now come from
+            /cdn-cgi/image on this origin, so no plain-socket hint is needed. */}
+        <link rel="preconnect" href="https://assets.buriedgames.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://assets.buriedgames.com" />
-        <link rel="preconnect" href="https://cdn-icons-png.flaticon.com" />
-        <link rel="dns-prefetch" href="https://cdn-icons-png.flaticon.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
@@ -226,11 +227,13 @@ export default async function RootLayout({
             </SmoothScroll>
           </MotionProvider>
         </LanguageProvider>
+        {/* lazyOnload: analytics has no business in the critical path — it was
+            160KB of the "reduce unused JavaScript" audit. */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-5T83FCTGPZ"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="gtag-init" strategy="afterInteractive">
+        <Script id="gtag-init" strategy="lazyOnload">
           {`window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());

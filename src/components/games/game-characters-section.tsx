@@ -62,7 +62,6 @@ export function GameCharactersSection({ characters, theme, language }: GameChara
                   height={120}
                   className="object-contain"
                   style={{ imageRendering: "pixelated" }}
-                  unoptimized
                 />
               </div>
               <span className="mt-3 text-sm font-bold text-white/80 group-hover:text-yellow-400 transition-colors">

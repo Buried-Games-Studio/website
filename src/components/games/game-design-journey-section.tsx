@@ -61,7 +61,6 @@ export function GameDesignJourneySection({ assets, trailerUrl, theme, language }
                     height={200}
                     className="object-contain"
                     style={{ imageRendering: "pixelated" }}
-                    unoptimized
                   />
                 </div>
                 <p className="text-sm font-bold text-center text-white/70 group-hover:text-yellow-400 transition-colors">
