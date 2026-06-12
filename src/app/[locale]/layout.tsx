@@ -17,17 +17,21 @@ import { PageTransition } from '@/components/providers/page-transition';
 import { MotionProvider } from '@/components/providers/lazy-motion';
 import { locales, isLocale, languageAlternates, ogLocale, textDirection, type Locale } from '@/lib/i18n';
 
+// display: 'optional' on all three: with 'swap', the H1 repainted when the
+// webfont arrived and that repaint became the LCP entry (~8s simulated on
+// mobile). 'optional' paints the metrically-adjusted fallback with no swap on
+// cold visits and uses the cached webfont on every visit after.
 const cairo = Cairo({
   subsets: ['arabic', 'latin'],
   weight: ['400', '700'],
   variable: '--font-cairo',
-  display: 'swap',
+  display: 'optional',
 });
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
-  display: 'swap',
+  display: 'optional',
 });
 
 // Heading face. The pixel display font (afolkalips) is reserved for the
@@ -36,7 +40,7 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   weight: ['500', '700'],
   variable: '--font-space-grotesk',
-  display: 'swap',
+  display: 'optional',
 });
 
 const organizationSchema = {
