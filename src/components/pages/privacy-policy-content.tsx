@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { m } from "framer-motion";
 import { type Locale } from "@/lib/i18n";
 
 export function PrivacyPolicyContent({ locale }: { locale: Locale }) {
@@ -13,24 +14,49 @@ export function PrivacyPolicyContent({ locale }: { locale: Locale }) {
 
   const t = {
     en: {
-        title: "Privacy Policy",
-        content: "This is a placeholder for the Privacy Policy. Replace this with your actual policy content.",
-        lastUpdated: "Last updated:",
+      eyebrow: "Legal",
+      title: "Privacy Policy",
+      content: "This is a placeholder for the Privacy Policy. Replace this with your actual policy content.",
+      lastUpdated: "Last updated:",
     },
     ar: {
-        title: "سياسة الخصوصية",
-        content: "هذا محتوى مؤقت لسياسة الخصوصية. يرجى استبداله بمحتوى سياستك الفعلي.",
-        lastUpdated: "آخر تحديث:",
-    }
+      eyebrow: "قانوني",
+      title: "سياسة الخصوصية",
+      content: "هذا محتوى مؤقت لسياسة الخصوصية. يرجى استبداله بمحتوى سياستك الفعلي.",
+      lastUpdated: "آخر تحديث:",
+    },
   }[language];
 
   return (
-    <main className="container py-16 md:py-24">
-      <div className="prose dark:prose-invert max-w-none">
-        <h1 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline mb-8">{t.title}</h1>
-        <p>{t.content}</p>
-        <p>{t.lastUpdated} {lastUpdated}</p>
-      </div>
+    <main>
+      <section className="border-b border-border bg-card/40">
+        <div className="container max-w-3xl py-14 md:py-20">
+          <m.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <p className="flex items-center gap-3 text-[11px] md:text-xs font-medium tracking-[0.25em] text-foreground/60 uppercase mb-5">
+              <span aria-hidden="true" className="inline-block w-6 h-px bg-primary" />
+              {t.eyebrow}
+            </p>
+            <h1 className="font-headline font-bold tracking-tight text-3xl md:text-4xl text-foreground">
+              {t.title}
+            </h1>
+            {lastUpdated && (
+              <p className="mt-4 text-sm text-foreground/50">
+                {t.lastUpdated} {lastUpdated}
+              </p>
+            )}
+          </m.div>
+        </div>
+      </section>
+
+      <section className="container max-w-3xl py-14 md:py-20">
+        <article className="prose prose-invert max-w-none prose-headings:font-headline prose-headings:tracking-tight prose-a:text-foreground prose-a:underline prose-a:underline-offset-4 prose-a:decoration-primary/50 hover:prose-a:decoration-primary text-foreground/75 leading-relaxed">
+          <p>{t.content}</p>
+        </article>
+      </section>
     </main>
   );
 }

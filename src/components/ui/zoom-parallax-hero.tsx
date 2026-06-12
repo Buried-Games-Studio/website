@@ -1,38 +1,51 @@
 "use client";
-import { useScroll, useTransform, m } from "framer-motion";
+import { useScroll, useTransform, useReducedMotion, m, type MotionValue } from "framer-motion";
 import { useRef, useState, useEffect, useMemo } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight, ArrowDown } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/whatsapp";
 import { assets } from "@/lib/assets";
 import { useLanguage } from "@/contexts/language-context";
 import { localePath } from "@/lib/i18n";
 import { useMagnetic } from "@/hooks/use-magnetic";
-import { heroTextStagger, clipRevealWord } from "@/lib/motion/variants";
-import { trackHeroCTA } from "@/lib/google-analytics";
+import { trackHeroCTA, trackWhatsAppClick } from "@/lib/google-analytics";
 
-function HeroEmbers() {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => { setMounted(true); }, []);
+const WHATSAPP_HREF = "https://wa.me/96555528686";
 
+// Desktop, non-touch, motion-allowed. Drives whether we run scroll-linked
+// transforms, ember particles, and entrance animations at all. On mobile and
+// under prefers-reduced-motion the hero renders fully static and painted.
+function useHeroMotion() {
+  const prefersReduced = useReducedMotion();
+  const [enabled, setEnabled] = useState(false);
+  useEffect(() => {
+    if (prefersReduced) return;
+    const mql = window.matchMedia("(min-width: 768px) and (pointer: fine)");
+    const update = () => setEnabled(mql.matches);
+    update();
+    mql.addEventListener("change", update);
+    return () => mql.removeEventListener("change", update);
+  }, [prefersReduced]);
+  return enabled;
+}
+
+function HeroEmbers({ enabled }: { enabled: boolean }) {
   const particles = useMemo(() => {
-    if (!mounted) return [];
-    // Fewer particles on mobile to reduce animation overhead (INP)
-    const isMobile = window.matchMedia('(pointer: coarse)').matches;
-    const count = isMobile ? 8 : 25;
-    return Array.from({ length: count }, (_, i) => ({
+    if (!enabled) return [];
+    return Array.from({ length: 12 }, (_, i) => ({
       bottom: `${Math.random() * 20}%`,
       left: `${Math.random() * 100}%`,
-      bg: i % 3 === 0 ? "#ff0000" : i % 3 === 1 ? "#ff4400" : "#ffaa00",
+      bg: i % 3 === 0 ? "hsl(var(--primary))" : i % 3 === 1 ? "#ff4400" : "#ffaa00",
       yEnd: -200 - Math.random() * 400,
       xEnd: (Math.random() - 0.5) * 100,
-      duration: 4 + Math.random() * 6,
+      duration: 5 + Math.random() * 6,
       delay: Math.random() * 8,
     }));
-  }, [mounted]);
+  }, [enabled]);
 
-  if (!mounted) return null;
+  if (!enabled) return null;
 
   return (
     <div className="absolute inset-0 z-[11] pointer-events-none">
@@ -41,7 +54,7 @@ function HeroEmbers() {
           key={i}
           className="absolute w-1 h-1 rounded-full"
           style={{ bottom: p.bottom, left: p.left, background: p.bg }}
-          animate={{ opacity: [0, 0.7, 0], y: [0, p.yEnd], x: [0, p.xEnd] }}
+          animate={{ opacity: [0, 0.5, 0], y: [0, p.yEnd], x: [0, p.xEnd] }}
           transition={{ duration: p.duration, repeat: Infinity, delay: p.delay, ease: "easeOut" }}
         />
       ))}
@@ -49,7 +62,7 @@ function HeroEmbers() {
   );
 }
 
-const MagneticCTA = ({ children, className, href }: { children: React.ReactNode; className?: string; href: string }) => {
+const MagneticCTA = ({ children, className, href, onClick }: { children: React.ReactNode; className?: string; href: string; onClick?: () => void }) => {
   const { ref, x, y, handleMouseMove, handleMouseLeave } = useMagnetic(0.25);
   return (
     <m.div
@@ -59,7 +72,7 @@ const MagneticCTA = ({ children, className, href }: { children: React.ReactNode;
       onMouseLeave={handleMouseLeave}
     >
       <Button asChild size="lg" className={className}>
-        <Link href={href}>{children}</Link>
+        <Link href={href} onClick={onClick}>{children}</Link>
       </Button>
     </m.div>
   );
@@ -67,195 +80,207 @@ const MagneticCTA = ({ children, className, href }: { children: React.ReactNode;
 
 export const ZoomParallaxHero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const motionEnabled = useHeroMotion();
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
-  const borderRadius = useTransform(scrollYProgress, [0, 1], [0, 40]);
+  // Scroll-linked transforms only subscribe on desktop. On mobile the hero is
+  // static, so these MotionValues are created but never read into style.
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
+  const borderRadius = useTransform(scrollYProgress, [0, 1], [0, 32]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
-  const yText = useTransform(scrollYProgress, [0, 0.5], [0, -100]);
-  const bgY = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const yText = useTransform(scrollYProgress, [0, 0.5], [0, -80]);
+  const bgY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+
+  const wrapperStyle = motionEnabled ? { scale, borderRadius } : undefined;
+  const bgStyle = motionEnabled ? { y: bgY } : undefined;
+  const contentStyle = motionEnabled
+    ? ({ opacity, y: yText } as { opacity: MotionValue<number>; y: MotionValue<number> })
+    : undefined;
 
   const { language } = useLanguage();
   const isRTL = language === "ar";
 
+  // Title is split so exactly one phrase carries the accent color — accenting
+  // scattered words made the headline read as noise.
   const t_ui = {
     en: {
-      tagline: "Indie Game Studio",
-      title: "Crafting Worlds, One Game at a Time",
+      eyebrow: "Crafting Worlds, One Game at a Time",
+      title_pre: "A game development studio building for",
+      title_accent: "Kuwait & the GCC",
       subtitle:
-        "From concept to launch — strategy games, multiplayer experiences, and interactive entertainment crafted with passion.",
-      cta_games: "See Our Work",
-      cta_services: "Hire Us",
+        "Strategy games, multiplayer experiences, and mobile games — for clients and brands across the Gulf, alongside our own original titles.",
+      cta_primary: "Start your project",
+      cta_secondary: "See our games",
+      cta_whatsapp: "WhatsApp",
+      cta_whatsapp_aria: "Chat with Buried Games on WhatsApp",
     },
     ar: {
-      tagline: "استوديو ألعاب مستقل",
-      title: "نصنع عوالم، لعبة تلو الأخرى",
+      eyebrow: "نصنع عوالم، لعبة تلو الأخرى",
+      title_pre: "استوديو تطوير ألعاب يبني من أجل",
+      title_accent: "الكويت والخليج",
       subtitle:
-        "من الفكرة إلى الإطلاق — ألعاب استراتيجية، تجارب جماعية، وترفيه تفاعلي مصنوع بشغف.",
-      cta_games: "شاهد أعمالنا",
-      cta_services: "وظّفنا",
+        "ألعاب استراتيجية وتجارب جماعية وألعاب موبايل — للعملاء والعلامات التجارية في الخليج، إلى جانب ألعابنا الأصلية.",
+      cta_primary: "ابدأ مشروعك",
+      cta_secondary: "شاهد ألعابنا",
+      cta_whatsapp: "واتساب",
+      cta_whatsapp_aria: "تواصل مع بريد جيمز عبر واتساب",
     },
   }[language];
 
-  const titleWords = t_ui.title.split(" ");
+  const rise = (delay: number) =>
+    motionEnabled
+      ? {
+          initial: { opacity: 0, y: 24 },
+          animate: { opacity: 1, y: 0 },
+          transition: { delay, duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
+        }
+      : { initial: false as const, animate: { opacity: 1, y: 0 } };
 
   return (
-    <div ref={containerRef} className="h-[120vh] relative w-full">
-      <div className="sticky top-0 h-screen overflow-hidden bg-black">
+    <div ref={containerRef} className="relative w-full min-h-[92vh] md:h-[110vh]">
+      <div className="sticky top-0 min-h-[92vh] md:h-screen overflow-hidden bg-background">
         <m.div
-          style={{ scale, borderRadius }}
-          className="relative w-full h-full overflow-hidden"
+          style={wrapperStyle}
+          className="relative w-full min-h-[92vh] md:h-full overflow-hidden"
         >
-          {/* Background Image with parallax */}
-          <m.div className="absolute inset-0" style={{ y: bgY }}>
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 mix-blend-overlay z-10" />
+          {/* Background: CSS gradient on mobile (no image cost), dim textured
+              image on desktop where it is barely visible at 30% opacity. */}
+          <m.div className="absolute inset-0" style={bgStyle}>
+            <div className="absolute inset-0 bg-gradient-to-b from-secondary/40 via-background to-background md:hidden" />
             <Image
               src={assets.heroCollage}
-              alt="Hero Background"
+              alt=""
+              aria-hidden="true"
               fill
               sizes="100vw"
-              className="object-cover opacity-30 scale-110"
+              quality={40}
+              className="hidden md:block object-cover opacity-30 scale-110"
               priority
             />
           </m.div>
 
-          {/* Animated ember particles (deterministic positions to avoid hydration mismatch) */}
-          <HeroEmbers />
+          <HeroEmbers enabled={motionEnabled} />
 
-          {/* Vignette + darkening */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.9)_100%)] z-[12]" />
-          <div className="absolute inset-0 bg-black/40 z-[12]" />
+          {/* Vignette + bottom fade into the page background */}
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_0%,hsl(var(--background))_95%)] z-[12]" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent z-[12]" />
 
-          {/* Content Overlay */}
+          {/* Content */}
           <m.div
-            style={{ opacity, y: yText }}
-            className="absolute inset-0 flex flex-col items-center justify-center z-20 text-center px-4"
+            style={contentStyle}
+            className="absolute inset-0 flex flex-col items-center justify-center z-20 text-center px-5"
           >
-            {/* Logo with glow */}
-            <m.div
-              className="relative w-24 h-24 md:w-32 md:h-32 mb-6 group"
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <div className="absolute inset-0 bg-primary/30 blur-3xl rounded-full opacity-50 group-hover:opacity-80 transition-opacity duration-500 animate-pulse-glow" />
+            <m.div className="relative w-20 h-20 md:w-24 md:h-24 mb-8" {...rise(0)}>
+              <div className="absolute inset-0 bg-primary/25 blur-2xl rounded-full" />
               <Image
                 src={assets.logo}
                 alt="Buried Games Studio Logo"
                 fill
-                sizes="(max-width: 768px) 96px, 128px"
-                className="object-contain drop-shadow-[0_0_15px_rgba(var(--primary),0.5)]"
+                sizes="(max-width: 768px) 80px, 96px"
+                className="object-contain"
                 priority
               />
             </m.div>
 
-            {/* Tagline badge */}
-            <m.span
-              className="px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs font-bold tracking-[0.3em] text-accent uppercase backdrop-blur-md mb-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
+            {/* Eyebrow — single quiet line, body face, red tick */}
+            <m.p
+              className="flex items-center gap-3 text-[11px] md:text-xs font-medium tracking-[0.25em] text-foreground/60 uppercase mb-6"
+              {...rise(0.05)}
             >
-              {t_ui.tagline}
-            </m.span>
+              <span aria-hidden="true" className="inline-block w-6 h-px bg-primary" />
+              {t_ui.eyebrow}
+              <span aria-hidden="true" className="inline-block w-6 h-px bg-primary" />
+            </m.p>
 
-            {/* Studio Name */}
-            <m.h2
-              className="text-2xl md:text-3xl font-headline tracking-[0.15em] text-white/90 uppercase mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-            >
-              Buried Games Studio
-            </m.h2>
-
-            {/* Headline with staggered word reveal */}
+            {/* Headline — LCP element, painted on first frame on mobile */}
             <m.h1
-              className="flex flex-wrap justify-center gap-x-3 md:gap-x-5 text-4xl md:text-6xl lg:text-7xl tracking-tight text-white uppercase font-headline mb-8 leading-[1.15] max-w-5xl"
-              variants={heroTextStagger}
-              initial="hidden"
-              animate="visible"
+              className="font-headline font-bold text-balance text-4xl md:text-5xl lg:text-6xl leading-[1.05] text-foreground max-w-4xl mb-6"
+              {...rise(0.1)}
             >
-              {titleWords.map((word, i) => (
-                <m.span
-                  key={i}
-                  variants={clipRevealWord}
-                  className="inline-block"
-                  style={{
-                    color: ["One", "Game", "Time", "لعبة", "الأخرى"].includes(word)
-                      ? "hsl(var(--primary))"
-                      : "white",
-                    textShadow: ["One", "Game", "Time", "لعبة", "الأخرى"].includes(word)
-                      ? "0 0 30px hsla(var(--primary), 0.4)"
-                      : "none",
-                  }}
-                >
-                  {word}
-                </m.span>
-              ))}
+              {t_ui.title_pre}{" "}
+              <span className="text-primary">{t_ui.title_accent}</span>
             </m.h1>
 
-            {/* Subtitle */}
             <m.p
-              className="max-w-lg mx-auto text-base md:text-lg text-white/60 leading-relaxed mb-10"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2, duration: 0.6 }}
+              className="max-w-xl mx-auto text-base md:text-lg text-foreground/65 leading-relaxed mb-10"
+              {...rise(0.18)}
             >
               {t_ui.subtitle}
             </m.p>
 
-            {/* Dual CTAs with magnetic effect */}
-            <m.div
-              className="flex flex-wrap items-center justify-center gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.5, duration: 0.6 }}
-            >
-              <div onClick={() => trackHeroCTA('see_our_work')}>
-                <MagneticCTA
+            {/* CTA hierarchy: one primary, one ghost, WhatsApp as a quiet
+                third with the real glyph — never a green-painted button. */}
+            <m.div className="flex flex-wrap items-center justify-center gap-3 md:gap-4" {...rise(0.26)}>
+              <MagneticCTA
+                href={localePath(language, "/contact-us")}
+                onClick={() => trackHeroCTA("start_project")}
+                className="h-12 md:h-13 px-8 text-sm md:text-base rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-[0_8px_30px_-10px_hsl(var(--primary)/0.7)] transition-all duration-300"
+              >
+                <span className="flex items-center gap-2">
+                  {t_ui.cta_primary}
+                  <ArrowRight className={`w-4 h-4 ${isRTL ? "rotate-180" : ""}`} />
+                </span>
+              </MagneticCTA>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="h-12 md:h-13 px-8 text-sm md:text-base rounded-full border-foreground/20 bg-transparent text-foreground hover:bg-foreground/5 hover:border-foreground/40 font-semibold transition-all duration-300"
+              >
+                <Link
                   href={`${localePath(language, "/")}#games`}
-                  className="h-14 px-10 text-base rounded-full bg-white text-black hover:bg-primary hover:text-white transition-all duration-300 shadow-lg hover:shadow-primary/50 font-bold uppercase tracking-wider"
+                  onClick={() => trackHeroCTA("see_our_work")}
+                >
+                  {t_ui.cta_secondary}
+                </Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="h-12 md:h-13 px-6 text-sm md:text-base rounded-full border-foreground/20 bg-transparent text-foreground/80 hover:bg-foreground/5 hover:border-foreground/40 font-medium transition-all duration-300"
+              >
+                <a
+                  href={WHATSAPP_HREF}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={t_ui.cta_whatsapp_aria}
+                  onClick={() => trackWhatsAppClick("hero")}
                 >
                   <span className="flex items-center gap-2">
-                    {t_ui.cta_games}
-                    <ArrowRight className={`w-5 h-5 ${isRTL ? "rotate-180" : ""}`} />
+                    <WhatsAppIcon className="w-4.5 h-4.5 text-[#25D366]" />
+                    {t_ui.cta_whatsapp}
                   </span>
-                </MagneticCTA>
-              </div>
-              <div onClick={() => trackHeroCTA('hire_us')}>
-                <MagneticCTA
-                  href={localePath(language, "/contact-us")}
-                  className="h-14 px-10 text-base rounded-full border-white/20 hover:border-primary hover:bg-primary/10 hover:text-primary transition-all duration-300 font-bold uppercase tracking-wider bg-transparent border"
-                >
-                  <span className="flex items-center gap-2">{t_ui.cta_services}</span>
-                </MagneticCTA>
-              </div>
+                </a>
+              </Button>
             </m.div>
           </m.div>
 
-          {/* Scroll Indicator */}
-          <m.div
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 2 }}
-          >
+          {/* Scroll Indicator (desktop / motion-allowed only) */}
+          {motionEnabled && (
             <m.div
-              className="w-px h-10 bg-gradient-to-b from-primary/60 to-transparent"
-              animate={{ scaleY: [0.4, 1, 0.4], opacity: [0.3, 0.7, 0.3] }}
-              transition={{ duration: 2.5, repeat: Infinity }}
-            />
-            <m.div
-              animate={{ y: [0, 6, 0] }}
-              transition={{ duration: 2.5, repeat: Infinity }}
+              className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-2"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
             >
-              <ArrowDown className="h-4 w-4 text-primary/40" />
+              <m.div
+                className="w-px h-10 bg-gradient-to-b from-primary/60 to-transparent"
+                animate={{ scaleY: [0.4, 1, 0.4], opacity: [0.3, 0.7, 0.3] }}
+                transition={{ duration: 2.5, repeat: Infinity }}
+              />
+              <m.div
+                animate={{ y: [0, 6, 0] }}
+                transition={{ duration: 2.5, repeat: Infinity }}
+              >
+                <ArrowDown className="h-4 w-4 text-primary/40" />
+              </m.div>
             </m.div>
-          </m.div>
+          )}
         </m.div>
       </div>
     </div>

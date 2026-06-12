@@ -28,16 +28,16 @@ export function GameCTASection({ game, theme, language, gameLogo, storeImageMap 
   const isWebGame = game.storeLinks.some((link: any) => link.store === "web");
 
   return (
-    <section className="py-24 relative">
+    <section className="py-14 md:py-20 relative">
       <div className="absolute inset-0 bg-primary/5 -z-10" />
 
       <div className="container">
         <m.div
           className={cn(
-            "max-w-4xl mx-auto border rounded-3xl p-8 md:p-16 text-center relative overflow-hidden",
+            "max-w-4xl mx-auto border rounded-2xl p-8 md:p-12 text-center relative overflow-hidden",
             theme.layout === "magical-rpg" && "bg-purple-950/30 border-purple-500/20",
             theme.layout === "explosive-arcade" && "bg-orange-950/30 border-orange-500/20",
-            theme.layout === "sleek-competitive" && "bg-card border-white/10"
+            (theme.layout === "sleek-competitive" || theme.layout === "pixel-adventure" || theme.layout === "noir-mafia") && "bg-card border-border"
           )}
           initial={{ opacity: 0, y: 40, scale: 0.95 }}
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
@@ -53,7 +53,7 @@ export function GameCTASection({ game, theme, language, gameLogo, storeImageMap 
             }}
           />
 
-          <h2 className="text-4xl md:text-5xl font-headline font-bold mb-8">
+          <h2 className="text-2xl md:text-3xl font-headline font-bold tracking-tight mb-8">
             {isWebGame ? t_ui.play : t_ui.buy}
           </h2>
 
@@ -65,12 +65,12 @@ export function GameCTASection({ game, theme, language, gameLogo, storeImageMap 
                 return (
                   <m.div key={index} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.97 }}>
                     <Button asChild size="lg" className={cn(
-                      "h-16 px-8 text-lg shadow-lg transition-all duration-300",
+                      "h-12 md:h-13 px-8 text-sm md:text-base rounded-full font-semibold shadow-lg transition-all duration-300",
                       "bg-primary hover:bg-primary/90 text-primary-foreground",
                       `hover:shadow-[0_0_40px_${theme.colors.glow}]`
                     )}>
-                      <Link href={link.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3" onClick={() => trackStoreClick(game.slug, 'web', link.url)}>
-                        <Play className="fill-current w-5 h-5" />
+                      <Link href={link.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2" onClick={() => trackStoreClick(game.slug, 'web', link.url)}>
+                        <Play className="fill-current w-4 h-4" />
                         {storeLabel}
                         <ArrowRight className={cn("w-4 h-4", language === "ar" && "rotate-180")} />
                       </Link>
@@ -88,8 +88,8 @@ export function GameCTASection({ game, theme, language, gameLogo, storeImageMap 
                         <Image src={StoreImageSrc} alt={`${game.title} on ${link.store}`} fill className="object-contain" />
                       </div>
                     ) : (
-                      <Button size="lg" className="h-14 px-8 text-lg font-bold">
-                        <Download className="me-2 h-5 w-5" />
+                      <Button size="lg" className="h-12 md:h-13 px-8 text-sm md:text-base rounded-full font-semibold">
+                        <Download className="me-2 h-4 w-4" />
                         {storeLabel}
                       </Button>
                     )}

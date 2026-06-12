@@ -97,6 +97,16 @@ export default async function GameDetailPage({ params }: { params: Promise<{ loc
   const path = `/games/${game.slug}`;
   const url = SITE + localePath(locale, path);
 
+  // Accurate structured facts live alongside the game content (see games.ts
+  // seoMeta). Genre/platforms/datePublished are grounded per game; datePublished
+  // is only present where a real launch date was confirmed from a live source.
+  const meta = game.seoMeta;
+  const publisher = {
+    "@type": "Organization",
+    "name": "Buried Games Studio",
+    "url": SITE + localePath(locale, '/'),
+  };
+
   const videoGameSchema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "VideoGame",
@@ -105,14 +115,17 @@ export default async function GameDetailPage({ params }: { params: Promise<{ loc
     "image": game.logoUrl,
     "url": url,
     "inLanguage": ["en", "ar"],
-    "gamePlatform": game.slug === 'koutq8' ? ['Mobile', 'Web'] : ['Web', 'PC'],
+    "genre": meta?.genre,
+    "gamePlatform": meta?.platforms ?? ['Web Browser'],
     "applicationCategory": "Game",
     "operatingSystem": "Any",
-    "author": {
-      "@type": "Organization",
-      "name": "Buried Games Studio",
-    },
+    "author": publisher,
+    "publisher": publisher,
   };
+
+  if (meta && 'datePublished' in meta && meta.datePublished) {
+    videoGameSchema.datePublished = meta.datePublished;
+  }
 
   if (locale === 'ar' && arabicAltNames[game.slug]) {
     videoGameSchema.alternateName = arabicAltNames[game.slug];

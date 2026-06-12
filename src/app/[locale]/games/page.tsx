@@ -14,8 +14,8 @@ const title: Record<Locale, string> = {
 };
 
 const description: Record<Locale, string> = {
-  en: 'Explore games by Buried Games Studio: Nabsh trivia, Power of Bombs arcade, KoutQ8 cards, Arrab social deduction, and more. Indie game development from Kuwait.',
-  ar: 'استكشف ألعاب استوديو بريد جيمز: نبش للمعلومات العامة، باور أوف بومبز، كوت الكويت للورق، العرّاب للخداع الاجتماعي والمزيد. تطوير ألعاب مستقل من الكويت.',
+  en: 'Explore games by Buried Games Studio: Nabsh trivia, Power of Bombs arcade, KoutQ8 cards, Arrab social deduction, and more. Indie game development for Kuwait & the GCC.',
+  ar: 'استكشف ألعاب استوديو بريد جيمز: نبش للمعلومات العامة، باور أوف بومبز، كوت الكويت للورق، العرّاب للخداع الاجتماعي والمزيد. تطوير ألعاب مستقل للكويت والخليج.',
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

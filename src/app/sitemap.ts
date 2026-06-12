@@ -1,6 +1,8 @@
 import { type MetadataRoute } from 'next';
 import { gamesContent } from '@/lib/content/games';
 import { devlogPosts } from '@/lib/content/devlog';
+import { servicePages } from '@/lib/content/service-pages';
+import { gccLandingSlugs } from '@/lib/content/gcc-landing';
 import { locales, localePath, languageAlternates, type Locale } from '@/lib/i18n';
 
 const baseUrl = 'https://buriedgames.com';
@@ -25,12 +27,17 @@ type Route = {
   path: string;
   changeFrequency: MetadataRoute.Sitemap[number]['changeFrequency'];
   priority: number;
+  lastModified?: string;
 };
 
 const staticRoutes: Route[] = [
   { path: '/', changeFrequency: 'weekly', priority: 1 },
   { path: '/games', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/services', changeFrequency: 'monthly', priority: 0.8 },
+  { path: '/how-it-works', changeFrequency: 'monthly', priority: 0.7 },
+  { path: '/releases', changeFrequency: 'weekly', priority: 0.7 },
+  { path: '/faq', changeFrequency: 'monthly', priority: 0.6 },
+  { path: '/press', changeFrequency: 'monthly', priority: 0.5 },
   { path: '/contact-us', changeFrequency: 'yearly', priority: 0.8 },
   { path: '/about-us', changeFrequency: 'yearly', priority: 0.7 },
   { path: '/devlog', changeFrequency: 'weekly', priority: 0.8 },
@@ -49,18 +56,40 @@ const devlogRoutes: Route[] = devlogPosts.map((post) => ({
   path: `/devlog/${post.slug}`,
   changeFrequency: 'monthly',
   priority: 0.6,
+  lastModified: post.publishedAt,
+}));
+
+// Service child pages and GCC country landing pages are derived from their
+// content modules so a new entry there is automatically advertised here.
+const serviceRoutes: Route[] = servicePages.map((page) => ({
+  path: `/services/${page.slug}`,
+  changeFrequency: 'monthly',
+  priority: 0.9,
+}));
+
+const gccLandingRoutes: Route[] = gccLandingSlugs.map((slug) => ({
+  path: `/${slug}`,
+  changeFrequency: 'monthly',
+  priority: 0.8,
 }));
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [...staticRoutes, ...gameRoutes, ...devlogRoutes];
+  const routes = [
+    ...staticRoutes,
+    ...serviceRoutes,
+    ...gccLandingRoutes,
+    ...gameRoutes,
+    ...devlogRoutes,
+  ];
 
   // Emit one entry per locale for every route, each carrying the full hreflang
   // map (en / ar / x-default) so search engines can pair the localized URLs.
-  return routes.flatMap(({ path, changeFrequency, priority }) =>
+  return routes.flatMap(({ path, changeFrequency, priority, lastModified }) =>
     locales.map((locale: Locale) => ({
       url: absolute(localePath(locale, path)),
       changeFrequency,
       priority,
+      ...(lastModified ? { lastModified } : {}),
       alternates: { languages: languageMap(path) },
     })),
   );

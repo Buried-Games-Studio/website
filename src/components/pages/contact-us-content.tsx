@@ -1,90 +1,185 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
-import Link from "next/link";
-import Image from "next/image";
-import { MessageCircle } from "lucide-react";
+import { m } from "framer-motion";
+import { Mail, Clock } from "lucide-react";
+import { WhatsAppIcon } from "@/components/icons/whatsapp";
 import ContactForm from "@/components/contact-form";
-import { trackWhatsAppClick } from "@/lib/google-analytics";
+import { socialLinks } from "@/components/layout/social-links";
+import { trackWhatsAppClick, trackSocialClick } from "@/lib/google-analytics";
 import { type Locale } from "@/lib/i18n";
 
 const WHATSAPP_URL = "https://wa.me/96555528686";
+
+const reveal = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+};
 
 export function ContactUsContent({ locale }: { locale: Locale }) {
   const language = locale;
 
   const t_ui = {
     en: {
-      contact_title: "Get In Touch",
-      contact_subtitle: "Have a question or a project in mind? We'd love to hear from you.",
-      whatsapp_label: "Chat with us on WhatsApp",
-      whatsapp_hint: "The fastest way to start your game project — we usually reply within minutes.",
-      whatsapp_cta: "Message us on WhatsApp",
-      form_title: "Send us a Message",
+      eyebrow: "Contact",
+      contact_title: "Let's build your game",
+      contact_subtitle:
+        "Have a question or a project in mind? Tell us a little about it and we'll get back to you with next steps.",
+      form_title: "Send us a message",
+      reach_title: "Reach us directly",
+      whatsapp_label: "WhatsApp",
+      whatsapp_value: "+965 5552 8686",
+      email_label: "Email",
+      email_value: "support@buriedgames.com",
+      response_title: "Response time",
+      response_value: "We usually reply within one business day — often within minutes on WhatsApp.",
+      socials_title: "Follow the studio",
     },
     ar: {
-      contact_title: "تواصل معنا",
-      contact_subtitle: "هل لديك سؤال أو مشروع في ذهنك؟ نود أن نسمع منك.",
-      whatsapp_label: "تحدث معنا عبر واتساب",
-      whatsapp_hint: "أسرع طريقة لبدء مشروع لعبتك — عادةً نرد خلال دقائق.",
-      whatsapp_cta: "راسلنا عبر واتساب",
+      eyebrow: "تواصل",
+      contact_title: "لنصنع لعبتك",
+      contact_subtitle:
+        "هل لديك سؤال أو مشروع في ذهنك؟ أخبرنا قليلاً عنه وسنعود إليك بالخطوات التالية.",
       form_title: "أرسل لنا رسالة",
+      reach_title: "تواصل معنا مباشرة",
+      whatsapp_label: "واتساب",
+      whatsapp_value: "+965 5552 8686",
+      email_label: "البريد الإلكتروني",
+      email_value: "support@buriedgames.com",
+      response_title: "وقت الاستجابة",
+      response_value: "عادةً نرد خلال يوم عمل واحد — وغالباً خلال دقائق عبر واتساب.",
+      socials_title: "تابع الاستوديو",
     },
   }[language];
 
   return (
     <main>
-      <section id="contact" className="container py-16 md:py-24">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline">{t_ui.contact_title}</h1>
-          <p className="mt-4 text-muted-foreground">{t_ui.contact_subtitle}</p>
-        </div>
-
-        {/* Primary GCC conversion channel: prominent WhatsApp CTA near the top */}
-        <div className="mt-10 max-w-xl mx-auto">
-          <Card className="border-[#25D366]/30 bg-[#25D366]/5">
-            <CardContent className="flex flex-col items-center gap-4 p-6 text-center sm:flex-row sm:text-start">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#25D366]/15 text-[#25D366]">
-                <MessageCircle className="h-7 w-7" />
-              </div>
-              <div className="flex-1">
-                <h2 className="text-lg font-bold font-headline tracking-wide">{t_ui.whatsapp_label}</h2>
-                <p className="mt-1 text-sm text-muted-foreground">{t_ui.whatsapp_hint}</p>
-              </div>
-              <Link
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackWhatsAppClick("contact_page_primary_cta")}
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-6 py-3 font-bold text-white shadow-lg transition-all duration-300 hover:bg-[#25D366]/90 hover:scale-105"
-              >
-                <MessageCircle className="h-5 w-5" />
-                {t_ui.whatsapp_cta}
-              </Link>
-            </CardContent>
-          </Card>
-        </div>
-
-        <div className="mt-12 max-w-xl mx-auto">
-            <Card>
-              <CardContent className="p-6">
-                <h2 className="text-2xl font-bold mb-4 font-headline text-center tracking-wide" style={{ letterSpacing: '0.05em' }}>{t_ui.form_title}</h2>
-                <ContactForm />
-              </CardContent>
-            </Card>
+      {/* Hero band */}
+      <section className="border-b border-border bg-card/40">
+        <div className="container max-w-screen-xl py-14 md:py-20">
+          <m.div {...reveal} className="max-w-2xl">
+            <p className="flex items-center gap-3 text-[11px] md:text-xs font-medium tracking-[0.25em] text-foreground/60 uppercase mb-5">
+              <span aria-hidden="true" className="inline-block w-6 h-px bg-primary" />
+              {t_ui.eyebrow}
+            </p>
+            <h1 className="font-headline font-bold tracking-tight text-3xl md:text-4xl text-foreground">
+              {t_ui.contact_title}
+            </h1>
+            <p className="mt-4 text-base md:text-lg text-foreground/65 max-w-2xl">
+              {t_ui.contact_subtitle}
+            </p>
+          </m.div>
         </div>
       </section>
 
-      <Link
-        href={WHATSAPP_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-8 end-8 z-50 rounded-full shadow-lg hover:scale-110 transition-all duration-300 animate-bounce"
-        aria-label={t_ui.whatsapp_label}
-        onClick={() => trackWhatsAppClick('contact_page_fab')}
-      >
-        <Image src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt={t_ui.whatsapp_label} width={64} height={64} />
-      </Link>
+      <section className="container max-w-screen-xl py-14 md:py-20">
+        <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr] lg:items-start">
+          {/* Form */}
+          <m.div
+            {...reveal}
+            className="rounded-xl border border-border bg-card p-6 md:p-8"
+          >
+            <h2 className="font-headline font-bold tracking-tight text-xl md:text-2xl mb-6">
+              {t_ui.form_title}
+            </h2>
+            <ContactForm />
+          </m.div>
+
+          {/* Contact rail */}
+          <m.aside
+            {...reveal}
+            transition={{ ...reveal.transition, delay: 0.08 }}
+            className="space-y-4"
+          >
+            <div className="rounded-xl border border-border bg-card p-6">
+              <h2 className="font-headline font-bold tracking-tight text-base md:text-lg mb-5">
+                {t_ui.reach_title}
+              </h2>
+              <div className="space-y-4">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick("contact_page")}
+                  className="group flex items-start gap-3 -mx-2 px-2 py-1.5 rounded-lg hover:bg-foreground/5 transition-colors"
+                >
+                  <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-border bg-background">
+                    <WhatsAppIcon className="h-5 w-5 text-[#25D366]" />
+                  </span>
+                  <span>
+                    <span className="block text-xs uppercase tracking-wider text-foreground/50">
+                      {t_ui.whatsapp_label}
+                    </span>
+                    <span className="block text-sm text-foreground group-hover:text-primary transition-colors">
+                      {t_ui.whatsapp_value}
+                    </span>
+                  </span>
+                </a>
+
+                <a
+                  href="mailto:support@buriedgames.com"
+                  className="group flex items-start gap-3 -mx-2 px-2 py-1.5 rounded-lg hover:bg-foreground/5 transition-colors"
+                >
+                  <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-border bg-background">
+                    <Mail className="h-5 w-5 text-primary" />
+                  </span>
+                  <span>
+                    <span className="block text-xs uppercase tracking-wider text-foreground/50">
+                      {t_ui.email_label}
+                    </span>
+                    <span className="block text-sm text-foreground group-hover:text-primary transition-colors">
+                      {t_ui.email_value}
+                    </span>
+                  </span>
+                </a>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-border bg-card p-6">
+              <div className="flex items-start gap-3">
+                <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-border bg-background">
+                  <Clock className="h-5 w-5 text-primary" />
+                </span>
+                <div>
+                  <p className="text-sm font-semibold text-foreground">{t_ui.response_title}</p>
+                  <p className="mt-1 text-sm text-foreground/65 leading-relaxed">
+                    {t_ui.response_value}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-border bg-card p-6">
+              <p className="text-xs uppercase tracking-wider text-foreground/50 mb-4">
+                {t_ui.socials_title}
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {socialLinks.map((social) => {
+                  const Icon = social.icon as React.ElementType;
+                  return (
+                    <a
+                      key={social.href}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={social.label}
+                      onClick={() => trackSocialClick(social.label, "contact_page")}
+                      className="flex h-9 w-9 items-center justify-center rounded-lg border border-border text-foreground/70 hover:border-primary/40 hover:text-foreground transition-colors"
+                    >
+                      {social.icon === "whatsapp" ? (
+                        <WhatsAppIcon className="h-4 w-4" />
+                      ) : (
+                        <Icon className="h-4 w-4" />
+                      )}
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+          </m.aside>
+        </div>
+      </section>
     </main>
   );
 }

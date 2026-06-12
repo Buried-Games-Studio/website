@@ -50,7 +50,8 @@ export function SurveyModal() {
     const surveyCompleted = localStorage.getItem(SURVEY_KEY);
     if (surveyCompleted) return;
 
-    // Show survey only after user has been on page 10s AND scrolled past the hero
+    // Show survey only after 45s on page AND deep scroll — surfacing it early
+    // interrupted first-time visitors mid-hero, which kills conversion.
     let timeReady = false;
     let scrollReady = false;
     let shown = false;
@@ -65,10 +66,10 @@ export function SurveyModal() {
     const timer = setTimeout(() => {
       timeReady = true;
       tryShow();
-    }, 10000);
+    }, 45000);
 
     const onScroll = () => {
-      if (window.scrollY > window.innerHeight * 0.5) {
+      if (window.scrollY > window.innerHeight * 1.5) {
         scrollReady = true;
         tryShow();
       }
@@ -143,19 +144,31 @@ export function SurveyModal() {
     return null;
   }
 
+  const options = [
+    { value: "social_media", label: t.options.social_media },
+    { value: "search_engine", label: t.options.search_engine },
+    { value: "friend", label: t.options.friend },
+    { value: "advertisement", label: t.options.advertisement },
+    { value: "other", label: t.options.other },
+  ];
+
   return (
     <AlertDialog open={isOpen} onOpenChange={setIsOpen}>
-      <AlertDialogContent>
+      <AlertDialogContent className="rounded-xl border-border bg-card">
         <AlertDialogHeader>
-          <Image src={assets.logo} alt="Buried Games Studio Logo" width={80} height={80} className="mx-auto mb-4" />
+          <div className="mx-auto mb-3 flex h-16 w-16 items-center justify-center rounded-full border border-border bg-background">
+            <Image src={assets.logo} alt="Buried Games Studio Logo" width={48} height={48} className="object-contain" />
+          </div>
           <div className="relative">
-            <AlertDialogTitle>{t.title}</AlertDialogTitle>
+            <AlertDialogTitle className="font-headline font-bold tracking-tight text-xl text-center">
+              {t.title}
+            </AlertDialogTitle>
             <Button
                 asChild
                 variant="ghost"
                 size="sm"
                 className={cn(
-                    "absolute -top-2 end-0",
+                    "absolute -top-2 end-0 text-foreground/60 hover:text-foreground",
                     language === 'en' ? 'font-arabic' : 'font-body'
                 )}
             >
@@ -164,45 +177,44 @@ export function SurveyModal() {
                 </Link>
             </Button>
           </div>
-          <AlertDialogDescription>
+          <AlertDialogDescription className="text-center text-foreground/65">
             {t.description}
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <div className="py-4">
-          <RadioGroup value={selectedValue} onValueChange={setSelectedValue}>
-            <div className="flex items-center gap-2">
-                <RadioGroupItem value="social_media" id="social_media" />
-                <Label htmlFor="social_media">{t.options.social_media}</Label>
-            </div>
-            <div className="flex items-center gap-2">
-                <RadioGroupItem value="search_engine" id="search_engine" />
-                <Label htmlFor="search_engine">{t.options.search_engine}</Label>
-            </div>
-            <div className="flex items-center gap-2">
-                <RadioGroupItem value="friend" id="friend" />
-                <Label htmlFor="friend">{t.options.friend}</Label>
-            </div>
-            <div className="flex items-center gap-2">
-                <RadioGroupItem value="advertisement" id="advertisement" />
-                <Label htmlFor="advertisement">{t.options.advertisement}</Label>
-            </div>
-            <div className="flex items-center gap-2">
-                <RadioGroupItem value="other" id="other" />
-                <Label htmlFor="other">{t.options.other}</Label>
-            </div>
+        <div className="py-2">
+          <RadioGroup value={selectedValue} onValueChange={setSelectedValue} className="gap-2">
+            {options.map((opt) => (
+              <Label
+                key={opt.value}
+                htmlFor={opt.value}
+                className={cn(
+                  "flex cursor-pointer items-center gap-3 rounded-lg border p-3 text-sm font-normal transition-colors",
+                  selectedValue === opt.value
+                    ? "border-primary/50 bg-primary/5"
+                    : "border-border hover:bg-foreground/5"
+                )}
+              >
+                <RadioGroupItem value={opt.value} id={opt.value} />
+                <span>{opt.label}</span>
+              </Label>
+            ))}
           </RadioGroup>
           {selectedValue === "other" && (
-            <Input 
+            <Input
                 type="text"
                 placeholder={t.other_placeholder}
                 value={otherValue}
                 onChange={(e) => setOtherValue(e.target.value)}
-                className="mt-4"
+                className="mt-3 bg-background border-border focus-visible:ring-primary/30 focus-visible:border-primary/50 rounded-lg"
             />
           )}
         </div>
         <AlertDialogFooter>
-          <AlertDialogAction onClick={handleSubmit} disabled={!selectedValue || (selectedValue === 'other' && !otherValue)}>
+          <AlertDialogAction
+            onClick={handleSubmit}
+            disabled={!selectedValue || (selectedValue === 'other' && !otherValue)}
+            className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold"
+          >
             {t.submit}
           </AlertDialogAction>
         </AlertDialogFooter>

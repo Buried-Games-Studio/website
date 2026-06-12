@@ -18,6 +18,16 @@ export function localePath(locale: Locale, path: string): string {
   return `/ar${normalized}`;
 }
 
+/**
+ * Strip any locale prefix from a pathname, returning the locale-neutral route.
+ * usePathname() reports the internal path, which carries /en for English pages
+ * (the proxy rewrite) and /ar for Arabic ones — both must be removed before
+ * rebuilding a URL for another locale.
+ */
+export function stripLocalePrefix(pathname: string): string {
+  return pathname.replace(/^\/(en|ar)(?=\/|$)/, '') || '/';
+}
+
 /** hreflang map for Metadata.alternates.languages — en, ar, and x-default. */
 export function languageAlternates(path: string): Record<string, string> {
   return {

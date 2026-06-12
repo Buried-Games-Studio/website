@@ -24,7 +24,7 @@ export function GameDesignJourneySection({ assets, trailerUrl, theme, language }
   }[language]!;
 
   return (
-    <section className="py-24 overflow-hidden border-y border-yellow-500/10 bg-gradient-to-b from-transparent via-green-950/10 to-transparent">
+    <section className="py-14 md:py-20 overflow-hidden border-y border-yellow-500/10 bg-gradient-to-b from-transparent via-green-950/10 to-transparent">
       <div className="container">
         <m.div
           className="text-center mb-14"
@@ -33,7 +33,7 @@ export function GameDesignJourneySection({ assets, trailerUrl, theme, language }
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-headline font-bold mb-4">{t_ui.title}</h2>
+          <h2 className="text-2xl md:text-3xl font-headline font-bold tracking-tight text-foreground mb-3">{t_ui.title}</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">{t_ui.subtitle}</p>
         </m.div>
 

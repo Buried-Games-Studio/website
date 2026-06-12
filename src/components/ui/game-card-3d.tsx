@@ -56,7 +56,7 @@ export const GameCard3D = ({ id, title, description, image, slug, tags }: GameCa
                     transition: "transform 0.1s ease-out",
                 }}
                 className={cn(
-                    "relative h-[400px] w-full overflow-hidden rounded-xl border border-primary/20 bg-card shadow-xl",
+                    "relative h-[400px] w-full overflow-hidden rounded-xl border border-border bg-card shadow-xl transition-colors group-hover:border-primary/40",
                     "transform-gpu preserve-3d group"
                 )}
             >
@@ -68,20 +68,20 @@ export const GameCard3D = ({ id, title, description, image, slug, tags }: GameCa
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-80" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent opacity-90" />
                 </div>
 
                 {/* Content */}
                 <div className="absolute bottom-0 start-0 w-full p-6 translate-z-20">
                     <div className="mb-2 flex flex-wrap gap-2">
                         {tags?.map((tag) => (
-                            <span key={tag} className="rounded-full bg-primary/20 px-2 py-1 text-xs text-primary backdrop-blur-sm border border-primary/20">
+                            <span key={tag} className="rounded-full border border-border bg-background/60 px-2.5 py-0.5 text-[11px] text-foreground/70 backdrop-blur-sm">
                                 {tag}
                             </span>
                         ))}
                     </div>
-                    <h3 className="mb-2 text-2xl font-bold text-white group-hover:text-primary transition-colors text-glow">{title}</h3>
-                    <p className="text-sm text-gray-300 line-clamp-2 group-hover:text-white transition-colors">{description}</p>
+                    <h3 className="mb-2 text-base md:text-lg font-headline font-bold tracking-tight text-foreground group-hover:text-primary transition-colors">{title}</h3>
+                    <p className="text-sm text-foreground/65 line-clamp-2 leading-relaxed">{description}</p>
                 </div>
 
                 {/* Hover Glow Effect */}

@@ -9,13 +9,13 @@ type PageProps = { params: Promise<{ locale: string }> };
 const PATH = "/services";
 
 const title: Record<Locale, string> = {
-  en: "Game Development Services | Unity & Unreal Studio in Kuwait",
-  ar: "خدمات تطوير الألعاب — استوديو يونيتي وأنريل في الكويت والخليج",
+  en: "Game Development Services | Unity & Unreal Studio for Kuwait & the GCC",
+  ar: "خدمات تطوير الألعاب — استوديو يونيتي وأنريل للكويت والخليج",
 };
 
 const description: Record<Locale, string> = {
-  en: "Full-cycle game development services from Kuwait for GCC clients. Buried Games Studio delivers Unity & Unreal development, mobile game porting, 2D/3D art, QA testing, and backend & multiplayer networking.",
-  ar: "خدمات تطوير ألعاب متكاملة من الكويت لعملاء الخليج. يقدّم استوديو بريد جيمز تطوير ألعاب على يونيتي وأنريل، ونقل الألعاب إلى الجوال، وفن ثنائي وثلاثي الأبعاد، وضمان الجودة، وتطوير الواجهة الخلفية والشبكات.",
+  en: "Full-cycle game development services for clients across Kuwait and the GCC. Buried Games Studio delivers Unity & Unreal development, mobile game porting, 2D/3D art, QA testing, and backend & multiplayer networking.",
+  ar: "خدمات تطوير ألعاب متكاملة لعملاء الكويت والخليج. يقدّم استوديو بريد جيمز تطوير ألعاب على يونيتي وأنريل، ونقل الألعاب إلى الجوال، وفن ثنائي وثلاثي الأبعاد، وضمان الجودة، وتطوير الواجهة الخلفية والشبكات.",
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

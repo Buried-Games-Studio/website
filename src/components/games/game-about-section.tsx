@@ -23,7 +23,7 @@ export function GameAboutSection({ game, theme, language, aboutImage }: GameAbou
   }[language]!;
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-14 md:py-20 overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full opacity-15 pointer-events-none">
         <ParticlesBackground />
       </div>
@@ -45,23 +45,24 @@ export function GameAboutSection({ game, theme, language, aboutImage }: GameAbou
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
           >
-            <m.div variants={staggerChild}>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20 text-sm font-bold tracking-wider uppercase">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                {t_ui.about}
-              </div>
-            </m.div>
+            <m.p
+              variants={staggerChild}
+              className="flex items-center gap-3 text-[11px] md:text-xs font-medium tracking-[0.25em] text-foreground/60 uppercase"
+            >
+              <span aria-hidden="true" className="inline-block w-6 h-px bg-primary" />
+              {t_ui.about}
+            </m.p>
 
-            <m.h2 variants={staggerChild} className={cn(
-              "text-4xl md:text-5xl font-headline font-bold text-white leading-tight",
-              theme.layout === "magical-rpg" && "text-glow-primary"
-            )}>
+            <m.h2
+              variants={staggerChild}
+              className="text-2xl md:text-3xl font-headline font-bold tracking-tight text-foreground"
+            >
               {t_ui.overview}
             </m.h2>
 
-            <m.div variants={staggerChild} className="prose prose-lg dark:prose-invert text-muted-foreground">
-              <p className="leading-relaxed text-lg">{game.longDescription[language]}</p>
-            </m.div>
+            <m.p variants={staggerChild} className="max-w-2xl text-base md:text-lg leading-relaxed text-foreground/65">
+              {game.sections?.overview?.[language] ?? game.longDescription[language]}
+            </m.p>
 
             {/* Stats Grid */}
             {game.stats && game.stats.length > 0 && (

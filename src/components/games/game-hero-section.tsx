@@ -106,7 +106,7 @@ export function GameHeroSection({ game, theme, language, gameLogo, heroSrc }: Ga
   const titleWords = game.title.split(" ");
 
   return (
-    <section className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
+    <section className="relative w-full min-h-[88vh] md:min-h-[92vh] flex items-center justify-center overflow-hidden">
       {/* Background Media Layer */}
       <div className="absolute inset-0 z-0">
         {heroYouTubeId ? (
@@ -200,7 +200,7 @@ export function GameHeroSection({ game, theme, language, gameLogo, heroSrc }: Ga
               width={300}
               height={300}
               className={cn(
-                "object-contain h-28 md:h-44 w-auto",
+                "object-contain h-24 md:h-36 w-auto",
                 theme.layout === "magical-rpg" && "drop-shadow-[0_0_30px_rgba(212,160,23,0.6)] animate-float",
                 theme.layout === "explosive-arcade" && "drop-shadow-[0_0_25px_rgba(249,115,22,0.5)]",
                 theme.layout === "sleek-competitive" && "drop-shadow-[0_0_20px_hsla(var(--primary),0.4)]",
@@ -216,7 +216,7 @@ export function GameHeroSection({ game, theme, language, gameLogo, heroSrc }: Ga
           initial="hidden"
           animate="visible"
           className={cn(
-            "flex flex-wrap justify-center gap-x-4 md:gap-x-6 text-5xl md:text-7xl lg:text-8xl font-headline font-bold",
+            "flex flex-wrap justify-center gap-x-3 md:gap-x-5 text-4xl md:text-5xl lg:text-6xl font-headline font-bold tracking-tight leading-[1.05]",
             theme.layout === "explosive-arcade" && "-skew-y-1"
           )}
         >
@@ -242,7 +242,7 @@ export function GameHeroSection({ game, theme, language, gameLogo, heroSrc }: Ga
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.6 }}
-          className="mt-6 text-lg text-muted-foreground max-w-2xl"
+          className="mt-6 text-base md:text-lg text-foreground/65 leading-relaxed max-w-2xl"
         >
           {game.description[language]}
         </m.p>

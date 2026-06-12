@@ -26,16 +26,14 @@ import {
   ArrowRight,
   X,
 } from "lucide-react";
-import dynamic from "next/dynamic";
 import { m } from "framer-motion";
 
-const ParticlesBackground = dynamic(
-  () =>
-    import("@/components/particles-background").then(
-      (mod) => mod.ParticlesBackground
-    ),
-  { ssr: false }
-);
+const reveal = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+};
 
 /* ─────────────────────────────────────────────
    TYPES
@@ -89,31 +87,31 @@ export function CareersContent({ locale }: { locale: Locale }) {
   const t_ui = {
     en: {
       hero_label: "Careers",
-      hero_title: "Join Our Team",
+      hero_title: "Join our team",
       hero_subtitle:
         "Be part of an indie studio crafting games that challenge, inspire, and entertain players worldwide.",
       stats_positions: "Open Roles",
       stats_departments: "Departments",
       stats_locations: "Locations",
       perks_label: "Why Buried Games",
-      perks_title: "What We Offer",
+      perks_title: "What we offer",
       positions_label: "Opportunities",
-      positions_title: "Open Positions",
+      positions_title: "Open positions",
       search_placeholder: "Search positions...",
       filter_department: "Department",
       filter_location: "Location",
       filter_type: "Job Type",
-      clear_filters: "Clear Filters",
+      clear_filters: "Clear filters",
       no_results_title: "No positions match your filters",
       no_results_subtitle: "Try adjusting your search or filters to find what you're looking for.",
       empty_title: "No open positions at this time",
       empty_subtitle:
         "We don't have any vacancies right now, but we're always interested in hearing from talented people. Send us your resume and we'll reach out when something opens up.",
-      empty_cta: "Submit Your Resume",
-      cta_title: "Stay Connected",
+      empty_cta: "Submit your resume",
+      cta_title: "Stay connected",
       cta_subtitle:
         "Follow us on LinkedIn to be the first to know when new positions open up.",
-      cta_email: "Email Us",
+      cta_email: "Email us",
       cta_linkedin: "LinkedIn",
       apply: "Apply",
     },
@@ -230,50 +228,47 @@ export function CareersContent({ locale }: { locale: Locale }) {
   };
 
   return (
-      <main className="min-h-screen bg-background overflow-x-hidden">
+      <main>
 
         {/* ══════════════════════════════════════
-            HERO
+            HERO band
         ══════════════════════════════════════ */}
-        <section className="relative h-[50vh] min-h-[420px] flex flex-col items-center justify-center overflow-hidden">
-          <ParticlesBackground />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/60 to-background z-10" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/8 blur-[120px] rounded-full -z-10" />
-
-          <div className="relative z-20 container text-center space-y-5">
-            <div className="animate-fade-up [animation-delay:200ms] opacity-0 fill-mode-forwards">
-              <span className="px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-xs font-bold tracking-[0.3em] text-accent uppercase backdrop-blur-md">
+        <section className="border-b border-border bg-card/40">
+          <div className="container max-w-screen-xl py-14 md:py-20">
+            <m.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+              className="max-w-2xl"
+            >
+              <p className="flex items-center gap-3 text-[11px] md:text-xs font-medium tracking-[0.25em] text-foreground/60 uppercase mb-5">
+                <span aria-hidden="true" className="inline-block w-6 h-px bg-primary" />
                 {t_ui.hero_label}
-              </span>
-            </div>
-
-            <h1 className="text-5xl md:text-7xl font-headline font-bold tracking-wide text-white animate-fade-up [animation-delay:400ms] opacity-0 fill-mode-forwards">
-              {t_ui.hero_title}
-            </h1>
-
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto animate-fade-up [animation-delay:600ms] opacity-0 fill-mode-forwards">
-              {t_ui.hero_subtitle}
-            </p>
+              </p>
+              <h1 className="font-headline font-bold tracking-tight text-3xl md:text-4xl text-foreground">
+                {t_ui.hero_title}
+              </h1>
+              <p className="mt-4 text-base md:text-lg text-foreground/65 max-w-2xl">
+                {t_ui.hero_subtitle}
+              </p>
+            </m.div>
           </div>
-
-          {/* Bottom edge fade */}
-          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent z-10" />
         </section>
 
         {/* ══════════════════════════════════════
             STATS BAR
         ══════════════════════════════════════ */}
-        <section className="!py-0 border-y border-white/5">
-          <div className="container">
-            <div className="grid grid-cols-3 divide-x divide-white/5">
+        <section className="border-b border-border">
+          <div className="container max-w-screen-xl">
+            <div className="grid grid-cols-3 divide-x divide-border">
               {[
                 { value: openPositions.length.toString(), label: t_ui.stats_positions },
                 { value: departments[language].length - 1 + "", label: t_ui.stats_departments },
                 { value: locations[language].length - 1 + "", label: t_ui.stats_locations },
               ].map((stat, i) => (
-                <div key={i} className="py-8 text-center">
-                  <div className="text-3xl md:text-4xl font-headline font-bold text-primary">{stat.value}</div>
-                  <div className="text-xs md:text-sm text-muted-foreground uppercase tracking-wider mt-1">{stat.label}</div>
+                <div key={i} className="py-7 text-center">
+                  <div className="text-2xl md:text-3xl font-headline font-bold text-primary">{stat.value}</div>
+                  <div className="text-xs md:text-sm text-foreground/60 uppercase tracking-wider mt-1">{stat.label}</div>
                 </div>
               ))}
             </div>
@@ -283,74 +278,65 @@ export function CareersContent({ locale }: { locale: Locale }) {
         {/* ══════════════════════════════════════
             PERKS
         ══════════════════════════════════════ */}
-        <section className="py-20 md:py-28">
-          <div className="container">
-            <div className="text-center max-w-2xl mx-auto mb-14">
-              <span className="text-accent font-bold tracking-[0.3em] uppercase text-xs block mb-4">
-                {t_ui.perks_label}
-              </span>
-              <h2 className="text-4xl md:text-5xl font-headline font-bold mb-4">
-                {t_ui.perks_title}
-              </h2>
-              <div className="h-1 w-16 bg-accent mx-auto rounded-full" />
-            </div>
+        <section className="container max-w-screen-xl py-14 md:py-20">
+          <m.div {...reveal} className="mb-10">
+            <p className="flex items-center gap-3 text-[11px] md:text-xs font-medium tracking-[0.25em] text-foreground/60 uppercase mb-4">
+              <span aria-hidden="true" className="inline-block w-6 h-px bg-primary" />
+              {t_ui.perks_label}
+            </p>
+            <h2 className="font-headline font-bold tracking-tight text-2xl md:text-3xl text-foreground">
+              {t_ui.perks_title}
+            </h2>
+          </m.div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {perks.map((perk, index) => (
-                <m.div
-                  key={index}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ delay: index * 0.08, duration: 0.45 }}
-                  className="group relative p-7 rounded-2xl bg-card/5 border border-white/10 hover:border-accent/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_-10px_rgba(var(--accent),0.3)]"
-                >
-                  <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
-                  <div className="relative z-10 flex flex-col items-center text-center">
-                    <div className="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-accent mb-5 border border-white/10 group-hover:scale-110 transition-transform duration-300">
-                      <perk.icon className="w-7 h-7" />
-                    </div>
-                    <h3 className="text-lg font-bold mb-2 text-white group-hover:text-accent transition-colors">
-                      {perk.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm">
-                      {perk.description}
-                    </p>
-                  </div>
-                </m.div>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {perks.map((perk, index) => (
+              <m.div
+                key={index}
+                {...reveal}
+                transition={{ ...reveal.transition, delay: index * 0.06 }}
+                className="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/40 hover:-translate-y-0.5"
+              >
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-background text-primary">
+                  <perk.icon className="w-5 h-5" />
+                </div>
+                <h3 className="text-base md:text-lg font-semibold mb-2 text-foreground">
+                  {perk.title}
+                </h3>
+                <p className="text-sm text-foreground/65 leading-relaxed">
+                  {perk.description}
+                </p>
+              </m.div>
+            ))}
           </div>
         </section>
 
         {/* ══════════════════════════════════════
             OPEN POSITIONS — SEARCH + FILTERS + LIST
         ══════════════════════════════════════ */}
-        <section id="positions" className="py-20 md:py-28 bg-secondary/10 border-y border-white/5 relative">
-          <div className="absolute top-0 end-1/4 w-96 h-96 bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
-
-          <div className="container relative z-10">
+        <section id="positions" className="border-y border-border bg-card/40">
+          <div className="container max-w-screen-xl py-14 md:py-20">
             {/* Header */}
-            <div className="text-center mb-12">
-              <span className="text-primary font-bold tracking-[0.4em] uppercase text-xs">
+            <m.div {...reveal} className="mb-10">
+              <p className="flex items-center gap-3 text-[11px] md:text-xs font-medium tracking-[0.25em] text-foreground/60 uppercase mb-4">
+                <span aria-hidden="true" className="inline-block w-6 h-px bg-primary" />
                 {t_ui.positions_label}
-              </span>
-              <h2 className="text-4xl md:text-6xl font-headline font-bold text-white mt-3">
+              </p>
+              <h2 className="font-headline font-bold tracking-tight text-2xl md:text-3xl text-foreground">
                 {t_ui.positions_title}
               </h2>
-              <div className="h-1 w-16 bg-primary rounded-full mx-auto mt-5" />
-            </div>
+            </m.div>
 
             {/* Search & Filters */}
-            <div className="max-w-4xl mx-auto mb-10">
+            <div className="max-w-4xl mb-8">
               {/* Search bar */}
-              <div className="relative mb-4">
-                <Search className="absolute top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground start-4" />
+              <div className="relative mb-3">
+                <Search className="absolute top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-foreground/40 start-3.5" />
                 <Input
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder={t_ui.search_placeholder}
-                  className="h-12 bg-card/60 border-white/10 backdrop-blur-sm rounded-xl text-base placeholder:text-muted-foreground/60 focus-visible:ring-primary/50 ps-12 pe-4"
+                  className="h-12 bg-background border-border rounded-lg text-base placeholder:text-foreground/40 focus-visible:ring-primary/30 focus-visible:border-primary/50 ps-11 pe-4"
                 />
               </div>
 
@@ -358,15 +344,15 @@ export function CareersContent({ locale }: { locale: Locale }) {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 {/* Department */}
                 <Select value={selectedDepartment} onValueChange={setSelectedDepartment}>
-                  <SelectTrigger className="h-11 bg-card/60 border-white/10 backdrop-blur-sm rounded-xl text-sm">
+                  <SelectTrigger className="h-11 bg-background border-border rounded-lg text-sm focus:ring-primary/30 focus:border-primary/50">
                     <div className="flex items-center gap-2">
-                      <Building2 className="w-4 h-4 text-muted-foreground shrink-0" />
+                      <Building2 className="w-4 h-4 text-foreground/40 shrink-0" />
                       <SelectValue />
                     </div>
                   </SelectTrigger>
-                  <SelectContent className="bg-card/95 backdrop-blur-xl border-white/10">
+                  <SelectContent className="bg-card border-border">
                     {departments[language].map((dept) => (
-                      <SelectItem key={dept} value={dept} className="focus:bg-primary/10 focus:text-primary">
+                      <SelectItem key={dept} value={dept} className="focus:bg-primary/10">
                         {dept}
                       </SelectItem>
                     ))}
@@ -375,15 +361,15 @@ export function CareersContent({ locale }: { locale: Locale }) {
 
                 {/* Location */}
                 <Select value={selectedLocation} onValueChange={setSelectedLocation}>
-                  <SelectTrigger className="h-11 bg-card/60 border-white/10 backdrop-blur-sm rounded-xl text-sm">
+                  <SelectTrigger className="h-11 bg-background border-border rounded-lg text-sm focus:ring-primary/30 focus:border-primary/50">
                     <div className="flex items-center gap-2">
-                      <MapPin className="w-4 h-4 text-muted-foreground shrink-0" />
+                      <MapPin className="w-4 h-4 text-foreground/40 shrink-0" />
                       <SelectValue />
                     </div>
                   </SelectTrigger>
-                  <SelectContent className="bg-card/95 backdrop-blur-xl border-white/10">
+                  <SelectContent className="bg-card border-border">
                     {locations[language].map((loc) => (
-                      <SelectItem key={loc} value={loc} className="focus:bg-primary/10 focus:text-primary">
+                      <SelectItem key={loc} value={loc} className="focus:bg-primary/10">
                         {loc}
                       </SelectItem>
                     ))}
@@ -392,15 +378,15 @@ export function CareersContent({ locale }: { locale: Locale }) {
 
                 {/* Job type */}
                 <Select value={selectedType} onValueChange={setSelectedType}>
-                  <SelectTrigger className="h-11 bg-card/60 border-white/10 backdrop-blur-sm rounded-xl text-sm">
+                  <SelectTrigger className="h-11 bg-background border-border rounded-lg text-sm focus:ring-primary/30 focus:border-primary/50">
                     <div className="flex items-center gap-2">
-                      <Briefcase className="w-4 h-4 text-muted-foreground shrink-0" />
+                      <Briefcase className="w-4 h-4 text-foreground/40 shrink-0" />
                       <SelectValue />
                     </div>
                   </SelectTrigger>
-                  <SelectContent className="bg-card/95 backdrop-blur-xl border-white/10">
+                  <SelectContent className="bg-card border-border">
                     {jobTypes[language].map((type) => (
-                      <SelectItem key={type} value={type} className="focus:bg-primary/10 focus:text-primary">
+                      <SelectItem key={type} value={type} className="focus:bg-primary/10">
                         {type}
                       </SelectItem>
                     ))}
@@ -417,7 +403,7 @@ export function CareersContent({ locale }: { locale: Locale }) {
                 >
                   <button
                     onClick={clearFilters}
-                    className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
+                    className="flex items-center gap-1.5 text-sm text-foreground/60 hover:text-primary transition-colors"
                   >
                     <X className="w-3.5 h-3.5" />
                     {t_ui.clear_filters}
@@ -427,28 +413,25 @@ export function CareersContent({ locale }: { locale: Locale }) {
             </div>
 
             {/* Results */}
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-4xl">
               {openPositions.length === 0 ? (
                 /* No positions exist at all */
                 <m.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="text-center py-20 px-6"
+                  {...reveal}
+                  className="rounded-xl border border-border bg-card text-center py-16 px-6"
                 >
-                  <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mx-auto mb-6">
-                    <Briefcase className="w-8 h-8 text-muted-foreground" />
+                  <div className="w-14 h-14 rounded-lg bg-background border border-border flex items-center justify-center mx-auto mb-5">
+                    <Briefcase className="w-6 h-6 text-foreground/50" />
                   </div>
-                  <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
+                  <h3 className="text-lg md:text-xl font-semibold text-foreground mb-3">
                     {t_ui.empty_title}
                   </h3>
-                  <p className="text-muted-foreground max-w-md mx-auto mb-8 leading-relaxed">
+                  <p className="text-foreground/65 max-w-md mx-auto mb-7 leading-relaxed">
                     {t_ui.empty_subtitle}
                   </p>
                   <Button
                     asChild
-                    className="rounded-full bg-white text-black hover:bg-primary hover:text-white transition-all duration-300 font-bold px-8 h-11"
+                    className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-7 h-11"
                   >
                     <a href="mailto:careers@buriedgames.com">
                       <Send className="w-4 h-4 me-2" />
@@ -458,10 +441,10 @@ export function CareersContent({ locale }: { locale: Locale }) {
                 </m.div>
               ) : filteredPositions.length === 0 ? (
                 /* Positions exist but none match filters */
-                <div className="text-center py-16 px-6">
-                  <Search className="w-10 h-10 text-muted-foreground/40 mx-auto mb-4" />
-                  <h3 className="text-lg font-bold text-white mb-2">{t_ui.no_results_title}</h3>
-                  <p className="text-muted-foreground text-sm">{t_ui.no_results_subtitle}</p>
+                <div className="text-center py-14 px-6">
+                  <Search className="w-9 h-9 text-foreground/30 mx-auto mb-4" />
+                  <h3 className="text-base md:text-lg font-semibold text-foreground mb-2">{t_ui.no_results_title}</h3>
+                  <p className="text-foreground/65 text-sm">{t_ui.no_results_subtitle}</p>
                 </div>
               ) : (
                 /* Position cards */
@@ -470,17 +453,15 @@ export function CareersContent({ locale }: { locale: Locale }) {
                     <m.a
                       key={index}
                       href={`mailto:careers@buriedgames.com?subject=${encodeURIComponent(position.title[language])}`}
-                      initial={{ opacity: 0, y: 16 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: index * 0.05, duration: 0.35 }}
-                      className="group flex items-center justify-between gap-4 p-5 md:p-6 rounded-xl bg-card/40 backdrop-blur-sm border border-white/10 hover:border-primary/40 transition-all duration-300 hover:shadow-[0_0_20px_-8px_rgba(var(--primary),0.25)] cursor-pointer"
+                      {...reveal}
+                      transition={{ ...reveal.transition, delay: index * 0.05 }}
+                      className="group flex items-center justify-between gap-4 p-5 md:p-6 rounded-xl bg-card border border-border hover:border-primary/40 transition-all duration-300 hover:-translate-y-0.5 cursor-pointer"
                     >
                       <div className="min-w-0">
-                        <h3 className="text-base md:text-lg font-bold text-white group-hover:text-primary transition-colors truncate">
+                        <h3 className="text-base md:text-lg font-semibold text-foreground group-hover:text-primary transition-colors truncate">
                           {position.title[language]}
                         </h3>
-                        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1.5 text-sm text-muted-foreground">
+                        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 mt-1.5 text-sm text-foreground/60">
                           <span className="flex items-center gap-1.5">
                             <Building2 className="w-3.5 h-3.5" />
                             {position.department[language]}
@@ -495,7 +476,7 @@ export function CareersContent({ locale }: { locale: Locale }) {
                           </span>
                         </div>
                       </div>
-                      <ArrowRight className={`w-5 h-5 text-muted-foreground group-hover:text-primary transition-all duration-300 shrink-0 ${isRTL ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} />
+                      <ArrowRight className={`w-5 h-5 text-foreground/40 group-hover:text-primary transition-all duration-300 shrink-0 ${isRTL ? 'rotate-180 group-hover:-translate-x-1' : 'group-hover:translate-x-1'}`} />
                     </m.a>
                   ))}
                 </div>
@@ -507,28 +488,20 @@ export function CareersContent({ locale }: { locale: Locale }) {
         {/* ══════════════════════════════════════
             BOTTOM CTA
         ══════════════════════════════════════ */}
-        <section className="container py-20 md:py-28">
-          <m.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="glass-card rounded-3xl p-10 md:p-14 text-center relative overflow-hidden border border-white/10"
-          >
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 pointer-events-none" />
-
-            <div className="relative z-10 max-w-lg mx-auto">
-              <h2 className="text-3xl md:text-4xl font-headline font-bold mb-3 text-white">
+        <section className="container max-w-screen-xl py-14 md:py-20">
+          <m.div {...reveal} className="rounded-xl border border-border bg-card p-8 md:p-12 text-center">
+            <div className="max-w-lg mx-auto">
+              <h2 className="font-headline font-bold tracking-tight text-2xl md:text-3xl text-foreground mb-3">
                 {t_ui.cta_title}
               </h2>
-              <p className="text-muted-foreground mb-8 leading-relaxed">
+              <p className="text-foreground/65 mb-7 leading-relaxed">
                 {t_ui.cta_subtitle}
               </p>
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <Button
                   asChild
-                  className="rounded-full bg-white text-black hover:bg-primary hover:text-white transition-all duration-300 font-bold px-8 h-11"
+                  className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-semibold px-7 h-11"
                 >
                   <a href="mailto:careers@buriedgames.com">
                     <Send className="w-4 h-4 me-2" />
@@ -538,7 +511,7 @@ export function CareersContent({ locale }: { locale: Locale }) {
                 <Button
                   asChild
                   variant="outline"
-                  className="rounded-full border-white/20 hover:border-accent/50 hover:bg-accent/10 hover:text-accent transition-all duration-300 px-8 h-11"
+                  className="rounded-full border-foreground/20 hover:bg-foreground/5 transition-all duration-300 px-7 h-11"
                 >
                   <Link
                     href="https://linkedin.com/company/buriedgames"

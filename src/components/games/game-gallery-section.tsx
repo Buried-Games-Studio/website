@@ -23,16 +23,16 @@ export function GameGallerySection({ game, theme, language, galleryImageMap }: G
   }[language]!;
 
   return (
-    <section className="py-32 overflow-hidden">
+    <section className="py-14 md:py-20 overflow-hidden">
       <m.div
-        className="container mb-12 flex items-end justify-between"
+        className="container max-w-screen-xl mb-10 md:mb-12 flex items-end justify-between"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
+        viewport={{ once: true, margin: "-80px" }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
-        <h2 className="text-4xl md:text-5xl font-headline font-bold">{t_ui.title}</h2>
-        <div className="hidden md:block w-1/3 h-px bg-gradient-to-r from-primary/30 to-transparent mb-4" />
+        <h2 className="text-2xl md:text-3xl font-headline font-bold tracking-tight text-foreground">{t_ui.title}</h2>
+        <div className="hidden md:block w-1/3 h-px bg-gradient-to-r from-primary/30 to-transparent mb-2" />
       </m.div>
 
       <m.div

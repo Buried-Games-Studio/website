@@ -1,19 +1,18 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { HomeContent } from "@/components/pages/home-content";
-import { faqContent } from "@/lib/content/faq";
 import { isLocale, localePath, languageAlternates, ogLocale, type Locale } from "@/lib/i18n";
 
 type PageProps = { params: Promise<{ locale: string }> };
 
 const title: Record<Locale, string> = {
-  en: 'Buried Games Studio | Indie Game Development Studio from Kuwait',
-  ar: 'استوديو بريد جيمز | استوديو كويتي مستقل لتطوير الألعاب',
+  en: 'Buried Games Studio | Game Development for Kuwait & the GCC',
+  ar: 'استوديو بريد جيمز | تطوير ألعاب للكويت والخليج',
 };
 
 const description: Record<Locale, string> = {
-  en: 'Buried Games Studio — indie game development studio from Kuwait crafting multiplayer games, trivia apps, and interactive experiences. Play Nabsh, Power of Bombs, KoutQ8, and more.',
-  ar: 'استوديو بريد جيمز — استوديو كويتي مستقل لتطوير الألعاب، نصنع ألعابًا جماعية وتطبيقات تريفيا وتجارب تفاعلية. جرّب نبش، كوت الكويت، باور أوف بومبز والمزيد.',
+  en: 'Buried Games is a game development studio serving clients across Kuwait and the GCC, building mobile, multiplayer, and Unity games for studios, brands, and entrepreneurs — Saudi Arabia, UAE, Qatar, Bahrain, and Oman. From concept to launch.',
+  ar: 'بريد جيمز استوديو تطوير ألعاب يخدم العملاء في الكويت والخليج، نبني ألعاب الجوال والألعاب الجماعية وألعاب Unity للاستوديوهات والعلامات التجارية ورواد الأعمال — السعودية والإمارات وقطر والبحرين وعُمان. من الفكرة إلى الإطلاق.',
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -37,31 +36,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-// FAQPage JSON-LD is generated from the same content the visible FAQ accordion
-// renders, so the structured data always matches the page in both languages.
-function faqSchema(locale: Locale) {
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqContent[locale].items.map(({ q, a }) => ({
-      "@type": "Question",
-      "name": q,
-      "acceptedAnswer": { "@type": "Answer", "text": a },
-    })),
-  };
-}
-
+// The FAQ accordion stays on the homepage, but its FAQPage JSON-LD lives on
+// /faq only — emitting the same schema on two URLs makes Google pick one
+// arbitrarily and dilutes the rich-result eligibility of both.
 export default async function Home({ params }: PageProps) {
   const { locale: raw } = await params;
   if (!isLocale(raw)) notFound();
 
-  return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(raw)) }}
-      />
-      <HomeContent locale={raw} />
-    </>
-  );
+  return <HomeContent locale={raw} />;
 }

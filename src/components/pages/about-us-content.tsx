@@ -2,13 +2,18 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { m } from "framer-motion";
 import { localePath, type Locale } from "@/lib/i18n";
 import { getTranslation } from "@/lib/content";
-import { Button } from "@/components/ui/button";
-import { Users, Heart, Wand2, ShieldCheck, Handshake, Target, ArrowRight } from "lucide-react";
+import { Heart, Wand2, ShieldCheck, Target, ArrowRight } from "lucide-react";
 import { assets } from "@/lib/assets";
-import dynamic from "next/dynamic";
-const ParticlesBackground = dynamic(() => import("@/components/particles-background").then(mod => mod.ParticlesBackground), { ssr: false });
+
+const reveal = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+  transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+};
 
 export function AboutUsContent({ locale }: { locale: Locale }) {
   const language = locale;
@@ -17,248 +22,246 @@ export function AboutUsContent({ locale }: { locale: Locale }) {
 
   const t_ui = {
     en: {
-      page_title: "About Buried Games",
-      contact_title: "Join Our Journey",
-      contact_subtitle: "Whether you're a player, partner, or creator, we want to hear from you.",
-      contact_cta: "Get In Touch",
+      eyebrow: "Studio profile",
       core_values_title: "Our DNA",
-      our_story_title: "The Origin Story",
-      mission_label: "Our Mission",
-      partners_title: "Strategic Partners",
+      our_story_title: "The origin story",
+      mission_label: "Our mission",
+      partners_title: "Strategic partners",
       founder_role: "Founder & Lead Developer",
-      studio_profile: "Studio Profile",
       established: "Est. 2018",
       studio_name: "Buried Games Studio",
-      studio_head: "Studio Head",
-      founder_quote: "I started Buried Games with a simple belief: games should be immersive, challenging, and respectful of the player's time. We are building the games we always wanted to play.",
+      founder_quote:
+        "I started Buried Games with a simple belief: games should be immersive, challenging, and respectful of the player's time. We are building the games we always wanted to play — and helping clients across the GCC build theirs.",
+      links_prefix: "Explore our",
+      links_services: "game development services",
+      links_join: "or browse the",
+      links_games: "games we've shipped",
     },
     ar: {
-      page_title: "عن بريد جيمز",
-      contact_title: "انضم إلى رحلتنا",
-      contact_subtitle: "سواء كنت لاعبًا أو شريكًا أو مبدعًا، نود أن نسمع منك.",
-      contact_cta: "تواصل معنا",
+      eyebrow: "ملف الاستوديو",
       core_values_title: "هويتنا",
       our_story_title: "قصة البداية",
       mission_label: "مهمتنا",
       partners_title: "شركاء النجاح",
       founder_role: "المؤسس والمطور الرئيسي",
-      studio_profile: "ملف الاستوديو",
       established: "تأسس 2018",
       studio_name: "استوديو بريد جيمز",
-      studio_head: "رئيس الاستوديو",
-      founder_quote: "أسّست بريد جيمز بإيمان بسيط: يجب أن تكون الألعاب غامرة وتمثّل تحديًا وتحترم وقت اللاعب. نحن نصنع الألعاب التي طالما أردنا أن نلعبها.",
+      founder_quote:
+        "أسّست بريد جيمز بإيمان بسيط: يجب أن تكون الألعاب غامرة وتمثّل تحديًا وتحترم وقت اللاعب. نحن نصنع الألعاب التي طالما أردنا أن نلعبها — ونساعد عملاءنا في مختلف دول الخليج على صناعة ألعابهم.",
+      links_prefix: "استكشف",
+      links_services: "خدمات تطوير الألعاب لدينا",
+      links_join: "أو تصفّح",
+      links_games: "الألعاب التي أطلقناها",
     },
   }[language];
 
   const coreValues = {
-      en: [
-        { icon: Heart, title: 'Passion First', description: 'Driven by an obsession with gameplay excellence.' },
-        { icon: Wand2, title: 'Innovation', description: 'Pushing boundaries with new tech and mechanics.' },
-        { icon: ShieldCheck, title: 'Quality', description: 'Polished, bug-free, and immersive experiences.' },
-      ],
-      ar: [
-        { icon: Heart, title: 'الشغف أولاً', description: 'مدفوعون بهوس التميز في أسلوب اللعب.' },
-        { icon: Wand2, title: 'الابتكار', description: 'دفع الحدود بتقنيات وآليات جديدة.' },
-        { icon: ShieldCheck, title: 'الجودة', description: 'تجربة مصقولة، خالية من الأخطاء، وغامرة.' },
-      ]
-  }[language]
+    en: [
+      { icon: Heart, title: "Passion First", description: "Driven by an obsession with gameplay excellence." },
+      { icon: Wand2, title: "Innovation", description: "Pushing boundaries with new tech and mechanics." },
+      { icon: ShieldCheck, title: "Quality", description: "Polished, bug-free, and immersive experiences." },
+    ],
+    ar: [
+      { icon: Heart, title: "الشغف أولاً", description: "مدفوعون بهوس التميز في أسلوب اللعب." },
+      { icon: Wand2, title: "الابتكار", description: "دفع الحدود بتقنيات وآليات جديدة." },
+      { icon: ShieldCheck, title: "الجودة", description: "تجربة مصقولة، خالية من الأخطاء، وغامرة." },
+    ],
+  }[language];
 
   return (
-      <main className="min-h-screen bg-background overflow-x-hidden">
-
-        {/* --- Cinematic Hero --- */}
-        <section className="relative h-[60vh] min-h-[500px] flex flex-col items-center justify-center overflow-hidden">
-          <ParticlesBackground />
-
-          {/* Background Elements */}
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background z-10" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 blur-[120px] rounded-full -z-10" />
-
-          <div className="relative z-20 container text-center space-y-6">
-            <div className="inline-block animate-fade-up [animation-delay:200ms] opacity-0 fill-mode-forwards">
-                <span className="px-4 py-1.5 rounded-full border border-white/10 bg-white/5 text-sm font-bold tracking-widest text-accent uppercase backdrop-blur-md">
-                    {t_ui.studio_profile}
-                </span>
-            </div>
-            <h1 className="text-5xl md:text-7xl font-headline font-bold tracking-wide text-white animate-fade-up [animation-delay:400ms] opacity-0 fill-mode-forwards">
-              {t_ui.page_title}
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto animate-fade-up [animation-delay:600ms] opacity-0 fill-mode-forwards">
-              {t.about_page.title}
+    <main>
+      {/* --- Hero band --- */}
+      <section className="border-b border-border bg-card/40">
+        <div className="container max-w-screen-xl py-14 md:py-20">
+          <m.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="max-w-2xl"
+          >
+            <p className="flex items-center gap-3 text-[11px] md:text-xs font-medium tracking-[0.25em] text-foreground/60 uppercase mb-5">
+              <span aria-hidden="true" className="inline-block w-6 h-px bg-primary" />
+              {t_ui.eyebrow}
             </p>
+            <h1 className="font-headline font-bold tracking-tight text-3xl md:text-4xl text-foreground">
+              {t.about_page.title}
+            </h1>
+          </m.div>
+        </div>
+      </section>
+
+      {/* --- Our Story & Mission --- */}
+      <section className="container max-w-screen-xl py-14 md:py-20">
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-14 lg:items-start">
+          {/* Left: Story */}
+          <m.div {...reveal} className="space-y-6">
+            <h2 className="flex items-center gap-3 font-headline font-bold tracking-tight text-2xl md:text-3xl text-foreground">
+              <span aria-hidden="true" className="inline-block w-8 h-px bg-primary" />
+              {t_ui.our_story_title}
+            </h2>
+            <div className="space-y-4 text-foreground/65 leading-relaxed max-w-2xl">
+              <p>{t.about_page.p1}</p>
+              <p>{t.about_page.p2}</p>
+            </div>
+
+            {/* Mission */}
+            <div className="rounded-xl border-s-2 border-primary border-y border-e border-border bg-card p-6">
+              <div className="flex items-center gap-2 mb-3 text-primary">
+                <Target className="w-5 h-5" />
+                <h3 className="text-xs font-semibold uppercase tracking-[0.2em]">{t_ui.mission_label}</h3>
+              </div>
+              <p className="text-foreground text-base md:text-lg leading-relaxed">
+                &ldquo;{t.about_page.mission_text}&rdquo;
+              </p>
+            </div>
+
+            <p className="text-foreground/65 leading-relaxed">
+              {t_ui.links_prefix}{" "}
+              <Link
+                href={localePath(language, "/services")}
+                className="text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors"
+              >
+                {t_ui.links_services}
+              </Link>{" "}
+              {t_ui.links_join}{" "}
+              <Link
+                href={localePath(language, "/games")}
+                className="text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors"
+              >
+                {t_ui.links_games}
+              </Link>
+              .
+            </p>
+          </m.div>
+
+          {/* Right: Visual */}
+          <m.div
+            {...reveal}
+            transition={{ ...reveal.transition, delay: 0.08 }}
+            className="group relative h-full min-h-[360px] overflow-hidden rounded-xl border border-border lg:sticky lg:top-24"
+          >
+            <Image
+              src={assets.aboutSection}
+              alt={t_ui.studio_name}
+              fill
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+            <div className="absolute bottom-6 start-6 end-6">
+              <div className="text-foreground/60 text-xs uppercase tracking-[0.2em] mb-1.5">{t_ui.established}</div>
+              <div className="text-xl font-bold text-foreground">{t_ui.studio_name}</div>
+            </div>
+          </m.div>
+        </div>
+      </section>
+
+      {/* --- Core Values --- */}
+      <section className="border-y border-border bg-card/40">
+        <div className="container max-w-screen-xl py-14 md:py-20">
+          <m.div {...reveal} className="mb-10">
+            <p className="flex items-center gap-3 text-[11px] md:text-xs font-medium tracking-[0.25em] text-foreground/60 uppercase mb-4">
+              <span aria-hidden="true" className="inline-block w-6 h-px bg-primary" />
+              {t_ui.core_values_title}
+            </p>
+          </m.div>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            {coreValues.map((value, index) => (
+              <m.div
+                key={index}
+                {...reveal}
+                transition={{ ...reveal.transition, delay: index * 0.06 }}
+                className="group rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/40 hover:-translate-y-0.5"
+              >
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-background text-primary">
+                  <value.icon className="w-5 h-5" />
+                </div>
+                <h3 className="text-base md:text-lg font-semibold mb-2 text-foreground">{value.title}</h3>
+                <p className="text-sm text-foreground/65 leading-relaxed">{value.description}</p>
+              </m.div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* --- Our Story & Mission (Split Layout) --- */}
-        <section className="container py-24">
-            <div className="grid lg:grid-cols-2 gap-16 items-start">
+      {/* --- Founder --- */}
+      <section className="container max-w-screen-xl py-14 md:py-20">
+        <m.div {...reveal} className="mb-8">
+          <p className="flex items-center gap-3 text-[11px] md:text-xs font-medium tracking-[0.25em] text-foreground/60 uppercase">
+            <span aria-hidden="true" className="inline-block w-6 h-px bg-primary" />
+            {t.about_page.team_title}
+          </p>
+        </m.div>
 
-                {/* Left: Story */}
-                <div className="space-y-8 relative">
-                     {/* Vertical Line Decoration */}
-                     <div className="absolute -start-8 top-0 bottom-0 w-px bg-gradient-to-b from-accent via-white/10 to-transparent hidden lg:block" />
-
-                     <div>
-                        <h2 className="text-4xl font-headline font-bold mb-6 flex items-center gap-3">
-                            <span className="w-12 h-1 bg-accent rounded-full" />
-                            {t_ui.our_story_title}
-                        </h2>
-                        <div className="prose prose-lg dark:prose-invert text-muted-foreground leading-relaxed space-y-6">
-                            <p>{t.about_page.p1}</p>
-                            <p>{t.about_page.p2}</p>
-                        </div>
-                     </div>
-
-                     {/* Mission Card (Embedded) */}
-                     <div className="bg-secondary/20 border-s-4 border-accent p-8 rounded-e-xl backdrop-blur-sm">
-                         <div className="flex items-center gap-3 mb-4 text-accent">
-                             <Target className="w-6 h-6" />
-                             <h3 className="font-bold uppercase tracking-wider">{t_ui.mission_label}</h3>
-                         </div>
-                         <p className="text-white text-lg font-medium italic">
-                             &ldquo;{t.about_page.mission_text}&rdquo;
-                         </p>
-                     </div>
+        {t.about_page.team.map((member, index) => (
+          <m.div key={index} {...reveal}>
+            <Link href={member.linkedInUrl} target="_blank" rel="noopener noreferrer" className="group block">
+              <div className="grid overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:border-primary/40 md:grid-cols-12">
+                {/* Image */}
+                <div className="relative h-72 md:col-span-4 md:h-auto">
+                  <Image
+                    src={assets.fahedAlahmad}
+                    alt={member.name}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-card" />
                 </div>
 
-                {/* Right: Visual/Image */}
-                <div className="relative h-full min-h-[400px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl group">
-                     <Image
-                        src={assets.aboutSection}
-                        alt={t_ui.studio_name}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105 grayscale group-hover:grayscale-0"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
-
-                    <div className="absolute bottom-8 start-8 end-8">
-                        <div className="text-white/80 text-sm font-mono uppercase tracking-widest mb-2">{t_ui.established}</div>
-                        <div className="text-2xl font-bold text-white">{t_ui.studio_name}</div>
-                    </div>
+                {/* Content */}
+                <div className="relative md:col-span-8 p-7 md:p-10 flex flex-col justify-center">
+                  <ArrowRight
+                    className={`absolute top-6 end-6 w-5 h-5 text-foreground/30 transition-all duration-300 group-hover:text-primary ${
+                      isRTL ? "rotate-180 group-hover:-translate-x-1" : "group-hover:translate-x-1"
+                    }`}
+                  />
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-3">
+                    {member.role}
+                  </p>
+                  <h3 className="font-headline font-bold tracking-tight text-2xl md:text-3xl text-foreground mb-1">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm text-foreground/70 mb-5">{t_ui.founder_role}</p>
+                  <p className="text-foreground/65 leading-relaxed max-w-2xl">
+                    &ldquo;{t_ui.founder_quote}&rdquo;
+                  </p>
                 </div>
-            </div>
-        </section>
+              </div>
+            </Link>
+          </m.div>
+        ))}
+      </section>
 
-        {/* --- Core Values (Holographic Grid) --- */}
-        <section className="py-24 bg-secondary/10 border-y border-white/5">
-            <div className="container">
-                <div className="text-center max-w-2xl mx-auto mb-16">
-                     <h2 className="text-4xl md:text-5xl font-headline font-bold mb-4">{t_ui.core_values_title}</h2>
-                     <div className="h-1 w-20 bg-accent mx-auto rounded-full" />
-                </div>
-
-                <div className="grid md:grid-cols-3 gap-8">
-                  {coreValues.map((value, index) => (
-                      <div key={index} className="group relative p-8 rounded-2xl bg-card/5 border border-white/10 hover:border-accent/50 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_0_30px_-10px_rgba(var(--accent),0.3)]">
-                           {/* Glow Effect */}
-                           <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
-
-                           <div className="relative z-10 flex flex-col items-center text-center">
-                                <div className="w-16 h-16 rounded-xl bg-white/5 flex items-center justify-center text-accent mb-6 border border-white/10 group-hover:scale-110 transition-transform duration-300">
-                                    <value.icon className="w-8 h-8" />
-                                </div>
-                                <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-accent transition-colors">{value.title}</h3>
-                                <p className="text-muted-foreground leading-relaxed">{value.description}</p>
-                           </div>
-                      </div>
-                  ))}
-                </div>
-            </div>
-        </section>
-
-        {/* --- Founder Section (Spotlight Card) --- */}
-        <section className="container py-24">
-            <div className="max-w-5xl mx-auto">
-                <div className="flex items-center justify-center gap-4 mb-12">
-                    <Users className="w-8 h-8 text-accent" />
-                    <h2 className="text-4xl font-headline font-bold">{t.about_page.team_title}</h2>
-                </div>
-
-                {t.about_page.team.map((member, index) => (
-                    <Link key={index} href={member.linkedInUrl} target="_blank" rel="noopener noreferrer" className="block group">
-                        <div className="relative bg-gradient-to-br from-card to-card/50 border border-white/10 rounded-3xl overflow-hidden hover:border-accent/50 transition-all duration-500">
-
-                             <div className="grid md:grid-cols-12 gap-0">
-                                 {/* Image Side */}
-                                 <div className="md:col-span-5 relative h-[400px] md:h-auto overflow-hidden">
-                                    <Image
-                                        src={assets.fahedAlahmad}
-                                        alt={member.name}
-                                        fill
-                                        className="object-cover transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0 grayscale md:grayscale-0"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent md:bg-gradient-to-r md:from-transparent md:to-card" />
-                                 </div>
-
-                                 {/* Content Side */}
-                                 <div className="md:col-span-7 p-8 md:p-16 flex flex-col justify-center relative z-10">
-                                     <div className="absolute top-8 end-8 opacity-20 group-hover:opacity-100 transition-opacity">
-                                         <ArrowRight className={`w-8 h-8 transition-transform duration-300 text-accent ${isRTL ? "rotate-[225deg] group-hover:rotate-180" : "-rotate-45 group-hover:rotate-0"}`} />
-                                     </div>
-
-                                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-bold tracking-widest uppercase w-fit mb-4">
-                                         {t_ui.studio_head}
-                                     </div>
-                                     <h3 className="text-4xl md:text-5xl font-headline font-bold mb-2 text-white">{member.name}</h3>
-                                     <p className="text-xl text-accent mb-6">{t_ui.founder_role}</p>
-                                     <p className="text-muted-foreground leading-relaxed">
-                                         &ldquo;{t_ui.founder_quote}&rdquo;
-                                     </p>
-                                 </div>
-                             </div>
-                        </div>
-                    </Link>
-                ))}
-            </div>
-        </section>
-
-
-        {/* --- Partners Section --- */}
-        <section className="py-16 border-t border-white/5 bg-black/20">
-          <div className="container text-center">
-            <div className="flex items-center justify-center gap-3 mb-12 opacity-50">
-                <Handshake className="w-5 h-5" />
-                <span className="text-sm font-bold tracking-[0.2em] uppercase">{t_ui.partners_title}</span>
-            </div>
-
-            <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24">
+      {/* --- Partners --- */}
+      <section className="border-t border-border bg-card/40">
+        <div className="container max-w-screen-xl py-14">
+          <m.div {...reveal} className="flex flex-col items-center text-center">
+            <p className="text-xs font-medium tracking-[0.2em] uppercase text-foreground/50 mb-8">
+              {t_ui.partners_title}
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20">
               {t.partners.items.map((partner, index) => (
                 <a
-                    key={index}
-                    href={partner.websiteUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group relative opacity-50 hover:opacity-100 transition-opacity duration-300"
+                  key={index}
+                  href={partner.websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={partner.name}
+                  className="opacity-60 transition-opacity duration-300 hover:opacity-100"
                 >
-                    <div className="absolute -inset-4 bg-accent/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full" />
-                    <Image
-                        src={assets.gavan}
-                        alt={partner.name}
-                        width={180}
-                        height={70}
-                        className="relative z-10 object-contain grayscale group-hover:grayscale-0 transition-all duration-300"
-                    />
+                  <Image
+                    src={assets.gavan}
+                    alt={partner.name}
+                    width={160}
+                    height={60}
+                    className="object-contain"
+                  />
                 </a>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* --- Final CTA --- */}
-        <section className="container py-24">
-            <div className="glass-card rounded-3xl p-12 text-center relative overflow-hidden border border-white/10">
-                <div className="absolute inset-0 bg-gradient-to-r from-accent/10 via-transparent to-accent/10 opacity-0 hover:opacity-100 transition-opacity duration-500" />
-
-                <div className="relative z-10 max-w-2xl mx-auto">
-                    <h2 className="text-4xl md:text-5xl font-headline font-bold mb-4 text-white">{t_ui.contact_title}</h2>
-                    <p className="text-xl text-muted-foreground mb-8">{t_ui.contact_subtitle}</p>
-                    <Button asChild size="lg" className="bg-white text-black hover:bg-white/90 font-bold px-8 py-6 rounded-full text-lg">
-                        <Link href={localePath(language, "/contact-us")}>{t_ui.contact_cta}</Link>
-                    </Button>
-                </div>
-            </div>
-        </section>
-
-      </main>
+          </m.div>
+        </div>
+      </section>
+    </main>
   );
 }

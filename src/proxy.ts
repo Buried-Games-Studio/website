@@ -1,6 +1,21 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
+// Fail-closed indexability gate: only the canonical production host may be
+// indexed. Anything else (App Hosting preview channels, *.web.app, localhost)
+// gets X-Robots-Tag: noindex so non-prod deployments never leak into Google.
+const CANONICAL_HOST = 'buriedgames.com';
+
+function withIndexabilityGate(
+  response: NextResponse,
+  hostname: string,
+): NextResponse {
+  if (hostname !== CANONICAL_HOST) {
+    response.headers.set('X-Robots-Tag', 'noindex, nofollow');
+  }
+  return response;
+}
+
 export function proxy(request: NextRequest) {
   const url = request.nextUrl.clone();
   const pathname = url.pathname;
@@ -22,13 +37,21 @@ export function proxy(request: NextRequest) {
   const hasTrailingSlash =
     pathname.length > 1 && pathname.endsWith('/');
   const hasJunkParams = url.searchParams.has('s');
+  // External /en URLs are legacy (English lives unprefixed at the root).
+  // next.config redirects bare /en, but /en/ would otherwise take two hops
+  // (slash strip → /en, then /en → /); folding it here keeps one redirect.
+  const hasEnPrefix = pathname === '/en' || pathname.startsWith('/en/');
 
-  // Consolidate www removal + trailing slash strip + junk param strip into a single redirect
-  if (isWww || hasTrailingSlash || hasJunkParams) {
+  // Consolidate www removal + trailing slash strip + junk param strip +
+  // legacy /en strip into a single redirect — never chain hops.
+  if (isWww || hasTrailingSlash || hasJunkParams || hasEnPrefix) {
     if (isWww) {
       url.host = hostname.replace('www.', '');
     }
-    if (hasTrailingSlash) {
+    if (hasEnPrefix) {
+      url.pathname = url.pathname.replace(/^\/en(?=\/|$)/, '') || '/';
+    }
+    if (url.pathname.length > 1 && url.pathname.endsWith('/')) {
       url.pathname = url.pathname.replace(/\/+$/, '');
     }
     if (hasJunkParams) {
@@ -49,10 +72,10 @@ export function proxy(request: NextRequest) {
     !hasFileExtension
   ) {
     url.pathname = pathname === '/' ? '/en' : `/en${pathname}`;
-    return NextResponse.rewrite(url);
+    return withIndexabilityGate(NextResponse.rewrite(url), hostname);
   }
 
-  return NextResponse.next();
+  return withIndexabilityGate(NextResponse.next(), hostname);
 }
 
 export const config = {

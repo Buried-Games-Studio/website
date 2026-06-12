@@ -14,6 +14,8 @@ import { GameStoryComicSection } from "@/components/games/game-story-comic-secti
 import { GameCharactersSection } from "@/components/games/game-characters-section";
 import { GameDesignJourneySection } from "@/components/games/game-design-journey-section";
 import { GameRolesSection } from "@/components/games/game-roles-section";
+import { GameContentSections } from "@/components/games/game-content-sections";
+import { GameMoreGames } from "@/components/games/game-more-games";
 import { assets } from "@/lib/assets";
 
 // Image maps using cloud URLs
@@ -73,6 +75,11 @@ export function GameDetailContent({ slug, locale }: { slug: string; locale: Loca
             theme={theme}
             language={language}
             aboutImage={aboutImage}
+          />
+          <GameContentSections
+            sections={game.sections}
+            theme={theme}
+            language={language}
           />
           <GameFeaturesSection
             game={game}
@@ -144,6 +151,8 @@ export function GameDetailContent({ slug, locale }: { slug: string; locale: Loca
             gameLogo={gameLogo}
             storeImageMap={storeImageMap}
           />
+
+          <GameMoreGames currentSlug={game.slug} theme={theme} language={language} />
         </main>
     </GameThemeProvider>
   );

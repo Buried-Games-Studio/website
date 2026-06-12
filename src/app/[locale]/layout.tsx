@@ -9,9 +9,8 @@ import { Toaster } from "@/components/ui/toaster";
 
 import { Suspense } from 'react';
 import { assets } from '@/lib/assets';
-import { Cairo, Inter } from 'next/font/google';
+import { Cairo, Inter, Space_Grotesk } from 'next/font/google';
 import Script from 'next/script';
-import FloatingSocials from '@/components/layout/floating-socials';
 import { SurveyModal } from '@/components/survey-modal';
 import { SmoothScroll } from '@/components/providers/smooth-scroll';
 import { PageTransition } from '@/components/providers/page-transition';
@@ -22,11 +21,22 @@ const cairo = Cairo({
   subsets: ['arabic', 'latin'],
   weight: ['400', '700'],
   variable: '--font-cairo',
+  display: 'swap',
 });
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  display: 'swap',
+});
+
+// Heading face. The pixel display font (afolkalips) is reserved for the
+// wordmark only — using it for headings destroyed legibility and credibility.
+const spaceGrotesk = Space_Grotesk({
+  subsets: ['latin'],
+  weight: ['500', '700'],
+  variable: '--font-space-grotesk',
+  display: 'swap',
 });
 
 const organizationSchema = {
@@ -42,17 +52,25 @@ const organizationSchema = {
   "email": "support@buriedgames.com",
   "url": "https://buriedgames.com",
   "logo": "https://assets.buriedgames.com/images/buriedgames_logo.png",
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "KW"
-  },
+  // No PostalAddress on purpose: areaServed declares the service area without
+  // asserting a place of establishment.
   "areaServed": ["KW", "SA", "AE", "QA", "BH", "OM"],
+  "knowsAbout": [
+    "Game Development",
+    "Unity",
+    "Unreal Engine",
+    "Mobile Games",
+    "Multiplayer Games",
+    "Game Design",
+    "Arabic Games"
+  ],
   "sameAs": [
     "https://www.youtube.com/@buriedgames",
     "https://twitter.com/buriedgames",
     "https://instagram.com/buriedgames",
     "https://linkedin.com/company/buriedgames",
     "https://github.com/Buried-Games-Studio",
+    "https://tiktok.com/@buriedgames",
     "https://wa.me/96555528686"
   ],
   "contactPoint": {
@@ -63,20 +81,37 @@ const organizationSchema = {
   }
 };
 
+// WebSite node so Google associates the canonical site name and URL.
+// Deliberately no SearchAction: the site has no on-site search, and the old
+// WordPress deployment's ?s={search_term_string} template still haunts GSC.
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Buried Games Studio",
+  "alternateName": "استوديو بريد جيمز",
+  "url": "https://buriedgames.com",
+  "inLanguage": ["en", "ar"],
+  "publisher": {
+    "@type": "Organization",
+    "name": "Buried Games Studio",
+    "url": "https://buriedgames.com"
+  }
+};
+
 const siteTitle: Record<Locale, { default: string; template: string }> = {
   en: {
-    default: 'Buried Games Studio | Crafting Worlds, One Game at a Time',
+    default: 'Buried Games Studio | Game Development for Kuwait & the GCC',
     template: '%s | Buried Games Studio',
   },
   ar: {
-    default: 'استوديو بريد جيمز | نصنع عوالم، لعبة تلو الأخرى',
+    default: 'استوديو بريد جيمز | تطوير ألعاب للكويت والخليج',
     template: '%s | استوديو بريد جيمز',
   },
 };
 
 const siteDescription: Record<Locale, string> = {
-  en: 'Buried Games Studio is an indie game development studio specializing in multiplayer games, trivia apps, and interactive digital experiences. Explore our games, services, and devlogs.',
-  ar: 'استوديو بريد جيمز هو استوديو مستقل لتطوير الألعاب متخصص في الألعاب الجماعية وتطبيقات التريفيا والتجارب الرقمية التفاعلية. اكتشف ألعابنا وخدماتنا ومدونة التطوير.',
+  en: 'Buried Games Studio is a game development studio building multiplayer games, mobile games, and interactive experiences for clients across Kuwait and the GCC. Explore our games, services, and devlogs.',
+  ar: 'استوديو بريد جيمز هو استوديو تطوير ألعاب يصنع ألعابًا جماعية وألعاب جوال وتجارب تفاعلية لعملاء في الكويت والخليج. اكتشف ألعابنا وخدماتنا ومدونة التطوير.',
 };
 
 export function generateStaticParams() {
@@ -97,6 +132,15 @@ export async function generateMetadata({
     description: siteDescription[locale],
     authors: [{ name: 'Buried Games Studio', url: 'https://buriedgames.com' }],
     manifest: '/site.webmanifest',
+    // Bing Webmaster Tools ownership: set NEXT_PUBLIC_BING_VERIFICATION to the
+    // msvalidate.01 code from bing.com/webmasters (Settings → Verify by meta tag).
+    ...(process.env.NEXT_PUBLIC_BING_VERIFICATION
+      ? {
+          verification: {
+            other: { 'msvalidate.01': process.env.NEXT_PUBLIC_BING_VERIFICATION },
+          },
+        }
+      : {}),
     alternates: {
       languages: languageAlternates('/'),
     },
@@ -142,7 +186,7 @@ export default async function RootLayout({
   const locale: Locale = raw;
 
   return (
-    <html lang={locale} dir={textDirection(locale)} className={`${cairo.variable} ${inter.variable} dark`}>
+    <html lang={locale} dir={textDirection(locale)} className={`${cairo.variable} ${inter.variable} ${spaceGrotesk.variable} dark`}>
       <head>
         <link rel="preconnect" href="https://assets.buriedgames.com" />
         <link rel="dns-prefetch" href="https://assets.buriedgames.com" />
@@ -151,6 +195,10 @@ export default async function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
       <body className="font-body antialiased bg-background text-foreground selection:bg-primary/20">
@@ -165,7 +213,6 @@ export default async function RootLayout({
               </a>
               <div className="relative flex min-h-screen flex-col">
                 <Header />
-                <FloatingSocials />
                 <div id="main-content" className="flex-1 md:px-12">
                   <PageTransition>{children}</PageTransition>
                 </div>

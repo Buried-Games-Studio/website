@@ -102,7 +102,7 @@ const ServiceCard = ({
 
           {/* Content */}
           <div className="flex-1">
-            <h3 className="text-3xl md:text-4xl font-headline font-bold text-white mb-4 group-hover:text-primary transition-colors duration-300">
+            <h3 className="text-2xl md:text-3xl font-headline font-bold text-white mb-4 group-hover:text-primary transition-colors duration-300">
               {service.name}
             </h3>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-lg group-hover:text-white/80 transition-colors duration-300">

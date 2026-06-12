@@ -19,8 +19,11 @@ export default {
     },
     extend: {
       fontFamily: {
-        body: ['var(--font-inter)', 'sans-serif'],
-        headline: ['afolkalips', 'sans-serif'],
+        body: ['var(--font-inter)', 'var(--font-cairo)', 'sans-serif'],
+        // Headings: grotesque sans (Cairo carries Arabic). The pixel display
+        // face is wordmark-only via font-display.
+        headline: ['var(--font-space-grotesk)', 'var(--font-cairo)', 'sans-serif'],
+        display: ['afolkalips', 'var(--font-space-grotesk)', 'sans-serif'],
         arabic: ['var(--font-cairo)', 'sans-serif'],
         code: ['monospace'],
       },

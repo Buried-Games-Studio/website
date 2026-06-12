@@ -41,11 +41,11 @@ export default function ContactForm() {
         namePlaceholder: "Your Name",
         emailPlaceholder: "your.email@example.com",
         messagePlaceholder: "Your message...",
-        submit: "Send Transmission",
-        submitting: "Transmitting...",
-        errorTitle: "Transmission Failed",
-        successTitle: "Message Received",
-        successDescription: "We have received your transmission. Stand by for a response.",
+        submit: "Send Message",
+        submitting: "Sending…",
+        errorTitle: "Something went wrong",
+        successTitle: "Message sent",
+        successDescription: "We received your message — we'll reply within 1 business day.",
     },
     ar: {
         name: "الاسم",
@@ -63,11 +63,11 @@ export default function ContactForm() {
         namePlaceholder: "اسمك",
         emailPlaceholder: "your.email@example.com",
         messagePlaceholder: "رسالتك...",
-        submit: "أرسل الرسالة",
-        submitting: "جارٍ الإرسال...",
-        errorTitle: "فشل الإرسال",
-        successTitle: "تم استلام رسالتك",
-        successDescription: "لقد استلمنا رسالتك. سنتواصل معك قريباً.",
+        submit: "إرسال الرسالة",
+        submitting: "جارٍ الإرسال…",
+        errorTitle: "حدث خطأ ما",
+        successTitle: "تم إرسال رسالتك",
+        successDescription: "تم إرسال رسالتك — سنرد خلال يوم عمل واحد.",
     }
   }[language];
 
@@ -86,7 +86,7 @@ export default function ContactForm() {
         toast({
           title: t.successTitle,
           description: t.successDescription,
-          className: "bg-accent text-white border-none"
+          className: "bg-card border-border text-foreground"
         });
         const form = document.getElementById("contact-form") as HTMLFormElement;
         form?.reset();
@@ -95,56 +95,56 @@ export default function ContactForm() {
   }
 
   return (
-    <form id="contact-form" action={handleSubmit} className="space-y-6 text-start">
-      
+    <form id="contact-form" action={handleSubmit} className="space-y-5 text-start">
+
       {/* Name Input */}
       <div className="space-y-2 group">
-        <Label htmlFor="name" className="text-sm font-bold tracking-wider uppercase text-muted-foreground group-focus-within:text-accent transition-colors">
+        <Label htmlFor="name" className="text-xs font-medium tracking-wide text-foreground/60 group-focus-within:text-foreground transition-colors">
           {t.name}
         </Label>
         <div className="relative">
-          <User className="absolute start-4 top-3.5 h-5 w-5 text-muted-foreground group-focus-within:text-white transition-colors" />
+          <User className="absolute start-3.5 top-3.5 h-4.5 w-4.5 text-foreground/40 group-focus-within:text-primary transition-colors" />
           <Input
             id="name"
             name="name"
             placeholder={t.namePlaceholder}
             required
-            className="ps-12 bg-black/20 border-white/10 focus:border-accent focus:bg-accent/5 h-12 transition-all duration-300 rounded-xl text-white placeholder:text-white/20"
+            className="ps-11 bg-background border-border focus-visible:ring-primary/30 focus-visible:border-primary/50 h-12 transition-all duration-200 rounded-lg"
           />
         </div>
       </div>
 
       {/* Email Input */}
       <div className="space-y-2 group">
-        <Label htmlFor="email" className="text-sm font-bold tracking-wider uppercase text-muted-foreground group-focus-within:text-accent transition-colors">
+        <Label htmlFor="email" className="text-xs font-medium tracking-wide text-foreground/60 group-focus-within:text-foreground transition-colors">
           {t.email}
         </Label>
         <div className="relative">
-          <Mail className="absolute start-4 top-3.5 h-5 w-5 text-muted-foreground group-focus-within:text-white transition-colors" />
+          <Mail className="absolute start-3.5 top-3.5 h-4.5 w-4.5 text-foreground/40 group-focus-within:text-primary transition-colors" />
           <Input
             id="email"
             name="email"
             type="email"
             placeholder={t.emailPlaceholder}
             required
-            className="ps-12 bg-black/20 border-white/10 focus:border-accent focus:bg-accent/5 h-12 transition-all duration-300 rounded-xl text-white placeholder:text-white/20"
+            className="ps-11 bg-background border-border focus-visible:ring-primary/30 focus-visible:border-primary/50 h-12 transition-all duration-200 rounded-lg"
           />
         </div>
       </div>
 
       {/* Inquiry Type Select */}
       <div className="space-y-2 group">
-        <Label htmlFor="inquiryType" className="text-sm font-bold tracking-wider uppercase text-muted-foreground group-focus-within:text-accent transition-colors">
+        <Label htmlFor="inquiryType" className="text-xs font-medium tracking-wide text-foreground/60 group-focus-within:text-foreground transition-colors">
           {t.inquiryType}
         </Label>
         <div className="relative">
-          <HelpCircle className="absolute start-4 top-3.5 h-5 w-5 text-muted-foreground group-focus-within:text-white transition-colors z-10 pointer-events-none" />
+          <HelpCircle className="absolute start-3.5 top-3.5 h-4.5 w-4.5 text-foreground/40 z-10 pointer-events-none" />
 
           <Select name="inquiryType" required>
-            <SelectTrigger className="w-full ps-12 bg-black/20 border-white/10 focus:border-accent focus:ring-accent/20 h-12 rounded-xl text-white">
+            <SelectTrigger className="w-full ps-11 bg-background border-border focus:ring-primary/30 focus:border-primary/50 h-12 rounded-lg">
               <SelectValue placeholder={t.inquiryTypePlaceholder} />
             </SelectTrigger>
-            <SelectContent className="bg-card border-white/10 text-white">
+            <SelectContent className="bg-card border-border">
               <SelectItem value="general">{t.inquiryOptions.general}</SelectItem>
               <SelectItem value="collaboration">{t.inquiryOptions.collaboration}</SelectItem>
               <SelectItem value="publishing">{t.inquiryOptions.publishing}</SelectItem>
@@ -157,26 +157,26 @@ export default function ContactForm() {
 
       {/* Message Input */}
       <div className="space-y-2 group">
-        <Label htmlFor="message" className="text-sm font-bold tracking-wider uppercase text-muted-foreground group-focus-within:text-accent transition-colors">
+        <Label htmlFor="message" className="text-xs font-medium tracking-wide text-foreground/60 group-focus-within:text-foreground transition-colors">
           {t.message}
         </Label>
         <div className="relative">
-          <MessageSquare className="absolute start-4 top-4 h-5 w-5 text-muted-foreground group-focus-within:text-white transition-colors" />
+          <MessageSquare className="absolute start-3.5 top-3.5 h-4.5 w-4.5 text-foreground/40 group-focus-within:text-primary transition-colors" />
           <Textarea
             id="message"
             name="message"
             placeholder={t.messagePlaceholder}
             required
-            className="ps-12 pt-4 bg-black/20 border-white/10 focus:border-accent focus:bg-accent/5 min-h-[150px] resize-none transition-all duration-300 rounded-xl text-white placeholder:text-white/20"
+            className="ps-11 pt-3 bg-background border-border focus-visible:ring-primary/30 focus-visible:border-primary/50 min-h-[140px] resize-none transition-all duration-200 rounded-lg"
           />
         </div>
       </div>
 
       {/* Submit Button */}
-      <Button 
-        type="submit" 
-        size="lg" 
-        className="w-full bg-accent hover:bg-accent/90 text-white font-bold h-14 text-lg shadow-[0_0_20px_rgba(var(--accent),0.3)] hover:shadow-[0_0_40px_rgba(var(--accent),0.5)] transition-all duration-300 rounded-xl"
+      <Button
+        type="submit"
+        size="lg"
+        className="w-full rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold h-12 transition-all duration-300"
         disabled={isPending}
       >
         {isPending ? (
@@ -187,7 +187,7 @@ export default function ContactForm() {
         ) : (
           <>
             {t.submit}
-            <Send className="ms-2 h-5 w-5" />
+            <Send className="ms-2 h-4 w-4" />
           </>
         )}
       </Button>

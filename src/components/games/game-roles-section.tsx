@@ -142,7 +142,7 @@ export function GameRolesSection({ roles, theme, language }: GameRolesSectionPro
   }[language]!;
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-14 md:py-20 overflow-hidden">
       {/* Background noir atmosphere */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-red-950/5 to-background" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(194,58,58,0.08),transparent_60%)]" />
@@ -158,10 +158,10 @@ export function GameRolesSection({ roles, theme, language }: GameRolesSectionPro
           <span className="text-xs font-bold uppercase tracking-[0.3em] text-primary/60 mb-4 block">
             [ {isRTL ? "الأسرة" : "THE FAMILY"} ]
           </span>
-          <h2 className="text-4xl md:text-6xl font-headline font-bold text-white mb-4">
+          <h2 className="text-2xl md:text-3xl font-headline font-bold tracking-tight text-foreground mb-3">
             {t_ui.title}
           </h2>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+          <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto">
             {t_ui.subtitle}
           </p>
         </m.div>

@@ -33,8 +33,14 @@ const nextConfig: NextConfig = {
     // Custom branded 404 document: nested not-found boundaries don't catch
     // thrown notFound() under a dynamic root segment ([locale]) in Next 16.
     globalNotFound: true,
+    // Tree-shake barrel imports so icon/animation libs only ship what each
+    // page actually uses (lucide-react alone is ~1MB unshaken).
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
   images: {
+    // Serve AVIF first, WebP fallback — the hero JPEG is the largest mobile
+    // payload and AVIF cuts it severalfold through the image optimizer.
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',

@@ -25,7 +25,7 @@ export function GameCharactersSection({ characters, theme, language }: GameChara
   }[language]!;
 
   return (
-    <section className="py-24 overflow-hidden">
+    <section className="py-14 md:py-20 overflow-hidden">
       <div className="container">
         <m.div
           className="text-center mb-14"
@@ -34,7 +34,7 @@ export function GameCharactersSection({ characters, theme, language }: GameChara
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl md:text-5xl font-headline font-bold mb-4">{t_ui.title}</h2>
+          <h2 className="text-2xl md:text-3xl font-headline font-bold tracking-tight text-foreground mb-3">{t_ui.title}</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">{t_ui.subtitle}</p>
         </m.div>
 

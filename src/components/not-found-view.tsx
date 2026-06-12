@@ -1,18 +1,20 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { AlertTriangle, Home } from 'lucide-react';
+import { Home } from 'lucide-react';
 
 const copy = {
   en: {
-    title: '404 - Page Not Found',
-    message: 'Oops! The page you are looking for does not exist. It might have been moved or deleted.',
-    cta: 'Go back to Homepage',
+    code: '404',
+    title: 'Page not found',
+    message: 'The page you are looking for does not exist. It might have been moved or deleted.',
+    cta: 'Go back to homepage',
     home: '/',
   },
   ar: {
-    title: '٤٠٤ - الصفحة غير موجودة',
-    message: 'عفوًا! الصفحة التي تبحث عنها غير موجودة. ربما تم نقلها أو حذفها.',
+    code: '٤٠٤',
+    title: 'الصفحة غير موجودة',
+    message: 'الصفحة التي تبحث عنها غير موجودة. ربما تم نقلها أو حذفها.',
     cta: 'العودة إلى الصفحة الرئيسية',
     home: '/ar',
   },
@@ -37,18 +39,21 @@ export function NotFoundView() {
   const t = copy[lang];
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center text-center">
-      <div className="container flex flex-col items-center gap-4 px-6">
-        <AlertTriangle className="h-16 w-16 text-destructive" />
-        <h1 className="text-4xl font-bold tracking-wide sm:text-5xl font-headline !leading-tight" style={{ letterSpacing: '0.05em' }}>
+    <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden text-center">
+      <div className="absolute left-1/2 top-1/2 -z-10 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[120px]" />
+      <div className="container flex max-w-xl flex-col items-center gap-5 px-6">
+        <span className="font-headline text-7xl font-bold tracking-tight text-primary md:text-8xl">
+          {t.code}
+        </span>
+        <h1 className="font-headline text-2xl font-bold tracking-tight text-foreground md:text-4xl">
           {t.title}
         </h1>
-        <p className="max-w-md text-muted-foreground">{t.message}</p>
+        <p className="max-w-md text-foreground/65 leading-relaxed">{t.message}</p>
         <a
           href={t.home}
-          className="inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          className="group mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:bg-primary/90"
         >
-          <Home className="me-2 h-4 w-4" />
+          <Home className="h-4 w-4" />
           {t.cta}
         </a>
       </div>

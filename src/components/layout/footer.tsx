@@ -4,18 +4,23 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useLanguage } from '@/contexts/language-context';
 import { usePathname } from 'next/navigation';
-import { localePath, type Locale } from '@/lib/i18n';
+import { localePath, stripLocalePrefix, type Locale } from '@/lib/i18n';
 import { getTranslation } from '@/lib/content';
-import {
-  Mail,
-  MapPin,
-  Globe
-} from 'lucide-react';
+import { Mail, Globe } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/icons/whatsapp';
 import { assets } from '@/lib/assets';
 import { cn } from '@/lib/utils';
 import { socialLinks } from './social-links';
-import { m } from 'framer-motion';
 import { trackSocialClick, trackWhatsAppClick, trackLanguageToggle } from '@/lib/google-analytics';
+
+const FooterLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
+  <Link
+    href={href}
+    className="block py-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+  >
+    {children}
+  </Link>
+);
 
 const Footer = () => {
   const { language } = useLanguage();
@@ -25,7 +30,7 @@ const Footer = () => {
 
   // The language switch is navigation: same route, alternate locale URL.
   const otherLocale: Locale = language === "en" ? "ar" : "en";
-  const basePath = pathname.replace(/^\/ar(?=\/|$)/, "") || "/";
+  const basePath = stripLocalePrefix(pathname);
   const switchHref = localePath(otherLocale, basePath);
   const href = (path: string) => localePath(language, path);
 
@@ -34,172 +39,190 @@ const Footer = () => {
       studio_name: 'Buried Games Studio',
       rights: `© ${currentYear} Buried Games Studio. All rights reserved.`,
       games: 'Games',
-      sitemap: 'Site Map',
+      studio: 'Studio',
       about_us: 'About Us',
       services: 'Services',
       devlog: 'Devlog',
       careers: 'Careers',
-      privacy: 'Privacy Policy',
-      terms: 'Terms of Use',
-      additional_links: 'Additional links',
+      privacy: 'Privacy',
+      terms: 'Terms',
+      regions: 'Regions',
       contact: 'Contact Us',
       faq: 'FAQs',
+      how_it_works: 'How It Works',
+      releases: 'Releases',
+      press: 'Press Kit',
       language_toggle: 'العربية',
       based_in: 'Proudly developed in the Arab World',
-      studio_location: 'Buried Games Studio — Kuwait',
+      gcc_tagline: 'Serving clients across Kuwait & the GCC',
     },
     ar: {
       studio_name: 'استوديو بريد جيمز',
       rights: `© ${currentYear} استوديو بريد جيمز. كل الحقوق محفوظة.`,
       games: 'الألعاب',
-      sitemap: 'خريطة الموقع',
+      studio: 'الاستوديو',
       about_us: 'من نحن',
       services: 'الخدمات',
       devlog: 'مدونة التطوير',
       careers: 'وظائف',
-      privacy: 'سياسة الخصوصية',
-      terms: 'شروط الاستخدام',
-      additional_links: 'روابط إضافية',
+      privacy: 'الخصوصية',
+      terms: 'الشروط',
+      regions: 'المناطق',
       contact: 'اتصل بنا',
       faq: 'الأسئلة الشائعة',
+      how_it_works: 'كيف نعمل',
+      releases: 'الإصدارات',
+      press: 'الملف الصحفي',
       language_toggle: 'English',
       based_in: 'تم التطوير بكل فخر في الوطن العربي',
-      studio_location: 'استوديو بريد جيمز — الكويت',
+      gcc_tagline: 'نخدم العملاء في الكويت والخليج',
     },
   }[language];
 
+  // Short localized labels, hardcoded on purpose: importing the full content
+  // modules here would ship every page's copy in the shared client bundle.
+  const serviceLinks: { path: string; label: Record<Locale, string> }[] = [
+    { path: '/services/game-development', label: { en: 'Game Development', ar: 'تطوير الألعاب' } },
+    { path: '/services/mobile-game-development', label: { en: 'Mobile Games', ar: 'ألعاب الجوال' } },
+    { path: '/services/unity-game-development', label: { en: 'Unity Development', ar: 'تطوير Unity' } },
+    { path: '/services/unreal-engine-development', label: { en: 'Unreal & MetaHuman', ar: 'Unreal وMetaHuman' } },
+    { path: '/services/multiplayer-game-development', label: { en: 'Multiplayer Games', ar: 'الألعاب الجماعية' } },
+    { path: '/services/game-art-design', label: { en: '2D/3D Art & Animation', ar: 'فن وتحريك 2D/3D' } },
+    { path: '/services/app-development', label: { en: 'App Development', ar: 'تطوير التطبيقات' } },
+    { path: '/services/web-development', label: { en: 'Web Development', ar: 'تطوير المواقع' } },
+  ];
+
+  const regionLinks: { path: string; label: Record<Locale, string> }[] = [
+    { path: '/game-development-kuwait', label: { en: 'Kuwait', ar: 'الكويت' } },
+    { path: '/game-development-saudi-arabia', label: { en: 'Saudi Arabia', ar: 'السعودية' } },
+    { path: '/game-development-uae', label: { en: 'UAE', ar: 'الإمارات' } },
+    { path: '/game-development-qatar', label: { en: 'Qatar', ar: 'قطر' } },
+    { path: '/game-development-bahrain', label: { en: 'Bahrain', ar: 'البحرين' } },
+    { path: '/game-development-oman', label: { en: 'Oman', ar: 'عُمان' } },
+  ];
+
+  const columnHeading = "text-xs font-semibold uppercase tracking-[0.15em] text-foreground/50 mb-3";
+
   return (
-    <footer className="relative border-t border-primary/20 bg-background text-foreground overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-0 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 w-full h-full max-w-4xl bg-primary/5 blur-[100px] pointer-events-none" />
-
-      <m.div
-        className="container relative mx-auto py-16 px-4"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-50px" }}
-        transition={{ duration: 0.7 }}
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
-          <div className="lg:col-span-4 flex flex-col items-center md:items-start text-center md:text-start space-y-6">
-            <div className="relative group">
-              <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <Image
-                src={assets.logo}
-                alt="Buried Games Studio Logo"
-                width={180}
-                height={180}
-                className="relative object-contain h-auto w-full max-w-[180px] transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
+    <footer className="relative border-t border-border bg-background text-foreground">
+      <div className="container mx-auto px-4 py-12 md:py-14">
+        {/* Brand + contact: the single contact surface of the site footer */}
+        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between pb-10 border-b border-border">
+          <div className="flex items-start gap-4">
+            <Image
+              src={assets.logo}
+              alt="Buried Games Studio Logo"
+              width={48}
+              height={48}
+              className="object-contain mt-0.5"
+            />
             <div>
-              <h1 className="text-2xl tracking-widest font-headline text-primary" style={{ letterSpacing: '0.1em' }}>{t_ui.studio_name}</h1>
-              <p className="text-sm text-muted-foreground mt-2">{t_ui.rights}</p>
+              <p className="font-display text-lg tracking-[0.08em] text-foreground">{t_ui.studio_name}</p>
+              <p className="text-sm text-muted-foreground mt-1">{t_ui.gcc_tagline}</p>
             </div>
           </div>
 
-          <div className="lg:col-span-5 grid grid-cols-2 sm:grid-cols-3 gap-8">
-            <div>
-              <h2 className="font-bold text-lg mb-4 text-foreground/90 border-b border-primary/20 pb-2 inline-block">{t_ui.games}</h2>
-              <ul className="space-y-3">
-                {t.games.map(game => (
-                  <li key={game.id}>
-                    <Link href={href(`/games/${game.slug}`)} className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-all inline-block">
-                      {game.title}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h2 className="font-bold text-lg mb-4 text-foreground/90 border-b border-primary/20 pb-2 inline-block">{t_ui.sitemap}</h2>
-              <ul className="space-y-3">
-                <li><Link href={href("/about-us")} className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-all inline-block">{t_ui.about_us}</Link></li>
-                <li><Link href={href("/services")} className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-all inline-block">{t_ui.services}</Link></li>
-                <li><Link href={href("/devlog")} className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-all inline-block">{t_ui.devlog}</Link></li>
-                <li><Link href={href("/careers")} className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-all inline-block">{t_ui.careers}</Link></li>
-                <li><Link href={href("/privacy-policy")} className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-all inline-block">{t_ui.privacy}</Link></li>
-                <li><Link href={href("/terms-of-use")} className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-all inline-block">{t_ui.terms}</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h2 className="font-bold text-lg mb-4 text-foreground/90 border-b border-primary/20 pb-2 inline-block">{t_ui.additional_links}</h2>
-              <ul className="space-y-3">
-                <li><Link href={href("/contact-us")} className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-all inline-block">{t_ui.contact}</Link></li>
-                <li><Link href={href("/#faq")} className="text-sm text-muted-foreground hover:text-primary hover:translate-x-1 rtl:hover:-translate-x-1 transition-all inline-block">{t_ui.faq}</Link></li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="lg:col-span-3 flex flex-col gap-6">
-            <div className="space-y-4">
-              <h2 className="font-bold text-lg mb-4 text-foreground/90 border-b border-primary/20 pb-2 inline-block">{t_ui.contact}</h2>
-              <p className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group">
-                <span className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <Mail className="w-4 h-4 text-primary" />
-                </span>
-                support@buriedgames.com
-              </p>
-              <a href="https://wa.me/96555528686" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-muted-foreground hover:text-primary transition-colors group" onClick={() => trackWhatsAppClick('footer')}>
-                <span className="p-2 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                  <Image src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp" width={16} height={16} className="w-4 h-4" />
-                </span>
-                +965 55528686
-              </a>
-              <p className="flex items-center gap-3 text-sm text-muted-foreground group">
-                <span className="p-2 rounded-full bg-primary/10">
-                  <MapPin className="w-4 h-4 text-primary" />
-                </span>
-                {t_ui.studio_location}
-              </p>
-              <p className="ps-11 text-xs text-muted-foreground/80">
-                {t_ui.based_in}
-              </p>
-            </div>
-
-            <div className="pt-4">
-              <Link
-                href={switchHref}
-                hrefLang={otherLocale}
-                aria-label="Switch language"
-                onClick={() => trackLanguageToggle(otherLocale)}
-                className={cn(
-                  "inline-flex items-center gap-2 text-sm font-medium text-muted-foreground hover:text-accent transition-colors border border-border/50 rounded-full px-4 py-2 hover:border-accent/50 hover:bg-accent/5",
-                  language === 'en' ? 'font-arabic' : 'font-body'
-                )}
+          <div className="flex flex-col gap-3 md:items-end">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+              <a
+                href="mailto:support@buriedgames.com"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
-                <Globe className="w-4 h-4" />
-                {t_ui.language_toggle}
-              </Link>
+                <Mail className="w-4 h-4 text-primary" />
+                support@buriedgames.com
+              </a>
+              <a
+                href="https://wa.me/96555528686"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick('footer')}
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
+                +965 5552 8686
+              </a>
+            </div>
+            <div className="flex items-center gap-1">
+              {socialLinks.map(social => {
+                const Icon = social.icon as React.ElementType;
+                return (
+                  <a
+                    key={social.href}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="p-2 rounded-md text-muted-foreground hover:text-foreground hover:bg-foreground/5 transition-colors"
+                    onClick={() => trackSocialClick(social.label, 'footer')}
+                  >
+                    {social.icon === 'whatsapp' ? (
+                      <WhatsAppIcon className="h-4 w-4" />
+                    ) : (
+                      <Icon className="h-4 w-4" />
+                    )}
+                  </a>
+                );
+              })}
             </div>
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-border/40 flex flex-col items-center gap-6">
-          <div className="flex gap-4">
-            {socialLinks.map(social => {
-              const Icon = social.icon as React.ElementType;
-              return (
-                <a
-                  key={social.href}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="p-3 rounded-full bg-card border border-border/50 text-muted-foreground hover:text-primary hover:border-primary hover:shadow-[0_0_15px_rgba(var(--primary),0.3)] hover:-translate-y-1 transition-all duration-300"
-                  onClick={() => trackSocialClick(social.label, 'footer')}
-                >
-                  {social.icon === 'whatsapp' ? (
-                    <Image src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt={social.label} width={24} height={24} className="w-5 h-5" />
-                  ) : (
-                    <Icon className="h-5 w-5" />
-                  )}
-                </a>
-              )
-            })}
+        {/* Link columns */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 py-10">
+          <div>
+            <p className={columnHeading}>{t_ui.games}</p>
+            {t.games.map(game => (
+              <FooterLink key={game.id} href={href(`/games/${game.slug}`)}>{game.title}</FooterLink>
+            ))}
+          </div>
+          <div>
+            <p className={columnHeading}>{t_ui.services}</p>
+            {serviceLinks.map(({ path, label }) => (
+              <FooterLink key={path} href={href(path)}>{label[language]}</FooterLink>
+            ))}
+          </div>
+          <div>
+            <p className={columnHeading}>{t_ui.regions}</p>
+            {regionLinks.map(({ path, label }) => (
+              <FooterLink key={path} href={href(path)}>{label[language]}</FooterLink>
+            ))}
+          </div>
+          <div>
+            <p className={columnHeading}>{t_ui.studio}</p>
+            <FooterLink href={href("/about-us")}>{t_ui.about_us}</FooterLink>
+            <FooterLink href={href("/how-it-works")}>{t_ui.how_it_works}</FooterLink>
+            <FooterLink href={href("/devlog")}>{t_ui.devlog}</FooterLink>
+            <FooterLink href={href("/releases")}>{t_ui.releases}</FooterLink>
+            <FooterLink href={href("/press")}>{t_ui.press}</FooterLink>
+            <FooterLink href={href("/careers")}>{t_ui.careers}</FooterLink>
+            <FooterLink href={href("/faq")}>{t_ui.faq}</FooterLink>
+            <FooterLink href={href("/contact-us")}>{t_ui.contact}</FooterLink>
           </div>
         </div>
-      </m.div>
+
+        {/* Bottom bar */}
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between pt-6 border-t border-border text-sm text-muted-foreground">
+          <p>{t_ui.rights}</p>
+          <p className="text-foreground/40">{t_ui.based_in}</p>
+          <div className="flex items-center gap-5">
+            <Link href={href("/privacy-policy")} className="hover:text-foreground transition-colors">{t_ui.privacy}</Link>
+            <Link href={href("/terms-of-use")} className="hover:text-foreground transition-colors">{t_ui.terms}</Link>
+            <Link
+              href={switchHref}
+              hrefLang={otherLocale}
+              aria-label="Switch language"
+              onClick={() => trackLanguageToggle(otherLocale)}
+              className={cn(
+                "inline-flex items-center gap-1.5 hover:text-foreground transition-colors",
+                language === 'en' ? 'font-arabic' : 'font-body'
+              )}
+            >
+              <Globe className="w-4 h-4" />
+              {t_ui.language_toggle}
+            </Link>
+          </div>
+        </div>
+      </div>
     </footer>
   );
 };
