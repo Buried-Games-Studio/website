@@ -53,7 +53,7 @@ Resolve these before creating Wikidata/Crunchbase entries:
 | Target | URL | Notes |
 |---|---|---|
 | Fix LinkedIn | linkedin.com/company/buriedgames | Align founded year + location wording with §0; add /press link |
-| Crunchbase — CREATE (none exists) | crunchbase.com → Add a Company | Full profile: facts from §1, founder, games as products |
+| Crunchbase — EXISTS, claim & reconcile | crunchbase.com/organization/buried-games-studio | Verify founded year/location match §0; add /press link, founder, games as products. Already in site sameAs |
 | Wikidata — CREATE | wikidata.org/wiki/Special:NewItem | instance of: video game developer (Q210167); official website; founded; founder; social IDs. Neutral description: "GCC-based independent video game developer" |
 | GitHub org | github.com/Buried-Games-Studio | Already good — keep website link + bio aligned |
 

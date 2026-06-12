@@ -75,6 +75,7 @@ const organizationSchema = {
     "https://linkedin.com/company/buriedgames",
     "https://github.com/Buried-Games-Studio",
     "https://tiktok.com/@buriedgames",
+    "https://www.crunchbase.com/organization/buried-games-studio",
     "https://wa.me/96555528686"
   ],
   "contactPoint": {
