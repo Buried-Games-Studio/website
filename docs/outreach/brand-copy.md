@@ -41,6 +41,18 @@ Independent GCC games studio crafting Arabic-first multiplayer, mobile, and web 
 
 ---
 
+## Compact description — fits 500-char fields (EN: 475 · AR: 406)
+
+For Crunchbase "Description" and any field capped at 500 characters.
+
+```
+Buried Games Studio is an independent game development studio serving clients and players across Kuwait and the GCC. We build Arabic-first multiplayer, mobile, and web games — our own titles (KoutQ8, Nabsh, Power of Bombs, Arrab) and full-cycle client work: game design, 2D/3D art and animation, Unity & Unreal Engine 5 development, multiplayer backends, QA, and store launch. Bilingual by default, RTL-native, culturally fluent in the Gulf. Founded in 2018 by Fahed Alahmad.
+```
+
+```
+استوديو بريد جيمز استوديو مستقل لتطوير الألعاب يخدم العملاء واللاعبين في الكويت والخليج. نبني ألعابًا بالعربية أولًا — جماعية وجوال وويب — بعناويننا الخاصة (كوت كويت، نبش، باور أوف بومبز، العرّاب) وعملًا متكاملًا للعملاء: تصميم الألعاب، والفن والتحريك 2D/3D، والتطوير على Unity وUnreal Engine 5، والأنظمة الجماعية، وضمان الجودة، والإطلاق على المتاجر. ثنائي اللغة افتراضيًا. تأسس عام 2018 على يد فهد الأحمد.
+```
+
 ## Full description (EN)
 
 ```
@@ -67,8 +79,8 @@ For clients we cover the full pipeline: game design, 2D/3D art and animation, Un
 
 | Profile field | Use |
 |---|---|
-| Crunchbase "Description" | Short description |
-| Crunchbase "Full Description" | Full description (EN) |
+| Crunchbase "Description" (≤500 chars) | Compact description |
+| Long-form fields (no limit) | Full description (EN) |
 | LinkedIn tagline | Tagline — primary |
 | LinkedIn "About" | Full description (EN, optionally AR appended) |
 | Clutch/GoodFirms/DesignRush summary | Short description |
