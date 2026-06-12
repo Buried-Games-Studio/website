@@ -76,8 +76,10 @@ Resolve these before creating Wikidata/Crunchbase entries:
 
 ## 5 · Tier 4 — Launches (links + traffic spikes)
 
-1. **Product Hunt**: nabsh.fun — producthunt.com/launch. Tagline ≤60 chars,
-   3+ images. Angle: "Arabic-first multiplayer trivia in the browser."
+1. **Product Hunt**: ✅ studio launched —
+   producthunt.com/products/buried-games-studio (in site sameAs). Second
+   launch later: nabsh.fun as its own product — "Arabic-first multiplayer
+   trivia in the browser" (don't rush it; space launches by months).
 2. **Hacker News Show HN**: nabsh.fun (works best with a maker comment about
    the realtime stack).
 3. **Reddit**: r/WebGames (Nabsh), r/incremental + r/gamedev devlog crossposts
