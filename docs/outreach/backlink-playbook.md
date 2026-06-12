@@ -18,7 +18,7 @@ Resolve these before creating Wikidata/Crunchbase entries:
 
 | Fact | Site/schema says | Elsewhere | Decide |
 |---|---|---|---|
-| Founded | 2018-10-01 (Organization schema) | LinkedIn: **2017** | One year, everywhere |
+| Founded | 2018-10-01 (Organization schema) | LinkedIn: **2017** | ✅ DECIDED: **2018**. Site/brand-copy already correct — fix LinkedIn to 2018; Wikidata inception = 2018 |
 | HQ / location | (none — service-area only) | LinkedIn: **Tallinn, Estonia** + Kuwait office | If Estonia is the legal entity, "HQ Tallinn" is safe & consistent with the no-Kuwait-claim rule — but it must match on every profile |
 | KoutQ8 publisher | Buried Games title | App Store seller: **GAVAN GROUP…** (dev id 1774939183) | Either note Gavan as publishing partner in fact sheets, or migrate the app — don't leave it unexplained |
 | arrabgames.com | linked as Arrab's home (4 backlinks in GSC came FROM it) | **404 / dead** | Restore it, or 301 the domain to buriedgames.com/games/arrab. Don't cite it anywhere until fixed |

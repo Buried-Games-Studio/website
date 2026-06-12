@@ -90,6 +90,5 @@ For clients we cover the full pipeline: game design, 2D/3D art and animation, Un
 | Press kit | https://buriedgames.com/press |
 | Contact | support@buriedgames.com · +965 5552 8686 (WhatsApp) |
 
-> ⚠ Founded year is written as **2018** (site schema). If the §0
-> reconciliation in `backlink-playbook.md` lands on 2017 (LinkedIn), update it
-> HERE and in both descriptions, then tell the dev to align the site schema.
+> ✅ Founded year: **2018** (decided 2026-06-13; matches site schema
+> foundingDate 2018-10-01). LinkedIn still shows 2017 — fix it there.
