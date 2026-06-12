@@ -5,8 +5,14 @@ export function proxy(request: NextRequest) {
   const url = request.nextUrl.clone();
   const pathname = url.pathname;
 
-  // Block WordPress/PHP vulnerability scanners — return 403 without rendering
-  if (pathname.endsWith('.php') || pathname.endsWith('.asp') || pathname.endsWith('.aspx') || pathname.endsWith('.env') || pathname.endsWith('.git')) {
+  // Block vulnerability scanners (secret/config probing) — fast 403, no render.
+  // Covers dotfiles (.env, .env.prod, .git, .aws/credentials, .stripe, ...) in
+  // any path segment plus server-side script probes. /.well-known/ stays allowed.
+  const isDotfileProbe = pathname
+    .split('/')
+    .some((segment) => segment.startsWith('.') && segment !== '.well-known');
+  const isScriptProbe = /\.(php|asp|aspx|git|env)$/.test(pathname);
+  if (isDotfileProbe || isScriptProbe) {
     return new NextResponse(null, { status: 403 });
   }
 
