@@ -43,6 +43,7 @@ const Footer = () => {
       about_us: 'About Us',
       services: 'Services',
       devlog: 'Devlog',
+      case_studies: 'Case Studies',
       careers: 'Careers',
       privacy: 'Privacy',
       terms: 'Terms',
@@ -64,6 +65,7 @@ const Footer = () => {
       about_us: 'من نحن',
       services: 'الخدمات',
       devlog: 'مدونة التطوير',
+      case_studies: 'دراسات الحالة',
       careers: 'وظائف',
       privacy: 'الخصوصية',
       terms: 'الشروط',
@@ -191,6 +193,7 @@ const Footer = () => {
             <p className={columnHeading}>{t_ui.studio}</p>
             <FooterLink href={href("/about-us")}>{t_ui.about_us}</FooterLink>
             <FooterLink href={href("/how-it-works")}>{t_ui.how_it_works}</FooterLink>
+            <FooterLink href={href("/case-studies")}>{t_ui.case_studies}</FooterLink>
             <FooterLink href={href("/devlog")}>{t_ui.devlog}</FooterLink>
             <FooterLink href={href("/releases")}>{t_ui.releases}</FooterLink>
             <FooterLink href={href("/press")}>{t_ui.press}</FooterLink>

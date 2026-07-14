@@ -3,6 +3,7 @@ import { gamesContent } from '@/lib/content/games';
 import { devlogPosts } from '@/lib/content/devlog';
 import { servicePages } from '@/lib/content/service-pages';
 import { gccLandingSlugs } from '@/lib/content/gcc-landing';
+import { caseStudies } from '@/lib/content/case-studies';
 import { locales, localePath, languageAlternates, type Locale } from '@/lib/i18n';
 
 const baseUrl = 'https://buriedgames.com';
@@ -41,6 +42,7 @@ const staticRoutes: Route[] = [
   { path: '/contact-us', changeFrequency: 'yearly', priority: 0.8 },
   { path: '/about-us', changeFrequency: 'yearly', priority: 0.7 },
   { path: '/devlog', changeFrequency: 'weekly', priority: 0.8 },
+  { path: '/case-studies', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/careers', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/privacy-policy', changeFrequency: 'yearly', priority: 0.3 },
   { path: '/terms-of-use', changeFrequency: 'yearly', priority: 0.3 },
@@ -73,11 +75,19 @@ const gccLandingRoutes: Route[] = gccLandingSlugs.map((slug) => ({
   priority: 0.8,
 }));
 
+const caseStudyRoutes: Route[] = caseStudies.map((cs) => ({
+  path: `/case-studies/${cs.slug}`,
+  changeFrequency: 'monthly',
+  priority: 0.8,
+  lastModified: cs.datePublished,
+}));
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     ...staticRoutes,
     ...serviceRoutes,
     ...gccLandingRoutes,
+    ...caseStudyRoutes,
     ...gameRoutes,
     ...devlogRoutes,
   ];
