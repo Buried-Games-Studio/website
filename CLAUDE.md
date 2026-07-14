@@ -78,6 +78,44 @@ the games ("KoutQ8, our take on the traditional Kuwaiti card game" is fine).
 - IndexNow key file: `public/6dccf9bd3ad7421c2298bcb2b3736472.txt` (validated,
   returns 200 on submission). Bing site is verified via DNS CNAME.
 
+## GEO & lead attribution (AI assistants drive real leads)
+- First-touch attribution: `src/lib/attribution.ts` classifies the first
+  referrer (AI assistant / search / social / referral / direct) into
+  localStorage `bg_attribution`; `AttributionCapture` in the locale layout
+  captures it once per browser. The contact form forwards it, and Brevo
+  template 5 renders `{{ params.leadSource }}` — every lead email says where
+  the client came from. GA4 gets a one-time `first_touch` event plus
+  `first_touch_source`/`first_touch_channel` on `contact_form_submitted`.
+- `/llms.txt` (src/app/llms.txt/route.ts) is derived from the same content
+  modules as sitemap.ts — new services/landings/games/devlogs auto-appear.
+- GA4: property `506151257` (measurement G-5T83FCTGPZ). Service account
+  `claude-ga4-admin@buried-games-hq.iam.gserviceaccount.com` is a property
+  Editor; key at `ga4-service-account.json` (repo root, gitignored, see
+  TOKENS.md). Admin+Data APIs enabled in project buried-games-hq. Registered:
+  event-scoped dims first_touch_source/first_touch_channel/landing_page/
+  inquiry_type, key event contact_form_submitted, and channel group
+  "Acquisition with AI Assistants" (AI rule first, default channels cloned
+  after — channel-group rules must be andGroup>orGroup>filter on eachScope*
+  fieldNames).
+- AI crawler activity: Cloudflare GraphQL `httpRequestsAdaptiveGroups`
+  filtered by `userAgent_like` (free plan caps queries at 1-day windows).
+  July 2026 baseline per 24h: GPTBot ~56, OAI-SearchBot ~17, ChatGPT-User ~11
+  (live in-conversation citations); Claude/Perplexity 0.
+- Weekly GEO report: `scripts/geo-report.mjs` (Cloudflare AI crawlers + GA4
+  AI sessions/leads + Bing) → reports/geo-weekly/ (gitignored) and emails the
+  studio with `--email`. Scheduled via user crontab, Mondays 09:07.
+- Case studies live at /case-studies from `src/lib/content/case-studies.ts`
+  (auto-fed into sitemap + llms.txt). HARD RULE: only real, verifiable facts —
+  no invented budgets/timelines/metrics; client case studies need the
+  client's written sign-off before publishing.
+- Directory listings copy: `docs/outreach/directory-listings.md` (+ canonical
+  brand copy in `docs/outreach/brand-copy.md`). When directory profiles go
+  live, add their URLs to Organization schema sameAs.
+- `skipTrailingSlashRedirect: true` in next.config: the proxy owns ALL
+  trailing-slash handling so /en/, www, junk params fold in ONE 308. The
+  proxy's redirect target must stay a plain `new URL(request.url)` — NextURL
+  re-appends the original trailing slash on serialization (self-redirect loop).
+
 ## Machine/tooling gotchas (this Mac)
 - `node`/`npm`/`npx` are broken nvm lazy-load shell functions under the
   sandbox — use absolute paths (`~/.nvm/versions/node/v20.20.0/bin/node` is
@@ -86,3 +124,13 @@ the games ("KoutQ8, our take on the traditional Kuwaiti card game" is fine).
   live in /tmp/bg-shots (recreate as needed). Local Lighthouse numbers are
   noisy on this machine — trust structural audits, verify scores via PSI.
 - zsh: never use `path` as a loop variable (it clobbers $PATH).
+
+## Client proposals
+The studio's reusable proposal system — strategy, pricing philosophy, the branded
+13-page A4 HTML template, and the PDF build process (incl. the print gotchas that
+make dark/glow designs render cleanly) — lives in `proposals/_template/`
+(gitignored, like all client material). **When a client brief comes in, read
+`proposals/_template/PLAYBOOK.md` first** — it has the full process, checklist,
+and the `@media print` rules. Render PDFs with chrome-headless-shell
+`--print-to-pdf`; flatten glows for print (box-shadow/text-shadow rasterise as
+hard blocks in PDF viewers — see playbook).

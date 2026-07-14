@@ -43,3 +43,10 @@ next-env.d.ts
 
 # tokens
 TOKENS.md
+ga4-service-account.json
+
+# generated weekly GEO reports
+/reports/
+
+# private docs (client proposals, quotes, internal materials)
+/proposals/
