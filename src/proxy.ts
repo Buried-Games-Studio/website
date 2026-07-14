@@ -52,21 +52,27 @@ export function proxy(request: NextRequest) {
   const hasEnPrefix = pathname === '/en' || pathname.startsWith('/en/');
 
   // Consolidate www removal + trailing slash strip + junk param strip +
-  // legacy /en strip into a single redirect — never chain hops.
+  // legacy /en strip into a single redirect — never chain hops. The target
+  // must be a plain URL: NextURL re-appends the request's original trailing
+  // slash on serialization (skipTrailingSlashRedirect handling), which would
+  // turn the slash strip into a self-redirect loop.
   if (isWww || hasTrailingSlash || hasJunkParams || hasEnPrefix) {
+    const target = new URL(request.url);
     if (isWww) {
-      url.host = hostname.replace('www.', '');
+      target.host = hostname.replace('www.', '');
     }
+    let cleanPath = pathname;
     if (hasEnPrefix) {
-      url.pathname = url.pathname.replace(/^\/en(?=\/|$)/, '') || '/';
+      cleanPath = cleanPath.replace(/^\/en(?=\/|$)/, '') || '/';
     }
-    if (url.pathname.length > 1 && url.pathname.endsWith('/')) {
-      url.pathname = url.pathname.replace(/\/+$/, '');
+    if (cleanPath.length > 1 && cleanPath.endsWith('/')) {
+      cleanPath = cleanPath.replace(/\/+$/, '');
     }
+    target.pathname = cleanPath;
     if (hasJunkParams) {
-      url.searchParams.delete('s');
+      target.searchParams.delete('s');
     }
-    return NextResponse.redirect(url, 308);
+    return NextResponse.redirect(target, 308);
   }
 
   // Locale routing: /ar/* serves the Arabic tree; every other page route is

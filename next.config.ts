@@ -29,6 +29,10 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Trailing slashes are stripped by src/proxy.ts in the same 308 that folds
+  // www/junk-params/legacy-/en — the built-in redirect would otherwise fire
+  // first and turn /en/ into a two-hop chain (/en/ → /en → /).
+  skipTrailingSlashRedirect: true,
   experimental: {
     // Custom branded 404 document: nested not-found boundaries don't catch
     // thrown notFound() under a dynamic root segment ([locale]) in Next 16.
