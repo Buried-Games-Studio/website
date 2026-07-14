@@ -13,6 +13,12 @@ const contactSchema = z.object({
       { message: "Please select a valid inquiry type." }
   ),
   message: z.string().min(3, { message: "Message must be at least 10 characters." }),
+  // First-touch attribution captured client-side (src/lib/attribution.ts).
+  // Optional: absent for visitors with storage disabled or pre-rollout visits.
+  attributionChannel: z.string().max(20).optional(),
+  attributionSource: z.string().max(100).optional(),
+  attributionLanding: z.string().max(500).optional(),
+  attributionFirstSeen: z.string().max(40).optional(),
 });
 
 type ContactFormState = {
@@ -34,6 +40,10 @@ export async function sendContactEmail(formData: FormData, language: string): Pr
     email: formData.get("email"),
     inquiryType: formData.get("inquiryType"),
     message: formData.get("message"),
+    attributionChannel: formData.get("attributionChannel") ?? undefined,
+    attributionSource: formData.get("attributionSource") ?? undefined,
+    attributionLanding: formData.get("attributionLanding") ?? undefined,
+    attributionFirstSeen: formData.get("attributionFirstSeen") ?? undefined,
   });
 
   if (!validatedFields.success) {
@@ -54,7 +64,26 @@ export async function sendContactEmail(formData: FormData, language: string): Pr
   }
 
   try {
-    const { name, email, inquiryType, message } = validatedFields.data;
+    const {
+      name,
+      email,
+      inquiryType,
+      message,
+      attributionChannel,
+      attributionSource,
+      attributionLanding,
+      attributionFirstSeen,
+    } = validatedFields.data;
+
+    // One line for the studio notification, e.g.
+    // "ChatGPT (ai) · landed on /services/game-development · first seen 2026-07-10"
+    const leadSource = attributionSource
+      ? `${attributionSource} (${attributionChannel ?? 'unknown'})` +
+        (attributionLanding ? ` · landed on ${attributionLanding}` : '') +
+        (attributionFirstSeen
+          ? ` · first seen ${attributionFirstSeen.slice(0, 10)}`
+          : '')
+      : 'Unknown (visitor storage unavailable)';
 
     // const defaultClient = brevo.ApiClient.instance;
     // const apiKey = defaultClient.authentications['apiKey'];
@@ -73,6 +102,7 @@ export async function sendContactEmail(formData: FormData, language: string): Pr
         email,
         reason: inquiryType,
         message,
+        leadSource,
     };
     
     // 2. Send confirmation email to the user

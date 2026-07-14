@@ -15,6 +15,7 @@ import { SurveyModal } from '@/components/survey-modal';
 import { SmoothScroll } from '@/components/providers/smooth-scroll';
 import { PageTransition } from '@/components/providers/page-transition';
 import { MotionProvider } from '@/components/providers/lazy-motion';
+import { AttributionCapture } from '@/components/providers/attribution-capture';
 import { locales, isLocale, languageAlternates, ogLocale, textDirection, type Locale } from '@/lib/i18n';
 
 // display: 'optional' on all three: with 'swap', the H1 repainted when the
@@ -226,6 +227,7 @@ export default async function RootLayout({
                 <Footer />
               </div>
               <Toaster />
+              <AttributionCapture />
             </SmoothScroll>
           </MotionProvider>
         </LanguageProvider>

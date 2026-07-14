@@ -17,6 +17,7 @@ import { sendContactEmail } from "@/app/actions";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2, Send, User, Mail, MessageSquare, HelpCircle } from "lucide-react";
 import { trackContactFormSubmit } from "@/lib/google-analytics";
+import { getAttribution } from "@/lib/attribution";
 
 export default function ContactForm() {
   const { language } = useLanguage();
@@ -73,6 +74,16 @@ export default function ContactForm() {
 
   async function handleSubmit(formData: FormData) {
     startTransition(async () => {
+      // Attach first-touch attribution so the studio notification email says
+      // where this lead originally came from (ChatGPT, Google, LinkedIn, …).
+      const attribution = getAttribution();
+      if (attribution) {
+        formData.set("attributionChannel", attribution.channel);
+        formData.set("attributionSource", attribution.source);
+        formData.set("attributionLanding", attribution.landing);
+        formData.set("attributionFirstSeen", attribution.firstSeen);
+      }
+
       const result = await sendContactEmail(formData, language as string);
 
       if (result.errors) {
@@ -82,7 +93,10 @@ export default function ContactForm() {
           description: result.errors.message,
         });
       } else {
-        trackContactFormSubmit(formData.get('inquiryType') as string || 'unknown');
+        trackContactFormSubmit(
+          formData.get('inquiryType') as string || 'unknown',
+          attribution ?? undefined
+        );
         toast({
           title: t.successTitle,
           description: t.successDescription,

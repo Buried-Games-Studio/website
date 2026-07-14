@@ -6,6 +6,7 @@ declare global {
       targetId: string,
       config?: Record<string, unknown>
     ) => void;
+    dataLayer: unknown[];
   }
 }
 
@@ -15,13 +16,47 @@ export const logGtagEvent = (
 ) => {
   if (typeof window.gtag === 'function') {
     window.gtag('event', eventName, eventParams);
+  } else {
+    // gtag.js loads lazyOnload; events fired before it arrives (e.g. the
+    // first-touch attribution event on a visitor's very first pageview) are
+    // queued on dataLayer, which gtag.js drains on load. gtag() is literally
+    // dataLayer.push(arguments) — an arguments object, not an array, so
+    // replicate that shape here.
+    (function (...args: unknown[]) {
+      window.dataLayer = window.dataLayer || [];
+      // eslint-disable-next-line prefer-rest-params
+      window.dataLayer.push(arguments);
+      void args;
+    })('event', eventName, eventParams);
   }
 };
 
 // ── Conversion events (Tier 1) ──────────────────────────────────
 
-export const trackContactFormSubmit = (inquiryType: string) =>
-  logGtagEvent('contact_form_submitted', { inquiry_type: inquiryType });
+export const trackContactFormSubmit = (
+  inquiryType: string,
+  attribution?: { channel: string; source: string }
+) =>
+  logGtagEvent('contact_form_submitted', {
+    inquiry_type: inquiryType,
+    first_touch_channel: attribution?.channel ?? 'unknown',
+    first_touch_source: attribution?.source ?? 'unknown',
+  });
+
+// Fired once per browser, on the visit that captured first-touch attribution.
+// Lets GA4 answer "how many first visits came from AI assistants" directly.
+export const trackFirstTouch = (attribution: {
+  channel: string;
+  source: string;
+  landing: string;
+}) =>
+  // Param names match contact_form_submitted so the same GA4 custom
+  // dimensions (first_touch_source/first_touch_channel) cover both events.
+  logGtagEvent('first_touch', {
+    first_touch_channel: attribution.channel,
+    first_touch_source: attribution.source,
+    landing_page: attribution.landing,
+  });
 
 export const trackStoreClick = (gameSlug: string, storeType: string, url: string) =>
   logGtagEvent('store_link_click', { game_slug: gameSlug, store_type: storeType, url });
