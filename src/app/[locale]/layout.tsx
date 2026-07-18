@@ -18,6 +18,8 @@ import { MotionProvider } from '@/components/providers/lazy-motion';
 import { AttributionCapture } from '@/components/providers/attribution-capture';
 import { locales, isLocale, languageAlternates, ogLocale, textDirection, type Locale } from '@/lib/i18n';
 import { legalEntity } from '@/lib/legal-entity';
+import { bokhari, fahed, personLdNested } from '@/lib/content/team';
+import { hasDesignWorks } from '@/lib/content/design-works';
 import { ConsentBanner } from '@/components/providers/consent-banner';
 
 // display: 'optional' on all three: with 'swap', the H1 repainted when the
@@ -55,10 +57,11 @@ const organizationSchema = {
   // identity signal and does not touch areaServed / GCC targeting below.
   ...(legalEntity.registered ? { "legalName": legalEntity.legalName } : {}),
   "foundingDate": "2018-10-01",
-  "founder": {
-    "@type": "Person",
-    "name": "Fahed Alahmad"
-  },
+  // Both people come from the team module (src/lib/content/team.ts), so a
+  // title or profile change propagates to every schema surface at once. The
+  // org node stays locale-neutral, so the English variants are used.
+  "founder": personLdNested(fahed, 'en'),
+  "employee": [personLdNested(bokhari, 'en')],
   "email": "support@buriedgames.com",
   "url": "https://buriedgames.com",
   "logo": "https://assets.buriedgames.com/images/buriedgames_logo.png",
@@ -240,7 +243,7 @@ export default async function RootLayout({
                 <div id="main-content" className="flex-1 md:px-12">
                   <PageTransition>{children}</PageTransition>
                 </div>
-                <Footer />
+                <Footer showDesignWorks={hasDesignWorks()} />
               </div>
               <Toaster />
               <AttributionCapture />

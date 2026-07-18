@@ -16,14 +16,8 @@ export const aboutContent = {
       p2: 'We partner with studios, brands, and entrepreneurs across the GCC — Saudi Arabia, the UAE, Qatar, Bahrain, and Oman — taking projects from concept to launch. We bring a regional perspective to a growing global industry while keeping a universal appeal, and we constantly explore new technologies and narrative techniques to create memorable worlds for players to explore.',
       mission_title: 'Our Mission',
       mission_text: 'To design and develop high-quality, innovative games that challenge players and create lasting memories. We strive to foster a creative and collaborative environment where passion for gaming translates into exceptional interactive entertainment.',
+      // Team members live in src/lib/content/team.ts (single source of truth).
       team_title: 'Meet the Team',
-      team: [
-        {
-          name: 'Fahed Alahmad',
-          role: 'Founder',
-          linkedInUrl: 'https://linkedin.com/in/fahed-f-al-ahmad-se',
-        }
-      ]
     },
     ar: {
       title: 'نصنع العوالم، لعبة تلو الأخرى.',
@@ -32,13 +26,6 @@ export const aboutContent = {
       mission_title: 'مهمتنا',
       mission_text: 'تصميم وتطوير ألعاب مبتكرة وعالية الجودة تتحدى اللاعبين وتخلق ذكريات دائمة. نسعى جاهدين لتعزيز بيئة إبداعية وتعاونية حيث يترجم الشغف بالألعاب إلى ترفيه تفاعلي استثنائي.',
       team_title: 'تعرف على الفريق',
-      team: [
-        {
-          name: 'فهد الأحمد',
-          role: 'المؤسس',
-          linkedInUrl: 'https://linkedin.com/in/fahed-f-al-ahmad-se',
-        }
-      ]
     }
   },
 };

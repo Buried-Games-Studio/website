@@ -40,6 +40,7 @@ export const assets = {
   // About / Team
   aboutSection: `${ASSETS_BASE_URL}/images/AboutUsSection.webp`,
   fahedAlahmad: `${ASSETS_BASE_URL}/images/fahed_alahmad.jpeg`,
+  bokhariHamid: `${ASSETS_BASE_URL}/images/bokhari_hamid.jpeg`,
 
   // Partners
   gavan: `${ASSETS_BASE_URL}/images/gavan.png`,

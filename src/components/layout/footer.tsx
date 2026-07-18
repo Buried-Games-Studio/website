@@ -23,7 +23,10 @@ const FooterLink = ({ href, children }: { href: string; children: React.ReactNod
   </Link>
 );
 
-const Footer = () => {
+// showDesignWorks comes from the server layout: the gate lives in the
+// design-works content module, and importing it here would ship every work's
+// copy in the shared client bundle.
+const Footer = ({ showDesignWorks }: { showDesignWorks: boolean }) => {
   const { language } = useLanguage();
   const pathname = usePathname();
   const t = getTranslation(language);
@@ -45,6 +48,7 @@ const Footer = () => {
       services: 'Services',
       devlog: 'Devlog',
       case_studies: 'Case Studies',
+      design_works: 'Design Works',
       careers: 'Careers',
       privacy: 'Privacy',
       terms: 'Terms',
@@ -68,6 +72,7 @@ const Footer = () => {
       services: 'الخدمات',
       devlog: 'مدونة التطوير',
       case_studies: 'دراسات الحالة',
+      design_works: 'أعمال التصميم',
       careers: 'وظائف',
       privacy: 'الخصوصية',
       terms: 'الشروط',
@@ -197,6 +202,9 @@ const Footer = () => {
             <FooterLink href={href("/about-us")}>{t_ui.about_us}</FooterLink>
             <FooterLink href={href("/how-it-works")}>{t_ui.how_it_works}</FooterLink>
             <FooterLink href={href("/case-studies")}>{t_ui.case_studies}</FooterLink>
+            {showDesignWorks && (
+              <FooterLink href={href("/design-works")}>{t_ui.design_works}</FooterLink>
+            )}
             <FooterLink href={href("/devlog")}>{t_ui.devlog}</FooterLink>
             <FooterLink href={href("/releases")}>{t_ui.releases}</FooterLink>
             <FooterLink href={href("/press")}>{t_ui.press}</FooterLink>

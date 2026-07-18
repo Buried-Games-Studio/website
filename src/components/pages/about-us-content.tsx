@@ -7,6 +7,7 @@ import { localePath, type Locale } from "@/lib/i18n";
 import { getTranslation } from "@/lib/content";
 import { Heart, Wand2, ShieldCheck, Target, ArrowRight } from "lucide-react";
 import { assets } from "@/lib/assets";
+import { teamMembers } from "@/lib/content/team";
 
 const reveal = {
   initial: { opacity: 0, y: 20 },
@@ -15,7 +16,13 @@ const reveal = {
   transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
 };
 
-export function AboutUsContent({ locale }: { locale: Locale }) {
+export function AboutUsContent({
+  locale,
+  showDesignWorks,
+}: {
+  locale: Locale;
+  showDesignWorks: boolean;
+}) {
   const language = locale;
   const t = getTranslation(language);
   const isRTL = language === "ar";
@@ -27,11 +34,8 @@ export function AboutUsContent({ locale }: { locale: Locale }) {
       our_story_title: "The origin story",
       mission_label: "Our mission",
       partners_title: "Strategic partners",
-      founder_role: "Founder & Lead Developer",
       established: "Est. 2018",
       studio_name: "Buried Games Studio",
-      founder_quote:
-        "I started Buried Games with a simple belief: games should be immersive, challenging, and respectful of the player's time. We are building the games we always wanted to play — and helping clients across the GCC build theirs.",
       links_prefix: "Explore our",
       links_services: "game development services",
       links_join: "or browse the",
@@ -43,11 +47,8 @@ export function AboutUsContent({ locale }: { locale: Locale }) {
       our_story_title: "قصة البداية",
       mission_label: "مهمتنا",
       partners_title: "شركاء النجاح",
-      founder_role: "المؤسس والمطور الرئيسي",
       established: "تأسس 2018",
       studio_name: "استوديو بريد جيمز",
-      founder_quote:
-        "أسّست بريد جيمز بإيمان بسيط: يجب أن تكون الألعاب غامرة وتمثّل تحديًا وتحترم وقت اللاعب. نحن نصنع الألعاب التي طالما أردنا أن نلعبها — ونساعد عملاءنا في مختلف دول الخليج على صناعة ألعابهم.",
       links_prefix: "استكشف",
       links_services: "خدمات تطوير الألعاب لدينا",
       links_join: "أو تصفّح",
@@ -184,7 +185,7 @@ export function AboutUsContent({ locale }: { locale: Locale }) {
         </div>
       </section>
 
-      {/* --- Founder --- */}
+      {/* --- Team --- */}
       <section className="container max-w-screen-xl py-14 md:py-20">
         <m.div {...reveal} className="mb-8">
           <p className="flex items-center gap-3 text-[11px] md:text-xs font-medium tracking-[0.25em] text-foreground/60 uppercase">
@@ -193,15 +194,21 @@ export function AboutUsContent({ locale }: { locale: Locale }) {
           </p>
         </m.div>
 
-        {t.about_page.team.map((member, index) => (
-          <m.div key={index} {...reveal}>
-            <Link href={member.linkedInUrl} target="_blank" rel="noopener noreferrer" className="group block">
+        <div className="grid gap-6">
+          {teamMembers.map((member) => {
+            const showcaseHref =
+              member.showcaseHref && showDesignWorks
+                ? localePath(language, member.showcaseHref)
+                : undefined;
+            const cardHref = showcaseHref ?? member.linkedInUrl;
+
+            const card = (
               <div className="grid overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:border-primary/40 md:grid-cols-12">
                 {/* Image */}
                 <div className="relative h-72 md:col-span-4 md:h-auto">
                   <Image
-                    src={assets.fahedAlahmad}
-                    alt={member.name}
+                    src={member.photoUrl}
+                    alt={member.name[language]}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
@@ -210,26 +217,57 @@ export function AboutUsContent({ locale }: { locale: Locale }) {
 
                 {/* Content */}
                 <div className="relative md:col-span-8 p-7 md:p-10 flex flex-col justify-center">
-                  <ArrowRight
-                    className={`absolute top-6 end-6 w-5 h-5 text-foreground/30 transition-all duration-300 group-hover:text-primary ${
-                      isRTL ? "rotate-180 group-hover:-translate-x-1" : "group-hover:translate-x-1"
-                    }`}
-                  />
+                  {cardHref && (
+                    <ArrowRight
+                      className={`absolute top-6 end-6 w-5 h-5 text-foreground/30 transition-all duration-300 group-hover:text-primary ${
+                        isRTL ? "rotate-180 group-hover:-translate-x-1" : "group-hover:translate-x-1"
+                      }`}
+                    />
+                  )}
                   <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-3">
-                    {member.role}
+                    {member.role[language]}
                   </p>
-                  <h3 className="font-headline font-bold tracking-tight text-2xl md:text-3xl text-foreground mb-1">
-                    {member.name}
+                  <h3 className="font-headline font-bold tracking-tight text-2xl md:text-3xl text-foreground">
+                    {member.name[language]}
                   </h3>
-                  <p className="text-sm text-foreground/70 mb-5">{t_ui.founder_role}</p>
-                  <p className="text-foreground/65 leading-relaxed max-w-2xl">
-                    &ldquo;{t_ui.founder_quote}&rdquo;
-                  </p>
+                  {member.title[language] !== member.role[language] && (
+                    <p className="mt-1 text-sm text-foreground/70">{member.title[language]}</p>
+                  )}
+                  {member.quote ? (
+                    <p className="mt-5 text-foreground/65 leading-relaxed max-w-2xl">
+                      &ldquo;{member.quote[language]}&rdquo;
+                    </p>
+                  ) : member.bio ? (
+                    <p className="mt-5 text-foreground/65 leading-relaxed max-w-2xl">
+                      {member.bio[language]}
+                    </p>
+                  ) : null}
                 </div>
               </div>
-            </Link>
-          </m.div>
-        ))}
+            );
+
+            return (
+              <m.div key={member.id} {...reveal}>
+                {showcaseHref ? (
+                  <Link href={showcaseHref} className="group block">
+                    {card}
+                  </Link>
+                ) : member.linkedInUrl ? (
+                  <a
+                    href={member.linkedInUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block"
+                  >
+                    {card}
+                  </a>
+                ) : (
+                  <div className="group">{card}</div>
+                )}
+              </m.div>
+            );
+          })}
+        </div>
       </section>
 
       {/* --- Partners --- */}

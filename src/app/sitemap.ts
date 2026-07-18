@@ -4,6 +4,7 @@ import { devlogPosts } from '@/lib/content/devlog';
 import { servicePages } from '@/lib/content/service-pages';
 import { gccLandingSlugs } from '@/lib/content/gcc-landing';
 import { caseStudies } from '@/lib/content/case-studies';
+import { DESIGN_WORKS_PATH, designWorks, hasDesignWorks } from '@/lib/content/design-works';
 import { legalEntity } from '@/lib/legal-entity';
 import { locales, localePath, languageAlternates, type Locale } from '@/lib/i18n';
 
@@ -88,12 +89,29 @@ const caseStudyRoutes: Route[] = caseStudies.map((cs) => ({
   lastModified: cs.datePublished,
 }));
 
+// The design-works showcase (hub + pieces) is advertised only once the first
+// real works are published — while the module is empty the routes 404.
+const designWorkRoutes: Route[] = hasDesignWorks()
+  ? [
+      { path: DESIGN_WORKS_PATH, changeFrequency: 'monthly', priority: 0.7 },
+      ...designWorks.map(
+        (work): Route => ({
+          path: `${DESIGN_WORKS_PATH}/${work.slug}`,
+          changeFrequency: 'monthly',
+          priority: 0.8,
+          lastModified: work.datePublished,
+        }),
+      ),
+    ]
+  : [];
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     ...staticRoutes,
     ...serviceRoutes,
     ...gccLandingRoutes,
     ...caseStudyRoutes,
+    ...designWorkRoutes,
     ...gameRoutes,
     ...devlogRoutes,
   ];

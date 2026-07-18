@@ -27,6 +27,7 @@ import {
 import { ZoomParallaxHero } from "@/components/ui/zoom-parallax-hero";
 import { GamesShowcaseCarousel } from "@/components/ui/games-showcase-carousel";
 import { gamesContent } from "@/lib/content/games";
+import { fahed } from "@/lib/content/team";
 import { WhatsAppIcon } from "@/components/icons/whatsapp";
 
 import { assets } from "@/lib/assets";
@@ -114,7 +115,6 @@ export function HomeContent({ locale }: { locale: Locale }) {
       process_title: "From idea to launch",
       // Credibility band
       credibility_label: "Why studios work with us",
-      founder_role: "Founder",
       partners_label: "Partner",
       powered_by: "Powered by",
       // CTA
@@ -148,7 +148,6 @@ export function HomeContent({ locale }: { locale: Locale }) {
       process_label: "كيف نعمل",
       process_title: "من الفكرة إلى الإطلاق",
       credibility_label: "لماذا تعمل معنا الاستوديوهات",
-      founder_role: "المؤسس",
       partners_label: "شريك",
       powered_by: "مدعوم بـ",
       contact_label: "اعمل معنا",
@@ -575,18 +574,18 @@ export function HomeContent({ locale }: { locale: Locale }) {
                   className="group flex items-center gap-4"
                 >
                   <Image
-                    src={assets.fahedAlahmad}
-                    alt={t.about_page.team[0]?.name ?? "Fahed Alahmad"}
+                    src={fahed.photoUrl}
+                    alt={fahed.name[language]}
                     width={56}
                     height={56}
                     className="h-14 w-14 rounded-full object-cover border border-border grayscale group-hover:grayscale-0 transition-all duration-300"
                   />
                   <span className="text-start">
                     <span className="block text-base font-bold text-foreground group-hover:text-primary transition-colors">
-                      {t.about_page.team[0]?.name ?? "Fahed Alahmad"}
+                      {fahed.name[language]}
                     </span>
                     <span className="block text-sm text-foreground/55">
-                      {t_ui.founder_role}
+                      {fahed.title[language]}
                     </span>
                   </span>
                 </Link>

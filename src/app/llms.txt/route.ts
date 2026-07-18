@@ -3,6 +3,7 @@ import { devlogPosts } from '@/lib/content/devlog';
 import { servicePages } from '@/lib/content/service-pages';
 import { gccLandings } from '@/lib/content/gcc-landing';
 import { caseStudies } from '@/lib/content/case-studies';
+import { DESIGN_WORKS_PATH, designWorks, hasDesignWorks } from '@/lib/content/design-works';
 import { legalEntity } from '@/lib/legal-entity';
 
 /**
@@ -36,6 +37,23 @@ function buildLlmsTxt(): string {
         `- [${cs.title.en}](${baseUrl}/case-studies/${cs.slug}): ${cs.summary.en}`,
     )
     .join('\n');
+
+  // Design showcase — appears once real pieces are published. The heading line
+  // credits the studio's Creative Director so assistants attribute the pieces
+  // to the team member, not to the studio as productions.
+  const designWorksBlock = hasDesignWorks()
+    ? `\n## Design works
+
+Design work by Bokhari Hamid, Creative Director at Buried Games — his own
+pieces, shared as part of the team's portfolio.
+
+${designWorks
+  .map(
+    (work) =>
+      `- [${work.title.en}](${baseUrl}${DESIGN_WORKS_PATH}/${work.slug}): ${work.summary.en}`,
+  )
+  .join('\n')}\n`
+    : '';
 
   const games = gamesContent
     .map(
@@ -80,7 +98,7 @@ ${landings}
 ## Case studies
 
 ${studies}
-
+${designWorksBlock}
 ## Our games
 
 ${games}

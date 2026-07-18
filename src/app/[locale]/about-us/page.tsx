@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { AboutUsContent } from "@/components/pages/about-us-content";
 import { aboutContent } from "@/lib/content/about";
+import { bokhari, fahed, personLdNested } from "@/lib/content/team";
+import { hasDesignWorks } from "@/lib/content/design-works";
 import { isLocale, localePath, languageAlternates, ogLocale, type Locale } from "@/lib/i18n";
 
 type PageProps = { params: Promise<{ locale: string }> };
@@ -43,7 +45,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 // content the page renders so the structured data tracks the visible copy.
 function aboutSchema(locale: Locale) {
   const about = aboutContent.about_page[locale];
-  const founder = about.team[0];
 
   return {
     "@context": "https://schema.org",
@@ -56,12 +57,8 @@ function aboutSchema(locale: Locale) {
       "url": "https://buriedgames.com" + localePath(locale, '/'),
       "foundingDate": "2018",
       "description": about.p1,
-      "founder": {
-        "@type": "Person",
-        "name": founder.name,
-        "jobTitle": founder.role,
-        "sameAs": founder.linkedInUrl,
-      },
+      "founder": personLdNested(fahed, locale),
+      "employee": [personLdNested(bokhari, locale)],
     },
   };
 }
@@ -76,7 +73,7 @@ export default async function AboutUsPage({ params }: PageProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema(raw)) }}
       />
-      <AboutUsContent locale={raw} />
+      <AboutUsContent locale={raw} showDesignWorks={hasDesignWorks()} />
     </>
   );
 }
