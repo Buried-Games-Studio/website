@@ -4,6 +4,7 @@ import { devlogPosts } from '@/lib/content/devlog';
 import { servicePages } from '@/lib/content/service-pages';
 import { gccLandingSlugs } from '@/lib/content/gcc-landing';
 import { caseStudies } from '@/lib/content/case-studies';
+import { legalEntity } from '@/lib/legal-entity';
 import { locales, localePath, languageAlternates, type Locale } from '@/lib/i18n';
 
 const baseUrl = 'https://buriedgames.com';
@@ -46,6 +47,11 @@ const staticRoutes: Route[] = [
   { path: '/careers', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/privacy-policy', changeFrequency: 'yearly', priority: 0.3 },
   { path: '/terms-of-use', changeFrequency: 'yearly', priority: 0.3 },
+  // /imprint is advertised only once it carries real disclosure content (the
+  // OÜ is registered); before that it is a noindex placeholder.
+  ...(legalEntity.registered
+    ? [{ path: '/imprint', changeFrequency: 'yearly', priority: 0.3 } as Route]
+    : []),
 ];
 
 const gameRoutes: Route[] = gamesContent.map((game) => ({

@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { PressContent } from "@/components/pages/press-content";
 import { pressContent, gameFactSheets } from "@/lib/content/press";
+import { legalEntity } from "@/lib/legal-entity";
 import { isLocale, localePath, languageAlternates, ogLocale, type Locale } from "@/lib/i18n";
 
 const SITE = "https://buriedgames.com";
@@ -43,6 +44,7 @@ export default async function PressPage({ params }: PageProps) {
     "@type": "Organization",
     "name": "Buried Games Studio",
     "alternateName": "استوديو بريد جيمز",
+    ...(legalEntity.registered ? { "legalName": legalEntity.legalName } : {}),
     "description": pressContent.boilerplate.short[locale],
     "foundingDate": "2018-10-01",
     "founder": { "@type": "Person", "name": "Fahed Alahmad" },

@@ -10,6 +10,7 @@ import { Mail, Globe } from 'lucide-react';
 import { WhatsAppIcon } from '@/components/icons/whatsapp';
 import { assets } from '@/lib/assets';
 import { cn } from '@/lib/utils';
+import { legalEntity } from '@/lib/legal-entity';
 import { socialLinks } from './social-links';
 import { trackSocialClick, trackWhatsAppClick, trackLanguageToggle } from '@/lib/google-analytics';
 
@@ -47,6 +48,7 @@ const Footer = () => {
       careers: 'Careers',
       privacy: 'Privacy',
       terms: 'Terms',
+      imprint: 'Legal Notice',
       regions: 'Regions',
       contact: 'Contact Us',
       faq: 'FAQs',
@@ -69,6 +71,7 @@ const Footer = () => {
       careers: 'وظائف',
       privacy: 'الخصوصية',
       terms: 'الشروط',
+      imprint: 'بيان قانوني',
       regions: 'المناطق',
       contact: 'اتصل بنا',
       faq: 'الأسئلة الشائعة',
@@ -210,6 +213,9 @@ const Footer = () => {
           <div className="flex items-center gap-5">
             <Link href={href("/privacy-policy")} className="hover:text-foreground transition-colors">{t_ui.privacy}</Link>
             <Link href={href("/terms-of-use")} className="hover:text-foreground transition-colors">{t_ui.terms}</Link>
+            {legalEntity.registered && (
+              <Link href={href("/imprint")} className="hover:text-foreground transition-colors">{t_ui.imprint}</Link>
+            )}
             <Link
               href={switchHref}
               hrefLang={otherLocale}
@@ -225,6 +231,18 @@ const Footer = () => {
             </Link>
           </div>
         </div>
+
+        {/* Legal-entity fine print — dormant until the OÜ is on the register
+            (legalEntity.registered), so nothing about the Estonian entity shows
+            publicly before incorporation. The GCC market framing above is
+            untouched. */}
+        {legalEntity.registered && (
+          <p className="pt-5 text-xs text-foreground/35">
+            {legalEntity.legalName}
+            {legalEntity.registryCode ? ` · Reg. no. ${legalEntity.registryCode}` : ''}
+            {legalEntity.vatId ? ` · VAT ${legalEntity.vatId}` : ''}
+          </p>
+        )}
       </div>
     </footer>
   );

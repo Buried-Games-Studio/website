@@ -17,6 +17,8 @@ import { PageTransition } from '@/components/providers/page-transition';
 import { MotionProvider } from '@/components/providers/lazy-motion';
 import { AttributionCapture } from '@/components/providers/attribution-capture';
 import { locales, isLocale, languageAlternates, ogLocale, textDirection, type Locale } from '@/lib/i18n';
+import { legalEntity } from '@/lib/legal-entity';
+import { ConsentBanner } from '@/components/providers/consent-banner';
 
 // display: 'optional' on all three: with 'swap', the H1 repainted when the
 // webfont arrived and that repaint became the LCP entry (~8s simulated on
@@ -49,6 +51,9 @@ const organizationSchema = {
   "@type": "Organization",
   "name": "Buried Games Studio",
   "alternateName": "استوديو بريد جيمز",
+  // legalName appears ONLY once the Estonian OÜ is on the register. It's a pure
+  // identity signal and does not touch areaServed / GCC targeting below.
+  ...(legalEntity.registered ? { "legalName": legalEntity.legalName } : {}),
   "foundingDate": "2018-10-01",
   "founder": {
     "@type": "Person",
@@ -208,6 +213,17 @@ export default async function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
+        {/* Consent Mode v2 bootstrap: tiny, runs during head parse (well before
+            gtag.js loads lazyOnload), so analytics_storage is 'denied' until the
+            visitor chooses. Returning visitors who already accepted are granted
+            before the first config. The heavy GA library stays lazyOnload below. */}
+        <script
+          id="consent-bootstrap"
+          dangerouslySetInnerHTML={{
+            __html:
+              "window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',wait_for_update:500});try{if(localStorage.getItem('bg_consent')==='granted'){gtag('consent','update',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'granted'});}}catch(e){}",
+          }}
+        />
       </head>
       <body className="font-body antialiased bg-background text-foreground selection:bg-primary/20">
         <LanguageProvider locale={locale}>
@@ -228,6 +244,7 @@ export default async function RootLayout({
               </div>
               <Toaster />
               <AttributionCapture />
+              <ConsentBanner />
             </SmoothScroll>
           </MotionProvider>
         </LanguageProvider>

@@ -10,12 +10,32 @@ edge (HTML is edge-cached; skipping this serves the OLD build indefinitely)
 and resubmits all URLs to IndexNow. Watch a deploy land by polling live HTML
 with a cache-buster (`?v=$RANDOM`), never the bare URL.
 
-## Legal positioning rule (owner requirement)
-NEVER assert a place of establishment: no "based in Kuwait", "Kuwait-based",
-"studio in Kuwait", "مقره الكويت", and no PostalAddress/LocalBusiness schema.
-Always service-area or cultural framing: "for/serving Kuwait & the GCC",
-"نخدم العملاء في الكويت والخليج", `areaServed` arrays, and cultural facts about
-the games ("KoutQ8, our take on the traditional Kuwaiti card game" is fine).
+## Legal positioning rule (owner requirement) — two layers, never mixed
+The business has two independent layers; keep them cleanly separated.
+
+**Market / service layer (GCC) — the ONLY thing on marketing & SEO surfaces.**
+NEVER assert a GCC/Kuwait *place of establishment*: no "based in Kuwait",
+"Kuwait-based", "studio in Kuwait", "مقره الكويت". Always service-area or
+cultural framing: "for/serving Kuwait & the GCC", "نخدم العملاء في الكويت
+والخليج", `areaServed` arrays, "rooted in the Gulf", and cultural facts about the
+games ("KoutQ8, our take on the traditional Kuwaiti card game" is fine). This
+layer — `areaServed`, hreflang (en/ar only, never `et`), page copy, the FAQ
+"where are you located" answer — must stay 100% GCC and is never touched by the
+legal layer below.
+
+**Legal-identity layer (Estonia) — confined to legal surfaces only.**
+The registered company is **Buried Games OÜ** (Estonia, via e-Residency). Its
+single source of truth is `src/lib/legal-entity.ts`, and every public assertion
+is GATED behind `legalEntity.registered` (false until the OÜ is on the e-Business
+Register — flip it by filling the INCORPORATION block: registry code, VAT,
+registered address). While false, NOTHING about the entity shows publicly (no
+`legalName` in schema, no footer line, Imprint is a neutral noindex placeholder
+that does not even name Estonia; Privacy/Terms name no supervisory authority or
+governing law). The Estonian identity may appear ONLY on the legal-identity
+surfaces: `/privacy-policy`, `/terms-of-use`, `/imprint`, the discreet footer
+fine-print, and `Organization.legalName`. Still **no PostalAddress /
+LocalBusiness in schema** (owner decision — only `legalName`), and never let the
+Estonian identity leak into `areaServed`, hreflang, titles, or marketing copy.
 
 ## SEO invariants
 - Canonical: `https://buriedgames.com`, no www, no trailing slash. English

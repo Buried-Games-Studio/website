@@ -3,6 +3,7 @@ import { devlogPosts } from '@/lib/content/devlog';
 import { servicePages } from '@/lib/content/service-pages';
 import { gccLandings } from '@/lib/content/gcc-landing';
 import { caseStudies } from '@/lib/content/case-studies';
+import { legalEntity } from '@/lib/legal-entity';
 
 /**
  * /llms.txt — the llmstxt.org convention: a curated markdown map of the site
@@ -49,6 +50,14 @@ function buildLlmsTxt(): string {
     )
     .join('\n');
 
+  // Legal-entity note appears only once the Estonian OÜ is registered. It states
+  // the entity for accurate citation AND clarifies that Estonia is the legal home
+  // while the market/service area remains Kuwait & the GCC — so AI assistants
+  // don't mistake the HQ for where the studio operates.
+  const legalNote = legalEntity.registered
+    ? `\nLegal entity: ${legalEntity.legalName} (Estonian registry code ${legalEntity.registryCode}). Estonia is the studio's registered legal home; its market and service area is Kuwait and the GCC — the studio does not target or operate in the Estonian/EU consumer market.\n`
+    : '';
+
   return `# Buried Games Studio
 
 > Game development studio serving Kuwait and the GCC. We design and build
@@ -59,7 +68,7 @@ function buildLlmsTxt(): string {
 
 Founded in 2018. Studio titles include KoutQ8 (our take on the traditional
 Kuwaiti card game Kout), Nabsh, Arrab, and Power of Bombs.
-
+${legalNote}
 ## Services
 
 ${services}

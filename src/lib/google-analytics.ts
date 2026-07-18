@@ -1,11 +1,15 @@
 
 declare global {
   interface Window {
-    gtag: (
-      command: 'config' | 'event',
-      targetId: string,
-      config?: Record<string, unknown>
-    ) => void;
+    // Overloaded: gtag carries analytics (config/event/js) and Consent Mode v2
+    // (consent default/update) commands. See the consent bootstrap in layout.tsx
+    // and ConsentBanner.
+    gtag: {
+      (command: 'consent', action: 'default' | 'update', params: Record<string, unknown>): void;
+      (command: 'config', targetId: string, config?: Record<string, unknown>): void;
+      (command: 'event', eventName: string, params?: Record<string, unknown>): void;
+      (command: 'js', date: Date): void;
+    };
     dataLayer: unknown[];
   }
 }
