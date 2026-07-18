@@ -136,6 +136,35 @@ Estonian identity leak into `areaServed`, hreflang, titles, or marketing copy.
   proxy's redirect target must stay a plain `new URL(request.url)` — NextURL
   re-appends the original trailing slash on serialization (self-redirect loop).
 
+## Team & design-works showcase
+- Team members live in `src/lib/content/team.ts` — the single source feeding
+  the about-page cards, homepage credibility band, Organization schema
+  (founder + employee Person nodes via `personLd`/`personLdNested`), and the
+  design-works creator. Change a title/photo/link THERE only. Bokhari Hamid =
+  Creative Director / المدير الإبداعي; portrait `images/bokhari_hamid.jpeg`.
+- `/design-works` (module `src/lib/content/design-works.ts`) is Bokhari's
+  showcase. HARD attribution rule (owner requirement): every piece is credited
+  to Bokhari **with his studio title** — a team member's own work shared under
+  the studio umbrella. NEVER present a piece as a Buried Games production, and
+  NEVER as outsourced/partner/vendor work. Schema encodes this: `creator` =
+  Person + `worksFor` → Organization; `publisher` = Organization.
+- Truthfulness (same as case-studies): only real, verifiable pieces. No
+  AI-generated frames presented as his craft (two AI derivatives of the Arrab
+  Godfather were deliberately excluded — 896px files with ✦ watermarks).
+  Third-party client pieces are described by discipline and need his sign-off.
+- Adding a work: upload `images/design-works/<slug>/cover.<ext>` +
+  `gallery-01…` to R2, then add one `DesignWork` entry (EN + AR for every
+  Localized field). Everything flips live automatically via `hasDesignWorks()`:
+  routes (404 while empty), sitemap, llms.txt, footer link, homepage band.
+  The gate value is passed into client components as props (layout → Footer,
+  about page → AboutUsContent) — don't import the module into shared chrome.
+- R2 uploads from this Mac: wrangler is OAuth-logged-in but sees TWO accounts —
+  always set `CLOUDFLARE_ACCOUNT_ID=15e65a55496c453852c91a0806965603` (bucket
+  `assets`). `wrangler r2 object put "assets/images/…" --file … --content-type
+  image/jpeg --remote`. After uploading over a URL that previously 404'd, run
+  `pnpm after-deploy` (or purge-cdn) — the 404 gets edge-cached by the asset
+  cache rules, and browsers may hold it for 7 days (hard refresh to see).
+
 ## Machine/tooling gotchas (this Mac)
 - `node`/`npm`/`npx` are broken nvm lazy-load shell functions under the
   sandbox — use absolute paths (`~/.nvm/versions/node/v20.20.0/bin/node` is

@@ -28,6 +28,8 @@ import { ZoomParallaxHero } from "@/components/ui/zoom-parallax-hero";
 import { GamesShowcaseCarousel } from "@/components/ui/games-showcase-carousel";
 import { gamesContent } from "@/lib/content/games";
 import { fahed } from "@/lib/content/team";
+import { DESIGN_WORKS_PATH, designWorks } from "@/lib/content/design-works";
+import { DesignWorkCard } from "@/components/ui/design-work-card";
 import { WhatsAppIcon } from "@/components/icons/whatsapp";
 
 import { assets } from "@/lib/assets";
@@ -103,6 +105,12 @@ export function HomeContent({ locale }: { locale: Locale }) {
       games_subtitle:
         "Strategy games, multiplayer experiences, and interactive platforms we've built from the ground up — for ourselves and for clients.",
       view_all_games: "View all games",
+      // Design works
+      design_label: "Design works",
+      design_title: "Design work by our Creative Director",
+      design_subtitle:
+        "Character art, game UI, and full art production by Bokhari Hamid — shared as part of our team's portfolio.",
+      view_all_designs: "View all design works",
       // Services
       services_label: "What we build for you",
       services_title: "Your game, built from concept to launch",
@@ -139,6 +147,11 @@ export function HomeContent({ locale }: { locale: Locale }) {
       games_subtitle:
         "ألعاب استراتيجية وتجارب جماعية ومنصات تفاعلية بنيناها من الصفر — لأنفسنا ولعملائنا.",
       view_all_games: "عرض كل الألعاب",
+      design_label: "أعمال التصميم",
+      design_title: "أعمال تصميم مديرنا الإبداعي",
+      design_subtitle:
+        "فن الشخصيات وواجهات الألعاب وإنتاج فني متكامل من بوخاري حامد — ضمن أعمال فريقنا.",
+      view_all_designs: "عرض كل أعمال التصميم",
       services_label: "ما نبنيه لك",
       services_title: "لعبتك، من الفكرة إلى الإطلاق",
       services_subtitle:
@@ -387,6 +400,54 @@ export function HomeContent({ locale }: { locale: Locale }) {
             </div>
           </div>
         </section>
+
+        {/* ══════════════════════════════════════
+            4b. DESIGN WORKS — the Creative Director's showcase
+        ══════════════════════════════════════ */}
+        {designWorks.length > 0 && (
+          <section className="border-b border-border">
+            <div className="container max-w-screen-xl">
+              <m.div className="mb-10 space-y-3" {...reveal}>
+                <Eyebrow>{t_ui.design_label}</Eyebrow>
+                <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+                  {t_ui.design_title}
+                </h2>
+                <p className="text-foreground/65 max-w-2xl leading-relaxed">
+                  {t_ui.design_subtitle}
+                </p>
+              </m.div>
+
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {designWorks.slice(0, 3).map((work, index) => (
+                  <DesignWorkCard key={work.slug} work={work} language={language} index={index} />
+                ))}
+              </div>
+
+              <div className="mt-10 flex justify-center">
+                <Button
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="group rounded-full border-foreground/20 bg-transparent hover:bg-foreground/5 hover:border-foreground/40 transition-all duration-300"
+                >
+                  <Link
+                    href={localePath(language, DESIGN_WORKS_PATH)}
+                    className="flex items-center gap-2"
+                    onClick={() => trackHomeCTA("view_all_design_works")}
+                  >
+                    {t_ui.view_all_designs}
+                    <ArrowRight
+                      className={cn(
+                        "w-4 h-4 transition-transform duration-300 group-hover:translate-x-1",
+                        isRTL && "rotate-180 group-hover:-translate-x-1"
+                      )}
+                    />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* ══════════════════════════════════════
             5. SERVICES — featured cards + compact list
