@@ -52,28 +52,53 @@ export function GameMoreGames({ currentSlug, theme, language }: GameMoreGamesPro
     en: {
       heading: "More games by Buried Games",
       lead: "Buried Games is a game development studio building original titles for players across Kuwait and the GCC. Explore more of our work:",
-      serviceLead: mobileFirst.has(currentSlug)
-        ? "Want a game like this built for your brand? See our"
-        : "Want a game like this built for your brand? See our",
-      serviceAnchor: mobileFirst.has(currentSlug)
-        ? "mobile game development service"
-        : "game development service",
+      serviceLead:
+        "Want a game like this for your brand? The same team behind our titles builds games for clients across Kuwait and the GCC:",
       view: "View game",
     },
     ar: {
       heading: "المزيد من ألعاب بريد جيمز",
       lead: "بريد جيمز استوديو تطوير ألعاب يبني عناوين أصلية للاعبين في الكويت والخليج. استكشف المزيد من أعمالنا:",
-      serviceLead: "تريد لعبة كهذه لعلامتك التجارية؟ تعرّف على",
-      serviceAnchor: mobileFirst.has(currentSlug)
-        ? "خدمة تطوير ألعاب الموبايل لدينا"
-        : "خدمة تطوير الألعاب لدينا",
+      serviceLead:
+        "تريد لعبة كهذه لعلامتك التجارية؟ نفس الفريق الذي صنع ألعابنا يبني ألعابًا لعملائنا في الكويت والخليج:",
       view: "عرض اللعبة",
     },
   }[language];
 
-  const servicePath = mobileFirst.has(currentSlug)
-    ? "/services/mobile-game-development"
-    : "/services/game-development";
+  // Game pages are the site's strongest organic entry points (GSC/GA4), so
+  // each one funnels descriptive-anchor links to the money pages: the
+  // contextual dev service, the art service, and the Kuwait landing.
+  const serviceLinks: Array<{ href: string; label: Record<Locale, string> }> = [
+    mobileFirst.has(currentSlug)
+      ? {
+          href: "/services/mobile-game-development",
+          label: {
+            en: "Mobile game development service",
+            ar: "خدمة تطوير ألعاب الموبايل",
+          },
+        }
+      : {
+          href: "/services/game-development",
+          label: {
+            en: "Game development service",
+            ar: "خدمة تطوير الألعاب",
+          },
+        },
+    {
+      href: "/services/game-art-design",
+      label: {
+        en: "2D/3D game art & animation",
+        ar: "فن الألعاب والتحريك 2D/3D",
+      },
+    },
+    {
+      href: "/game-development-kuwait",
+      label: {
+        en: "Game development in Kuwait",
+        ar: "تطوير الألعاب في الكويت",
+      },
+    },
+  ];
 
   return (
     <section
@@ -133,16 +158,29 @@ export function GameMoreGames({ currentSlug, theme, language }: GameMoreGamesPro
           })}
         </m.div>
 
-        <p className="mt-10 max-w-2xl text-base text-foreground/65 leading-relaxed">
-          {t.serviceLead}{" "}
-          <Link
-            href={localePath(language, servicePath)}
-            className="font-medium text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
-          >
-            {t.serviceAnchor}
-          </Link>
-          .
-        </p>
+        <div className="mt-10 rounded-xl border border-border bg-card/40 p-6">
+          <p className="max-w-2xl text-base text-foreground/65 leading-relaxed">
+            {t.serviceLead}
+          </p>
+          <div className="mt-4 flex flex-wrap gap-x-8 gap-y-3">
+            {serviceLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={localePath(language, link.href)}
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-sm"
+              >
+                {link.label[language]}
+                <ArrowRight
+                  className={cn(
+                    "h-3.5 w-3.5",
+                    language === "ar" && "rotate-180",
+                  )}
+                  aria-hidden="true"
+                />
+              </Link>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
