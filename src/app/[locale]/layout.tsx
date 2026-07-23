@@ -78,8 +78,8 @@ const organizationSchema = {
     "Game Design",
     "Arabic Games"
   ],
-  // Live profiles only — src/lib/social.ts is the single source (shared with
-  // the footer), so schema and UI can't drift apart.
+  // src/lib/social.ts is the single source (shared with the footer), so
+  // schema and UI can't drift apart.
   "sameAs": sameAs,
   "contactPoint": {
     "@type": "ContactPoint",

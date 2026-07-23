@@ -26,8 +26,10 @@ const icons: Record<string, React.ElementType | 'whatsapp'> = {
   GitHub: Github,
 };
 
-export const socialLinks = socialProfiles.map((profile) => ({
-  href: profile.footerHref ?? profile.url,
-  icon: icons[profile.label] ?? Github,
-  label: profile.label,
-}));
+export const socialLinks = socialProfiles
+  .filter((profile) => profile.footer !== false)
+  .map((profile) => ({
+    href: profile.footerHref ?? profile.url,
+    icon: icons[profile.label] ?? Github,
+    label: profile.label,
+  }));

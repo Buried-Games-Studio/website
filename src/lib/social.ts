@@ -1,14 +1,12 @@
 import { WHATSAPP_URL } from './whatsapp';
 
 /**
- * Single source of truth for the studio's live social profiles — feeds both
- * the footer/contact icons (social-links.tsx) and Organization.sameAs
+ * Single source of truth for the studio's social profiles — feeds both the
+ * footer/contact icons (social-links.tsx) and Organization.sameAs
  * (layout.tsx), so the two can never drift apart again.
  *
- * Same rule as directory listings: a profile appears here ONLY once it is
- * live and studio-owned — sameAs pointing at dead or unclaimed URLs hurts
- * entity credibility. Add Crunchbase / Product Hunt / X here the day those
- * profiles actually exist.
+ * Every entry is studio-owned. `footer: false` marks profiles advertised in
+ * schema only (no footer icon) — e.g. directory/identity pages.
  */
 export interface SocialProfile {
   /** Platform name — also the icon key in social-links.tsx. */
@@ -17,6 +15,8 @@ export interface SocialProfile {
   url: string;
   /** UI link when it differs from the canonical URL (e.g. ?sub_confirmation). */
   footerHref?: string;
+  /** false → schema-only: appears in sameAs but gets no footer icon. */
+  footer?: boolean;
 }
 
 export const socialProfiles: SocialProfile[] = [
@@ -35,6 +35,18 @@ export const socialProfiles: SocialProfile[] = [
   { label: 'Twitch', url: 'https://www.twitch.tv/buriedgamesofficial' },
   { label: 'LinkedIn', url: 'https://www.linkedin.com/company/buriedgames' },
   { label: 'GitHub', url: 'https://github.com/Buried-Games-Studio' },
+  // Schema-only profiles (owner-confirmed; no footer icon).
+  { label: 'X', url: 'https://twitter.com/buriedgames', footer: false },
+  {
+    label: 'Crunchbase',
+    url: 'https://www.crunchbase.com/organization/buried-games-studio',
+    footer: false,
+  },
+  {
+    label: 'Product Hunt',
+    url: 'https://www.producthunt.com/products/buried-games-studio',
+    footer: false,
+  },
 ];
 
 /** Organization.sameAs — every live profile, canonical URLs only. */
