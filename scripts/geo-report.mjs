@@ -70,7 +70,7 @@ async function cloudflareCrawlers() {
 const b64url = (buf) =>
   Buffer.from(buf).toString('base64').replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
 
-async function gaToken() {
+async function gaToken(scope = 'https://www.googleapis.com/auth/analytics.readonly') {
   const now = Math.floor(Date.now() / 1000);
   const unsigned =
     b64url(JSON.stringify({ alg: 'RS256', typ: 'JWT' })) +
@@ -78,7 +78,7 @@ async function gaToken() {
     b64url(
       JSON.stringify({
         iss: GA_KEY.client_email,
-        scope: 'https://www.googleapis.com/auth/analytics.readonly',
+        scope,
         aud: 'https://oauth2.googleapis.com/token',
         iat: now,
         exp: now + 3600,
@@ -163,6 +163,30 @@ async function ga4Stats() {
   };
 }
 
+// ── Google Search Console (same service account; needs it added as a user on
+// the buriedgames.com property in GSC Settings → Users — reported as
+// unavailable until then) ──
+
+async function gscStats() {
+  const token = await gaToken('https://www.googleapis.com/auth/webmasters.readonly');
+  const headers = { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' };
+  const sites = await (await fetch('https://www.googleapis.com/webmasters/v3/sites', { headers })).json();
+  const entry = (sites.siteEntry ?? []).find((s) => s.siteUrl.includes('buriedgames.com'));
+  if (!entry) throw new Error('service account has no access to the GSC property yet');
+  const query = async (body) =>
+    (
+      await fetch(
+        `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(entry.siteUrl)}/searchAnalytics/query`,
+        { method: 'POST', headers, body: JSON.stringify(body) },
+      )
+    ).json();
+  const end = new Date().toISOString().slice(0, 10);
+  const start = new Date(Date.now() - 7 * 86400e3).toISOString().slice(0, 10);
+  const totals = await query({ startDate: start, endDate: end, dimensions: [] });
+  const queries = await query({ startDate: start, endDate: end, dimensions: ['query'], rowLimit: 10 });
+  return { totals: totals.rows?.[0], queries: queries.rows ?? [] };
+}
+
 // ── Bing Webmaster ──
 
 async function bingStats() {
@@ -189,9 +213,10 @@ async function bingStats() {
 
 const section = (title, lines) => `## ${title}\n\n${lines.join('\n')}\n\n`;
 
-const [cf, ga, bing] = await Promise.all([
+const [cf, ga, gsc, bing] = await Promise.all([
   cloudflareCrawlers().catch((e) => ({ error: e.message })),
   ga4Stats().catch((e) => ({ error: e.message })),
+  gscStats().catch((e) => ({ error: e.message })),
   bingStats().catch((e) => ({ error: e.message })),
 ]);
 
@@ -235,6 +260,20 @@ if (!ga.error) {
       : ['- none yet (populates after the attribution deploy)'],
   );
 }
+
+md += section(
+  'Google Search Console',
+  gsc.error
+    ? [`- not available: ${gsc.error}`]
+    : [
+        gsc.totals
+          ? `- Clicks (7d): ${gsc.totals.clicks}, impressions: ${gsc.totals.impressions}, avg position: ${gsc.totals.position.toFixed(1)}`
+          : '- no search traffic recorded this week',
+        ...gsc.queries.map(
+          (r) => `- "${r.keys[0]}": ${r.clicks} clicks / ${r.impressions} impressions`,
+        ),
+      ],
+);
 
 md += section(
   'Bing',
