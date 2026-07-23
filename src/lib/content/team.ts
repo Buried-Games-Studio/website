@@ -61,6 +61,7 @@ export const bokhari: TeamMember = {
   },
   photoUrl: assets.bokhariHamid,
   linkedInUrl: "https://www.linkedin.com/in/bokhari-hamid-b1524a231/",
+  portfolioUrl: "https://www.artstation.com/bokhary",
   showcaseHref: DESIGN_WORKS_PATH,
 };
 

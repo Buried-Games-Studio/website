@@ -152,6 +152,10 @@ Estonian identity leak into `areaServed`, hreflang, titles, or marketing copy.
   AI-generated frames presented as his craft (two AI derivatives of the Arrab
   Godfather were deliberately excluded — 896px files with ✦ watermarks).
   Third-party client pieces are described by discipline and need his sign-off.
+- `docs/bokhari-works-inventory.md` is the canonical site↔ArtStation map of
+  Bokhari's works (profile: artstation.com/bokhary). When asked to check for
+  new works, diff his profile against that file — and update it when works
+  are added.
 - Adding a work: upload `images/design-works/<slug>/cover.<ext>` +
   `gallery-01…` to R2, then add one `DesignWork` entry (EN + AR for every
   Localized field). Everything flips live automatically via `hasDesignWorks()`:

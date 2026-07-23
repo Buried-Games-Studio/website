@@ -360,6 +360,293 @@ export const designWorks: DesignWork[] = [
       },
     ],
   },
+  {
+    slug: "no-water-game-art",
+    latinName: "No Water",
+    metaTitle: {
+      en: "No Water — Arabian Rogue-like Concept Art & UI by Bokhari Hamid",
+      ar: "No Water — فن مفاهيمي وواجهات للعبة روغ-لايك عربية بريشة بوخاري حامد",
+    },
+    metaDescription: {
+      en: "Concept art from No Water, an unreleased rogue-like inspired by UAE and Arabian heritage: the Oasis kingdom under the Mother Palm, characters and creatures, the game's UI/UX, and level design — work by Bokhari Hamid, Creative Director at Buried Games.",
+      ar: "فن مفاهيمي من No Water، لعبة روغ-لايك غير مُصدرة مستوحاة من تراث الإمارات والجزيرة العربية: مملكة الواحة تحت النخلة الأم، والشخصيات والمخلوقات، وواجهات اللعبة، وتصميم المراحل — من أعمال بوخاري حامد، المدير الإبداعي في بريد جيمز.",
+    },
+    title: {
+      en: "No Water — Arabian Rogue-like",
+      ar: "No Water — روغ-لايك عربية",
+    },
+    summary: {
+      en: "IP visuals for an unreleased rogue-like with a UAE-inspired fantasy world: the Oasis kingdom and Mother Palm hub, protagonist and companion creatures, the game's UI/UX, and level design.",
+      ar: "الهوية البصرية للعبة روغ-لايك غير مُصدرة بعالم فانتازي مستوحى من الإمارات: مملكة الواحة ومقر النخلة الأم، والبطل والمخلوقات المرافقة، وواجهات اللعبة، وتصميم المراحل.",
+    },
+    intro: {
+      en: "No Water is an unreleased rogue-like set in a fantasy world drawn from UAE and Arabian heritage — a kingdom thriving beneath a giant Mother Palm, around a great oasis inspired by the real Al Ain Oasis in Abu Dhabi. During his time at Kashkool Games, Bokhari developed the IP's visuals end to end — the world and its environments, characters and creatures, the UI/UX, and level design — and shares this selection here with permission.",
+      ar: "No Water لعبة روغ-لايك غير مُصدرة تدور في عالم فانتازي مستمد من تراث الإمارات والجزيرة العربية — مملكة تزدهر تحت نخلة عملاقة نسميها النخلة الأم، حول واحة كبيرة مستوحاة من واحة العين الحقيقية في أبوظبي. طوّر بوخاري خلال عمله في Kashkool Games الهوية البصرية للعبة من البداية إلى النهاية — العالم وبيئاته، والشخصيات والمخلوقات، والواجهات وتجربة الاستخدام، وتصميم المراحل — ويعرض هنا هذه المختارات بإذن منهم.",
+    },
+    discipline: [
+      { en: "Concept Art", ar: "فن مفاهيمي" },
+      { en: "Character Design", ar: "تصميم شخصيات" },
+      { en: "Game UI/UX", ar: "واجهات وتجربة استخدام" },
+      { en: "Level Design", ar: "تصميم مراحل" },
+    ],
+    tools: ["Photoshop", "Blender", "Unity"],
+    year: "2026",
+    datePublished: "2026-07-23",
+    heroImage: `${WORKS_ASSETS}/no-water-game-art/cover.jpg`,
+    heroImageHint: {
+      en: "Key illustration — the player hub above the Mother Palm",
+      ar: "الرسم الرئيسي — مقر اللاعب فوق النخلة الأم",
+    },
+    gallery: [
+      {
+        url: `${WORKS_ASSETS}/no-water-game-art/gallery-01.jpg`,
+        hint: { en: "The game world — the Oasis kingdom", ar: "عالم اللعبة — مملكة الواحة" },
+      },
+      {
+        url: `${WORKS_ASSETS}/no-water-game-art/gallery-02.jpg`,
+        hint: { en: "Design iterations around the palm-kingdom idea", ar: "تجارب تصميم حول فكرة مملكة النخلة" },
+      },
+      {
+        url: `${WORKS_ASSETS}/no-water-game-art/gallery-03.jpg`,
+        hint: { en: "The player hub perched above the giant palms", ar: "مقر اللاعب فوق النخيل العملاق" },
+      },
+      {
+        url: `${WORKS_ASSETS}/no-water-game-art/gallery-04.jpg`,
+        hint: { en: "Interactable objects inside the hub", ar: "العناصر التفاعلية داخل المقر" },
+      },
+      {
+        url: `${WORKS_ASSETS}/no-water-game-art/gallery-05.jpg`,
+        hint: { en: "The teleport portal concept", ar: "تصميم بوابة الانتقال" },
+      },
+      {
+        url: `${WORKS_ASSETS}/no-water-game-art/gallery-06.jpg`,
+        hint: { en: "Protagonist designs inspired by Abbas ibn Firnas", ar: "تصاميم البطل مستوحاة من عباس بن فرناس" },
+      },
+      {
+        url: `${WORKS_ASSETS}/no-water-game-art/gallery-07.jpg`,
+        hint: { en: "Playable and in-game characters", ar: "شخصيات اللعب والشخصيات داخل اللعبة" },
+      },
+      {
+        url: `${WORKS_ASSETS}/no-water-game-art/gallery-08.jpg`,
+        hint: { en: "Companion creature concept", ar: "تصميم مخلوق مرافق" },
+      },
+      {
+        url: `${WORKS_ASSETS}/no-water-game-art/gallery-09.jpg`,
+        hint: { en: "Companion animation sheet", ar: "لوحة تحريك المخلوق المرافق" },
+      },
+      {
+        url: `${WORKS_ASSETS}/no-water-game-art/gallery-10.jpg`,
+        hint: { en: "Creature color options drawn from Emirati textiles", ar: "خيارات ألوان مستوحاة من الأقمشة الإماراتية" },
+      },
+      {
+        url: `${WORKS_ASSETS}/no-water-game-art/gallery-11.jpg`,
+        hint: { en: "The game hub UI, implemented in Unity", ar: "واجهة مقر اللعبة — نُفّذت في Unity" },
+      },
+      {
+        url: `${WORKS_ASSETS}/no-water-game-art/gallery-12.jpg`,
+        hint: { en: "Level concept framed like an in-game screenshot", ar: "تصور المرحلة بإطار يشبه لقطة من اللعبة" },
+      },
+    ],
+    sections: [
+      {
+        heading: { en: "A world grown from an oasis", ar: "عالم ينمو من واحة" },
+        body: [
+          {
+            en: "The world-building starts from two anchors of Gulf life — the palm and the oasis. The kingdom rises beneath the canopy of the Mother Palm, its player hub perched above the fronds, and its layout echoes the real Al Ain Oasis in Abu Dhabi. The protagonist takes his cue from Abbas ibn Firnas, the Andalusian polymath credited with the first flight attempt.",
+            ar: "يبدأ بناء العالم من ركيزتين من حياة الخليج — النخلة والواحة. تنهض المملكة تحت ظلة النخلة الأم، ومقر اللاعب فوق سعفها، ويستوحي تخطيطها واحة العين الحقيقية في أبوظبي. أما البطل فمستلهم من عباس بن فرناس، العالم الأندلسي صاحب أول محاولة طيران.",
+          },
+          {
+            en: "The role covered the full visual layer: environments and design iterations, playable characters and Pokémon-style companion creatures with animation sheets and color options drawn from Emirati textiles, the game's UI/UX implemented in Unity, and the level design from layout to screenshot-style concept.",
+            ar: "غطى الدور الطبقة البصرية كاملة: البيئات وتجارب التصميم، وشخصيات اللعب والمخلوقات المرافقة بأسلوب البوكيمون مع لوحات التحريك وخيارات ألوان مستوحاة من الأقمشة الإماراتية، وواجهات اللعبة المنفذة في Unity، وتصميم المراحل من المخطط إلى التصور النهائي.",
+          },
+        ],
+      },
+    ],
+    related: [
+      {
+        href: "/services/game-art-design",
+        label: { en: "Our 2D/3D art & animation service", ar: "خدمة الفن والتحريك 2D/3D لدينا" },
+      },
+    ],
+  },
+  {
+    slug: "baba-yaga-witch-house",
+    latinName: "Baba Yaga",
+    metaTitle: {
+      en: "Baba Yaga's Witch House — Interior Concept Art by Bokhari Hamid",
+      ar: "بيت الساحرة بابا ياغا — فن مفاهيمي داخلي بريشة بوخاري حامد",
+    },
+    metaDescription: {
+      en: "An interior concept for Baba Yaga's hut with a cast of enchanted living props — walking mortars, winged cages, and barrel-deer that gather food on their own — from Blender base to painted mood options. By Bokhari Hamid, Creative Director at Buried Games.",
+      ar: "تصور داخلي لكوخ بابا ياغا مع طاقم من العناصر الحيّة المسحورة — هاون سائر وأقفاص مجنّحة وأيائل-براميل تجمع طعامها بنفسها — من الأساس ثلاثي الأبعاد إلى خيارات الأجواء الملوّنة. بريشة بوخاري حامد، المدير الإبداعي في بريد جيمز.",
+    },
+    title: {
+      en: "Baba Yaga's Witch House",
+      ar: "بيت الساحرة بابا ياغا",
+    },
+    summary: {
+      en: "An interior concept for the witch's hut, complete with enchanted living props — furniture with creature tails, potion bowls on bird legs, and barrels that gather food on their own.",
+      ar: "تصور داخلي لكوخ الساحرة، مع عناصر حيّة مسحورة — أثاث بذيول مخلوقات، وأوعية جرعات على أرجل طيور، وبراميل تجمع طعامها بنفسها.",
+    },
+    intro: {
+      en: "In Slavic folklore, Baba Yaga's hut stands on chicken legs — so in this personal piece, the enchantment doesn't stop at the walls. The interior concept comes with a full cast of living props in the same spirit: a walking mortar and feather broom, furniture with creature tails, and barrel-deer that wander off to collect food. The scene was blocked out in Blender, then painted and explored through color and mood options in Photoshop.",
+      ar: "في الفلكلور السلافي يقف كوخ بابا ياغا على أرجل دجاجة — لذا في هذا العمل الشخصي لا يتوقف السحر عند الجدران. يأتي التصور الداخلي مع طاقم كامل من العناصر الحيّة بالروح نفسها: هاون سائر ومكنسة ريشية، وأثاث بذيول مخلوقات، وأيائل-براميل تتجول لتجمع الطعام. بُني المشهد أولًا في Blender ثم رُسم واستُكشفت أجواؤه اللونية في Photoshop.",
+    },
+    discipline: [
+      { en: "Environment Concept Art", ar: "فن بيئات مفاهيمي" },
+      { en: "Prop Design", ar: "تصميم عناصر" },
+    ],
+    tools: ["Blender", "Photoshop"],
+    year: "2026",
+    datePublished: "2026-07-23",
+    heroImage: `${WORKS_ASSETS}/baba-yaga-witch-house/cover.jpg`,
+    heroImageHint: {
+      en: "Inside Baba Yaga's hut — the main interior concept",
+      ar: "داخل كوخ بابا ياغا — التصور الداخلي الرئيسي",
+    },
+    gallery: [
+      {
+        url: `${WORKS_ASSETS}/baba-yaga-witch-house/gallery-01.jpg`,
+        hint: { en: "Color and mood options", ar: "خيارات الألوان والأجواء" },
+      },
+      {
+        url: `${WORKS_ASSETS}/baba-yaga-witch-house/gallery-02.jpg`,
+        hint: { en: "The 3D base built in Blender", ar: "الأساس ثلاثي الأبعاد في Blender" },
+      },
+      {
+        url: `${WORKS_ASSETS}/baba-yaga-witch-house/gallery-03.jpg`,
+        hint: { en: "Base colors", ar: "الألوان الأساسية" },
+      },
+      {
+        url: `${WORKS_ASSETS}/baba-yaga-witch-house/gallery-04.jpg`,
+        hint: { en: "Living props — the feather broom and walking mortar", ar: "عناصر حيّة — المكنسة الريشية والهاون السائر" },
+      },
+      {
+        url: `${WORKS_ASSETS}/baba-yaga-witch-house/gallery-05.jpg`,
+        hint: { en: "Enchanted furniture with creature tails", ar: "أثاث مسحور بذيول مخلوقات" },
+      },
+      {
+        url: `${WORKS_ASSETS}/baba-yaga-witch-house/gallery-06.jpg`,
+        hint: { en: "Potion bowls and barrels on bird legs", ar: "أوعية جرعات وبراميل على أرجل طيور" },
+      },
+      {
+        url: `${WORKS_ASSETS}/baba-yaga-witch-house/gallery-07.jpg`,
+        hint: { en: "Barrel-deer that gather food on their own", ar: "أيائل-براميل تجمع طعامها بنفسها" },
+      },
+      {
+        url: `${WORKS_ASSETS}/baba-yaga-witch-house/gallery-08.jpg`,
+        hint: { en: "Winged cage studies", ar: "دراسات الأقفاص المجنّحة" },
+      },
+    ],
+    sections: [
+      {
+        heading: { en: "Props that live", ar: "عناصر تنبض بالحياة" },
+        body: [
+          {
+            en: "The prop sheets carry the folklore logic through every object: chairs and beds with tails tucked under them, a chest draped in bat wings, drinking horns clinging to stumps, and caged boxes that sprout wings or legs — with the chosen directions ticked on the study sheets, exactly as they'd be handed to a 3D team.",
+            ar: "تُطبّق لوحات العناصر منطق الحكاية على كل غرض: كراسٍ وأسرّة بذيول مطوية تحتها، وصندوق مغطى بأجنحة خفاش، وقرون شرب تتشبث بجذوع، وصناديق مقفصة تنبت لها أجنحة أو أرجل — مع تأشير الاتجاهات المختارة على اللوحات، تمامًا كما تُسلَّم لفريق ثلاثي الأبعاد.",
+          },
+          {
+            en: "The interior itself was blocked out in 3D first, so the lighting and camera hold up from any angle, then painted over — with the final color and mood explored in side-by-side options.",
+            ar: "أما المشهد الداخلي فبُني أولًا كتلًا ثلاثية الأبعاد ليصمد الضوء والكاميرا من أي زاوية، ثم رُسم فوقه — واستُكشفت ألوانه وأجواؤه النهائية في خيارات متجاورة.",
+          },
+        ],
+      },
+    ],
+    related: [
+      {
+        href: "/services/game-art-design",
+        label: { en: "Our 2D/3D art & animation service", ar: "خدمة الفن والتحريك 2D/3D لدينا" },
+      },
+    ],
+  },
+  {
+    slug: "west-african-shrine",
+    latinName: "West African Shrine",
+    metaTitle: {
+      en: "West African Shrine — Environment Concept Art by Bokhari Hamid",
+      ar: "مزار غرب أفريقي — فن بيئات مفاهيمي بريشة بوخاري حامد",
+    },
+    metaDescription: {
+      en: "An environment concept of a West African shrine with a central altar, based on the Kingdom of Benin in modern-day Nigeria: 3D blockout, shrine layout, altar designs, props, and color explorations — by Bokhari Hamid, Creative Director at Buried Games.",
+      ar: "تصور بيئي لمزار غرب أفريقي بمذبح مركزي، مستند إلى مملكة بنين في نيجيريا الحالية: الأساس ثلاثي الأبعاد، ومخطط المزار، وتصاميم المذبح، والعناصر، واستكشافات الألوان — بريشة بوخاري حامد، المدير الإبداعي في بريد جيمز.",
+    },
+    title: {
+      en: "West African Shrine",
+      ar: "مزار غرب أفريقي",
+    },
+    summary: {
+      en: "A personal environment piece — a shrine with a central altar based on the Kingdom of Benin, taken from Blender blockout to final color and mood options.",
+      ar: "عمل بيئي شخصي — مزار بمذبح مركزي مستند إلى مملكة بنين، من الأساس ثلاثي الأبعاد إلى خيارات الألوان والأجواء النهائية.",
+    },
+    intro: {
+      en: "A personal environment concept rooted in the history of the Kingdom of Benin, in modern-day Nigeria: a shrine space with an altar at its center. The piece walks through the full pipeline — a 3D base built in Blender, the shrine's design and layout, altar and prop studies, and side-by-side color and mood explorations.",
+      ar: "تصور بيئي شخصي متجذر في تاريخ مملكة بنين في نيجيريا الحالية: فضاء مزار يتوسطه مذبح. يمر العمل بخط الإنتاج كاملًا — أساس ثلاثي الأبعاد في Blender، وتصميم المزار ومخططه، ودراسات المذبح والعناصر، واستكشافات متجاورة للألوان والأجواء.",
+    },
+    discipline: [
+      { en: "Environment Concept Art", ar: "فن بيئات مفاهيمي" },
+      { en: "Concept Art", ar: "فن مفاهيمي" },
+    ],
+    tools: ["Photoshop", "Blender"],
+    year: "2024",
+    datePublished: "2026-07-23",
+    heroImage: `${WORKS_ASSETS}/west-african-shrine/cover.jpg`,
+    heroImageHint: {
+      en: "The shrine concept — final view",
+      ar: "تصور المزار — اللقطة النهائية",
+    },
+    gallery: [
+      {
+        url: `${WORKS_ASSETS}/west-african-shrine/gallery-01.jpg`,
+        hint: { en: "The 3D base built in Blender", ar: "الأساس ثلاثي الأبعاد في Blender" },
+      },
+      {
+        url: `${WORKS_ASSETS}/west-african-shrine/gallery-02.jpg`,
+        hint: { en: "Shrine design", ar: "تصميم المزار" },
+      },
+      {
+        url: `${WORKS_ASSETS}/west-african-shrine/gallery-03.jpg`,
+        hint: { en: "Shrine layout", ar: "مخطط المزار" },
+      },
+      {
+        url: `${WORKS_ASSETS}/west-african-shrine/gallery-04.jpg`,
+        hint: { en: "Altar designs", ar: "تصاميم المذبح" },
+      },
+      {
+        url: `${WORKS_ASSETS}/west-african-shrine/gallery-05.jpg`,
+        hint: { en: "Altar props", ar: "عناصر المذبح" },
+      },
+      {
+        url: `${WORKS_ASSETS}/west-african-shrine/gallery-06.jpg`,
+        hint: { en: "Shrine props", ar: "عناصر المزار" },
+      },
+      {
+        url: `${WORKS_ASSETS}/west-african-shrine/gallery-07.jpg`,
+        hint: { en: "Color and mood options", ar: "خيارات الألوان والأجواء" },
+      },
+    ],
+    sections: [
+      {
+        heading: { en: "From blockout to mood", ar: "من الكتل الأولى إلى الأجواء" },
+        body: [
+          {
+            en: "The scene starts as a 3D blockout in Blender to lock the composition and camera, then moves into paint: the shrine's structure and layout, the altar at its heart, and the props that give the space its ritual character.",
+            ar: "يبدأ المشهد ككتل ثلاثية الأبعاد في Blender لتثبيت التكوين والكاميرا، ثم ينتقل إلى الرسم: بنية المزار ومخططه، والمذبح في قلبه، والعناصر التي تمنح المكان طابعه الطقسي.",
+          },
+          {
+            en: "The final pass explores color and mood side by side — shifting light and palette over the same scene until the atmosphere lands.",
+            ar: "تستكشف المرحلة الأخيرة الألوان والأجواء جنبًا إلى جنب — بتبديل الضوء واللوحة اللونية على المشهد نفسه حتى يستقر الإحساس المطلوب.",
+          },
+        ],
+      },
+    ],
+    related: [
+      {
+        href: "/services/game-art-design",
+        label: { en: "Our 2D/3D art & animation service", ar: "خدمة الفن والتحريك 2D/3D لدينا" },
+      },
+    ],
+  },
 ];
 
 export const designWorkSlugs = designWorks.map((work) => work.slug);
