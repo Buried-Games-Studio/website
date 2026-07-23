@@ -8,7 +8,6 @@ import Footer from '@/components/layout/footer';
 import { Toaster } from "@/components/ui/toaster";
 
 import { Suspense } from 'react';
-import { assets } from '@/lib/assets';
 import { Cairo, Inter, Space_Grotesk } from 'next/font/google';
 import Script from 'next/script';
 import { SurveyModal } from '@/components/survey-modal';
@@ -21,7 +20,8 @@ import { legalEntity } from '@/lib/legal-entity';
 import { bokhari, fahed, personLdNested } from '@/lib/content/team';
 import { hasDesignWorks } from '@/lib/content/design-works';
 import { ConsentBanner } from '@/components/providers/consent-banner';
-import { WHATSAPP_URL } from '@/lib/whatsapp';
+import { sameAs } from '@/lib/social';
+import { ogCard } from '@/lib/og';
 
 // display: 'optional' on all three: with 'swap', the H1 repainted when the
 // webfont arrived and that repaint became the LCP entry (~8s simulated on
@@ -78,17 +78,9 @@ const organizationSchema = {
     "Game Design",
     "Arabic Games"
   ],
-  "sameAs": [
-    "https://www.youtube.com/@buriedgames",
-    "https://twitter.com/buriedgames",
-    "https://instagram.com/buriedgames",
-    "https://linkedin.com/company/buriedgames",
-    "https://github.com/Buried-Games-Studio",
-    "https://tiktok.com/@buriedgames",
-    "https://www.crunchbase.com/organization/buried-games-studio",
-    "https://www.producthunt.com/products/buried-games-studio",
-    WHATSAPP_URL
-  ],
+  // Live profiles only — src/lib/social.ts is the single source (shared with
+  // the footer), so schema and UI can't drift apart.
+  "sameAs": sameAs,
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": "+96555528686",
@@ -165,23 +157,16 @@ export async function generateMetadata({
       siteName: 'Buried Games Studio',
       description: siteDescription[locale],
       url: 'https://buriedgames.com',
-      images: [
-        {
-          url: assets.logo,
-          width: 200,
-          height: 200,
-          alt: 'Buried Games Studio Logo',
-        },
-      ],
+      images: [ogCard],
       locale: ogLocale[locale],
       alternateLocale: locale === 'en' ? [ogLocale.ar] : [ogLocale.en],
       type: 'website',
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title: 'Buried Games Studio',
       description: siteDescription[locale],
-      images: [assets.logo],
+      images: [ogCard.url],
     },
   };
 }

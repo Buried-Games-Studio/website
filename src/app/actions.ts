@@ -13,6 +13,12 @@ const contactSchema = z.object({
       { message: "Please select a valid inquiry type." }
   ),
   message: z.string().min(3, { message: "Message must be at least 10 characters." }),
+  // Self-reported source — catches the zero-click AI recommendations that
+  // referrer-based attribution can't see (visitor heard of us in ChatGPT/
+  // Gemini, then typed the URL). Optional select on the form.
+  heardAbout: z
+    .enum(["chatgpt", "gemini", "other_ai", "search", "social", "referral", "other"])
+    .optional(),
   // First-touch attribution captured client-side (src/lib/attribution.ts).
   // Optional: absent for visitors with storage disabled or pre-rollout visits.
   attributionChannel: z.string().max(20).optional(),
@@ -40,6 +46,7 @@ export async function sendContactEmail(formData: FormData, language: string): Pr
     email: formData.get("email"),
     inquiryType: formData.get("inquiryType"),
     message: formData.get("message"),
+    heardAbout: formData.get("heardAbout") || undefined,
     attributionChannel: formData.get("attributionChannel") ?? undefined,
     attributionSource: formData.get("attributionSource") ?? undefined,
     attributionLanding: formData.get("attributionLanding") ?? undefined,
@@ -69,11 +76,25 @@ export async function sendContactEmail(formData: FormData, language: string): Pr
       email,
       inquiryType,
       message,
+      heardAbout,
       attributionChannel,
       attributionSource,
       attributionLanding,
       attributionFirstSeen,
     } = validatedFields.data;
+
+    // Readable label for the studio notification email (template renders
+    // {{ params.heardAbout }} right under Lead Source).
+    const heardAboutLabels: Record<string, string> = {
+      chatgpt: "ChatGPT",
+      gemini: "Google Gemini",
+      other_ai: "Another AI assistant",
+      search: "Google / web search",
+      social: "Social media",
+      referral: "A friend or colleague",
+      other: "Other",
+    };
+    const heardAboutLabel = heardAbout ? heardAboutLabels[heardAbout] : "Not answered";
 
     // One line for the studio notification, e.g.
     // "ChatGPT (ai) · landed on /services/game-development · first seen 2026-07-10"
@@ -103,6 +124,7 @@ export async function sendContactEmail(formData: FormData, language: string): Pr
         reason: inquiryType,
         message,
         leadSource,
+        heardAbout: heardAboutLabel,
     };
     
     // 2. Send confirmation email to the user

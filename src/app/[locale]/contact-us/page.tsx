@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ContactUsContent } from "@/components/pages/contact-us-content";
 import { isLocale, localePath, languageAlternates, ogLocale, type Locale } from "@/lib/i18n";
+import { ogDefaults } from '@/lib/og';
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -29,6 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       languages: languageAlternates(PATH),
     },
     openGraph: {
+      ...ogDefaults,
       title: title[locale],
       description: description[locale],
       url: localePath(locale, PATH),

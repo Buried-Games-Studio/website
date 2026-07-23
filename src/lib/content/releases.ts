@@ -42,8 +42,8 @@ export interface ReleaseEntry {
 
 export const releasesContent = {
   metaTitle: {
-    en: "Releases & Updates | Buried Games Studio Game Development Timeline",
-    ar: "الإصدارات والتحديثات | الخط الزمني لتطوير الألعاب في استوديو بريد جيمز",
+    en: "Releases & Updates | Game Development Timeline",
+    ar: "الإصدارات والتحديثات | الخط الزمني لتطوير الألعاب",
   } satisfies LocalizedText,
   metaDescription: {
     en: "A timeline of Buried Games Studio releases, game milestones, and devlogs — from our founding to live titles like KoutQ8 on the App Store and Nabsh on the web, serving players across Kuwait and the GCC.",

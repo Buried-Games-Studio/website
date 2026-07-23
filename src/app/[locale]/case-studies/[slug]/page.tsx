@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { CaseStudyDetailContent } from "@/components/pages/case-study-detail-content";
 import { caseStudies, caseStudiesUi, getCaseStudy } from "@/lib/content/case-studies";
 import { isLocale, localePath, languageAlternates, ogLocale, type Locale } from "@/lib/i18n";
+import { ogDefaults } from '@/lib/og';
 
 type PageProps = { params: Promise<{ locale: string; slug: string }> };
 
@@ -31,6 +32,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       languages: languageAlternates(path),
     },
     openGraph: {
+      ...ogDefaults,
       title: caseStudy.metaTitle[locale],
       description: caseStudy.metaDescription[locale],
       url: localePath(locale, path),

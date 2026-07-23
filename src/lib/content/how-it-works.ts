@@ -37,8 +37,8 @@ export interface EngagementModel {
 
 export const howItWorksContent = {
   metaTitle: {
-    en: "How Game Development Works | Our Process | Buried Games Studio",
-    ar: "كيف تتم صناعة الألعاب | منهجيتنا | استوديو بريد جيمز",
+    en: "How Game Development Works | Our Process",
+    ar: "كيف تتم صناعة الألعاب | منهجيتنا",
   } satisfies LocalizedText,
   metaDescription: {
     en: "How game development works at Buried Games Studio: our 5-step process from concept to launch, engagement models, communication cadence, and the tools we use — for clients across Kuwait and the GCC.",

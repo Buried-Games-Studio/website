@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ImprintContent } from "@/components/pages/imprint-content";
 import { legalEntity } from "@/lib/legal-entity";
 import { isLocale, localePath, languageAlternates, ogLocale, type Locale } from "@/lib/i18n";
+import { ogDefaults } from '@/lib/og';
 
 const PATH = "/imprint";
 
@@ -33,6 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     // out of the index until it carries real disclosure content.
     robots: { index: legalEntity.registered, follow: true },
     openGraph: {
+      ...ogDefaults,
       title: title[locale],
       description: description[locale],
       url: localePath(locale, PATH),

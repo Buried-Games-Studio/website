@@ -4,6 +4,7 @@ import { PressContent } from "@/components/pages/press-content";
 import { pressContent, gameFactSheets } from "@/lib/content/press";
 import { legalEntity } from "@/lib/legal-entity";
 import { isLocale, localePath, languageAlternates, ogLocale, type Locale } from "@/lib/i18n";
+import { ogDefaults } from '@/lib/og';
 
 const SITE = "https://buriedgames.com";
 const PATH = "/press";
@@ -21,6 +22,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       languages: languageAlternates(PATH),
     },
     openGraph: {
+      ...ogDefaults,
       title: pressContent.metaTitle[locale],
       description: pressContent.metaDescription[locale],
       url: localePath(locale, PATH),

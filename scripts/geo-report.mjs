@@ -155,11 +155,34 @@ async function ga4Stats() {
     },
   });
 
+  // "Visited but didn't contact": every AI-assistant session by source ×
+  // country × landing page, with per-row conversions (contact form +
+  // whatsapp_click — WhatsApp is the studio's dominant conversion path).
+  // 28-day window: weekly AI volumes are too sparse to read on their own.
+  const aiVisitors = await gaReport(token, {
+    dateRanges: [{ startDate: '28daysAgo', endDate: 'today' }],
+    dimensions: [{ name: 'sessionSource' }, { name: 'country' }, { name: 'landingPage' }],
+    metrics: [
+      { name: 'sessions' },
+      { name: 'keyEvents:contact_form_submitted' },
+      { name: 'keyEvents:whatsapp_click' },
+    ],
+    dimensionFilter: {
+      filter: {
+        fieldName: 'sessionSource',
+        stringFilter: { matchType: 'PARTIAL_REGEXP', value: AI_SOURCE_REGEX, caseSensitive: false },
+      },
+    },
+    orderBys: [{ metric: { metricName: 'sessions' }, desc: true }],
+    limit: 40,
+  });
+
   return {
     aiSessions: rows(aiSessions),
     channels: rows(channels),
     leads: rows(leads),
     firstTouch: rows(firstTouch),
+    aiVisitors: rows(aiVisitors),
   };
 }
 
@@ -258,6 +281,22 @@ if (!ga.error) {
     ga.firstTouch.length
       ? ga.firstTouch.map((r) => `- ${r.dims[0] || '(not set)'}: ${r.metrics[0]}`)
       : ['- none yet (populates after the attribution deploy)'],
+  );
+  md += section(
+    'AI visitors — contacted vs not (28d)',
+    ga.aiVisitors.length
+      ? ga.aiVisitors.map((r) => {
+          const [source, country, landing] = r.dims;
+          const [sessions, forms, whatsapp] = r.metrics.map(Number);
+          const contact =
+            forms || whatsapp
+              ? `CONTACTED (${[forms && `form ×${forms}`, whatsapp && `WhatsApp ×${whatsapp}`]
+                  .filter(Boolean)
+                  .join(', ')})`
+              : 'no contact';
+          return `- ${source} · ${country} · ${landing}: ${sessions} session${sessions === 1 ? '' : 's'} — ${contact}`;
+        })
+      : ['- no AI-assistant sessions in the last 28 days'],
   );
 }
 

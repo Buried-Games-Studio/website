@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { GccLandingContent } from "@/components/pages/gcc-landing-content";
 import { getGccLanding, gccLandingUi } from "@/lib/content/gcc-landing";
 import { isLocale, localePath, languageAlternates, ogLocale, type Locale } from "@/lib/i18n";
+import { ogDefaults } from '@/lib/og';
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -23,6 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       languages: languageAlternates(PATH),
     },
     openGraph: {
+      ...ogDefaults,
       title: landing.metaTitle[locale],
       description: landing.metaDescription[locale],
       url: localePath(locale, PATH),

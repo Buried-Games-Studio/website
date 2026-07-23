@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/select";
 import { sendContactEmail } from "@/app/actions";
 import { useToast } from "@/hooks/use-toast";
-import { Loader2, Send, User, Mail, MessageSquare, HelpCircle } from "lucide-react";
+import { Loader2, Send, User, Mail, MessageSquare, HelpCircle, Megaphone } from "lucide-react";
 import { trackContactFormSubmit } from "@/lib/google-analytics";
 import { getAttribution } from "@/lib/attribution";
 
@@ -39,6 +39,17 @@ export default function ContactForm() {
             support: "Technical Support",
             press: "Press & Media",
         },
+        heardAbout: "How did you hear about us? (optional)",
+        heardAboutPlaceholder: "Select...",
+        heardAboutOptions: {
+            chatgpt: "ChatGPT",
+            gemini: "Google Gemini",
+            other_ai: "Another AI assistant (Claude, Copilot, …)",
+            search: "Google / web search",
+            social: "Social media (Instagram, TikTok, …)",
+            referral: "A friend or colleague",
+            other: "Other",
+        },
         namePlaceholder: "Your Name",
         emailPlaceholder: "your.email@example.com",
         messagePlaceholder: "Your message...",
@@ -60,6 +71,17 @@ export default function ContactForm() {
             publishing: "نشر الألعاب",
             support: "دعم فني",
             press: "صحافة وإعلام",
+        },
+        heardAbout: "كيف سمعت عنا؟ (اختياري)",
+        heardAboutPlaceholder: "اختر...",
+        heardAboutOptions: {
+            chatgpt: "ChatGPT",
+            gemini: "Google Gemini",
+            other_ai: "مساعد ذكاء اصطناعي آخر (Claude، Copilot…)",
+            search: "بحث Google / الويب",
+            social: "وسائل التواصل (إنستغرام، تيك توك…)",
+            referral: "صديق أو زميل",
+            other: "أخرى",
         },
         namePlaceholder: "اسمك",
         emailPlaceholder: "your.email@example.com",
@@ -95,7 +117,8 @@ export default function ContactForm() {
       } else {
         trackContactFormSubmit(
           formData.get('inquiryType') as string || 'unknown',
-          attribution ?? undefined
+          attribution ?? undefined,
+          formData.get('heardAbout') as string || undefined
         );
         toast({
           title: t.successTitle,
@@ -183,6 +206,33 @@ export default function ContactForm() {
             required
             className="ps-11 pt-3 bg-background border-border focus-visible:ring-primary/30 focus-visible:border-primary/50 min-h-[140px] resize-none transition-all duration-200 rounded-lg"
           />
+        </div>
+      </div>
+
+      {/* How they heard about the studio — optional; closes the loop on the
+          zero-click AI recommendations that automated attribution can't see
+          (clients who hear the name in ChatGPT/Gemini and arrive as Direct). */}
+      <div className="space-y-2 group">
+        <Label htmlFor="heardAbout" className="text-xs font-medium tracking-wide text-foreground/60 group-focus-within:text-foreground transition-colors">
+          {t.heardAbout}
+        </Label>
+        <div className="relative">
+          <Megaphone className="absolute start-3.5 top-3.5 h-4.5 w-4.5 text-foreground/40 z-10 pointer-events-none" />
+
+          <Select name="heardAbout">
+            <SelectTrigger className="w-full ps-11 bg-background border-border focus:ring-primary/30 focus:border-primary/50 h-12 rounded-lg">
+              <SelectValue placeholder={t.heardAboutPlaceholder} />
+            </SelectTrigger>
+            <SelectContent className="bg-card border-border">
+              <SelectItem value="chatgpt">{t.heardAboutOptions.chatgpt}</SelectItem>
+              <SelectItem value="gemini">{t.heardAboutOptions.gemini}</SelectItem>
+              <SelectItem value="other_ai">{t.heardAboutOptions.other_ai}</SelectItem>
+              <SelectItem value="search">{t.heardAboutOptions.search}</SelectItem>
+              <SelectItem value="social">{t.heardAboutOptions.social}</SelectItem>
+              <SelectItem value="referral">{t.heardAboutOptions.referral}</SelectItem>
+              <SelectItem value="other">{t.heardAboutOptions.other}</SelectItem>
+            </SelectContent>
+          </Select>
         </div>
       </div>
 

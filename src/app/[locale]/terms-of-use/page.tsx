@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { TermsOfUseContent } from "@/components/pages/terms-of-use-content";
 import { isLocale, localePath, languageAlternates, ogLocale, type Locale } from "@/lib/i18n";
+import { ogDefaults } from '@/lib/og';
 
 const PATH = "/terms-of-use";
 
@@ -29,6 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       languages: languageAlternates(PATH),
     },
     openGraph: {
+      ...ogDefaults,
       title: title[locale],
       description: description[locale],
       url: localePath(locale, PATH),

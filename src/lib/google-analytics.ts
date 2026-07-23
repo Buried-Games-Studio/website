@@ -39,12 +39,16 @@ export const logGtagEvent = (
 
 export const trackContactFormSubmit = (
   inquiryType: string,
-  attribution?: { channel: string; source: string }
+  attribution?: { channel: string; source: string },
+  heardAbout?: string
 ) =>
   logGtagEvent('contact_form_submitted', {
     inquiry_type: inquiryType,
     first_touch_channel: attribution?.channel ?? 'unknown',
     first_touch_source: attribution?.source ?? 'unknown',
+    // Self-reported on the form; complements referrer-based first_touch_* —
+    // the zero-click "ChatGPT told me about you" leads arrive as Direct.
+    heard_about: heardAbout ?? 'not_answered',
   });
 
 // Fired once per browser, on the visit that captured first-touch attribution.

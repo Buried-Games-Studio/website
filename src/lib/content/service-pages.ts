@@ -136,8 +136,8 @@ export const servicePages: ServicePage[] = [
     latinName: "Game Development",
     serviceType: "Game Development",
     metaTitle: {
-      en: "Game Development Company for Kuwait & the GCC | Buried Games Studio",
-      ar: "شركة تطوير ألعاب للكويت والخليج | استوديو بريد جيمز",
+      en: "Game Development Company for Kuwait & the GCC",
+      ar: "شركة تطوير ألعاب للكويت والخليج",
     },
     metaDescription: {
       en: "Full-cycle game development company serving Kuwait, the GCC, Saudi Arabia, and the UAE. We design, build, and ship Unity, Unreal Engine 5, mobile, and web games — Arabic-first, end to end.",
@@ -357,8 +357,8 @@ export const servicePages: ServicePage[] = [
     latinName: "Mobile Game Development",
     serviceType: "Mobile Game Development",
     metaTitle: {
-      en: "Mobile Game Development for Kuwait & the GCC | iOS & Android | Buried Games",
-      ar: "تطوير ألعاب الجوال للكويت والخليج | iOS وAndroid | بريد جيمز",
+      en: "Mobile Game Development for Kuwait & the GCC | iOS & Android",
+      ar: "تطوير ألعاب الجوال للكويت والخليج | iOS وAndroid",
     },
     metaDescription: {
       en: "Mobile game development studio for Kuwait and the GCC. We design and build Arabic-first iOS and Android games in Unity — from prototype to App Store and Google Play launch.",
@@ -459,8 +459,8 @@ export const servicePages: ServicePage[] = [
     latinName: "Unity Game Development",
     serviceType: "Unity Game Development",
     metaTitle: {
-      en: "Unity Game Development Studio for Kuwait & the GCC | Buried Games",
-      ar: "استوديو تطوير ألعاب Unity للكويت والخليج | بريد جيمز",
+      en: "Unity Game Development Studio for Kuwait & the GCC",
+      ar: "استوديو تطوير ألعاب Unity للكويت والخليج",
     },
     metaDescription: {
       en: "Unity game development studio serving Kuwait, the GCC, Saudi Arabia, and the UAE. We build cross-platform mobile, PC, and web games in Unity — Arabic-first, from prototype to launch.",
@@ -560,8 +560,8 @@ export const servicePages: ServicePage[] = [
     latinName: "Multiplayer Game Development",
     serviceType: "Multiplayer Game Development",
     metaTitle: {
-      en: "Multiplayer Game Development for Kuwait & the GCC | Buried Games",
-      ar: "تطوير الألعاب الجماعية للكويت والخليج | بريد جيمز",
+      en: "Multiplayer Game Development for Kuwait & the GCC",
+      ar: "تطوير الألعاب الجماعية للكويت والخليج",
     },
     metaDescription: {
       en: "Multiplayer game development studio serving Kuwait and the GCC. We build real-time online multiplayer games — matchmaking, leaderboards, and scalable backends — for mobile, PC, and web.",
@@ -663,8 +663,8 @@ export const servicePages: ServicePage[] = [
     latinName: "Unreal Engine Development",
     serviceType: "Unreal Engine Development",
     metaTitle: {
-      en: "Unreal Engine Development for Kuwait & the GCC | MetaHuman | Buried Games",
-      ar: "تطوير Unreal Engine للكويت والخليج | ميتاهيومان | بريد جيمز",
+      en: "Unreal Engine Development for Kuwait & the GCC | MetaHuman",
+      ar: "تطوير Unreal Engine للكويت والخليج | ميتاهيومان",
     },
     metaDescription: {
       en: "Unreal Engine 5 development studio serving Kuwait and the GCC. Blueprints and C++, high-fidelity rendering, and realistic MetaHuman digital characters for games and interactive experiences — Arabic-first.",
@@ -769,8 +769,8 @@ export const servicePages: ServicePage[] = [
     latinName: "App Development",
     serviceType: "Mobile App Development",
     metaTitle: {
-      en: "App Development for Kuwait & the GCC | iOS & Android | Buried Games",
-      ar: "تطوير التطبيقات للكويت والخليج | iOS وAndroid | بريد جيمز",
+      en: "App Development for Kuwait & the GCC | iOS & Android",
+      ar: "تطوير التطبيقات للكويت والخليج | iOS وAndroid",
     },
     metaDescription: {
       en: "Mobile app development studio serving Kuwait and the GCC. We build interactive, gamified iOS and Android apps — Unity, native, and web stacks — Arabic-first with proper RTL.",
@@ -874,8 +874,8 @@ export const servicePages: ServicePage[] = [
     latinName: "Web Development",
     serviceType: "Web Development",
     metaTitle: {
-      en: "Web Development for the GCC | Bilingual RTL Websites | Buried Games",
-      ar: "تطوير الويب للخليج | مواقع ثنائية اللغة بدعم RTL | بريد جيمز",
+      en: "Web Development for the GCC | Bilingual RTL Websites",
+      ar: "تطوير الويب للخليج | مواقع ثنائية اللغة بدعم RTL",
     },
     metaDescription: {
       en: "Web development studio serving Kuwait and the GCC. We build modern Next.js websites, web apps, and browser games — bilingual, Arabic-first, RTL-native, fast, and SEO-ready.",
@@ -979,8 +979,8 @@ export const servicePages: ServicePage[] = [
     latinName: "Game Art & Design",
     serviceType: "Game Art and Design",
     metaTitle: {
-      en: "2D & 3D Game Art, Animation & Design for the GCC | Buried Games",
-      ar: "فن ورسوم وتصميم ألعاب ثنائية وثلاثية الأبعاد للخليج | بريد جيمز",
+      en: "2D & 3D Game Art, Animation & Design for the GCC",
+      ar: "فن ورسوم وتصميم ألعاب ثنائية وثلاثية الأبعاد للخليج",
     },
     metaDescription: {
       en: "Game art and design studio serving Kuwait and the GCC. Concept art, 2D and 3D assets, character design, animation, and game UI/UX — all crafted in-house.",

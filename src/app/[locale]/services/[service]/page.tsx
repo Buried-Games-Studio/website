@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ServiceDetailContent } from "@/components/pages/service-detail-content";
 import { servicePages, getServicePage } from "@/lib/content/service-pages";
 import { isLocale, localePath, languageAlternates, ogLocale, type Locale } from "@/lib/i18n";
+import { ogDefaults } from '@/lib/og';
 
 const SITE = "https://buriedgames.com";
 
@@ -33,6 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       languages: languageAlternates(path),
     },
     openGraph: {
+      ...ogDefaults,
       title: page.metaTitle[locale],
       description: page.metaDescription[locale],
       url: localePath(locale, path),

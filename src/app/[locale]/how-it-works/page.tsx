@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { HowItWorksContent } from "@/components/pages/how-it-works-content";
 import { howItWorksContent } from "@/lib/content/how-it-works";
 import { isLocale, localePath, languageAlternates, ogLocale, type Locale } from "@/lib/i18n";
+import { ogDefaults } from '@/lib/og';
 
 const SITE = "https://buriedgames.com";
 const PATH = "/how-it-works";
@@ -20,6 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       languages: languageAlternates(PATH),
     },
     openGraph: {
+      ...ogDefaults,
       title: howItWorksContent.metaTitle[locale],
       description: howItWorksContent.metaDescription[locale],
       url: localePath(locale, PATH),

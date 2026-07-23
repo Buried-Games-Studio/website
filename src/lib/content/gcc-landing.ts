@@ -43,8 +43,8 @@ export const gccLandings: Record<string, GccLanding> = {
     slug: "game-development-kuwait",
     countryCode: "KW",
     metaTitle: {
-      en: "Game Development for Kuwait | Buried Games Studio",
-      ar: "تطوير ألعاب للكويت | استوديو بريد جيمز",
+      en: "Game Development for Kuwait",
+      ar: "تطوير ألعاب للكويت",
     },
     metaDescription: {
       en: "Game development for Kuwait from Buried Games Studio. Arabic-first Unity & web games rooted in Kuwaiti culture — from KoutQ8, our digital take on the traditional Kuwaiti Kout card game, to Nabsh trivia. We serve clients across Kuwait and the GCC.",
@@ -160,8 +160,8 @@ export const gccLandings: Record<string, GccLanding> = {
     slug: "game-development-saudi-arabia",
     countryCode: "SA",
     metaTitle: {
-      en: "Game Development Company for Saudi Arabia | Buried Games Studio",
-      ar: "شركة تطوير ألعاب للسعودية | استوديو بريد جيمز",
+      en: "Game Development Company for Saudi Arabia",
+      ar: "شركة تطوير ألعاب للسعودية",
     },
     metaDescription: {
       en: "Game development for Saudi Arabia from Buried Games Studio, an independent GCC games studio. Arabic-first Unity & Unreal games, store and payment localisation, and remote collaboration across the Gulf for KSA clients.",
@@ -390,8 +390,8 @@ export const gccLandings: Record<string, GccLanding> = {
     slug: "game-development-qatar",
     countryCode: "QA",
     metaTitle: {
-      en: "Game Development Company for Qatar | Buried Games Studio",
-      ar: "شركة تطوير ألعاب لقطر | استوديو بريد جيمز",
+      en: "Game Development Company for Qatar",
+      ar: "شركة تطوير ألعاب لقطر",
     },
     metaDescription: {
       en: "Game development for Qatar from Buried Games Studio, an independent GCC games studio. Arabic and English Unity & Unreal games for Qatar's esports-driven, bilingual audience, with store and payment localisation and remote Gulf collaboration.",
@@ -503,8 +503,8 @@ export const gccLandings: Record<string, GccLanding> = {
     slug: "game-development-bahrain",
     countryCode: "BH",
     metaTitle: {
-      en: "Game Development Company for Bahrain | Buried Games Studio",
-      ar: "شركة تطوير ألعاب للبحرين | استوديو بريد جيمز",
+      en: "Game Development Company for Bahrain",
+      ar: "شركة تطوير ألعاب للبحرين",
     },
     metaDescription: {
       en: "Game development for Bahrain from Buried Games Studio, an independent GCC games studio. Arabic-first, mobile-first Unity & web games for Bahrain's young, connected audience, with store and payment localisation and remote Gulf collaboration.",
@@ -594,8 +594,8 @@ export const gccLandings: Record<string, GccLanding> = {
     slug: "game-development-oman",
     countryCode: "OM",
     metaTitle: {
-      en: "Game Development Company for Oman | Buried Games Studio",
-      ar: "شركة تطوير ألعاب لعُمان | استوديو بريد جيمز",
+      en: "Game Development Company for Oman",
+      ar: "شركة تطوير ألعاب لعُمان",
     },
     metaDescription: {
       en: "Game development for Oman from Buried Games Studio, an independent GCC games studio. Arabic-first, mobile-first Unity & web games for Oman's growing, young audience, with store and payment localisation and remote Gulf collaboration.",

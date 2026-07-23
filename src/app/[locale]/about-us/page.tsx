@@ -5,6 +5,7 @@ import { aboutContent } from "@/lib/content/about";
 import { bokhari, fahed, personLdNested } from "@/lib/content/team";
 import { hasDesignWorks } from "@/lib/content/design-works";
 import { isLocale, localePath, languageAlternates, ogLocale, type Locale } from "@/lib/i18n";
+import { ogDefaults } from '@/lib/og';
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -32,6 +33,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       languages: languageAlternates(PATH),
     },
     openGraph: {
+      ...ogDefaults,
       title: title[locale],
       description: description[locale],
       url: localePath(locale, PATH),

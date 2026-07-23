@@ -48,8 +48,8 @@ export const caseStudies: CaseStudy[] = [
     slug: "koutq8-digital-kout-card-game",
     latinName: "KoutQ8",
     metaTitle: {
-      en: "Case Study: KoutQ8 — Taking Kuwait's Favourite Card Game Digital | Buried Games",
-      ar: "دراسة حالة: كوت كويت — نقل لعبة الورق المفضلة في الكويت إلى الرقمية | بريد جيمز",
+      en: "Case Study: KoutQ8 — Taking Kuwait's Favourite Card Game Digital",
+      ar: "دراسة حالة: كوت كويت — نقل لعبة الورق المفضلة في الكويت إلى الرقمية",
     },
     metaDescription: {
       en: "How Buried Games Studio built KoutQ8: a faithful Unity adaptation of Kout, the Gulf's most-played card game — real-time online multiplayer, an AI partner that bids and coordinates, and an App Store launch.",

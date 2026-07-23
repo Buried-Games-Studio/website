@@ -9,16 +9,25 @@ import {
 } from 'lucide-react';
 import TikTokIcon from '../icons/tiktok';
 import DiscordIcon from '../icons/discord';
-import { WHATSAPP_URL } from '@/lib/whatsapp';
+import { socialProfiles } from '@/lib/social';
 
-export const socialLinks = [
-  { href: "https://youtube.com/@BuriedGamesStudio?sub_confirmation=1", icon: Youtube, label: "YouTube" },
-  { href: "https://instagram.com/buriedgames", icon: Instagram, label: "Instagram" },
-  { href: "https://tiktok.com/@buriedgames", icon: TikTokIcon, label: "TikTok" },
-  { href: "https://facebook.com/@BuriedGamesStudio", icon: Facebook, label: "Facebook" },
-  { href: WHATSAPP_URL, icon: "whatsapp", label: "WhatsApp" },
-  { href: "https://discord.com/invite/v9FWtuyKQn", icon: DiscordIcon, label: "Discord" },
-  { href: "https://twitch.tv/buriedgamesofficial", icon: Twitch, label: "Twitch" },
-  { href: "http://linkedin.com/company/buriedgames", icon: Linkedin, label: "LinkedIn" },
-  { href: "https://github.com/Buried-Games-Studio", icon: Github, label: "GitHub" },
-];
+// Profiles live in src/lib/social.ts (shared with Organization.sameAs); this
+// file only maps each platform to its icon. "whatsapp" stays a string key —
+// consumers render the brand-coloured WhatsAppIcon for it.
+const icons: Record<string, React.ElementType | 'whatsapp'> = {
+  YouTube: Youtube,
+  Instagram: Instagram,
+  TikTok: TikTokIcon,
+  Facebook: Facebook,
+  WhatsApp: 'whatsapp',
+  Discord: DiscordIcon,
+  Twitch: Twitch,
+  LinkedIn: Linkedin,
+  GitHub: Github,
+};
+
+export const socialLinks = socialProfiles.map((profile) => ({
+  href: profile.footerHref ?? profile.url,
+  icon: icons[profile.label] ?? Github,
+  label: profile.label,
+}));

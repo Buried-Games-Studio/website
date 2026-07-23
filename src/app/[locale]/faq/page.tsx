@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { FaqContent } from "@/components/pages/faq-content";
 import { faqContent } from "@/lib/content/faq";
 import { isLocale, localePath, languageAlternates, ogLocale, type Locale } from "@/lib/i18n";
+import { ogDefaults } from '@/lib/og';
 
 const SITE = "https://buriedgames.com";
 const PATH = "/faq";
@@ -10,8 +11,8 @@ const PATH = "/faq";
 type PageProps = { params: Promise<{ locale: string }> };
 
 const metaTitle: Record<Locale, string> = {
-  en: "FAQ | Game Development in Kuwait & the GCC | Buried Games Studio",
-  ar: "الأسئلة الشائعة | تطوير الألعاب في الكويت والخليج | استوديو بريد جيمز",
+  en: "FAQ | Game Development in Kuwait & the GCC",
+  ar: "الأسئلة الشائعة | تطوير الألعاب في الكويت والخليج",
 };
 const metaDescription: Record<Locale, string> = {
   en: "Answers to common questions about Buried Games Studio: our games, the engines and platforms we use, working with us, pricing, Arabic game development, and how to reach us across Kuwait and the GCC.",
@@ -29,6 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       languages: languageAlternates(PATH),
     },
     openGraph: {
+      ...ogDefaults,
       title: metaTitle[locale],
       description: metaDescription[locale],
       url: localePath(locale, PATH),

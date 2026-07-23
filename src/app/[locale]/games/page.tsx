@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { GamesListingContent } from "@/components/pages/games-listing-content";
 import { gamesContent } from "@/lib/content/games";
 import { isLocale, localePath, languageAlternates, ogLocale, type Locale } from "@/lib/i18n";
+import { ogDefaults } from '@/lib/og';
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -30,6 +31,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       languages: languageAlternates(PATH),
     },
     openGraph: {
+      ...ogDefaults,
       title: title[locale],
       description: description[locale],
       url: localePath(locale, PATH),

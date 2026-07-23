@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { CaseStudiesContent } from "@/components/pages/case-studies-content";
 import { caseStudies, caseStudiesUi } from "@/lib/content/case-studies";
 import { isLocale, localePath, languageAlternates, ogLocale, type Locale } from "@/lib/i18n";
+import { ogDefaults } from '@/lib/og';
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -11,12 +12,12 @@ const PATH = "/case-studies";
 
 const meta: Record<Locale, { title: string; description: string }> = {
   en: {
-    title: "Case Studies — Games & Products We've Shipped | Buried Games Studio",
+    title: "Case Studies — Games & Products We've Shipped",
     description:
       "Real projects, real outcomes: how Buried Games Studio designs, builds, and ships games and interactive products for Kuwait and the GCC — from KoutQ8's multiplayer card tables to full-cycle client work.",
   },
   ar: {
-    title: "دراسات الحالة — ألعاب ومنتجات أطلقناها | استوديو بريد جيمز",
+    title: "دراسات الحالة — ألعاب ومنتجات أطلقناها",
     description:
       "مشاريع حقيقية ونتائج حقيقية: كيف يصمم استوديو بريد جيمز ويبني ويطلق ألعابًا ومنتجات تفاعلية للكويت والخليج — من طاولات كوت كويت الجماعية إلى عمل متكامل للعملاء.",
   },
@@ -34,6 +35,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       languages: languageAlternates(PATH),
     },
     openGraph: {
+      ...ogDefaults,
       title: meta[locale].title,
       description: meta[locale].description,
       url: localePath(locale, PATH),

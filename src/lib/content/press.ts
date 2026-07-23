@@ -53,8 +53,8 @@ export interface SocialLink {
 
 export const pressContent = {
   metaTitle: {
-    en: "Press Kit | Buried Games Studio — Game Development for Kuwait & the GCC",
-    ar: "الملف الصحفي | استوديو بريد جيمز — تطوير ألعاب للكويت والخليج",
+    en: "Press Kit — Game Development for Kuwait & the GCC",
+    ar: "الملف الصحفي — تطوير ألعاب للكويت والخليج",
   } satisfies LocalizedText,
   metaDescription: {
     en: "Official press kit for Buried Games Studio: studio boilerplate, founder, founding year, logo downloads, game fact sheets, brand colours, and press contact for journalists and partners covering game development across Kuwait and the GCC.",
