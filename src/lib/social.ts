@@ -47,6 +47,11 @@ export const socialProfiles: SocialProfile[] = [
     url: 'https://www.producthunt.com/products/buried-games-studio',
     footer: false,
   },
+  {
+    label: 'ensun',
+    url: 'https://ensun.io/company/buried-games-studio-6a623877189b08fa2a052e38-managed',
+    footer: false,
+  },
 ];
 
 /** Organization.sameAs — every live profile, canonical URLs only. */
