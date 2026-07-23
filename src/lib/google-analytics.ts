@@ -65,8 +65,17 @@ export const trackFirstTouch = (attribution: {
 export const trackStoreClick = (gameSlug: string, storeType: string, url: string) =>
   logGtagEvent('store_link_click', { game_slug: gameSlug, store_type: storeType, url });
 
-export const trackWhatsAppClick = (location: string) =>
-  logGtagEvent('whatsapp_click', { location });
+// whatsapp_click is a GA4 key event — WhatsApp is the studio's dominant
+// conversion path — so it carries the same first-touch params as the form.
+export const trackWhatsAppClick = (
+  location: string,
+  attribution?: { channel: string; source: string } | null
+) =>
+  logGtagEvent('whatsapp_click', {
+    location,
+    first_touch_channel: attribution?.channel ?? 'unknown',
+    first_touch_source: attribution?.source ?? 'unknown',
+  });
 
 // ── Engagement events (Tier 2) ──────────────────────────────────
 

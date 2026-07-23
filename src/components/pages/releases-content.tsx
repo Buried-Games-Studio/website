@@ -9,7 +9,7 @@ import { releasesContent, releaseTimeline, type ReleaseEntry } from "@/lib/conte
 import { m } from "framer-motion";
 import { ArrowRight, ExternalLink } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/96555528686";
+import { WhatsAppLink } from "@/components/whatsapp-link";
 
 const ui = {
   en: { home: "Home", releases: "Releases", contactCta: "Start your project", whatsapp: "Chat on WhatsApp" },
@@ -159,15 +159,13 @@ export function ReleasesContent({ locale }: { locale: Locale }) {
               <Button asChild size="lg" className="h-12 rounded-full bg-primary px-8 text-sm md:text-base font-semibold text-primary-foreground hover:bg-primary/90 transition-all duration-300">
                 <Link href={localePath(locale, "/contact-us")} className="group flex items-center gap-2">{t.contactCta}{Arrow}</Link>
               </Button>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <WhatsAppLink
+                location="releases"
                 className="inline-flex items-center gap-2 text-sm font-medium text-foreground underline underline-offset-4 decoration-primary/50 transition-colors hover:decoration-primary"
               >
                 <WhatsAppIcon className="h-4.5 w-4.5 text-[#25D366]" />
                 {t.whatsapp}
-              </a>
+              </WhatsAppLink>
             </div>
           </m.div>
         </div>

@@ -12,7 +12,8 @@ import { assets } from '@/lib/assets';
 import { cn } from '@/lib/utils';
 import { legalEntity } from '@/lib/legal-entity';
 import { socialLinks } from './social-links';
-import { trackSocialClick, trackWhatsAppClick, trackLanguageToggle } from '@/lib/google-analytics';
+import { trackSocialClick, trackLanguageToggle } from '@/lib/google-analytics';
+import { WhatsAppLink } from '@/components/whatsapp-link';
 
 const FooterLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <Link
@@ -141,16 +142,13 @@ const Footer = ({ showDesignWorks }: { showDesignWorks: boolean }) => {
                 <Mail className="w-4 h-4 text-primary" />
                 support@buriedgames.com
               </a>
-              <a
-                href="https://wa.me/96555528686"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => trackWhatsAppClick('footer')}
+              <WhatsAppLink
+                location="footer"
                 className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
                 +965 5552 8686
-              </a>
+              </WhatsAppLink>
             </div>
             <div className="flex items-center gap-1">
               {socialLinks.map(social => {

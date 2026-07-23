@@ -28,7 +28,7 @@ import {
 import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-const WHATSAPP_URL = "https://wa.me/96555528686";
+import { WhatsAppLink } from "@/components/whatsapp-link";
 
 /* ─────────────────────────────────────────────
    ICON MAP for the 10 service blurbs (EN & AR keys)
@@ -171,16 +171,14 @@ export function ServicesContent({ locale }: { locale: Locale }) {
                 variant="outline"
                 className="h-12 px-6 rounded-full border-foreground/20 bg-transparent text-foreground/80 hover:bg-foreground/5 hover:border-foreground/40 font-medium transition-all duration-300"
               >
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <WhatsAppLink
+                  location="services_hero"
                   aria-label={t_ui.cta_whatsapp_aria}
                   className="flex items-center gap-2"
                 >
                   <WhatsAppIcon className="w-4.5 h-4.5 text-[#25D366]" />
                   {t_ui.hero_whatsapp}
-                </a>
+                </WhatsAppLink>
               </Button>
             </div>
           </m.div>
@@ -311,16 +309,14 @@ export function ServicesContent({ locale }: { locale: Locale }) {
                     />
                   </Link>
                 </Button>
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <WhatsAppLink
+                  location="services_cta"
                   aria-label={t_ui.cta_whatsapp_aria}
                   className="inline-flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
                 >
                   <WhatsAppIcon className="w-4.5 h-4.5 text-[#25D366]" />
                   {t_ui.cta_whatsapp}
-                </a>
+                </WhatsAppLink>
               </div>
             </div>
           </m.div>

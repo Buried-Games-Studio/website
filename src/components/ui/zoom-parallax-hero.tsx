@@ -10,9 +10,8 @@ import { assets } from "@/lib/assets";
 import { useLanguage } from "@/contexts/language-context";
 import { localePath } from "@/lib/i18n";
 import { useMagnetic } from "@/hooks/use-magnetic";
-import { trackHeroCTA, trackWhatsAppClick } from "@/lib/google-analytics";
-
-const WHATSAPP_HREF = "https://wa.me/96555528686";
+import { trackHeroCTA } from "@/lib/google-analytics";
+import { WhatsAppLink } from "@/components/whatsapp-link";
 
 // Desktop, non-touch, motion-allowed. Drives whether we run scroll-linked
 // transforms, ember particles, and entrance animations at all. On mobile and
@@ -244,18 +243,12 @@ export const ZoomParallaxHero = () => {
                 variant="outline"
                 className="h-12 md:h-13 px-6 text-sm md:text-base rounded-full border-foreground/20 bg-transparent text-foreground/80 hover:bg-foreground/5 hover:border-foreground/40 font-medium transition-all duration-300"
               >
-                <a
-                  href={WHATSAPP_HREF}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={t_ui.cta_whatsapp_aria}
-                  onClick={() => trackWhatsAppClick("hero")}
-                >
+                <WhatsAppLink location="hero" aria-label={t_ui.cta_whatsapp_aria}>
                   <span className="flex items-center gap-2">
                     <WhatsAppIcon className="w-4.5 h-4.5 text-[#25D366]" />
                     {t_ui.cta_whatsapp}
                   </span>
-                </a>
+                </WhatsAppLink>
               </Button>
             </m.div>
           </m.div>

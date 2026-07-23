@@ -14,7 +14,7 @@ import {
 import { bokhari, getTeamMember } from "@/lib/content/team";
 import { localePath, type Locale } from "@/lib/i18n";
 
-const WHATSAPP_URL = "https://wa.me/96555528686";
+import { WhatsAppLink } from "@/components/whatsapp-link";
 
 const reveal = {
   initial: { opacity: 0, y: 20 },
@@ -257,15 +257,13 @@ export function DesignWorkDetailContent({
                   />
                 </Link>
               </Button>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <WhatsAppLink
+                location="design_work"
                 className="inline-flex items-center gap-2 text-sm font-medium text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors"
               >
                 <WhatsAppIcon className="h-4.5 w-4.5 text-[#25D366]" />
                 {ui.whatsappCta}
-              </a>
+              </WhatsAppLink>
             </div>
           </m.div>
         </div>

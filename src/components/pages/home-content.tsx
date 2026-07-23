@@ -35,9 +35,8 @@ import { WhatsAppIcon } from "@/components/icons/whatsapp";
 import { assets } from "@/lib/assets";
 import { m } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { trackHomeCTA, trackFAQOpen, trackServiceCardClick, trackWhatsAppClick } from "@/lib/google-analytics";
-
-const WHATSAPP_HREF = "https://wa.me/96555528686";
+import { trackHomeCTA, trackFAQOpen, trackServiceCardClick } from "@/lib/google-analytics";
+import { WhatsAppLink } from "@/components/whatsapp-link";
 
 const reveal = {
   initial: { opacity: 0, y: 20 },
@@ -761,16 +760,13 @@ export function HomeContent({ locale }: { locale: Locale }) {
                   {t_ui.or}{" "}
                   {/* No aria-label: the visible text is the accessible name —
                       a label that differs from visible text fails WCAG 2.5.3. */}
-                  <a
-                    href={WHATSAPP_HREF}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => trackWhatsAppClick("home_cta")}
+                  <WhatsAppLink
+                    location="home_cta"
                     className="inline-flex items-center gap-1.5 text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors"
                   >
                     <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
                     {t_ui.whatsapp_us}
-                  </a>
+                  </WhatsAppLink>
                 </p>
               </div>
             </m.div>

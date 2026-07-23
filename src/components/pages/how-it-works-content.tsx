@@ -10,7 +10,7 @@ import { WhatsAppIcon } from "@/components/icons/whatsapp";
 import { m } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/96555528686";
+import { WhatsAppLink } from "@/components/whatsapp-link";
 
 const ui = {
   en: {
@@ -97,16 +97,14 @@ export function HowItWorksContent({ locale }: { locale: Locale }) {
                 variant="outline"
                 className="h-12 px-6 rounded-full border-foreground/20 bg-transparent text-foreground/80 hover:bg-foreground/5 hover:border-foreground/40 font-medium transition-all duration-300"
               >
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <WhatsAppLink
+                  location="how_it_works_hero"
                   aria-label={t.whatsappAria}
                   className="flex items-center gap-2"
                 >
                   <WhatsAppIcon className="w-4.5 h-4.5 text-[#25D366]" />
                   {t.whatsappCta}
-                </a>
+                </WhatsAppLink>
               </Button>
             </div>
           </m.div>
@@ -296,16 +294,14 @@ export function HowItWorksContent({ locale }: { locale: Locale }) {
                   />
                 </Link>
               </Button>
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
+              <WhatsAppLink
+                location="how_it_works_cta"
                 aria-label={t.whatsappAria}
                 className="inline-flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
               >
                 <WhatsAppIcon className="w-4.5 h-4.5 text-[#25D366]" />
                 {t.whatsappCta}
-              </a>
+              </WhatsAppLink>
             </div>
           </m.div>
         </div>

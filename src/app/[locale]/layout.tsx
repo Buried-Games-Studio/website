@@ -21,6 +21,7 @@ import { legalEntity } from '@/lib/legal-entity';
 import { bokhari, fahed, personLdNested } from '@/lib/content/team';
 import { hasDesignWorks } from '@/lib/content/design-works';
 import { ConsentBanner } from '@/components/providers/consent-banner';
+import { WHATSAPP_URL } from '@/lib/whatsapp';
 
 // display: 'optional' on all three: with 'swap', the H1 repainted when the
 // webfont arrived and that repaint became the LCP entry (~8s simulated on
@@ -86,7 +87,7 @@ const organizationSchema = {
     "https://tiktok.com/@buriedgames",
     "https://www.crunchbase.com/organization/buried-games-studio",
     "https://www.producthunt.com/products/buried-games-studio",
-    "https://wa.me/96555528686"
+    WHATSAPP_URL
   ],
   "contactPoint": {
     "@type": "ContactPoint",

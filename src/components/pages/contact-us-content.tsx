@@ -5,10 +5,9 @@ import { Mail, Clock } from "lucide-react";
 import { WhatsAppIcon } from "@/components/icons/whatsapp";
 import ContactForm from "@/components/contact-form";
 import { socialLinks } from "@/components/layout/social-links";
-import { trackWhatsAppClick, trackSocialClick } from "@/lib/google-analytics";
+import { trackSocialClick } from "@/lib/google-analytics";
 import { type Locale } from "@/lib/i18n";
-
-const WHATSAPP_URL = "https://wa.me/96555528686";
+import { WhatsAppLink } from "@/components/whatsapp-link";
 
 const reveal = {
   initial: { opacity: 0, y: 20 },
@@ -97,11 +96,8 @@ export function ContactUsContent({ locale }: { locale: Locale }) {
                 {t_ui.reach_title}
               </h2>
               <div className="space-y-4">
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => trackWhatsAppClick("contact_page")}
+                <WhatsAppLink
+                  location="contact_page"
                   className="group flex items-start gap-3 -mx-2 px-2 py-1.5 rounded-lg hover:bg-foreground/5 transition-colors"
                 >
                   <span className="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-border bg-background">
@@ -115,7 +111,7 @@ export function ContactUsContent({ locale }: { locale: Locale }) {
                       {t_ui.whatsapp_value}
                     </span>
                   </span>
-                </a>
+                </WhatsAppLink>
 
                 <a
                   href="mailto:support@buriedgames.com"
