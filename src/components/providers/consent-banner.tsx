@@ -4,17 +4,18 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/contexts/language-context";
 import { localePath } from "@/lib/i18n";
-
-const STORAGE_KEY = "bg_consent";
+import { CONSENT_GRANTED_EVENT, CONSENT_STORAGE_KEY } from "@/lib/consent";
 
 /**
  * Applies the visitor's choice to Google Consent Mode v2 and persists it. The
  * default is 'denied' (set in the head bootstrap in layout.tsx); this only ever
  * grants/keeps-denied analytics_storage. Ad storage stays denied — we run no ads.
+ * A grant is announced via CONSENT_GRANTED_EVENT so deferred analytics (the
+ * one-shot first_touch event) can fire once it will actually be recorded.
  */
 function applyConsent(value: "granted" | "denied") {
   try {
-    localStorage.setItem(STORAGE_KEY, value);
+    localStorage.setItem(CONSENT_STORAGE_KEY, value);
   } catch {
     /* storage unavailable (private mode) — the choice just won't persist */
   }
@@ -25,6 +26,9 @@ function applyConsent(value: "granted" | "denied") {
       ad_personalization: "denied",
       analytics_storage: value === "granted" ? "granted" : "denied",
     });
+  }
+  if (value === "granted") {
+    window.dispatchEvent(new Event(CONSENT_GRANTED_EVENT));
   }
 }
 
@@ -41,7 +45,7 @@ export function ConsentBanner() {
 
   useEffect(() => {
     try {
-      if (!localStorage.getItem(STORAGE_KEY)) setOpen(true);
+      if (!localStorage.getItem(CONSENT_STORAGE_KEY)) setOpen(true);
     } catch {
       /* if storage can't be read, don't nag */
     }
