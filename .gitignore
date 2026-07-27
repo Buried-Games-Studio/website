@@ -50,3 +50,13 @@ ga4-service-account.json
 
 # private docs (client proposals, quotes, internal materials)
 /proposals/
+
+# Claude Code. The agent definitions in .claude/agents/ ARE tracked — they are
+# project config and useful to anyone working here. These two are not:
+#   settings.local.json  per-machine permissions, not a project decision
+#   agent-memory/        working notes an agent writes for itself, including
+#                        candid internal feedback on our own work. This repo is
+#                        public, so it must not go in (same reason /proposals/
+#                        is ignored).
+.claude/settings.local.json
+.claude/agent-memory/
