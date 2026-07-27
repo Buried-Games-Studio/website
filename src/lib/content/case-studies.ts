@@ -41,11 +41,19 @@ export type CaseStudy = {
   related: Array<{ href: string; label: Localized; external?: boolean }>;
   /** ISO date for schema datePublished (the project's public release). */
   datePublished?: string;
+  /**
+   * ISO date (YYYY-MM-DD) this write-up's page content last materially changed
+   * — the <lastmod> the sitemap advertises. Deliberately NOT datePublished:
+   * that is the *project's* release date, which predates the write-up. Bump it
+   * BY HAND when you edit the copy below. See src/app/sitemap.ts.
+   */
+  updatedAt: string;
 };
 
 export const caseStudies: CaseStudy[] = [
   {
     slug: "koutq8-digital-kout-card-game",
+    updatedAt: "2026-07-23",
     latinName: "KoutQ8",
     metaTitle: {
       en: "Case Study: KoutQ8 — Taking Kuwait's Favourite Card Game Digital",

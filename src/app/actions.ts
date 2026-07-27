@@ -12,7 +12,7 @@ const contactSchema = z.object({
       ["general", "collaboration", "publishing", "support", "press"], 
       { message: "Please select a valid inquiry type." }
   ),
-  message: z.string().min(3, { message: "Message must be at least 10 characters." }),
+  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
   // Self-reported source — catches the zero-click AI recommendations that
   // referrer-based attribution can't see (visitor heard of us in ChatGPT/
   // Gemini, then typed the URL). Optional select on the form.

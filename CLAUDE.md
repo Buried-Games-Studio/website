@@ -48,6 +48,14 @@ Estonian identity leak into `areaServed`, hreflang, titles, or marketing copy.
   internal paths).
 - `src/app/sitemap.ts` derives routes from content modules (service-pages,
   gcc-landing, games, devlog) — new content there is auto-advertised.
+- Sitemap `<lastmod>`: all 96 URLs carry one and every date is hand-written —
+  static routes as literals in `sitemap.ts`, content routes via the `updatedAt`
+  field sitting next to each entry's `slug`. NEVER `new Date()`/mtime/build
+  time: a sitemap where every URL moves on each deploy gets discounted, and
+  lastmod is our main crawl-scheduling lever. Bump the date by hand when you
+  edit a page's copy, title, or schema (site-wide OG/tracking/chrome tweaks
+  don't count), and never reuse `publishedAt`/`datePublished` for it — those
+  are schema facts about the video/project, not page-edit dates.
 - robots.ts explicitly allows AI crawlers (GEO). Never block /_next/ or ?s=.
 - New pages follow: generateMetadata with canonical + languageAlternates,
   per-page JSON-LD + BreadcrumbList, one h1, substantial unique copy, both
@@ -121,9 +129,20 @@ Estonian identity leak into `areaServed`, hreflang, titles, or marketing copy.
   filtered by `userAgent_like` (free plan caps queries at 1-day windows).
   July 2026 baseline per 24h: GPTBot ~56, OAI-SearchBot ~17, ChatGPT-User ~11
   (live in-conversation citations); Claude/Perplexity 0.
-- Weekly GEO report: `scripts/geo-report.mjs` (Cloudflare AI crawlers + GA4
-  AI sessions/leads + Bing) → reports/geo-weekly/ (gitignored) and emails the
-  studio with `--email`. Scheduled via user crontab, Mondays 09:07.
+- Weekly GEO report: `scripts/geo-report.mjs` (GSC search analytics + Google
+  index coverage via the URL Inspection API + GA4 sessions/channels/conversions
+  + Cloudflare AI crawlers + Bing) → reports/geo-weekly/ (gitignored) and emails
+  the studio with `--email`. Scheduled via user crontab, Mondays 09:07.
+  Everything is week-over-week; Cloudflare (8-day retention) and index coverage
+  (no history API) get their deltas from `reports/geo-weekly/history.json`,
+  a snapshot appended per run. The coverage sweep is ~96 sequential inspections
+  and the API answers in ~6s each, so a full run takes ~10 min — `--fast` skips
+  it. Conversions = `contact_form_submitted` **and**
+  `whatsapp_click`; AI acquisition is read from `sessionSource` + the custom
+  channel group, never from the consent-gated `first_touch` event.
+  GSC gotchas: Search Analytics has no `orderBys` (it truncates by clicks desc,
+  so pull a deep page and sort client-side) and its data lags ~2 days, so both
+  compared windows are shifted back by two days.
 - Case studies live at /case-studies from `src/lib/content/case-studies.ts`
   (auto-fed into sitemap + llms.txt). HARD RULE: only real, verifiable facts —
   no invented budgets/timelines/metrics; client case studies need the

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { m } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { gamesContent } from "@/lib/content/games";
+import { kuwaitMarketLink } from "@/lib/content/gcc-market-links";
 import { type GameTheme } from "@/lib/themes/game-themes";
 import { localePath, type Locale } from "@/lib/i18n";
 import { assets } from "@/lib/assets";
@@ -65,9 +66,29 @@ export function GameMoreGames({ currentSlug, theme, language }: GameMoreGamesPro
     },
   }[language];
 
+  // On the KoutQ8 page the reader is already looking at the game the case
+  // study dissects, so link the write-up itself; elsewhere point at the index.
+  const caseStudyLink =
+    currentSlug === "koutq8"
+      ? {
+          href: "/case-studies/koutq8-digital-kout-card-game",
+          label: {
+            en: "Case study: how we built KoutQ8",
+            ar: "دراسة حالة: كيف بنينا كوت",
+          },
+        }
+      : {
+          href: "/case-studies",
+          label: {
+            en: "Case studies: how we build our games",
+            ar: "دراسات الحالة: كيف نبني ألعابنا",
+          },
+        };
+
   // Game pages are the site's strongest organic entry points (GSC/GA4), so
   // each one funnels descriptive-anchor links to the money pages: the
-  // contextual dev service, the art service, and the Kuwait landing.
+  // contextual dev service, the art service, a case study, and the Kuwait
+  // landing.
   const serviceLinks: Array<{ href: string; label: Record<Locale, string> }> = [
     mobileFirst.has(currentSlug)
       ? {
@@ -91,13 +112,8 @@ export function GameMoreGames({ currentSlug, theme, language }: GameMoreGamesPro
         ar: "فن الألعاب والتحريك 2D/3D",
       },
     },
-    {
-      href: "/game-development-kuwait",
-      label: {
-        en: "Game development in Kuwait",
-        ar: "تطوير الألعاب في الكويت",
-      },
-    },
+    caseStudyLink,
+    kuwaitMarketLink,
   ];
 
   return (

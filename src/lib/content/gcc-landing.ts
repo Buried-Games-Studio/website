@@ -25,6 +25,13 @@ export type LandingFaq = {
 
 export type GccLanding = {
   slug: string;
+  /**
+   * ISO date (YYYY-MM-DD) this page's content last materially changed — it is
+   * the <lastmod> the sitemap advertises for /<slug>. Bump it BY HAND whenever
+   * you edit the copy, title, or FAQs below. Never derive it from build time.
+   * See src/app/sitemap.ts.
+   */
+  updatedAt: string;
   /** ISO 3166-1 alpha-2, used for Service.areaServed in JSON-LD. */
   countryCode: string;
   metaTitle: Localized;
@@ -38,9 +45,15 @@ export type GccLanding = {
   faqs: LandingFaq[];
 };
 
-export const gccLandings: Record<string, GccLanding> = {
+// `satisfies` rather than a `Record<string, …>` annotation so the keys stay a
+// literal union (`GccLandingSlug` below) instead of widening to `string`. That
+// union is what lets `gcc-market-links.ts` prove — at compile time, with a
+// type-only import that ships no prose to the browser — that every landing page
+// has an in-content anchor. A country added here without one is a build error.
+export const gccLandings = {
   "game-development-kuwait": {
     slug: "game-development-kuwait",
+    updatedAt: "2026-07-23",
     countryCode: "KW",
     metaTitle: {
       en: "Game Development for Kuwait",
@@ -158,6 +171,7 @@ export const gccLandings: Record<string, GccLanding> = {
   },
   "game-development-saudi-arabia": {
     slug: "game-development-saudi-arabia",
+    updatedAt: "2026-07-23",
     countryCode: "SA",
     metaTitle: {
       en: "Game Development Company for Saudi Arabia",
@@ -275,6 +289,7 @@ export const gccLandings: Record<string, GccLanding> = {
   },
   "game-development-uae": {
     slug: "game-development-uae",
+    updatedAt: "2026-06-13",
     countryCode: "AE",
     metaTitle: {
       en: "Game Development Company for the UAE | Dubai & Abu Dhabi",
@@ -388,6 +403,7 @@ export const gccLandings: Record<string, GccLanding> = {
   },
   "game-development-qatar": {
     slug: "game-development-qatar",
+    updatedAt: "2026-07-23",
     countryCode: "QA",
     metaTitle: {
       en: "Game Development Company for Qatar",
@@ -501,6 +517,7 @@ export const gccLandings: Record<string, GccLanding> = {
   },
   "game-development-bahrain": {
     slug: "game-development-bahrain",
+    updatedAt: "2026-07-23",
     countryCode: "BH",
     metaTitle: {
       en: "Game Development Company for Bahrain",
@@ -592,6 +609,7 @@ export const gccLandings: Record<string, GccLanding> = {
   },
   "game-development-oman": {
     slug: "game-development-oman",
+    updatedAt: "2026-07-23",
     countryCode: "OM",
     metaTitle: {
       en: "Game Development Company for Oman",
@@ -681,12 +699,15 @@ export const gccLandings: Record<string, GccLanding> = {
       },
     ],
   },
-};
+} satisfies Record<string, GccLanding>;
 
-export const gccLandingSlugs = Object.keys(gccLandings);
+/** Canonical slug union — the single source of truth for which markets exist. */
+export type GccLandingSlug = keyof typeof gccLandings;
+
+export const gccLandingSlugs = Object.keys(gccLandings) as GccLandingSlug[];
 
 export function getGccLanding(slug: string): GccLanding | undefined {
-  return gccLandings[slug];
+  return (gccLandings as Record<string, GccLanding>)[slug];
 }
 
 // Shared UI strings for the landing component, kept beside the content.

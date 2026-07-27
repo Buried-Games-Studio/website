@@ -40,6 +40,10 @@ export function AboutUsContent({
       links_services: "game development services",
       links_join: "or browse the",
       links_games: "games we've shipped",
+      links_cases_prefix: "For the full story behind one project, read",
+      links_cases_kout: "how we built KoutQ8",
+      links_cases_join: "— or see all our",
+      links_cases_all: "case studies",
     },
     ar: {
       eyebrow: "ملف الاستوديو",
@@ -53,6 +57,10 @@ export function AboutUsContent({
       links_services: "خدمات تطوير الألعاب لدينا",
       links_join: "أو تصفّح",
       links_games: "الألعاب التي أطلقناها",
+      links_cases_prefix: "وللقصة الكاملة وراء مشروع واحد، اقرأ",
+      links_cases_kout: "كيف بنينا كوت",
+      links_cases_join: "— أو اطّلع على كل",
+      links_cases_all: "دراسات الحالة لدينا",
     },
   }[language];
 
@@ -130,6 +138,20 @@ export function AboutUsContent({
                 className="text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors"
               >
                 {t_ui.links_games}
+              </Link>
+              . {t_ui.links_cases_prefix}{" "}
+              <Link
+                href={localePath(language, "/case-studies/koutq8-digital-kout-card-game")}
+                className="text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors"
+              >
+                {t_ui.links_cases_kout}
+              </Link>{" "}
+              {t_ui.links_cases_join}{" "}
+              <Link
+                href={localePath(language, "/case-studies")}
+                className="text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors"
+              >
+                {t_ui.links_cases_all}
               </Link>
               .
             </p>

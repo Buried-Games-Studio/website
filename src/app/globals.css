@@ -2,12 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Wordmark face, served from /public rather than assets.buriedgames.com: the
+   R2/Cloudflare asset host sends no Access-Control-Allow-Origin header, and
+   webfonts are always fetched in CORS mode — the browser blocked the
+   cross-origin face and the wordmark silently fell back to Space Grotesk.
+   `optional` matches the next/font faces; with `swap` a webfont repaint became
+   the LCP entry. */
 @font-face {
   font-family: 'afolkalips';
-  src: url('https://assets.buriedgames.com/fonts/afolkalips.woff2') format('woff2');
+  src: url('/fonts/afolkalips.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  font-display: optional;
 }
 
 @layer base {

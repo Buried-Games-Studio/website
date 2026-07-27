@@ -69,6 +69,14 @@ export type DevlogPost = {
   youtubeId: string;
   /** ISO 8601 (UTC) upload date of the source video. */
   publishedAt: string;
+  /**
+   * ISO date (YYYY-MM-DD) this post's page content last materially changed —
+   * the <lastmod> the sitemap advertises. Deliberately NOT publishedAt: that is
+   * the 2024 YouTube upload date of the source video, while the article around
+   * it was written (and is edited) here, years later. Bump it BY HAND when you
+   * edit the copy below; never derive it from build time. See src/app/sitemap.ts.
+   */
+  updatedAt: string;
   title: Localized;
   description: Localized;
   /** Lead paragraph rendered under the video, before the sectioned article. */
@@ -80,6 +88,7 @@ export type DevlogPost = {
 export const devlogPosts: DevlogPost[] = [
   {
     slug: 'devlog-game-audio-design',
+    updatedAt: '2026-06-13',
     youtubeId: 'Rt2zSXYjxg4',
     publishedAt: '2024-04-21T18:55:00Z',
     title: {
@@ -143,6 +152,7 @@ export const devlogPosts: DevlogPost[] = [
   },
   {
     slug: 'devlog-level-design',
+    updatedAt: '2026-06-13',
     youtubeId: 'ivS3ypjdUtA',
     publishedAt: '2024-04-23T10:44:50Z',
     title: {
@@ -206,6 +216,7 @@ export const devlogPosts: DevlogPost[] = [
   },
   {
     slug: 'devlog-character-animation',
+    updatedAt: '2026-06-13',
     youtubeId: 'uiBltx7SHdA',
     publishedAt: '2024-04-25T11:55:42Z',
     title: {
@@ -265,6 +276,7 @@ export const devlogPosts: DevlogPost[] = [
   },
   {
     slug: 'devlog-ai-in-games',
+    updatedAt: '2026-06-13',
     youtubeId: 'ZcT2WfDRMgQ',
     publishedAt: '2024-04-28T13:25:41Z',
     title: {
@@ -324,6 +336,7 @@ export const devlogPosts: DevlogPost[] = [
   },
   {
     slug: 'devlog-unity-vs-unreal',
+    updatedAt: '2026-06-13',
     youtubeId: 'ygPjpaLWyzE',
     publishedAt: '2024-05-03T11:22:52Z',
     title: {
@@ -383,6 +396,7 @@ export const devlogPosts: DevlogPost[] = [
   },
   {
     slug: 'devlog-game-release-strategy',
+    updatedAt: '2026-06-13',
     youtubeId: '9mlvZXzy9ok',
     publishedAt: '2024-05-09T15:08:05Z',
     title: {

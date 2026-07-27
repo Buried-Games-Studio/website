@@ -56,6 +56,8 @@ export default function ContactForm() {
         submit: "Send Message",
         submitting: "Sending…",
         errorTitle: "Something went wrong",
+        errorDescription:
+            "We couldn't send your message. Please try again, or email support@buriedgames.com.",
         successTitle: "Message sent",
         successDescription: "We received your message — we'll reply within 1 business day.",
     },
@@ -89,6 +91,8 @@ export default function ContactForm() {
         submit: "إرسال الرسالة",
         submitting: "جارٍ الإرسال…",
         errorTitle: "حدث خطأ ما",
+        errorDescription:
+            "تعذّر إرسال رسالتك. الرجاء المحاولة مرة أخرى أو مراسلتنا على support@buriedgames.com.",
         successTitle: "تم إرسال رسالتك",
         successDescription: "تم إرسال رسالتك — سنرد خلال يوم عمل واحد.",
     }
@@ -106,13 +110,38 @@ export default function ContactForm() {
         formData.set("attributionFirstSeen", attribution.firstSeen);
       }
 
-      const result = await sendContactEmail(formData, language as string);
-
-      if (result.errors) {
+      // The action request itself can fail before it ever returns a state
+      // (offline, an edge challenge on the POST, a deploy that invalidated the
+      // action id). Unhandled, that rejection stops the spinner and shows the
+      // visitor nothing at all.
+      let result: Awaited<ReturnType<typeof sendContactEmail>>;
+      try {
+        result = await sendContactEmail(formData, language as string);
+      } catch (error) {
+        console.error("Contact form submission failed:", error);
         toast({
           variant: "destructive",
           title: t.errorTitle,
-          description: result.errors.message,
+          description: t.errorDescription,
+        });
+        return;
+      }
+
+      if (!result.success) {
+        // `errors` is zod's flatten().fieldErrors — a Record<string, string[]>
+        // with an extra `_form` key for server-config / Brevo failures, never a
+        // plain string. Prefer the form-level failure, then the first field
+        // error, then localized copy, so a failed submit always explains itself
+        // instead of showing a bare red title.
+        const errors = result.errors;
+        const description =
+          (errors && (errors._form?.[0] ?? Object.values(errors).flat()[0])) ??
+          t.errorDescription;
+
+        toast({
+          variant: "destructive",
+          title: t.errorTitle,
+          description,
         });
       } else {
         trackContactFormSubmit(
@@ -204,6 +233,10 @@ export default function ContactForm() {
             name="message"
             placeholder={t.messagePlaceholder}
             required
+            // Mirrors the server rule (contactSchema.message min 10) so the
+            // browser catches it inline instead of a round-trip that returns
+            // an English-only zod string.
+            minLength={10}
             className="ps-11 pt-3 bg-background border-border focus-visible:ring-primary/30 focus-visible:border-primary/50 min-h-[140px] resize-none transition-all duration-200 rounded-lg"
           />
         </div>

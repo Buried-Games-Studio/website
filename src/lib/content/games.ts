@@ -7,12 +7,19 @@
  *
  * `seoMeta` carries the accurate JSON-LD facts (genre, platforms, languages, and
  * a real datePublished only where confirmed from a live source — see notes inline).
+ *
+ * `updatedAt` is the ISO date (YYYY-MM-DD) this game's page content last
+ * materially changed — it is the <lastmod> the sitemap advertises for
+ * /games/<slug>. Bump it BY HAND whenever you edit the copy below; never derive
+ * it from build time, and never confuse it with seoMeta.datePublished (the
+ * game's own release date). See src/app/sitemap.ts.
  */
 
 export const gamesContent = [
   {
     id: 'arrab',
     slug: 'arrab',
+    updatedAt: '2026-06-13',
     title: 'Arrab',
     status: 'development',
     engine: 'Next.js / NestJS',
@@ -87,6 +94,7 @@ export const gamesContent = [
   {
     id: 'nabsh',
     slug: 'nabsh',
+    updatedAt: '2026-06-13',
     title: 'Nabsh',
     status: 'released',
     engine: 'Next.js',
@@ -161,6 +169,7 @@ export const gamesContent = [
   {
     id: 'power-of-bombs',
     slug: 'power-of-bombs',
+    updatedAt: '2026-06-13',
     title: 'Power of Bombs',
     status: 'development',
     engine: 'Unreal Engine',
@@ -217,6 +226,7 @@ export const gamesContent = [
   {
     id: 'koutq8',
     slug: 'koutq8',
+    updatedAt: '2026-06-13',
     title: 'KoutQ8',
     status: 'released',
     engine: 'Unity',
@@ -278,6 +288,7 @@ export const gamesContent = [
   {
     id: 'luna-fantasy',
     slug: 'luna-fantasy',
+    updatedAt: '2026-06-13',
     title: 'Luna Fantasy',
     status: 'released',
     engine: 'Next.js',
@@ -345,6 +356,7 @@ export const gamesContent = [
   {
     id: 'gathered-by-the-light',
     slug: 'gathered-by-the-light',
+    updatedAt: '2026-06-13',
     title: 'Gathered by the Light',
     status: 'completed',
     engine: 'Unity',

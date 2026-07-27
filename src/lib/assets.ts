@@ -87,7 +87,4 @@ export const assets = {
 
   // Background
   bgNoText: `${ASSETS_BASE_URL}/images/buriedgames_bg_no_text.webp`,
-
-  // Fonts
-  afolkalips: `${ASSETS_BASE_URL}/fonts/afolkalips.woff2`,
 } as const;

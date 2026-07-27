@@ -47,8 +47,15 @@ export type DesignWork = {
   tools?: string[];
   /** Year the piece was created — schema dateCreated. */
   year?: string;
-  /** ISO date the piece was published here — schema datePublished + sitemap lastModified. */
+  /** ISO date the piece was published here — schema datePublished. */
   datePublished?: string;
+  /**
+   * ISO date (YYYY-MM-DD) this piece's page content last materially changed —
+   * the <lastmod> the sitemap advertises. Starts equal to datePublished, then
+   * diverges as the write-up is edited. Bump it BY HAND; never derive it from
+   * build time. See src/app/sitemap.ts.
+   */
+  updatedAt: string;
   /** Cover image: hub card + OG image. Absolute assets.buriedgames.com URL. */
   heroImage: string;
   heroImageHint: Localized;
@@ -71,6 +78,7 @@ export const designWorks: DesignWork[] = [
   // with the first entry (hasDesignWorks gate). No placeholder entries, ever.
   {
     slug: "arrab-godfather-character-art",
+    updatedAt: "2026-07-18",
     latinName: "Arrab — The Godfather",
     metaTitle: {
       en: "The Godfather of Arrab — Character Art Process by Bokhari Hamid",
@@ -158,6 +166,7 @@ export const designWorks: DesignWork[] = [
   },
   {
     slug: "unicef-elearning-games",
+    updatedAt: "2026-07-18",
     latinName: "UNICEF E-learning Games",
     metaTitle: {
       en: "UNICEF E-learning Games — Educational Game Art & UI by Bokhari Hamid",
@@ -256,6 +265,7 @@ export const designWorks: DesignWork[] = [
   },
   {
     slug: "salamander-board-game",
+    updatedAt: "2026-07-23",
     latinName: "Salamander",
     metaTitle: {
       en: "Salamander Board Game — Creature & Game Art by Bokhari Hamid",
@@ -362,6 +372,7 @@ export const designWorks: DesignWork[] = [
   },
   {
     slug: "no-water-game-art",
+    updatedAt: "2026-07-23",
     latinName: "No Water",
     metaTitle: {
       en: "No Water — Arabian Rogue-like Concept Art & UI by Bokhari Hamid",
@@ -471,6 +482,7 @@ export const designWorks: DesignWork[] = [
   },
   {
     slug: "baba-yaga-witch-house",
+    updatedAt: "2026-07-23",
     latinName: "Baba Yaga",
     metaTitle: {
       en: "Baba Yaga's Witch House — Interior Concept Art by Bokhari Hamid",
@@ -562,6 +574,7 @@ export const designWorks: DesignWork[] = [
   },
   {
     slug: "west-african-shrine",
+    updatedAt: "2026-07-23",
     latinName: "West African Shrine",
     metaTitle: {
       en: "West African Shrine — Environment Concept Art by Bokhari Hamid",

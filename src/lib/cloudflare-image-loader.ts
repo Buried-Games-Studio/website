@@ -10,6 +10,13 @@
  * zero origin involvement: resized, AVIF/WebP-converted, edge-cached.
  *
  * In dev there is no Cloudflare in front of localhost, so srcs pass through.
+ *
+ * The option separator is percent-encoded. next/image emits these URLs into a
+ * `srcset`, where a comma separates *candidates* — a literal comma split every
+ * URL into four fragments, so crawlers requested garbage like
+ * `/games/fit=scale-down/https://assets…` (this was the entire source of Bing's
+ * daily 4xx crawl errors) and browsers fell back to the unsized `src`, shipping
+ * the 3840px variant of every image. Cloudflare decodes %2C identically.
  */
 export default function cloudflareImageLoader({
   src,
@@ -28,6 +35,6 @@ export default function cloudflareImageLoader({
     `quality=${quality ?? 70}`,
     'format=auto',
     'fit=scale-down',
-  ].join(',');
+  ].join('%2C');
   return `https://buriedgames.com/cdn-cgi/image/${params}/${src}`;
 }

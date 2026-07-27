@@ -34,6 +34,14 @@ export interface ServicePortfolioItem {
 
 export interface ServicePage {
   slug: string;
+  /**
+   * ISO date (YYYY-MM-DD) this page's content last materially changed — it is
+   * the <lastmod> the sitemap advertises for /services/<slug>. Bump it BY HAND
+   * whenever you edit the copy, title, or FAQ below. Never derive it from build
+   * time: a sitemap where every URL moves on every deploy is a signal search
+   * engines learn to ignore. See src/app/sitemap.ts.
+   */
+  updatedAt: string;
   /** Latin product/service name kept for schema alternateName on Arabic pages. */
   latinName: string;
   metaTitle: LocalizedText;
@@ -133,6 +141,7 @@ const gathered: ServicePortfolioItem = {
 export const servicePages: ServicePage[] = [
   {
     slug: "game-development",
+    updatedAt: "2026-07-23",
     latinName: "Game Development",
     serviceType: "Game Development",
     metaTitle: {
@@ -354,6 +363,7 @@ export const servicePages: ServicePage[] = [
 
   {
     slug: "mobile-game-development",
+    updatedAt: "2026-07-23",
     latinName: "Mobile Game Development",
     serviceType: "Mobile Game Development",
     metaTitle: {
@@ -456,6 +466,7 @@ export const servicePages: ServicePage[] = [
 
   {
     slug: "unity-game-development",
+    updatedAt: "2026-07-23",
     latinName: "Unity Game Development",
     serviceType: "Unity Game Development",
     metaTitle: {
@@ -557,6 +568,7 @@ export const servicePages: ServicePage[] = [
 
   {
     slug: "multiplayer-game-development",
+    updatedAt: "2026-07-23",
     latinName: "Multiplayer Game Development",
     serviceType: "Multiplayer Game Development",
     metaTitle: {
@@ -660,6 +672,7 @@ export const servicePages: ServicePage[] = [
 
   {
     slug: "unreal-engine-development",
+    updatedAt: "2026-07-23",
     latinName: "Unreal Engine Development",
     serviceType: "Unreal Engine Development",
     metaTitle: {
@@ -766,6 +779,7 @@ export const servicePages: ServicePage[] = [
 
   {
     slug: "app-development",
+    updatedAt: "2026-07-23",
     latinName: "App Development",
     serviceType: "Mobile App Development",
     metaTitle: {
@@ -871,6 +885,7 @@ export const servicePages: ServicePage[] = [
 
   {
     slug: "web-development",
+    updatedAt: "2026-07-23",
     latinName: "Web Development",
     serviceType: "Web Development",
     metaTitle: {
@@ -976,6 +991,7 @@ export const servicePages: ServicePage[] = [
 
   {
     slug: "game-art-design",
+    updatedAt: "2026-07-23",
     latinName: "Game Art & Design",
     serviceType: "Game Art and Design",
     metaTitle: {

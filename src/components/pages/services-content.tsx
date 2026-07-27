@@ -2,6 +2,7 @@
 
 import { getTranslation } from "@/lib/content";
 import { featuredServicePages } from "@/lib/content/services";
+import { gccMarketLinks } from "@/lib/content/gcc-market-links";
 import { localePath, type Locale } from "@/lib/i18n";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -93,6 +94,8 @@ export function ServicesContent({ locale }: { locale: Locale }) {
       services_title: "Everything we do",
       services_subtitle:
         "Ten disciplines, one team that owns the whole pipeline — so you brief once instead of stitching vendors together.",
+      markets_lead:
+        "Every service on this page is delivered remotely for clients across the GCC — Arabic-first, on your time zone. Each market has its own page on how that works:",
       cta_title: "Ready to build?",
       cta_subtitle:
         "Tell us about your project and let's create something players will love.",
@@ -111,6 +114,8 @@ export function ServicesContent({ locale }: { locale: Locale }) {
       services_title: "كل ما نقوم به",
       services_subtitle:
         "عشرة تخصصات وفريق واحد يملك خط الإنتاج كله — لتشرح مشروعك مرة واحدة بدلًا من التنسيق بين موردين منفصلين.",
+      markets_lead:
+        "كل خدمة في هذه الصفحة تُقدَّم عن بُعد لعملاء في مختلف دول الخليج — بالعربية أولًا وعلى منطقتك الزمنية. ولكل سوق صفحة تشرح كيف يتم ذلك:",
       cta_title: "جاهز للبناء؟",
       cta_subtitle: "أخبرنا عن مشروعك ولنصنع شيئًا يحبه اللاعبون.",
       cta_button: "ابدأ مشروعك",
@@ -230,6 +235,32 @@ export function ServicesContent({ locale }: { locale: Locale }) {
               );
             })}
           </div>
+
+          {/* Service area — one in-content link per GCC country landing page.
+              Service-area framing only; never a place-of-establishment claim. */}
+          <m.div
+            {...reveal()}
+            className="mt-10 rounded-xl border border-border bg-card/40 p-6"
+          >
+            <p className="max-w-2xl text-base text-foreground/65 leading-relaxed">
+              {t_ui.markets_lead}
+            </p>
+            <div className="mt-4 flex flex-wrap gap-x-8 gap-y-3">
+              {gccMarketLinks.map((market) => (
+                <Link
+                  key={market.href}
+                  href={localePath(language, market.href)}
+                  className="inline-flex items-center gap-1.5 rounded-sm text-sm font-medium text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                >
+                  {market.label[language]}
+                  <ArrowRight
+                    className={cn("w-3.5 h-3.5", isRTL && "rotate-180")}
+                    aria-hidden="true"
+                  />
+                </Link>
+              ))}
+            </div>
+          </m.div>
         </div>
       </section>
 

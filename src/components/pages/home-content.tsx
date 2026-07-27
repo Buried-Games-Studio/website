@@ -27,6 +27,7 @@ import {
 import { ZoomParallaxHero } from "@/components/ui/zoom-parallax-hero";
 import { GamesShowcaseCarousel } from "@/components/ui/games-showcase-carousel";
 import { gamesContent } from "@/lib/content/games";
+import { gccMarketLinks } from "@/lib/content/gcc-market-links";
 import { fahed } from "@/lib/content/team";
 import { DESIGN_WORKS_PATH, designWorks } from "@/lib/content/design-works";
 import { DesignWorkCard } from "@/components/ui/design-work-card";
@@ -117,6 +118,8 @@ export function HomeContent({ locale }: { locale: Locale }) {
         "We build games for studios, brands, and entrepreneurs across the GCC — from a napkin sketch to a live product in players' hands.",
       explore_services: "Explore all services",
       more_services: "More of what we do",
+      markets_lead:
+        "We work remotely with clients across the Gulf — the same time zone, the same working week. See how a project runs in your market:",
       // Process
       process_label: "How we work",
       process_title: "From idea to launch",
@@ -157,6 +160,8 @@ export function HomeContent({ locale }: { locale: Locale }) {
         "نبني الألعاب للاستوديوهات والعلامات التجارية ورواد الأعمال في مختلف دول الخليج — من رسمة على ورقة إلى منتج حي في أيدي اللاعبين.",
       explore_services: "استكشف جميع الخدمات",
       more_services: "المزيد مما نقوم به",
+      markets_lead:
+        "نعمل عن بُعد مع عملاء في مختلف دول الخليج — المنطقة الزمنية نفسها وأسبوع العمل نفسه. اطّلع على كيف يسير المشروع في سوقك:",
       process_label: "كيف نعمل",
       process_title: "من الفكرة إلى الإطلاق",
       credibility_label: "لماذا تعمل معنا الاستوديوهات",
@@ -397,6 +402,47 @@ export function HomeContent({ locale }: { locale: Locale }) {
                 </Link>
               </Button>
             </div>
+
+            {/* Case studies — the long-form write-ups behind the work above */}
+            <m.div className="mt-6 text-center" {...reveal}>
+              {language === "en" ? (
+                <p className="text-sm text-foreground/60 leading-relaxed">
+                  Want the full story behind a build? Read our{" "}
+                  <Link
+                    href={localePath(language, "/case-studies")}
+                    className="text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors"
+                  >
+                    case studies
+                  </Link>{" "}
+                  — starting with{" "}
+                  <Link
+                    href={localePath(language, "/case-studies/koutq8-digital-kout-card-game")}
+                    className="text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors"
+                  >
+                    how we built KoutQ8
+                  </Link>
+                  , our digital take on the traditional Kuwaiti card game.
+                </p>
+              ) : (
+                <p className="text-sm text-foreground/60 leading-relaxed">
+                  تريد القصة الكاملة وراء أحد الأعمال؟ اقرأ{" "}
+                  <Link
+                    href={localePath(language, "/case-studies")}
+                    className="text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors"
+                  >
+                    دراسات الحالة لدينا
+                  </Link>{" "}
+                  — بدءًا من{" "}
+                  <Link
+                    href={localePath(language, "/case-studies/koutq8-digital-kout-card-game")}
+                    className="text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors"
+                  >
+                    كيف بنينا كوت
+                  </Link>
+                  ، نسختنا الرقمية للعبة الورق الكويتية التقليدية.
+                </p>
+              )}
+            </m.div>
           </div>
         </section>
 
@@ -560,6 +606,29 @@ export function HomeContent({ locale }: { locale: Locale }) {
               </div>
             </m.div>
 
+            {/* Service area — one in-content link per GCC country landing page.
+                Service-area framing only; never a place-of-establishment claim. */}
+            <m.div className="mt-10 rounded-xl border border-border bg-card/40 p-6" {...reveal}>
+              <p className="max-w-2xl text-base text-foreground/65 leading-relaxed">
+                {t_ui.markets_lead}
+              </p>
+              <div className="mt-4 flex flex-wrap gap-x-8 gap-y-3">
+                {gccMarketLinks.map((market) => (
+                  <Link
+                    key={market.href}
+                    href={localePath(language, market.href)}
+                    className="inline-flex items-center gap-1.5 rounded-sm text-sm font-medium text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                  >
+                    {market.label[language]}
+                    <ArrowRight
+                      className={cn("w-3.5 h-3.5", isRTL && "rotate-180")}
+                      aria-hidden="true"
+                    />
+                  </Link>
+                ))}
+              </div>
+            </m.div>
+
             <div className="mt-10 flex justify-center">
               <Button
                 asChild
@@ -719,6 +788,34 @@ export function HomeContent({ locale }: { locale: Locale }) {
                   </AccordionItem>
                 ))}
               </Accordion>
+            </m.div>
+
+            {/* The accordion shows five of thirteen — point readers at the rest. */}
+            <m.div className="mt-6" {...reveal}>
+              {language === "en" ? (
+                <p className="text-sm text-foreground/60 leading-relaxed">
+                  Those are the questions we hear most. The full{" "}
+                  <Link
+                    href={localePath(language, "/faq")}
+                    className="text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors"
+                  >
+                    FAQ page
+                  </Link>{" "}
+                  also covers cost, working with clients across the GCC, and how to start a
+                  project.
+                </p>
+              ) : (
+                <p className="text-sm text-foreground/60 leading-relaxed">
+                  هذه أكثر الأسئلة التي تصلنا. وتغطي{" "}
+                  <Link
+                    href={localePath(language, "/faq")}
+                    className="text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors"
+                  >
+                    صفحة الأسئلة الشائعة
+                  </Link>{" "}
+                  أيضًا التكلفة، والعمل مع العملاء في مختلف دول الخليج، وكيفية بدء مشروع.
+                </p>
+              )}
             </m.div>
           </div>
         </section>
