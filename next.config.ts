@@ -88,12 +88,13 @@ const nextConfig: NextConfig = {
         destination: '/devlog',
         permanent: true,
       },
-      // Legacy font files (no longer served from /fonts/)
-      {
-        source: '/fonts/:path*',
-        destination: '/',
-        permanent: false,
-      },
+      // NOTE: there is deliberately no /fonts/:path* redirect. One existed
+      // (5d5cf90) to mop up the 404s left when the wordmark font moved to R2
+      // in 4eb5dca. The font is served from public/fonts/ again — the R2 host
+      // sends no Access-Control-Allow-Origin, so a cross-origin webfont was
+      // blocked outright — and that redirect swallowed it, answering a font
+      // request with the homepage. Redirecting an asset to HTML was the wrong
+      // shape anyway: a missing asset should 404.
       // Malformed URL from external broken link
       {
         source: '/&',
