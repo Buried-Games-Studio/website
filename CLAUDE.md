@@ -37,6 +37,48 @@ fine-print, and `Organization.legalName`. Still **no PostalAddress /
 LocalBusiness in schema** (owner decision — only `legalName`), and never let the
 Estonian identity leak into `areaServed`, hreflang, titles, or marketing copy.
 
+### Incorporation — REGISTERED 31.07.2026 ✅
+**Buried Games OÜ, registry code 17564681**, entered into the e-Business
+Register 31.07.2026 (ruling Ä 50317767, Tartu County Court registration
+department). `legalEntity.registered` is now true, so every legal surface is
+live. Public record: `ariregister.rik.ee/eng/company/17564681`.
+
+- Founded via application 3807459 (foundation number 3381776). The owner logs
+  in with his e-Residency card and the portal autofills his identity, so never
+  ask him to retype his personal identification code — it is deliberately NOT
+  recorded in this repo, nor is his residential address.
+- On the register: EMTAK **62101** principal activity · financial year 01.01–31.12 ·
+  share capital **€10** (sole shareholder) · **no legal reserve** · board 1–3
+  members · no VAT registration · no employees on the TÖR · foundation costs
+  €265 borne by the shareholder personally (booking them to a €10-capital
+  company would put net assets negative on day one).
+- The share-transfer notarial waiver was **impossible** — the register demands
+  €10,000 capital to waive it. Don't re-try it at €10.
+- Registered address is **Tornimäe tn 5, 10145 Tallinn** — Enty's shared client
+  address, covered by the owner's Enty subscription. It is NOT a Buried Games
+  premises and must never surface as a place of establishment (see the GCC rule
+  above); it belongs only in `legalEntity.registeredAddress`.
+
+**FOLLOW-UPS:**
+1. ~~Fill the INCORPORATION block in `src/lib/legal-entity.ts`~~ — **DONE
+   31.07.2026.** `registryCode` and `registeredAddress` are set, which flipped
+   the gate and lit up `Organization.legalName` (site-wide, from the locale
+   layout), the footer legal line, the indexable `/imprint`, and the
+   supervisory-authority + governing-law clauses in Privacy/Terms. Sitemap
+   lastmod bumped to 2026-07-31 for those three legal pages only — the
+   Organization node is site-wide chrome and does not justify bumping every
+   URL. **`pnpm after-deploy` is mandatory after the deploy lands** or the edge
+   keeps serving the placeholder Imprint.
+2. **Link the company in Enty** (app.enty.io, Starter plan, "I have a company")
+   so Enty is formally on record as the Estonian **contact person** — legally
+   required while the whole board is outside Estonia. The portal did not block
+   on it at filing, but the registrar may still raise it.
+3. **Open the business account** (Wise / LHV) and actually transfer the €10 in.
+   The board already certified the contribution was made, so make that true.
+
+VAT registration stays off until turnover crosses the threshold — registering
+voluntarily would add monthly VAT returns for no benefit pre-revenue.
+
 ## SEO invariants
 - Canonical: `https://buriedgames.com`, no www, no trailing slash. English
   unprefixed (proxy rewrites to /en internally), Arabic under /ar.
@@ -94,12 +136,20 @@ Estonian identity leak into `areaServed`, hreflang, titles, or marketing copy.
 ## Infra & integrations
 - Cloudflare API token + Bing Webmaster API key live in `TOKENS.md`
   (gitignored — never commit). Cloudflare token scopes: DNS edit, redirect
-  rules, cache rules, cache purge, zone settings.
+  rules, cache rules, cache purge, zone settings, Email Routing Rules (zone).
+  NOT granted: account-level Email Routing Addresses — so destination
+  addresses can't be listed or added by API, only rules that forward to an
+  already-verified destination. Note `zones/{zone}/email/routing` returns 200
+  on plain zone read; only `…/email/routing/rules` proves the routing scope.
 - Cloudflare config that must stay: email_obfuscation OFF (its injected
   script breaks React hydration → LCP collapse), image_resizing ON, apex A
   record proxied, SSL Full (strict), assets-root→apex redirect rule, cache
   rules (assets 30d edge / 7d browser; HTML respect-origin).
 - assets.buriedgames.com = R2 bucket behind Cloudflare.
+- Cloudflare Email Routing aliases (catch-all is OFF/drop — an address that
+  isn't listed here is silently discarded, so add a rule before publishing any
+  new address): admin@ + fahed@ → alahmadfahed@gmail.com; support@ + tech@ +
+  careers@ + noreply@ → bg.buriedgames@gmail.com.
 - Contact emails: Brevo templates 3 (EN confirm), 4 (AR confirm), 5 (studio
   notification); BREVO_API_KEY in `.env`. Template images must use absolute
   assets.buriedgames.com URLs (the old /api/images route is deleted).

@@ -41,21 +41,27 @@ type Localized = Record<Locale, string>;
 //    Hosting) and otherwise read the literal fallback. Set the address literal
 //    once known (it will be your service provider's / legal-address provider's).
 
-/** Estonian registry code (registrikood), 8 digits. `null` ⇒ not yet registered. */
+/** Estonian registry code (registrikood), 8 digits. `null` ⇒ not yet registered.
+ *  Entered into the e-Business Register 31.07.2026 (ruling Ä 50317767, Tartu
+ *  County Court registration department). */
 const registryCode: string | null =
-  process.env.NEXT_PUBLIC_BG_REGISTRY_CODE || null;
+  process.env.NEXT_PUBLIC_BG_REGISTRY_CODE || '17564681';
 
 /** EE VAT number — only once turnover crosses the ~€40k threshold or you register
  *  voluntarily. `null` ⇒ not VAT-registered (invoices carry no VAT line). */
 const vatId: string | null = process.env.NEXT_PUBLIC_BG_VAT_ID || null;
 
-/** Registered office address in Estonia. `null` until incorporation. */
-const registeredAddress: RegisteredAddress | null = null;
-// Example once known:
-// const registeredAddress: RegisteredAddress = {
-//   street: 'Sepapaja tn 6', city: 'Tallinn',
-//   postalCode: '15551', country: 'Estonia', countryCode: 'EE',
-// };
+/** Registered office address in Estonia. `null` until incorporation.
+ *  This is the legal-address provider's address (Enty), not a Buried Games
+ *  premises — it belongs here and nowhere else. Never let it reach areaServed,
+ *  page copy, or any schema node other than the legal surfaces. */
+const registeredAddress: RegisteredAddress | null = {
+  street: 'Tornimäe tn 5',
+  city: 'Tallinn',
+  postalCode: '10145',
+  country: 'Estonia',
+  countryCode: 'EE',
+};
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const legalEntity = {

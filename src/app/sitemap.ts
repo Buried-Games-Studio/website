@@ -108,19 +108,22 @@ const staticRoutes: Route[] = [
     lastModified: latestOf('2026-07-23', ...caseStudies.map((cs) => cs.updatedAt)),
   },
   { path: '/careers', changeFrequency: 'monthly', priority: 0.7, lastModified: '2026-06-13' },
-  // Both legal pages were rewritten for the Estonia layer (fe53de2).
-  { path: '/privacy-policy', changeFrequency: 'yearly', priority: 0.3, lastModified: '2026-07-18' },
-  { path: '/terms-of-use', changeFrequency: 'yearly', priority: 0.3, lastModified: '2026-07-18' },
+  // Both legal pages were rewritten for the Estonia layer (fe53de2), then
+  // rewritten again on incorporation (31.07.2026) — they now name the OÜ, the
+  // supervisory authority and the governing law instead of staying neutral.
+  { path: '/privacy-policy', changeFrequency: 'yearly', priority: 0.3, lastModified: '2026-07-31' },
+  { path: '/terms-of-use', changeFrequency: 'yearly', priority: 0.3, lastModified: '2026-07-31' },
   // /imprint is advertised only once it carries real disclosure content (the
-  // OÜ is registered); before that it is a noindex placeholder. Its date will
-  // need bumping to the incorporation commit when that flips.
+  // OÜ is registered); before that it is a noindex placeholder. That flipped on
+  // 31.07.2026 when Buried Games OÜ was entered into the register, so this is
+  // now live and its lastmod is the incorporation date.
   ...(legalEntity.registered
     ? [
         {
           path: '/imprint',
           changeFrequency: 'yearly',
           priority: 0.3,
-          lastModified: '2026-07-18',
+          lastModified: '2026-07-31',
         } as Route,
       ]
     : []),
