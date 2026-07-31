@@ -85,11 +85,13 @@ const staticRoutes: Route[] = [
     lastModified: latestOf('2026-06-13', ...gamesContent.map((g) => g.updatedAt)),
   },
   // Hub copy lives in content/services.ts, NOT service-pages.ts — the child
-  // pages' own dates are deliberately not folded in here.
-  { path: '/services', changeFrequency: 'monthly', priority: 0.8, lastModified: '2026-06-13' },
+  // pages' own dates are deliberately not folded in here. 2026-07-31: hub
+  // gained the installations / AR / VR / dashboards capabilities and cards.
+  { path: '/services', changeFrequency: 'monthly', priority: 0.8, lastModified: '2026-07-31' },
   { path: '/how-it-works', changeFrequency: 'monthly', priority: 0.7, lastModified: '2026-07-23' },
   { path: '/releases', changeFrequency: 'weekly', priority: 0.7, lastModified: '2026-07-23' },
-  { path: '/faq', changeFrequency: 'monthly', priority: 0.6, lastModified: '2026-07-23' },
+  // 2026-07-31: added installations / AR-VR / websites-dashboards Q&As.
+  { path: '/faq', changeFrequency: 'monthly', priority: 0.6, lastModified: '2026-07-31' },
   { path: '/press', changeFrequency: 'monthly', priority: 0.5, lastModified: '2026-07-23' },
   // Gained the "How did you hear about us?" field (dbdd15d).
   { path: '/contact-us', changeFrequency: 'yearly', priority: 0.8, lastModified: '2026-07-23' },

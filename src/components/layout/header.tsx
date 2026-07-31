@@ -115,6 +115,10 @@ const Header = () => {
     { path: '/services/game-art-design', label: { en: '2D/3D Art & Animation', ar: 'فن وتحريك 2D/3D' } },
     { path: '/services/app-development', label: { en: 'App Development', ar: 'تطوير التطبيقات' } },
     { path: '/services/web-development', label: { en: 'Web Development', ar: 'تطوير المواقع' } },
+    { path: '/services/interactive-installations', label: { en: 'Interactive Installations', ar: 'التركيبات التفاعلية' } },
+    { path: '/services/augmented-reality-development', label: { en: 'AR Development', ar: 'الواقع المعزز' } },
+    { path: '/services/virtual-reality-development', label: { en: 'VR Development', ar: 'الواقع الافتراضي' } },
+    { path: '/services/dashboard-development', label: { en: 'Dashboards & Tools', ar: 'لوحات التحكم' } },
   ];
 
   return (

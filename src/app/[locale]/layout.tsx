@@ -76,7 +76,13 @@ const organizationSchema = {
     "Mobile Games",
     "Multiplayer Games",
     "Game Design",
-    "Arabic Games"
+    "Arabic Games",
+    "Interactive Installations",
+    "Augmented Reality",
+    "Virtual Reality",
+    "IoT Game Experiences",
+    "Web Development",
+    "Dashboards & Internal Tools"
   ],
   // src/lib/social.ts is the single source (shared with the footer), so
   // schema and UI can't drift apart.

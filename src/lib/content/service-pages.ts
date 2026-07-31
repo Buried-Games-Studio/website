@@ -1094,6 +1094,419 @@ export const servicePages: ServicePage[] = [
       body: { en: "Tell us about your project's visual needs and we'll propose an art direction and plan.", ar: "أخبرنا عن الاحتياجات البصرية لمشروعك وسنقترح توجيهًا فنيًا وخطة." },
     },
   },
+
+  {
+    slug: "interactive-installations",
+    updatedAt: "2026-07-31",
+    latinName: "Interactive Installations & IoT Experiences",
+    serviceType: "Interactive Installation Development",
+    metaTitle: {
+      en: "Interactive Installations & IoT Experiences for Kuwait & the GCC",
+      ar: "التركيبات التفاعلية وتجارب إنترنت الأشياء للكويت والخليج",
+    },
+    metaDescription: {
+      en: "We design and build interactive installations for malls, events, and brand activations across Kuwait and the GCC — sensor floors, motion games, kiosk experiences, and IoT-driven games where the physical space is the controller.",
+      ar: "نصمم وننفذ تركيبات تفاعلية للمولات والفعاليات وتفعيلات العلامات التجارية في الكويت والخليج — أرضيات بحساسات، وألعاب حركة، وتجارب أكشاك، وألعاب مدفوعة بإنترنت الأشياء حيث المساحة الفعلية هي وحدة التحكم.",
+    },
+    hero: {
+      eyebrow: { en: "Interactive Installations", ar: "التركيبات التفاعلية" },
+      title: {
+        en: "Interactive Installations & IoT Experiences",
+        ar: "التركيبات التفاعلية وتجارب إنترنت الأشياء",
+      },
+      subtitle: {
+        en: "Games people step on, jump on, and gather around. We build sensor-driven installations for malls, events, and brand activations across Kuwait, Saudi Arabia, the UAE, and the GCC — where the floor, the wall, or the booth itself becomes the game.",
+        ar: "ألعاب يقف الناس عليها ويقفزون فوقها ويتجمعون حولها. نبني تركيبات مدفوعة بالحساسات للمولات والفعاليات وتفعيلات العلامات التجارية في الكويت والسعودية والإمارات والخليج — حيث تصبح الأرضية أو الجدار أو الجناح نفسه هو اللعبة.",
+      },
+    },
+    intro: {
+      en: [
+        "A screen alone doesn't stop foot traffic in a mall — but a floor that lights up when a child jumps on it does. Buried Games Studio designs and builds interactive installations for clients across Kuwait and the GCC: sensor floors and buttons wired to on-screen games, prize and reward systems, motion-reactive walls, and branded kiosk experiences that run unattended all day.",
+        "Because we're a game studio first, the difference shows where it matters: the experience is an actual game with attract loops, suspense, and a win moment — not a sensor demo. And because installations live in public spaces, we engineer them like products: kiosk-mode software that starts from a wall switch, hardware chosen for thousands of plays, swappable parts, and bilingual Arabic-English screens as standard.",
+      ],
+      ar: [
+        "الشاشة وحدها لا توقف المارّة في المول — لكن أرضية تضيء حين يقفز عليها طفل تفعل. يصمم استوديو بريد جيمز وينفذ تركيبات تفاعلية لعملاء في الكويت والخليج: أرضيات وأزرار بحساسات موصولة بألعاب على الشاشة، وأنظمة جوائز ومكافآت، وجدران تتفاعل مع الحركة، وتجارب أكشاك بهوية العلامة التجارية تعمل دون مراقبة طوال اليوم.",
+        "ولأننا استوديو ألعاب أولًا، يظهر الفرق حيث يهم: التجربة لعبة حقيقية بحلقة جذب وتشويق ولحظة فوز — لا عرضًا تجريبيًا لحسّاس. ولأن التركيبات تعيش في أماكن عامة، نهندسها كمنتجات: برمجيات بوضع الكشك تعمل من مفتاح الحائط، وعتاد مختار لآلاف الجولات، وقطع قابلة للاستبدال، وشاشات ثنائية اللغة عربي-إنجليزي كأساس.",
+      ],
+    },
+    included: {
+      heading: { en: "What's included", ar: "ما يشمله" },
+      items: [
+        { title: { en: "Experience & game design", ar: "تصميم التجربة واللعبة" }, body: { en: "The interaction itself — session length, attract loop, suspense, win moment — designed for queues, crowds, and first-time players of every age.", ar: "التفاعل نفسه — مدة الجولة، وحلقة الجذب، والتشويق، ولحظة الفوز — مصمم للطوابير والحشود ولاعبين لأول مرة من كل الأعمار." } },
+        { title: { en: "Sensors & physical inputs", ar: "الحساسات والمدخلات الفعلية" }, body: { en: "Pressure pads, floor buttons, motion and distance sensors, and lighting — selected, wired, and tuned for reliability under real public use.", ar: "وسائد ضغط، وأزرار أرضية، وحساسات حركة ومسافة، وإضاءة — مختارة وموصولة ومضبوطة للاعتمادية تحت استخدام عام حقيقي." } },
+        { title: { en: "Show software & screens", ar: "برمجيات العرض والشاشات" }, body: { en: "The on-screen game, synchronized lighting and sound, and bilingual Arabic-English content — built on the same engines we ship games on.", ar: "اللعبة على الشاشة، وإضاءة وصوت متزامنان، ومحتوى ثنائي اللغة عربي-إنجليزي — مبنية على المحركات نفسها التي نطلق بها ألعابنا." } },
+        { title: { en: "Prize & reward systems", ar: "أنظمة الجوائز والمكافآت" }, body: { en: "Prize engines with stock tracking and staff dashboards, so the screen never promises what ran out at 4pm.", ar: "محركات جوائز بتتبع المخزون ولوحات تحكم للموظفين، كي لا تعد الشاشة بما نفد في الرابعة عصرًا." } },
+        { title: { en: "Kiosk reliability engineering", ar: "هندسة اعتمادية الكشك" }, body: { en: "Auto-start from a wall switch, watchdog recovery, UPS-backed shutdown, and offline-first operation — no venue Wi-Fi dependency.", ar: "تشغيل تلقائي من مفتاح الحائط، واستعادة تلقائية عند الأعطال، وإيقاف آمن مدعوم بـ UPS، وعمل دون اتصال أولًا — بلا اعتماد على شبكة المكان." } },
+        { title: { en: "Install, training & analytics", ar: "التركيب والتدريب والتحليلات" }, body: { en: "On-site installation and calibration, staff training, spare parts, and anonymous play analytics with an end-of-run report for the brand.", ar: "تركيب ومعايرة في الموقع، وتدريب الموظفين، وقطع غيار، وتحليلات لعب مجهولة مع تقرير نهاية الحملة للعلامة التجارية." } },
+      ],
+    },
+    platforms: {
+      heading: { en: "The stack", ar: "التقنيات" },
+      intro: {
+        en: "Game-engine software driving commodity, replaceable hardware — nothing exotic that can strand an installation mid-campaign.",
+        ar: "برمجيات بمحركات ألعاب تقود عتادًا شائعًا قابلًا للاستبدال — لا شيء نادرًا قد يوقف التركيب في منتصف الحملة.",
+      },
+      items: [
+        { label: "Unity", note: { en: "Our show engine — frame-accurate sync of screen, sound, and lighting.", ar: "محرك العرض لدينا — تزامن دقيق بين الشاشة والصوت والإضاءة." } },
+        { label: "Sensors & microcontrollers", note: { en: "Pressure, motion, and distance inputs on dedicated controller boards.", ar: "مدخلات ضغط وحركة ومسافة على لوحات تحكم مخصصة." } },
+        { label: "Addressable LED lighting", note: { en: "Light choreography driven by the game itself.", ar: "إضاءة مصمّمة حركيًا تقودها اللعبة نفسها." } },
+        { label: "Kiosk PCs & displays", note: { en: "Media PCs, commercial displays, UPS, and audio integrated as one system.", ar: "أجهزة عرض وشاشات تجارية وUPS وصوت مدمجة كنظام واحد." } },
+      ],
+    },
+    process: {
+      heading: { en: "Our 5-step process", ar: "منهجيتنا في خمس خطوات" },
+      steps: [
+        { title: { en: "Concept & venue discovery", ar: "المفهوم واكتشاف الموقع" }, outcome: { en: "The interaction, the space, power, staffing, and run length agreed — and a written scope with the hardware approach.", ar: "الاتفاق على التفاعل والمساحة والكهرباء والتشغيل ومدة الحملة — ونطاق مكتوب مع نهج العتاد." } },
+        { title: { en: "Experience design", ar: "تصميم التجربة" }, outcome: { en: "The full show on paper: attract loop, game states, prize logic, sound, and bilingual screen states — signed off before hardware is ordered.", ar: "العرض كاملًا على الورق: حلقة الجذب، وحالات اللعبة، ومنطق الجوائز، والصوت، وشاشات ثنائية اللغة — يُعتمد قبل طلب العتاد." } },
+        { title: { en: "Build & integration", ar: "البناء والدمج" }, outcome: { en: "Hardware assembled and the game built against it, with fabrication drawings issued to your stand builder where one is involved. Hardware lead times drive the calendar, so they're locked early.", ar: "تجميع العتاد وبناء اللعبة عليه، مع إصدار رسومات التصنيع لمنفّذ الجناح إن وُجد. مُهل توريد العتاد تحكم الجدول، لذا تُثبَّت مبكرًا." } },
+        { title: { en: "Burn-in & acceptance", ar: "اختبار التحمل والقبول" }, outcome: { en: "The complete system runs continuously on our bench for days, then you see it working and sign off before it ships to the venue.", ar: "يعمل النظام الكامل باستمرار لدينا لأيام، ثم تراه يعمل وتعتمده قبل شحنه إلى الموقع." } },
+        { title: { en: "Install, train & support", ar: "التركيب والتدريب والدعم" }, outcome: { en: "On-site installation and calibration, staff training with a handover pack, spares in the box, and support options for the run.", ar: "تركيب ومعايرة في الموقع، وتدريب الموظفين مع حزمة تسليم، وقطع غيار في الصندوق، وخيارات دعم طوال الحملة." } },
+      ],
+    },
+    whyGcc: {
+      heading: { en: "Why work with a GCC studio", ar: "لماذا استوديو من الخليج" },
+      body: {
+        en: "Installations live in physical venues, and venue realities here are specific: mall rules, bilingual audiences, and campaigns that must not fail on a Thursday night.",
+        ar: "التركيبات تعيش في أماكن فعلية، وواقع الأماكن هنا محدد: قواعد المولات، وجمهور ثنائي اللغة، وحملات لا يجوز أن تتعطل مساء الخميس.",
+      },
+      points: [
+        { title: { en: "Bilingual by default", ar: "ثنائية اللغة افتراضيًا" }, body: { en: "Arabic-English screens with real RTL — designed for Gulf mall audiences, not translated afterwards.", ar: "شاشات عربي-إنجليزي بتخطيط RTL حقيقي — مصممة لجمهور مولات الخليج، لا مترجمة لاحقًا." } },
+        { title: { en: "Built for the venue's rules", ar: "مبنية على قواعد المكان" }, body: { en: "Volume limits, safety expectations, staffed operation, and long daily hours are designed in from the first sketch.", ar: "حدود الصوت، ومتطلبات السلامة، والتشغيل بطاقم، وساعات العمل الطويلة تدخل التصميم من أول رسمة." } },
+        { title: { en: "Same-timezone support", ar: "دعم في نفس المنطقة الزمنية" }, body: { en: "When a campaign is live, questions get answered during your working day — not overnight.", ar: "حين تكون الحملة حية، تُجاب الأسئلة خلال يوم عملك — لا في اليوم التالي." } },
+      ],
+    },
+    portfolio: {
+      heading: { en: "The engineering behind it", ar: "الهندسة خلفها" },
+      intro: {
+        en: "An installation is a game plus real-time systems that cannot fail in public. That engineering is what we ship every day:",
+        ar: "التركيب لعبة زائد أنظمة فورية لا يجوز أن تفشل أمام الجمهور. هذه الهندسة هي ما نطلقه كل يوم:",
+      },
+      items: [nabsh, arrab, koutq8],
+    },
+    faq: {
+      heading: { en: "Interactive installations FAQ", ar: "أسئلة شائعة عن التركيبات التفاعلية" },
+      items: [
+        { q: { en: "What kinds of interactive installations do you build?", ar: "ما أنواع التركيبات التفاعلية التي تبنونها؟" }, a: { en: "Sensor floors and step-on games, jump-and-win prize experiences, motion-reactive screens, branded kiosk games, and IoT-driven activations where physical inputs control an on-screen game — for malls, exhibitions, roadshows, and in-store campaigns.", ar: "أرضيات بحساسات وألعاب دوس، وتجارب اقفز-واربح بجوائز، وشاشات تتفاعل مع الحركة، وألعاب أكشاك بهوية العلامة، وتفعيلات مدفوعة بإنترنت الأشياء حيث تتحكم المدخلات الفعلية بلعبة على الشاشة — للمولات والمعارض والجولات الترويجية وحملات داخل المتاجر." } },
+        { q: { en: "Do you supply the hardware or just the software?", ar: "هل توفرون العتاد أم البرمجيات فقط؟" }, a: { en: "Either. We can deliver a complete installed system — sensors, controllers, media PC, screen, audio, UPS — or supply the sensing modules and software as a kit with fabrication drawings, while your stand builder produces the physical booth.", ar: "كلاهما ممكن. نسلّم نظامًا كاملًا مركّبًا — حساسات ولوحات تحكم وجهاز عرض وشاشة وصوت وUPS — أو نورّد وحدات الاستشعار والبرمجيات كطقم مع رسومات تصنيع، بينما ينفذ منفّذكم الجناح الفعلي." } },
+        { q: { en: "Can it run for weeks in a mall without breaking?", ar: "هل يعمل لأسابيع في مول دون أعطال؟" }, a: { en: "That's the design target. Systems boot straight into the experience from a wall switch, recover automatically from power cuts and software faults, run offline with no venue Wi-Fi dependency, and ship with swappable spare parts and staff training.", ar: "هذا هو هدف التصميم. الأنظمة تقلع مباشرة إلى التجربة من مفتاح الحائط، وتتعافى تلقائيًا من انقطاع الكهرباء وأعطال البرمجيات، وتعمل دون إنترنت وبلا اعتماد على شبكة المكان، وتُسلَّم مع قطع غيار قابلة للاستبدال وتدريب للموظفين." } },
+        { q: { en: "Do you handle prizes and winners?", ar: "هل تتولون الجوائز والفائزين؟" }, a: { en: "We build the prize engine — odds, tiers, live stock tracking, and a staff dashboard — and we design for every-player-wins mechanics by default, which keeps kids happy and avoids the regulatory questions chance-based draws can raise. Physical prizes stay with your team.", ar: "نبني محرك الجوائز — الاحتمالات والفئات وتتبع المخزون لحظيًا ولوحة تحكم للموظفين — ونصمم افتراضيًا بآلية الكل-يربح، ما يُسعد الأطفال ويتجنب الأسئلة التنظيمية التي قد تثيرها السحوبات القائمة على الحظ. الجوائز الفعلية تبقى مع فريقكم." } },
+        { q: { en: "How far ahead should we book an installation?", ar: "قبل كم من الوقت يجب حجز التركيب؟" }, a: { en: "Custom sensing and lighting hardware is manufactured to order, so lead time — typically a few weeks — is driven by hardware, not software. Tell us your event date first and we'll design within what it allows.", ar: "عتاد الاستشعار والإضاءة المخصص يُصنَّع حسب الطلب، لذا المهلة — عادة بضعة أسابيع — يحكمها العتاد لا البرمجيات. أخبرنا بتاريخ فعاليتك أولًا وسنصمم ضمن ما يسمح به." } },
+      ],
+    },
+    cta: {
+      title: { en: "Planning an activation?", ar: "تخطط لتفعيل علامة تجارية؟" },
+      body: { en: "Tell us the venue, the audience, and the date — we'll come back with an experience concept and a clear scope.", ar: "أخبرنا بالمكان والجمهور والتاريخ — وسنعود إليك بمفهوم تجربة ونطاق واضح." },
+    },
+  },
+
+  {
+    slug: "augmented-reality-development",
+    updatedAt: "2026-07-31",
+    latinName: "Augmented Reality (AR) Development",
+    serviceType: "Augmented Reality Development",
+    metaTitle: {
+      en: "Augmented Reality (AR) Development for Kuwait & the GCC",
+      ar: "تطوير الواقع المعزز (AR) للكويت والخليج",
+    },
+    metaDescription: {
+      en: "AR development studio serving Kuwait and the GCC. We build augmented reality apps, WebAR campaigns, AR product visualization, and AR games in Unity — Arabic-first, from concept to launch.",
+      ar: "استوديو تطوير واقع معزز يخدم الكويت والخليج. نبني تطبيقات واقع معزز، وحملات WebAR، وعرض منتجات بالواقع المعزز، وألعاب AR على Unity — بالعربية أولًا، من الفكرة إلى الإطلاق.",
+    },
+    hero: {
+      eyebrow: { en: "AR Development", ar: "تطوير الواقع المعزز" },
+      title: {
+        en: "Augmented Reality (AR) Development",
+        ar: "تطوير الواقع المعزز (AR)",
+      },
+      subtitle: {
+        en: "Augmented reality that lives on the phones people already carry — AR games, WebAR campaigns, and product experiences for brands and businesses across Kuwait, Saudi Arabia, the UAE, and the GCC.",
+        ar: "واقع معزز يعيش على الهواتف التي يحملها الناس بالفعل — ألعاب AR وحملات WebAR وتجارب منتجات للعلامات التجارية والشركات في الكويت والسعودية والإمارات والخليج.",
+      },
+    },
+    intro: {
+      en: [
+        "AR is the shortest path between a brand and a phone camera: point, see, play. Buried Games Studio builds augmented reality experiences for clients across Kuwait and the GCC — AR games and filters for campaigns, WebAR that runs straight from a QR code with nothing to install, product visualization that places furniture or packaging in the customer's room, and location or marker-based experiences for events and retail.",
+        "We build AR the way we build games: on Unity and its AR toolchain, with real interaction design rather than a floating logo. And because reach decides whether an AR campaign works, we default to the lightest thing that delivers the idea — WebAR from a QR code where install friction would kill it, native apps where depth and quality demand them. Arabic-first, both directions, always.",
+      ],
+      ar: [
+        "الواقع المعزز أقصر طريق بين العلامة التجارية وكاميرا الهاتف: وجّه، شاهد، العب. يبني استوديو بريد جيمز تجارب واقع معزز لعملاء في الكويت والخليج — ألعاب وفلاتر AR للحملات، وWebAR يعمل مباشرة من رمز QR دون تثبيت أي شيء، وعرض منتجات يضع الأثاث أو العبوة في غرفة العميل، وتجارب قائمة على الموقع أو العلامات للفعاليات والمتاجر.",
+        "نبني الـ AR كما نبني الألعاب: على Unity وسلسلة أدواته للواقع المعزز، بتصميم تفاعل حقيقي لا شعارًا يطفو في الهواء. ولأن الوصول يقرر نجاح حملة الواقع المعزز، نختار افتراضيًا أخف وسيلة توصل الفكرة — WebAR من رمز QR حيث يقتل التثبيت الحملة، وتطبيقات أصلية حيث يتطلب العمق والجودة ذلك. بالعربية أولًا، وفي الاتجاهين، دائمًا.",
+      ],
+    },
+    included: {
+      heading: { en: "What's included", ar: "ما يشمله" },
+      items: [
+        { title: { en: "AR concept & interaction design", ar: "مفهوم الـ AR وتصميم التفاعل" }, body: { en: "The idea itself — what the camera sees, what the user does, and why they share it — designed as a game, not a gimmick.", ar: "الفكرة نفسها — ما تراه الكاميرا، وما يفعله المستخدم، ولماذا يشاركه — مصممة كلعبة لا كحيلة." } },
+        { title: { en: "AR apps in Unity", ar: "تطبيقات AR على Unity" }, body: { en: "Native iOS and Android AR built on Unity's AR Foundation — plane detection, anchors, occlusion, and solid tracking.", ar: "واقع معزز أصلي لـ iOS وAndroid مبني على AR Foundation في Unity — اكتشاف الأسطح، والمثبتات، والإخفاء، وتتبع ثابت." } },
+        { title: { en: "WebAR campaigns", ar: "حملات WebAR" }, body: { en: "Browser-based AR launched from a QR code — zero install, maximum reach for time-boxed marketing campaigns.", ar: "واقع معزز في المتصفح يعمل من رمز QR — صفر تثبيت، وأقصى وصول للحملات التسويقية المحدودة زمنيًا." } },
+        { title: { en: "AR product visualization", ar: "عرض المنتجات بالواقع المعزز" }, body: { en: "True-scale 3D of your product placed in the customer's space — for retail, real estate, and e-commerce.", ar: "نموذج ثلاثي الأبعاد بمقياس حقيقي لمنتجك يوضع في مساحة العميل — للتجزئة والعقار والتجارة الإلكترونية." } },
+        { title: { en: "3D content production", ar: "إنتاج المحتوى ثلاثي الأبعاد" }, body: { en: "Optimized 3D models, animation, and effects built in-house and tuned for mobile AR performance.", ar: "نماذج ثلاثية الأبعاد محسّنة، ورسوم متحركة، ومؤثرات تُنتج داخليًا وتُضبط لأداء AR على الجوال." } },
+        { title: { en: "Analytics & campaign wrap", ar: "التحليلات وتقرير الحملة" }, body: { en: "Scans, sessions, dwell time, and shares measured — with a report your marketing team can put in front of the brand.", ar: "قياس المسحات والجلسات ومدة البقاء والمشاركات — مع تقرير يمكن لفريقك التسويقي وضعه أمام العلامة التجارية." } },
+      ],
+    },
+    platforms: {
+      heading: { en: "Tools & platforms", ar: "الأدوات والمنصات" },
+      intro: {
+        en: "The same engines we ship games on, pointed at the camera.",
+        ar: "المحركات نفسها التي نطلق بها ألعابنا، موجهة نحو الكاميرا.",
+      },
+      items: [
+        { label: "Unity + AR Foundation", note: { en: "One codebase over ARKit (iOS) and ARCore (Android).", ar: "قاعدة كود واحدة فوق ARKit لـ iOS وARCore لـ Android." } },
+        { label: "WebAR", note: { en: "Browser-based AR from a QR code — no app install.", ar: "واقع معزز في المتصفح من رمز QR — دون تثبيت تطبيق." } },
+        { label: "iOS & Android", note: { en: "Native AR apps distributed through the stores.", ar: "تطبيقات AR أصلية توزَّع عبر المتاجر." } },
+      ],
+    },
+    process: {
+      heading: { en: "Our 5-step process", ar: "منهجيتنا في خمس خطوات" },
+      steps: [
+        { title: { en: "Discovery", ar: "الاكتشاف" }, outcome: { en: "The goal, audience, and distribution decided — app or WebAR — with a written scope. Reach strategy is settled here, because it shapes everything after.", ar: "تحديد الهدف والجمهور وقناة التوزيع — تطبيق أم WebAR — مع نطاق مكتوب. استراتيجية الوصول تُحسم هنا لأنها تشكّل كل ما بعدها." } },
+        { title: { en: "Concept & prototype", ar: "المفهوم والنموذج" }, outcome: { en: "A rough AR prototype on a real phone — tracking, scale, and the core interaction proven before content production.", ar: "نموذج AR مبدئي على هاتف حقيقي — إثبات التتبع والمقياس والتفاعل الأساسي قبل إنتاج المحتوى." } },
+        { title: { en: "Content & build", ar: "المحتوى والبناء" }, outcome: { en: "3D assets, interactions, and bilingual UI built and integrated, with regular builds you can point at the real world.", ar: "أصول ثلاثية الأبعاد وتفاعلات وواجهة ثنائية اللغة تُبنى وتُدمج، مع نسخ منتظمة توجهها نحو العالم الحقيقي." } },
+        { title: { en: "Device QA", ar: "ضمان الجودة على الأجهزة" }, outcome: { en: "Tracking, lighting conditions, and performance tested across the iOS and Android devices your audience actually holds.", ar: "اختبار التتبع وظروف الإضاءة والأداء عبر أجهزة iOS وAndroid التي يحملها جمهورك فعلًا." } },
+        { title: { en: "Launch & measure", ar: "الإطلاق والقياس" }, outcome: { en: "Store submission or WebAR deployment with QR assets, plus analytics and a campaign wrap-up report.", ar: "تقديم للمتاجر أو نشر WebAR مع أصول رموز QR، إضافة إلى تحليلات وتقرير ختامي للحملة." } },
+      ],
+    },
+    whyGcc: {
+      heading: { en: "Why work with a GCC studio", ar: "لماذا استوديو من الخليج" },
+      body: {
+        en: "AR campaigns here speak to a bilingual audience on regional devices — and both halves have to feel native.",
+        ar: "حملات الواقع المعزز هنا تخاطب جمهورًا ثنائي اللغة على أجهزة المنطقة — وكلا النصفين يجب أن يبدو أصيلًا.",
+      },
+      points: [
+        { title: { en: "Arabic-first AR UX", ar: "تجربة AR عربية أولًا" }, body: { en: "RTL interfaces and Arabic type inside AR scenes — done properly, not mirrored English.", ar: "واجهات RTL وخط عربي داخل مشاهد الواقع المعزز — منفذة بإتقان، لا إنجليزية معكوسة." } },
+        { title: { en: "Campaign-realistic thinking", ar: "تفكير واقعي بالحملات" }, body: { en: "We design for QR-on-packaging, in-mall signage, and social sharing habits in the Gulf.", ar: "نصمم لرموز QR على العبوات، ولافتات المولات، وعادات المشاركة الاجتماعية في الخليج." } },
+        { title: { en: "Regional device reality", ar: "واقع أجهزة المنطقة" }, body: { en: "Tested on the actual mix of iPhones and Androids in GCC pockets, not just flagships.", ar: "مختبَر على المزيج الفعلي من هواتف iPhone وAndroid في جيوب الخليج، لا الرائدة فقط." } },
+      ],
+    },
+    portfolio: {
+      heading: { en: "Built on a shipping stack", ar: "مبني على تقنيات نطلق بها فعلًا" },
+      intro: {
+        en: "AR quality comes down to engine craft — 3D, interaction, and performance on real phones. That's the muscle we use daily:",
+        ar: "جودة الواقع المعزز تعود إلى إتقان المحرك — ثلاثي الأبعاد والتفاعل والأداء على هواتف حقيقية. هذه العضلة نستخدمها يوميًا:",
+      },
+      items: [koutq8, gathered, powerOfBombs],
+    },
+    faq: {
+      heading: { en: "AR development FAQ", ar: "أسئلة شائعة عن تطوير الواقع المعزز" },
+      items: [
+        { q: { en: "Does AR need a special app, or can it run from a QR code?", ar: "هل يحتاج الواقع المعزز تطبيقًا خاصًا أم يعمل من رمز QR؟" }, a: { en: "Both are possible. WebAR runs in the phone browser straight from a QR code — no install, ideal for campaigns. Native apps built on Unity's AR Foundation go deeper: better tracking, richer 3D, and persistent experiences. We recommend the lightest option that delivers your idea.", ar: "كلاهما ممكن. يعمل WebAR في متصفح الهاتف مباشرة من رمز QR — دون تثبيت، مثالي للحملات. التطبيقات الأصلية على AR Foundation في Unity تذهب أعمق: تتبع أفضل، وثلاثي أبعاد أغنى، وتجارب دائمة. ننصح بأخف خيار يوصل فكرتك." } },
+        { q: { en: "What can brands actually do with AR?", ar: "ماذا يمكن للعلامات التجارية فعله بالواقع المعزز فعليًا؟" }, a: { en: "Packaging that comes alive when scanned, try-before-you-buy product placement at true scale, AR games and prize hunts for activations, and event experiences tied to a venue. The strongest campaigns give people a reason to point their camera — and something worth sharing afterwards.", ar: "عبوات تنبض بالحياة عند مسحها، ووضع منتجات بمقياس حقيقي للتجربة قبل الشراء، وألعاب AR ومطاردات جوائز للتفعيلات، وتجارب فعاليات مرتبطة بمكان. أقوى الحملات تعطي الناس سببًا لتوجيه الكاميرا — وشيئًا يستحق المشاركة بعدها." } },
+        { q: { en: "Do you build the 3D content too?", ar: "هل تنتجون المحتوى ثلاثي الأبعاد أيضًا؟" }, a: { en: "Yes. Our in-house artists model, texture, and animate the 3D content, optimized specifically for mobile AR — where polygon and texture budgets are far tighter than on PC.", ar: "نعم. فنانونا داخليًا ينمذجون المحتوى ثلاثي الأبعاد ويكسونه ويحرّكونه، محسّنًا خصيصًا لـ AR الجوال — حيث ميزانيات المضلعات والخامات أضيق بكثير من الحاسوب." } },
+        { q: { en: "Will it work in Arabic?", ar: "هل سيعمل بالعربية؟" }, a: { en: "Yes — Arabic-first, like everything we ship. RTL interfaces, Arabic typography inside the AR scene, and bilingual flows as standard.", ar: "نعم — بالعربية أولًا، ككل ما نطلقه. واجهات RTL، وخط عربي داخل مشهد الواقع المعزز، وتدفقات ثنائية اللغة كأساس." } },
+      ],
+    },
+    cta: {
+      title: { en: "Have an AR idea?", ar: "لديك فكرة واقع معزز؟" },
+      body: { en: "Tell us the campaign or product and we'll recommend the right AR approach — and what it takes to ship it.", ar: "أخبرنا بالحملة أو المنتج وسننصحك بنهج الواقع المعزز الصحيح — وما يلزم لإطلاقه." },
+    },
+  },
+
+  {
+    slug: "virtual-reality-development",
+    updatedAt: "2026-07-31",
+    latinName: "Virtual Reality (VR) Development",
+    serviceType: "Virtual Reality Development",
+    metaTitle: {
+      en: "Virtual Reality (VR) Development for Kuwait & the GCC",
+      ar: "تطوير الواقع الافتراضي (VR) للكويت والخليج",
+    },
+    metaDescription: {
+      en: "VR development studio serving Kuwait and the GCC. We build virtual reality games, training simulations, virtual showrooms, and event VR experiences for Meta Quest and PC VR — in Unity and Unreal Engine 5.",
+      ar: "استوديو تطوير واقع افتراضي يخدم الكويت والخليج. نبني ألعاب واقع افتراضي، ومحاكاة تدريب، وصالات عرض افتراضية، وتجارب VR للفعاليات على Meta Quest وPC VR — بمحركي Unity وUnreal Engine 5.",
+    },
+    hero: {
+      eyebrow: { en: "VR Development", ar: "تطوير الواقع الافتراضي" },
+      title: {
+        en: "Virtual Reality (VR) Development",
+        ar: "تطوير الواقع الافتراضي (VR)",
+      },
+      subtitle: {
+        en: "Worlds people step inside. We build VR games, training simulations, virtual showrooms, and headset experiences for events — for clients across Kuwait, Saudi Arabia, the UAE, and the GCC.",
+        ar: "عوالم يدخلها الناس بأنفسهم. نبني ألعاب واقع افتراضي، ومحاكاة تدريب، وصالات عرض افتراضية، وتجارب نظارات للفعاليات — لعملاء في الكويت والسعودية والإمارات والخليج.",
+      },
+    },
+    intro: {
+      en: [
+        "VR is the most convincing medium there is: presence. Buried Games Studio builds virtual reality experiences for clients across Kuwait and the GCC — VR games, training and safety simulations where mistakes cost nothing, virtual showrooms and walkthroughs for real estate and retail, and headset experiences that anchor a stand at an exhibition.",
+        "We build VR on the same engines as our games — Unity and Unreal Engine 5 — where comfort is the discipline that separates professional VR from a tech demo: stable frame rates, movement design that doesn't make people sick, and sessions shaped so a first-time user in a headset knows what to do in seconds. For events, we design for throughput and hygiene realities too: short sessions, easy handover, and a staff-side view of what the player sees.",
+      ],
+      ar: [
+        "الواقع الافتراضي أكثر الوسائط إقناعًا على الإطلاق: الحضور. يبني استوديو بريد جيمز تجارب واقع افتراضي لعملاء في الكويت والخليج — ألعاب VR، ومحاكاة تدريب وسلامة حيث الأخطاء لا تكلف شيئًا، وصالات عرض وجولات افتراضية للعقار والتجزئة، وتجارب نظارات تجعل الجناح مركز الجذب في المعرض.",
+        "نبني الواقع الافتراضي على محركات ألعابنا نفسها — Unity وUnreal Engine 5 — حيث الراحة هي الانضباط الذي يفصل الـ VR الاحترافي عن العرض التجريبي: معدل إطارات ثابت، وتصميم حركة لا يسبب الدوار، وجلسات مصممة ليعرف مرتدي النظارة لأول مرة ما يفعله خلال ثوانٍ. وللفعاليات نصمم أيضًا لواقع التدفق والنظافة: جلسات قصيرة، وتسليم سهل، وشاشة جانبية للطاقم تعرض ما يراه اللاعب.",
+      ],
+    },
+    included: {
+      heading: { en: "What's included", ar: "ما يشمله" },
+      items: [
+        { title: { en: "VR games & experiences", ar: "ألعاب وتجارب VR" }, body: { en: "Original VR games and branded experiences designed for presence, comfort, and replay.", ar: "ألعاب VR أصلية وتجارب بهوية العلامة مصممة للحضور والراحة وإعادة اللعب." } },
+        { title: { en: "Training & simulation", ar: "التدريب والمحاكاة" }, body: { en: "Procedural training, safety scenarios, and skills practice in VR — repeatable, measurable, and risk-free.", ar: "تدريب إجرائي، وسيناريوهات سلامة، وممارسة مهارات في الواقع الافتراضي — قابلة للتكرار والقياس وبلا مخاطر." } },
+        { title: { en: "Virtual showrooms & walkthroughs", ar: "صالات عرض وجولات افتراضية" }, body: { en: "Real estate, retail, and product spaces people can walk through before they exist — or from another country.", ar: "مساحات عقارية وتجارية ومنتجات يتجول فيها الناس قبل أن توجد — أو من بلد آخر." } },
+        { title: { en: "Event VR", ar: "VR للفعاليات" }, body: { en: "Headset experiences for exhibitions and activations, designed for short sessions, quick handover, and a spectator screen.", ar: "تجارب نظارات للمعارض والتفعيلات، مصممة لجلسات قصيرة وتسليم سريع وشاشة للمشاهدين." } },
+        { title: { en: "Comfort & performance engineering", ar: "هندسة الراحة والأداء" }, body: { en: "Locomotion design, frame-rate budgets, and optimization tuned to the headset — the difference between wow and nausea.", ar: "تصميم التنقل، وميزانيات معدل الإطارات، وتحسين مضبوط على النظارة — الفرق بين الانبهار والدوار." } },
+        { title: { en: "Deployment & device setup", ar: "النشر وتجهيز الأجهزة" }, body: { en: "Builds delivered to your headsets with kiosk-style auto-start for events, plus store distribution where the project calls for it.", ar: "نُسخ تُسلَّم إلى نظاراتكم مع تشغيل تلقائي بنمط الكشك للفعاليات، إضافة إلى التوزيع عبر المتاجر حين يتطلب المشروع." } },
+      ],
+    },
+    platforms: {
+      heading: { en: "Headsets & engines", ar: "النظارات والمحركات" },
+      intro: {
+        en: "Standalone-first, because untethered headsets are what events and training deployments actually use.",
+        ar: "النظارات المستقلة أولًا، لأنها ما تستخدمه الفعاليات ونشر التدريب فعليًا.",
+      },
+      items: [
+        { label: "Meta Quest", note: { en: "Standalone VR — no PC, no cables, the workhorse of event and training VR.", ar: "واقع افتراضي مستقل — دون حاسوب أو كابلات، حصان العمل في VR الفعاليات والتدريب." } },
+        { label: "PC VR", note: { en: "Tethered high-fidelity experiences where visual quality leads.", ar: "تجارب موصولة عالية الدقة حيث تتصدر الجودة البصرية." } },
+        { label: "Unity", note: { en: "Our primary VR engine — fast iteration and rock-solid Quest builds.", ar: "محرك الـ VR الأساسي لدينا — تكرار سريع ونسخ Quest شديدة الثبات." } },
+        { label: "Unreal Engine 5", note: { en: "Cinematic fidelity for showrooms and high-end visualization.", ar: "دقة سينمائية لصالات العرض والتصوير المرئي الراقي." } },
+      ],
+    },
+    process: {
+      heading: { en: "Our 5-step process", ar: "منهجيتنا في خمس خطوات" },
+      steps: [
+        { title: { en: "Discovery", ar: "الاكتشاف" }, outcome: { en: "Goal, audience, headset, and venue realities agreed — with a written scope and comfort targets set from day one.", ar: "الاتفاق على الهدف والجمهور والنظارة وواقع المكان — مع نطاق مكتوب وأهداف راحة تُحدد من اليوم الأول." } },
+        { title: { en: "Prototype in headset", ar: "نموذج داخل النظارة" }, outcome: { en: "The core interaction playable in VR early — presence, scale, and comfort proven before content production.", ar: "التفاعل الأساسي قابل للعب في الواقع الافتراضي مبكرًا — إثبات الحضور والمقياس والراحة قبل إنتاج المحتوى." } },
+        { title: { en: "Production", ar: "الإنتاج" }, outcome: { en: "Environments, interactions, and content built in sprints, with headset builds you can try throughout.", ar: "بيئات وتفاعلات ومحتوى تُبنى في سباقات، مع نسخ للنظارة تجربها طوال المدة." } },
+        { title: { en: "Comfort & performance QA", ar: "ضمان جودة الراحة والأداء" }, outcome: { en: "Frame-rate, locomotion comfort, and first-time-user testing on the target headset — including people who've never worn one.", ar: "اختبار معدل الإطارات وراحة التنقل والمستخدم الأول على النظارة المستهدفة — بمن فيهم من لم يرتدِ نظارة قط." } },
+        { title: { en: "Deploy & support", ar: "النشر والدعم" }, outcome: { en: "Builds installed on your devices or submitted to the store, event-mode auto-start configured, and staff shown how to run sessions.", ar: "نسخ تُثبَّت على أجهزتكم أو تُقدَّم للمتجر، وتهيئة تشغيل تلقائي لوضع الفعاليات، وتدريب الطاقم على إدارة الجلسات." } },
+      ],
+    },
+    whyGcc: {
+      heading: { en: "Why work with a GCC studio", ar: "لماذا استوديو من الخليج" },
+      body: {
+        en: "VR here is deployed at exhibitions, in training rooms, and at activations across the Gulf — physical contexts a regional studio designs for from the start.",
+        ar: "الواقع الافتراضي هنا يُنشر في المعارض وقاعات التدريب والتفعيلات في أنحاء الخليج — سياقات فعلية يصمم لها الاستوديو الإقليمي من البداية.",
+      },
+      points: [
+        { title: { en: "Arabic inside the headset", ar: "العربية داخل النظارة" }, body: { en: "RTL interfaces, Arabic voice-over direction, and bilingual flows built in from the start.", ar: "واجهات RTL، وإخراج تعليق صوتي عربي، وتدفقات ثنائية اللغة مدمجة من البداية." } },
+        { title: { en: "Event-floor pragmatism", ar: "واقعية أرض الفعاليات" }, body: { en: "Short sessions, spectator screens, hygiene-friendly handover, and staff-runnable setups for Gulf exhibitions.", ar: "جلسات قصيرة، وشاشات مشاهدين، وتسليم مراعٍ للنظافة، وتجهيزات يديرها الطاقم في معارض الخليج." } },
+        { title: { en: "Same-timezone collaboration", ar: "تعاون في نفس المنطقة الزمنية" }, body: { en: "Reviews in headset and quick decisions during your working day.", ar: "مراجعات داخل النظارة وقرارات سريعة خلال يوم عملك." } },
+      ],
+    },
+    portfolio: {
+      heading: { en: "Built on a shipping stack", ar: "مبني على تقنيات نطلق بها فعلًا" },
+      intro: {
+        en: "Great VR is real-time 3D craft under a hard performance budget — exactly the discipline of shipping games:",
+        ar: "الـ VR الرائع حِرفة ثلاثية أبعاد فورية تحت ميزانية أداء صارمة — وهذا تحديدًا انضباط إطلاق الألعاب:",
+      },
+      items: [powerOfBombs, koutq8, gathered],
+    },
+    faq: {
+      heading: { en: "VR development FAQ", ar: "أسئلة شائعة عن تطوير الواقع الافتراضي" },
+      items: [
+        { q: { en: "Which VR headsets do you develop for?", ar: "لأي نظارات واقع افتراضي تطورون؟" }, a: { en: "Primarily Meta Quest, because standalone headsets — no PC, no cables — are what events, showrooms, and training deployments actually use. We build PC VR where visual fidelity leads, and we'll recommend the right target for your goal and budget.", ar: "أساسًا Meta Quest، لأن النظارات المستقلة — دون حاسوب أو كابلات — هي ما تستخدمه الفعاليات وصالات العرض ونشر التدريب فعليًا. نبني PC VR حيث تتصدر الدقة البصرية، وننصحك بالهدف الصحيح لغايتك وميزانيتك." } },
+        { q: { en: "Is VR only for games?", ar: "هل الواقع الافتراضي للألعاب فقط؟" }, a: { en: "No — some of the strongest VR use cases are training simulations where mistakes are free, virtual showrooms and real-estate walkthroughs, and exhibition experiences that draw a crowd to a stand. We bring game craft to all of them, because engagement is what makes them work.", ar: "لا — بعض أقوى استخدامات الواقع الافتراضي محاكاةُ تدريب حيث الأخطاء مجانية، وصالات عرض وجولات عقارية افتراضية، وتجارب معارض تجذب الجمهور إلى الجناح. نضع حِرفة الألعاب فيها جميعًا، لأن التفاعل هو ما يجعلها تنجح." } },
+        { q: { en: "How do you stop people feeling motion sick?", ar: "كيف تمنعون شعور الناس بدوار الحركة؟" }, a: { en: "Comfort is engineered, not hoped for: locked frame-rate budgets, comfort-first locomotion (teleport and vignetting where appropriate), correct world scale, and testing with first-time users. It's the single biggest difference between professional VR and a demo.", ar: "الراحة تُهندَس ولا تُترك للحظ: ميزانيات معدل إطارات مثبتة، وتنقل يقدّم الراحة أولًا (انتقال لحظي وتظليل محيطي عند الحاجة)، ومقياس عالم صحيح، واختبار مع مستخدمين لأول مرة. إنه أكبر فرق بين الـ VR الاحترافي والعرض التجريبي." } },
+        { q: { en: "Can you run VR at our event or exhibition stand?", ar: "هل يمكن تشغيل الواقع الافتراضي في فعاليتنا أو جناحنا؟" }, a: { en: "Yes — we design for the event floor: short repeatable sessions, auto-start kiosk builds, a spectator screen showing what the player sees, and staff training so your team runs it without us standing there.", ar: "نعم — نصمم لأرض الفعالية: جلسات قصيرة قابلة للتكرار، ونسخ بتشغيل تلقائي بنمط الكشك، وشاشة مشاهدين تعرض ما يراه اللاعب، وتدريب لفريقكم ليديرها دون وقوفنا هناك." } },
+      ],
+    },
+    cta: {
+      title: { en: "Exploring VR?", ar: "تستكشف الواقع الافتراضي؟" },
+      body: { en: "Tell us the goal — training, showroom, event, or game — and we'll map the headset, scope, and path to deployment.", ar: "أخبرنا بالهدف — تدريب أو صالة عرض أو فعالية أو لعبة — وسنرسم النظارة والنطاق والمسار إلى النشر." },
+    },
+  },
+
+  {
+    slug: "dashboard-development",
+    updatedAt: "2026-07-31",
+    latinName: "Dashboards, Admin Panels & Internal Tools",
+    serviceType: "Dashboard & Internal Tools Development",
+    metaTitle: {
+      en: "Dashboard & Admin Panel Development for Kuwait & the GCC",
+      ar: "تطوير لوحات التحكم ولوحات الإدارة للكويت والخليج",
+    },
+    metaDescription: {
+      en: "We build real-time dashboards, admin panels, and internal tools for businesses across Kuwait and the GCC — live data, bilingual Arabic-English interfaces, and control consoles for apps, games, and installations.",
+      ar: "نبني لوحات تحكم فورية ولوحات إدارة وأدوات داخلية للشركات في الكويت والخليج — بيانات حية، وواجهات ثنائية اللغة عربي-إنجليزي، ووحدات تحكم للتطبيقات والألعاب والتركيبات.",
+    },
+    hero: {
+      eyebrow: { en: "Dashboards & Internal Tools", ar: "لوحات التحكم والأدوات الداخلية" },
+      title: {
+        en: "Dashboards, Admin Panels & Internal Tools",
+        ar: "لوحات التحكم ولوحات الإدارة والأدوات الداخلية",
+      },
+      subtitle: {
+        en: "The control room behind the product: real-time dashboards, admin panels, and internal tools that let your team see what's happening and act on it — built for businesses across Kuwait and the GCC.",
+        ar: "غرفة التحكم خلف المنتج: لوحات بيانات فورية ولوحات إدارة وأدوات داخلية تجعل فريقك يرى ما يحدث ويتصرف حياله — مبنية لشركات في الكويت والخليج.",
+      },
+    },
+    intro: {
+      en: [
+        "Every serious product has a second product behind it: the dashboard its team runs it from. Buried Games Studio builds that layer for clients across Kuwait and the GCC — live operational dashboards, admin panels for content and users, prize and inventory consoles for campaigns and installations, and internal tools that replace the spreadsheet somebody swears by.",
+        "We come at dashboards from an unusual direction: games. Running live multiplayer games means building ops surfaces where real-time data, permissions, and fast decisions are the whole point — and it means we design dashboards people actually read at a glance, because a control room UI that needs a manual has already failed. Bilingual Arabic-English interfaces with proper RTL come as standard.",
+      ],
+      ar: [
+        "كل منتج جاد خلفه منتج ثانٍ: لوحة التحكم التي يديره منها فريقه. يبني استوديو بريد جيمز هذه الطبقة لعملاء في الكويت والخليج — لوحات تشغيل حية، ولوحات إدارة للمحتوى والمستخدمين، ووحدات تحكم بالجوائز والمخزون للحملات والتركيبات، وأدوات داخلية تحل محل جدول البيانات الذي يقسم أحدهم بولائه له.",
+        "نأتي إلى لوحات التحكم من اتجاه غير مألوف: الألعاب. تشغيل ألعاب جماعية حية يعني بناء واجهات عمليات تكون فيها البيانات الفورية والصلاحيات والقرارات السريعة هي الغاية كلها — ويعني أننا نصمم لوحات يقرأها الناس بلمحة، لأن واجهة غرفة تحكم تحتاج دليل استخدام قد فشلت سلفًا. الواجهات ثنائية اللغة عربي-إنجليزي بتخطيط RTL صحيح تأتي كأساس.",
+      ],
+    },
+    included: {
+      heading: { en: "What's included", ar: "ما يشمله" },
+      items: [
+        { title: { en: "Real-time operational dashboards", ar: "لوحات تشغيل فورية" }, body: { en: "Live metrics, activity feeds, and alerts — sales, players, campaigns, or installations, updating as it happens.", ar: "مؤشرات حية، وسجلات نشاط، وتنبيهات — مبيعات أو لاعبون أو حملات أو تركيبات، تتحدث لحظة حدوثها." } },
+        { title: { en: "Admin panels & CMS", ar: "لوحات الإدارة وإدارة المحتوى" }, body: { en: "Content, users, roles, and permissions managed from one place — so changes stop requiring a developer.", ar: "محتوى ومستخدمون وأدوار وصلاحيات تُدار من مكان واحد — لتتوقف التغييرات عن الحاجة إلى مبرمج." } },
+        { title: { en: "Campaign & inventory consoles", ar: "وحدات تحكم الحملات والمخزون" }, body: { en: "Prize pools, stock tracking, odds, and daily resets for activations, promotions, and installations.", ar: "مجموعات جوائز، وتتبع مخزون، واحتمالات، وتصفير يومي للتفعيلات والعروض والتركيبات." } },
+        { title: { en: "Data visualization", ar: "تصوير البيانات" }, body: { en: "Charts and reports designed to be read at a glance — the numbers that matter, not a wall of widgets.", ar: "رسوم وتقارير مصممة لتُقرأ بلمحة — الأرقام المهمة، لا جدار عناصر." } },
+        { title: { en: "Integrations & APIs", ar: "التكاملات وواجهات البرمجة" }, body: { en: "Your existing systems wired in — payments, analytics, storage, and third-party services behind one clean API layer.", ar: "أنظمتك القائمة موصولة — مدفوعات وتحليلات وتخزين وخدمات طرف ثالث خلف طبقة API نظيفة واحدة." } },
+        { title: { en: "Roles, audit & security", ar: "الأدوار والتدقيق والأمان" }, body: { en: "Authentication, role-based access, and audit trails, so the right people can act and every action is accounted for.", ar: "مصادقة، وصلاحيات حسب الدور، وسجلات تدقيق، ليتصرف الأشخاص المناسبون ويكون كل إجراء محسوبًا." } },
+      ],
+    },
+    platforms: {
+      heading: { en: "The stack", ar: "التقنيات" },
+      intro: {
+        en: "The same modern web stack behind our real-time games — chosen for live data and long service life.",
+        ar: "حزمة الويب الحديثة نفسها خلف ألعابنا الفورية — مختارة للبيانات الحية وعمر خدمة طويل.",
+      },
+      items: [
+        { label: "Next.js + React", note: { en: "Fast, maintainable interfaces — the stack this site and our web games run on.", ar: "واجهات سريعة قابلة للصيانة — الحزمة التي يعمل بها هذا الموقع وألعابنا على الويب." } },
+        { label: "NestJS + Node", note: { en: "API and backend services built for real-time workloads.", ar: "خدمات API وواجهات خلفية مبنية لأحمال فورية." } },
+        { label: "WebSockets / Socket.IO", note: { en: "Live updates pushed to the dashboard the moment they happen.", ar: "تحديثات حية تُدفع إلى اللوحة لحظة حدوثها." } },
+        { label: "Cloud & databases", note: { en: "Firebase, SQL, and cloud hosting sized to the workload — no over-engineering.", ar: "Firebase وSQL واستضافة سحابية بحجم الحمل — دون هندسة زائدة." } },
+      ],
+    },
+    process: {
+      heading: { en: "Our 5-step process", ar: "منهجيتنا في خمس خطوات" },
+      steps: [
+        { title: { en: "Discovery", ar: "الاكتشاف" }, outcome: { en: "The workflows, the users, and the numbers that actually drive decisions — mapped with the people who'll use the tool daily.", ar: "سير العمل والمستخدمون والأرقام التي تقود القرارات فعلًا — تُرسم مع من سيستخدمون الأداة يوميًا." } },
+        { title: { en: "Information design", ar: "تصميم المعلومات" }, outcome: { en: "Wireframes of every screen and state, organized around at-a-glance reading — approved before code.", ar: "مخططات لكل شاشة وحالة، منظمة حول القراءة بلمحة — تُعتمد قبل الكود." } },
+        { title: { en: "Build & integrate", ar: "البناء والتكامل" }, outcome: { en: "The dashboard built in sprints against real data sources, with working versions you use — not screenshots.", ar: "تُبنى اللوحة في سباقات على مصادر بيانات حقيقية، مع نسخ عاملة تستخدمها — لا لقطات شاشة." } },
+        { title: { en: "Harden & QA", ar: "التقوية وضمان الجودة" }, outcome: { en: "Permissions, edge cases, load behaviour, and bilingual RTL checks — plus an audit trail you can trust.", ar: "الصلاحيات والحالات الحدية وسلوك الحمل وفحوص RTL ثنائية اللغة — إضافة إلى سجل تدقيق موثوق." } },
+        { title: { en: "Launch & iterate", ar: "الإطلاق والتحسين" }, outcome: { en: "Deployment, team onboarding, and a feedback loop — internal tools improve fastest in their first month of real use.", ar: "النشر وتهيئة الفريق وحلقة ملاحظات — الأدوات الداخلية تتحسن أسرع ما يكون في شهرها الأول من الاستخدام الحقيقي." } },
+      ],
+    },
+    whyGcc: {
+      heading: { en: "Why work with a GCC studio", ar: "لماذا استوديو من الخليج" },
+      body: {
+        en: "Internal tools are used by real teams — and Gulf teams work in two languages, across regional systems, in this timezone.",
+        ar: "الأدوات الداخلية تستخدمها فرق حقيقية — وفرق الخليج تعمل بلغتين، عبر أنظمة إقليمية، وفي هذه المنطقة الزمنية.",
+      },
+      points: [
+        { title: { en: "Bilingual back office", ar: "مكتب خلفي ثنائي اللغة" }, body: { en: "Arabic-English interfaces with real RTL, so every member of your team works in the language they think in.", ar: "واجهات عربي-إنجليزي بتخطيط RTL حقيقي، ليعمل كل فرد في فريقك باللغة التي يفكر بها." } },
+        { title: { en: "Built beside the product", ar: "تُبنى بجانب المنتج" }, body: { en: "We build the game, app, or installation and its control room together — one team, no integration gap.", ar: "نبني اللعبة أو التطبيق أو التركيب وغرفة تحكمه معًا — فريق واحد، وبلا فجوة تكامل." } },
+        { title: { en: "Same-timezone iteration", ar: "تحسين في نفس المنطقة الزمنية" }, body: { en: "Ops tools change fast once real use begins; we're awake when your team hits the edge case.", ar: "أدوات التشغيل تتغير سريعًا حين يبدأ الاستخدام الحقيقي؛ ونحن مستيقظون حين يصادف فريقك الحالة الحدية." } },
+      ],
+    },
+    portfolio: {
+      heading: { en: "The stack, proven live", ar: "التقنيات مثبتة في الإنتاج" },
+      intro: {
+        en: "Real-time web products we've shipped on exactly this stack — live data, live users, no refresh button:",
+        ar: "منتجات ويب فورية أطلقناها على هذه الحزمة تحديدًا — بيانات حية ومستخدمون أحياء وبلا زر تحديث:",
+      },
+      items: [nabsh, arrab],
+    },
+    faq: {
+      heading: { en: "Dashboards & internal tools FAQ", ar: "أسئلة شائعة عن لوحات التحكم والأدوات الداخلية" },
+      items: [
+        { q: { en: "What kinds of dashboards do you build?", ar: "ما أنواع لوحات التحكم التي تبنونها؟" }, a: { en: "Operational dashboards with live metrics, admin panels for content and users, campaign consoles with prize and stock tracking, analytics and reporting views, and internal tools that replace manual spreadsheet workflows.", ar: "لوحات تشغيل بمؤشرات حية، ولوحات إدارة للمحتوى والمستخدمين، ووحدات تحكم حملات بتتبع الجوائز والمخزون، وشاشات تحليلات وتقارير، وأدوات داخلية تحل محل سير عمل الجداول اليدوي." } },
+        { q: { en: "Can the dashboard update in real time?", ar: "هل تتحدث اللوحة في الوقت الفعلي؟" }, a: { en: "Yes — real-time is our home ground. We use the same WebSocket infrastructure that powers our live multiplayer games, so data appears the moment it changes, without anyone hitting refresh.", ar: "نعم — الوقت الفعلي أرضنا الأصلية. نستخدم بنية WebSocket نفسها التي تشغّل ألعابنا الجماعية الحية، فتظهر البيانات لحظة تغيرها دون أن يضغط أحد زر التحديث." } },
+        { q: { en: "Can you connect it to our existing systems?", ar: "هل يمكن ربطها بأنظمتنا القائمة؟" }, a: { en: "Yes. We integrate with your existing databases, payment providers, analytics, and third-party APIs, and put them behind one clean interface your team actually wants to open.", ar: "نعم. نتكامل مع قواعد بياناتك ومزودي الدفع والتحليلات وواجهات الطرف الثالث القائمة، ونضعها خلف واجهة واحدة نظيفة يرغب فريقك فعلًا في فتحها." } },
+        { q: { en: "Do you build the product and the dashboard together?", ar: "هل تبنون المنتج ولوحة تحكمه معًا؟" }, a: { en: "That's the ideal case. When we build a game, app, or interactive installation, the admin layer is designed alongside it from day one — the same team, the same data model, no integration seams.", ar: "هذه الحالة المثالية. حين نبني لعبة أو تطبيقًا أو تركيبًا تفاعليًا، تُصمَّم طبقة الإدارة إلى جانبه من اليوم الأول — الفريق نفسه ونموذج البيانات نفسه وبلا فواصل تكامل." } },
+        { q: { en: "Will it work in Arabic?", ar: "هل ستعمل بالعربية؟" }, a: { en: "Yes — bilingual Arabic-English with proper right-to-left layout as standard, so your whole team works in the language they prefer.", ar: "نعم — ثنائية اللغة عربي-إنجليزي بتخطيط صحيح من اليمين إلى اليسار كأساس، ليعمل فريقك كله باللغة التي يفضلها." } },
+      ],
+    },
+    cta: {
+      title: { en: "Drowning in spreadsheets?", ar: "غارق في جداول البيانات؟" },
+      body: { en: "Tell us the workflow and the numbers you need to see — we'll come back with a dashboard concept and a clear scope.", ar: "أخبرنا بسير العمل والأرقام التي تحتاج رؤيتها — وسنعود إليك بمفهوم لوحة تحكم ونطاق واضح." },
+    },
+  },
 ];
 
 export function getServicePage(slug: string): ServicePage | undefined {

@@ -79,10 +79,11 @@ ${designWorks
   return `# Buried Games Studio
 
 > Game development studio serving Kuwait and the GCC. We design and build
-> mobile, PC, and multiplayer games (Unity, Unreal Engine 5), plus apps and
-> web products, for clients across Kuwait, Saudi Arabia, the UAE, Qatar,
-> Bahrain, and Oman. Bilingual (English/Arabic) — the Arabic site lives under
-> ${baseUrl}/ar.
+> mobile, PC, and multiplayer games (Unity, Unreal Engine 5), interactive
+> installations and IoT experiences for malls and brand activations, AR/VR
+> experiences, plus apps, websites, and real-time dashboards, for clients
+> across Kuwait, Saudi Arabia, the UAE, Qatar, Bahrain, and Oman. Bilingual
+> (English/Arabic) — the Arabic site lives under ${baseUrl}/ar.
 
 Founded in 2018. Studio titles include KoutQ8 (our take on the traditional
 Kuwaiti card game Kout), Nabsh, Arrab, and Power of Bombs.
@@ -105,7 +106,7 @@ ${games}
 
 ## Key pages
 
-- [Services overview](${baseUrl}/services): Everything we build, from game development to apps and web.
+- [Services overview](${baseUrl}/services): Everything we build — game development, interactive installations, AR/VR, apps, web, and dashboards.
 - [How it works](${baseUrl}/how-it-works): Our process from first call to launch.
 - [FAQ](${baseUrl}/faq): Common questions about scope, engagement, and process.
 - [About us](${baseUrl}/about-us): The team and the studio story.

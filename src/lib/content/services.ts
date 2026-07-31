@@ -13,6 +13,9 @@ export const servicesContent = {
       { name: 'Live Ops & Community Management', description: 'We manage post-launch updates, events, and content drops to keep players engaged long after release. Healthy live ops turn a launch spike into a lasting player base.' },
       { name: 'Backend & Network Development', description: 'We build robust server infrastructure and scalable real-time multiplayer networking for online games. Accounts, matchmaking, and leaderboards are engineered to stay fast as your player count grows.' },
       { name: 'Technical Art & Pipeline Development', description: 'We create efficient art pipelines and custom tools that bridge artists and engineers. The right tooling keeps your team productive and your content consistent across the project.' },
+      { name: 'Interactive Installations & IoT', description: 'We build sensor-driven games for malls, events, and brand activations — interactive floors, kiosk experiences, and prize systems where the physical space becomes the controller. Engineered to run unattended for weeks, not just demo well once.' },
+      { name: 'AR & VR Experiences', description: 'We develop augmented reality campaigns and virtual reality experiences on the same engines we ship games with. From WebAR that runs off a QR code to headset experiences for training and events, comfort and reach drive the design.' },
+      { name: 'Dashboards & Internal Tools', description: 'We build the control room behind the product: real-time dashboards, admin panels, and campaign consoles with live data. Bilingual Arabic-English interfaces designed to be read at a glance.' },
     ],
     homepage_subtitle: 'Leveraging cutting-edge technology to craft robust and scalable digital experiences.',
     homepage_p: [
@@ -32,6 +35,9 @@ export const servicesContent = {
       { name: 'العمليات الحية وإدارة المجتمع', description: 'ندير تحديثات ما بعد الإطلاق والفعاليات وإضافات المحتوى لإبقاء اللاعبين متفاعلين بعد الإصدار بوقت طويل. العمليات الحية الصحية تحوّل قفزة الإطلاق إلى قاعدة لاعبين دائمة.' },
       { name: 'تطوير الواجهة الخلفية والشبكات', description: 'نبني بنية تحتية قوية للخوادم وشبكات لعب جماعي فورية قابلة للتطوير للألعاب عبر الإنترنت. الحسابات ومطابقة اللاعبين ولوحات الصدارة مهندَسة لتبقى سريعة مع نمو عدد لاعبيك.' },
       { name: 'الفن التقني وتطوير خطوط الإنتاج', description: 'ننشئ خطوط إنتاج فنية فعالة وأدوات مخصصة تسد الفجوة بين الفنانين والمهندسين. الأدوات الصحيحة تبقي فريقك منتجًا ومحتواك متسقًا عبر المشروع.' },
+      { name: 'التركيبات التفاعلية وإنترنت الأشياء', description: 'نبني ألعابًا مدفوعة بالحساسات للمولات والفعاليات وتفعيلات العلامات التجارية — أرضيات تفاعلية وتجارب أكشاك وأنظمة جوائز حيث تصبح المساحة الفعلية وحدة التحكم. مهندَسة لتعمل دون مراقبة لأسابيع، لا لتنجح في عرض تجريبي واحد.' },
+      { name: 'تجارب الواقع المعزز والافتراضي', description: 'نطور حملات واقع معزز وتجارب واقع افتراضي على المحركات نفسها التي نطلق بها ألعابنا. من WebAR يعمل من رمز QR إلى تجارب نظارات للتدريب والفعاليات، الراحة والوصول يقودان التصميم.' },
+      { name: 'لوحات التحكم والأدوات الداخلية', description: 'نبني غرفة التحكم خلف المنتج: لوحات بيانات فورية ولوحات إدارة ووحدات تحكم حملات ببيانات حية. واجهات ثنائية اللغة عربي-إنجليزي مصممة لتُقرأ بلمحة.' },
     ],
     homepage_subtitle: 'الاستفادة من التكنولوجيا المتطورة لصياغة تجارب رقمية قوية وقابلة للتطوير.',
     homepage_p: [
@@ -59,6 +65,10 @@ export const featuredServicePages = {
       { slug: 'app-development', title: 'App Development', description: 'Interactive, gamified iOS and Android apps built with game-grade engineering and design.' },
       { slug: 'web-development', title: 'Web Development', description: 'Modern Next.js websites and browser games — bilingual, Arabic-first, and RTL-native.' },
       { slug: 'game-art-design', title: 'Game Art & Design', description: '2D and 3D art, character design, animation, and bilingual game UI/UX — all crafted in-house.' },
+      { slug: 'interactive-installations', title: 'Interactive Installations & IoT', description: 'Sensor floors, kiosk games, and prize systems for malls, events, and brand activations — engineered to run unattended for weeks.' },
+      { slug: 'augmented-reality-development', title: 'AR Development', description: 'Augmented reality apps, WebAR campaigns from a QR code, and AR product visualization — built in Unity, Arabic-first.' },
+      { slug: 'virtual-reality-development', title: 'VR Development', description: 'VR games, training simulations, and virtual showrooms for Meta Quest and PC VR — comfort-engineered in Unity and Unreal.' },
+      { slug: 'dashboard-development', title: 'Dashboards & Internal Tools', description: 'Real-time dashboards, admin panels, and campaign consoles with live data — bilingual and readable at a glance.' },
     ],
   },
   ar: {
@@ -74,6 +84,10 @@ export const featuredServicePages = {
       { slug: 'app-development', title: 'تطوير التطبيقات', description: 'تطبيقات iOS وAndroid تفاعلية وملعّبة مبنية بهندسة وتصميم بمستوى الألعاب.' },
       { slug: 'web-development', title: 'تطوير الويب', description: 'مواقع Next.js حديثة وألعاب متصفح — ثنائية اللغة، عربية أولًا، وأصيلة في RTL.' },
       { slug: 'game-art-design', title: 'فن وتصميم الألعاب', description: 'فن ثنائي وثلاثي الأبعاد، وتصميم شخصيات، ورسوم متحركة، وواجهة لعبة ثنائية اللغة — كلها مصنوعة داخليًا.' },
+      { slug: 'interactive-installations', title: 'التركيبات التفاعلية وإنترنت الأشياء', description: 'أرضيات بحساسات وألعاب أكشاك وأنظمة جوائز للمولات والفعاليات وتفعيلات العلامات — مهندَسة لتعمل دون مراقبة لأسابيع.' },
+      { slug: 'augmented-reality-development', title: 'تطوير الواقع المعزز', description: 'تطبيقات واقع معزز، وحملات WebAR من رمز QR، وعرض منتجات بالواقع المعزز — مبنية على Unity، بالعربية أولًا.' },
+      { slug: 'virtual-reality-development', title: 'تطوير الواقع الافتراضي', description: 'ألعاب VR ومحاكاة تدريب وصالات عرض افتراضية لـ Meta Quest وPC VR — مهندَسة للراحة على Unity وUnreal.' },
+      { slug: 'dashboard-development', title: 'لوحات التحكم والأدوات الداخلية', description: 'لوحات بيانات فورية ولوحات إدارة ووحدات تحكم حملات ببيانات حية — ثنائية اللغة وتُقرأ بلمحة.' },
     ],
   },
 };
