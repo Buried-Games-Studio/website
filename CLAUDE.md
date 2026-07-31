@@ -54,10 +54,33 @@ live. Public record: `ariregister.rik.ee/eng/company/17564681`.
   company would put net assets negative on day one).
 - The share-transfer notarial waiver was **impossible** — the register demands
   €10,000 capital to waive it. Don't re-try it at €10.
-- Registered address is **Tornimäe tn 5, 10145 Tallinn** — Enty's shared client
-  address, covered by the owner's Enty subscription. It is NOT a Buried Games
-  premises and must never surface as a place of establishment (see the GCC rule
-  above); it belongs only in `legalEntity.registeredAddress`.
+- Registered address is **Tornimäe tn 5, 10145 Tallinn** — Enty's virtual-office
+  address. It is NOT a Buried Games premises and must never surface as a place
+  of establishment (see the GCC rule above); it belongs only in
+  `legalEntity.registeredAddress`.
+- ⚠️ **UNRESOLVED — address entitlement + contact person.** Enty's *Starter*
+  plan is FREE and includes NEITHER the virtual office NOR a contact person
+  (verified on the plan comparison table — the "Virtual office (legal address &
+  contact person)" row is blank for Starter). The cheapest tier that carries
+  both is **Lite: €39/mo monthly, or €33/mo billed yearly = €396/yr.** The
+  company is therefore registered at Enty's address without an active
+  entitlement, and no Estonian contact person is designated even though the
+  whole board is abroad. Resolve by upgrading to Lite (keeps the registered
+  address exactly as filed) or by buying a different provider (e.g. Dalanta
+  €124/yr) and filing a change of registered address — the latter also needs
+  `legalEntity.registeredAddress` updated, legal-page lastmods bumped, and a
+  redeploy + `pnpm after-deploy`.
+- **Enty confirmed on 31.07.2026 (in-app chat, Pablo):** Tornimäe tn 5 IS the
+  correct Enty address, so the address as filed needs no amendment — never
+  "fix" `legalEntity.registeredAddress` on the assumption it is wrong. And the
+  contact-person entry is **filed by US, not by Enty**: once the package is
+  purchased, Enty supplies instructions plus their contact-person details, and
+  the change is submitted to the e-Business Register ourselves (same portal as
+  the foundation application, via a change-of-data entry).
+- **How to verify the contact person is actually on record:** the public
+  registry card gains two fields, "Address of the contact person" and "Contact
+  person's email address" (mapdap OÜ's card has them; 17564681's does not yet).
+  Check `ariregister.rik.ee/eng/company/17564681`.
 
 **FOLLOW-UPS:**
 1. ~~Fill the INCORPORATION block in `src/lib/legal-entity.ts`~~ — **DONE
@@ -73,11 +96,44 @@ live. Public record: `ariregister.rik.ee/eng/company/17564681`.
    so Enty is formally on record as the Estonian **contact person** — legally
    required while the whole board is outside Estonia. The portal did not block
    on it at filing, but the registrar may still raise it.
-3. **Open the business account** (Wise / LHV) and actually transfer the €10 in.
+3. **Open the business account with Wamo** and actually transfer the €10 in.
    The board already certified the contribution was made, so make that true.
+   Onboarding wants: registry code 17564681, registered address, the articles
+   PDF, the activity (EMTAK 62101, game-development services) and the beneficial
+   owner (Fahed El Ahmad, 100% direct, resident Kuwait).
+4. **Estonian phone number via Telia eSIM** (+372). Wanted for the company's
+   contact data, for SMS verification during fintech onboarding (providers
+   generally prefer a number matching the company's jurisdiction), and as a
+   route to Smart-ID / mobile-ID instead of the e-Residency card reader.
+   mapdap OÜ already carries both a +372 and a UAE number, so the pattern works.
+
+Items 2–4 all require identity verification or payment, so they are the owner's
+to execute — Claude must not create accounts or handle credentials. What Claude
+CAN do is verify the outcome afterwards (e.g. the contact-person fields
+appearing on the public registry card).
 
 VAT registration stays off until turnover crosses the threshold — registering
 voluntarily would add monthly VAT returns for no benefit pre-revenue.
+
+### Post-incorporation dependency chain (and the new positioning traps)
+**Telia's +372 number gates two things: the Wamo bank account and Meta Business
+verification** (both want a business phone for SMS/call verification). Anything
+needing a D-U-N-S number does NOT depend on Telia and should start earlier —
+D-U-N-S issuance is the long pole for Apple Developer organization enrolment.
+
+Registration created three surfaces where the GCC/Estonia separation can leak.
+The rule is unchanged — **legal details go on verification and commercial
+forms; public profile copy stays GCC service-area** — but apply it here too:
+- **Meta/Google business verification**: registry code, legal name and the
+  Tallinn address go in the verification FORM. The page's public location,
+  About text and category stay service-area GCC. A verified badge must not turn
+  into "based in Estonia" on the profile.
+- **The Estonian phone number**: a contact detail, not a place of establishment.
+  Publishing +372 on the site, WhatsApp or directories is fine; describing the
+  studio as Estonian because of it is not.
+- **Invoices, contracts, proposals**: statutory details (legal name, registry
+  code, registered address) are REQUIRED here — this is a legal surface. The
+  marketing copy inside the same document still stays GCC-framed.
 
 ## SEO invariants
 - Canonical: `https://buriedgames.com`, no www, no trailing slash. English
