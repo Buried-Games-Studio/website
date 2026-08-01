@@ -23,6 +23,23 @@ import type { Attribution } from "@/lib/attribution";
 export const WHATSAPP_PHONE = "37259177751";
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_PHONE}`;
 
+/**
+ * Human-readable form of WHATSAPP_PHONE. Lives here, next to the raw digits,
+ * because a separately hardcoded "+965 5552 8686" in the footer and on
+ * contact-us survived the 01.08.2026 migration — a grep for the unformatted
+ * number could not see it. Render this, never a literal.
+ */
+export const WHATSAPP_DISPLAY = "+372 5917 7751";
+
+/**
+ * Voice line: the founder's Kuwaiti mobile. Deliberately NOT the Estonian
+ * number — that one roams in the GCC, so publishing it to call would bill
+ * international rates in both directions for clients who are in Kuwait.
+ * VOICE_PHONE is E.164 for tel: hrefs; VOICE_DISPLAY is what humans read.
+ */
+export const VOICE_PHONE = "+96555528686";
+export const VOICE_DISPLAY = "+965 5552 8686";
+
 const MESSAGES: Record<Locale, string> = {
   en: "Hi Buried Games! I'd like to talk about a project.",
   ar: "مرحبًا بريد جيمز! أود التحدث عن مشروع.",

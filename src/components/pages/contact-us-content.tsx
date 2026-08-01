@@ -8,6 +8,7 @@ import { socialLinks } from "@/components/layout/social-links";
 import { trackSocialClick } from "@/lib/google-analytics";
 import { type Locale } from "@/lib/i18n";
 import { WhatsAppLink } from "@/components/whatsapp-link";
+import { WHATSAPP_DISPLAY } from '@/lib/whatsapp';
 
 const reveal = {
   initial: { opacity: 0, y: 20 },
@@ -28,7 +29,7 @@ export function ContactUsContent({ locale }: { locale: Locale }) {
       form_title: "Send us a message",
       reach_title: "Reach us directly",
       whatsapp_label: "WhatsApp",
-      whatsapp_value: "+965 5552 8686",
+      whatsapp_value: WHATSAPP_DISPLAY,
       email_label: "Email",
       email_value: "support@buriedgames.com",
       response_title: "Response time",
@@ -43,7 +44,7 @@ export function ContactUsContent({ locale }: { locale: Locale }) {
       form_title: "أرسل لنا رسالة",
       reach_title: "تواصل معنا مباشرة",
       whatsapp_label: "واتساب",
-      whatsapp_value: "+965 5552 8686",
+      whatsapp_value: WHATSAPP_DISPLAY,
       email_label: "البريد الإلكتروني",
       email_value: "support@buriedgames.com",
       response_title: "وقت الاستجابة",

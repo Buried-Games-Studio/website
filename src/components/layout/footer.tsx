@@ -6,8 +6,9 @@ import { useLanguage } from '@/contexts/language-context';
 import { usePathname } from 'next/navigation';
 import { localePath, stripLocalePrefix, type Locale } from '@/lib/i18n';
 import { getTranslation } from '@/lib/content';
-import { Mail, Globe } from 'lucide-react';
+import { Mail, Globe, Phone } from 'lucide-react';
 import { WhatsAppIcon } from '@/components/icons/whatsapp';
+import { WHATSAPP_DISPLAY, VOICE_PHONE, VOICE_DISPLAY } from '@/lib/whatsapp';
 import { assets } from '@/lib/assets';
 import { cn } from '@/lib/utils';
 import { legalEntity } from '@/lib/legal-entity';
@@ -147,8 +148,16 @@ const Footer = ({ showDesignWorks }: { showDesignWorks: boolean }) => {
                 className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
-                +965 5552 8686
+                {WHATSAPP_DISPLAY}
               </WhatsAppLink>
+              {/* Voice on the Kuwaiti line — local rates for GCC clients. */}
+              <a
+                href={`tel:${VOICE_PHONE}`}
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Phone className="w-4 h-4 text-primary" />
+                {VOICE_DISPLAY}
+              </a>
             </div>
             <div className="flex items-center gap-1">
               {socialLinks.map(social => {

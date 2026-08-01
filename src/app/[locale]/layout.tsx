@@ -22,6 +22,7 @@ import { hasDesignWorks } from '@/lib/content/design-works';
 import { ConsentBanner } from '@/components/providers/consent-banner';
 import { sameAs } from '@/lib/social';
 import { ogCard } from '@/lib/og';
+import { WHATSAPP_PHONE, VOICE_PHONE } from '@/lib/whatsapp';
 
 // display: 'optional' on all three: with 'swap', the H1 repainted when the
 // webfont arrived and that repaint became the LCP entry (~8s simulated on
@@ -98,14 +99,14 @@ const organizationSchema = {
   "contactPoint": [
     {
       "@type": "ContactPoint",
-      "telephone": "+37259177751",
+      "telephone": `+${WHATSAPP_PHONE}`,
       "contactType": "Customer Support",
       "contactOption": "WhatsApp",
       "availableLanguage": ["en", "ar"]
     },
     {
       "@type": "ContactPoint",
-      "telephone": "+96555528686",
+      "telephone": VOICE_PHONE,
       "contactType": "Sales",
       "availableLanguage": ["en", "ar"]
     }

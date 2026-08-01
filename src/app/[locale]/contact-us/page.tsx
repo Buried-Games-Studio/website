@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ContactUsContent } from "@/components/pages/contact-us-content";
 import { isLocale, localePath, languageAlternates, ogLocale, type Locale } from "@/lib/i18n";
 import { ogDefaults } from '@/lib/og';
+import { WHATSAPP_PHONE, VOICE_PHONE } from '@/lib/whatsapp';
 
 type PageProps = { params: Promise<{ locale: string }> };
 
@@ -67,7 +68,7 @@ function contactSchema(locale: Locale) {
       "contactPoint": [
         {
           "@type": "ContactPoint",
-          "telephone": "+37259177751",
+          "telephone": `+${WHATSAPP_PHONE}`,
           "contactType": "customer support",
           "contactOption": "WhatsApp",
           "areaServed": ["KW", "SA", "AE", "QA", "BH", "OM"],
@@ -75,7 +76,7 @@ function contactSchema(locale: Locale) {
         },
         {
           "@type": "ContactPoint",
-          "telephone": "+96555528686",
+          "telephone": VOICE_PHONE,
           "contactType": "sales",
           "areaServed": ["KW", "SA", "AE", "QA", "BH", "OM"],
           "availableLanguage": ["Arabic", "English"],
