@@ -59,12 +59,24 @@ function contactSchema(locale: Locale) {
       "@type": "Organization",
       "name": "Buried Games Studio",
       "url": "https://buriedgames.com",
+      // Mirrors the Organization node in [locale]/layout.tsx: WhatsApp on the
+      // Estonian business line, voice on the Kuwaiti number (local rates for
+      // GCC clients; the Estonian line roams here). areaServed stays the GCC
+      // on both — the numbers are contact details, the service area is what
+      // describes the market.
       "contactPoint": [
         {
           "@type": "ContactPoint",
-          "telephone": "+96555528686",
+          "telephone": "+37259177751",
           "contactType": "customer support",
           "contactOption": "WhatsApp",
+          "areaServed": ["KW", "SA", "AE", "QA", "BH", "OM"],
+          "availableLanguage": ["Arabic", "English"],
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+96555528686",
+          "contactType": "sales",
           "areaServed": ["KW", "SA", "AE", "QA", "BH", "OM"],
           "availableLanguage": ["Arabic", "English"],
         },

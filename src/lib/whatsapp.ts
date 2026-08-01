@@ -10,7 +10,17 @@ import type { Attribution } from "@/lib/attribution";
  * attribution server-side; a WhatsApp chat can only carry it in the message).
  */
 
-export const WHATSAPP_PHONE = "96555528686";
+/**
+ * The studio's Estonian business line (Telia, +372 5917 7751), registered in
+ * the WhatsApp Business app. Replaced the founder's Kuwaiti mobile on
+ * 01.08.2026 — that number is now personal and voice-only. Digits only, no
+ * leading +, because wa.me rejects it.
+ *
+ * This is a CONTACT DETAIL, not a place of establishment: the studio's service
+ * area stays Kuwait & the GCC (see the legal positioning rule in CLAUDE.md).
+ * Never let a +372 number turn into "based in Estonia" in copy or schema.
+ */
+export const WHATSAPP_PHONE = "37259177751";
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_PHONE}`;
 
 const MESSAGES: Record<Locale, string> = {

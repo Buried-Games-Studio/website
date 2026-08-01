@@ -87,12 +87,29 @@ const organizationSchema = {
   // src/lib/social.ts is the single source (shared with the footer), so
   // schema and UI can't drift apart.
   "sameAs": sameAs,
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+96555528686",
-    "contactType": "Customer Support",
-    "availableLanguage": ["en", "ar"]
-  }
+  // Two channels, deliberately split by what each number is actually good for.
+  // WhatsApp runs on the Estonian business line (same number as
+  // WHATSAPP_PHONE) — it is data-based, so the country code costs nobody
+  // anything. Voice stays on the Kuwaiti number: the Estonian line roams in
+  // the GCC, so publishing it as a phone number would bill international rates
+  // in BOTH directions for a studio whose clients are in Kuwait.
+  // Both are contact details, NOT places of establishment — areaServed and the
+  // GCC framing are what describe the market (see CLAUDE.md).
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+37259177751",
+      "contactType": "Customer Support",
+      "contactOption": "WhatsApp",
+      "availableLanguage": ["en", "ar"]
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "+96555528686",
+      "contactType": "Sales",
+      "availableLanguage": ["en", "ar"]
+    }
+  ]
 };
 
 // WebSite node so Google associates the canonical site name and URL.
