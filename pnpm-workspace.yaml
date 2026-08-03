@@ -1,3 +1,9 @@
+# Single-package repo. The explicit packages list exists because pnpm 9
+# (Railway's Nixpacks default) hard-errors on a workspace file without one;
+# pnpm 10 locally tolerates it.
+packages:
+  - '.'
+
 allowBuilds:
   '@firebase/util': true
   '@tsparticles/engine': true

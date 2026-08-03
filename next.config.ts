@@ -45,10 +45,11 @@ const nextConfig: NextConfig = {
     inlineCss: true,
   },
   images: {
-    // Cloudflare Image Transformations instead of the built-in optimizer:
-    // Firebase App Hosting's adapter disables /_next/image at build time, so
-    // production shipped original multi-MB assets. The custom loader rewrites
-    // every next/image src to /cdn-cgi/image (resize + AVIF/WebP at the edge).
+    // Cloudflare Image Transformations instead of the built-in optimizer: the
+    // custom loader rewrites every next/image src to /cdn-cgi/image (resize +
+    // AVIF/WebP, edge-cached, zero origin CPU). Adopted when App Hosting
+    // disabled /_next/image at build; kept on Railway deliberately — do not
+    // revert to the built-in optimizer.
     loader: 'custom',
     loaderFile: './src/lib/cloudflare-image-loader.ts',
   },

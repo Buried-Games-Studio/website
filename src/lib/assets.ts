@@ -39,7 +39,9 @@ export const assets = {
 
   // About / Team
   aboutSection: `${ASSETS_BASE_URL}/images/AboutUsSection.webp`,
-  fahedAlahmad: `${ASSETS_BASE_URL}/images/fahed_alahmad.jpeg`,
+  // NB: the R2 object key stays `fahed_alahmad.jpeg` — it is a storage path, not
+  // a display name, and renaming it without re-uploading would 404 the portrait.
+  fahedElahmad: `${ASSETS_BASE_URL}/images/fahed_alahmad.jpeg`,
   bokhariHamid: `${ASSETS_BASE_URL}/images/bokhari_hamid.jpeg`,
 
   // Partners

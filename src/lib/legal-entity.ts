@@ -89,7 +89,7 @@ export const legalEntity = {
   registeredAddress, // RegisteredAddress | null
 
   /** The person behind the studio — already public on About / Press. */
-  founder: 'Fahed Alahmad',
+  founder: 'Fahed Elahmad',
   foundingDate: '2018-10-01',
 
   /** Primary contact for legal, privacy and general inquiries. */
@@ -133,5 +133,5 @@ export function controllerName(locale: Locale): string {
   if (legalEntity.registered) return legalEntity.legalName;
   return locale === 'ar'
     ? 'استوديو بريد جيمز (يُدار من قِبل مؤسسه فهد الأحمد)'
-    : 'Buried Games Studio (operated by its founder, Fahed Alahmad)';
+    : 'Buried Games Studio (operated by its founder, Fahed Elahmad)';
 }

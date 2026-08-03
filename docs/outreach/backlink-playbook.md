@@ -27,8 +27,8 @@ Resolve these before creating Wikidata/Crunchbase entries:
 
 - **Name**: Buried Games Studio · **Arabic**: استوديو بريد جيمز
 - **URL**: https://buriedgames.com · **Press kit**: https://buriedgames.com/press
-- **Email**: support@buriedgames.com · **WhatsApp**: +965 5552 8686
-- **Founder**: Fahed Alahmad
+- **Email**: support@buriedgames.com · **WhatsApp**: +372 5917 7751
+- **Founder**: Fahed Elahmad
 - **Founded**: ← per §0 decision
 - **One-liner (EN)**: Independent GCC games studio building Arabic-first
   multiplayer, mobile, and web games — for our own catalog and for clients
@@ -97,7 +97,7 @@ Resolve these before creating Wikidata/Crunchbase entries:
 | IGDA Saudi | igda.riyadh (IG) / @IGDA_SA (X) — site was unreachable, use socials | Speak/show at a meetup; community links |
 | GCON | gconevents.com | Event participation; Arrab demo |
 | GamesMEA | gamesmea.com contact | B2B trade angle: GCC games-services market |
-| Kuwait local | kuwaitdigitalbox.com · kuwaittimes.com/technology | Founder story: Fahed Alahmad building games for the Gulf |
+| Kuwait local | kuwaitdigitalbox.com · kuwaittimes.com/technology | Founder story: Fahed Elahmad building games for the Gulf |
 
 ### Pitch template (EN)
 > Subject: A Kuwaiti card-game classic, rebuilt for iPhone — story for [Outlet]?

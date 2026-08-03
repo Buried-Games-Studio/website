@@ -5,7 +5,7 @@ import { gamesContent } from "@/lib/content/games";
 /**
  * Data-driven content for the /press page (studio press kit). Everything here is
  * either a verifiable fact (founding year 2018 from the Organization schema's
- * foundingDate 2018-10-01, founder Fahed Alahmad, the real social profiles, the
+ * foundingDate 2018-10-01, founder Fahed Elahmad, the real social profiles, the
  * brand colours from globals.css) or copy reused from existing content modules.
  *
  * LEGAL RULE: the boilerplate NEVER asserts a place of establishment, registration,
@@ -73,7 +73,7 @@ export const pressContent = {
   // Founding year is derived from the Organization schema's foundingDate (2018-10-01).
   facts: [
     { label: { en: "Studio", ar: "الاستوديو" }, value: { en: "Buried Games Studio", ar: "استوديو بريد جيمز" } },
-    { label: { en: "Founder", ar: "المؤسس" }, value: { en: "Fahed Alahmad, Founder", ar: "فهد الأحمد، المؤسس" } },
+    { label: { en: "Founder", ar: "المؤسس" }, value: { en: "Fahed Elahmad, Founder", ar: "فهد الأحمد، المؤسس" } },
     { label: { en: "Founded", ar: "سنة التأسيس" }, value: { en: "2018", ar: "2018" } },
     { label: { en: "Service area", ar: "نطاق الخدمة" }, value: { en: "Kuwait & the GCC", ar: "الكويت والخليج" } },
     { label: { en: "Focus", ar: "التخصص" }, value: { en: "Mobile, multiplayer & Unity game development", ar: "تطوير ألعاب الجوال والألعاب الجماعية وألعاب Unity" } },
@@ -89,7 +89,7 @@ export const pressContent = {
       ar: "استوديو بريد جيمز استوديو ألعاب مستقل في الخليج يبني ألعاب الجوال والألعاب الجماعية وألعاب Unity للاستوديوهات والعلامات التجارية واللاعبين في الكويت والخليج.",
     } satisfies LocalizedText,
     long: {
-      en: "Founded in 2018 by Fahed Alahmad, Buried Games Studio is an independent games studio serving clients and players across Kuwait and the wider GCC. We design and develop games end to end — concept, art, engineering, multiplayer networking, QA, and launch — in Unity, Unreal Engine, and modern web technologies like Next.js. Every project is Arabic-first, with proper right-to-left interfaces alongside English. Our portfolio spans KoutQ8, a digital take on the traditional Kuwaiti card game Kout; Nabsh, a real-time multiplayer trivia game; Arrab, a social-deduction Mafia game; and original titles like Power of Bombs and Gathered by the Light. We pair regional understanding with global production standards to build games that feel native to Gulf players.",
+      en: "Founded in 2018 by Fahed Elahmad, Buried Games Studio is an independent games studio serving clients and players across Kuwait and the wider GCC. We design and develop games end to end — concept, art, engineering, multiplayer networking, QA, and launch — in Unity, Unreal Engine, and modern web technologies like Next.js. Every project is Arabic-first, with proper right-to-left interfaces alongside English. Our portfolio spans KoutQ8, a digital take on the traditional Kuwaiti card game Kout; Nabsh, a real-time multiplayer trivia game; Arrab, a social-deduction Mafia game; and original titles like Power of Bombs and Gathered by the Light. We pair regional understanding with global production standards to build games that feel native to Gulf players.",
       ar: "تأسس استوديو بريد جيمز عام 2018 على يد فهد الأحمد، وهو استوديو ألعاب مستقل يخدم العملاء واللاعبين في الكويت وعموم الخليج. نصمم ونطور الألعاب من الفكرة إلى الإطلاق — المفهوم والفن والبرمجة وشبكات اللعب الجماعي وضمان الجودة والإطلاق — على Unity وUnreal Engine وتقنيات الويب الحديثة مثل Next.js. كل مشروع عربي أولًا، بواجهات صحيحة من اليمين إلى اليسار إلى جانب الإنجليزية. تمتد أعمالنا من كوت، نسختنا الرقمية من لعبة الورق الكويتية التقليدية، إلى نبش، لعبة التريفيا الجماعية الفورية، والعرّاب، لعبة المافيا والخداع الاجتماعي، وألعاب أصلية مثل باور أوف بومبز ومجتمعون بالنور. نجمع بين الفهم الإقليمي ومعايير الإنتاج العالمية لنبني ألعابًا تبدو محلية للاعبي الخليج.",
     } satisfies LocalizedText,
   },

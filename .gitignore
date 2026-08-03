@@ -51,6 +51,10 @@ ga4-service-account.json
 # private docs (client proposals, quotes, internal materials)
 /proposals/
 
+# executed and draft legal agreements — team and contractor contracts carry
+# personal data (names, addresses, ID numbers, fees). This repo is public.
+/contracts/
+
 # Claude Code. The agent definitions in .claude/agents/ ARE tracked — they are
 # project config and useful to anyone working here. These two are not:
 #   settings.local.json  per-machine permissions, not a project decision

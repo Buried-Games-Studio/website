@@ -31,9 +31,11 @@ export function proxy(request: NextRequest) {
     return new NextResponse(null, { status: 403 });
   }
 
-  // Behind Firebase App Hosting the Host header is the internal *.hosted.app
-  // origin; the public host arrives in X-Forwarded-Host. Trust it first, or
-  // the indexability gate noindexes production and www-strip never fires.
+  // Trust X-Forwarded-Host before Host: platforms disagree about which one
+  // carries the public hostname (App Hosting put the internal *.hosted.app
+  // origin in Host — trusting it noindexed production once; on Railway both
+  // carry the public host). Any mismatch with CANONICAL_HOST fails closed
+  // to noindex, so previews and *.up.railway.app can never leak into Google.
   const hostname = (
     request.headers.get('x-forwarded-host') ??
     request.headers.get('host') ??

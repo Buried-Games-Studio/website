@@ -1,14 +1,80 @@
 # Buried Games — buriedgames.com
 
-Next.js 16 App Router · pnpm · Firebase App Hosting (auto-deploys on push to
-`main`) · Cloudflare proxies apex + www (zone `d1c5abd26d6abdc3b7a94d4675112ac4`).
+Next.js 16 App Router · pnpm · **Railway** (project `buriedgames-platform`,
+service `web` — moved off Firebase App Hosting 02.08.2026) · Cloudflare
+proxies apex + www (zone `d1c5abd26d6abdc3b7a94d4675112ac4`).
 Dev server: `pnpm dev-local` on port 9002.
 
+## Studio workspace layout
+This repo is the **marketing site** and lives at
+`~/Sites/BuriedGames/buriedgames-nextjs-web` — one of several studio projects
+under the `~/Sites/BuriedGames/` umbrella (mirroring `~/Sites/mapdaps/`).
+Siblings: `buriedgames-nestjs-gateway` (Nx + NestJS microservices backend),
+`buriedgames-nextjs-business` (internal HQ) and `buriedgames-nextjs-portal`
+(client portal). Each is its **own git repo** — the umbrella folder is not
+versioned. This repo's remote stays `Buried-Games-Studio/website`, and Firebase
+App Hosting builds from GitHub, so local folder names never affect deploys.
+
+Non-code studio material lives outside the repos: `~/Sites/BuriedGames/business/`
+(proposals, contracts, company-profile) and `~/Sites/BuriedGames/.plans/`.
+
 ## Deploy ritual (non-negotiable)
-After every push that deploys: **`pnpm after-deploy`** — purges the Cloudflare
-edge (HTML is edge-cached; skipping this serves the OLD build indefinitely)
-and resubmits all URLs to IndexNow. Watch a deploy land by polling live HTML
-with a cache-buster (`?v=$RANDOM`), never the bare URL.
+Deploy = `railway up` (see Railway hosting below) — **pushing to `main` no
+longer deploys anything** (the Firebase auto-deploy is gone). After every
+deploy that lands: **`pnpm after-deploy`** — purges the Cloudflare edge (HTML
+is edge-cached with s-maxage=1y; skipping this serves the OLD build
+indefinitely) and resubmits all URLs to IndexNow. Watch a deploy land by
+polling live HTML with a cache-buster (`?v=$RANDOM`), never the bare URL.
+
+## Railway hosting (current — replaced Firebase App Hosting 02.08.2026)
+- Project `buriedgames-platform` (54448b81-9005-42a8-94b4-8c75b342ed7c),
+  service `web` (376d6f2d-81b5-46b5-8c55-c99430ff9146), env production,
+  account tech@buriedgames.com, builder Railpack (auto-detected, plain
+  `next build`/`next start`). Direct URL:
+  https://web-production-bf83d.up.railway.app — serves `X-Robots-Tag:
+  noindex` by design (fail-closed gate; only the canonical host is indexable).
+- **Deploy command (never cd):**
+  `railway up /Users/fahedalahmad/Sites/BuriedGames/buriedgames-nextjs-web --service web --detach`
+  then poll `railway deployment list --service web --json` until the newest
+  deployment is SUCCESS, then run the after-deploy ritual. `railway up`
+  respects .gitignore (`.env`/`TOKENS.md`/`ga4-service-account.json` are never
+  uploaded).
+- Env vars on the service: the three `BREVO_*` only. The
+  `NEXT_PUBLIC_FIREBASE_*` vars in `.env` are dead scaffold (no firebase SDK
+  in deps) and were deliberately not carried over.
+- **Apex only on Railway**: buriedgames.com is a proxied CF CNAME →
+  `s1i8cqks.up.railway.app` (per-domain target; CF flattens at the root; the
+  apex TXT farm — SPF/verifications — coexists fine because of flattening).
+- **www never reaches Railway**: a Cloudflare-EDGE 301 folds www → apex
+  (path+query preserved). It is NOT in zone rulesets or page rules (token
+  can't read account Bulk Redirects — likely lives there) and it predates the
+  Railway move (it served www in the Firebase era too). Consequences: www has
+  NO Railway custom domain (one was added and deleted — its cert can never
+  validate behind the edge 301, ACME HTTP-01 gets redirected to the apex);
+  the CF www CNAME (proxied, target `ru7cy9bp.up.railway.app`) exists only so
+  the edge accepts www traffic — the target is never contacted.
+- Domain ops go through `backboard.railway.com/graphql/v2` with
+  `user.accessToken` from `~/.railway/config.json` (the CLI's `railway
+  domain` rejects accessToken auth). Gotcha learned during cutover: a CF PUT
+  that changes a record's TYPE (A→CNAME) reissues the record ID — a
+  follow-up on the old ID errors 81044 "record does not exist" even though
+  the change landed.
+- `pnpm-workspace.yaml` carries `packages: ['.']` — Railway's pnpm
+  hard-errors on a workspace file without it (same fix as hq/portal).
+- Cold starts are structurally gone (one always-on replica — the old
+  apphosting.yaml minInstances:1 fix; the file is deleted). Never enable
+  Railway app-sleep on this service.
+- **Firebase decommission (pending, owner action — needs Google login):**
+  the old App Hosting backend still exists and bills for an idle always-on
+  instance. Owner: `/usr/local/bin/npx -y firebase-tools login` then
+  `... apphosting:backends:list --project buried-games-hq` then
+  `... apphosting:backends:delete <backend> --project buried-games-hq`.
+  ⚠️ Delete ONLY the buriedgames.com website backend —
+  `dashboard-koutq8.buriedgames.com` is a SEPARATE App Hosting backend and
+  stays. After deletion, remove the two Firebase leftovers in CF DNS: the
+  apex `fah-claim` TXT and the `_acme-challenge_cjv4d7expokgt7er` CNAME (the
+  www `fah-claim` TXT is already gone — it was blocking Railway's www
+  validation, a CNAME+TXT coexistence violation).
 
 ## Legal positioning rule (owner requirement) — two layers, never mixed
 The business has two independent layers; keep them cleanly separated.
@@ -43,6 +109,12 @@ Register 31.07.2026 (ruling Ä 50317767, Tartu County Court registration
 department). `legalEntity.registered` is now true, so every legal surface is
 live. Public record: `ariregister.rik.ee/eng/company/17564681`.
 
+- **D-U-N-S: 988019414** (issued 03.08.2026, verified by D&B through the
+  national registry). Needed for Apple Developer / Google Play organization
+  enrolment. The D&B record is ASCII — "Buried Games OU", "Tornimae tn 5" —
+  because Apple's D-U-N-S form silently STRIPS diacritics rather than
+  transliterating; that mismatch against the register's "Buried Games OÜ /
+  Tornimäe tn 5" is expected and correct, do not try to "fix" it.
 - Founded via application 3807459 (foundation number 3381776). The owner logs
   in with his e-Residency card and the portal autofills his identity, so never
   ask him to retype his personal identification code — it is deliberately NOT
@@ -138,9 +210,11 @@ forms; public profile copy stays GCC service-area** — but apply it here too:
 ## SEO invariants
 - Canonical: `https://buriedgames.com`, no www, no trailing slash. English
   unprefixed (proxy rewrites to /en internally), Arabic under /ar.
-- `src/proxy.ts` derives the public hostname from **X-Forwarded-Host** (App
-  Hosting's Host header is the internal *.hosted.app origin — using it served
-  X-Robots-Tag noindex on production once; never regress this).
+- `src/proxy.ts` derives the public hostname from **X-Forwarded-Host** first,
+  falling back to Host (App Hosting put the internal *.hosted.app origin in
+  Host — trusting it noindexed production once; on Railway both carry the
+  public host, verified live 02.08.2026). Never regress the fail-closed gate:
+  any non-canonical host (incl. *.up.railway.app) gets X-Robots-Tag noindex.
 - Locale-aware URLs only via `localePath`/`languageAlternates`/
   `stripLocalePrefix` from `src/lib/i18n.ts` (usePathname returns /en-prefixed
   internal paths).
@@ -164,14 +238,16 @@ forms; public profile copy stays GCC service-area** — but apply it here too:
   page in SSR opacity:0 shipped invisible HTML (LCP 8s+, desktop NO_LCP).
 - Fonts use `display: 'optional'` — with swap, the H1's webfont repaint became
   the LCP entry.
-- Images go through `src/lib/cloudflare-image-loader.ts` (cdn-cgi/image): the
-  App Hosting adapter disables /_next/image at build, so default loading ships
-  original multi-MB assets. Never add `unoptimized`, never raw asset `<img>`s.
-  Dev passes through (no Cloudflare in front of localhost).
+- Images go through `src/lib/cloudflare-image-loader.ts` (cdn-cgi/image) —
+  Cloudflare transforms ARE the production image pipeline (edge-resized
+  AVIF/WebP, zero origin CPU; originally forced by App Hosting disabling
+  /_next/image, kept on Railway deliberately). Never add `unoptimized`, never
+  raw asset `<img>`s. Dev passes through (no Cloudflare in front of localhost).
 - `experimental.inlineCss` stays on (last render-blocking requests).
 - gtag loads `lazyOnload`. Hero H1 paints on first frame (no opacity-gating
   the LCP element); parallax/embers/3D-tilt are gated off touch devices.
-- `apphosting.yaml`: minInstances 1 (cold starts were 3.6–5s TTFB).
+- Cold starts (3.6–5s TTFB incidents on App Hosting) are structurally gone on
+  Railway: one always-on replica. Never enable app-sleep.
 
 ## Design system (post-redesign)
 - Headings: Space Grotesk via `font-headline` (Cairo carries Arabic). The
@@ -182,6 +258,11 @@ forms; public profile copy stays GCC service-area** — but apply it here too:
 - Layered surfaces (bg-background ↔ bg-card/40 + border-border hairlines),
   global section rhythm py-14/20 (never add py-24+), eyebrow pattern with red
   tick, start-aligned section headers, h2 = text-2xl md:text-3xl.
+- **WhatsApp number — switched 01.08.2026 (deployed, verified live):** the
+  studio WhatsApp is the Estonian Telia line **+372 5917 7751**
+  (`WHATSAPP_PHONE` in `src/lib/whatsapp.ts`); **+965 5552 8686 is
+  voice-only** (`VOICE_PHONE`, founder's personal mobile). Publishing +372 is
+  a contact detail; it never makes the studio "Estonian" in copy or schema.
 - WhatsApp: ONLY `WhatsAppIcon` from `@/components/icons/whatsapp` (glyph in
   #25D366) inside neutral buttons — never green-filled buttons, never
   MessageCircle, never remote flaticon images.
@@ -192,20 +273,24 @@ forms; public profile copy stays GCC service-area** — but apply it here too:
 ## Infra & integrations
 - Cloudflare API token + Bing Webmaster API key live in `TOKENS.md`
   (gitignored — never commit). Cloudflare token scopes: DNS edit, redirect
-  rules, cache rules, cache purge, zone settings, Email Routing Rules (zone).
-  NOT granted: account-level Email Routing Addresses — so destination
-  addresses can't be listed or added by API, only rules that forward to an
-  already-verified destination. Note `zones/{zone}/email/routing` returns 200
-  on plain zone read; only `…/email/routing/rules` proves the routing scope.
+  rules, cache rules, cache purge, zone settings, Email Routing Rules (zone),
+  AND account-level Email Routing Addresses — destination addresses can be
+  listed, added and deleted by API (verified 2026-07-31 by listing addresses
+  and deleting one). Note `zones/{zone}/email/routing` returns 200 on plain
+  zone read; only `…/email/routing/rules` proves the routing scope.
 - Cloudflare config that must stay: email_obfuscation OFF (its injected
-  script breaks React hydration → LCP collapse), image_resizing ON, apex A
-  record proxied, SSL Full (strict), assets-root→apex redirect rule, cache
-  rules (assets 30d edge / 7d browser; HTML respect-origin).
+  script breaks React hydration → LCP collapse), image_resizing ON, apex +
+  www proxied CNAMEs to the Railway per-domain targets (see Railway hosting),
+  SSL Full (strict), assets-root→apex redirect rule, cache rules (assets 30d
+  edge / 7d browser; HTML respect-origin).
 - assets.buriedgames.com = R2 bucket behind Cloudflare.
 - Cloudflare Email Routing aliases (catch-all is OFF/drop — an address that
   isn't listed here is silently discarded, so add a rule before publishing any
-  new address): admin@ + fahed@ → alahmadfahed@gmail.com; support@ + tech@ +
-  careers@ + noreply@ → bg.buriedgames@gmail.com.
+  new address): admin@, fahed@, tech@, support@, careers@, noreply@ ALL →
+  alahmadfahed@gmail.com. Consolidated 2026-07-31; the old
+  bg.buriedgames@gmail.com destination was deleted, so never point a rule at
+  it. Routing is receive-only — sending *as* an alias needs Gmail "Send mail
+  as" over Brevo SMTP.
 - Contact emails: Brevo templates 3 (EN confirm), 4 (AR confirm), 5 (studio
   notification); BREVO_API_KEY in `.env`. Template images must use absolute
   assets.buriedgames.com URLs (the old /api/images route is deleted).
@@ -295,6 +380,9 @@ forms; public profile copy stays GCC service-area** — but apply it here too:
   cache rules, and browsers may hold it for 7 days (hard refresh to see).
 
 ## Machine/tooling gotchas (this Mac)
+- **Never `cd` (strict owner rule, umbrella-wide):** absolute paths and
+  per-tool dir flags only — `railway up <abs-path>`, `git -C <abs-path>`,
+  `pnpm --dir <abs-path>`.
 - `node`/`npm`/`npx` are broken nvm lazy-load shell functions under the
   sandbox — use absolute paths (`~/.nvm/versions/node/v20.20.0/bin/node` is
   arm64; v22/v24 are x64 and Lighthouse refuses them under Rosetta).
@@ -304,11 +392,20 @@ forms; public profile copy stays GCC service-area** — but apply it here too:
 - zsh: never use `path` as a loop variable (it clobbers $PATH).
 
 ## Client proposals
-The studio's reusable proposal system — strategy, pricing philosophy, the branded
-13-page A4 HTML template, and the PDF build process (incl. the print gotchas that
-make dark/glow designs render cleanly) — lives in `proposals/_template/`
-(gitignored, like all client material). **When a client brief comes in, read
-`proposals/_template/PLAYBOOK.md` first** — it has the full process, checklist,
-and the `@media print` rules. Render PDFs with chrome-headless-shell
-`--print-to-pdf`; flatten glows for print (box-shadow/text-shadow rasterise as
-hard blocks in PDF viewers — see playbook).
+Studio business material does **not** live in this repo — it sits one level up at
+`~/Sites/BuriedGames/business/` (`proposals/`, `contracts/`, `company-profile/`),
+outside any git repo. This repo holds only the web app.
+
+The reusable proposal system — strategy, pricing philosophy, the branded 13-page
+A4 HTML template, and the PDF build process (incl. the print gotchas that make
+dark/glow designs render cleanly) — lives in `../business/proposals/_template/`.
+**When a client brief comes in, read
+`~/Sites/BuriedGames/business/proposals/_template/PLAYBOOK.md` first** — it has
+the full process, checklist, and the `@media print` rules. Render PDFs with
+chrome-headless-shell `--print-to-pdf`; flatten glows for print
+(box-shadow/text-shadow rasterise as hard blocks in PDF viewers — see playbook).
+
+`TOKENS.md` and `ga4-service-account.json` deliberately STAY at this repo root:
+`scripts/purge-cdn.mjs` and `scripts/geo-report.mjs` read them from the repo root
+at runtime, and purge-cdn is part of the `pnpm after-deploy` ritual. Per the
+global per-project secrets convention, sibling repos get their own `TOKENS.md`.

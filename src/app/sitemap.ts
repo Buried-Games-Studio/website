@@ -75,8 +75,9 @@ function latestOf(...dates: string[]): string {
 // changeFrequency/priority are ignored by Google but Bing still treats them as
 // hints, and Bing currently indexes ~3x more of this site — so they stay.
 const staticRoutes: Route[] = [
-  // Homepage: the design-works band added a new section (14d48fd).
-  { path: '/', changeFrequency: 'weekly', priority: 1, lastModified: '2026-07-18' },
+  // Homepage: the design-works band added a new section (14d48fd); 2026-07-31
+  // the founder's name was corrected in the credibility band (Elahmad).
+  { path: '/', changeFrequency: 'weekly', priority: 1, lastModified: '2026-07-31' },
   // Index of gamesContent — folds in the per-game updatedAt dates.
   {
     path: '/games',
@@ -89,14 +90,18 @@ const staticRoutes: Route[] = [
   // gained the installations / AR / VR / dashboards capabilities and cards.
   { path: '/services', changeFrequency: 'monthly', priority: 0.8, lastModified: '2026-07-31' },
   { path: '/how-it-works', changeFrequency: 'monthly', priority: 0.7, lastModified: '2026-07-23' },
-  { path: '/releases', changeFrequency: 'weekly', priority: 0.7, lastModified: '2026-07-23' },
+  // 2026-07-31: founder's name corrected in the 2018 founding entry.
+  { path: '/releases', changeFrequency: 'weekly', priority: 0.7, lastModified: '2026-07-31' },
   // 2026-07-31: added installations / AR-VR / websites-dashboards Q&As.
   { path: '/faq', changeFrequency: 'monthly', priority: 0.6, lastModified: '2026-07-31' },
-  { path: '/press', changeFrequency: 'monthly', priority: 0.5, lastModified: '2026-07-23' },
+  // 2026-07-31: founder's name corrected in the fact sheet, boilerplate and
+  // the Person node of the press page's schema.
+  { path: '/press', changeFrequency: 'monthly', priority: 0.5, lastModified: '2026-07-31' },
   // Gained the "How did you hear about us?" field (dbdd15d).
   { path: '/contact-us', changeFrequency: 'yearly', priority: 0.8, lastModified: '2026-07-23' },
-  // Team cards + Person JSON-LD move with content/team.ts.
-  { path: '/about-us', changeFrequency: 'yearly', priority: 0.7, lastModified: '2026-07-23' },
+  // Team cards + Person JSON-LD move with content/team.ts. 2026-07-31: the
+  // founder's name was corrected to Elahmad in both the card and the schema.
+  { path: '/about-us', changeFrequency: 'yearly', priority: 0.7, lastModified: '2026-07-31' },
   {
     path: '/devlog',
     changeFrequency: 'weekly',

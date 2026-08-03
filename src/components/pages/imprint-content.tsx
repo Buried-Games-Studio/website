@@ -19,7 +19,7 @@ export function ImprintContent({ locale }: { locale: Locale }) {
       title: "Legal Notice",
       // Shown only before the entity is on the register — no country is named.
       pending:
-        "This website is operated by Buried Games Studio, an independent game development studio led by its founder, Fahed Alahmad. A registered legal entity is currently being established; its full registration details will be published on this page once incorporation is complete.",
+        "This website is operated by Buried Games Studio, an independent game development studio led by its founder, Fahed Elahmad. A registered legal entity is currently being established; its full registration details will be published on this page once incorporation is complete.",
       basis: "Information provided under the Estonian Information Society Services Act.",
       labels: {
         legalName: "Legal name",

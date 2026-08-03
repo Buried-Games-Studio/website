@@ -132,7 +132,7 @@ const manualEntries: ReleaseEntry[] = [
     kind: "milestone",
     title: { en: "Buried Games Studio founded", ar: "تأسيس استوديو بريد جيمز" },
     body: {
-      en: "Buried Games Studio is founded by Fahed Alahmad as an independent games studio serving Kuwait and the GCC, with roots in the capstone game Gathered by the Light.",
+      en: "Buried Games Studio is founded by Fahed Elahmad as an independent games studio serving Kuwait and the GCC, with roots in the capstone game Gathered by the Light.",
       ar: "تأسس استوديو بريد جيمز على يد فهد الأحمد كاستوديو ألعاب مستقل يخدم الكويت والخليج، بجذور في لعبة التخرج مجتمعون بالنور.",
     },
     link: { href: "/games/gathered-by-the-light", label: { en: "Gathered by the Light, our origins", ar: "مجتمعون بالنور، جذورنا" } },

@@ -25,7 +25,7 @@ clients before you start — Clutch interviews them by email or 15-min call.
 | Founded | 2018 |
 | Company size | 2–9 (adjust if inaccurate) |
 | Location fields | ⚠️ Legal rule: service-area framing only. Where a platform REQUIRES a location, this is an owner decision — never let me fill it. Prefer "Serving Kuwait & the GCC" wording wherever the field is free-text. |
-| Contact | support@buriedgames.com · +965 5552 8686 (WhatsApp) |
+| Contact | support@buriedgames.com · +372 5917 7751 (WhatsApp) |
 | Logo / cover | Press kit assets — https://buriedgames.com/press |
 
 ### Service lines (Clutch asks for % focus — must total 100)

@@ -46,7 +46,7 @@ Independent GCC games studio crafting Arabic-first multiplayer, mobile, and web 
 For Crunchbase "Description" and any field capped at 500 characters.
 
 ```
-Buried Games Studio is an independent game development studio serving clients and players across Kuwait and the GCC. We build Arabic-first multiplayer, mobile, and web games — our own titles (KoutQ8, Nabsh, Power of Bombs, Arrab) and full-cycle client work: game design, 2D/3D art and animation, Unity & Unreal Engine 5 development, multiplayer backends, QA, and store launch. Bilingual by default, RTL-native, culturally fluent in the Gulf. Founded in 2018 by Fahed Alahmad.
+Buried Games Studio is an independent game development studio serving clients and players across Kuwait and the GCC. We build Arabic-first multiplayer, mobile, and web games — our own titles (KoutQ8, Nabsh, Power of Bombs, Arrab) and full-cycle client work: game design, 2D/3D art and animation, Unity & Unreal Engine 5 development, multiplayer backends, QA, and store launch. Bilingual by default, RTL-native, culturally fluent in the Gulf. Founded in 2018 by Fahed Elahmad.
 ```
 
 ```
@@ -60,7 +60,7 @@ Buried Games Studio is an independent game development studio serving clients an
 
 Our catalog includes KoutQ8, a faithful mobile take on Kout, the Gulf's most-played card game; Nabsh, a browser trivia battle with 50+ Arabic categories; Power of Bombs, an Unreal Engine arcade title; and Arrab, an Arabic-first social deduction game in development.
 
-For clients we cover the full pipeline: game design, 2D/3D art and animation, Unity and Unreal Engine 5 development (including MetaHuman digital characters), multiplayer backends, QA, and store launch — bilingual by default, RTL-native, and culturally fluent in the markets we build for. Founded in 2018 by Fahed Alahmad.
+For clients we cover the full pipeline: game design, 2D/3D art and animation, Unity and Unreal Engine 5 development (including MetaHuman digital characters), multiplayer backends, QA, and store launch — bilingual by default, RTL-native, and culturally fluent in the markets we build for. Founded in 2018 by Fahed Elahmad.
 ```
 
 ## Full description (AR)
@@ -88,7 +88,7 @@ For clients we cover the full pipeline: game design, 2D/3D art and animation, Un
 | Categories everywhere | Video Game Developer · Game Development Services · Unity · Unreal Engine · Mobile Games |
 | Website | https://buriedgames.com |
 | Press kit | https://buriedgames.com/press |
-| Contact | support@buriedgames.com · +965 5552 8686 (WhatsApp) |
+| Contact | support@buriedgames.com · +372 5917 7751 (WhatsApp) |
 
 > ✅ Founded year: **2018** (decided 2026-06-13; matches site schema
 > foundingDate 2018-10-01). LinkedIn still shows 2017 — fix it there.

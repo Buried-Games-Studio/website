@@ -12,7 +12,7 @@ export const aboutContent = {
   about_page: {
     en: {
       title: 'Crafting Worlds, One Game at a Time.',
-      p1: 'Founded on the principle of "gameplay first," we believe in crafting games that are not only fun to play but also tell compelling stories. Buried Games Studio is an independent, remote-first game development studio rooted in the Gulf, led by founder Fahed Alahmad, with hands-on experience across Unity, Unreal Engine, and modern web technologies. Our developers, designers, and artists work collaboratively to bring innovative ideas to life.',
+      p1: 'Founded on the principle of "gameplay first," we believe in crafting games that are not only fun to play but also tell compelling stories. Buried Games Studio is an independent, remote-first game development studio rooted in the Gulf, led by founder Fahed Elahmad, with hands-on experience across Unity, Unreal Engine, and modern web technologies. Our developers, designers, and artists work collaboratively to bring innovative ideas to life.',
       p2: 'We partner with studios, brands, and entrepreneurs across the GCC — Saudi Arabia, the UAE, Qatar, Bahrain, and Oman — taking projects from concept to launch. We bring a regional perspective to a growing global industry while keeping a universal appeal, and we constantly explore new technologies and narrative techniques to create memorable worlds for players to explore.',
       mission_title: 'Our Mission',
       mission_text: 'To design and develop high-quality, innovative games that challenge players and create lasting memories. We strive to foster a creative and collaborative environment where passion for gaming translates into exceptional interactive entertainment.',

@@ -49,7 +49,7 @@ export default async function PressPage({ params }: PageProps) {
     ...(legalEntity.registered ? { "legalName": legalEntity.legalName } : {}),
     "description": pressContent.boilerplate.short[locale],
     "foundingDate": "2018-10-01",
-    "founder": { "@type": "Person", "name": "Fahed Alahmad" },
+    "founder": { "@type": "Person", "name": "Fahed Elahmad" },
     "email": pressContent.contact.email,
     "url": SITE,
     "logo": pressContent.logos.downloads[0].href,

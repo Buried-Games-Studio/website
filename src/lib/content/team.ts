@@ -35,8 +35,8 @@ export type TeamMember = {
 
 export const fahed: TeamMember = {
   id: "fahed",
-  name: { en: "Fahed Alahmad", ar: "فهد الأحمد" },
-  latinName: "Fahed Alahmad",
+  name: { en: "Fahed Elahmad", ar: "فهد الأحمد" },
+  latinName: "Fahed Elahmad",
   role: { en: "Founder", ar: "المؤسس" },
   title: { en: "Founder & Lead Developer", ar: "المؤسس والمطور الرئيسي" },
   jobTitle: { en: "Founder", ar: "المؤسس" },
@@ -44,7 +44,7 @@ export const fahed: TeamMember = {
     en: "I started Buried Games with a simple belief: games should be immersive, challenging, and respectful of the player's time. We are building the games we always wanted to play — and helping clients across the GCC build theirs.",
     ar: "أسّست بريد جيمز بإيمان بسيط: يجب أن تكون الألعاب غامرة وتمثّل تحديًا وتحترم وقت اللاعب. نحن نصنع الألعاب التي طالما أردنا أن نلعبها — ونساعد عملاءنا في مختلف دول الخليج على صناعة ألعابهم.",
   },
-  photoUrl: assets.fahedAlahmad,
+  photoUrl: assets.fahedElahmad,
   linkedInUrl: "https://linkedin.com/in/fahed-f-al-ahmad-se",
 };
 

@@ -1,8 +1,0 @@
-# Settings to manage and configure a Firebase App Hosting backend.
-# https://firebase.google.com/docs/app-hosting/configure
-
-runConfig:
-  # One always-warm instance: cold starts were costing 3.6-5s TTFB on first
-  # hits, which capped the mobile PageSpeed score regardless of page weight.
-  minInstances: 1
-  maxInstances: 4
