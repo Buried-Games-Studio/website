@@ -12,8 +12,8 @@ const title: Record<Locale, string> = {
 };
 
 const description: Record<Locale, string> = {
-  en: 'Buried Games is a game development studio serving clients across Kuwait and the GCC, building mobile, multiplayer, and Unity games for studios, brands, and entrepreneurs — Saudi Arabia, UAE, Qatar, Bahrain, and Oman. From concept to launch.',
-  ar: 'بريد جيمز استوديو تطوير ألعاب يخدم العملاء في الكويت والخليج، نبني ألعاب الجوال والألعاب الجماعية وألعاب Unity للاستوديوهات والعلامات التجارية ورواد الأعمال — السعودية والإمارات وقطر والبحرين وعُمان. من الفكرة إلى الإطلاق.',
+  en: 'Game development company for Kuwait and the GCC — mobile, multiplayer and Unity games for studios, brands and entrepreneurs. From concept to launch.',
+  ar: 'شركة تطوير ألعاب إلكترونية للكويت والخليج — ألعاب جوال وجماعية على Unity للاستوديوهات والعلامات التجارية ورواد الأعمال. من الفكرة إلى الإطلاق.',
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

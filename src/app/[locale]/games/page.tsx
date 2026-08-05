@@ -15,7 +15,7 @@ const title: Record<Locale, string> = {
 };
 
 const description: Record<Locale, string> = {
-  en: 'Explore games by Buried Games Studio: Nabsh trivia, Power of Bombs arcade, KoutQ8 cards, Arrab social deduction, and more. Indie game development for Kuwait & the GCC.',
+  en: 'Games by Buried Games Studio: Nabsh trivia, Power of Bombs arcade, KoutQ8 cards, Arrab social deduction, and more.',
   ar: 'استكشف ألعاب استوديو بريد جيمز: نبش للمعلومات العامة، باور أوف بومبز، كوت الكويت للورق، العرّاب للخداع الاجتماعي والمزيد. تطوير ألعاب مستقل للكويت والخليج.',
 };
 
@@ -24,7 +24,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const locale: Locale = isLocale(raw) ? raw : 'en';
 
   return {
-    title: title[locale],
+    // Content/commercial page — `absolute` opts out of the root
+    // "%s | Buried Games Studio" template, which costs 22 of the ~60
+    // characters Google renders. Brand pages keep the template.
+    title: { absolute: title[locale] },
     description: description[locale],
     alternates: {
       canonical: localePath(locale, PATH),

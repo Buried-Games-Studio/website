@@ -3,7 +3,8 @@ import { gamesContent } from '@/lib/content/games';
 import { devlogPosts } from '@/lib/content/devlog';
 import { servicePages } from '@/lib/content/service-pages';
 import { gccLandings, gccLandingSlugs } from '@/lib/content/gcc-landing';
-import { caseStudies } from '@/lib/content/case-studies';
+import { caseStudies, hasEnoughCaseStudies } from '@/lib/content/case-studies';
+import { guides } from '@/lib/content/guides';
 import { DESIGN_WORKS_PATH, designWorks, hasDesignWorks } from '@/lib/content/design-works';
 import { legalEntity } from '@/lib/legal-entity';
 import { locales, localePath, languageAlternates, type Locale } from '@/lib/i18n';
@@ -88,32 +89,41 @@ const staticRoutes: Route[] = [
   // Hub copy lives in content/services.ts, NOT service-pages.ts — the child
   // pages' own dates are deliberately not folded in here. 2026-07-31: hub
   // gained the installations / AR / VR / dashboards capabilities and cards.
-  { path: '/services', changeFrequency: 'monthly', priority: 0.8, lastModified: '2026-07-31' },
-  { path: '/how-it-works', changeFrequency: 'monthly', priority: 0.7, lastModified: '2026-07-23' },
+  { path: '/services', changeFrequency: 'monthly', priority: 0.8, lastModified: '2026-08-05' },
+  { path: '/how-it-works', changeFrequency: 'monthly', priority: 0.7, lastModified: '2026-08-05' },
   // 2026-07-31: founder's name corrected in the 2018 founding entry.
-  { path: '/releases', changeFrequency: 'weekly', priority: 0.7, lastModified: '2026-07-31' },
+  { path: '/releases', changeFrequency: 'weekly', priority: 0.7, lastModified: '2026-08-05' },
   // 2026-07-31: added installations / AR-VR / websites-dashboards Q&As.
   { path: '/faq', changeFrequency: 'monthly', priority: 0.6, lastModified: '2026-07-31' },
   // 2026-07-31: founder's name corrected in the fact sheet, boilerplate and
   // the Person node of the press page's schema.
-  { path: '/press', changeFrequency: 'monthly', priority: 0.5, lastModified: '2026-07-31' },
+  { path: '/press', changeFrequency: 'monthly', priority: 0.5, lastModified: '2026-08-05' },
   // Gained the "How did you hear about us?" field (dbdd15d).
   { path: '/contact-us', changeFrequency: 'yearly', priority: 0.8, lastModified: '2026-07-23' },
   // Team cards + Person JSON-LD move with content/team.ts. 2026-07-31: the
   // founder's name was corrected to Elahmad in both the card and the schema.
-  { path: '/about-us', changeFrequency: 'yearly', priority: 0.7, lastModified: '2026-07-31' },
+  { path: '/about-us', changeFrequency: 'yearly', priority: 0.7, lastModified: '2026-08-05' },
   {
     path: '/devlog',
     changeFrequency: 'weekly',
     priority: 0.8,
     lastModified: latestOf('2026-06-13', ...devlogPosts.map((p) => p.updatedAt)),
   },
-  {
-    path: '/case-studies',
-    changeFrequency: 'monthly',
-    priority: 0.8,
-    lastModified: latestOf('2026-07-23', ...caseStudies.map((cs) => cs.updatedAt)),
-  },
+  // The case-studies INDEX is advertised only once it has enough entries to be
+  // worth a crawl slot; below that it carries `noindex` (see the page's
+  // generateMetadata), and advertising a noindexed URL here would be a
+  // contradictory signal. The individual case studies stay in the sitemap
+  // regardless — they are substantial; it is the list page that is thin.
+  ...(hasEnoughCaseStudies()
+    ? [
+        {
+          path: '/case-studies',
+          changeFrequency: 'monthly',
+          priority: 0.8,
+          lastModified: latestOf('2026-07-23', ...caseStudies.map((cs) => cs.updatedAt)),
+        } as Route,
+      ]
+    : []),
   { path: '/careers', changeFrequency: 'monthly', priority: 0.7, lastModified: '2026-06-13' },
   // Both legal pages were rewritten for the Estonia layer (fe53de2), then
   // rewritten again on incorporation (31.07.2026) — they now name the OÜ, the
@@ -145,6 +155,13 @@ const gameRoutes: Route[] = gamesContent.map((game) => ({
 
 // NB: lastModified is updatedAt, not publishedAt — publishedAt is the source
 // video's 2024 YouTube upload date, not when this article was last edited.
+const guideRoutes: Route[] = guides.map((g) => ({
+  path: `/guides/${g.slug}`,
+  changeFrequency: 'monthly',
+  priority: 0.8,
+  lastModified: g.updatedAt,
+}));
+
 const devlogRoutes: Route[] = devlogPosts.map((post) => ({
   path: `/devlog/${post.slug}`,
   changeFrequency: 'monthly',
@@ -198,16 +215,36 @@ const designWorkRoutes: Route[] = hasDesignWorks()
     ]
   : [];
 
+/**
+ * Route groups, in emission order. These are one flat sitemap — the grouping is
+ * for readers of this file, not for search engines.
+ *
+ * ⚠️ DO NOT convert this to Next's `generateSitemaps()` to get per-group
+ * sitemaps in Search Console. It was tried on 05.08.2026 and is broken on
+ * Next 16.1.3: the `id` reaching the sitemap function arrives as an empty
+ * OBJECT rather than the declared string, so every group renders as an empty
+ * `<urlset/>` — and worse, /sitemap.xml itself starts returning **404**, which
+ * is the URL robots.txt advertises and the one submitted to Search Console.
+ * A silently empty sitemap on a site whose main problem is index coverage is a
+ * far worse outcome than the reporting convenience is worth.
+ *
+ * If per-group coverage reporting is wanted later, do it with explicit route
+ * handlers (`src/app/sitemap-services.xml/route.ts` …) plus a hand-written
+ * index, and verify by curling every URL from `next start` before shipping.
+ */
+const routeGroups: Route[][] = [
+  staticRoutes,      // homepage, hubs, static + legal
+  serviceRoutes,     // the 12 service pages
+  gccLandingRoutes,  // the 6 GCC country pages
+  caseStudyRoutes,
+  designWorkRoutes,
+  gameRoutes,
+  devlogRoutes,
+  guideRoutes,
+];
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [
-    ...staticRoutes,
-    ...serviceRoutes,
-    ...gccLandingRoutes,
-    ...caseStudyRoutes,
-    ...designWorkRoutes,
-    ...gameRoutes,
-    ...devlogRoutes,
-  ];
+  const routes = routeGroups.flat();
 
   // Emit one entry per locale for every route, each carrying the full hreflang
   // map (en / ar / x-default) so search engines can pair the localized URLs.

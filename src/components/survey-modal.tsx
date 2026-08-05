@@ -123,9 +123,13 @@ export function SurveyModal() {
 
     const surveyResponse = selectedValue === "other" ? `Other: ${otherValue}` : selectedValue;
     
-    // Send event to Google Analytics
+    // `source` is a RESERVED GA4 parameter that feeds acquisition attribution —
+    // sending the survey answer under it overwrote the visitor's real referrer
+    // (sessions landed as "friend"/"search_engine"/"advertisement"). Send it as
+    // `heard_about`, the registered event-scoped custom dimension that exists
+    // for exactly this and had been collecting nothing.
     logGtagEvent('survey_submission', {
-        'source': surveyResponse,
+        'heard_about': surveyResponse,
     });
 
     // Show thank you toast

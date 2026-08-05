@@ -27,7 +27,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const path = `/services/${page.slug}`;
 
   return {
-    title: page.metaTitle[locale],
+    // `absolute` opts out of the root layout's "%s | Buried Games Studio"
+    // template. On a commercial page that suffix costs 22 of the ~60 characters
+    // Google renders, spent on a brand term almost nobody searches — the keyword
+    // is worth more than the byline here. Brand pages keep the template.
+    title: { absolute: page.metaTitle[locale] },
     description: page.metaDescription[locale],
     alternates: {
       canonical: localePath(locale, path),

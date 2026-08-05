@@ -15,7 +15,7 @@ const title: Record<Locale, string> = {
 };
 
 const description: Record<Locale, string> = {
-  en: "Get in touch with Buried Games Studio to start your game project. Message us on WhatsApp for the fastest reply, or send a project, partnership, or publishing inquiry across Kuwait and the GCC.",
+  en: "Start your game project with Buried Games Studio. Message us on WhatsApp for the fastest reply, or send a project or partnership inquiry.",
   ar: "تواصل مع استوديو بريد جيمز لبدء مشروع لعبتك. راسلنا عبر واتساب للحصول على أسرع رد، أو أرسل استفسار مشروع أو شراكة أو نشر ألعاب في الكويت ودول الخليج.",
 };
 

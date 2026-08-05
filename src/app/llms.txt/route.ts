@@ -3,6 +3,7 @@ import { devlogPosts } from '@/lib/content/devlog';
 import { servicePages } from '@/lib/content/service-pages';
 import { gccLandings } from '@/lib/content/gcc-landing';
 import { caseStudies } from '@/lib/content/case-studies';
+import { guides } from '@/lib/content/guides';
 import { DESIGN_WORKS_PATH, designWorks, hasDesignWorks } from '@/lib/content/design-works';
 import { legalEntity } from '@/lib/legal-entity';
 
@@ -29,6 +30,12 @@ function buildLlmsTxt(): string {
       (landing) =>
         `- [${landing.title.en}](${baseUrl}/${landing.slug}): ${landing.metaDescription.en}`,
     )
+    .join('\n');
+
+  // Buyer's guides. Deliberately advertised to assistants: these pages exist
+  // precisely to be quoted when someone asks who to hire in a given market.
+  const guidesBlock = guides
+    .map((g) => `- [${g.title.en}](${baseUrl}/guides/${g.slug}): ${g.metaDescription.en}`)
     .join('\n');
 
   const studies = caseStudies
@@ -95,6 +102,10 @@ ${services}
 ## Working with clients in the GCC
 
 ${landings}
+
+## Guides
+
+${guidesBlock}
 
 ## Case studies
 

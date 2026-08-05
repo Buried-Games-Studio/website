@@ -94,14 +94,14 @@ export const gamesContent = [
   {
     id: 'nabsh',
     slug: 'nabsh',
-    updatedAt: '2026-06-13',
+    updatedAt: '2026-08-05',
     title: 'Nabsh',
     status: 'released',
     engine: 'Next.js',
     logoUrl: 'https://assets.buriedgames.com/site/images/nabsh_logo.8d65b3b2.png',
     description: {
-      en: 'A thrilling trivia web game that tests your knowledge on a wide range of topics. Challenge friends and climb the ranks!',
-      ar: 'لعبة معلومات عامة مثيرة على الويب تختبر معلوماتك في مجموعة واسعة من المواضيع. تحدَّ أصدقاءك وتصدر قائمة المتصدرين!',
+      en: 'Play Nabsh free in your browser — a real-time Arabic trivia game. Challenge friends across history, culture and sports, and climb the leaderboard.',
+      ar: 'العب نبش مجانًا في متصفحك — لعبة معلومات عامة عربية مباشرة. تحدَّ أصدقاءك في التاريخ والثقافة والرياضة وتصدَّر قائمة المتصدرين.',
     },
     longDescription: {
         en: 'Nabsh is the ultimate trivia challenge! Compete with players in real-time, answer questions across various categories like history, culture, sports, and more. With a sleek design, engaging gameplay, and social features, Nabsh is the perfect game to prove your knowledge and have fun with friends and family.',
@@ -226,14 +226,14 @@ export const gamesContent = [
   {
     id: 'koutq8',
     slug: 'koutq8',
-    updatedAt: '2026-06-13',
+    updatedAt: '2026-08-05',
     title: 'KoutQ8',
     status: 'released',
     engine: 'Unity',
     logoUrl: 'https://assets.buriedgames.com/site/images/Koutq8Logo.4ef33671.png',
     description: {
-      en: 'A digital adaptation of the popular traditional card game Kout. Play with friends online and prove you are the Kout master.',
-      ar: 'نسخة رقمية من لعبة الورق التقليدية الشهيرة الكوت. العب مع الأصدقاء عبر الإنترنت وأثبت أنك سيد الكوت.',
+      en: 'Play Kout online free — the traditional Kuwaiti card game, rebuilt for iPhone with real-time multiplayer and an AI partner that actually bids.',
+      ar: 'العب الكوت أونلاين مجانًا — لعبة الورق الكويتية التقليدية على الآيفون، بلعب جماعي مباشر وشريك ذكاء اصطناعي يزايد فعلًا.',
     },
     longDescription: {
         en: 'Experience the classic card game Kout like never before. KoutQ8 brings the beloved traditional game to your fingertips, featuring polished graphics, smooth online multiplayer, and challenging AI opponents. Team up with a partner, bid on hands, and strategize to win. Whether you\'re a seasoned veteran or new to the game, KoutQ8 is the definitive digital Kout experience.',
@@ -356,13 +356,13 @@ export const gamesContent = [
   {
     id: 'gathered-by-the-light',
     slug: 'gathered-by-the-light',
-    updatedAt: '2026-06-13',
+    updatedAt: '2026-08-05',
     title: 'Gathered by the Light',
     status: 'completed',
     engine: 'Unity',
     logoUrl: 'https://assets.buriedgames.com/site/images/games/gbtl/logo.502789a1.png',
     description: {
-      en: 'A hand-crafted pixel-art 2D platformer about a young moth on a perilous journey through a dark forest to find a mysterious light. Built as a college capstone project.',
+      en: 'A hand-crafted pixel-art 2D platformer about a young moth crossing a dark forest to find a mysterious light.',
       ar: 'لعبة منصات ثنائية الأبعاد بفن البكسل عن فراشة صغيرة في رحلة خطيرة عبر غابة مظلمة للعثور على ضوء غامض. تم بناؤها كمشروع تخرج جامعي.',
     },
     longDescription: {

@@ -21,12 +21,12 @@ const meta: Record<Locale, { title: string; description: string }> = {
   en: {
     title: "Design Works by Bokhari Hamid, Our Creative Director",
     description:
-      "A showcase of design work by Bokhari Hamid, Creative Director at Buried Games Studio — concept art, character design, branding, and game UI, shared as part of our team's portfolio for Kuwait & the GCC.",
+      "Design work by Bokhari Hamid, Creative Director at Buried Games — concept art, character design, branding and game UI.",
   },
   ar: {
     title: "أعمال التصميم — بوخاري حامد، مديرنا الإبداعي",
     description:
-      "معرض لأعمال التصميم من إبداع بوخاري حامد، المدير الإبداعي في استوديو بريد جيمز — فن مفاهيمي وتصميم شخصيات وهوية بصرية وواجهات ألعاب، ضمن أعمال فريقنا للكويت والخليج.",
+      "أعمال تصميم بوخاري حامد، المدير الإبداعي في بريد جيمز — فن مفاهيمي وتصميم شخصيات وهوية بصرية وواجهات ألعاب.",
   },
 };
 
@@ -35,7 +35,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const locale: Locale = isLocale(raw) ? raw : "en";
 
   return {
-    title: meta[locale].title,
+    // Content/commercial page — `absolute` opts out of the root
+    // "%s | Buried Games Studio" template, which costs 22 of the ~60
+    // characters Google renders. Brand pages keep the template.
+    title: { absolute: meta[locale].title },
     description: meta[locale].description,
     alternates: {
       canonical: localePath(locale, PATH),

@@ -142,7 +142,7 @@ const siteTitle: Record<Locale, { default: string; template: string }> = {
 };
 
 const siteDescription: Record<Locale, string> = {
-  en: 'Buried Games Studio is a game development studio building multiplayer games, mobile games, and interactive experiences for clients across Kuwait and the GCC. Explore our games, services, and devlogs.',
+  en: 'Game development studio building multiplayer, mobile and interactive experiences for clients across Kuwait and the GCC. Our games, services and devlogs.',
   ar: 'استوديو بريد جيمز هو استوديو تطوير ألعاب يصنع ألعابًا جماعية وألعاب جوال وتجارب تفاعلية لعملاء في الكويت والخليج. اكتشف ألعابنا وخدماتنا ومدونة التطوير.',
 };
 

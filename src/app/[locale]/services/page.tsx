@@ -10,13 +10,16 @@ type PageProps = { params: Promise<{ locale: string }> };
 const PATH = "/services";
 
 const title: Record<Locale, string> = {
-  en: "Game Development Services | Unity & Unreal Studio for Kuwait & the GCC",
-  ar: "خدمات تطوير الألعاب — استوديو يونيتي وأنريل للكويت والخليج",
+  // Hub, not a service page: it enumerates the menu so it stops competing
+  // head-on with /services/game-development, which owns "game development
+  // company". Keeps "Services" + GCC for "gcc game dev services" (pos ~5).
+  en: "Our Services — Game, App & Web Development, AR & VR",
+  ar: "خدماتنا — تطوير ألعاب وتطبيقات ومواقع وواقع معزز",
 };
 
 const description: Record<Locale, string> = {
-  en: "Full-cycle game development services for clients across Kuwait and the GCC. Buried Games Studio delivers Unity & Unreal development, mobile game porting, 2D/3D art, QA testing, and backend & multiplayer networking.",
-  ar: "خدمات تطوير ألعاب متكاملة لعملاء الكويت والخليج. يقدّم استوديو بريد جيمز تطوير ألعاب على يونيتي وأنريل، ونقل الألعاب إلى الجوال، وفن ثنائي وثلاثي الأبعاد، وضمان الجودة، وتطوير الواجهة الخلفية والشبكات.",
+  en: "Everything we build for clients across Kuwait and the GCC — game development, mobile apps, websites, game art, AR/VR and interactive installations.",
+  ar: "كل ما نبنيه لعملائنا في الكويت والخليج — تطوير ألعاب إلكترونية، وتطبيقات جوال، ومواقع، وفن ألعاب، وواقع معزز وافتراضي، وتركيبات تفاعلية.",
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -24,7 +27,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const locale: Locale = isLocale(raw) ? raw : "en";
 
   return {
-    title: title[locale],
+    // Commercial page — `absolute` drops the "| Buried Games Studio" suffix so
+    // the ~60 rendered characters go to the keyword, not the byline.
+    title: { absolute: title[locale] },
     description: description[locale],
     alternates: {
       canonical: localePath(locale, PATH),

@@ -37,12 +37,12 @@ export interface EngagementModel {
 
 export const howItWorksContent = {
   metaTitle: {
-    en: "How Game Development Works | Our Process",
+    en: "How Game Development Works",
     ar: "كيف تتم صناعة الألعاب | منهجيتنا",
   } satisfies LocalizedText,
   metaDescription: {
-    en: "How game development works at Buried Games Studio: our 5-step process from concept to launch, engagement models, communication cadence, and the tools we use — for clients across Kuwait and the GCC.",
-    ar: "كيف تتم صناعة الألعاب في استوديو بريد جيمز: منهجيتنا في خمس خطوات من الفكرة إلى الإطلاق، ونماذج التعاون، ووتيرة التواصل، والأدوات التي نستخدمها — لعملاء في الكويت والخليج.",
+    en: "How we build games: our 5-step process from concept to launch, engagement models, and communication cadence — for clients across Kuwait and the GCC.",
+    ar: "كيف نصنع الألعاب: منهجيتنا في خمس خطوات من الفكرة إلى الإطلاق، ونماذج التعاون، ووتيرة التواصل — لعملاء في الكويت والخليج.",
   } satisfies LocalizedText,
 
   hero: {
@@ -232,6 +232,61 @@ export const howItWorksContent = {
     } satisfies LocalizedText,
   },
 
+  /**
+   * "How much does a game cost" is the highest-intent query in this category and
+   * the one the whole funnel actually starts with. It lives HERE rather than on
+   * a new /pricing URL on purpose: 57 of the site's URLs were still unindexed in
+   * the 05.08.2026 audit, so another page would compete for crawl budget that
+   * does not exist, while this page already ranks for process intent and is the
+   * natural place a buyer asks the question.
+   *
+   * No figures. Ever. The truthfulness rule forbids invented budgets, and a
+   * number published before the brief is read is a guess — naming the levers is
+   * both more honest and more useful than a range we would have to walk back.
+   */
+  pricing: {
+    eyebrow: { en: "Budget", ar: "الميزانية" } satisfies LocalizedText,
+    heading: { en: "What a project costs", ar: "كم يكلّف المشروع" } satisfies LocalizedText,
+    intro: {
+      en: "We do not publish a price, because any studio quoting one on a web page is guessing at your project. What we can do is tell you exactly what moves the number, so you can sanity-check any quote you receive — including ours.",
+      ar: "لا ننشر سعرًا، لأن أي استوديو يضع سعرًا على صفحة ويب إنما يخمّن مشروعك. ما نستطيعه أن نخبرك بدقة بما يحرّك الرقم، لتستطيع تقييم أي عرض يصلك — بما فيه عرضنا.",
+    } satisfies LocalizedText,
+    driversLabel: { en: "What moves the number", ar: "ما الذي يحرّك الرقم" } satisfies LocalizedText,
+    drivers: [
+      {
+        title: { en: "Scope", ar: "النطاق" },
+        body: {
+          en: "The count of distinct game modes, screens and rules — not the length of the wish list. Two features that share a system cost far less than two that do not, which is why scoping is a conversation rather than a checklist.",
+          ar: "عدد أنماط اللعب والشاشات والقواعد المتمايزة — لا طول قائمة الأمنيات. ميزتان تتشاركان نظامًا أرخص بكثير من ميزتين لا تتشاركانه، ولهذا تحديد النطاق محادثة لا قائمة تحقق.",
+        },
+      },
+      {
+        title: { en: "Art direction", ar: "التوجيه الفني" },
+        body: {
+          en: "Where estimates diverge most. A stylised 2D title and a realistic 3D one can differ by a multiple for identical gameplay, because the art is the volume of work — every character, environment and animation is made by hand.",
+          ar: "حيث تتباعد التقديرات أكثر ما تتباعد. عنوان ثنائي الأبعاد بأسلوب مصمّم وآخر ثلاثي الأبعاد واقعي قد يفترقان بمضاعفات للعب نفسه، لأن الفن هو حجم العمل — كل شخصية وبيئة وحركة تُصنع يدويًا.",
+        },
+      },
+      {
+        title: { en: "Real-time multiplayer", ar: "اللعب الجماعي الفوري" },
+        body: {
+          en: "The most routinely underestimated line. Online play brings servers, matchmaking, reconnection and anti-cheat with it, and those are architecture rather than features — they cannot be added cheaply to a game budgeted as single-player.",
+          ar: "أكثر البنود استهانةً على نحو متكرر. اللعب عبر الإنترنت يجلب الخوادم ومطابقة اللاعبين وإعادة الاتصال ومكافحة الغش، وتلك بنية لا ميزات — ولا يمكن إضافتها بثمن زهيد إلى لعبة سُعِّرت للاعب واحد.",
+        },
+      },
+      {
+        title: { en: "How settled the design is", ar: "مدى استقرار التصميم" },
+        body: {
+          en: "The quiet one, and the one clients feel most. Building against a design that is still being argued about turns engineering into rework. A playable prototype that answers the fun question early is usually the cheapest thing you will ever commission from us.",
+          ar: "البند الهادئ، وأكثر ما يشعر به العملاء. البناء على تصميم ما زال محل جدال يحوّل الهندسة إلى إعادة عمل. والنموذج الأولي القابل للعب الذي يجيب عن سؤال المتعة مبكرًا هو عادةً أرخص ما ستطلبه منا.",
+        },
+      },
+    ],
+    closing: {
+      en: "Send us the idea — the platform, the audience, and roughly what you picture players doing — and we will come back with a scope and an honest estimate rather than a number designed to win the meeting.",
+      ar: "أرسل لنا الفكرة — المنصة والجمهور وتصورك تقريبًا لما سيفعله اللاعبون — وسنعود بنطاق وتقدير صادق، لا برقم مصمَّم لكسب الاجتماع.",
+    } satisfies LocalizedText,
+  },
   tooling: {
     heading: { en: "The tools we use", ar: "الأدوات التي نستخدمها" } satisfies LocalizedText,
     body: {

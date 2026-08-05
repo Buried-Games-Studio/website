@@ -53,12 +53,12 @@ export interface SocialLink {
 
 export const pressContent = {
   metaTitle: {
-    en: "Press Kit — Game Development for Kuwait & the GCC",
-    ar: "الملف الصحفي — تطوير ألعاب للكويت والخليج",
+    en: "Press Kit — Buried Games",
+    ar: "الملف الصحفي",
   } satisfies LocalizedText,
   metaDescription: {
-    en: "Official press kit for Buried Games Studio: studio boilerplate, founder, founding year, logo downloads, game fact sheets, brand colours, and press contact for journalists and partners covering game development across Kuwait and the GCC.",
-    ar: "الملف الصحفي الرسمي لاستوديو بريد جيمز: نبذة عن الاستوديو، والمؤسس، وسنة التأسيس، وتنزيلات الشعار، وبطاقات تعريف الألعاب، وألوان العلامة، وجهة الاتصال الصحفي للصحفيين والشركاء الذين يغطون تطوير الألعاب في الكويت والخليج.",
+    en: "Press kit for Buried Games Studio: boilerplate, founder, logo downloads, game fact sheets, brand colours, and press contact for journalists.",
+    ar: "الملف الصحفي لاستوديو بريد جيمز: نبذة، والمؤسس، وتنزيلات الشعار، وبطاقات تعريف الألعاب، وألوان العلامة، وجهة الاتصال الصحفي.",
   } satisfies LocalizedText,
 
   hero: {
@@ -136,7 +136,7 @@ export const pressContent = {
       { label: "YouTube", href: "https://www.youtube.com/@buriedgames" },
       { label: "X (Twitter)", href: "https://twitter.com/buriedgames" },
       { label: "Instagram", href: "https://instagram.com/buriedgames" },
-      { label: "LinkedIn", href: "https://linkedin.com/company/buriedgames" },
+      { label: "LinkedIn", href: "https://www.linkedin.com/company/buriedgames" },
       { label: "GitHub", href: "https://github.com/Buried-Games-Studio" },
     ] satisfies SocialLink[],
   },

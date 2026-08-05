@@ -141,16 +141,16 @@ const gathered: ServicePortfolioItem = {
 export const servicePages: ServicePage[] = [
   {
     slug: "game-development",
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-08-05",
     latinName: "Game Development",
     serviceType: "Game Development",
     metaTitle: {
       en: "Game Development Company for Kuwait & the GCC",
-      ar: "شركة تطوير ألعاب للكويت والخليج",
+      ar: "شركة تطوير ألعاب إلكترونية للكويت والخليج",
     },
     metaDescription: {
-      en: "Full-cycle game development company serving Kuwait, the GCC, Saudi Arabia, and the UAE. We design, build, and ship Unity, Unreal Engine 5, mobile, and web games — Arabic-first, end to end.",
-      ar: "شركة تطوير ألعاب متكاملة تخدم العملاء في الكويت والخليج والسعودية والإمارات. نصمم وننفذ ونطلق ألعاب Unity وUnreal Engine 5 والجوال والويب — بالعربية أولًا، من الفكرة إلى الإطلاق.",
+      en: "Full-cycle game development company serving Kuwait and the GCC. We design, build and ship Unity, Unreal Engine 5, mobile and web games — Arabic-first.",
+      ar: "شركة تطوير وتصميم ألعاب إلكترونية متكاملة تخدم الكويت والخليج. نصمم وننفذ ونطلق ألعاب Unity وUnreal Engine 5 للجوال والويب — بالعربية أولًا.",
     },
     hero: {
       eyebrow: { en: "Game Development", ar: "تطوير الألعاب" },
@@ -350,6 +350,36 @@ export const servicePages: ServicePage[] = [
             ar: "غالبًا نعم. نبدأ بمراجعة تقنية لمشروعك وكوده، ثم نقترح أنظف مسار لإكماله أو تحسينه بدلًا من إعادة بناء كل شيء افتراضيًا.",
           },
         },
+        {
+          q: {
+            en: "Do you work with clients outside Kuwait and the GCC?",
+            ar: "هل تعملون مع عملاء خارج الكويت والخليج؟",
+          },
+          a: {
+            en: "Yes. We are a remote-first studio and the Gulf is our home market, not a boundary. What the GCC focus buys you is genuine Arabic and right-to-left capability built in rather than subcontracted — which is worth having whether your players are in Riyadh or anywhere else.",
+            ar: "نعم. نحن استوديو يعمل عن بُعد أولًا، والخليج سوقنا الأم لا حدودنا. ما يمنحك إياه التركيز الخليجي هو قدرة عربية حقيقية ودعم للاتجاه من اليمين إلى اليسار مبنيان أصلًا لا مُسندان لطرف ثالث — وهو ما يستحق اقتناءه سواء كان لاعبوك في الرياض أو في أي مكان آخر.",
+          },
+        },
+        {
+          q: {
+            en: "Who owns the code and the assets?",
+            ar: "لمن ملكية الكود والأصول؟",
+          },
+          a: {
+            en: "You do. Ownership of the work we build for you transfers to you, and the specifics are written into the agreement before anything starts rather than left to be discovered later. If you want to take the project in-house afterwards, that should be a decision you make freely, not one a contract prevents.",
+            ar: "لك. ملكية العمل الذي نبنيه لك تنتقل إليك، والتفاصيل تُكتب في الاتفاقية قبل بدء أي شيء لا تُترك لتُكتشف لاحقًا. وإن أردت نقل المشروع إلى فريقك الداخلي بعد ذلك، فذلك قرار تتخذه بحرية لا قرار يمنعه عقد.",
+          },
+        },
+        {
+          q: {
+            en: "What happens after launch?",
+            ar: "ماذا يحدث بعد الإطلاق؟",
+          },
+          a: {
+            en: "Launch is a milestone, not an ending — a live game generates bug reports, store updates, OS changes that break things, and balance decisions informed by what players actually do. We can stay on for post-launch support and live operations, or hand over cleanly with documentation if you would rather run it yourself. Both are normal; what is not normal is disappearing on launch day.",
+            ar: "الإطلاق محطة لا نهاية — اللعبة الحية تولّد بلاغات أخطاء، وتحديثات متاجر، وتغييرات في أنظمة التشغيل تكسر أشياء، وقرارات توازن يوجّهها ما يفعله اللاعبون فعلًا. نستطيع البقاء للدعم بعد الإطلاق والعمليات الحية، أو التسليم بنظافة مع التوثيق إن فضّلت تشغيلها بنفسك. كلاهما طبيعي؛ وغير الطبيعي هو الاختفاء يوم الإطلاق.",
+          },
+        },
       ],
     },
     cta: {
@@ -363,15 +393,15 @@ export const servicePages: ServicePage[] = [
 
   {
     slug: "mobile-game-development",
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-08-05",
     latinName: "Mobile Game Development",
     serviceType: "Mobile Game Development",
     metaTitle: {
-      en: "Mobile Game Development for Kuwait & the GCC | iOS & Android",
+      en: "Mobile Game Development Company | iOS & Android",
       ar: "تطوير ألعاب الجوال للكويت والخليج | iOS وAndroid",
     },
     metaDescription: {
-      en: "Mobile game development studio for Kuwait and the GCC. We design and build Arabic-first iOS and Android games in Unity — from prototype to App Store and Google Play launch.",
+      en: "Mobile game development company for Kuwait and the GCC. Arabic-first iOS and Android games in Unity — prototype to App Store and Google Play launch.",
       ar: "استوديو تطوير ألعاب جوال للكويت والخليج. نصمم ونبني ألعاب iOS وAndroid عربية أولًا على Unity — من النموذج الأولي إلى الإطلاق على App Store وGoogle Play.",
     },
     hero: {
@@ -456,6 +486,9 @@ export const servicePages: ServicePage[] = [
         { q: { en: "Can you publish the game to the stores for us?", ar: "هل يمكنكم نشر اللعبة على المتاجر نيابة عنا؟" }, a: { en: "We handle store listings, assets, and the full submission and review process. We've already shipped a live title on the App Store, so the process isn't new to us.", ar: "نتولى قوائم المتاجر والأصول وعملية التقديم والمراجعة الكاملة. أطلقنا بالفعل لعبة حية على App Store، فالعملية ليست جديدة علينا." } },
         { q: { en: "Do you add online multiplayer to mobile games?", ar: "هل تضيفون لعبًا جماعيًا عبر الإنترنت لألعاب الجوال؟" }, a: { en: "Yes — accounts, leaderboards, matchmaking, and real-time multiplayer. KoutQ8 ships with online multiplayer and AI opponents.", ar: "نعم — حسابات، ولوحات صدارة، ومطابقة لاعبين، ولعب جماعي فوري. كوت يأتي بلعب جماعي عبر الإنترنت وخصوم ذكاء اصطناعي." } },
         { q: { en: "Will the game work in Arabic?", ar: "هل ستعمل اللعبة بالعربية؟" }, a: { en: "Yes. Arabic is first-class — right-to-left layout and natural Arabic content alongside English, designed for Gulf players from the start.", ar: "نعم. العربية أساسية — تخطيط من اليمين إلى اليسار ومحتوى عربي طبيعي إلى جانب الإنجليزية، مصمم للاعبي الخليج منذ البداية." } },
+        { q: { en: "Can you port an existing PC or web game to mobile?", ar: "هل يمكنكم نقل لعبة حاسوب أو ويب قائمة إلى الجوال؟" }, a: { en: "Usually, though a port is rarely just a rebuild. Touch input has to replace a mouse or gamepad without making the game feel clumsy, UI written for a monitor has to survive a phone screen, and performance budgets tighten sharply. We start with a technical review and tell you honestly whether porting or rebuilding is the cheaper path.", ar: "غالبًا، وإن كان النقل نادرًا ما يكون مجرد إعادة بناء. اللمس عليه أن يحلّ محل الفأرة أو ذراع التحكم دون أن تبدو اللعبة أخرق، والواجهة المكتوبة لشاشة حاسوب عليها أن تصمد على شاشة هاتف، وميزانيات الأداء تضيق بحدّة. نبدأ بمراجعة تقنية ونخبرك بصدق أي المسارين أرخص: النقل أم إعادة البناء." } },
+        { q: { en: "How do you keep a game smooth on mid-range phones?", ar: "كيف تُبقون اللعبة سلسة على هواتف متوسطة؟" }, a: { en: "By treating the mid-range device as the target rather than the exception. That means asset and texture budgets set early, draw calls watched during the build rather than at the end, and testing on real hardware instead of a simulator on a fast desktop. Most games that stutter in the Gulf were tuned on a flagship and never checked against what players actually carry.", ar: "بمعاملة الجهاز المتوسط كهدف لا كاستثناء. أي ميزانيات أصول وخامات تُحدَّد مبكرًا، ونداءات الرسم تُراقَب أثناء البناء لا في نهايته، والاختبار على عتاد حقيقي لا على محاكٍ فوق حاسوب سريع. معظم الألعاب التي تتلعثم في الخليج ضُبطت على جهاز رائد ولم تُختبر قط على ما يحمله اللاعبون فعلًا." } },
+        { q: { en: "How do you handle in-app purchases and ads?", ar: "كيف تتعاملون مع المشتريات داخل التطبيق والإعلانات؟" }, a: { en: "We wire up store billing and ad networks as part of the build, and we will give you an opinion on the design rather than just the plumbing. Monetisation that interrupts the moment a player is enjoying themselves costs more in uninstalls than it earns — the placement decisions matter as much as the integration.", ar: "نوصّل فوترة المتاجر وشبكات الإعلان كجزء من البناء، وسنعطيك رأيًا في التصميم لا في التوصيل فقط. تحقيق الدخل الذي يقاطع اللاعب في لحظة استمتاعه يكلّف في عمليات الحذف أكثر مما يجني — وقرارات التوضيع لا تقلّ أهمية عن التكامل." } },
       ],
     },
     cta: {
@@ -466,16 +499,16 @@ export const servicePages: ServicePage[] = [
 
   {
     slug: "unity-game-development",
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-08-05",
     latinName: "Unity Game Development",
     serviceType: "Unity Game Development",
     metaTitle: {
-      en: "Unity Game Development Studio for Kuwait & the GCC",
+      en: "Unity Game Development Company | Kuwait & the GCC",
       ar: "استوديو تطوير ألعاب Unity للكويت والخليج",
     },
     metaDescription: {
-      en: "Unity game development studio serving Kuwait, the GCC, Saudi Arabia, and the UAE. We build cross-platform mobile, PC, and web games in Unity — Arabic-first, from prototype to launch.",
-      ar: "استوديو تطوير ألعاب Unity يخدم العملاء في الكويت والخليج والسعودية والإمارات. نبني ألعاب جوال وحاسوب وويب متعددة المنصات على Unity — عربية أولًا، من النموذج إلى الإطلاق.",
+      en: "Unity game development company serving Kuwait and the GCC. Cross-platform mobile, PC and web games in Unity — Arabic-first, prototype to launch.",
+      ar: "شركة تطوير ألعاب Unity تخدم الكويت والخليج. نبني ألعاب جوال وحاسوب وويب متعددة المنصات — بالعربية أولًا، من النموذج إلى الإطلاق.",
     },
     hero: {
       eyebrow: { en: "Unity Game Development", ar: "تطوير ألعاب Unity" },
@@ -558,6 +591,8 @@ export const servicePages: ServicePage[] = [
         { q: { en: "Can you continue an existing Unity project?", ar: "هل يمكنكم متابعة مشروع Unity قائم؟" }, a: { en: "Yes. We start with a code and project review, then propose the cleanest way to continue, fix, or extend it rather than rebuilding by default.", ar: "نعم. نبدأ بمراجعة الكود والمشروع، ثم نقترح أنظف طريقة لمتابعته أو إصلاحه أو توسعته بدلًا من إعادة البناء افتراضيًا." } },
         { q: { en: "Do you build custom Unity tools?", ar: "هل تبنون أدوات Unity مخصصة؟" }, a: { en: "Yes — editor extensions and pipeline tooling that speed up content creation and keep your team productive.", ar: "نعم — امتدادات للمحرر وأدوات خط إنتاج تسرّع إنشاء المحتوى وتبقي فريقك منتجًا." } },
         { q: { en: "Which platforms can a Unity game ship to?", ar: "على أي منصات يمكن إطلاق لعبة Unity؟" }, a: { en: "From one Unity project we ship to iOS, Android, PC and Steam, and web via WebGL.", ar: "من مشروع Unity واحد نطلق على iOS وAndroid والحاسوب وSteam، والويب عبر WebGL." } },
+        { q: { en: "Do you build 2D or 3D in Unity?", ar: "هل تبنون ثنائي أم ثلاثي الأبعاد في Unity؟" }, a: { en: "Both. Unity's 2D tooling is what makes it the practical choice for card, puzzle and casual titles — KoutQ8 is 2D — while its 3D pipeline covers everything short of the high-fidelity work we would take to Unreal instead. The dimension follows the game; it is not a constraint of the engine.", ar: "كلاهما. أدوات Unity ثنائية الأبعاد هي ما يجعله الخيار العملي لألعاب الورق والألغاز والألعاب العادية — وكوت ثنائية الأبعاد — بينما يغطي خطّه ثلاثي الأبعاد كل ما دون الأعمال عالية الدقة التي نأخذها إلى Unreal بدلًا منه. البُعد يتبع اللعبة؛ وليس قيدًا من المحرّك." } },
+        { q: { en: "Can you fix a Unity game that runs badly?", ar: "هل يمكنكم إصلاح لعبة Unity تعمل بشكل سيئ؟" }, a: { en: "Often, and it is more common work than people expect. Performance problems in Unity usually trace to a handful of familiar causes — overdraw, uncontrolled instantiation, physics doing more than it needs to, textures shipped at the wrong size. We profile first and report what we find before proposing work, because the fix is sometimes a day and sometimes an architecture change, and you should know which before committing.", ar: "غالبًا، وهو عمل أكثر شيوعًا مما يتوقع الناس. مشكلات الأداء في Unity تعود عادةً إلى أسباب مألوفة معدودة — الرسم الزائد، والاستنساخ غير المضبوط، وفيزياء تفعل أكثر مما تحتاج، وخامات أُرسلت بحجم خاطئ. نُحلّل الأداء أولًا ونبلّغك بما وجدناه قبل اقتراح العمل، لأن الإصلاح أحيانًا يوم وأحيانًا تغيير بنية، ويجدر بك معرفة أيهما قبل الالتزام." } },
       ],
     },
     cta: {
@@ -568,16 +603,16 @@ export const servicePages: ServicePage[] = [
 
   {
     slug: "multiplayer-game-development",
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-08-05",
     latinName: "Multiplayer Game Development",
     serviceType: "Multiplayer Game Development",
     metaTitle: {
-      en: "Multiplayer Game Development for Kuwait & the GCC",
+      en: "Multiplayer Game Development | Real-Time Backends",
       ar: "تطوير الألعاب الجماعية للكويت والخليج",
     },
     metaDescription: {
-      en: "Multiplayer game development studio serving Kuwait and the GCC. We build real-time online multiplayer games — matchmaking, leaderboards, and scalable backends — for mobile, PC, and web.",
-      ar: "استوديو تطوير ألعاب جماعية يخدم الكويت والخليج. نبني ألعابًا جماعية فورية عبر الإنترنت — مطابقة لاعبين، ولوحات صدارة، وواجهات خلفية قابلة للتطوير — للجوال والحاسوب والويب.",
+      en: "Multiplayer game development for Kuwait and the GCC. Real-time online games with matchmaking, leaderboards and scalable backends — mobile, PC, web.",
+      ar: "برمجة ألعاب جماعية للكويت والخليج. ألعاب فورية عبر الإنترنت مع مطابقة لاعبين ولوحات صدارة وواجهات خلفية قابلة للتطوير — جوال وحاسوب وويب.",
     },
     hero: {
       eyebrow: { en: "Multiplayer Game Development", ar: "تطوير الألعاب الجماعية" },
@@ -672,16 +707,16 @@ export const servicePages: ServicePage[] = [
 
   {
     slug: "unreal-engine-development",
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-08-05",
     latinName: "Unreal Engine Development",
     serviceType: "Unreal Engine Development",
     metaTitle: {
-      en: "Unreal Engine Development for Kuwait & the GCC | MetaHuman",
+      en: "Unreal Engine Development Company | MetaHuman",
       ar: "تطوير Unreal Engine للكويت والخليج | ميتاهيومان",
     },
     metaDescription: {
-      en: "Unreal Engine 5 development studio serving Kuwait and the GCC. Blueprints and C++, high-fidelity rendering, and realistic MetaHuman digital characters for games and interactive experiences — Arabic-first.",
-      ar: "استوديو تطوير Unreal Engine 5 يخدم الكويت والخليج. برمجة بـ Blueprints وC++، وعرض عالي الدقة، وشخصيات رقمية واقعية بـ MetaHuman للألعاب والتجارب التفاعلية — بالعربية أولًا.",
+      en: "Unreal Engine 5 development for Kuwait and the GCC. Blueprints and C++, high-fidelity rendering and realistic MetaHuman characters — Arabic-first.",
+      ar: "تطوير Unreal Engine 5 للكويت والخليج. برمجة بـ Blueprints وC++، وعرض عالي الدقة، وشخصيات واقعية بـ MetaHuman — بالعربية أولًا.",
     },
     hero: {
       eyebrow: { en: "Unreal Engine Development", ar: "تطوير Unreal Engine" },
@@ -779,16 +814,16 @@ export const servicePages: ServicePage[] = [
 
   {
     slug: "app-development",
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-08-05",
     latinName: "App Development",
     serviceType: "Mobile App Development",
     metaTitle: {
-      en: "App Development for Kuwait & the GCC | iOS & Android",
+      en: "Mobile App Development Company | iOS & Android",
       ar: "تطوير التطبيقات للكويت والخليج | iOS وAndroid",
     },
     metaDescription: {
-      en: "Mobile app development studio serving Kuwait and the GCC. We build interactive, gamified iOS and Android apps — Unity, native, and web stacks — Arabic-first with proper RTL.",
-      ar: "استوديو تطوير تطبيقات يخدم الكويت والخليج. نبني تطبيقات iOS وAndroid تفاعلية وملعّبة — تقنيات Unity وأصلية وويب — بالعربية أولًا مع تخطيط صحيح من اليمين إلى اليسار.",
+      en: "Mobile app development company for Kuwait and the GCC. Interactive, gamified iOS and Android apps — Unity, native and web, Arabic-first with RTL.",
+      ar: "شركة برمجة تطبيقات للكويت والخليج. تطبيقات iOS وAndroid تفاعلية وملعّبة — Unity وأصلية وويب، بالعربية أولًا مع دعم كامل لليمين إلى اليسار.",
     },
     hero: {
       eyebrow: { en: "App Development", ar: "تطوير التطبيقات" },
@@ -875,6 +910,8 @@ export const servicePages: ServicePage[] = [
         { q: { en: "Do you build native or cross-platform apps?", ar: "هل تبنون تطبيقات أصلية أم متعددة المنصات؟" }, a: { en: "Both, depending on the app. We use Unity for graphics-heavy and game-adjacent apps, native technologies for lean platform-standard builds, and web stacks for progressive web apps — chosen to fit your needs.", ar: "كلاهما، حسب التطبيق. نستخدم Unity للتطبيقات ثقيلة الرسوميات والقريبة من الألعاب، والتقنيات الأصلية للبناءات الخفيفة المعيارية للمنصة، وتقنيات الويب لتطبيقات الويب التقدمية — يُختار بما يناسب احتياجاتك." } },
         { q: { en: "Can you build a companion app for our game?", ar: "هل يمكنكم بناء تطبيق مرافق للعبتنا؟" }, a: { en: "Yes. We build companion apps that connect to a live game — player profiles, stats, second-screen features, and community tools — wired into your existing backend.", ar: "نعم. نبني تطبيقات مرافقة ترتبط بلعبة حية — ملفات لاعبين، وإحصائيات، وميزات الشاشة الثانية، وأدوات مجتمع — موصولة بواجهتك الخلفية القائمة." } },
         { q: { en: "Will the app work in Arabic?", ar: "هل سيعمل التطبيق بالعربية؟" }, a: { en: "Yes. Arabic is first-class — right-to-left layout and natural Arabic content alongside English, designed for Gulf users from the start.", ar: "نعم. العربية أساسية — تخطيط من اليمين إلى اليسار ومحتوى عربي طبيعي إلى جانب الإنجليزية، مصمم لمستخدمي الخليج منذ البداية." } },
+        { q: { en: "Do you handle App Store and Google Play submission?", ar: "هل تتولون النشر على App Store وGoogle Play؟" }, a: { en: "Yes — build configuration, store listings in Arabic and English, screenshots, and the review process itself. Submission is where projects quietly lose weeks, and almost always to metadata and policy details rather than anything in the code, so it helps to have someone who has been through it before.", ar: "نعم — إعداد النسخ، وقوائم المتاجر بالعربية والإنجليزية، واللقطات، وعملية المراجعة نفسها. النشر هو حيث تخسر المشاريع أسابيع بهدوء، وغالبًا بسبب البيانات الوصفية وتفاصيل السياسات لا بسبب شيء في الكود، فيفيد وجود من مرّ بها من قبل." } },
+        { q: { en: "What happens after the app launches?", ar: "ماذا يحدث بعد إطلاق التطبيق؟" }, a: { en: "A live app keeps generating work: OS updates that break things, store policy changes, crash reports, and the feature requests that only appear once real people are using it. We can stay on for support and iteration, or hand over cleanly with documentation if you would rather run it in-house. Both are normal — vanishing on launch day is not.", ar: "التطبيق الحي يواصل توليد العمل: تحديثات أنظمة تشغيل تكسر أشياء، وتغييرات في سياسات المتاجر، وتقارير أعطال، وطلبات ميزات لا تظهر إلا حين يستخدمه أناس حقيقيون. نستطيع البقاء للدعم والتطوير، أو التسليم بنظافة مع التوثيق إن فضّلت تشغيله داخليًا. كلاهما طبيعي — والاختفاء يوم الإطلاق ليس كذلك." } },
       ],
     },
     cta: {
@@ -885,15 +922,15 @@ export const servicePages: ServicePage[] = [
 
   {
     slug: "web-development",
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-08-05",
     latinName: "Web Development",
     serviceType: "Web Development",
     metaTitle: {
-      en: "Web Development for the GCC | Bilingual RTL Websites",
+      en: "Web Development Company | Bilingual RTL Websites",
       ar: "تطوير الويب للخليج | مواقع ثنائية اللغة بدعم RTL",
     },
     metaDescription: {
-      en: "Web development studio serving Kuwait and the GCC. We build modern Next.js websites, web apps, and browser games — bilingual, Arabic-first, RTL-native, fast, and SEO-ready.",
+      en: "Web development company for Kuwait and the GCC. Next.js websites, web apps and browser games — bilingual, Arabic-first, RTL-native and fast.",
       ar: "استوديو تطوير ويب يخدم الكويت والخليج. نبني مواقع وتطبيقات ويب وألعاب متصفح حديثة بـ Next.js — ثنائية اللغة، عربية أولًا، أصيلة في RTL، سريعة وجاهزة للسيو.",
     },
     hero: {
@@ -991,16 +1028,16 @@ export const servicePages: ServicePage[] = [
 
   {
     slug: "game-art-design",
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-08-05",
     latinName: "Game Art & Design",
     serviceType: "Game Art and Design",
     metaTitle: {
-      en: "2D & 3D Game Art, Animation & Design for the GCC",
+      en: "Game Art Outsourcing | 2D & 3D Art & Animation",
       ar: "فن ورسوم وتصميم ألعاب ثنائية وثلاثية الأبعاد للخليج",
     },
     metaDescription: {
-      en: "Game art and design studio serving Kuwait and the GCC. Concept art, 2D and 3D assets, character design, animation, and game UI/UX — all crafted in-house.",
-      ar: "استوديو فن وتصميم ألعاب يخدم الكويت والخليج. فن مفاهيمي، وأصول ثنائية وثلاثية الأبعاد، وتصميم شخصيات، ورسوم متحركة، وواجهة وتجربة مستخدم للألعاب — كلها مصنوعة داخليًا.",
+      en: "Game art outsourcing for Kuwait and the GCC. Concept art, 2D and 3D assets, character design, animation and game UI/UX — all crafted in-house.",
+      ar: "تصميم فني للألعاب في الكويت والخليج. فن مفاهيمي، وأصول ثنائية وثلاثية الأبعاد، وتصميم شخصيات، ورسوم متحركة، وواجهات — كلها داخليًا.",
     },
     hero: {
       eyebrow: { en: "Game Art & Design", ar: "فن وتصميم الألعاب" },
@@ -1097,16 +1134,16 @@ export const servicePages: ServicePage[] = [
 
   {
     slug: "interactive-installations",
-    updatedAt: "2026-07-31",
+    updatedAt: "2026-08-05",
     latinName: "Interactive Installations & IoT Experiences",
     serviceType: "Interactive Installation Development",
     metaTitle: {
-      en: "Interactive Installations & IoT Experiences for Kuwait & the GCC",
+      en: "Interactive Installations & IoT | Kuwait & the GCC",
       ar: "التركيبات التفاعلية وتجارب إنترنت الأشياء للكويت والخليج",
     },
     metaDescription: {
-      en: "We design and build interactive installations for malls, events, and brand activations across Kuwait and the GCC — sensor floors, motion games, kiosk experiences, and IoT-driven games where the physical space is the controller.",
-      ar: "نصمم وننفذ تركيبات تفاعلية للمولات والفعاليات وتفعيلات العلامات التجارية في الكويت والخليج — أرضيات بحساسات، وألعاب حركة، وتجارب أكشاك، وألعاب مدفوعة بإنترنت الأشياء حيث المساحة الفعلية هي وحدة التحكم.",
+      en: "Interactive installations for malls, events and brand activations across Kuwait and the GCC — sensor floors, motion games and IoT-driven experiences.",
+      ar: "تركيبات تفاعلية للمولات والفعاليات وتفعيلات العلامات التجارية في الكويت والخليج — أرضيات بحساسات، وألعاب حركة، وتجارب إنترنت الأشياء.",
     },
     hero: {
       eyebrow: { en: "Interactive Installations", ar: "التركيبات التفاعلية" },
@@ -1201,16 +1238,16 @@ export const servicePages: ServicePage[] = [
 
   {
     slug: "augmented-reality-development",
-    updatedAt: "2026-07-31",
+    updatedAt: "2026-08-05",
     latinName: "Augmented Reality (AR) Development",
     serviceType: "Augmented Reality Development",
     metaTitle: {
-      en: "Augmented Reality (AR) Development for Kuwait & the GCC",
+      en: "Augmented Reality (AR) Development | Kuwait & GCC",
       ar: "تطوير الواقع المعزز (AR) للكويت والخليج",
     },
     metaDescription: {
-      en: "AR development studio serving Kuwait and the GCC. We build augmented reality apps, WebAR campaigns, AR product visualization, and AR games in Unity — Arabic-first, from concept to launch.",
-      ar: "استوديو تطوير واقع معزز يخدم الكويت والخليج. نبني تطبيقات واقع معزز، وحملات WebAR، وعرض منتجات بالواقع المعزز، وألعاب AR على Unity — بالعربية أولًا، من الفكرة إلى الإطلاق.",
+      en: "AR development for Kuwait and the GCC. Augmented reality apps, WebAR campaigns, product visualization and AR games in Unity — Arabic-first.",
+      ar: "تطوير الواقع المعزز للكويت والخليج. تطبيقات AR، وحملات WebAR، وعرض المنتجات، وألعاب واقع معزز على Unity — بالعربية أولًا.",
     },
     hero: {
       eyebrow: { en: "AR Development", ar: "تطوير الواقع المعزز" },
@@ -1303,16 +1340,16 @@ export const servicePages: ServicePage[] = [
 
   {
     slug: "virtual-reality-development",
-    updatedAt: "2026-07-31",
+    updatedAt: "2026-08-05",
     latinName: "Virtual Reality (VR) Development",
     serviceType: "Virtual Reality Development",
     metaTitle: {
-      en: "Virtual Reality (VR) Development for Kuwait & the GCC",
+      en: "Virtual Reality (VR) Development | Meta Quest & PC",
       ar: "تطوير الواقع الافتراضي (VR) للكويت والخليج",
     },
     metaDescription: {
-      en: "VR development studio serving Kuwait and the GCC. We build virtual reality games, training simulations, virtual showrooms, and event VR experiences for Meta Quest and PC VR — in Unity and Unreal Engine 5.",
-      ar: "استوديو تطوير واقع افتراضي يخدم الكويت والخليج. نبني ألعاب واقع افتراضي، ومحاكاة تدريب، وصالات عرض افتراضية، وتجارب VR للفعاليات على Meta Quest وPC VR — بمحركي Unity وUnreal Engine 5.",
+      en: "VR development for Kuwait and the GCC. Virtual reality games, training simulations, showrooms and event VR for Meta Quest and PC VR — Unity and UE5.",
+      ar: "تطوير الواقع الافتراضي للكويت والخليج. ألعاب VR، ومحاكاة تدريب، وصالات عرض افتراضية لـ Meta Quest وPC VR — بمحركي Unity وUnreal Engine 5.",
     },
     hero: {
       eyebrow: { en: "VR Development", ar: "تطوير الواقع الافتراضي" },
@@ -1396,6 +1433,8 @@ export const servicePages: ServicePage[] = [
         { q: { en: "Is VR only for games?", ar: "هل الواقع الافتراضي للألعاب فقط؟" }, a: { en: "No — some of the strongest VR use cases are training simulations where mistakes are free, virtual showrooms and real-estate walkthroughs, and exhibition experiences that draw a crowd to a stand. We bring game craft to all of them, because engagement is what makes them work.", ar: "لا — بعض أقوى استخدامات الواقع الافتراضي محاكاةُ تدريب حيث الأخطاء مجانية، وصالات عرض وجولات عقارية افتراضية، وتجارب معارض تجذب الجمهور إلى الجناح. نضع حِرفة الألعاب فيها جميعًا، لأن التفاعل هو ما يجعلها تنجح." } },
         { q: { en: "How do you stop people feeling motion sick?", ar: "كيف تمنعون شعور الناس بدوار الحركة؟" }, a: { en: "Comfort is engineered, not hoped for: locked frame-rate budgets, comfort-first locomotion (teleport and vignetting where appropriate), correct world scale, and testing with first-time users. It's the single biggest difference between professional VR and a demo.", ar: "الراحة تُهندَس ولا تُترك للحظ: ميزانيات معدل إطارات مثبتة، وتنقل يقدّم الراحة أولًا (انتقال لحظي وتظليل محيطي عند الحاجة)، ومقياس عالم صحيح، واختبار مع مستخدمين لأول مرة. إنه أكبر فرق بين الـ VR الاحترافي والعرض التجريبي." } },
         { q: { en: "Can you run VR at our event or exhibition stand?", ar: "هل يمكن تشغيل الواقع الافتراضي في فعاليتنا أو جناحنا؟" }, a: { en: "Yes — we design for the event floor: short repeatable sessions, auto-start kiosk builds, a spectator screen showing what the player sees, and staff training so your team runs it without us standing there.", ar: "نعم — نصمم لأرض الفعالية: جلسات قصيرة قابلة للتكرار، ونسخ بتشغيل تلقائي بنمط الكشك، وشاشة مشاهدين تعرض ما يراه اللاعب، وتدريب لفريقكم ليديرها دون وقوفنا هناك." } },
+        { q: { en: "How long should a VR experience be?", ar: "كم ينبغي أن تطول تجربة الواقع الافتراضي؟" }, a: { en: "Shorter than most briefs assume. For a public setting — an event, a showroom, a mall — a few minutes is usually right: long enough to land the idea, short enough that a queue keeps moving and nobody overheats in a headset. Training simulations are the exception, since there the point is repetition rather than impression.", ar: "أقصر مما تفترض معظم الموجزات. في مكان عام — فعالية أو صالة عرض أو مول — تكون بضع دقائق مناسبة عادةً: طويلة بما يوصل الفكرة، وقصيرة بما يُبقي الطابور متحركًا ولا يُرهق أحدًا داخل النظارة. ومحاكاة التدريب استثناء، لأن المقصد فيها التكرار لا الانطباع." } },
+        { q: { en: "Do you build for hand tracking or controllers?", ar: "هل تبنون للتتبع اليدوي أم لأذرع التحكم؟" }, a: { en: "It depends on who is putting the headset on. Controllers are more precise and more reliable, which suits training and anything requiring fine input. Hand tracking removes the explanation step entirely, which matters enormously for a public installation where most visitors have never used VR and nobody is there to coach them through a controller layout.", ar: "يعتمد على من سيرتدي النظارة. أذرع التحكم أدقّ وأوثق، وهو ما يناسب التدريب وكل ما يتطلب مدخلات دقيقة. والتتبع اليدوي يلغي خطوة الشرح تمامًا، وهو أمر بالغ الأهمية في تركيب عام حيث لم يجرّب معظم الزوار الواقع الافتراضي قط ولا أحد هناك ليشرح لهم توزيع الأزرار." } },
       ],
     },
     cta: {
@@ -1406,16 +1445,16 @@ export const servicePages: ServicePage[] = [
 
   {
     slug: "dashboard-development",
-    updatedAt: "2026-07-31",
+    updatedAt: "2026-08-05",
     latinName: "Dashboards, Admin Panels & Internal Tools",
     serviceType: "Dashboard & Internal Tools Development",
     metaTitle: {
-      en: "Dashboard & Admin Panel Development for Kuwait & the GCC",
+      en: "Dashboard & Admin Panel Development | Kuwait & GCC",
       ar: "تطوير لوحات التحكم ولوحات الإدارة للكويت والخليج",
     },
     metaDescription: {
-      en: "We build real-time dashboards, admin panels, and internal tools for businesses across Kuwait and the GCC — live data, bilingual Arabic-English interfaces, and control consoles for apps, games, and installations.",
-      ar: "نبني لوحات تحكم فورية ولوحات إدارة وأدوات داخلية للشركات في الكويت والخليج — بيانات حية، وواجهات ثنائية اللغة عربي-إنجليزي، ووحدات تحكم للتطبيقات والألعاب والتركيبات.",
+      en: "Real-time dashboards, admin panels and internal tools for businesses across Kuwait and the GCC — live data and bilingual Arabic-English interfaces.",
+      ar: "لوحات تحكم فورية ولوحات إدارة وأدوات داخلية للشركات في الكويت والخليج — بيانات حية وواجهات ثنائية اللغة عربي-إنجليزي.",
     },
     hero: {
       eyebrow: { en: "Dashboards & Internal Tools", ar: "لوحات التحكم والأدوات الداخلية" },
@@ -1505,6 +1544,242 @@ export const servicePages: ServicePage[] = [
     cta: {
       title: { en: "Drowning in spreadsheets?", ar: "غارق في جداول البيانات؟" },
       body: { en: "Tell us the workflow and the numbers you need to see — we'll come back with a dashboard concept and a clear scope.", ar: "أخبرنا بسير العمل والأرقام التي تحتاج رؤيتها — وسنعود إليك بمفهوم لوحة تحكم ونطاق واضح." },
+    },
+  },
+  {
+    slug: "arabic-game-localization",
+    updatedAt: "2026-08-05",
+    latinName: "Arabic Game Localization",
+    serviceType: "Arabic Game Localization",
+    metaTitle: {
+      en: "Arabic Game Localization | RTL-Native, Built by a Studio",
+      ar: "أقلمة الألعاب للعربية | دعم أصيل لليمين إلى اليسار",
+    },
+    metaDescription: {
+      en: "Arabic game localization by a games studio, not a translation agency — RTL-native layout, Arabic typography and cultural review, built in not bolted on.",
+      ar: "أقلمة ألعاب للعربية من استوديو ألعاب لا من وكالة ترجمة — تخطيط أصيل من اليمين إلى اليسار، وطباعة عربية، ومراجعة ثقافية، مبنية في الصميم لا ملحقة.",
+    },
+    hero: {
+      eyebrow: { en: "Arabic & RTL", ar: "العربية والاتجاه من اليمين إلى اليسار" },
+      title: {
+        en: "Arabic game localization, built in — not bolted on",
+        ar: "أقلمة الألعاب للعربية، مبنية في الصميم لا ملحقة",
+      },
+      subtitle: {
+        en: "Most games reach Gulf players in English with Arabic added at the end, and players can tell. We build Arabic as a first-class language from the first screen, because right-to-left is a layout decision, not a settings toggle.",
+        ar: "معظم الألعاب تصل إلى لاعبي الخليج بالإنجليزية والعربية مضافة في النهاية، واللاعبون يلحظون ذلك. نحن نبني العربية لغةً من الدرجة الأولى من الشاشة الأولى، لأن الاتجاه من اليمين إلى اليسار قرار تخطيط لا مفتاح إعدادات.",
+      },
+    },
+    intro: {
+      en: [
+        "There is a particular kind of broken that Arabic-speaking players recognise instantly: text that overflows its button, a menu that mirrors correctly but leaves every icon pointing the wrong way, numerals in the wrong script, a date format nobody here uses, and dialogue that reads like a manual because it was translated line by line with no idea which character was speaking.",
+        "None of that is a translation problem, and no amount of re-translating fixes it. It is an architecture problem, created at the moment someone treated right-to-left as a language setting rather than a different layout. By the time the Arabic build is tested, the cost of unpicking it is enormous — which is why so many studios ship it anyway and hope.",
+        "We approach it from the other end. Arabic is a first-class language in our own titles — KoutQ8, Nabsh and Arrab are all fully bilingual — so the RTL work is not a service we learned to sell, it is how our games are built. That is a different thing from a translation vendor, and it is the reason this page exists.",
+      ],
+      ar: [
+        "ثمة نوع من الخلل يلتقطه اللاعبون العرب فورًا: نص يفيض عن زرّه، وقائمة تنعكس صحيحًا لكن كل أيقونة فيها تشير إلى الاتجاه الخاطئ، وأرقام بخط غير مناسب، وصيغة تاريخ لا يستخدمها أحد هنا، وحوار يُقرأ كدليل استخدام لأنه تُرجم سطرًا سطرًا دون معرفة من المتحدث.",
+        "لا شيء من ذلك مشكلة ترجمة، ولا تُصلحه إعادة الترجمة مهما تكررت. إنها مشكلة بنية، نشأت لحظة عامل أحدهم الاتجاه من اليمين إلى اليسار كإعداد لغة لا كتخطيط مختلف. وحين تُختبر النسخة العربية تكون كلفة فكّها هائلة — ولهذا يُطلقها كثير من الاستوديوهات على حالها ويأملون.",
+        "نحن نأتيها من الطرف الآخر. العربية لغة من الدرجة الأولى في عناويننا نفسها — كوت ونبش وعراب كلها ثنائية اللغة بالكامل — فعمل الاتجاه من اليمين إلى اليسار ليس خدمة تعلّمنا بيعها، بل هو الطريقة التي تُبنى بها ألعابنا. وذلك أمر مختلف عن مورّد ترجمة، وهو سبب وجود هذه الصفحة.",
+      ],
+    },
+    included: {
+      heading: { en: "What's included", ar: "ما يشمله" },
+      items: [
+        {
+          title: { en: "RTL layout architecture", ar: "بنية التخطيط من اليمين إلى اليسار" },
+          body: {
+            en: "Every screen, modal, HUD and transition built to mirror properly — including the icons, progress directions and animations that mirroring usually breaks.",
+            ar: "كل شاشة ونافذة وواجهة وانتقال مبنية لتنعكس على نحو صحيح — بما في ذلك الأيقونات واتجاهات التقدم والحركات التي عادةً ما يكسرها الانعكاس.",
+          },
+        },
+        {
+          title: { en: "Arabic typography", ar: "الطباعة العربية" },
+          body: {
+            en: "Type chosen for Arabic letterforms rather than inherited from a Latin design, with the line height, kashida behaviour and sizing Arabic actually needs.",
+            ar: "خطوط مختارة لأشكال الحروف العربية لا موروثة من تصميم لاتيني، بارتفاع سطر وسلوك كشيدة وأحجام تحتاجها العربية فعلًا.",
+          },
+        },
+        {
+          title: { en: "Text expansion handling", ar: "معالجة تمدّد النص" },
+          body: {
+            en: "UI that survives Arabic strings running longer or shorter than the English they replaced, tested against real copy rather than placeholder text.",
+            ar: "واجهة تصمد أمام نصوص عربية أطول أو أقصر مما استبدلته من الإنجليزية، مختبَرة بنصوص حقيقية لا بنص نائب.",
+          },
+        },
+        {
+          title: { en: "Gulf-appropriate copy", ar: "نصوص مناسبة للخليج" },
+          body: {
+            en: "Writing in natural Gulf Arabic with the register a game needs, not the formal register a legal document needs — and not machine translation.",
+            ar: "كتابة بعربية خليجية طبيعية بالمستوى الذي تحتاجه اللعبة، لا المستوى الرسمي الذي يحتاجه مستند قانوني — ولا ترجمة آلية.",
+          },
+        },
+        {
+          title: { en: "Numerals, dates and currency", ar: "الأرقام والتواريخ والعملة" },
+          body: {
+            en: "The right numeral script, date formats people here actually read, and local currency handling in stores and in-game purchases.",
+            ar: "خط الأرقام الصحيح، وصيغ تواريخ يقرأها الناس هنا فعلًا، ومعالجة للعملة المحلية في المتاجر والمشتريات داخل اللعبة.",
+          },
+        },
+        {
+          title: { en: "Cultural review", ar: "مراجعة ثقافية" },
+          body: {
+            en: "A pass over art, iconography, names and themes by people from the region — the cheapest possible time to catch something that would not land well.",
+            ar: "مرور على الفن والأيقونات والأسماء والموضوعات من أشخاص من المنطقة — أرخص وقت ممكن لالتقاط ما قد لا يُستقبل جيدًا.",
+          },
+        },
+        {
+          title: { en: "Bilingual builds", ar: "نسخ ثنائية اللغة" },
+          body: {
+            en: "One build serving both languages with a live switch, so an Arabic player and an English-speaking friend can sit in the same match.",
+            ar: "نسخة واحدة تخدم اللغتين بمفتاح تبديل حي، فيجلس لاعب عربي وصديق يتحدث الإنجليزية في المباراة نفسها.",
+          },
+        },
+        {
+          title: { en: "Store localisation", ar: "أقلمة المتاجر" },
+          body: {
+            en: "Arabic listings, screenshots and metadata for the App Store and Google Play — the part that decides whether anyone installs the localised build at all.",
+            ar: "قوائم ولقطات وبيانات وصفية بالعربية لـ App Store وGoogle Play — وهو ما يحدد إن كان أحد سيثبّت النسخة المؤقلمة أصلًا.",
+          },
+        },
+      ],
+    },
+    platforms: {
+      heading: { en: "Where this applies", ar: "أين ينطبق هذا" },
+      intro: {
+        en: "The same discipline applies wherever the interface lives — the constraints change, the principle does not.",
+        ar: "ينطبق الانضباط نفسه أينما كانت الواجهة — تتغير القيود ولا يتغير المبدأ.",
+      },
+      items: [
+        { label: "Unity", note: { en: "Mobile and PC games, where RTL touches layout groups, text mesh and input.", ar: "ألعاب الجوال والحاسوب، حيث يمسّ الاتجاه من اليمين إلى اليسار مجموعات التخطيط والنصوص والمدخلات." } },
+        { label: "Unreal Engine 5", note: { en: "High-fidelity 3D titles and the UMG interfaces layered over them.", ar: "عناوين ثلاثية الأبعاد عالية الدقة وواجهات UMG المبنية فوقها." } },
+        { label: "Web", note: { en: "Browser games and web apps, where CSS logical properties do the work if you use them from the start.", ar: "ألعاب المتصفح وتطبيقات الويب، حيث تؤدي خصائص CSS المنطقية العمل إن استُخدمت من البداية." } },
+        { label: "iOS & Android", note: { en: "Native app shells, store listings, and the system-level RTL that surrounds the game.", ar: "أغلفة التطبيقات الأصلية، وقوائم المتاجر، ودعم الاتجاه على مستوى النظام حول اللعبة." } },
+      ],
+    },
+    process: {
+      heading: { en: "How we approach it", ar: "كيف نتعامل معها" },
+      steps: [
+        {
+          title: { en: "Audit", ar: "التدقيق" },
+          outcome: {
+            en: "We go through the game screen by screen in Arabic and report what breaks, ranked by how expensive it is to fix. You get the honest list even if you decide not to hire us for the work.",
+            ar: "نمرّ على اللعبة شاشةً شاشة بالعربية ونبلّغ بما ينكسر، مرتَّبًا بحسب كلفة إصلاحه. تحصل على القائمة الصادقة حتى إن قررت ألا توظّفنا للعمل.",
+          },
+        },
+        {
+          title: { en: "Architecture", ar: "البنية" },
+          outcome: {
+            en: "Layout, typography and string handling are fixed at the structural level before any copy is written, because translating into a broken layout just produces a broken layout in two languages.",
+            ar: "يُصلَح التخطيط والطباعة ومعالجة النصوص على المستوى البنيوي قبل كتابة أي نص، لأن الترجمة داخل تخطيط مكسور لا تنتج إلا تخطيطًا مكسورًا بلغتين.",
+          },
+        },
+        {
+          title: { en: "Copy", ar: "النصوص" },
+          outcome: {
+            en: "Arabic written with the game's context in hand — who is speaking, what the tone is, how much room the string has — rather than a spreadsheet of disconnected lines.",
+            ar: "عربية مكتوبة والسياق في اليد — من المتحدث، وما النبرة، وكم المساحة المتاحة للنص — لا جدول بيانات من أسطر مفصولة.",
+          },
+        },
+        {
+          title: { en: "Cultural pass", ar: "المرور الثقافي" },
+          outcome: {
+            en: "Art, names, iconography and themes reviewed by people from the region before launch rather than after a complaint.",
+            ar: "الفن والأسماء والأيقونات والموضوعات تُراجَع من أشخاص من المنطقة قبل الإطلاق لا بعد شكوى.",
+          },
+        },
+        {
+          title: { en: "Test in Arabic", ar: "الاختبار بالعربية" },
+          outcome: {
+            en: "The Arabic build is played as its own game, on real devices, not spot-checked as a variant of the English one. Most RTL bugs only appear to someone actually playing in Arabic.",
+            ar: "تُلعب النسخة العربية بوصفها لعبة قائمة بذاتها، على أجهزة حقيقية، لا تُفحص عيّنةً كنسخة من الإنجليزية. معظم أخطاء الاتجاه لا تظهر إلا لمن يلعب بالعربية فعلًا.",
+          },
+        },
+      ],
+    },
+    whyGcc: {
+      heading: { en: "Why a studio, not an agency", ar: "لماذا استوديو لا وكالة" },
+      body: {
+        en: "Search for Arabic game localization and almost everything you find is a translation company. They are good at translation. The problem is that most of what goes wrong in an Arabic build is not translation.",
+        ar: "ابحث عن أقلمة الألعاب للعربية وستجد أن معظم النتائج شركات ترجمة. وهي جيدة في الترجمة. المشكلة أن معظم ما يختلّ في النسخة العربية ليس ترجمة.",
+      },
+      points: [
+        {
+          title: { en: "We can change the build", ar: "نستطيع تعديل النسخة" },
+          body: {
+            en: "An agency hands back a file. When the fix is a layout group, a shader, or how the UI is composed, someone has to open the project — and that is the part we do.",
+            ar: "الوكالة تعيد إليك ملفًا. وحين يكون الإصلاح مجموعة تخطيط أو مظللًا أو طريقة تركيب الواجهة، على أحدهم أن يفتح المشروع — وذلك هو الجزء الذي نؤديه.",
+          },
+        },
+        {
+          title: { en: "We write with context", ar: "نكتب والسياق في اليد" },
+          body: {
+            en: "Game copy translated out of context reads wrong even when every word is right. We write it inside the game, seeing the screen it lands on.",
+            ar: "نصوص اللعبة المترجمة خارج السياق تُقرأ خاطئة حتى لو صحّت كل كلمة. نحن نكتبها داخل اللعبة، ونحن نرى الشاشة التي ستحلّ فيها.",
+          },
+        },
+        {
+          title: { en: "It is how we ship anyway", ar: "هكذا نُطلق أصلًا" },
+          body: {
+            en: "Our own titles are bilingual, so this is not a capability we assembled for a client brief. It is the default we already work in.",
+            ar: "عناويننا نفسها ثنائية اللغة، فهذه ليست قدرة جمّعناها لموجز عميل. إنها الوضع الافتراضي الذي نعمل به أصلًا.",
+          },
+        },
+      ],
+    },
+    portfolio: {
+      heading: { en: "Proof from our portfolio", ar: "دليل من أعمالنا" },
+      intro: {
+        en: "Bilingual, Arabic-first titles we built ourselves — the same standard we would hold your game to.",
+        ar: "عناوين ثنائية اللغة بالعربية أولًا بنيناها بأنفسنا — المعيار نفسه الذي سنحاكم إليه لعبتك.",
+      },
+      items: [koutq8, nabsh, arrab],
+    },
+    faq: {
+      heading: { en: "Arabic localization FAQ", ar: "أسئلة شائعة عن الأقلمة للعربية" },
+      items: [
+        {
+          q: { en: "Is this translation, or development?", ar: "هل هذه ترجمة أم تطوير؟" },
+          a: {
+            en: "Both, and that is the point. The writing matters, but most of what makes an Arabic build feel wrong is layout, typography and input — engineering work a translation vendor cannot do because it requires opening the project.",
+            ar: "كلاهما، وهذا هو المقصد. الكتابة مهمة، لكن معظم ما يجعل النسخة العربية تبدو خاطئة هو التخطيط والطباعة والمدخلات — عمل هندسي لا يستطيعه مورّد ترجمة لأنه يتطلب فتح المشروع.",
+          },
+        },
+        {
+          q: { en: "Can you localise a game we built elsewhere?", ar: "هل يمكنكم أقلمة لعبة بنيناها في مكان آخر؟" },
+          a: {
+            en: "Usually. We start with an audit and tell you honestly what it will take — sometimes it is a clean pass, sometimes the UI needs restructuring first. You get that assessment before committing to the work.",
+            ar: "غالبًا. نبدأ بتدقيق ونخبرك بصدق بما سيتطلبه — أحيانًا يكون مرورًا نظيفًا، وأحيانًا تحتاج الواجهة إعادة هيكلة أولًا. تحصل على ذلك التقييم قبل الالتزام بالعمل.",
+          },
+        },
+        {
+          q: { en: "How early should Arabic be considered?", ar: "متى ينبغي التفكير في العربية؟" },
+          a: {
+            en: "Before the first screen is built, if you have the choice. Retrofitting right-to-left into a finished game is one of the most expensive corrections in this business, and it is entirely avoidable by deciding early.",
+            ar: "قبل بناء الشاشة الأولى، إن كان الخيار بيدك. إقحام الاتجاه من اليمين إلى اليسار في لعبة منتهية من أغلى التصحيحات في هذه الصناعة، وهو قابل للتجنب تمامًا بقرار مبكر.",
+          },
+        },
+        {
+          q: { en: "Do you cover Gulf dialect or Modern Standard Arabic?", ar: "هل تغطون اللهجة الخليجية أم العربية الفصحى؟" },
+          a: {
+            en: "Whichever the game needs — and that is a real decision, not a detail. Modern Standard reads correct but distant; Gulf dialect reads like a person. Casual and social titles usually want the latter, and we will give you an opinion rather than wait to be told.",
+            ar: "أيهما تحتاجه اللعبة — وذلك قرار حقيقي لا تفصيل. الفصحى تُقرأ صحيحة لكن بعيدة؛ واللهجة الخليجية تُقرأ كإنسان. العناوين العادية والاجتماعية تريد الثانية عادةً، وسنعطيك رأيًا بدل انتظار التوجيه.",
+          },
+        },
+        {
+          q: { en: "Do you test the Arabic build separately?", ar: "هل تختبرون النسخة العربية على حدة؟" },
+          a: {
+            en: "Yes, on real devices, played as its own game. Most RTL problems are invisible to someone checking an Arabic build in English — they only surface for a person actually playing in Arabic.",
+            ar: "نعم، على أجهزة حقيقية، وتُلعب بوصفها لعبة قائمة بذاتها. معظم مشكلات الاتجاه غير مرئية لمن يفحص نسخة عربية بعقلية إنجليزية — ولا تظهر إلا لمن يلعب بالعربية فعلًا.",
+          },
+        },
+      ],
+    },
+    cta: {
+      title: { en: "Shipping to Arabic-speaking players?", ar: "تُطلق للاعبين العرب؟" },
+      body: {
+        en: "Send us the build or the plan and we will tell you honestly what standing up properly in Arabic would take.",
+        ar: "أرسل لنا النسخة أو الخطة وسنخبرك بصدق بما سيتطلبه الوقوف بالعربية على نحو صحيح.",
+      },
     },
   },
 ];

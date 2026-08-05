@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { StudioStatsBand } from "@/components/ui/studio-stats-band";
 import { ArrowRight } from "lucide-react";
 import { m } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -72,6 +73,11 @@ export function GccLandingContent({
           </m.div>
         </div>
       </section>
+
+      {/* Proof, immediately under the hero — the competing pages lead with
+          shipped-title counts and client logos, and a country page with no
+          numbers at all reads as smaller than it is. Real figures only. */}
+      <StudioStatsBand locale={locale} />
 
       {/* CONTENT SECTIONS — alternating surfaces, start-aligned */}
       {landing.sections.map((section, i) => {

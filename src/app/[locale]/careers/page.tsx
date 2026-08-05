@@ -14,7 +14,7 @@ const title: Record<Locale, string> = {
 };
 
 const description: Record<Locale, string> = {
-  en: 'Join Buried Games Studio. Explore open positions and become part of an indie game development team crafting multiplayer games, strategy games, and interactive digital experiences.',
+  en: 'Join Buried Games Studio. Open positions on an indie team crafting multiplayer, strategy and interactive digital experiences.',
   ar: 'انضم إلى استوديو بريد جيمز. اكتشف الوظائف المتاحة وكن جزءاً من فريق مستقل لتطوير الألعاب يصنع ألعاباً جماعية وألعاب استراتيجية وتجارب رقمية تفاعلية.',
 };
 

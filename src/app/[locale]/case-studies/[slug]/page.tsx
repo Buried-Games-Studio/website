@@ -25,7 +25,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const path = `/case-studies/${caseStudy.slug}`;
 
   return {
-    title: caseStudy.metaTitle[locale],
+    // Content/commercial page — `absolute` opts out of the root
+    // "%s | Buried Games Studio" template, which costs 22 of the ~60
+    // characters Google renders. Brand pages keep the template.
+    title: { absolute: caseStudy.metaTitle[locale] },
     description: caseStudy.metaDescription[locale],
     alternates: {
       canonical: localePath(locale, path),

@@ -53,15 +53,15 @@ export type GccLanding = {
 export const gccLandings = {
   "game-development-kuwait": {
     slug: "game-development-kuwait",
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-08-05",
     countryCode: "KW",
     metaTitle: {
-      en: "Game Development for Kuwait",
-      ar: "تطوير ألعاب للكويت",
+      en: "Game Development Company for Kuwait | Arabic-First",
+      ar: "شركة تطوير ألعاب إلكترونية للكويت",
     },
     metaDescription: {
-      en: "Game development for Kuwait from Buried Games Studio. Arabic-first Unity & web games rooted in Kuwaiti culture — from KoutQ8, our digital take on the traditional Kuwaiti Kout card game, to Nabsh trivia. We serve clients across Kuwait and the GCC.",
-      ar: "تطوير ألعاب للكويت من استوديو بريد جيمز. ألعاب عربية أولًا على يونيتي والويب متجذّرة في الثقافة الكويتية — من كوت، نسختنا الرقمية للعبة الورق الكويتية التقليدية، إلى نبش للمعلومات العامة. نخدم العملاء في الكويت والخليج.",
+      en: "Game development company for Kuwait. Arabic-first Unity and web games rooted in Kuwaiti culture — from KoutQ8, our take on the traditional Kout card game.",
+      ar: "شركة تطوير ألعاب إلكترونية للكويت. ألعاب عربية أولًا على Unity والويب متجذّرة في الثقافة الكويتية — من كوت، نسختنا الرقمية للعبة الورق التقليدية.",
     },
     title: {
       en: "Game Development for Kuwait",
@@ -125,6 +125,98 @@ export const gccLandings = {
           },
         ],
       },
+      {
+        heading: {
+          en: "What we build for clients in Kuwait",
+          ar: "ما نبنيه لعملائنا في الكويت",
+        },
+        body: [
+          {
+            en: "Most enquiries from Kuwait fall into one of three shapes. The first is a full game: an original title taken from concept through design, art, engineering and launch — the path KoutQ8 and Nabsh both took. The second is a specific piece of a bigger project: mobile game development for a title that needs porting, multiplayer game development for a game that has outgrown single-player, or 2D and 3D game art for a team that has the code but not the look. The third is interactive work that is not a game in the storefront sense at all — installations for malls and brand activations, AR and VR experiences, or the dashboards and internal tools that sit behind them.",
+            ar: "معظم الطلبات من الكويت تأخذ أحد ثلاثة أشكال. الأول لعبة كاملة: عنوان أصلي يُؤخذ من الفكرة عبر التصميم والفن والبرمجة إلى الإطلاق — وهو المسار الذي سلكته كوت ونبش. الثاني جزء محدد من مشروع أكبر: تطوير ألعاب جوال لعنوان يحتاج نقلًا، أو برمجة ألعاب جماعية للعبة تجاوزت اللاعب الواحد، أو فن ثنائي وثلاثي الأبعاد لفريق يملك الكود لا المظهر. والثالث عمل تفاعلي ليس لعبة بمعنى المتجر إطلاقًا — تركيبات للمولات وتفعيلات العلامات التجارية، وتجارب واقع معزز وافتراضي، أو لوحات التحكم والأدوات الداخلية التي تقف خلفها.",
+          },
+          {
+            en: "We take the second and third shapes as seriously as the first. A studio that only wants whole projects is not much use to a team that already has one under way and needs a specific gap filled.",
+            ar: "نأخذ الشكلين الثاني والثالث بجدية الأول نفسها. الاستوديو الذي لا يريد إلا المشاريع الكاملة قليل النفع لفريق لديه مشروع جارٍ بالفعل ويحتاج سدّ ثغرة بعينها.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Choosing an engine: Unity, Unreal, or the browser",
+          ar: "اختيار المحرّك: Unity أو Unreal أو المتصفح",
+        },
+        body: [
+          {
+            en: "The engine is a consequence of the game, not a preference we bring to it. Unity is where most Kuwaiti mobile projects land: it ships to iOS and Android from one codebase, its 2D and casual tooling is mature, and it is what KoutQ8 is built in. Unreal Engine 5 earns its place when fidelity is the point — high-end 3D, realistic lighting, or MetaHuman digital characters — and it is what Power of Bombs uses. The browser is the third option and the most underrated one in this market: a web game needs no download and no store approval, which is why Nabsh lives at nabsh.fun and spreads through a group chat rather than an app listing.",
+            ar: "المحرّك نتيجة للعبة لا تفضيلًا نأتي به إليها. Unity حيث تحطّ معظم مشاريع الجوال الكويتية: يُصدِّر إلى iOS وAndroid من قاعدة كود واحدة، وأدواته للألعاب ثنائية الأبعاد والعادية ناضجة، وهو ما بُنيت به كوت. أما Unreal Engine 5 فيستحق مكانه حين تكون الدقة هي المقصد — رسوميات ثلاثية الأبعاد عالية الجودة، أو إضاءة واقعية، أو شخصيات رقمية بـ MetaHuman — وهو ما تستخدمه Power of Bombs. والمتصفح هو الخيار الثالث والأكثر بخسًا لحقه في هذا السوق: لعبة الويب لا تحتاج تنزيلًا ولا موافقة متجر، ولهذا تعيش نبش على nabsh.fun وتنتشر عبر مجموعة محادثة لا عبر قائمة تطبيقات.",
+          },
+          {
+            en: "If you are unsure which fits, that is a conversation rather than a form. We would rather talk you out of an engine that will cost you time than win the work and discover the mismatch in month three.",
+            ar: "إن لم تكن متأكدًا أيها يناسبك، فتلك محادثة لا استمارة. نفضّل أن نثنيك عن محرّك سيكلّفك وقتًا على أن نكسب العمل ثم نكتشف عدم التوافق في الشهر الثالث.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "What actually drives the cost of a game",
+          ar: "ما الذي يحدّد تكلفة اللعبة فعلًا",
+        },
+        body: [
+          {
+            en: "We will not quote a number on a web page, because any studio that does is guessing at your project. What we can do is tell you honestly what moves the figure. Scope is the largest lever — the number of distinct game modes, screens and rules, not the length of the wish list. Art is the second: a stylised 2D title and a realistic 3D one can differ by a multiple, for the same gameplay. Multiplayer is the third and the most commonly underestimated, because real-time play brings servers, matchmaking, reconnection and cheating into a project that was quoted as a single-player game.",
+            ar: "لن نضع رقمًا على صفحة ويب، لأن أي استوديو يفعل ذلك إنما يخمّن مشروعك. ما نستطيعه أن نخبرك بصدق بما يحرّك الرقم. النطاق هو الرافعة الكبرى — عدد أنماط اللعب والشاشات والقواعد المتمايزة، لا طول قائمة الأمنيات. الفن ثانيًا: عنوان ثنائي الأبعاد بأسلوب مصمّم وآخر ثلاثي الأبعاد واقعي قد يفترقان بمضاعفات، للعب نفسه. واللعب الجماعي ثالثًا وأكثرها استهانةً، لأن اللعب الفوري يُدخل الخوادم ومطابقة اللاعبين وإعادة الاتصال والغش في مشروع سُعِّر بوصفه لعبة لاعب واحد.",
+          },
+          {
+            en: "The fourth factor is the one clients rarely raise and always feel: how settled the design is before the build starts. A prototype that answers the fun question early is the cheapest thing you will ever pay us for, because everything after it stops being a rewrite.",
+            ar: "العامل الرابع هو الذي نادرًا ما يذكره العملاء ويشعرون به دائمًا: مدى استقرار التصميم قبل بدء البناء. النموذج الأولي الذي يجيب عن سؤال المتعة مبكرًا هو أرخص ما ستدفعه لنا، لأن كل ما بعده يتوقّف عن كونه إعادة كتابة.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Launching to Kuwaiti players",
+          ar: "الإطلاق للاعبين الكويتيين",
+        },
+        body: [
+          {
+            en: "Shipping in Kuwait means more than an English build with an Arabic toggle. Store listings need Arabic titles, descriptions and screenshots that read naturally rather than machine-translated; pricing and in-app purchases need the local currency and the payment methods people here actually use; and the whole interface has to hold up right-to-left, which is layout work, not a translation pass. We build for that from the first screen, because retrofitting RTL into a finished game is one of the most expensive corrections in this business.",
+            ar: "الإطلاق في الكويت أكثر من نسخة إنجليزية بمفتاح عربي. قوائم المتاجر تحتاج عناوين ووصفًا ولقطات بالعربية تُقرأ طبيعية لا مترجمة آليًا؛ والتسعير والمشتريات داخل التطبيق يحتاجان العملة المحلية وطرق الدفع التي يستخدمها الناس هنا فعلًا؛ والواجهة كلها عليها أن تصمد من اليمين إلى اليسار، وذلك عمل تخطيط لا تمرير ترجمة. نبني لذلك من الشاشة الأولى، لأن إقحام الاتجاه من اليمين إلى اليسار في لعبة منتهية من أغلى التصحيحات في هذه الصناعة.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "How a project runs, week to week",
+          ar: "كيف يسير المشروع أسبوعًا بأسبوع",
+        },
+        body: [
+          {
+            en: "A project starts with scoping, not a contract. We work through what the game actually is — the modes, the loop, the platforms, the audience — until the brief is specific enough to estimate honestly. Where the fun is still an open question, we propose a playable prototype before anything else, because a prototype settles arguments that documents only postpone.",
+            ar: "المشروع يبدأ بتحديد النطاق لا بالعقد. نعمل على ما هي اللعبة فعلًا — الأنماط، وحلقة اللعب، والمنصات، والجمهور — إلى أن يصبح الموجز محددًا بما يكفي للتقدير بصدق. وحيث تبقى المتعة سؤالًا مفتوحًا، نقترح نموذجًا أوليًا قابلًا للعب قبل أي شيء آخر، لأن النموذج يحسم جدالات لا تؤجّلها المستندات إلا تأجيلًا.",
+          },
+          {
+            en: "After that the build runs on milestones, and the defining rule is that every milestone ends in something you can play on your own device — not a status report, not a screenshot deck. You see the game in the state it is actually in, which is the only reliable way to catch a wrong turn while it is still cheap. Between milestones you have a direct line to the people building it: same time zone, same working week, and answers in Arabic or English as you prefer.",
+            ar: "بعد ذلك يسير البناء على مراحل، والقاعدة الحاسمة أن كل مرحلة تنتهي بشيء تستطيع لعبه على جهازك — لا تقرير حالة ولا عرض لقطات. ترى اللعبة في حالتها الفعلية، وهي الطريقة الوحيدة الموثوقة لالتقاط منعطف خاطئ وهو ما يزال رخيصًا. وبين المراحل لديك خط مباشر مع من يبنونها: المنطقة الزمنية نفسها، وأسبوع العمل نفسه، وإجابات بالعربية أو الإنجليزية كما تفضّل.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Arabic that reads like Arabic",
+          ar: "عربية تُقرأ كعربية",
+        },
+        body: [
+          {
+            en: "Most games that reach Gulf players were built in English and translated afterwards, and it shows in ways players notice even when they cannot name them: text that overflows its button, a menu that mirrors but leaves its icons facing the wrong way, numerals in the wrong script, a tone that reads like a manual rather than a game. None of that is a translation problem. It is an architecture problem, created the moment right-to-left was treated as a setting instead of a layout.",
+            ar: "معظم الألعاب التي تصل إلى لاعبي الخليج بُنيت بالإنجليزية ثم تُرجمت، ويظهر ذلك بطرق يلاحظها اللاعبون حتى لو لم يسمّوها: نص يفيض عن زرّه، وقائمة تنعكس لكن أيقوناتها تبقى في الاتجاه الخاطئ، وأرقام بالخط الخاطئ، ونبرة تُقرأ كدليل استخدام لا كلعبة. لا شيء من ذلك مشكلة ترجمة. إنها مشكلة بنية، نشأت لحظة معاملة الاتجاه من اليمين إلى اليسار كإعداد لا كتخطيط.",
+          },
+          {
+            en: "We build the other way round. Arabic is a first-class language in our projects from the first screen — correct bidirectional layout, typography chosen for Arabic letterforms rather than inherited from a Latin design, and copy written in natural Gulf Arabic rather than translated at the end. It is why a Kuwaiti player and an English-speaking friend can sit in the same match of KoutQ8 without either feeling like the secondary audience.",
+            ar: "نحن نبني بالعكس. العربية لغة من الدرجة الأولى في مشاريعنا من الشاشة الأولى — تخطيط ثنائي الاتجاه صحيح، وطباعة مختارة لأشكال الحروف العربية لا موروثة من تصميم لاتيني، ونصوص مكتوبة بعربية خليجية طبيعية لا مترجمة في النهاية. ولهذا يجلس لاعب كويتي وصديق يتحدث الإنجليزية في مباراة واحدة من كوت دون أن يشعر أحدهما بأنه الجمهور الثانوي.",
+          },
+        ],
+      },
     ],
     faqs: [
       {
@@ -167,19 +259,59 @@ export const gccLandings = {
           ar: "راسلنا على واتساب أو عبر صفحة التواصل بفكرتك ومنصتك المستهدفة وجدولك. سنحدّد النطاق معك، ونوصي بمحرّك ومنهج، ونقترح خطة بمراحل واضحة تستطيع لعبها مع تقدّم البناء.",
         },
       },
+      {
+        q: {
+          en: "How much does it cost to make a game?",
+          ar: "كم تكلفة صناعة لعبة؟",
+        },
+        a: {
+          en: "It depends on four things, and we would rather explain them than quote a number we would have to walk back. Scope — how many distinct modes, screens and rules. Art — a stylised 2D title and a realistic 3D one can differ by a multiple for identical gameplay. Multiplayer — real-time play adds servers, matchmaking and reconnection. And how settled the design is before the build starts, which is why we often suggest a prototype first. Send us the idea and we will scope it properly rather than guess.",
+          ar: "تعتمد على أربعة أمور، ونفضّل شرحها على أن نعطي رقمًا سنضطر للتراجع عنه. النطاق — كم نمط لعب وشاشة وقاعدة متمايزة. والفن — عنوان ثنائي الأبعاد بأسلوب مصمّم وآخر ثلاثي الأبعاد واقعي قد يفترقان بمضاعفات للعب نفسه. واللعب الجماعي — اللعب الفوري يضيف خوادم ومطابقة لاعبين وإعادة اتصال. ومدى استقرار التصميم قبل بدء البناء، ولهذا نقترح غالبًا نموذجًا أوليًا أولًا. أرسل لنا الفكرة وسنحدّد نطاقها بدقة بدل التخمين.",
+        },
+      },
+      {
+        q: {
+          en: "Which engines do you build in?",
+          ar: "بأي محركات تبنون؟",
+        },
+        a: {
+          en: "Unity and Unreal Engine 5, plus the browser for instant-play web games. Unity covers most mobile work and is what KoutQ8 runs on; Unreal Engine 5 is for high-fidelity 3D and MetaHuman characters, as in Power of Bombs; and Nabsh is a browser game precisely because it needs no download or store approval to spread.",
+          ar: "Unity وUnreal Engine 5، إضافةً إلى المتصفح لألعاب الويب الفورية. يغطي Unity معظم أعمال الجوال وهو ما تعمل عليه كوت؛ وUnreal Engine 5 للرسوميات ثلاثية الأبعاد عالية الدقة وشخصيات MetaHuman كما في Power of Bombs؛ ونبش لعبة متصفح تحديدًا لأنها لا تحتاج تنزيلًا ولا موافقة متجر كي تنتشر.",
+        },
+      },
+      {
+        q: {
+          en: "Do you build for both iOS and Android?",
+          ar: "هل تبنون لنظامي iOS وAndroid؟",
+        },
+        a: {
+          en: "Yes. Building in Unity means one codebase ships to the App Store and Google Play, and we handle the store listings, Arabic metadata and right-to-left layout that a Gulf launch needs rather than treating them as an afterthought.",
+          ar: "نعم. البناء بـ Unity يعني قاعدة كود واحدة تُصدَّر إلى App Store وGoogle Play، ونتولى قوائم المتاجر والبيانات العربية والتخطيط من اليمين إلى اليسار التي يحتاجها إطلاق خليجي بدل معاملتها كفكرة لاحقة.",
+        },
+      },
+      {
+        q: {
+          en: "Can you join a project that has already started?",
+          ar: "هل يمكنكم الانضمام إلى مشروع بدأ بالفعل؟",
+        },
+        a: {
+          en: "Often, yes. Plenty of work reaches us as a specific gap rather than a whole game — multiplayer for a title that outgrew single-player, a port to mobile, or 2D and 3D art for a team that has the engineering covered. Send us what exists and we will tell you honestly whether we are the right fit for the piece you need.",
+          ar: "غالبًا نعم. كثير من العمل يصلنا كثغرة محددة لا كلعبة كاملة — لعب جماعي لعنوان تجاوز اللاعب الواحد، أو نقل إلى الجوال، أو فن ثنائي وثلاثي الأبعاد لفريق تغطّى جانبه البرمجي. أرسل لنا ما هو قائم وسنخبرك بصدق إن كنا المناسبين للجزء الذي تحتاجه.",
+        },
+      },
     ],
   },
   "game-development-saudi-arabia": {
     slug: "game-development-saudi-arabia",
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-08-05",
     countryCode: "SA",
     metaTitle: {
-      en: "Game Development Company for Saudi Arabia",
-      ar: "شركة تطوير ألعاب للسعودية",
+      en: "Game Development Company for Saudi Arabia | Unity",
+      ar: "شركة تطوير ألعاب إلكترونية للسعودية",
     },
     metaDescription: {
-      en: "Game development for Saudi Arabia from Buried Games Studio, an independent GCC games studio. Arabic-first Unity & Unreal games, store and payment localisation, and remote collaboration across the Gulf for KSA clients.",
-      ar: "تطوير ألعاب للسعودية من استوديو بريد جيمز، استوديو ألعاب خليجي مستقل. ألعاب عربية أولًا على يونيتي وأنريل، وأقلمة المتاجر والدفع، وتعاون عن بُعد عبر الخليج لعملاء المملكة.",
+      en: "Game development company for Saudi Arabia. Arabic-first Unity and Unreal games, store and payment localisation, and remote collaboration across the Gulf.",
+      ar: "شركة تطوير ألعاب إلكترونية للسعودية. ألعاب عربية أولًا على Unity وUnreal، وأقلمة المتاجر والدفع، وتعاون عن بُعد عبر الخليج.",
     },
     title: {
       en: "Game Development in Saudi Arabia",
@@ -243,8 +375,84 @@ export const gccLandings = {
           },
         ],
       },
+      {
+        heading: {
+          en: "What we build for Saudi clients",
+          ar: "ما نبنيه لعملائنا السعوديين",
+        },
+        body: [
+          {
+            en: "Saudi enquiries tend to be more varied than elsewhere in the Gulf, because the market is bigger and the buyers are more different from one another. Some are studios who need a specific capability added — multiplayer game development for a title that outgrew single-player, or 2D and 3D game art for a team whose engineering is already covered. Some are brands and agencies who want an interactive installation or an AR campaign rather than a storefront game. And some are founders with an original concept who need the whole path: design, art, engineering and launch.",
+            ar: "الطلبات السعودية أكثر تنوّعًا من غيرها في الخليج، لأن السوق أكبر والمشترون أشدّ اختلافًا عن بعضهم. بعضهم استوديوهات تحتاج إضافة قدرة بعينها — برمجة ألعاب جماعية لعنوان تجاوز اللاعب الواحد، أو فن ثنائي وثلاثي الأبعاد لفريق تغطّى جانبه البرمجي. وبعضهم علامات تجارية ووكالات تريد تركيبًا تفاعليًا أو حملة واقع معزز لا لعبة على متجر. وبعضهم مؤسسون بفكرة أصلية يحتاجون المسار كاملًا: تصميم وفن وبرمجة وإطلاق.",
+          },
+          {
+            en: "We are equally happy taking one slice or the whole thing. A studio that only accepts complete projects is of little use to a Saudi team that already has one running and needs a particular gap closed.",
+            ar: "يسعدنا أخذ شريحة واحدة أو العمل كاملًا على حدّ سواء. الاستوديو الذي لا يقبل إلا المشاريع الكاملة قليل النفع لفريق سعودي لديه مشروع جارٍ ويحتاج سدّ ثغرة بعينها.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Choosing an engine: Unity, Unreal, or the browser",
+          ar: "اختيار المحرّك: Unity أو Unreal أو المتصفح",
+        },
+        body: [
+          {
+            en: "The engine follows the game, never the other way round. Unity carries most mobile work — one codebase to the App Store and Google Play, mature 2D and casual tooling, and the engine behind KoutQ8. Unreal Engine 5 earns its place where fidelity is the product: high-end 3D, realistic lighting, MetaHuman digital characters, as in Power of Bombs. The browser is the third route and the one most often overlooked in a market this mobile-heavy — a web game needs no download and no store review, which is exactly why Nabsh spreads through a group chat instead of an app listing.",
+            ar: "المحرّك يتبع اللعبة لا العكس. Unity يحمل معظم أعمال الجوال — قاعدة كود واحدة إلى App Store وGoogle Play، وأدوات ناضجة للألعاب ثنائية الأبعاد والعادية، وهو المحرّك خلف كوت. وUnreal Engine 5 يستحق مكانه حين تكون الدقة هي المنتج: رسوميات ثلاثية الأبعاد عالية الجودة، وإضاءة واقعية، وشخصيات MetaHuman، كما في Power of Bombs. والمتصفح هو الطريق الثالث والأكثر إغفالًا في سوق يميل إلى الجوال بهذا القدر — لعبة الويب لا تحتاج تنزيلًا ولا مراجعة متجر، ولهذا تحديدًا تنتشر نبش عبر مجموعة محادثة لا عبر قائمة تطبيقات.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "What actually drives the cost of a game",
+          ar: "ما الذي يحدّد تكلفة اللعبة فعلًا",
+        },
+        body: [
+          {
+            en: "We do not publish a price, because any studio quoting one on a web page is guessing at your project. What we will do is name the levers. Scope comes first — the count of distinct modes, screens and rules, not the length of the wish list. Art is second, and it is where estimates diverge most: a stylised 2D game and a realistic 3D one can differ by a multiple for identical gameplay. Multiplayer is third and the most routinely underestimated, because real-time play drags servers, matchmaking, reconnection and anti-cheat into a budget written for single-player.",
+            ar: "لا ننشر سعرًا، لأن أي استوديو يضع سعرًا على صفحة ويب إنما يخمّن مشروعك. ما سنفعله هو تسمية الروافع. النطاق أولًا — عدد الأنماط والشاشات والقواعد المتمايزة، لا طول قائمة الأمنيات. والفن ثانيًا، وفيه تتباعد التقديرات أكثر ما تتباعد: لعبة ثنائية الأبعاد بأسلوب مصمّم وأخرى ثلاثية الأبعاد واقعية قد تفترقان بمضاعفات للعب نفسه. واللعب الجماعي ثالثًا وأكثرها استهانةً على نحو متكرر، لأن اللعب الفوري يجرّ الخوادم ومطابقة اللاعبين وإعادة الاتصال ومكافحة الغش إلى ميزانية كُتبت للاعب واحد.",
+          },
+          {
+            en: "The fourth lever is the quiet one: how settled the design is before the build begins. A prototype that answers the fun question early is the cheapest work you will ever commission from us, because everything after it stops being a rewrite.",
+            ar: "الرافعة الرابعة هي الهادئة: مدى استقرار التصميم قبل بدء البناء. النموذج الأولي الذي يجيب عن سؤال المتعة مبكرًا أرخص عمل ستطلبه منا، لأن كل ما بعده يتوقف عن كونه إعادة كتابة.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "How a project runs, week to week",
+          ar: "كيف يسير المشروع أسبوعًا بأسبوع",
+        },
+        body: [
+          {
+            en: "Scoping comes before any contract. We work through what the game actually is — modes, loop, platforms, audience — until the brief is specific enough to estimate honestly, and where the fun is still an open question we propose a playable prototype first. From there the build runs on milestones, and the rule that matters is that each one ends in something you can play on your own device rather than a status report. You see the game in the state it is genuinely in, which is the only dependable way to catch a wrong turn while correcting it is still cheap.",
+            ar: "تحديد النطاق يسبق أي عقد. نعمل على ما هي اللعبة فعلًا — الأنماط وحلقة اللعب والمنصات والجمهور — إلى أن يصبح الموجز محددًا بما يكفي للتقدير بصدق، وحيث تبقى المتعة سؤالًا مفتوحًا نقترح نموذجًا أوليًا قابلًا للعب أولًا. ومن هناك يسير البناء على مراحل، والقاعدة المهمة أن تنتهي كل مرحلة بشيء تلعبه على جهازك لا بتقرير حالة. ترى اللعبة في حالتها الحقيقية، وهي الطريقة الوحيدة المعوَّل عليها لالتقاط منعطف خاطئ وتصحيحه ما زال رخيصًا.",
+          },
+        ],
+      },
     ],
     faqs: [
+      {
+        q: {
+          en: "How much does it cost to make a game?",
+          ar: "كم تكلفة صناعة لعبة؟",
+        },
+        a: {
+          en: "It turns on four things, and we would rather explain them than quote a figure we would have to retract. Scope — how many distinct modes, screens and rules. Art — a stylised 2D title and a realistic 3D one can differ by a multiple for the same gameplay. Multiplayer — real-time play adds servers, matchmaking and reconnection. And how settled the design is before the build starts, which is why we often propose a prototype first. Send the idea over and we will scope it properly instead of guessing.",
+          ar: "تتوقف على أربعة أمور، ونفضّل شرحها على إعطاء رقم سنضطر لسحبه. النطاق — كم نمط لعب وشاشة وقاعدة متمايزة. والفن — عنوان ثنائي الأبعاد بأسلوب مصمّم وآخر ثلاثي الأبعاد واقعي قد يفترقان بمضاعفات للعب نفسه. واللعب الجماعي — اللعب الفوري يضيف خوادم ومطابقة لاعبين وإعادة اتصال. ومدى استقرار التصميم قبل بدء البناء، ولهذا نقترح غالبًا نموذجًا أوليًا أولًا. أرسل الفكرة وسنحدّد نطاقها بدقة بدل التخمين.",
+        },
+      },
+      {
+        q: {
+          en: "Can you join a project that has already started?",
+          ar: "هل يمكنكم الانضمام إلى مشروع بدأ بالفعل؟",
+        },
+        a: {
+          en: "Often, yes. A good share of our work arrives as a specific gap rather than a whole game — multiplayer for a title that outgrew single-player, a port to mobile, or 2D and 3D art for a team whose engineering is already handled. Send us what exists and we will tell you honestly whether we are the right fit for that piece.",
+          ar: "غالبًا نعم. نصيب معتبر من عملنا يصلنا كثغرة محددة لا كلعبة كاملة — لعب جماعي لعنوان تجاوز اللاعب الواحد، أو نقل إلى الجوال، أو فن ثنائي وثلاثي الأبعاد لفريق تغطّى جانبه البرمجي. أرسل لنا ما هو قائم وسنخبرك بصدق إن كنا المناسبين لذلك الجزء.",
+        },
+      },
       {
         q: {
           en: "Do you have an office in Saudi Arabia?",
@@ -289,15 +497,15 @@ export const gccLandings = {
   },
   "game-development-uae": {
     slug: "game-development-uae",
-    updatedAt: "2026-06-13",
+    updatedAt: "2026-08-05",
     countryCode: "AE",
     metaTitle: {
       en: "Game Development Company for the UAE | Dubai & Abu Dhabi",
-      ar: "شركة تطوير ألعاب للإمارات | دبي وأبوظبي",
+      ar: "شركة تطوير ألعاب إلكترونية للإمارات | دبي وأبوظبي",
     },
     metaDescription: {
-      en: "Game development for the UAE from Buried Games Studio, an independent GCC games studio. Arabic and English games on Unity & Unreal for Dubai and Abu Dhabi clients, with store and payment localisation and remote Gulf collaboration.",
-      ar: "تطوير ألعاب للإمارات من استوديو بريد جيمز، استوديو ألعاب خليجي مستقل. ألعاب بالعربية والإنجليزية على يونيتي وأنريل لعملاء دبي وأبوظبي، مع أقلمة المتاجر والدفع وتعاون خليجي عن بُعد.",
+      en: "Game development company for the UAE. Arabic and English games on Unity and Unreal for Dubai and Abu Dhabi clients, with store and payment localisation.",
+      ar: "شركة تصميم وتطوير ألعاب إلكترونية للإمارات. ألعاب بالعربية والإنجليزية على Unity وUnreal لعملاء دبي وأبوظبي، مع أقلمة المتاجر والدفع.",
     },
     title: {
       en: "Game Development in the UAE",
@@ -357,6 +565,46 @@ export const gccLandings = {
           },
         ],
       },
+      {
+        heading: {
+          en: "Beyond games: installations, AR and VR",
+          ar: "أبعد من الألعاب: تركيبات وواقع معزز وافتراضي",
+        },
+        body: [
+          {
+            en: "More of our UAE conversations begin outside the app stores than anywhere else in the Gulf. Malls, expos, retail activations and visitor attractions all want something interactive, and the brief is rarely a downloadable game — it is a sensor floor, a motion-controlled screen, a kiosk experience, or an AR campaign that opens from a QR code with nothing to install. Virtual reality shows up here too, in training simulations and virtual showrooms rather than entertainment titles.",
+            ar: "محادثاتنا الإماراتية تبدأ خارج متاجر التطبيقات أكثر من أي مكان آخر في الخليج. المولات والمعارض وتفعيلات التجزئة والوجهات السياحية كلها تريد شيئًا تفاعليًا، والموجز نادرًا ما يكون لعبة قابلة للتنزيل — بل أرضية بحساسات، أو شاشة تُدار بالحركة، أو تجربة كشك، أو حملة واقع معزز تُفتح من رمز QR بلا تثبيت. والواقع الافتراضي يظهر هنا أيضًا، في محاكاة التدريب وصالات العرض الافتراضية لا في ألعاب الترفيه.",
+          },
+          {
+            en: "The engineering underneath is the same discipline as a game — real-time rendering, input handling, state that survives being hammered by strangers for a fortnight — which is why a games studio tends to build these better than a general software house. The difference is that nobody restarts a mall installation when it hangs, so it has to run unattended for weeks.",
+            ar: "الهندسة تحت السطح هي انضباط اللعبة نفسه — عرض في الوقت الفعلي، ومعالجة مدخلات، وحالة تصمد أمام غرباء يطرقونها أسبوعين — ولهذا يبني استوديو الألعاب هذه الأعمال أفضل من بيت برمجيات عام. الفرق أن لا أحد يعيد تشغيل تركيب في مول حين يتوقف، فعليه أن يعمل دون إشراف أسابيع.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Choosing an engine: Unity, Unreal, or the browser",
+          ar: "اختيار المحرّك: Unity أو Unreal أو المتصفح",
+        },
+        body: [
+          {
+            en: "Engine choice is downstream of the brief. Unity handles most mobile and installation work — one codebase across iOS, Android and kiosk hardware, and the engine behind KoutQ8. Unreal Engine 5 is where visual fidelity is the deliverable: architectural and product visualisation, realistic lighting, MetaHuman digital characters, as in Power of Bombs. And for a campaign that has to open instantly from a QR code or a link, the browser wins outright — no download, no store review, which is why Nabsh lives on the web.",
+            ar: "اختيار المحرّك تابع للموجز. Unity يتولى معظم أعمال الجوال والتركيبات — قاعدة كود واحدة عبر iOS وAndroid وأجهزة الأكشاك، وهو المحرّك خلف كوت. وUnreal Engine 5 حيث تكون الدقة البصرية هي المُسلَّم: تصور معماري ومنتجات، وإضاءة واقعية، وشخصيات MetaHuman، كما في Power of Bombs. وللحملة التي يجب أن تُفتح فورًا من رمز QR أو رابط، يفوز المتصفح بلا منازع — بلا تنزيل وبلا مراجعة متجر، ولهذا تعيش نبش على الويب.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "What actually drives the cost",
+          ar: "ما الذي يحدّد التكلفة فعلًا",
+        },
+        body: [
+          {
+            en: "We do not put a price on a web page, because a studio that does is guessing at your brief. The levers are worth naming, though. Scope leads — the number of distinct modes, screens and rules. Art follows, and it is where estimates spread furthest: stylised and photoreal can differ by a multiple for the same interaction. Real-time multiplayer is third and the most routinely underpriced, because it drags servers, matchmaking and reconnection into a budget written without them. For installations, add the hardware and the requirement to run unattended, which is an engineering cost rather than a creative one.",
+            ar: "لا نضع سعرًا على صفحة ويب، لأن الاستوديو الذي يفعل يخمّن موجزك. لكن الروافع تستحق التسمية. النطاق يتصدّر — عدد الأنماط والشاشات والقواعد المتمايزة. ثم الفن، وفيه تتباعد التقديرات أقصى ما تتباعد: الأسلوب المصمَّم والواقعي الفوتوغرافي قد يفترقان بمضاعفات للتفاعل نفسه. واللعب الجماعي الفوري ثالثًا وأكثرها بخسًا في التسعير، لأنه يجرّ الخوادم ومطابقة اللاعبين وإعادة الاتصال إلى ميزانية كُتبت بدونها. وللتركيبات، أضف العتاد وشرط العمل دون إشراف، وهي كلفة هندسية لا إبداعية.",
+          },
+        ],
+      },
     ],
     faqs: [
       {
@@ -403,15 +651,15 @@ export const gccLandings = {
   },
   "game-development-qatar": {
     slug: "game-development-qatar",
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-08-05",
     countryCode: "QA",
     metaTitle: {
-      en: "Game Development Company for Qatar",
-      ar: "شركة تطوير ألعاب لقطر",
+      en: "Game Development Company for Qatar | Unity & Unreal",
+      ar: "شركة تطوير ألعاب إلكترونية لقطر",
     },
     metaDescription: {
-      en: "Game development for Qatar from Buried Games Studio, an independent GCC games studio. Arabic and English Unity & Unreal games for Qatar's esports-driven, bilingual audience, with store and payment localisation and remote Gulf collaboration.",
-      ar: "تطوير ألعاب لقطر من استوديو بريد جيمز، استوديو ألعاب خليجي مستقل. ألعاب بالعربية والإنجليزية على يونيتي وأنريل لجمهور قطر ثنائي اللغة المدفوع بالرياضات الإلكترونية، مع أقلمة المتاجر والدفع وتعاون خليجي عن بُعد.",
+      en: "Game development company for Qatar. Arabic and English Unity and Unreal games for Qatar's bilingual, esports-driven audience — built and shipped remotely.",
+      ar: "شركة تطوير ألعاب إلكترونية لقطر. ألعاب بالعربية والإنجليزية على Unity وUnreal لجمهور قطر ثنائي اللغة المدفوع بالرياضات الإلكترونية.",
     },
     title: {
       en: "Game Development for Qatar",
@@ -471,6 +719,46 @@ export const gccLandings = {
           },
         ],
       },
+      {
+        heading: {
+          en: "Competitive play, and building for it",
+          ar: "اللعب التنافسي والبناء له",
+        },
+        body: [
+          {
+            en: "Qatar's players skew competitive, and that changes what a game has to get right. A casual title forgives a lot; a competitive one forgives almost nothing. Matches have to be fair, which means server-authoritative rules rather than trusting the client. They have to be responsive, which means latency budgets taken seriously rather than discovered at launch. And they have to be legible under pressure — a player who loses should be able to see why, or the game reads as broken rather than hard.",
+            ar: "لاعبو قطر يميلون إلى التنافس، وهذا يغيّر ما يجب أن تتقنه اللعبة. العنوان العادي يغفر كثيرًا؛ التنافسي لا يغفر شيئًا تقريبًا. المباريات يجب أن تكون عادلة، ما يعني قواعد يحكمها الخادم لا الثقة بالعميل. ويجب أن تكون سريعة الاستجابة، ما يعني أخذ ميزانيات التأخير بجدية لا اكتشافها عند الإطلاق. ويجب أن تكون مفهومة تحت الضغط — من يخسر عليه أن يرى لماذا، وإلا قُرئت اللعبة كمعطوبة لا كصعبة.",
+          },
+          {
+            en: "Real-time multiplayer is the part of this work we do most often, and the part clients most often underestimate. Matchmaking, reconnection after a dropped call, and handling the player who closes the app mid-match are not features you add at the end — they are architecture decided in week one.",
+            ar: "اللعب الجماعي الفوري هو الجزء الذي ننفّذه أكثر من غيره، والجزء الذي يستهين به العملاء أكثر من غيره. مطابقة اللاعبين، وإعادة الاتصال بعد انقطاع مكالمة، ومعالجة من يغلق التطبيق في منتصف المباراة ليست ميزات تُضاف في النهاية — إنها بنية تُقرَّر في الأسبوع الأول.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Choosing an engine for a Qatari project",
+          ar: "اختيار المحرّك لمشروع قطري",
+        },
+        body: [
+          {
+            en: "Unity carries most of what we ship to Qatar — one codebase to iOS and Android, strong tooling for 2D and casual work, and the engine KoutQ8 runs on. Unreal Engine 5 is the answer when fidelity is the product rather than the packaging: high-end 3D, realistic lighting, MetaHuman characters, as in Power of Bombs. The browser stays the quietly effective option for anything that has to spread without friction — Nabsh is a web game precisely because a link travels through a group chat faster than a store listing ever will.",
+            ar: "Unity يحمل معظم ما نُطلقه لقطر — قاعدة كود واحدة إلى iOS وAndroid، وأدوات قوية للأعمال ثنائية الأبعاد والعادية، والمحرّك الذي تعمل عليه كوت. وUnreal Engine 5 هو الجواب حين تكون الدقة هي المنتج لا التغليف: رسوميات ثلاثية الأبعاد عالية الجودة، وإضاءة واقعية، وشخصيات MetaHuman، كما في Power of Bombs. ويبقى المتصفح الخيار الفعّال بهدوء لكل ما يجب أن ينتشر بلا احتكاك — نبش لعبة ويب تحديدًا لأن الرابط يسافر عبر مجموعة محادثة أسرع مما تفعل قائمة متجر أبدًا.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "What actually drives the cost",
+          ar: "ما الذي يحدّد التكلفة فعلًا",
+        },
+        body: [
+          {
+            en: "No price goes on this page, because a studio quoting one has not seen your brief. The levers are nameable, though. Scope first — distinct modes, screens and rules, not the length of the wish list. Art second, where estimates diverge most sharply: stylised and photoreal can differ by a multiple for identical gameplay. Multiplayer third, and given how competitive this market is, it is usually in scope — which means servers, matchmaking and reconnection belong in the budget from the start rather than arriving as a surprise in month three.",
+            ar: "لا سعر على هذه الصفحة، لأن الاستوديو الذي يضع سعرًا لم يطّلع على موجزك. لكن الروافع قابلة للتسمية. النطاق أولًا — أنماط وشاشات وقواعد متمايزة، لا طول قائمة الأمنيات. والفن ثانيًا، وفيه تتباعد التقديرات أحدّ ما تتباعد: الأسلوب المصمَّم والواقعي الفوتوغرافي قد يفترقان بمضاعفات للعب نفسه. واللعب الجماعي ثالثًا، وبالنظر إلى تنافسية هذا السوق فهو داخل النطاق عادةً — ما يعني أن الخوادم ومطابقة اللاعبين وإعادة الاتصال تنتمي إلى الميزانية من البداية لا أن تصل مفاجأةً في الشهر الثالث.",
+          },
+        ],
+      },
     ],
     faqs: [
       {
@@ -517,15 +805,15 @@ export const gccLandings = {
   },
   "game-development-bahrain": {
     slug: "game-development-bahrain",
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-08-05",
     countryCode: "BH",
     metaTitle: {
-      en: "Game Development Company for Bahrain",
-      ar: "شركة تطوير ألعاب للبحرين",
+      en: "Game Development Company for Bahrain | Mobile-First",
+      ar: "شركة تطوير ألعاب إلكترونية للبحرين",
     },
     metaDescription: {
-      en: "Game development for Bahrain from Buried Games Studio, an independent GCC games studio. Arabic-first, mobile-first Unity & web games for Bahrain's young, connected audience, with store and payment localisation and remote Gulf collaboration.",
-      ar: "تطوير ألعاب للبحرين من استوديو بريد جيمز، استوديو ألعاب خليجي مستقل. ألعاب عربية أولًا للجوال أولًا على يونيتي والويب لجمهور البحرين الشاب المتصل، مع أقلمة المتاجر والدفع وتعاون خليجي عن بُعد.",
+      en: "Game development company for Bahrain. Arabic-first, mobile-first Unity and web games for Bahrain's young, connected audience — built and shipped remotely.",
+      ar: "شركة تطوير ألعاب إلكترونية للبحرين. ألعاب عربية أولًا للجوال على Unity والويب لجمهور البحرين الشاب المتصل، مع أقلمة المتاجر والدفع.",
     },
     title: {
       en: "Game Development for Bahrain",
@@ -573,6 +861,46 @@ export const gccLandings = {
           },
         ],
       },
+      {
+        heading: {
+          en: "Small market, fast word of mouth",
+          ar: "سوق صغير وانتشار سريع",
+        },
+        body: [
+          {
+            en: "Bahrain's size is a strategic advantage rather than a limitation, provided a game is built to exploit it. In a small, densely connected market a title does not climb a chart so much as pass through a network — one group of friends to the next, over WhatsApp and in person. That rewards a very particular kind of design: quick to enter with no tutorial wall, playable in short sessions, and social by default so that inviting someone is the natural next action rather than a buried menu item.",
+            ar: "حجم البحرين ميزة استراتيجية لا قيدًا، شرط أن تُبنى اللعبة لاستثماره. في سوق صغير شديد الترابط، لا تتسلّق اللعبة قائمةً بقدر ما تمرّ عبر شبكة — من مجموعة أصدقاء إلى التالية، عبر واتساب ووجهًا لوجه. وهذا يكافئ نوعًا محددًا من التصميم: دخول سريع بلا جدار تعليمي، ولعب في جلسات قصيرة، واجتماعية بالأصل بحيث تكون الدعوة هي الخطوة التالية الطبيعية لا عنصر قائمة مدفونًا.",
+          },
+          {
+            en: "It also means a launch is testable in a way it is not in a larger market. You can put a build in front of a real slice of your actual audience, watch what they do with it, and fix the loop before spending anything on reach.",
+            ar: "ويعني أيضًا أن الإطلاق قابل للاختبار بما لا يتاح في سوق أكبر. تستطيع وضع نسخة أمام شريحة حقيقية من جمهورك الفعلي، ومراقبة ما يفعلونه بها، وإصلاح حلقة اللعب قبل إنفاق أي شيء على الوصول.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Engines, and why mobile usually wins here",
+          ar: "المحركات، ولماذا يفوز الجوال هنا عادةً",
+        },
+        body: [
+          {
+            en: "Bahraini projects are mobile-first far more often than not, which puts Unity at the centre of the work — a single codebase reaching both stores, mature 2D tooling, and the engine behind KoutQ8. Unreal Engine 5 remains available where high-fidelity 3D or MetaHuman characters are genuinely the point, as in Power of Bombs, but it is rarely what a mobile-first brief needs. The browser deserves more consideration than it gets: a web build has no install step at all, which in a market that spreads by word of mouth removes the single biggest drop-off between hearing about a game and playing it.",
+            ar: "المشاريع البحرينية تضع الجوال أولًا في الغالب الأعم، ما يضع Unity في قلب العمل — قاعدة كود واحدة تصل إلى المتجرين، وأدوات ناضجة للأعمال ثنائية الأبعاد، والمحرّك خلف كوت. ويبقى Unreal Engine 5 متاحًا حيث تكون الرسوميات ثلاثية الأبعاد عالية الدقة أو شخصيات MetaHuman هي المقصد فعلًا، كما في Power of Bombs، لكنه نادرًا ما يكون ما يحتاجه موجز يضع الجوال أولًا. والمتصفح يستحق اعتبارًا أكثر مما ينال: نسخة الويب بلا خطوة تثبيت إطلاقًا، وهو ما يزيل — في سوق ينتشر بالكلمة المنطوقة — أكبر نقطة تسرّب بين سماع الخبر واللعب.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "What actually drives the cost",
+          ar: "ما الذي يحدّد التكلفة فعلًا",
+        },
+        body: [
+          {
+            en: "We will not print a figure, because any studio that prints one is guessing at a brief it has not read. What we can set out is what moves it. Scope is the biggest lever — how many distinct modes, screens and rules, rather than how long the wish list runs. Art is next and spreads estimates furthest: a stylised 2D game and a realistic 3D one can differ by a multiple for the same gameplay. Multiplayer is third and consistently underestimated, because real-time play brings servers, matchmaking and reconnection with it. And ahead of all of them sits how settled the design is before the build begins, which is why a prototype is usually the cheapest thing we will ever build for you.",
+            ar: "لن نطبع رقمًا، لأن أي استوديو يطبع رقمًا إنما يخمّن موجزًا لم يقرأه. ما نستطيع عرضه هو ما يحرّكه. النطاق أكبر الروافع — كم نمط وشاشة وقاعدة متمايزة، لا كم تطول قائمة الأمنيات. ثم الفن، وهو أوسع ما يباعد التقديرات: لعبة ثنائية الأبعاد بأسلوب مصمّم وأخرى ثلاثية الأبعاد واقعية قد تفترقان بمضاعفات للعب نفسه. واللعب الجماعي ثالثًا ويُستهان به باطراد، لأن اللعب الفوري يجلب معه الخوادم ومطابقة اللاعبين وإعادة الاتصال. وقبلها جميعًا يقف مدى استقرار التصميم قبل بدء البناء، ولهذا يكون النموذج الأولي عادةً أرخص ما نبنيه لك.",
+          },
+        ],
+      },
     ],
     faqs: [
       {
@@ -609,15 +937,15 @@ export const gccLandings = {
   },
   "game-development-oman": {
     slug: "game-development-oman",
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-08-05",
     countryCode: "OM",
     metaTitle: {
-      en: "Game Development Company for Oman",
-      ar: "شركة تطوير ألعاب لعُمان",
+      en: "Game Development Company for Oman | Mobile-First",
+      ar: "شركة تطوير ألعاب إلكترونية لعُمان",
     },
     metaDescription: {
-      en: "Game development for Oman from Buried Games Studio, an independent GCC games studio. Arabic-first, mobile-first Unity & web games for Oman's growing, young audience, with store and payment localisation and remote Gulf collaboration.",
-      ar: "تطوير ألعاب لعُمان من استوديو بريد جيمز، استوديو ألعاب خليجي مستقل. ألعاب عربية أولًا للجوال أولًا على يونيتي والويب لجمهور عُمان الشاب المتنامي، مع أقلمة المتاجر والدفع وتعاون خليجي عن بُعد.",
+      en: "Game development company for Oman. Arabic-first, mobile-first Unity and web games for Oman's growing young audience — built and shipped remotely.",
+      ar: "شركة تطوير ألعاب إلكترونية لعُمان. ألعاب عربية أولًا للجوال على Unity والويب لجمهور عُمان الشاب المتنامي، مع أقلمة المتاجر والدفع.",
     },
     title: {
       en: "Game Development for Oman",
@@ -662,6 +990,42 @@ export const gccLandings = {
           {
             en: "We localise App Store and Google Play listings in Arabic and English, integrate the payment methods Omani players use alongside global app-store billing, and price with local purchasing power in mind. As a remote-first GCC studio that shares Oman's working week and time zone, we deliver on clear milestones with playable builds you can test on your own device, a single point of contact, and quick communication over WhatsApp — so working remotely never feels remote.",
             ar: "نُؤقلم قوائم App Store وGoogle Play بالعربية والإنجليزية، ونُدمج طرق الدفع التي يستخدمها اللاعبون العُمانيون إلى جانب فوترة المتاجر العالمية، ونُسعّر مع مراعاة القوة الشرائية المحلية. وبوصفنا استوديو خليجيًا يعمل عن بُعد أولًا ويشارك عُمان أسبوع العمل والمنطقة الزمنية، نُسلّم بمراحل واضحة، وبنسخ قابلة للعب تختبرها على جهازك، وبنقطة تواصل واحدة، وبتواصل سريع عبر واتساب — فلا يبدو العمل عن بُعد بعيدًا أبدًا.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "An audience that has not been over-served",
+          ar: "جمهور لم يُشبَع بعد",
+        },
+        body: [
+          {
+            en: "Oman gets less attention from regional publishers than its neighbours, and that is an opening rather than a drawback. The audience is young and mobile-first, but it has been served mostly by titles built for somewhere else and shipped here without much thought — English-first games with Arabic bolted on, or Gulf games that assume a Kuwaiti or Saudi frame of reference. A game that treats Omani players as a primary audience rather than an overflow market starts from a position very few competitors have bothered to take.",
+            ar: "تنال عُمان اهتمامًا أقل من الناشرين الإقليميين مقارنةً بجيرانها، وذلك فرصة لا عيب. الجمهور شاب ويضع الجوال أولًا، لكنه خُدم في معظمه بعناوين بُنيت لمكان آخر وأُرسلت إلى هنا دون تفكير كبير — ألعاب بالإنجليزية أولًا أُلحقت بها العربية، أو ألعاب خليجية تفترض إطارًا مرجعيًا كويتيًا أو سعوديًا. اللعبة التي تعامل اللاعبين العُمانيين كجمهور أساسي لا كسوق فائض تبدأ من موقع لم يكلّف كثير من المنافسين نفسه بأخذه.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "Engines, and designing for real devices",
+          ar: "المحركات والتصميم لأجهزة حقيقية",
+        },
+        body: [
+          {
+            en: "Most Omani work is mobile, and mobile here means designing for the devices people actually carry rather than the flagship in the demo video. Unity is the practical centre of that — one codebase to both stores, and enough control over rendering and asset budgets to keep a game smooth on mid-range hardware, which is the difference between a title people keep and one they uninstall after a week. Unreal Engine 5 is there for genuinely high-fidelity 3D work, as in Power of Bombs. And a browser build, like Nabsh, sidesteps the install decision altogether — which matters most precisely where storage is tight and data is metered.",
+            ar: "معظم العمل العُماني للجوال، والجوال هنا يعني التصميم للأجهزة التي يحملها الناس فعلًا لا للجهاز الرائد في فيديو العرض. Unity هو المركز العملي لذلك — قاعدة كود واحدة إلى المتجرين، وتحكّم كافٍ في العرض وميزانيات الأصول لإبقاء اللعبة سلسة على عتاد متوسط، وهو الفرق بين عنوان يحتفظ به الناس وآخر يُحذف بعد أسبوع. وUnreal Engine 5 موجود للأعمال ثلاثية الأبعاد عالية الدقة فعلًا، كما في Power of Bombs. ونسخة المتصفح، مثل نبش، تتجاوز قرار التثبيت كليًا — وهو ما يهم تحديدًا حيث تكون المساحة ضيقة والبيانات محدودة.",
+          },
+        ],
+      },
+      {
+        heading: {
+          en: "What actually drives the cost",
+          ar: "ما الذي يحدّد التكلفة فعلًا",
+        },
+        body: [
+          {
+            en: "There is no number on this page, and there should not be one on anybody's — a quote written before the brief is read is a guess wearing a suit. The honest version is the list of levers. Scope leads: the count of distinct modes, screens and rules. Art follows and spreads the range widest, since stylised and realistic can differ by a multiple for the same gameplay. Real-time multiplayer is third, bringing servers, matchmaking and reconnection with it. And underneath all three sits how settled the design is when building starts — which is why we so often suggest paying for a prototype first and a full build second.",
+            ar: "لا رقم على هذه الصفحة، ولا ينبغي أن يكون على صفحة أحد — التسعير المكتوب قبل قراءة الموجز تخمين يرتدي بدلة. النسخة الصادقة هي قائمة الروافع. النطاق يتصدّر: عدد الأنماط والشاشات والقواعد المتمايزة. ثم الفن، وهو أوسعها مدى، إذ قد يفترق الأسلوب المصمَّم والواقعي بمضاعفات للعب نفسه. واللعب الجماعي الفوري ثالثًا، جالبًا معه الخوادم ومطابقة اللاعبين وإعادة الاتصال. وتحت الثلاثة جميعًا يقف مدى استقرار التصميم عند بدء البناء — ولهذا نقترح كثيرًا الدفع مقابل نموذج أولي أولًا وبناء كامل ثانيًا.",
           },
         ],
       },

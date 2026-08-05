@@ -79,15 +79,15 @@ export const designWorks: DesignWork[] = [
   // with the first entry (hasDesignWorks gate). No placeholder entries, ever.
   {
     slug: "arrab-godfather-character-art",
-    updatedAt: "2026-07-18",
+    updatedAt: "2026-08-05",
     latinName: "Arrab — The Godfather",
     metaTitle: {
-      en: "The Godfather of Arrab — Character Art Process by Bokhari Hamid",
+      en: "The Godfather of Arrab — Character Art by Bokhari Hamid",
       ar: "العرّاب في لعبة عراب — مراحل رسم الشخصية بريشة بوخاري حامد",
     },
     metaDescription: {
-      en: "Six stages from pencil sketch to final painted portrait: how Bokhari Hamid, Creative Director at Buried Games, painted the Godfather character for Arrab, the studio's social-deduction game.",
-      ar: "ست مراحل من الرسم التخطيطي إلى اللوحة النهائية: كيف رسم بوخاري حامد، المدير الإبداعي في بريد جيمز، شخصية العرّاب للعبة عراب، لعبة الاستوديو في الخداع الاجتماعي.",
+      en: "Six stages from pencil sketch to final portrait — the Godfather character for Arrab, by Bokhari Hamid, Creative Director at Buried Games.",
+      ar: "ست مراحل من الرسم التخطيطي إلى اللوحة النهائية — شخصية العرّاب للعبة عراب، بريشة بوخاري حامد، المدير الإبداعي في بريد جيمز.",
     },
     title: {
       en: "The Godfather of Arrab",
@@ -167,15 +167,15 @@ export const designWorks: DesignWork[] = [
   },
   {
     slug: "unicef-elearning-games",
-    updatedAt: "2026-07-18",
+    updatedAt: "2026-08-05",
     latinName: "UNICEF E-learning Games",
     metaTitle: {
-      en: "UNICEF E-learning Games — Educational Game Art & UI by Bokhari Hamid",
-      ar: "ألعاب اليونيسف التعليمية — فن ألعاب وواجهات بتصميم بوخاري حامد",
+      en: "UNICEF E-learning Games — Game Art by Bokhari Hamid",
+      ar: "ألعاب اليونيسف التعليمية — فن ألعاب بتصميم بوخاري حامد",
     },
     metaDescription: {
-      en: "Educational game art from a series of UNICEF e-learning games: Gulf-inspired kid characters, letter planets, classroom mini-games, and a complete Arabic game UI — design work by Bokhari Hamid, Creative Director at Buried Games.",
-      ar: "فن ألعاب تعليمية من سلسلة ألعاب اليونيسف الرقمية: شخصيات أطفال بطابع خليجي، وكواكب الحروف، وألعاب صفّية مصغرة، وواجهة لعبة عربية متكاملة — من تصميم بوخاري حامد، المدير الإبداعي في بريد جيمز.",
+      en: "UNICEF e-learning game art: kid characters, letter planets and a full Arabic game UI — by Bokhari Hamid, Creative Director at Buried Games.",
+      ar: "فن ألعاب اليونيسف التعليمية: شخصيات أطفال، وكواكب الحروف، وواجهة لعبة عربية متكاملة — من تصميم بوخاري حامد، المدير الإبداعي في بريد جيمز.",
     },
     title: {
       en: "UNICEF E-learning Games",
@@ -266,15 +266,15 @@ export const designWorks: DesignWork[] = [
   },
   {
     slug: "salamander-board-game",
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-08-05",
     latinName: "Salamander",
     metaTitle: {
       en: "Salamander Board Game — Creature & Game Art by Bokhari Hamid",
-      ar: "لعبة سالاماندر اللوحية — فن المخلوقات واللعبة بتصميم بوخاري حامد",
+      ar: "سالاماندر اللوحية — فن اللعبة بتصميم بوخاري حامد",
     },
     metaDescription: {
-      en: "Complete art production for the board game Salamander: creature designs from egg to adult, grass, water, and lava arena boards, an island world, and the game's interface art — by Bokhari Hamid, Creative Director at Buried Games.",
-      ar: "إنتاج فني كامل للعبة سالاماندر اللوحية: تصميم المخلوقات من البيضة إلى البلوغ، وساحات العشب والماء والحمم، وجزيرة اللعبة، وفن الواجهات — من تصميم بوخاري حامد، المدير الإبداعي في بريد جيمز.",
+      en: "Art production for board game Salamander: creatures, arena boards and interface art — by Bokhari Hamid, Creative Director at Buried Games.",
+      ar: "إنتاج فني للعبة سالاماندر اللوحية: المخلوقات والساحات وفن الواجهات — من تصميم بوخاري حامد، المدير الإبداعي في بريد جيمز.",
     },
     title: {
       en: "Salamander Board Game",
@@ -373,15 +373,15 @@ export const designWorks: DesignWork[] = [
   },
   {
     slug: "no-water-game-art",
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-08-05",
     latinName: "No Water",
     metaTitle: {
-      en: "No Water — Arabian Rogue-like Concept Art & UI by Bokhari Hamid",
-      ar: "No Water — فن مفاهيمي وواجهات للعبة روغ-لايك عربية بريشة بوخاري حامد",
+      en: "No Water — Arabian Rogue-like Art by Bokhari Hamid",
+      ar: "No Water — فن روغ-لايك عربية بريشة بوخاري حامد",
     },
     metaDescription: {
-      en: "Concept art from No Water, an unreleased rogue-like inspired by UAE and Arabian heritage: the Oasis kingdom under the Mother Palm, characters and creatures, the game's UI/UX, and level design — work by Bokhari Hamid, Creative Director at Buried Games.",
-      ar: "فن مفاهيمي من No Water، لعبة روغ-لايك غير مُصدرة مستوحاة من تراث الإمارات والجزيرة العربية: مملكة الواحة تحت النخلة الأم، والشخصيات والمخلوقات، وواجهات اللعبة، وتصميم المراحل — من أعمال بوخاري حامد، المدير الإبداعي في بريد جيمز.",
+      en: "Concept art from No Water, an unreleased rogue-like inspired by Arabian heritage — by Bokhari Hamid, Creative Director at Buried Games.",
+      ar: "فن مفاهيمي من No Water، لعبة روغ-لايك مستوحاة من التراث العربي — من أعمال بوخاري حامد، المدير الإبداعي في بريد جيمز.",
     },
     title: {
       en: "No Water — Arabian Rogue-like",
@@ -483,15 +483,15 @@ export const designWorks: DesignWork[] = [
   },
   {
     slug: "baba-yaga-witch-house",
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-08-05",
     latinName: "Baba Yaga",
     metaTitle: {
-      en: "Baba Yaga's Witch House — Interior Concept Art by Bokhari Hamid",
+      en: "Baba Yaga's Witch House — Concept Art by Bokhari Hamid",
       ar: "بيت الساحرة بابا ياغا — فن مفاهيمي داخلي بريشة بوخاري حامد",
     },
     metaDescription: {
-      en: "An interior concept for Baba Yaga's hut with a cast of enchanted living props — walking mortars, winged cages, and barrel-deer that gather food on their own — from Blender base to painted mood options. By Bokhari Hamid, Creative Director at Buried Games.",
-      ar: "تصور داخلي لكوخ بابا ياغا مع طاقم من العناصر الحيّة المسحورة — هاون سائر وأقفاص مجنّحة وأيائل-براميل تجمع طعامها بنفسها — من الأساس ثلاثي الأبعاد إلى خيارات الأجواء الملوّنة. بريشة بوخاري حامد، المدير الإبداعي في بريد جيمز.",
+      en: "An interior concept for Baba Yaga's hut, full of enchanted living props — by Bokhari Hamid, Creative Director at Buried Games.",
+      ar: "تصور داخلي لكوخ بابا ياغا مع عناصر حيّة مسحورة — بريشة بوخاري حامد، المدير الإبداعي في بريد جيمز.",
     },
     title: {
       en: "Baba Yaga's Witch House",
@@ -575,15 +575,15 @@ export const designWorks: DesignWork[] = [
   },
   {
     slug: "west-african-shrine",
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-08-05",
     latinName: "West African Shrine",
     metaTitle: {
-      en: "West African Shrine — Environment Concept Art by Bokhari Hamid",
+      en: "West African Shrine — Environment Art by Bokhari Hamid",
       ar: "مزار غرب أفريقي — فن بيئات مفاهيمي بريشة بوخاري حامد",
     },
     metaDescription: {
-      en: "An environment concept of a West African shrine with a central altar, based on the Kingdom of Benin in modern-day Nigeria: 3D blockout, shrine layout, altar designs, props, and color explorations — by Bokhari Hamid, Creative Director at Buried Games.",
-      ar: "تصور بيئي لمزار غرب أفريقي بمذبح مركزي، مستند إلى مملكة بنين في نيجيريا الحالية: الأساس ثلاثي الأبعاد، ومخطط المزار، وتصاميم المذبح، والعناصر، واستكشافات الألوان — بريشة بوخاري حامد، المدير الإبداعي في بريد جيمز.",
+      en: "An environment concept of a West African shrine based on the Kingdom of Benin — by Bokhari Hamid, Creative Director at Buried Games.",
+      ar: "تصور بيئي لمزار غرب أفريقي مستند إلى مملكة بنين — بريشة بوخاري حامد، المدير الإبداعي في بريد جيمز.",
     },
     title: {
       en: "West African Shrine",

@@ -227,6 +227,46 @@ export function HowItWorksContent({ locale }: { locale: Locale }) {
         </div>
       </section>
 
+      {/* PRICING LOGIC — the question the funnel actually starts with. Levers,
+          never a figure; see the note in content/how-it-works.ts. */}
+      <section className="py-14 md:py-20">
+        <div className="container">
+          <m.div {...reveal()} className="max-w-3xl">
+            <Eyebrow>{c.pricing.eyebrow[locale]}</Eyebrow>
+            <h2 className="mt-4 text-2xl md:text-3xl font-bold tracking-tight text-foreground">
+              {c.pricing.heading[locale]}
+            </h2>
+            <p className="mt-5 text-base md:text-lg leading-relaxed text-foreground/65">
+              {c.pricing.intro[locale]}
+            </p>
+          </m.div>
+
+          <p className="mt-10 text-[11px] md:text-xs font-medium tracking-[0.25em] text-foreground/60 uppercase">
+            {c.pricing.driversLabel[locale]}
+          </p>
+          <div className="mt-5 grid gap-5 sm:grid-cols-2">
+            {c.pricing.drivers.map((driver, i) => (
+              <m.div
+                {...reveal(i * 0.05)}
+                key={driver.title.en}
+                className="rounded-xl border border-border bg-card/40 p-6"
+              >
+                <h3 className="text-base md:text-lg font-bold tracking-tight text-foreground">
+                  {driver.title[locale]}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-foreground/70">
+                  {driver.body[locale]}
+                </p>
+              </m.div>
+            ))}
+          </div>
+
+          <m.p {...reveal()} className="mt-8 max-w-3xl text-base leading-relaxed text-foreground/65">
+            {c.pricing.closing[locale]}
+          </m.p>
+        </div>
+      </section>
+
       {/* CADENCE + TOOLING */}
       <section className="py-14 md:py-20 bg-card/40 border-y border-border">
         <div className="container grid gap-5 lg:grid-cols-2">

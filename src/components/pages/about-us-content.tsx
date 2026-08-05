@@ -44,6 +44,14 @@ export function AboutUsContent({
       links_cases_kout: "how we built KoutQ8",
       links_cases_join: "— or see all our",
       links_cases_all: "case studies",
+      // This page is indexed and ranks for commercial terms it should not own
+      // (position ~8.6 for "gcc game development company" in the 05.08.2026
+      // audit). These two links hand that relevance to the pages that should,
+      // with exact-match anchors.
+      links_hire_prefix: "Hiring a studio? We work as a",
+      links_hire_company: "game development company",
+      links_hire_join: "for clients across the Gulf, including",
+      links_hire_kuwait: "game development in Kuwait",
     },
     ar: {
       eyebrow: "ملف الاستوديو",
@@ -61,6 +69,10 @@ export function AboutUsContent({
       links_cases_kout: "كيف بنينا كوت",
       links_cases_join: "— أو اطّلع على كل",
       links_cases_all: "دراسات الحالة لدينا",
+      links_hire_prefix: "تبحث عن استوديو؟ نعمل",
+      links_hire_company: "كشركة تطوير ألعاب إلكترونية",
+      links_hire_join: "لعملاء في مختلف أنحاء الخليج، ومنها",
+      links_hire_kuwait: "تطوير الألعاب في الكويت",
     },
   }[language];
 
@@ -152,6 +164,24 @@ export function AboutUsContent({
                 className="text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors"
               >
                 {t_ui.links_cases_all}
+              </Link>
+              .
+            </p>
+
+            <p className="text-foreground/65 leading-relaxed">
+              {t_ui.links_hire_prefix}{" "}
+              <Link
+                href={localePath(language, "/services/game-development")}
+                className="text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors"
+              >
+                {t_ui.links_hire_company}
+              </Link>{" "}
+              {t_ui.links_hire_join}{" "}
+              <Link
+                href={localePath(language, "/game-development-kuwait")}
+                className="text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors"
+              >
+                {t_ui.links_hire_kuwait}
               </Link>
               .
             </p>

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CaseStudiesContent } from "@/components/pages/case-studies-content";
-import { caseStudies, caseStudiesUi } from "@/lib/content/case-studies";
+import { caseStudies, caseStudiesUi, hasEnoughCaseStudies } from "@/lib/content/case-studies";
 import { isLocale, localePath, languageAlternates, ogLocale, type Locale } from "@/lib/i18n";
 import { ogDefaults } from '@/lib/og';
 
@@ -14,12 +14,12 @@ const meta: Record<Locale, { title: string; description: string }> = {
   en: {
     title: "Case Studies — Games & Products We've Shipped",
     description:
-      "Real projects, real outcomes: how Buried Games Studio designs, builds, and ships games and interactive products for Kuwait and the GCC — from KoutQ8's multiplayer card tables to full-cycle client work.",
+      "Real projects, real outcomes: how we design, build and ship games and interactive products for Kuwait and the GCC.",
   },
   ar: {
     title: "دراسات الحالة — ألعاب ومنتجات أطلقناها",
     description:
-      "مشاريع حقيقية ونتائج حقيقية: كيف يصمم استوديو بريد جيمز ويبني ويطلق ألعابًا ومنتجات تفاعلية للكويت والخليج — من طاولات كوت كويت الجماعية إلى عمل متكامل للعملاء.",
+      "مشاريع ونتائج حقيقية: كيف نصمم ونبني ونطلق ألعابًا ومنتجات تفاعلية للكويت والخليج.",
   },
 };
 
@@ -28,8 +28,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const locale: Locale = isLocale(raw) ? raw : "en";
 
   return {
-    title: meta[locale].title,
+    // Content/commercial page — `absolute` opts out of the root
+    // "%s | Buried Games Studio" template, which costs 22 of the ~60
+    // characters Google renders. Brand pages keep the template.
+    title: { absolute: meta[locale].title },
     description: meta[locale].description,
+    // Thin until there are enough entries to be worth a crawl slot — see
+    // hasEnoughCaseStudies(). `follow` stays true so the one real case study
+    // below still inherits link equity from this page.
+    robots: { index: hasEnoughCaseStudies(), follow: true },
     alternates: {
       canonical: localePath(locale, PATH),
       languages: languageAlternates(PATH),

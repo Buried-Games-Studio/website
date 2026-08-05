@@ -28,6 +28,7 @@ import { ZoomParallaxHero } from "@/components/ui/zoom-parallax-hero";
 import { GamesShowcaseCarousel } from "@/components/ui/games-showcase-carousel";
 import { gamesContent } from "@/lib/content/games";
 import { gccMarketLinks } from "@/lib/content/gcc-market-links";
+import { StudioStatsBand } from "@/components/ui/studio-stats-band";
 import { fahed } from "@/lib/content/team";
 import { DESIGN_WORKS_PATH, designWorks } from "@/lib/content/design-works";
 import { DesignWorkCard } from "@/components/ui/design-work-card";
@@ -95,10 +96,6 @@ export function HomeContent({ locale }: { locale: Locale }) {
   const t_ui = {
     en: {
       // Stats
-      stats_games: "Games Shipped",
-      stats_years: "Years Active",
-      stats_engines: "Game Engines",
-      stats_remote: "Fully Remote",
       // Games
       portfolio: "Proof of Work",
       latest_releases: "Work we've shipped",
@@ -140,10 +137,6 @@ export function HomeContent({ locale }: { locale: Locale }) {
       faq_title: "Common questions",
     },
     ar: {
-      stats_games: "ألعاب منشورة",
-      stats_years: "سنوات نشاط",
-      stats_engines: "محركات ألعاب",
-      stats_remote: "عمل عن بعد بالكامل",
       portfolio: "أعمال أنجزناها",
       latest_releases: "أعمال أطلقناها",
       games_subtitle:
@@ -266,34 +259,7 @@ export function HomeContent({ locale }: { locale: Locale }) {
         {/* ══════════════════════════════════════
             2. STATS STRIP — tucked tightly under the hero
         ══════════════════════════════════════ */}
-        <section className="!py-0 border-y border-border bg-card/40">
-          <div className="container max-w-screen-xl">
-            <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-border">
-              {[
-                { value: "4", label: t_ui.stats_games },
-                { value: "7+", label: t_ui.stats_years },
-                { value: "3", label: t_ui.stats_engines },
-                { value: "100%", label: t_ui.stats_remote },
-              ].map((stat, i) => (
-                <m.div
-                  key={i}
-                  className="py-6 md:py-7 text-center"
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.06, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                >
-                  <div className="font-headline font-bold text-3xl md:text-4xl text-primary tracking-tight">
-                    {stat.value}
-                  </div>
-                  <div className="text-[11px] md:text-xs text-foreground/55 uppercase tracking-[0.2em] mt-1.5">
-                    {stat.label}
-                  </div>
-                </m.div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <StudioStatsBand locale={language} />
 
         {/* ══════════════════════════════════════
             3. EDITORIAL INTRO — keyword anchor, read as a statement

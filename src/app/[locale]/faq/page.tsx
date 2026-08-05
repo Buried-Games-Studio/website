@@ -11,12 +11,12 @@ const PATH = "/faq";
 type PageProps = { params: Promise<{ locale: string }> };
 
 const metaTitle: Record<Locale, string> = {
-  en: "FAQ | Game Development in Kuwait & the GCC",
-  ar: "الأسئلة الشائعة | تطوير الألعاب في الكويت والخليج",
+  en: "FAQ — Game Development in the GCC",
+  ar: "الأسئلة الشائعة — تطوير الألعاب",
 };
 const metaDescription: Record<Locale, string> = {
-  en: "Answers to common questions about Buried Games Studio: our games, the engines and platforms we use, working with us, pricing, Arabic game development, and how to reach us across Kuwait and the GCC.",
-  ar: "إجابات على الأسئلة الشائعة حول استوديو بريد جيمز: ألعابنا، والمحركات والمنصات التي نستخدمها، والعمل معنا، والتكلفة، وتطوير الألعاب بالعربية، وكيفية التواصل معنا في الكويت والخليج.",
+  en: "Common questions about Buried Games Studio: our games, the engines we use, working with us, pricing, and Arabic game development.",
+  ar: "أسئلة شائعة حول استوديو بريد جيمز: ألعابنا، والمحركات التي نستخدمها، والعمل معنا، والتكلفة، وتطوير الألعاب بالعربية.",
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

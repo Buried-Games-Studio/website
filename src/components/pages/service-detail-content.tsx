@@ -10,6 +10,7 @@ import type { ServicePage } from "@/lib/content/service-pages";
 import { assets } from "@/lib/assets";
 import { WhatsAppIcon } from "@/components/icons/whatsapp";
 import { m } from "framer-motion";
+import { StudioStatsBand } from "@/components/ui/studio-stats-band";
 import {
   ArrowRight,
   Check,
@@ -151,6 +152,10 @@ export function ServiceDetailContent({
           </m.div>
         </div>
       </section>
+
+      {/* Proof band — see gcc-landing-content for the reasoning; the service
+          pages compete with the same outsourcers and were equally numberless. */}
+      <StudioStatsBand locale={locale} />
 
       {/* ─────────────── INTRO ─────────────── */}
       <section className="py-14 md:py-20">
@@ -412,13 +417,29 @@ export function ServiceDetailContent({
                       aria-hidden
                     />
                   </button>
-                  {isOpen && (
-                    <div className="px-5 pb-5">
-                      <p className="text-sm leading-relaxed text-foreground/65">
-                        {item.a[locale]}
-                      </p>
+                  {/*
+                    Answers are ALWAYS in the DOM and collapsed with CSS, never
+                    conditionally mounted. `{isOpen && …}` shipped only the open
+                    answer in the server HTML, which put every other answer in
+                    the FAQPage JSON-LD and nowhere else — Google requires FAQ
+                    content to be visible on the page for the markup to qualify,
+                    and AI crawlers that skip JS saw one answer out of eight.
+                    The 0fr/1fr grid keeps the open/close animation.
+                  */}
+                  <div
+                    className={cn(
+                      "grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none",
+                      isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                    )}
+                  >
+                    <div className="overflow-hidden">
+                      <div className="px-5 pb-5">
+                        <p className="text-sm leading-relaxed text-foreground/65">
+                          {item.a[locale]}
+                        </p>
+                      </div>
                     </div>
-                  )}
+                  </div>
                 </div>
               );
             })}

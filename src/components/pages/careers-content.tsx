@@ -514,7 +514,7 @@ export function CareersContent({ locale }: { locale: Locale }) {
                   className="rounded-full border-foreground/20 hover:bg-foreground/5 transition-all duration-300 px-7 h-11"
                 >
                   <Link
-                    href="https://linkedin.com/company/buriedgames"
+                    href="https://www.linkedin.com/company/buriedgames"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

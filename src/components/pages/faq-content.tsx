@@ -17,12 +17,25 @@ import { WhatsAppLink } from "@/components/whatsapp-link";
  * imported read-only). Each category lists the indexes of faqContent items it
  * contains, so the source FAQ stays the single source of truth while this page
  * adds an on-page categorised layout. Indexes follow the order in faq.ts.
+ *
+ * ⚠️ These indexes are POSITIONAL, and that has already bitten once. When the
+ * installations / AR-VR / websites-and-dashboards questions were inserted near
+ * the top on 31.07.2026, every later index shifted by three — the map was only
+ * partly corrected, and items 12–15 (collaborate · submit an idea · stay
+ * updated · internships) fell off the end. They stayed in the FAQPage JSON-LD
+ * and vanished from the page, which is exactly the schema-without-visible-
+ * content mismatch Google's structured-data policy prohibits. Nobody noticed
+ * for five days because the page still looked complete.
+ *
+ * `uncategorisedIndexes` below is the guard: anything not claimed by a category
+ * is rendered anyway rather than silently dropped. Add new questions to a
+ * category by all means — but they can no longer disappear if you forget.
  */
 const categories: { title: Record<Locale, string>; indexes: number[] }[] = [
-  { title: { en: "Studio & portfolio", ar: "الاستوديو والأعمال" }, indexes: [0, 1, 4] },
-  { title: { en: "Tech & platforms", ar: "التقنيات والمنصات" }, indexes: [2, 3] },
-  { title: { en: "Working with us", ar: "العمل معنا" }, indexes: [5, 6, 7, 9, 10] },
-  { title: { en: "Community & careers", ar: "المجتمع والوظائف" }, indexes: [8, 11] },
+  { title: { en: "Studio & portfolio", ar: "الاستوديو والأعمال" }, indexes: [0, 4] },
+  { title: { en: "Tech & platforms", ar: "التقنيات والمنصات" }, indexes: [1, 2, 3, 5, 6] },
+  { title: { en: "Working with us", ar: "العمل معنا" }, indexes: [7, 8, 9, 10] },
+  { title: { en: "Community & careers", ar: "المجتمع والوظائف" }, indexes: [11, 12, 13, 14, 15] },
 ];
 
 const ui = {
@@ -51,6 +64,23 @@ export function FaqContent({ locale }: { locale: Locale }) {
   const t = ui[locale];
   const data = faqContent[locale];
   const [open, setOpen] = useState<string | null>("0-0");
+
+  // Safety net for the positional-index drift described above: any item no
+  // category claims still gets rendered, so the page can never again advertise
+  // a question in FAQPage schema that a visitor cannot find.
+  const claimed = new Set(categories.flatMap((c) => c.indexes));
+  const uncategorisedIndexes = data.items
+    .map((_, i) => i)
+    .filter((i) => !claimed.has(i));
+  const groups = uncategorisedIndexes.length
+    ? [
+        ...categories,
+        {
+          title: { en: "More questions", ar: "أسئلة أخرى" } as Record<Locale, string>,
+          indexes: uncategorisedIndexes,
+        },
+      ]
+    : categories;
 
   const Arrow = (
     <ArrowRight className={cn("h-4 w-4 shrink-0 transition-transform group-hover:translate-x-1", isRTL && "rotate-180 rtl:group-hover:-translate-x-1")} aria-hidden />
@@ -82,7 +112,7 @@ export function FaqContent({ locale }: { locale: Locale }) {
       {/* CATEGORISED FAQ */}
       <section className="py-14 md:py-20">
         <div className="container max-w-3xl space-y-10 md:space-y-12">
-          {categories.map((cat, ci) => (
+          {groups.map((cat, ci) => (
             <m.div key={ci} {...reveal}>
               <Eyebrow label={cat.title[locale]} />
               <h2 className="mt-4 font-headline font-bold tracking-tight text-2xl md:text-3xl text-foreground">{cat.title[locale]}</h2>
@@ -109,11 +139,26 @@ export function FaqContent({ locale }: { locale: Locale }) {
                         <span className="text-base font-semibold text-foreground">{item.q}</span>
                         <ChevronDown className={cn("h-5 w-5 shrink-0 text-primary transition-transform duration-300", isOpen && "rotate-180")} aria-hidden />
                       </button>
-                      {isOpen && (
-                        <div className="px-5 pb-5">
-                          <p className="text-sm leading-relaxed text-foreground/70">{item.a}</p>
+                      {/*
+                        Always in the DOM, collapsed with CSS. Conditional
+                        mounting put 15 of this page's 16 answers in the
+                        FAQPage JSON-LD and nowhere else — on the one page the
+                        whole site treats as its canonical FAQ carrier. Google
+                        requires the content to be visible on the page, and the
+                        AI crawlers this site converts best from do not run JS.
+                      */}
+                      <div
+                        className={cn(
+                          "grid transition-[grid-template-rows] duration-300 ease-out motion-reduce:transition-none",
+                          isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                        )}
+                      >
+                        <div className="overflow-hidden">
+                          <div className="px-5 pb-5">
+                            <p className="text-sm leading-relaxed text-foreground/70">{item.a}</p>
+                          </div>
                         </div>
-                      )}
+                      </div>
                     </div>
                   );
                 })}

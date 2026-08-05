@@ -52,6 +52,16 @@ export const socialProfiles: SocialProfile[] = [
     url: 'https://ensun.io/company/buried-games-studio-6a623877189b08fa2a052e38-managed',
     footer: false,
   },
+  // Wikidata item created 05.08.2026. It carries the Estonian Business
+  // Registry code (17564681) as property P6518, which is what makes the item
+  // verifiable — and it is the structured-data layer Google and AI assistants
+  // read for entity facts, so it belongs in sameAs even though it is not a
+  // "social" profile.
+  {
+    label: 'Wikidata',
+    url: 'https://www.wikidata.org/wiki/Q140888661',
+    footer: false,
+  },
 ];
 
 /** Organization.sameAs — every live profile, canonical URLs only. */

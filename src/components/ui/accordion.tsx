@@ -40,13 +40,29 @@ const AccordionTrigger = React.forwardRef<
 ))
 AccordionTrigger.displayName = AccordionPrimitive.Trigger.displayName
 
+/**
+ * `forceMount` is load-bearing for SEO, not a styling preference.
+ *
+ * Radix unmounts closed content by default, which meant the FAQ answers on the
+ * GCC country pages and /faq existed in the FAQPage JSON-LD and NOWHERE in the
+ * rendered HTML. Google requires FAQ content to be visible on the page for the
+ * markup to qualify, and the AI crawlers that drive this site's best-converting
+ * channel do not execute JavaScript — they were seeing questions with no
+ * answers. Verified against the built output on 05.08.2026: not one answer was
+ * in the body.
+ *
+ * With `forceMount` the content is always in the DOM; `hidden` is applied by
+ * Radix on closed items, and `data-[state=closed]:hidden` keeps it visually
+ * collapsed. Crawlable, still animated, still correct for assistive tech.
+ */
 const AccordionContent = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
 >(({ className, children, ...props }, ref) => (
   <AccordionPrimitive.Content
     ref={ref}
-    className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+    forceMount
+    className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down data-[state=closed]:hidden"
     {...props}
   >
     <div className={cn("pb-4 pt-0", className)}>{children}</div>

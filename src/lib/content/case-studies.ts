@@ -53,15 +53,15 @@ export type CaseStudy = {
 export const caseStudies: CaseStudy[] = [
   {
     slug: "koutq8-digital-kout-card-game",
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-08-05",
     latinName: "KoutQ8",
     metaTitle: {
-      en: "Case Study: KoutQ8 — Taking Kuwait's Favourite Card Game Digital",
-      ar: "دراسة حالة: كوت كويت — نقل لعبة الورق المفضلة في الكويت إلى الرقمية",
+      en: "KoutQ8 — Kuwait's Favourite Card Game, Rebuilt Digital",
+      ar: "كوت كويت — لعبة الورق الكويتية المفضلة رقميًا",
     },
     metaDescription: {
-      en: "How Buried Games Studio built KoutQ8: a faithful Unity adaptation of Kout, the Gulf's most-played card game — real-time online multiplayer, an AI partner that bids and coordinates, and an App Store launch.",
-      ar: "كيف بنى استوديو بريد جيمز لعبة كوت كويت: نسخة أمينة بمحرك Unity من الكوت، أكثر ألعاب الورق لعبًا في الخليج — لعب جماعي مباشر عبر الإنترنت وذكاء اصطناعي يزايد وينسّق، وإطلاق على App Store.",
+      en: "How we built KoutQ8: a faithful Unity adaptation of Kout with real-time online multiplayer, an AI partner that bids, and an App Store launch.",
+      ar: "كيف بنينا كوت كويت: نسخة أمينة بمحرك Unity من الكوت — لعب جماعي مباشر، وذكاء اصطناعي يزايد وينسّق، وإطلاق على App Store.",
     },
     title: {
       en: "KoutQ8: taking Kuwait's favourite card game digital",
@@ -160,6 +160,26 @@ export const caseStudySlugs = caseStudies.map((cs) => cs.slug);
 
 export function getCaseStudy(slug: string): CaseStudy | undefined {
   return caseStudies.find((cs) => cs.slug === slug);
+}
+
+/**
+ * Below this, the /case-studies INDEX is a heading plus one card — about sixty
+ * words of unique content once chrome is stripped. Google agreed: it sat at
+ * "Discovered — currently not indexed" through the 5 Aug 2026 audit, and an
+ * indexed thin page is a liability where an unindexed one is merely a gap.
+ *
+ * Only the index is gated. Individual case studies are substantial and stay
+ * indexable — it is the near-empty list page that shouldn't compete for a crawl
+ * slot on a domain this short of them.
+ *
+ * The gate is a threshold, not a hand-set flag, so publishing the third case
+ * study lifts the noindex and restores the sitemap entry on its own. Nobody has
+ * to remember this comment exists.
+ */
+const CASE_STUDY_INDEX_MIN = 3;
+
+export function hasEnoughCaseStudies(): boolean {
+  return caseStudies.length >= CASE_STUDY_INDEX_MIN;
 }
 
 /** Shared UI strings for the case-studies pages. */

@@ -12,13 +12,13 @@ type PageProps = { params: Promise<{ locale: string }> };
 const PATH = "/about-us";
 
 const title: Record<Locale, string> = {
-  en: 'About Us — Indie Game Studio for Kuwait & the GCC',
-  ar: 'من نحن — استوديو ألعاب مستقل للكويت والخليج',
+  en: 'About Us — Independent Game Studio',
+  ar: 'من نحن — استديو ألعاب مستقل',
 };
 
 const description: Record<Locale, string> = {
-  en: "Meet Buried Games Studio — an independent game development studio founded in 2018, serving players and clients across Kuwait and the GCC. Discover our story, our gameplay-first mission, our core values, and the team building immersive games for the region and beyond.",
-  ar: "تعرّف على استوديو بريد جيمز — استوديو مستقل لتطوير الألعاب تأسس عام 2018 يخدم اللاعبين والعملاء في الكويت والخليج. اكتشف قصتنا ومهمتنا القائمة على \"اللعب أولاً\" وقيمنا والفريق الذي يصنع ألعابًا غامرة للمنطقة والعالم.",
+  en: "Meet Buried Games Studio — an independent game studio founded in 2018, serving clients across Kuwait and the GCC. Our story, our values, and the team.",
+  ar: "تعرّف على استوديو بريد جيمز — استديو ألعاب مستقل تأسس عام 2018 ويخدم العملاء في الكويت والخليج. قصتنا وقيمنا والفريق الذي يصنع الألعاب.",
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

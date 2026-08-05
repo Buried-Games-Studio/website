@@ -152,7 +152,7 @@ export const devlogPosts: DevlogPost[] = [
   },
   {
     slug: 'devlog-level-design',
-    updatedAt: '2026-06-13',
+    updatedAt: '2026-08-05',
     youtubeId: 'ivS3ypjdUtA',
     publishedAt: '2024-04-23T10:44:50Z',
     title: {
@@ -160,7 +160,7 @@ export const devlogPosts: DevlogPost[] = [
       ar: 'تصميم المراحل: كيف نبني مراحل يرغب اللاعبون في إكمالها',
     },
     description: {
-      en: 'A practitioner devlog on level design — how we plan, prototype, and balance levels so difficulty rises fairly and players stay engaged from start to finish.',
+      en: 'A devlog on level design — how we plan, prototype and balance levels so difficulty rises fairly and players stay engaged.',
       ar: 'مدونة تطوير عملية عن تصميم المراحل — كيف نخطّط ونبني النماذج ونوازن المراحل لترتفع الصعوبة بإنصاف ويبقى اللاعبون منغمسين من البداية حتى النهاية.',
     },
     intro: {
@@ -216,7 +216,7 @@ export const devlogPosts: DevlogPost[] = [
   },
   {
     slug: 'devlog-character-animation',
-    updatedAt: '2026-06-13',
+    updatedAt: '2026-08-05',
     youtubeId: 'uiBltx7SHdA',
     publishedAt: '2024-04-25T11:55:42Z',
     title: {
@@ -224,7 +224,7 @@ export const devlogPosts: DevlogPost[] = [
       ar: 'تحريك الشخصيات: منح شخصيات الألعاب طابعها الخاص',
     },
     description: {
-      en: 'A practitioner devlog on character animation — our workflow from rigging to game-ready motion, and the principles that make characters feel alive on mobile.',
+      en: 'A devlog on character animation — our workflow from rigging to game-ready motion, and what makes characters feel alive on mobile.',
       ar: 'مدونة تطوير عملية عن تحريك الشخصيات — سير عملنا من بناء الهيكل العظمي إلى الحركة الجاهزة للعبة، والمبادئ التي تجعل الشخصيات تبدو حية على الجوال.',
     },
     intro: {
@@ -276,7 +276,7 @@ export const devlogPosts: DevlogPost[] = [
   },
   {
     slug: 'devlog-ai-in-games',
-    updatedAt: '2026-06-13',
+    updatedAt: '2026-08-05',
     youtubeId: 'ZcT2WfDRMgQ',
     publishedAt: '2024-04-28T13:25:41Z',
     title: {
@@ -284,7 +284,7 @@ export const devlogPosts: DevlogPost[] = [
       ar: 'الذكاء الاصطناعي في الألعاب: من سلوك الأعداء إلى أنظمة أذكى',
     },
     description: {
-      en: 'A practitioner devlog on AI in games — how we use state machines, behaviour trees, and tuning to make enemies, NPCs, and game systems feel smart, not scripted.',
+      en: 'A devlog on AI in games — how we use state machines, behaviour trees and tuning to make enemies and NPCs feel smart, not scripted.',
       ar: 'مدونة تطوير عملية عن الذكاء الاصطناعي في الألعاب — كيف نستخدم آلات الحالة وأشجار السلوك والضبط لجعل الأعداء والشخصيات والأنظمة تبدو ذكية لا مكتوبة مسبقًا.',
     },
     intro: {

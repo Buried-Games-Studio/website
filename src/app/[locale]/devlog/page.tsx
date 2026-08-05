@@ -24,7 +24,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const locale: Locale = isLocale(raw) ? raw : 'en';
 
   return {
-    title: title[locale],
+    // Content/commercial page — `absolute` opts out of the root
+    // "%s | Buried Games Studio" template, which costs 22 of the ~60
+    // characters Google renders. Brand pages keep the template.
+    title: { absolute: title[locale] },
     description: description[locale],
     alternates: {
       canonical: localePath(locale, PATH),

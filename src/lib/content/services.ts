@@ -69,6 +69,7 @@ export const featuredServicePages = {
       { slug: 'augmented-reality-development', title: 'AR Development', description: 'Augmented reality apps, WebAR campaigns from a QR code, and AR product visualization — built in Unity, Arabic-first.' },
       { slug: 'virtual-reality-development', title: 'VR Development', description: 'VR games, training simulations, and virtual showrooms for Meta Quest and PC VR — comfort-engineered in Unity and Unreal.' },
       { slug: 'dashboard-development', title: 'Dashboards & Internal Tools', description: 'Real-time dashboards, admin panels, and campaign consoles with live data — bilingual and readable at a glance.' },
+      { slug: 'arabic-game-localization', title: 'Arabic Game Localization', description: 'RTL-native layout, Arabic typography, and cultural review — built in by a games studio, not bolted on by a translation vendor.' },
     ],
   },
   ar: {
@@ -88,6 +89,7 @@ export const featuredServicePages = {
       { slug: 'augmented-reality-development', title: 'تطوير الواقع المعزز', description: 'تطبيقات واقع معزز، وحملات WebAR من رمز QR، وعرض منتجات بالواقع المعزز — مبنية على Unity، بالعربية أولًا.' },
       { slug: 'virtual-reality-development', title: 'تطوير الواقع الافتراضي', description: 'ألعاب VR ومحاكاة تدريب وصالات عرض افتراضية لـ Meta Quest وPC VR — مهندَسة للراحة على Unity وUnreal.' },
       { slug: 'dashboard-development', title: 'لوحات التحكم والأدوات الداخلية', description: 'لوحات بيانات فورية ولوحات إدارة ووحدات تحكم حملات ببيانات حية — ثنائية اللغة وتُقرأ بلمحة.' },
+      { slug: 'arabic-game-localization', title: 'أقلمة الألعاب للعربية', description: 'تخطيط أصيل من اليمين إلى اليسار، وطباعة عربية، ومراجعة ثقافية — مبنية في الصميم من استوديو ألعاب لا ملحقة من مورّد ترجمة.' },
     ],
   },
 };

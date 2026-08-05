@@ -42,12 +42,12 @@ export interface ReleaseEntry {
 
 export const releasesContent = {
   metaTitle: {
-    en: "Releases & Updates | Game Development Timeline",
-    ar: "الإصدارات والتحديثات | الخط الزمني لتطوير الألعاب",
+    en: "Releases & Updates",
+    ar: "الإصدارات والتحديثات",
   } satisfies LocalizedText,
   metaDescription: {
-    en: "A timeline of Buried Games Studio releases, game milestones, and devlogs — from our founding to live titles like KoutQ8 on the App Store and Nabsh on the web, serving players across Kuwait and the GCC.",
-    ar: "خط زمني لإصدارات استوديو بريد جيمز ومحطات ألعابه ومدونات تطويره — من تأسيسنا إلى ألعاب حية مثل كوت على App Store ونبش على الويب، لخدمة اللاعبين في الكويت والخليج.",
+    en: "A timeline of Buried Games releases, milestones and devlogs — from founding to live titles like KoutQ8 on the App Store and Nabsh on the web.",
+    ar: "خط زمني لإصدارات بريد جيمز ومحطاته ومدونات تطويره — من التأسيس إلى ألعاب حية مثل كوت على App Store ونبش على الويب.",
   } satisfies LocalizedText,
 
   hero: {

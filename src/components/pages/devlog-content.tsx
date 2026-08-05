@@ -70,6 +70,53 @@ export function DevlogContent({ locale }: { locale: Locale }) {
             {page_subtitle}
           </p>
           <p className="mt-5 text-base text-foreground/55 leading-relaxed">{page_intro}</p>
+
+          {/*
+            /devlog is indexed and earns impressions, but carried no in-body
+            links to the commercial pages — so none of that crawl equity reached
+            the service and country pages that are still unindexed. Exact-match
+            anchors, per the keyword map.
+          */}
+          <p className="mt-5 text-base text-foreground/55 leading-relaxed">
+            {language === "ar" ? (
+              <>
+                هذه ملاحظات من العمل الفعلي. إن كنت تبحث عن فريق بدل الدليل، فاطّلع على{" "}
+                <Link
+                  href={localePath(language, "/services/game-development")}
+                  className="text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors"
+                >
+                  خدمات تطوير الألعاب
+                </Link>{" "}
+                أو{" "}
+                <Link
+                  href={localePath(language, "/game-development-kuwait")}
+                  className="text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors"
+                >
+                  تطوير الألعاب في الكويت
+                </Link>
+                .
+              </>
+            ) : (
+              <>
+                These are notes from the actual work. If you are looking for a team
+                rather than a tutorial, see our{" "}
+                <Link
+                  href={localePath(language, "/services/game-development")}
+                  className="text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors"
+                >
+                  game development services
+                </Link>{" "}
+                or{" "}
+                <Link
+                  href={localePath(language, "/game-development-kuwait")}
+                  className="text-foreground underline underline-offset-4 decoration-primary/50 hover:decoration-primary transition-colors"
+                >
+                  game development in Kuwait
+                </Link>
+                .
+              </>
+            )}
+          </p>
         </m.div>
 
         {/* Card list */}

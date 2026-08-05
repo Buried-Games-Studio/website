@@ -64,17 +64,23 @@ polling live HTML with a cache-buster (`?v=$RANDOM`), never the bare URL.
 - Cold starts are structurally gone (one always-on replica — the old
   apphosting.yaml minInstances:1 fix; the file is deleted). Never enable
   Railway app-sleep on this service.
-- **Firebase decommission (pending, owner action — needs Google login):**
-  the old App Hosting backend still exists and bills for an idle always-on
-  instance. Owner: `/usr/local/bin/npx -y firebase-tools login` then
-  `... apphosting:backends:list --project buried-games-hq` then
-  `... apphosting:backends:delete <backend> --project buried-games-hq`.
-  ⚠️ Delete ONLY the buriedgames.com website backend —
-  `dashboard-koutq8.buriedgames.com` is a SEPARATE App Hosting backend and
-  stays. After deletion, remove the two Firebase leftovers in CF DNS: the
-  apex `fah-claim` TXT and the `_acme-challenge_cjv4d7expokgt7er` CNAME (the
-  www `fah-claim` TXT is already gone — it was blocking Railway's www
-  validation, a CNAME+TXT coexistence violation).
+- **Firebase decommission — DONE (05.08.2026).** `apphosting:backends:list
+  --project buried-games-hq` returns EMPTY: the website backend was already
+  gone, so nothing was billing. Verified, then the two dead CF DNS leftovers
+  were deleted by API: the apex `fah-claim` TXT and the
+  `_acme-challenge_cjv4d7expokgt7er` CNAME (the www `fah-claim` TXT had gone
+  earlier — it blocked Railway's www validation, a CNAME+TXT coexistence
+  violation). buriedgames.com verified 200 after the deletions. What remains
+  on the project is a classic Hosting site `buried-games-hq.web.app` —
+  a different product from App Hosting, and it does NOT bill for idle.
+- `dashboard-koutq8.buriedgames.com` is **Gavan Tech's**, on its OWN Firebase
+  project `koutq8-c64c2` (backend `koutq8`, repo `gavan-tech-hub-kout18`) —
+  never in buried-games-hq, so it was never at risk. Keep its
+  `fah-claim=016-…` TXT. NOTE: it currently serves **525** — its CF A record
+  points at a stale bare IP `35.219.200.96` (last modified 2025-06-25) that
+  presents no cert for the host, while the live backend answers 200 at
+  `koutq8--koutq8-c64c2.europe-west4.hosted.app`. Fix = repoint to that
+  hostname as a CNAME, but it is Gavan Tech's service — confirm with them.
 
 ## Legal positioning rule (owner requirement) — two layers, never mixed
 The business has two independent layers; keep them cleanly separated.
@@ -231,7 +237,39 @@ forms; public profile copy stays GCC service-area** — but apply it here too:
 - robots.ts explicitly allows AI crawlers (GEO). Never block /_next/ or ?s=.
 - New pages follow: generateMetadata with canonical + languageAlternates,
   per-page JSON-LD + BreadcrumbList, one h1, substantial unique copy, both
-  locales. No FAQPage schema on two URLs (/faq is the sole carrier).
+  locales.
+- **FAQPage schema is DELIBERATELY on ~38 URLs** — /faq, the six country pages
+  and all twelve service pages, both locales. This replaces the old "/faq is
+  the sole carrier" rule, which the code had already outgrown; the 05.08.2026
+  audit settled it as a decision rather than leaving it as drift. Reasoning:
+  Google has shown **zero** search-appearance data for the whole site since it
+  restricted FAQ rich results to authoritative health/government domains, so
+  consolidating would win nothing there — while structured Q&A *is* what AI
+  answer engines extract, and AI referrals are the site's best-converting
+  channel (59% engagement, 268s sessions). The questions are genuinely unique
+  per page (only two boilerplate questions repeat across the six countries), so
+  this is not duplicate content. **Keep them unique per page** — if a new page's
+  FAQs would just restate another's, it should not carry the schema.
+- **Accordion content must be in the DOM, collapsed with CSS — NEVER conditionally
+  mounted.** Found 05.08.2026: all three accordion implementations (the custom
+  ones on the service and FAQ pages, and the Radix `AccordionContent`) rendered
+  only the open item, so FAQ answers existed in the FAQPage JSON-LD and *nowhere*
+  in the HTML — a Google structured-data policy violation, and invisible to the
+  AI crawlers that are this site's best-converting channel. Fixed with a
+  `grid-rows-[0fr]/[1fr]` collapse and `forceMount` on Radix. Recovered ~2,000
+  crawlable words on /faq alone (324 → 2,005 EN). If you build another
+  disclosure widget, collapse it with CSS.
+- **/faq category indexes are POSITIONAL and have drifted once.** Inserting
+  questions near the top of `faq.ts` on 31.07.2026 shifted every later index and
+  silently orphaned items 12–15 — in schema, absent from the page, unnoticed for
+  five days. `faq-content.tsx` now renders any uncategorised item under "More
+  questions" so it can never vanish again; still, re-check the map when you
+  insert rather than append.
+- Titles: commercial and content routes use `title: { absolute: … }` to opt out
+  of the root `%s | Buried Games Studio` template — that suffix costs 22 of the
+  ~60 characters Google renders, spent on a brand term with ~48 impressions/90d.
+  Brand pages (/about-us, /faq, /press, /careers, /releases, /how-it-works) keep
+  the template, so their base title must stay ≤38 chars. Descriptions ≤155.
 
 ## Performance invariants (mobile 53 → 97; each was a real incident)
 - `PageTransition` must keep `AnimatePresence initial={false}` — wrapping the
@@ -337,7 +375,15 @@ forms; public profile copy stays GCC service-area** — but apply it here too:
 - Weekly GEO report: `scripts/geo-report.mjs` (GSC search analytics + Google
   index coverage via the URL Inspection API + GA4 sessions/channels/conversions
   + Cloudflare AI crawlers + Bing) → reports/geo-weekly/ (gitignored) and emails
-  the studio with `--email`. Scheduled via user crontab, Mondays 09:07.
+  the studio with `--email`. Scheduled Mondays 09:07 by the **LaunchAgent**
+  `~/Library/LaunchAgents/com.buriedgames.geo-report.plist` — NOT crontab. The
+  crontab entry was removed 05.08.2026 because cron does not catch up: if the
+  Mac is asleep at the scheduled minute the run is skipped silently, which is
+  how Monday 3 Aug produced no report and nobody noticed for two days.
+  `StartCalendarInterval` fires on wake for a missed slot instead. Manage with
+  `launchctl load|unload ~/Library/LaunchAgents/com.buriedgames.geo-report.plist`;
+  never re-add a crontab line for it or the report runs twice (two emails, a
+  doubled `history.json`).
   Everything is week-over-week; Cloudflare (8-day retention) and index coverage
   (no history API) get their deltas from `reports/geo-weekly/history.json`,
   a snapshot appended per run. The coverage sweep is ~96 sequential inspections
@@ -359,6 +405,20 @@ forms; public profile copy stays GCC service-area** — but apply it here too:
   trailing-slash handling so /en/, www, junk params fold in ONE 308. The
   proxy's redirect target must stay a plain `new URL(request.url)` — NextURL
   re-appends the original trailing slash on serialization (self-redirect loop).
+
+## Studio proof points (single source)
+`src/lib/content/studio-facts.ts` owns the numbers the site claims about itself,
+and `StudioStatsBand` renders them on the homepage, the 6 GCC country pages and
+the 12 service pages. They were hard-coded inside `home-content.tsx` until
+05.08.2026, where they could only go stale silently — and two of them had:
+**"7+ years" was really 8+**, and **"3 Game Engines" counted Next.js**, which is
+a web framework, not an engine. `gamesShipped` now derives from `games.ts`
+(`released` + `completed`; `development` does not count) and `yearsActive` from
+`FOUNDED_YEAR`, so shipping a title updates every page that cites the figure.
+Change a number THERE, never in a component. The truthfulness rule applies with
+full force here — the competitor outranking us leads with "200+ shipped titles"
+and Sony/Disney logos, and the answer to that is our own real figures, never
+borrowed credibility.
 
 ## Team & design-works showcase
 - Team members live in `src/lib/content/team.ts` — the single source feeding

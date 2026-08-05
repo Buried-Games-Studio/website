@@ -16,9 +16,16 @@ export function generateStaticParams() {
 // gamesContent slugs; the layout template appends the localized brand suffix.
 const seoTitles: Record<Locale, Record<string, string>> = {
   en: {
-    'nabsh': 'Nabsh — Online Trivia Game | Play Free',
+    // Ranked ~2 on "nabsh" with 1.8% CTR — a snippet problem, not a ranking
+    // one. Lead with what the searcher can do right now (free, in-browser) and
+    // with "Arabic", which is what distinguishes it from every other trivia hit.
+    'nabsh': 'Nabsh — Free Arabic Trivia Game | Play in Browser',
     'power-of-bombs': 'Power of Bombs — Multiplayer Arcade Game of Bombs',
-    'koutq8': 'KoutQ8 — Kout Game for Kuwait | Card Game App',
+    // The "kout" family is 537 impressions at positions 5–10 for 5 clicks. The
+    // searchers want to PLAY, so lead with the action and the price, not with
+    // "Card Game App". Keeps the KoutQ8 brand token and the bare "Kout" head
+    // term, which are what actually rank.
+    'koutq8': 'KoutQ8 — Play Kout Card Game Online Free',
     'arrab': 'Arrab — Online Mafia Social Deduction Game',
     'luna-fantasy': 'Luna Fantasy — Web RPG Adventure Game',
     'gathered-by-the-light': 'Gathered by the Light — Pixel Art Adventure Game',
@@ -26,7 +33,9 @@ const seoTitles: Record<Locale, Record<string, string>> = {
   ar: {
     'nabsh': 'نبش — لعبة تريفيا جماعية أونلاين | العب مجانًا',
     'power-of-bombs': 'باور أوف بومبز — لعبة أكشن وقنابل جماعية',
-    'koutq8': 'كوت — لعبة الكوت الكويتية أونلاين | تطبيق ورق',
+    // Arabic sits at position ~30 for لعبة كوت / لعبة الكوت — lead with the exact
+    // phrase people search rather than the brand token.
+    'koutq8': 'لعبة الكوت الكويتية أونلاين — العب مجانًا',
     'arrab': 'العرّاب — لعبة مافيا أونلاين بالعربي',
     'luna-fantasy': 'لونا فانتازيا — لعبة آر بي جي مغامرات على الويب',
     'gathered-by-the-light': 'مجتمعون بالنور — لعبة مغامرات بكسل آرت',
@@ -60,7 +69,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const description = game.description[locale];
 
   return {
-    title,
+    // Product page — `absolute` opts out of the root "%s | Buried Games Studio"
+    // template, which costs 22 of the ~60 characters Google renders.
+    title: { absolute: title },
     description,
     alternates: {
       canonical: localePath(locale, path),

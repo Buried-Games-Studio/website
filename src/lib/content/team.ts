@@ -45,7 +45,7 @@ export const fahed: TeamMember = {
     ar: "أسّست بريد جيمز بإيمان بسيط: يجب أن تكون الألعاب غامرة وتمثّل تحديًا وتحترم وقت اللاعب. نحن نصنع الألعاب التي طالما أردنا أن نلعبها — ونساعد عملاءنا في مختلف دول الخليج على صناعة ألعابهم.",
   },
   photoUrl: assets.fahedElahmad,
-  linkedInUrl: "https://linkedin.com/in/fahed-f-al-ahmad-se",
+  linkedInUrl: "https://www.linkedin.com/in/fahed-f-al-ahmad-se",
 };
 
 export const bokhari: TeamMember = {
@@ -60,7 +60,7 @@ export const bokhari: TeamMember = {
     ar: "يقود بوخاري الاتجاه الإبداعي للاستوديو — من الفن المفاهيمي وتصميم الشخصيات إلى الهوية البصرية وواجهات الألعاب. أعماله ترسم السقف البصري لكل ما نطلقه.",
   },
   photoUrl: assets.bokhariHamid,
-  linkedInUrl: "https://www.linkedin.com/in/bokhari-hamid-b1524a231/",
+  linkedInUrl: "https://www.linkedin.com/in/bokhari-hamid-b1524a231",
   portfolioUrl: "https://www.artstation.com/bokhary",
   showcaseHref: DESIGN_WORKS_PATH,
 };

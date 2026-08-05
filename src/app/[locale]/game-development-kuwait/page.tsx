@@ -17,7 +17,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const landing = getGccLanding(SLUG)!;
 
   return {
-    title: landing.metaTitle[locale],
+    // `absolute` opts out of the root "%s | Buried Games Studio" template —
+    // on a commercial page that suffix costs 22 of the ~60 characters Google
+    // renders. Brand pages keep the template.
+    title: { absolute: landing.metaTitle[locale] },
     description: landing.metaDescription[locale],
     alternates: {
       canonical: localePath(locale, PATH),
