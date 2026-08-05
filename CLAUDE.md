@@ -386,12 +386,30 @@ forms; public profile copy stays GCC service-area** — but apply it here too:
   routes (404 while empty), sitemap, llms.txt, footer link, homepage band.
   The gate value is passed into client components as props (layout → Footer,
   about page → AboutUsContent) — don't import the module into shared chrome.
+- **Assets are content-hashed and immutable (05.08.2026).** Every asset the site
+  references now lives under `/site/…` with a hash of its bytes in the filename
+  (`cover.a3f91c2e.jpg`), pinned for a year by a Cloudflare cache rule. Changing
+  an image changes its URL, so the new one is live instantly, the old one keeps
+  working for anything still pointing at it, and **publishing an asset never
+  needs a purge** — the stale-for-7-days trap below only ever applied to
+  unhashed names.
+  ```
+  node scripts/publish-asset.mjs <file> images/design-works/<slug>            # dry run
+  node scripts/publish-asset.mjs <file> images/design-works/<slug> --publish
+  ```
+  It prints the URL to paste in. There is no base constant to build paths from
+  any more — `src/lib/assets.ts` holds full literal URLs, and `WORKS_ASSETS` is
+  gone — because the hash is per file and cannot be concatenated.
+  The old unhashed `/images/…` objects are still in the bucket and still served
+  (30d rule); nothing references them. Leave them until the owner decides to
+  prune, so any external link or cached page keeps resolving.
 - R2 uploads from this Mac: wrangler is OAuth-logged-in but sees TWO accounts —
   always set `CLOUDFLARE_ACCOUNT_ID=15e65a55496c453852c91a0806965603` (bucket
-  `assets`). `wrangler r2 object put "assets/images/…" --file … --content-type
-  image/jpeg --remote`. After uploading over a URL that previously 404'd, run
-  `pnpm after-deploy` (or purge-cdn) — the 404 gets edge-cached by the asset
-  cache rules, and browsers may hold it for 7 days (hard refresh to see).
+  `assets`); `publish-asset.mjs` does this for you. Raw
+  `wrangler r2 object put "assets/images/…" --remote` still works for legacy
+  unhashed paths — and there, after uploading over a URL that previously 404'd,
+  you must run `pnpm after-deploy` (or purge-cdn): the 404 gets edge-cached by
+  the asset cache rules and browsers may hold it for 7 days.
 
 ## Machine/tooling gotchas (this Mac)
 - **Never `cd` (strict owner rule, umbrella-wide):** absolute paths and

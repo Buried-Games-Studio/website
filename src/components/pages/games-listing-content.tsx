@@ -13,8 +13,8 @@ export function GamesListingContent({ locale }: { locale: Locale }) {
     'power-of-bombs': assets.powerOfBombsLogo,
     'koutq8': assets.koutq8Logo,
     'nabsh': assets.nabshLogo,
-    'luna-fantasy': 'https://assets.buriedgames.com/images/luna-fantasy-hero.png',
-    'gathered-by-the-light': 'https://assets.buriedgames.com/images/games/gbtl/poster.png',
+    'luna-fantasy': 'https://assets.buriedgames.com/site/images/luna-fantasy-hero.edbed1e7.png',
+    'gathered-by-the-light': 'https://assets.buriedgames.com/site/images/games/gbtl/poster.9b4e0eaa.png',
     'arrab': assets.arrabHatLogo,
   };
 
@@ -32,7 +32,7 @@ export function GamesListingContent({ locale }: { locale: Locale }) {
       slug: game.slug,
       title: game.title,
       description: game.description[language],
-      image: gameImageMap[game.id] || 'https://assets.buriedgames.com/images/hero-collage.jpg',
+      image: gameImageMap[game.id] || 'https://assets.buriedgames.com/site/images/hero-collage.7d56e447.jpg',
       status: game.status as GameGridCardData["status"],
       engine: game.engine,
       tags: game.features?.slice(0, 2).map((f: any) => f.title[language]) || [],

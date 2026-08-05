@@ -73,7 +73,7 @@ export function HomeContent({ locale }: { locale: Locale }) {
     koutq8: assets.koutq8Logo,
     nabsh: assets.nabshLogo,
     "luna-fantasy": assets.lunaFantasyHero,
-    "gathered-by-the-light": "https://assets.buriedgames.com/images/games/gbtl/poster.png",
+    "gathered-by-the-light": "https://assets.buriedgames.com/site/images/games/gbtl/poster.9b4e0eaa.png",
     arrab: assets.arrabHeroRight,
   };
 
@@ -85,7 +85,7 @@ export function HomeContent({ locale }: { locale: Locale }) {
       slug: game.slug,
       title: game.title,
       description: game.description[language],
-      image: gameImageMap[game.id] || "https://assets.buriedgames.com/images/hero-collage.jpg",
+      image: gameImageMap[game.id] || "https://assets.buriedgames.com/site/images/hero-collage.7d56e447.jpg",
       status: game.status as "released" | "development" | "coming_soon" | "completed",
       engine: game.engine,
       tags:

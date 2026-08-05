@@ -198,7 +198,7 @@ const LOGO: Record<string, string> = {
   arrab: assets.arrabLogo,
   "power-of-bombs": assets.powerOfBombsLogo,
   "luna-fantasy": assets.lunaFantasyLogo,
-  "gathered-by-the-light": "https://assets.buriedgames.com/images/games/gbtl/logo.png",
+  "gathered-by-the-light": "https://assets.buriedgames.com/site/images/games/gbtl/logo.502789a1.png",
 };
 
 export const gameFactSheets: GameFactSheet[] = gamesContent.map((game) => ({

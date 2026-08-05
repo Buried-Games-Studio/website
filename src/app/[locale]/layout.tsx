@@ -66,7 +66,7 @@ const organizationSchema = {
   "employee": [personLdNested(bokhari, 'en')],
   "email": "support@buriedgames.com",
   "url": "https://buriedgames.com",
-  "logo": "https://assets.buriedgames.com/images/buriedgames_logo.png",
+  "logo": "https://assets.buriedgames.com/site/images/buriedgames_logo.6d162dd3.png",
   // No PostalAddress on purpose: areaServed declares the service area without
   // asserting a place of establishment.
   "areaServed": ["KW", "SA", "AE", "QA", "BH", "OM"],

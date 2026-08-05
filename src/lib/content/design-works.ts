@@ -67,12 +67,13 @@ export type DesignWork = {
   authorId?: string;
 };
 
-const WORKS_ASSETS = "https://assets.buriedgames.com/images/design-works";
-
 export const designWorks: DesignWork[] = [
   // To publish a work Bokhari sends:
-  // 1. Upload images to R2: images/design-works/<slug>/cover.<ext> plus
-  //    images/design-works/<slug>/gallery-01.<ext>, -02, …
+  // 1. Publish the images:
+  //      node scripts/publish-asset.mjs <file> images/design-works/<slug>
+  //    It prints a content-hashed URL under /site/, which is cached for a year
+  //    and can never go stale. Paste that URL in — there is no base constant to
+  //    build paths from any more, because each file's URL carries its own hash.
   // 2. Add a DesignWork entry here (EN + AR for every Localized field).
   // The section, sitemap, llms.txt, and footer link all go live automatically
   // with the first entry (hasDesignWorks gate). No placeholder entries, ever.
@@ -107,34 +108,34 @@ export const designWorks: DesignWork[] = [
     ],
     year: "2026",
     datePublished: "2026-07-18",
-    heroImage: `${WORKS_ASSETS}/arrab-godfather-character-art/cover.jpg`,
+    heroImage: "https://assets.buriedgames.com/site/images/design-works/arrab-godfather-character-art/cover.ffa7a310.jpg",
     heroImageHint: {
       en: "The Godfather of Arrab — final painted portrait",
       ar: "العرّاب في لعبة عراب — اللوحة النهائية",
     },
     gallery: [
       {
-        url: `${WORKS_ASSETS}/arrab-godfather-character-art/gallery-01.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/arrab-godfather-character-art/gallery-01.96de35f2.jpg",
         hint: { en: "Stage 1 — pencil line sketch", ar: "المرحلة 1 — التخطيط بالخطوط" },
       },
       {
-        url: `${WORKS_ASSETS}/arrab-godfather-character-art/gallery-02.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/arrab-godfather-character-art/gallery-02.ee2e48fa.jpg",
         hint: { en: "Stage 2 — value and shadow pass", ar: "المرحلة 2 — قيم الضوء والظل" },
       },
       {
-        url: `${WORKS_ASSETS}/arrab-godfather-character-art/gallery-03.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/arrab-godfather-character-art/gallery-03.41677796.jpg",
         hint: { en: "Stage 3 — first color blockout", ar: "المرحلة 3 — الألوان الأساسية" },
       },
       {
-        url: `${WORKS_ASSETS}/arrab-godfather-character-art/gallery-04.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/arrab-godfather-character-art/gallery-04.80e8492c.jpg",
         hint: { en: "Stage 4 — lighting pass", ar: "المرحلة 4 — تمرير الإضاءة" },
       },
       {
-        url: `${WORKS_ASSETS}/arrab-godfather-character-art/gallery-05.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/arrab-godfather-character-art/gallery-05.57ec02f9.jpg",
         hint: { en: "Stage 5 — refined rendering", ar: "المرحلة 5 — الصقل والتفاصيل" },
       },
       {
-        url: `${WORKS_ASSETS}/arrab-godfather-character-art/gallery-06.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/arrab-godfather-character-art/gallery-06.ffa7a310.jpg",
         hint: { en: "Stage 6 — the final portrait", ar: "المرحلة 6 — اللوحة النهائية" },
       },
     ],
@@ -194,50 +195,50 @@ export const designWorks: DesignWork[] = [
       { en: "Game UI", ar: "واجهات ألعاب" },
     ],
     datePublished: "2026-07-18",
-    heroImage: `${WORKS_ASSETS}/unicef-elearning-games/cover.jpg`,
+    heroImage: "https://assets.buriedgames.com/site/images/design-works/unicef-elearning-games/cover.90a1ef15.jpg",
     heroImageHint: {
       en: "UNICEF Games key art — a stylized valley",
       ar: "الرسم الرئيسي لألعاب اليونيسف — وادٍ بأسلوب فني مبسط",
     },
     gallery: [
       {
-        url: `${WORKS_ASSETS}/unicef-elearning-games/gallery-01.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/unicef-elearning-games/gallery-01.522a3ad4.jpg",
         hint: { en: "Playable characters — a girl and a boy in Gulf dress", ar: "الشخصيات القابلة للعب — بنت وولد بالزي الخليجي" },
       },
       {
-        url: `${WORKS_ASSETS}/unicef-elearning-games/gallery-02.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/unicef-elearning-games/gallery-02.8f538dde.jpg",
         hint: { en: "Color explorations for the girl character", ar: "تجارب ألوان لشخصية البنت" },
       },
       {
-        url: `${WORKS_ASSETS}/unicef-elearning-games/gallery-03.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/unicef-elearning-games/gallery-03.74b88cfd.jpg",
         hint: { en: "The full Arabic UI kit — buttons, dialogs, and HUD", ar: "طقم الواجهة العربية الكامل — أزرار ونوافذ وعناصر الشاشة" },
       },
       {
-        url: `${WORKS_ASSETS}/unicef-elearning-games/gallery-04.png`,
+        url: "https://assets.buriedgames.com/site/images/design-works/unicef-elearning-games/gallery-04.9bedfce7.png",
         hint: { en: "Letter planets — level worlds for the Arabic curriculum", ar: "كواكب الحروف — عوالم المراحل لمنهج اللغة العربية" },
       },
       {
-        url: `${WORKS_ASSETS}/unicef-elearning-games/gallery-05.png`,
+        url: "https://assets.buriedgames.com/site/images/design-works/unicef-elearning-games/gallery-05.8657a1be.png",
         hint: { en: "A letter planet up close", ar: "كوكب حروف عن قرب" },
       },
       {
-        url: `${WORKS_ASSETS}/unicef-elearning-games/gallery-06.png`,
+        url: "https://assets.buriedgames.com/site/images/design-works/unicef-elearning-games/gallery-06.76b719ae.png",
         hint: { en: "Environment art — forest stages and level scenes", ar: "فن البيئات — مراحل الغابة ومشاهد المستويات" },
       },
       {
-        url: `${WORKS_ASSETS}/unicef-elearning-games/gallery-07.png`,
+        url: "https://assets.buriedgames.com/site/images/design-works/unicef-elearning-games/gallery-07.1c7b8777.png",
         hint: { en: "Math mini-game screens", ar: "شاشات ألعاب الرياضيات المصغرة" },
       },
       {
-        url: `${WORKS_ASSETS}/unicef-elearning-games/gallery-08.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/unicef-elearning-games/gallery-08.96f632ce.jpg",
         hint: { en: "World-map planet with the level path", ar: "كوكب خريطة العالم مع مسار المراحل" },
       },
       {
-        url: `${WORKS_ASSETS}/unicef-elearning-games/gallery-09.png`,
+        url: "https://assets.buriedgames.com/site/images/design-works/unicef-elearning-games/gallery-09.0dd8a1fc.png",
         hint: { en: "In-game dialog with the two characters", ar: "حوار داخل اللعبة مع الشخصيتين" },
       },
       {
-        url: `${WORKS_ASSETS}/unicef-elearning-games/gallery-10.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/unicef-elearning-games/gallery-10.c1192372.jpg",
         hint: { en: "Multiplication mini-game screen", ar: "شاشة لعبة الضرب المصغرة" },
       },
     ],
@@ -293,58 +294,58 @@ export const designWorks: DesignWork[] = [
       { en: "Game UI", ar: "واجهات ألعاب" },
     ],
     datePublished: "2026-07-18",
-    heroImage: `${WORKS_ASSETS}/salamander-board-game/cover.jpg`,
+    heroImage: "https://assets.buriedgames.com/site/images/design-works/salamander-board-game/cover.f7463835.jpg",
     heroImageHint: {
       en: "Salamander key art — the spotted eggs",
       ar: "الرسم الرئيسي للعبة سالاماندر — البيض المرقّط",
     },
     gallery: [
       {
-        url: `${WORKS_ASSETS}/salamander-board-game/gallery-01.png`,
+        url: "https://assets.buriedgames.com/site/images/design-works/salamander-board-game/gallery-01.4b827416.png",
         hint: { en: "An adult salamander with its hatchling", ar: "سالاماندر بالغ مع صغيره" },
       },
       {
-        url: `${WORKS_ASSETS}/salamander-board-game/gallery-02.png`,
+        url: "https://assets.buriedgames.com/site/images/design-works/salamander-board-game/gallery-02.92e66bc2.png",
         hint: { en: "Water salamanders — concept sheet", ar: "سالاماندر الماء — لوحة تصميم" },
       },
       {
-        url: `${WORKS_ASSETS}/salamander-board-game/gallery-03.png`,
+        url: "https://assets.buriedgames.com/site/images/design-works/salamander-board-game/gallery-03.0511d38c.png",
         hint: { en: "Grass salamanders — concept sheet", ar: "سالاماندر العشب — لوحة تصميم" },
       },
       {
-        url: `${WORKS_ASSETS}/salamander-board-game/gallery-04.png`,
+        url: "https://assets.buriedgames.com/site/images/design-works/salamander-board-game/gallery-04.35578daa.png",
         hint: { en: "Fire salamanders on lava crystals", ar: "سالاماندر النار على بلورات الحمم" },
       },
       {
-        url: `${WORKS_ASSETS}/salamander-board-game/gallery-05.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/salamander-board-game/gallery-05.646ab7e7.jpg",
         hint: { en: "The hatching scene", ar: "مشهد الفقس" },
       },
       {
-        url: `${WORKS_ASSETS}/salamander-board-game/gallery-06.png`,
+        url: "https://assets.buriedgames.com/site/images/design-works/salamander-board-game/gallery-06.6e6d3564.png",
         hint: { en: "The island world", ar: "جزيرة اللعبة" },
       },
       {
-        url: `${WORKS_ASSETS}/salamander-board-game/gallery-07.png`,
+        url: "https://assets.buriedgames.com/site/images/design-works/salamander-board-game/gallery-07.4090cdf0.png",
         hint: { en: "Grass arena board", ar: "ساحة العشب" },
       },
       {
-        url: `${WORKS_ASSETS}/salamander-board-game/gallery-08.png`,
+        url: "https://assets.buriedgames.com/site/images/design-works/salamander-board-game/gallery-08.25e1ab55.png",
         hint: { en: "Water arena board", ar: "ساحة الماء" },
       },
       {
-        url: `${WORKS_ASSETS}/salamander-board-game/gallery-09.png`,
+        url: "https://assets.buriedgames.com/site/images/design-works/salamander-board-game/gallery-09.a8ba6c31.png",
         hint: { en: "Lava arena board", ar: "ساحة الحمم" },
       },
       {
-        url: `${WORKS_ASSETS}/salamander-board-game/gallery-10.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/salamander-board-game/gallery-10.432c82ae.jpg",
         hint: { en: "Interface screens — menus and in-game", ar: "شاشات الواجهة — القوائم وداخل اللعب" },
       },
       {
-        url: `${WORKS_ASSETS}/salamander-board-game/gallery-11.png`,
+        url: "https://assets.buriedgames.com/site/images/design-works/salamander-board-game/gallery-11.7e9ae523.png",
         hint: { en: "“Hatchling” event card", ar: "بطاقة حدث «الفقس»" },
       },
       {
-        url: `${WORKS_ASSETS}/salamander-board-game/gallery-12.png`,
+        url: "https://assets.buriedgames.com/site/images/design-works/salamander-board-game/gallery-12.1150df58.png",
         hint: { en: "“Consumed” event card", ar: "بطاقة حدث «الالتهام»" },
       },
     ],
@@ -403,58 +404,58 @@ export const designWorks: DesignWork[] = [
     tools: ["Photoshop", "Blender", "Unity"],
     year: "2026",
     datePublished: "2026-07-23",
-    heroImage: `${WORKS_ASSETS}/no-water-game-art/cover.jpg`,
+    heroImage: "https://assets.buriedgames.com/site/images/design-works/no-water-game-art/cover.00c84f35.jpg",
     heroImageHint: {
       en: "Key illustration — the player hub above the Mother Palm",
       ar: "الرسم الرئيسي — مقر اللاعب فوق النخلة الأم",
     },
     gallery: [
       {
-        url: `${WORKS_ASSETS}/no-water-game-art/gallery-01.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/no-water-game-art/gallery-01.bcdfe9ca.jpg",
         hint: { en: "The game world — the Oasis kingdom", ar: "عالم اللعبة — مملكة الواحة" },
       },
       {
-        url: `${WORKS_ASSETS}/no-water-game-art/gallery-02.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/no-water-game-art/gallery-02.72ff101b.jpg",
         hint: { en: "Design iterations around the palm-kingdom idea", ar: "تجارب تصميم حول فكرة مملكة النخلة" },
       },
       {
-        url: `${WORKS_ASSETS}/no-water-game-art/gallery-03.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/no-water-game-art/gallery-03.c2f648c8.jpg",
         hint: { en: "The player hub perched above the giant palms", ar: "مقر اللاعب فوق النخيل العملاق" },
       },
       {
-        url: `${WORKS_ASSETS}/no-water-game-art/gallery-04.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/no-water-game-art/gallery-04.70e8fedf.jpg",
         hint: { en: "Interactable objects inside the hub", ar: "العناصر التفاعلية داخل المقر" },
       },
       {
-        url: `${WORKS_ASSETS}/no-water-game-art/gallery-05.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/no-water-game-art/gallery-05.7a99419a.jpg",
         hint: { en: "The teleport portal concept", ar: "تصميم بوابة الانتقال" },
       },
       {
-        url: `${WORKS_ASSETS}/no-water-game-art/gallery-06.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/no-water-game-art/gallery-06.b1b1b1f1.jpg",
         hint: { en: "Protagonist designs inspired by Abbas ibn Firnas", ar: "تصاميم البطل مستوحاة من عباس بن فرناس" },
       },
       {
-        url: `${WORKS_ASSETS}/no-water-game-art/gallery-07.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/no-water-game-art/gallery-07.44838b8a.jpg",
         hint: { en: "Playable and in-game characters", ar: "شخصيات اللعب والشخصيات داخل اللعبة" },
       },
       {
-        url: `${WORKS_ASSETS}/no-water-game-art/gallery-08.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/no-water-game-art/gallery-08.2330c186.jpg",
         hint: { en: "Companion creature concept", ar: "تصميم مخلوق مرافق" },
       },
       {
-        url: `${WORKS_ASSETS}/no-water-game-art/gallery-09.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/no-water-game-art/gallery-09.998a60df.jpg",
         hint: { en: "Companion animation sheet", ar: "لوحة تحريك المخلوق المرافق" },
       },
       {
-        url: `${WORKS_ASSETS}/no-water-game-art/gallery-10.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/no-water-game-art/gallery-10.ed27e3ac.jpg",
         hint: { en: "Creature color options drawn from Emirati textiles", ar: "خيارات ألوان مستوحاة من الأقمشة الإماراتية" },
       },
       {
-        url: `${WORKS_ASSETS}/no-water-game-art/gallery-11.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/no-water-game-art/gallery-11.fd6d3747.jpg",
         hint: { en: "The game hub UI, implemented in Unity", ar: "واجهة مقر اللعبة — نُفّذت في Unity" },
       },
       {
-        url: `${WORKS_ASSETS}/no-water-game-art/gallery-12.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/no-water-game-art/gallery-12.0f41344f.jpg",
         hint: { en: "Level concept framed like an in-game screenshot", ar: "تصور المرحلة بإطار يشبه لقطة من اللعبة" },
       },
     ],
@@ -511,42 +512,42 @@ export const designWorks: DesignWork[] = [
     tools: ["Blender", "Photoshop"],
     year: "2026",
     datePublished: "2026-07-23",
-    heroImage: `${WORKS_ASSETS}/baba-yaga-witch-house/cover.jpg`,
+    heroImage: "https://assets.buriedgames.com/site/images/design-works/baba-yaga-witch-house/cover.9741afe6.jpg",
     heroImageHint: {
       en: "Inside Baba Yaga's hut — the main interior concept",
       ar: "داخل كوخ بابا ياغا — التصور الداخلي الرئيسي",
     },
     gallery: [
       {
-        url: `${WORKS_ASSETS}/baba-yaga-witch-house/gallery-01.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/baba-yaga-witch-house/gallery-01.b0d6155b.jpg",
         hint: { en: "Color and mood options", ar: "خيارات الألوان والأجواء" },
       },
       {
-        url: `${WORKS_ASSETS}/baba-yaga-witch-house/gallery-02.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/baba-yaga-witch-house/gallery-02.e81be96b.jpg",
         hint: { en: "The 3D base built in Blender", ar: "الأساس ثلاثي الأبعاد في Blender" },
       },
       {
-        url: `${WORKS_ASSETS}/baba-yaga-witch-house/gallery-03.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/baba-yaga-witch-house/gallery-03.cfb7ece2.jpg",
         hint: { en: "Base colors", ar: "الألوان الأساسية" },
       },
       {
-        url: `${WORKS_ASSETS}/baba-yaga-witch-house/gallery-04.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/baba-yaga-witch-house/gallery-04.5c551a79.jpg",
         hint: { en: "Living props — the feather broom and walking mortar", ar: "عناصر حيّة — المكنسة الريشية والهاون السائر" },
       },
       {
-        url: `${WORKS_ASSETS}/baba-yaga-witch-house/gallery-05.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/baba-yaga-witch-house/gallery-05.084502de.jpg",
         hint: { en: "Enchanted furniture with creature tails", ar: "أثاث مسحور بذيول مخلوقات" },
       },
       {
-        url: `${WORKS_ASSETS}/baba-yaga-witch-house/gallery-06.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/baba-yaga-witch-house/gallery-06.1d884c11.jpg",
         hint: { en: "Potion bowls and barrels on bird legs", ar: "أوعية جرعات وبراميل على أرجل طيور" },
       },
       {
-        url: `${WORKS_ASSETS}/baba-yaga-witch-house/gallery-07.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/baba-yaga-witch-house/gallery-07.db4a2e1f.jpg",
         hint: { en: "Barrel-deer that gather food on their own", ar: "أيائل-براميل تجمع طعامها بنفسها" },
       },
       {
-        url: `${WORKS_ASSETS}/baba-yaga-witch-house/gallery-08.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/baba-yaga-witch-house/gallery-08.72d83eef.jpg",
         hint: { en: "Winged cage studies", ar: "دراسات الأقفاص المجنّحة" },
       },
     ],
@@ -603,38 +604,38 @@ export const designWorks: DesignWork[] = [
     tools: ["Photoshop", "Blender"],
     year: "2024",
     datePublished: "2026-07-23",
-    heroImage: `${WORKS_ASSETS}/west-african-shrine/cover.jpg`,
+    heroImage: "https://assets.buriedgames.com/site/images/design-works/west-african-shrine/cover.85fff38a.jpg",
     heroImageHint: {
       en: "The shrine concept — final view",
       ar: "تصور المزار — اللقطة النهائية",
     },
     gallery: [
       {
-        url: `${WORKS_ASSETS}/west-african-shrine/gallery-01.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/west-african-shrine/gallery-01.0a160889.jpg",
         hint: { en: "The 3D base built in Blender", ar: "الأساس ثلاثي الأبعاد في Blender" },
       },
       {
-        url: `${WORKS_ASSETS}/west-african-shrine/gallery-02.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/west-african-shrine/gallery-02.87df247b.jpg",
         hint: { en: "Shrine design", ar: "تصميم المزار" },
       },
       {
-        url: `${WORKS_ASSETS}/west-african-shrine/gallery-03.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/west-african-shrine/gallery-03.77811de5.jpg",
         hint: { en: "Shrine layout", ar: "مخطط المزار" },
       },
       {
-        url: `${WORKS_ASSETS}/west-african-shrine/gallery-04.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/west-african-shrine/gallery-04.a3f1fa5b.jpg",
         hint: { en: "Altar designs", ar: "تصاميم المذبح" },
       },
       {
-        url: `${WORKS_ASSETS}/west-african-shrine/gallery-05.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/west-african-shrine/gallery-05.bbbf6e63.jpg",
         hint: { en: "Altar props", ar: "عناصر المذبح" },
       },
       {
-        url: `${WORKS_ASSETS}/west-african-shrine/gallery-06.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/west-african-shrine/gallery-06.68db99fd.jpg",
         hint: { en: "Shrine props", ar: "عناصر المزار" },
       },
       {
-        url: `${WORKS_ASSETS}/west-african-shrine/gallery-07.jpg`,
+        url: "https://assets.buriedgames.com/site/images/design-works/west-african-shrine/gallery-07.579a32ef.jpg",
         hint: { en: "Color and mood options", ar: "خيارات الألوان والأجواء" },
       },
     ],

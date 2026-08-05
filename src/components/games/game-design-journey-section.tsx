@@ -86,7 +86,7 @@ export function GameDesignJourneySection({ assets, trailerUrl, theme, language }
                 controls
                 playsInline
                 preload="metadata"
-                poster="https://assets.buriedgames.com/images/games/gbtl/poster.png"
+                poster="https://assets.buriedgames.com/site/images/games/gbtl/poster.9b4e0eaa.png"
                 className="w-full aspect-video bg-black"
               >
                 <source src={trailerUrl} type="video/mp4" />

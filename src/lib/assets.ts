@@ -7,86 +7,86 @@ export function assetUrl(path: string): string {
 // Pre-defined asset paths
 export const assets = {
   // Logos
-  logo: `${ASSETS_BASE_URL}/images/buriedgames_logo.png`,
-  logoWebp: `${ASSETS_BASE_URL}/images/buriedgames_logo.webp`,
-  favicon: `${ASSETS_BASE_URL}/images/Fav-icon.png`,
+  logo: "https://assets.buriedgames.com/site/images/buriedgames_logo.6d162dd3.png",
+  logoWebp: "https://assets.buriedgames.com/site/images/buriedgames_logo.f070631b.webp",
+  favicon: "https://assets.buriedgames.com/site/images/Fav-icon.dfde4424.png",
 
   // Hero
-  heroCollage: `${ASSETS_BASE_URL}/images/hero-collage.jpg`,
+  heroCollage: "https://assets.buriedgames.com/site/images/hero-collage.7d56e447.jpg",
 
   // Game logos
-  nabshLogo: `${ASSETS_BASE_URL}/images/nabsh_logo.png`,
-  powerOfBombsLogo: `${ASSETS_BASE_URL}/images/powerofbombsIconTransparent.png`,
-  powerOfBombsIcon: `${ASSETS_BASE_URL}/images/powerofbombsIcon.jpg`,
-  koutq8Logo: `${ASSETS_BASE_URL}/images/Koutq8Logo.png`,
-  lunaFantasyLogo: `${ASSETS_BASE_URL}/images/luna-fantasy_logo.png`,
-  lunaFantasyHero: `${ASSETS_BASE_URL}/images/luna-fantasy-hero.png`,
+  nabshLogo: "https://assets.buriedgames.com/site/images/nabsh_logo.8d65b3b2.png",
+  powerOfBombsLogo: "https://assets.buriedgames.com/site/images/powerofbombsIconTransparent.5d243419.png",
+  powerOfBombsIcon: "https://assets.buriedgames.com/site/images/powerofbombsIcon.084a3de5.jpg",
+  koutq8Logo: "https://assets.buriedgames.com/site/images/Koutq8Logo.4ef33671.png",
+  lunaFantasyLogo: "https://assets.buriedgames.com/site/images/luna-fantasy_logo.e4fed1cf.png",
+  lunaFantasyHero: "https://assets.buriedgames.com/site/images/luna-fantasy-hero.edbed1e7.png",
 
   // Game screenshots
-  popBackground: `${ASSETS_BASE_URL}/images/POPBackground.jpg`,
-  popOverview: `${ASSETS_BASE_URL}/images/POPOverview.jpg`,
-  koutq8Image1: `${ASSETS_BASE_URL}/images/KoutQ8Image_1.png`,
-  koutq8Image2: `${ASSETS_BASE_URL}/images/KoutQ8Image_2.png`,
-  koutq8Image3: `${ASSETS_BASE_URL}/images/KoutQ8Image_3.png`,
+  popBackground: "https://assets.buriedgames.com/site/images/POPBackground.6a2819f7.jpg",
+  popOverview: "https://assets.buriedgames.com/site/images/POPOverview.8ac42f94.jpg",
+  koutq8Image1: "https://assets.buriedgames.com/site/images/KoutQ8Image_1.185ef16c.png",
+  koutq8Image2: "https://assets.buriedgames.com/site/images/KoutQ8Image_2.bb085378.png",
+  koutq8Image3: "https://assets.buriedgames.com/site/images/KoutQ8Image_3.c030b243.png",
 
   // Store badges
-  downloadAppStore: `${ASSETS_BASE_URL}/images/downloadAppStoreImage.png`,
+  downloadAppStore: "https://assets.buriedgames.com/site/images/downloadAppStoreImage.2fc0f9d8.png",
 
   // Engine logos
-  unity: `${ASSETS_BASE_URL}/images/UnityImage.png`,
-  unrealEngine: `${ASSETS_BASE_URL}/images/UnrealEngineImage.png`,
-  nextjs: `${ASSETS_BASE_URL}/images/nextjs.png`,
+  unity: "https://assets.buriedgames.com/site/images/UnityImage.e51bcd51.png",
+  unrealEngine: "https://assets.buriedgames.com/site/images/UnrealEngineImage.8ee028de.png",
+  nextjs: "https://assets.buriedgames.com/site/images/nextjs.0b0554cc.png",
 
   // About / Team
-  aboutSection: `${ASSETS_BASE_URL}/images/AboutUsSection.webp`,
+  aboutSection: "https://assets.buriedgames.com/site/images/AboutUsSection.72d46798.webp",
   // NB: the R2 object key stays `fahed_alahmad.jpeg` — it is a storage path, not
   // a display name, and renaming it without re-uploading would 404 the portrait.
-  fahedElahmad: `${ASSETS_BASE_URL}/images/fahed_alahmad.jpeg`,
-  bokhariHamid: `${ASSETS_BASE_URL}/images/bokhari_hamid.jpeg`,
+  fahedElahmad: "https://assets.buriedgames.com/site/images/fahed_alahmad.f3ebe0d3.jpeg",
+  bokhariHamid: "https://assets.buriedgames.com/site/images/bokhari_hamid.b5b4f6f4.jpeg",
 
   // Partners
-  gavan: `${ASSETS_BASE_URL}/images/gavan.png`,
+  gavan: "https://assets.buriedgames.com/site/images/gavan.408290ff.png",
 
   // How it Works
-  howitWorksConcept: `${ASSETS_BASE_URL}/images/howitWorks_Concept.webp`,
-  howitWorksDesigning: `${ASSETS_BASE_URL}/images/howitWorks_designing.webp`,
-  howitWorksPrototyping: `${ASSETS_BASE_URL}/images/howitWorks_prototyping.webp`,
-  howitWorksTesting: `${ASSETS_BASE_URL}/images/howitWorks_testing.webp`,
-  howitWorksLaunch: `${ASSETS_BASE_URL}/images/howitWorks_launch.webp`,
+  howitWorksConcept: "https://assets.buriedgames.com/site/images/howitWorks_Concept.46c4fc64.webp",
+  howitWorksDesigning: "https://assets.buriedgames.com/site/images/howitWorks_designing.bbb18546.webp",
+  howitWorksPrototyping: "https://assets.buriedgames.com/site/images/howitWorks_prototyping.26fe0fce.webp",
+  howitWorksTesting: "https://assets.buriedgames.com/site/images/howitWorks_testing.769e2aad.webp",
+  howitWorksLaunch: "https://assets.buriedgames.com/site/images/howitWorks_launch.de1eb681.webp",
 
   // Services
-  gdd: `${ASSETS_BASE_URL}/images/gdd.webp`,
-  artAssets: `${ASSETS_BASE_URL}/images/art-assets.webp`,
-  prototyping: `${ASSETS_BASE_URL}/images/prototypin.webp`,
-  qaTesting: `${ASSETS_BASE_URL}/images/qatesting.webp`,
-  publishing: `${ASSETS_BASE_URL}/images/publishing.webp`,
-  artist: `${ASSETS_BASE_URL}/images/artist.webp`,
+  gdd: "https://assets.buriedgames.com/site/images/gdd.74062e75.webp",
+  artAssets: "https://assets.buriedgames.com/site/images/art-assets.4745b529.webp",
+  prototyping: "https://assets.buriedgames.com/site/images/prototypin.f81023a2.webp",
+  qaTesting: "https://assets.buriedgames.com/site/images/qatesting.230ce2a0.webp",
+  publishing: "https://assets.buriedgames.com/site/images/publishing.11619b69.webp",
+  artist: "https://assets.buriedgames.com/site/images/artist.b8d68537.webp",
 
   // Thumbnails
-  thumbnail1: `${ASSETS_BASE_URL}/images/thumbnail_1.webp`,
-  thumbnail2: `${ASSETS_BASE_URL}/images/thumbnail_2.webp`,
-  thumbnail3: `${ASSETS_BASE_URL}/images/thumbnail_3.webp`,
-  thumbnail4: `${ASSETS_BASE_URL}/images/thumbnail_4.webp`,
-  thumbnail5: `${ASSETS_BASE_URL}/images/thumbnail_5.webp`,
-  thumbnail6: `${ASSETS_BASE_URL}/images/thumbnail_6.webp`,
+  thumbnail1: "https://assets.buriedgames.com/site/images/thumbnail_1.47fd2fab.webp",
+  thumbnail2: "https://assets.buriedgames.com/site/images/thumbnail_2.07fed2f1.webp",
+  thumbnail3: "https://assets.buriedgames.com/site/images/thumbnail_3.4747df70.webp",
+  thumbnail4: "https://assets.buriedgames.com/site/images/thumbnail_4.bac833c6.webp",
+  thumbnail5: "https://assets.buriedgames.com/site/images/thumbnail_5.9ec7aaf5.webp",
+  thumbnail6: "https://assets.buriedgames.com/site/images/thumbnail_6.791ca0ab.webp",
 
   // Arrab
-  arrabLogo: `${ASSETS_BASE_URL}/images/games/arrab/logo.png`,
-  arrabHatLogo: `${ASSETS_BASE_URL}/images/games/arrab/hat-logo.png`,
-  arrabHeroBg: `${ASSETS_BASE_URL}/images/games/arrab/hero-bg.png`,
-  arrabHeroRight: `${ASSETS_BASE_URL}/images/games/arrab/hero-right.png`,
-  arrabRoleGodfather: `${ASSETS_BASE_URL}/images/games/arrab/roles/godfather.png`,
-  arrabRoleMafiaMember: `${ASSETS_BASE_URL}/images/games/arrab/roles/mafia-member.png`,
-  arrabRoleBarman: `${ASSETS_BASE_URL}/images/games/arrab/roles/barman.png`,
-  arrabRoleDoctor: `${ASSETS_BASE_URL}/images/games/arrab/roles/doctor.png`,
-  arrabRoleDetective: `${ASSETS_BASE_URL}/images/games/arrab/roles/detective.png`,
-  arrabRoleBodyguard: `${ASSETS_BASE_URL}/images/games/arrab/roles/bodyguard.png`,
-  arrabRoleSniper: `${ASSETS_BASE_URL}/images/games/arrab/roles/sniper.png`,
-  arrabRoleVillager: `${ASSETS_BASE_URL}/images/games/arrab/roles/villager.png`,
-  arrabRoleJester: `${ASSETS_BASE_URL}/images/games/arrab/roles/jester.png`,
-  arrabRoleSerialKiller: `${ASSETS_BASE_URL}/images/games/arrab/roles/serial-killer.png`,
-  arrabRoleKamikaze: `${ASSETS_BASE_URL}/images/games/arrab/roles/kamikaze.png`,
+  arrabLogo: "https://assets.buriedgames.com/site/images/games/arrab/logo.53788a85.png",
+  arrabHatLogo: "https://assets.buriedgames.com/site/images/games/arrab/hat-logo.d1d2b7d7.png",
+  arrabHeroBg: "https://assets.buriedgames.com/site/images/games/arrab/hero-bg.d55d0eea.png",
+  arrabHeroRight: "https://assets.buriedgames.com/site/images/games/arrab/hero-right.c3f040bc.png",
+  arrabRoleGodfather: "https://assets.buriedgames.com/site/images/games/arrab/roles/godfather.871a696a.png",
+  arrabRoleMafiaMember: "https://assets.buriedgames.com/site/images/games/arrab/roles/mafia-member.f0dada97.png",
+  arrabRoleBarman: "https://assets.buriedgames.com/site/images/games/arrab/roles/barman.c4c6cbd4.png",
+  arrabRoleDoctor: "https://assets.buriedgames.com/site/images/games/arrab/roles/doctor.cd9218c7.png",
+  arrabRoleDetective: "https://assets.buriedgames.com/site/images/games/arrab/roles/detective.8f09336d.png",
+  arrabRoleBodyguard: "https://assets.buriedgames.com/site/images/games/arrab/roles/bodyguard.eab74ea8.png",
+  arrabRoleSniper: "https://assets.buriedgames.com/site/images/games/arrab/roles/sniper.b59a3939.png",
+  arrabRoleVillager: "https://assets.buriedgames.com/site/images/games/arrab/roles/villager.26d8ce08.png",
+  arrabRoleJester: "https://assets.buriedgames.com/site/images/games/arrab/roles/jester.04cd7459.png",
+  arrabRoleSerialKiller: "https://assets.buriedgames.com/site/images/games/arrab/roles/serial-killer.4a3b1f6a.png",
+  arrabRoleKamikaze: "https://assets.buriedgames.com/site/images/games/arrab/roles/kamikaze.c75cbf10.png",
 
   // Background
-  bgNoText: `${ASSETS_BASE_URL}/images/buriedgames_bg_no_text.webp`,
+  bgNoText: "https://assets.buriedgames.com/site/images/buriedgames_bg_no_text.c47771db.webp",
 } as const;

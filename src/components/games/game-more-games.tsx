@@ -31,8 +31,8 @@ const gameImageMap: Record<string, string> = {
   "power-of-bombs": assets.powerOfBombsLogo,
   koutq8: assets.koutq8Logo,
   nabsh: assets.nabshLogo,
-  "luna-fantasy": "https://assets.buriedgames.com/images/games/luna-fantasy/hero.png",
-  "gathered-by-the-light": "https://assets.buriedgames.com/images/games/gbtl/poster.png",
+  "luna-fantasy": "https://assets.buriedgames.com/site/images/games/luna-fantasy/hero.28a211bb.png",
+  "gathered-by-the-light": "https://assets.buriedgames.com/site/images/games/gbtl/poster.9b4e0eaa.png",
   arrab: assets.arrabHeroRight,
 };
 
@@ -153,7 +153,7 @@ export function GameMoreGames({ currentSlug, theme, language }: GameMoreGamesPro
                   <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-secondary/40 via-card to-background">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,hsl(var(--primary)/0.1),transparent_65%)]" />
                     <GameImage
-                      src={gameImageMap[g.slug] ?? "https://assets.buriedgames.com/images/hero-collage.jpg"}
+                      src={gameImageMap[g.slug] ?? "https://assets.buriedgames.com/site/images/hero-collage.7d56e447.jpg"}
                       alt={g.title}
                       fill
                       className="object-contain p-5 transition-transform duration-500 group-hover:scale-105"

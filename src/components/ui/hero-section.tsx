@@ -74,7 +74,7 @@ export const HeroSection = () => {
                     {/* Placeholder for a Hero Video or High-Quality Image Collage */}
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 mix-blend-overlay z-10" />
                     <Image
-                        src="https://assets.buriedgames.com/images/hero-collage.jpg" // You might need to create this or use a placeholder
+                        src="https://assets.buriedgames.com/site/images/hero-collage.7d56e447.jpg" // You might need to create this or use a placeholder
                         alt="Games Collage"
                         fill
                         className="object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"

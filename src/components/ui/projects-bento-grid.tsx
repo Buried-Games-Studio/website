@@ -61,7 +61,7 @@ const ProjectCard = ({
   const isRTL = language === "ar";
   const [imgError, setImgError] = useState(false);
 
-  const fallbackImage = "https://assets.buriedgames.com/images/hero-collage.jpg";
+  const fallbackImage = "https://assets.buriedgames.com/site/images/hero-collage.7d56e447.jpg";
   const imageSrc = imgError ? fallbackImage : (project.image || fallbackImage);
 
   return (

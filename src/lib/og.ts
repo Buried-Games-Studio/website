@@ -9,7 +9,7 @@ import { assetUrl } from './assets';
  * per-page image (games, devlogs, design works) keep their own `images`.
  */
 export const ogCard = {
-  url: assetUrl('images/og/og-card.png'),
+  url: "https://assets.buriedgames.com/site/images/og/og-card.36497583.png",
   width: 1200,
   height: 630,
   alt: 'Buried Games Studio — game development for Kuwait & the GCC',
