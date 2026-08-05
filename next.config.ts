@@ -43,6 +43,13 @@ const nextConfig: NextConfig = {
     // Inline the ~22KB of CSS into the HTML: the two stylesheet requests were
     // the last render-blocking round-trips in the critical path.
     inlineCss: true,
+    serverActions: {
+      // The careers path of the contact form carries a CV. The default is 1MB,
+      // which silently rejects an ordinary PDF résumé before the action runs;
+      // the action itself caps the file at 5MB, so this is the envelope around
+      // that plus the rest of the multipart body.
+      bodySizeLimit: '6mb',
+    },
   },
   images: {
     // Cloudflare Image Transformations instead of the built-in optimizer: the
