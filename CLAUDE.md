@@ -294,6 +294,20 @@ forms; public profile copy stays GCC service-area** — but apply it here too:
 - Contact emails: Brevo templates 3 (EN confirm), 4 (AR confirm), 5 (studio
   notification); BREVO_API_KEY in `.env`. Template images must use absolute
   assets.buriedgames.com URLs (the old /api/images route is deleted).
+- **Careers submissions are a different pipeline (05.08.2026).** Inquiry type
+  `careers` reveals a CV upload + Portfolio/LinkedIn fields, sends the
+  notification to **careers@buriedgames.com** (NOT `BREVO_RECEIVER_EMAIL`), and
+  confirms with **template 14 / BG_APPLICATION_RECEIVED from careers@** instead
+  of 3/4. careers@ is wired to a Cloudflare Email Worker that stores the CV in
+  the private R2 bucket and creates an applicant record in HQ, so the CV MUST
+  ride as a Brevo attachment and the links MUST stay as `Portfolio:` /
+  `LinkedIn:` lines in the message — the backend parses both. Template 5's
+  rendered labels (Sender Name · Contact Email · Decrypted Message) are a
+  contract with `apps/studio-service/src/app/email-parsing.ts` in the gateway
+  repo; redesigning that template breaks applicant attribution silently, so
+  change both together. File type/size are enforced in the action, and
+  `serverActions.bodySizeLimit` must stay ≥6mb or an ordinary PDF résumé is
+  rejected before the action runs.
 - IndexNow key file: `public/6dccf9bd3ad7421c2298bcb2b3736472.txt` (validated,
   returns 200 on submission). Bing site is verified via DNS CNAME.
 
